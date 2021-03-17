@@ -5,7 +5,7 @@ import { angularValueAccessorBindings } from './src/utils/utils';
 import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-    namespace: 'synth-core',
+    namespace: 'synth-components',
     plugins: [
         sass({
             injectGlobalPaths: ['src/global/global.scss'],
@@ -14,12 +14,12 @@ export const config: Config = {
     globalStyle: 'src/global/global.scss',
     outputTargets: [
         angularOutputTarget({
-            componentCorePackage: 'synth-core',
+            componentCorePackage: 'synth-components',
             directivesProxyFile: '../synth-angular/src/directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
         reactOutputTarget({
-            componentCorePackage: 'synth-core',
+            componentCorePackage: 'synth-components',
             proxiesFile: '../synth-react/src/components.ts',
         }),
         {

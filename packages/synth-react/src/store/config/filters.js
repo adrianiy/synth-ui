@@ -1,35 +1,35 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+    value: true
 });
 exports.defaultConfig = void 0;
 
-var _moment = _interopRequireDefault(require("moment"));
+var _moment = _interopRequireDefault(require('moment'));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var defaultConfig = {
-  maxCalDate: (0, _moment["default"])().add(1, "day").format("YYYY-MM-DD"),
-  minCalDate: (0, _moment["default"])().subtract((0, _moment["default"])().month() === 0 ?
-  /* istanbul ignore next */
-  2 : 1, "year").startOf("year").add(1, "month").format("YYYY-MM-DD"),
-  startDate: (0, _moment["default"])().format("YYYY-MM-DD"),
-  endDate: (0, _moment["default"])().format("YYYY-MM-DD"),
-  inputMin: (0, _moment["default"])().format("YYYY-MM-DD"),
-  inputMax: (0, _moment["default"])().format("YYYY-MM-DD"),
-  startCompDate: (0, _moment["default"])().subtract(364, "day").format("YYYY-MM-DD"),
-  endCompDate: (0, _moment["default"])().subtract(364, "day").format("YYYY-MM-DD"),
-  inputMinComp: (0, _moment["default"])().subtract(364, "day").format("YYYY-MM-DD"),
-  inputMaxComp: (0, _moment["default"])().subtract(364, "day").format("YYYY-MM-DD"),
-  format: "YYYY-MM-DD",
-  dateRanges: {
-    "Tiempo real": [(0, _moment["default"])(), (0, _moment["default"])()]
-  },
-  selectedRange: "Tiempo real",
-  compType: "commercial",
-  activeInput: "start-date",
-  commonSearchs: []
+    maxCalDate: (0, _moment['default'])().add(1, 'day').format('YYYY-MM-DD'),
+    minCalDate: (0, _moment['default'])().subtract((0, _moment['default'])().month() === 0 ?
+    /* istanbul ignore next */
+        2 : 1, 'year').startOf('year').add(1, 'month').format('YYYY-MM-DD'),
+    startDate: (0, _moment['default'])().format('YYYY-MM-DD'),
+    endDate: (0, _moment['default'])().format('YYYY-MM-DD'),
+    inputMin: (0, _moment['default'])().format('YYYY-MM-DD'),
+    inputMax: (0, _moment['default'])().format('YYYY-MM-DD'),
+    startCompDate: (0, _moment['default'])().subtract(364, 'day').format('YYYY-MM-DD'),
+    endCompDate: (0, _moment['default'])().subtract(364, 'day').format('YYYY-MM-DD'),
+    inputMinComp: (0, _moment['default'])().subtract(364, 'day').format('YYYY-MM-DD'),
+    inputMaxComp: (0, _moment['default'])().subtract(364, 'day').format('YYYY-MM-DD'),
+    format: 'YYYY-MM-DD',
+    dateRanges: {
+        'Tiempo real': [ (0, _moment['default'])(), (0, _moment['default'])() ]
+    },
+    selectedRange: 'Tiempo real',
+    compType: 'commercial',
+    activeInput: 'start-date',
+    commonSearchs: []
 };
 exports.defaultConfig = defaultConfig;
 //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2ZpYmVyc2pzLXN0b3JlL3NyYy9jb25maWcvZmlsdGVycy50cyJdLCJuYW1lcyI6WyJkZWZhdWx0Q29uZmlnIiwibWF4Q2FsRGF0ZSIsImFkZCIsImZvcm1hdCIsIm1pbkNhbERhdGUiLCJzdWJ0cmFjdCIsIm1vbnRoIiwic3RhcnRPZiIsInN0YXJ0RGF0ZSIsImVuZERhdGUiLCJpbnB1dE1pbiIsImlucHV0TWF4Iiwic3RhcnRDb21wRGF0ZSIsImVuZENvbXBEYXRlIiwiaW5wdXRNaW5Db21wIiwiaW5wdXRNYXhDb21wIiwiZGF0ZVJhbmdlcyIsInNlbGVjdGVkUmFuZ2UiLCJjb21wVHlwZSIsImFjdGl2ZUlucHV0IiwiY29tbW9uU2VhcmNocyJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOzs7O0FBRU8sSUFBTUEsYUFBYSxHQUFHO0FBQ3pCQyxFQUFBQSxVQUFVLEVBQUUsMEJBQ1BDLEdBRE8sQ0FDSCxDQURHLEVBQ0EsS0FEQSxFQUVQQyxNQUZPLENBRUEsWUFGQSxDQURhO0FBSXpCQyxFQUFBQSxVQUFVLEVBQUUsMEJBQ1BDLFFBRE8sQ0FDRSwwQkFBU0MsS0FBVCxPQUFxQixDQUFyQjtBQUF5QjtBQUEyQixHQUFwRCxHQUF3RCxDQUQxRCxFQUM2RCxNQUQ3RCxFQUVQQyxPQUZPLENBRUMsTUFGRCxFQUdQTCxHQUhPLENBR0gsQ0FIRyxFQUdBLE9BSEEsRUFJUEMsTUFKTyxDQUlBLFlBSkEsQ0FKYTtBQVN6QkssRUFBQUEsU0FBUyxFQUFFLDBCQUFTTCxNQUFULENBQWdCLFlBQWhCLENBVGM7QUFVekJNLEVBQUFBLE9BQU8sRUFBRSwwQkFBU04sTUFBVCxDQUFnQixZQUFoQixDQVZnQjtBQVd6Qk8sRUFBQUEsUUFBUSxFQUFFLDBCQUFTUCxNQUFULENBQWdCLFlBQWhCLENBWGU7QUFZekJRLEVBQUFBLFFBQVEsRUFBRSwwQkFBU1IsTUFBVCxDQUFnQixZQUFoQixDQVplO0FBYXpCUyxFQUFBQSxhQUFhLEVBQUUsMEJBQ1ZQLFFBRFUsQ0FDRCxHQURDLEVBQ0ksS0FESixFQUVWRixNQUZVLENBRUgsWUFGRyxDQWJVO0FBZ0J6QlUsRUFBQUEsV0FBVyxFQUFFLDBCQUNSUixRQURRLENBQ0MsR0FERCxFQUNNLEtBRE4sRUFFUkYsTUFGUSxDQUVELFlBRkMsQ0FoQlk7QUFtQnpCVyxFQUFBQSxZQUFZLEVBQUUsMEJBQ1RULFFBRFMsQ0FDQSxHQURBLEVBQ0ssS0FETCxFQUVURixNQUZTLENBRUYsWUFGRSxDQW5CVztBQXNCekJZLEVBQUFBLFlBQVksRUFBRSwwQkFDVFYsUUFEUyxDQUNBLEdBREEsRUFDSyxLQURMLEVBRVRGLE1BRlMsQ0FFRixZQUZFLENBdEJXO0FBeUJ6QkEsRUFBQUEsTUFBTSxFQUFFLFlBekJpQjtBQTBCekJhLEVBQUFBLFVBQVUsRUFBRTtBQUFFLG1CQUFlLENBQUMseUJBQUQsRUFBVyx5QkFBWDtBQUFqQixHQTFCYTtBQTJCekJDLEVBQUFBLGFBQWEsRUFBRSxhQTNCVTtBQTRCekJDLEVBQUFBLFFBQVEsRUFBRSxZQTVCZTtBQTZCekJDLEVBQUFBLFdBQVcsRUFBRSxZQTdCWTtBQThCekJDLEVBQUFBLGFBQWEsRUFBRTtBQTlCVSxDQUF0QiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb21lbnQgZnJvbSBcIm1vbWVudFwiO1xyXG5cclxuZXhwb3J0IGNvbnN0IGRlZmF1bHRDb25maWcgPSB7XHJcbiAgICBtYXhDYWxEYXRlOiBtb21lbnQoKVxyXG4gICAgICAgIC5hZGQoMSwgXCJkYXlcIilcclxuICAgICAgICAuZm9ybWF0KFwiWVlZWS1NTS1ERFwiKSxcclxuICAgIG1pbkNhbERhdGU6IG1vbWVudCgpXHJcbiAgICAgICAgLnN1YnRyYWN0KG1vbWVudCgpLm1vbnRoKCkgPT09IDAgPyAvKiBpc3RhbmJ1bCBpZ25vcmUgbmV4dCAqLyAyIDogMSwgXCJ5ZWFyXCIpXHJcbiAgICAgICAgLnN0YXJ0T2YoXCJ5ZWFyXCIpXHJcbiAgICAgICAgLmFkZCgxLCBcIm1vbnRoXCIpXHJcbiAgICAgICAgLmZvcm1hdChcIllZWVktTU0tRERcIiksXHJcbiAgICBzdGFydERhdGU6IG1vbWVudCgpLmZvcm1hdChcIllZWVktTU0tRERcIiksXHJcbiAgICBlbmREYXRlOiBtb21lbnQoKS5mb3JtYXQoXCJZWVlZLU1NLUREXCIpLFxyXG4gICAgaW5wdXRNaW46IG1vbWVudCgpLmZvcm1hdChcIllZWVktTU0tRERcIiksXHJcbiAgICBpbnB1dE1heDogbW9tZW50KCkuZm9ybWF0KFwiWVlZWS1NTS1ERFwiKSxcclxuICAgIHN0YXJ0Q29tcERhdGU6IG1vbWVudCgpXHJcbiAgICAgICAgLnN1YnRyYWN0KDM2NCwgXCJkYXlcIilcclxuICAgICAgICAuZm9ybWF0KFwiWVlZWS1NTS1ERFwiKSxcclxuICAgIGVuZENvbXBEYXRlOiBtb21lbnQoKVxyXG4gICAgICAgIC5zdWJ0cmFjdCgzNjQsIFwiZGF5XCIpXHJcbiAgICAgICAgLmZvcm1hdChcIllZWVktTU0tRERcIiksXHJcbiAgICBpbnB1dE1pbkNvbXA6IG1vbWVudCgpXHJcbiAgICAgICAgLnN1YnRyYWN0KDM2NCwgXCJkYXlcIilcclxuICAgICAgICAuZm9ybWF0KFwiWVlZWS1NTS1ERFwiKSxcclxuICAgIGlucHV0TWF4Q29tcDogbW9tZW50KClcclxuICAgICAgICAuc3VidHJhY3QoMzY0LCBcImRheVwiKVxyXG4gICAgICAgIC5mb3JtYXQoXCJZWVlZLU1NLUREXCIpLFxyXG4gICAgZm9ybWF0OiBcIllZWVktTU0tRERcIixcclxuICAgIGRhdGVSYW5nZXM6IHsgXCJUaWVtcG8gcmVhbFwiOiBbbW9tZW50KCksIG1vbWVudCgpXSB9LFxyXG4gICAgc2VsZWN0ZWRSYW5nZTogXCJUaWVtcG8gcmVhbFwiLFxyXG4gICAgY29tcFR5cGU6IFwiY29tbWVyY2lhbFwiLFxyXG4gICAgYWN0aXZlSW5wdXQ6IFwic3RhcnQtZGF0ZVwiLFxyXG4gICAgY29tbW9uU2VhcmNoczogW11cclxufTtcclxuIl19

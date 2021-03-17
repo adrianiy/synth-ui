@@ -1,18 +1,18 @@
-import { NgModule } from "@angular/core";
-import { NgReduxRouter, NgReduxRouterModule } from "@angular-redux/router";
-import { DevToolsExtension, NgRedux, NgReduxModule } from "@angular-redux/store";
-import { provideReduxForms } from "@angular-redux/form";
-import { createLogger } from "redux-logger";
+import { NgModule } from '@angular/core';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store';
+import { provideReduxForms } from '@angular-redux/form';
+import { createLogger } from 'redux-logger';
 
-import { Store } from "./models/store";
-import rootReducer from "./reducers";
+import { Store } from './models/store';
+import rootReducer from './reducers';
 
 @NgModule({
-    imports: [NgReduxModule, NgReduxRouterModule.forRoot()]
+    imports: [ NgReduxModule, NgReduxRouterModule.forRoot() ]
 })
 export class StoreModule {
     constructor(public store: NgRedux<any>, devTools: DevToolsExtension, ngReduxRouter: NgReduxRouter) {
-        store.configureStore(rootReducer, {}, [createLogger()], devTools.isEnabled() ? [devTools.enhancer()] : []);
+        store.configureStore(rootReducer, {}, [ createLogger() ], devTools.isEnabled() ? [ devTools.enhancer() ] : []);
 
         if (ngReduxRouter) {
             ngReduxRouter.initialize();
@@ -22,4 +22,4 @@ export class StoreModule {
     }
 }
 
-export * from "./models";
+export * from './models';

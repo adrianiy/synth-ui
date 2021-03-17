@@ -15,7 +15,7 @@
         "@angular/common": "11.0.5",
         "@angular/core": "11.0.5",
         "@types/redux-logger": "^3.0.8",
-        "synth-core": "*",
+        "synth-components": "*",
         "moment": "^2.29.1",
         "numeral": "^2.0.6",
         "redux": "^4.0.1",

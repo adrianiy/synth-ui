@@ -1,9 +1,9 @@
-import { NgModule } from "@angular/core";
-import { defineCustomElements } from "synth-core/loader";
+import { NgModule } from '@angular/core';
+import { defineCustomElements } from 'synth-components/loader';
 
-import { SynthList, SynthListRow, SynthNoData } from "./directives/proxies";
+import { SynthList, SynthListRow, SynthNoData } from './directives/proxies';
 
-import { StoreModule } from "./store/store.module";
+import { StoreModule } from './store/store.module';
 
 defineCustomElements(window);
 
@@ -17,7 +17,7 @@ const DECLARATIONS = [
 @NgModule({
     declarations: DECLARATIONS,
     exports: DECLARATIONS,
-    imports: [StoreModule],
+    imports: [ StoreModule ],
     providers: []
 })
 export class SynthComponentsModule {}

@@ -1,34 +1,27 @@
 {
-  "name": "synth-core",
-  "version": "0.0.1",
-  "description": "Core web components for synth-ui",
-  "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/fibersjs/fibersjs.esm.js",
-  "files": [
-    "dist/"
-  ],
-  "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
-  },
-  "dependencies": {
-    "@stencil/core": "^2.0.1",
-    "numeral": "^2.0.6"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "@stencil/angular-output-target": "0.0.5",
-    "@stencil/react-output-target": "0.0.9",
-    "@stencil/sass": "^1.4.1",
-    "@types/numeral": "^2.0.1"
-  }
+    "name": "synth-foundation",
+    "version": "0.0.0",
+    "scripts": {
+        "build": "babel src --out-dir ../synth-angular/src/store --copy-files --ignore \".ts,.tsx\"",
+        "build:react": "babel src --out-dir ../synth-react/src/store --extensions \".ts,.tsx\" --source-maps inline",
+        "tsc": "tsc --init --declaration --allowSyntheticDefaultImports --target esnext --outDir lib"
+    },
+    "files": [
+        "src/"
+    ],
+    "peerDependencies": {
+        "moment": "^2.29.1"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1",
+        "moment": "^2.29.1",
+        "redux": "^4.0.5"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.13.10",
+        "@babel/core": "^7.13.10",
+        "@babel/plugin-transform-typescript": "^7.13.0",
+        "@babel/preset-typescript": "^7.13.0",
+        "@babel/preset-env": "^7.13.10"
+    }
 }
