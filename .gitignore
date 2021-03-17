@@ -1,0 +1,14 @@
+# Build
+dist
+target
+# Local config
+.npmrc
+# Logs
+*.log
+*.heapsnapshot
+# Dependencies
+node_modules
+# Tests
+coverage
+test-report.json
+

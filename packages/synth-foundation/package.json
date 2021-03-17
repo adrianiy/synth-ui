@@ -1,0 +1,27 @@
+{
+    "name": "synth-foundation",
+    "version": "0.0.0",
+    "scripts": {
+        "build": "babel src --out-dir ../synth-angular/src/store --copy-files --ignore \".ts,.tsx\"",
+        "build:react": "babel src --out-dir ../synth-react/src/store --extensions \".ts,.tsx\" --source-maps inline",
+        "tsc": "tsc --init --declaration --allowSyntheticDefaultImports --target esnext --outDir lib"
+    },
+    "files": [
+        "src/"
+    ],
+    "peerDependencies": {
+        "moment": "^2.29.1"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1",
+        "moment": "^2.29.1",
+        "redux": "^4.0.5"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.13.10",
+        "@babel/core": "^7.13.10",
+        "@babel/plugin-transform-typescript": "^7.13.0",
+        "@babel/preset-typescript": "^7.13.0",
+        "@babel/preset-env": "^7.13.10"
+    }
+}

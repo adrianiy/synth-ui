@@ -1,0 +1,11 @@
+.no-data {
+    font-size: var(--zd-font--s);
+    line-height: var(--zd-font--m);
+
+    em {
+        font-size: var(--zd-font--l);
+        color: var(--zd-color--danger);
+        margin-right: var(--zd-padding--xxs);
+        padding-right: 0px;
+    }
+}

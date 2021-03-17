@@ -1,0 +1,12 @@
+{
+    "name": "synth-ui",
+    "private": true,
+    "scripts": {
+        "start": "lerna run start --parallel",
+        "build": "lerna run build --stream",
+        "link": "lerna link"
+    },
+    "devDependencies": {
+        "lerna": "^3.22.1"
+    }
+}

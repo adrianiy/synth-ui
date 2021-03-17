@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "packages/synth-core",
+    "packages/synth-foundation",
+    "packages/synth-angular",
+    "packages/ng-demo"
+  ],
+  "version": "0.0.0"
+}
