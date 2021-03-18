@@ -1,4 +1,4 @@
-import { filterActions } from "../reducers/filters";
+import { filterActions } from '../reducers/filters';
 
 const initialize = (filterEntities: any, screen: any, baseConfig: any, initialFilters: any) => ({
     type: filterActions.initialize,

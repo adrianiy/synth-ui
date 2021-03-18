@@ -28,7 +28,7 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/synth-angular/node_modules/synth-core/dist/i18n",
+                "input": "./node_modules/synth-angular/node_modules/synth-components/dist/i18n",
                 "output": "./i18n"
               }
             ],

@@ -28,37 +28,38 @@ export async function getLocaleComponentStrings(requiredI18n: string[], element:
         );
         return results.reduce((acc, curr) => ({ ...acc, ...curr }), {});
     } catch (e) {
+        // eslint-disable-next-line no-console
         console.warn('error loading i18n files');
     }
 }
 
 export const angularValueAccessorBindings: ValueAccessorConfig[] = [
     {
-        elementSelectors: ['my-input[type=text]'],
+        elementSelectors: [ 'my-input[type=text]' ],
         event: 'myChange',
         targetAttr: 'value',
         type: 'text',
     },
     {
-        elementSelectors: ['my-input[type=number]'],
+        elementSelectors: [ 'my-input[type=number]' ],
         event: 'myChange',
         targetAttr: 'value',
         type: 'number',
     },
     {
-        elementSelectors: ['my-checkbox'],
+        elementSelectors: [ 'my-checkbox' ],
         event: 'myChange',
         targetAttr: 'checked',
         type: 'boolean',
     },
     {
-        elementSelectors: ['my-radio'],
+        elementSelectors: [ 'my-radio' ],
         event: 'mySelect',
         targetAttr: 'checked',
         type: 'radio',
     },
     {
-        elementSelectors: ['my-range', 'my-radio-group'],
+        elementSelectors: [ 'my-range', 'my-radio-group' ],
         event: 'myChange',
         targetAttr: 'value',
         type: 'select',

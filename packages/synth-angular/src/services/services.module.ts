@@ -1,6 +1,6 @@
-import { NgModule, ModuleWithProviders } from "@angular/core";
-import { SynthFilterService } from "./filters/filters.service";
-import { Implementations } from "./implementations.interface";
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { SynthFilterService } from './filters/filters.service';
+import { Implementations } from './implementations.interface';
 
 @NgModule({})
 export class SynthServicesModule {
@@ -16,7 +16,7 @@ export class SynthServicesModule {
                     useClass: impl.filterService || SynthFilterService
                 },
                 {
-                    provide: "env", // you can also use InjectionToken
+                    provide: 'env', // you can also use InjectionToken
                     useValue: environment
                 }
             ]
@@ -24,4 +24,4 @@ export class SynthServicesModule {
     }
 }
 
-export { SynthFilterService } from "./filters/filters.service";
+export { SynthFilterService } from './filters/filters.service';

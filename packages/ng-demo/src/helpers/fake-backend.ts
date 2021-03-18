@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import {
     HttpRequest,
     HttpResponse,
@@ -6,11 +6,11 @@ import {
     HttpEvent,
     HttpInterceptor,
     HTTP_INTERCEPTORS
-} from "@angular/common/http";
-import { Observable, of, throwError } from "rxjs";
-import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
-import { FiltersConfig } from "./filters";
-import { ListData } from "./list";
+} from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { FiltersConfig } from './filters';
+import { ListData } from './list';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -25,9 +25,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function handleRoute() {
             switch (true) {
-                case url.endsWith("/filters") && method === "GET":
+                case url.endsWith('/filters') && method === 'GET':
                     return getFilters();
-                case url.endsWith("/country") && method === "GET":
+                case url.endsWith('/country') && method === 'GET':
                     return getListData();
                 default:
                     return next.handle(request);

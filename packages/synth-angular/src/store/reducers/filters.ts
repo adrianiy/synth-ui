@@ -1,23 +1,23 @@
-import { defaultConfig } from "../config/filters";
-import { FiltersConfig, FiltersState } from "../models/filters";
+import { defaultConfig } from '../config/filters';
+import { FiltersConfig, FiltersState } from '../models/filters';
 
 export const filterActions = {
-    initialize: "INITIALIZE",
-    setFilters: "SETFILTERS",
-    setDateConfig: "SETDATECONFIG",
-    setDateRanges: "SETDATERANGES",
-    saveFilters: "SAVEFILTERS"
+    initialize: 'INITIALIZE',
+    setFilters: 'SETFILTERS',
+    setDateConfig: 'SETDATECONFIG',
+    setDateRanges: 'SETDATERANGES',
+    saveFilters: 'SAVEFILTERS'
 };
 
 const initialState: FiltersState = {
     baseFilterEntities: undefined,
-    filterVersion: "0.0.0",
+    filterVersion: '0.0.0',
     filtersConfig: undefined,
     baseFilters: undefined,
     screen: undefined,
     savedFilters: {},
     initialFilters: {},
-    defaultFilters: [{ key: "cod_brand", op: "in", value: [1, 16] }],
+    defaultFilters: [ { key: 'cod_brand', op: 'in', value: [ 1, 16 ] } ],
     restrictedFilters: [],
     restrictedParents: {},
     dateRanges: undefined,

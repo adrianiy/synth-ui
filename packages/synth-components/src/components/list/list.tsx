@@ -62,7 +62,7 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        this._i18n = await getLocaleComponentStrings(['common', 'countries'], this.element);
+        this._i18n = await getLocaleComponentStrings([ 'common', 'countries' ], this.element);
         this._isMobile = window.innerWidth < 1050;
 
         if (this._isMobile) {
@@ -114,7 +114,7 @@ export class ListComponent {
             const sortFieldConfig = this.fieldsConfig[this.sortField];
             const sortField = `${sortFieldConfig.preffix || ''}${sortFieldConfig.field()}${sortFieldConfig.suffix ||
                 ''}`;
-            sortedList = [sortedList[0]].concat(sortList(sortedList.slice(1), sortField, this.sort));
+            sortedList = [ sortedList[0] ].concat(sortList(sortedList.slice(1), sortField, this.sort));
         }
         return sortedList;
     }
@@ -259,7 +259,7 @@ export class ListComponent {
 
     private _renderPagination = () => {
         return (
-            <RowLayout distribution={[distributions.MIDDLE, distributions.SPACED]} className="pagination__container">
+            <RowLayout distribution={[ distributions.MIDDLE, distributions.SPACED ]} className="pagination__container">
                 <RowLayout className="pagination">{!this.showAll && this._renderPages()}</RowLayout>
                 <RowLayout className="actions">
                     <span class="view-all" onClick={() => this._toggleShowAll()}>
@@ -274,11 +274,13 @@ export class ListComponent {
     private _renderNoData = () => <synth-no-data />;
 
     render() {
+        const showData = !this.loading && this._parsedList.length;
+
         return (
             <ColumnLayout className="country__container">
                 <h2>{this._i18n[this.headerTitle] || this.headerTitle}</h2>
-                {!this.loading && this._parsedList.length ? this._renderTable() : this._renderNoData()}
-                {!this.loading && this._parsedList.length && this._renderPagination()}
+                {showData ? this._renderTable() : this._renderNoData()}
+                {showData && this._renderPagination()}
             </ColumnLayout>
         );
     }

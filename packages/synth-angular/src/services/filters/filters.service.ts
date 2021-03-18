@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { dispatch } from "@angular-redux/store";
-import { FiltersConfig } from "../../store/models";
-import actions from "./../../store/actions";
+import { Injectable } from '@angular/core';
+import { dispatch } from '@angular-redux/store';
+import { FiltersConfig } from '../../store/models';
+import actions from './../../store/actions';
 
 @Injectable()
 export class SynthFilterService {
@@ -11,7 +11,7 @@ export class SynthFilterService {
 
     initializeFilters(
         filterEntities: any = {},
-        screen: string = "",
+        screen: string = '',
         baseConfig: FiltersConfig = {},
         initialFilters: any = {}
     ) {

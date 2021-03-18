@@ -1,15 +1,15 @@
-import { Component, OnInit } from "@angular/core";
-import { SynthFilterService } from "../../../synth-angular/src";
-import { FiltersConfig } from "../config/filters.config";
-import { DataService } from "./services/data.service";
+import { Component, OnInit } from '@angular/core';
+import { SynthFilterService } from '../../../synth-angular/src';
+import { FiltersConfig } from '../config/filters.config';
+import { DataService } from './services/data.service';
 
 @Component({
-    selector: "app-root",
-    templateUrl: "./app.component.html",
-    styleUrls: ["./app.component.scss"]
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent implements OnInit {
-    title = "ng-demo";
+    title = 'ng-demo';
 
     constructor(private _filtersService: SynthFilterService, private _dataService: DataService) {}
 
@@ -18,6 +18,6 @@ export class AppComponent implements OnInit {
     }
 
     async initializeFilter() {
-        this._filtersService.initializeFilters(await this._dataService.getFiltersConfig(), "test", FiltersConfig);
+        this._filtersService.initializeFilters(await this._dataService.getFiltersConfig(), 'test', FiltersConfig);
     }
 }

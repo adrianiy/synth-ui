@@ -1,7 +1,7 @@
 {
   "packages": [
+    "packages/synth-components",
     "packages/synth-core",
-    "packages/synth-foundation",
     "packages/synth-angular",
     "packages/ng-demo"
   ],
