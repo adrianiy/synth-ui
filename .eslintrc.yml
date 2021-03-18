@@ -6,6 +6,8 @@ plugins:
   - 'eslint-plugin-prettier'
 parser:
   '@typescript-eslint/parser'
+ignorePatterns: 
+  - '**/synth-react/**/dev.ts'
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
@@ -20,7 +22,7 @@ rules:
     - error
     - always
   no-console:
-    - warn
+    - error
   indent:
     - error
     - 4
