@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Row } from '../../../../synth-angular/node_modules/synth-core/dist/types/components/list/list.model';
+import { Row } from '../../../../synth-angular/node_modules/synth-components/dist/types/components/list/list.model';
 import { FiltersConfig } from './../../../../synth-angular/src';
 
 @Injectable({
