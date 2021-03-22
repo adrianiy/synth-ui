@@ -58,6 +58,6 @@
             "@semantic-release/git",
             "@semantic-release/github"
         ],
-        "branch": "main"
+        "branches": ["main"]
     }
 }
