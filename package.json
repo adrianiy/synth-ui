@@ -12,6 +12,12 @@
     "devDependencies": {
         "@commitlint/cli": "^8.3.5",
         "@commitlint/config-conventional": "^8.3.4",
+        "@semantic-release/changelog": "^5.0.1",
+        "@semantic-release/commit-analyzer": "^8.0.1",
+        "@semantic-release/git": "^9.0.0",
+        "@semantic-release/github": "^7.0.5",
+        "@semantic-release/npm": "^7.0.5",
+        "@semantic-release/release-notes-generator": "^9.0.1",
         "@typescript-eslint/eslint-plugin": "^4.18.0",
         "@typescript-eslint/eslint-plugin-tslint": "^4.16.1",
         "@typescript-eslint/parser": "^4.18.0",
@@ -20,7 +26,8 @@
         "eslint-plugin-react": "^7.22.0",
         "husky": "^4.3.8",
         "lerna": "^3.22.1",
-        "lint-staged": "^10.5.4"
+        "lint-staged": "^10.5.4",
+        "semantic-release": "^17.0.6"
     },
     "dependencies": {
         "typescript": "^4.2.3"
@@ -36,5 +43,21 @@
         "*.{js, ts, tsx}": [
             "eslint --fix"
         ]
+    },
+    "release": {
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            [
+                "@semantic-release/npm",
+                {
+                    "npmPublish": false
+                }
+            ],
+            "@semantic-release/changelog",
+            "@semantic-release/git",
+            "@semantic-release/github"
+        ],
+        "branch": "main"
     }
 }
