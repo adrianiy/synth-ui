@@ -3,6 +3,7 @@ export interface BaseRow {
     _expanded?: boolean;
     _originalIndex?: number;
     name?: string;
+    [key: string]: any;
 }
 export interface Row extends BaseRow {
     children?: BaseRow[];

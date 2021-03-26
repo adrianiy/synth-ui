@@ -1,3 +1,5 @@
+import { Moment } from 'moment';
+
 export interface CalendarConfig {
     /** minimun selectable date in calendar */
     minCalDate: any;
@@ -38,6 +40,12 @@ export interface CalendarConfig {
     /** current active input */
     activeInput: string;
 }
+export interface CommonSearch {
+    description: string;
+    type: string;
+    parent: string;
+    code: any;
+}
 export interface QueryFilter {
     key: string;
     op: string;
@@ -46,9 +54,10 @@ export interface QueryFilter {
 export interface FilterOption {
     code: any;
     description: string;
+    startDate?: string;
+    endDate?: string;
     display: boolean;
     active?: boolean;
-    descriptionSearch?: string;
     hideFilter?: boolean;
     operationIn?: boolean;
     parents?: string[];
@@ -68,41 +77,47 @@ export interface SelectedFilter {
     option: FilterOptionHeader;
 }
 export interface FilterConfig {
-    usableIn: string[];
-    description: string;
-    plural: string;
-    key: string;
-    visible: boolean;
-    multiSelect?: boolean;
-    searchText?: string;
-    related?: string[];
-    selected: SelectedFilter[];
-    options: FilterOptionHeader[];
     version?: string;
+    usableIn?: string[];
+    description?: string;
+    searchPlaceholder?: string;
+    plural?: string;
+    key?: string;
+    visible?: boolean;
+    multiSelect?: boolean;
+    related?: string[];
+    relatedByBrand?: boolean;
+    relatedByProduct?: boolean;
+    selected?: SelectedFilter[];
+    options?: FilterOptionHeader[];
+}
+export interface Search extends FilterConfig {
+    lastSearchs: any[];
+    activePos: number;
+    suggestions: any[];
+    commonSearchs: CommonSearch[][];
 }
 export interface FiltersConfig {
-    search?: any;
-    budgetDate?: FilterConfig[];
-    date?: FilterConfig[];
-    product?: FilterConfig[];
-    location?: FilterConfig[];
-    marketplaces?: FilterConfig[];
-    visibility?: FilterConfig[];
+    search?: Search;
+    [key: string]: FilterConfig | Search;
+}
+export interface InitialFilter {
+    type: string;
+    default: boolean;
+    description: string;
+    optionGetter: (options: FilterOptionHeader[]) => any;
 }
 export interface FiltersState {
-    baseFilterEntities?: FiltersConfig;
     filterVersion?: string;
     filtersConfig?: FiltersConfig;
-    baseFilters?: FiltersConfig;
-    screen?: string;
     savedFilters?: FiltersConfig;
-    initialFilters?: any;
-    defaultFilters?: QueryFilter[];
+    baseFilters?: FiltersConfig;
+    dateConfig?: CalendarConfig;
+    screen?: string;
+    initialFilters?: InitialFilter[];
     restrictedFilters?: any[];
     restrictedParents?: any;
-    dateRanges?: any[];
-    dateConfig?: CalendarConfig;
+    dateRanges?: { [key: string]: Moment[] };
     cacheId?: string;
     cacheVersion?: string;
-    notUsedSharedFilters?: any[];
 }

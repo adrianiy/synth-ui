@@ -106,44 +106,6 @@ const _applyMultiSelectFilter = (filter: FilterConfig, option: FilterOptionHeade
     };
 };
 
-export const checkSearchTextInOptions = (option: FilterOptionHeader, filter: FilterConfig) => {
-    let { hideFilter, header, descriptionSearch } = option;
-
-    const searchText = _parseName(filter.searchText);
-    const searchActive = searchText.length;
-    const description = _parseName(option.description.toLowerCase());
-    const code = codeToArray(option.code);
-    const includedInDescription = description.includes(searchText);
-    const includedInCodes = code.reduce((acc, curr) => acc || `${curr}`.startsWith(searchText), false);
-
-    hideFilter = !header && !includedInDescription && !includedInCodes;
-
-    if (!hideFilter && searchActive) {
-        descriptionSearch = _capitalize(description.split(searchText).join(`<b>${searchText}</b>`));
-    } else {
-        descriptionSearch = null;
-    }
-
-    return {
-        ...option,
-        hideFilter,
-        descriptionSearch
-    };
-};
-/**
- * parseo de tildes
- */
-const _parseName = (name: string) => {
-    let newName = `${name}`;
-
-    newName = newName.replace(/á/gi, 'a');
-    newName = newName.replace(/é/gi, 'e');
-    newName = newName.replace(/í/gi, 'i');
-    newName = newName.replace(/ó/gi, 'o');
-    newName = newName.replace(/ú/gi, 'u');
-
-    return newName.toLowerCase();
-};
 const _capitalize = (text: string) => {
     if (text.startsWith('<b>')) {
         // keeps bold character and capitalize the remaining text

@@ -7,25 +7,21 @@ import { codeToArray } from '../../utils/utils';
 /**
  * Set visibility of filter related to current selection
  */
-export const checkRelations = (filter: FilterConfig, filtersConfig: FiltersConfig) => {
-    const { description } = filter;
-    const selected = filter.selected.map(({ option }) => option.code);
+export const checkRelations = (baseFilter: FilterConfig, filtersConfig: FiltersConfig) => {
+    const { description, related } = baseFilter;
+    const selected = baseFilter.selected.map(({ option }) => option.code);
 
     Object.keys(filtersConfig).forEach(key => {
-        const newFilter = filtersConfig[key].map((f: FilterConfig) => {
-            const match = f.related?.includes(description);
+        const filter = filtersConfig[key];
+        const match = related?.includes(description);
 
-            if (match) {
-                f.options = f.options.map(option => _setHideValue(option, selected, description, f));
-            }
-
-            return f;
-        });
-
-        filtersConfig = { ...filtersConfig, [key]: newFilter };
+        if (match) {
+            const options = filter.options.map(option => _setHideValue(option, selected, description));
+            filtersConfig = { ...filtersConfig, [key]: { ...filter, options } };
+        }
     });
 
-    return { filter, filtersConfig };
+    return filtersConfig;
 };
 
 export const filterRestrictedOptions = (filter: FilterConfig, restrictedParents: any) => {
@@ -37,50 +33,6 @@ export const filterRestrictedOptions = (filter: FilterConfig, restrictedParents:
     }
 
     return { ...filter, options };
-};
-
-/**
- * set hide value by product relationship
- */
-export const checkFamilyRelationsByProduct = (filter: FilterConfig, filtersConfig: FiltersConfig) => {
-    const { selected } = filter;
-    const { product } = filtersConfig;
-    const selectedProduct = selected.map(({ option }) => option.code);
-    let subfamilyFilter = product.find(({ key }) => key === 'cod_subfamily');
-
-    subfamilyFilter = {
-        ...subfamilyFilter,
-        options: subfamilyFilter.options.map(option => _setHideValue(option, selectedProduct, 'Producto', filter))
-    };
-
-    return filtersConfig;
-};
-
-/**
- * set hide value by brand relationship
- */
-export const checkRelationsByBrand = (filter: FilterConfig, filtersConfig: FiltersConfig) => {
-    const { selected } = filter;
-    const { product } = filtersConfig;
-    const selectedBrands = selected.map(({ option }) => option.brand);
-    const validFilterKeys = [ 'cod_product_line', 'cod_family', 'cod_subfamily' ];
-
-    const newProducts = product.map(productFilter => {
-        const match = validFilterKeys.includes(productFilter.key);
-
-        if (match) {
-            return {
-                ...productFilter,
-                options: productFilter.options.map(option => _setHideValue(option, selectedBrands, 'cod_brand', filter))
-            };
-        }
-        return productFilter;
-    });
-
-    return {
-        ...filtersConfig,
-        product: newProducts
-    };
 };
 
 export const setHideValue = (

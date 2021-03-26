@@ -12,7 +12,7 @@ export class NoDataComponent {
     private _i18n: any;
 
     async componentWillLoad() {
-        this._i18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
+        this._i18n = await getLocaleComponentStrings([ 'common' ], this.element);
     }
 
     render() {

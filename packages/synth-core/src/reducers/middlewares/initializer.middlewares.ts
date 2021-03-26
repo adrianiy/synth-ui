@@ -1,7 +1,6 @@
-import { FilterConfig, FiltersState } from '../../models';
+import { FiltersState } from '../../models';
 import { parseHash, pipe } from '../../utils/utils';
 import { selectOption } from './../utils/filter.utils';
-import { resetDefaultDateValues, resetSearch, resetTagSearch } from './../utils/reset.utils';
 import { applySharedDates, applySharedFilters } from './../utils/shared.utils';
 import { selectFilterOptions, updateOptionsWithEntities, updateSavedFilters } from './../utils/initializer.utils';
 import { FilterOptionHeader } from '../../models/filters';
@@ -10,31 +9,16 @@ import { FilterOptionHeader } from '../../models/filters';
  * Recovers saved filters from localstorage
  */
 export const loadSavedFilters = (state: FiltersState): FiltersState => {
-    const { screen, cacheId, dateRanges, filtersConfig } = state;
+    const { screen, cacheId, filtersConfig } = state;
     let savedFilters = localStorage.getItem(`Drive.Filters.${screen}.${cacheId}`) as any;
 
     if (savedFilters) {
-        savedFilters = JSON.parse(savedFilters);
-        if (savedFilters.date) {
-            // reset dates if they belong to a default range
-            savedFilters['date'] = resetDefaultDateValues(savedFilters['date'], dateRanges);
-        }
-        if (savedFilters.search) {
-            // reset search values
-            savedFilters['search'] = resetSearch(savedFilters['search'], filtersConfig.search.commonSearchs);
-        }
-        if (savedFilters.product) {
-            // reset tag values
-            savedFilters['product'] = resetTagSearch(savedFilters['product']);
-        }
         // update saved filters with filtersConfig
-        savedFilters = updateSavedFilters(savedFilters, filtersConfig);
-    } else {
-        savedFilters = filtersConfig;
+        savedFilters = updateSavedFilters(JSON.parse(savedFilters), filtersConfig);
     }
     return {
         ...state,
-        filtersConfig: savedFilters,
+        filtersConfig: savedFilters || filtersConfig,
         savedFilters
     };
 };
@@ -67,23 +51,17 @@ export const saveOriginalDescriptions = (state: FiltersState) => {
 
     if (filtersConfig) {
         Object.keys(filtersConfig).forEach(key => {
-            const filter = filtersConfig[key]?.map((filter: FilterConfig) => {
-                const options = filter.options?.map((option: FilterOptionHeader) => {
-                    const { children, description } = option;
-                    return {
-                        ...option,
-                        _originalDescription: description,
-                        children: children?.map(child => ({ ...child, _originalDescription: child.description }))
-                    };
-                });
-
+            let filter = filtersConfig[key];
+            const options = filter.options?.map((option: FilterOptionHeader) => {
+                const { children, description } = option;
                 return {
-                    ...filter,
-                    options
+                    ...option,
+                    _originalDescription: description,
+                    children: children?.map(child => ({ ...child, _originalDescription: child.description }))
                 };
             });
 
-            filtersConfig = { ...filtersConfig, [key]: filter };
+            filtersConfig = { ...filtersConfig, [key]: { ...filter, options } };
         });
     }
 
@@ -98,23 +76,16 @@ export const selectRestrictedFilters = (state: FiltersState) => {
     let { restrictedFilters, filtersConfig } = state;
 
     restrictedFilters.forEach((key: string) => {
-        Object.keys(filtersConfig).forEach((filterKey: string) => {
-            const parentFilter = filtersConfig[filterKey].map((filter: FilterConfig) => {
-                const matches = filter.key === key;
+        let filter = filtersConfig[key];
+        let { selected, options } = filter;
 
-                if (matches) {
-                    if (filter.selected.length > filter.options.length || !filter.selected.length) {
-                        filter.selected = [];
+        if (filter) {
+            if (selected.length > options.length || !selected.length) {
+                filter = { ...filter, selected: [] };
 
-                        return selectFilterOptions(filter);
-                    }
-                } else {
-                    return filter;
-                }
-            });
-
-            filtersConfig = { ...filtersConfig, [key]: parentFilter };
-        });
+                filtersConfig = { ...filtersConfig, [key]: selectFilterOptions(filter) };
+            }
+        }
     });
 
     return {
@@ -127,18 +98,14 @@ export const selectRestrictedFilters = (state: FiltersState) => {
 export const updateFiltersWithEntities = (filterEntities: any) => (state: FiltersState): FiltersState => {
     let { filtersConfig } = state;
 
-    Object.entries(filtersConfig).forEach(([ key, parentFilter ]: [string, FilterConfig[]]) => {
-        const newFilter = parentFilter?.map?.((filter: FilterConfig) => {
-            let { options, key } = filter;
-            const entityMatch = filterEntities[key];
+    Object.keys(filtersConfig).forEach(key => {
+        let { options, ...rest } = filtersConfig[key];
+        const entity = filterEntities[key];
 
-            if (entityMatch) {
-                options = updateOptionsWithEntities(filter.options, entityMatch);
-            }
-
-            return { ...filter, options };
-        });
-        filtersConfig = { ...filtersConfig, [key]: newFilter };
+        if (entity) {
+            options = updateOptionsWithEntities(options, entity);
+            filtersConfig = { ...filtersConfig, [key]: { ...rest, options } };
+        }
     });
 
     return {
@@ -150,13 +117,12 @@ export const updateFiltersWithEntities = (filterEntities: any) => (state: Filter
 export const filterUsableInScreenFilters = (state: FiltersState) => {
     let { filtersConfig, screen } = state;
 
-    Object.keys(filtersConfig).forEach(filterKey => {
-        filtersConfig = {
-            ...filtersConfig,
-            [filterKey]: filtersConfig[filterKey].filter((filter: { usableIn: string[] }) =>
-                filter.usableIn.includes(screen)
-            )
-        };
+    Object.keys(filtersConfig).forEach(key => {
+        if (!filtersConfig[key].usableIn.includes(screen)) {
+            const { [key]: remove, ...rest } = filtersConfig;
+
+            filtersConfig = rest;
+        }
     });
 
     return {
@@ -169,27 +135,25 @@ export const filterUsableInScreenFilters = (state: FiltersState) => {
  * Set default screen filters
  */
 export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState): FiltersState => {
-    const { initialFilters, filtersConfig, screen } = state;
+    const { initialFilters, filtersConfig } = state;
 
-    if (!Object.keys(initialFilters).length) {
+    if (!initialFilters.length) {
         return state;
     }
 
-    Object.keys(initialFilters[screen]).forEach(k => {
-        filtersConfig[k]?.forEach((filter: FilterConfig) => {
-            const haveSelected = filter.selected.length;
-            if (!haveSelected) {
-                const initialFilter = initialFilters[screen][k].find(
-                    (initFilter: any) => initFilter.type === filter.key
-                );
-                const initialOption = initialFilter?.optionGetter(filter.options);
-                const willApply = initialFilter.default || applyNotDefault;
+    initialFilters.forEach(initial => {
+        const filter = filtersConfig[initial.type];
+        const { selected, options } = filter;
+        const haveSelected = selected.length;
 
-                if (initialOption && willApply) {
-                    selectOption(initialOption, initialFilter.default, filter, false);
-                }
+        if (!haveSelected) {
+            const initialOption = initial.optionGetter(options);
+            const willApply = initial.default || applyNotDefault;
+
+            if (initialOption && willApply) {
+                selectOption(initialOption, initial.default, filter, false);
             }
-        });
+        }
     });
 
     return {
