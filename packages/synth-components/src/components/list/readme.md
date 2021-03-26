@@ -17,7 +17,7 @@
 | `fieldsConfig`   | --                |             | `FieldsConfig[]`                                                                                                   | `undefined`                |
 | `filterFields`   | --                |             | `string[]`                                                                                                         | `undefined`                |
 | `headerTitle`    | `header-title`    |             | `string`                                                                                                           | `undefined`                |
-| `limit`          | `limit`           |             | `number`                                                                                                           | `LIMIT`                    |
+| `limit`          | `limit`           |             | `number`                                                                                                           | `undefined`                |
 | `loading`        | `loading`         |             | `boolean`                                                                                                          | `undefined`                |
 | `update`         | `update`          |             | `boolean`                                                                                                          | `false`                    |
 

@@ -4,7 +4,6 @@ import { FiltersState } from '../../models';
 import { QueryFilter } from '../../models';
 import { FilterConfig } from '../../models';
 import { FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
-import cloneDeep from 'lodash-es/cloneDeep';
 import moment from 'moment';
 
 export const applySharedDates = (sharedFilters: QueryFilter[], comparableFilter: QueryFilter[]) => (
@@ -25,17 +24,17 @@ export const applySharedDates = (sharedFilters: QueryFilter[], comparableFilter:
 };
 
 export const applySharedFilters = (sharedFilters: QueryFilter[]) => (state: FiltersState) => {
-    let { filtersConfig } = cloneDeep(state);
+    let { filtersConfig } = state;
 
     sharedFilters.forEach(sharedFilter => {
-        const [ filterKey, filterIndex ] = _getFilterFromConfig(sharedFilter.key, filtersConfig);
-        const filter = filtersConfig[filterKey][filterIndex];
+        const filterKey = Object.keys(filtersConfig).find(key => filtersConfig[key].key === sharedFilter.key);
+        const filter = filtersConfig[filterKey];
 
         if (filter) {
-            const result = _activateOptionsMatchingSharedFilters(filter, sharedFilter);
+            const newFilter = _activateOptionsMatchingSharedFilters(filter, sharedFilter);
 
-            if (result) {
-                filtersConfig[filterKey][filterIndex] = result;
+            if (newFilter) {
+                filtersConfig = { ...filtersConfig, [filterKey]: { ...filter, ...newFilter } };
             }
         }
     });
@@ -61,8 +60,8 @@ const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: Qu
 
     const dateRange = _getDateRange(dateRanges, start, end);
 
-    date = [ _applyDateFilter(dateRange, date[0], start, end, dateConfig) ];
-    date = [ _applySharedCompFilter(comparableFilter, date[0]) ];
+    date = _applyDateFilter(dateRange, date, start, end, dateConfig);
+    date = _applySharedCompFilter(comparableFilter, date);
 
     return {
         ...filtersConfig,
@@ -102,20 +101,6 @@ const _getDateRange = (dateRanges: any, start: string, end: string) =>
             dateRanges[dateRange][0].format('YYYY-MM-DD') === start &&
             dateRanges[dateRange][1].format('YYYY-MM-DD') === end
     );
-
-const _getFilterFromConfig = (filterKey: string, filtersConfig: FiltersConfig) => {
-    let [ returnKey, returnPosition ] = [ '', 0 ];
-    for (const [ key, parentFilter ] of Object.entries(filtersConfig) as [string, any]) {
-        const matchingFilterIndex = parentFilter?.findIndex((filter: FilterConfig) => filter.key === filterKey);
-        if (matchingFilterIndex >= 0) {
-            returnKey = key;
-            returnPosition = matchingFilterIndex;
-            break;
-        }
-    }
-
-    return [ returnKey, returnPosition ];
-};
 
 const _activateOptionsMatchingSharedFilters = (filter: FilterConfig, sharedFilter: QueryFilter) => {
     let { options } = filter;

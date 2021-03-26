@@ -27,7 +27,7 @@ export class ListComponent {
     /* expandable flag */
     @Prop() expandable: boolean;
     /* list rows limit */
-    @Prop({ mutable: true }) limit: number = LIMIT;
+    @Prop({ mutable: true }) limit: number;
     /* fields configuration */
     @Prop() fieldsConfig: FieldsConfig[];
     /* decoration type for growths */
@@ -65,8 +65,8 @@ export class ListComponent {
         this._i18n = await getLocaleComponentStrings([ 'common' ], this.element);
         this._isMobile = window.innerWidth < 1050;
 
-        if (this._isMobile) {
-            this.limit = RESPONSIVE_LIMIT;
+        if (!this.limit) {
+            this.limit = this._isMobile ? RESPONSIVE_LIMIT : LIMIT;
         }
     }
 
