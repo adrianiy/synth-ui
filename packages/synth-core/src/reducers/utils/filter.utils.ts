@@ -174,6 +174,7 @@ export const cleanFiltersCache = (filtersVersion: string) => {
 };
 
 export const selectOption = (option, defaultOpt, parentFilter?, triggerUpdate = true) => {
+    // eslint-disable-next-line no-console
     console.log(`select option ${option}`);
 };
 
