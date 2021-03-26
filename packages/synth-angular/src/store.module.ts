@@ -4,8 +4,7 @@ import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store'
 import { provideReduxForms } from '@angular-redux/form';
 import { createLogger } from 'redux-logger';
 
-import { Store } from './models/store';
-import rootReducer from './reducers';
+import { rootReducer } from 'synth-core';
 
 @NgModule({
     imports: [ NgReduxModule, NgReduxRouterModule.forRoot() ]
@@ -22,4 +21,4 @@ export class StoreModule {
     }
 }
 
-export * from './models';
+export * from 'synth-core/dist/models';

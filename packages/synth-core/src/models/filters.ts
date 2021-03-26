@@ -51,6 +51,9 @@ export interface FilterOption {
     descriptionSearch?: string;
     hideFilter?: boolean;
     operationIn?: boolean;
+    parents?: string[];
+    changeOperationValue?: boolean;
+    brand?: any;
     _originalDescription?: string;
 }
 export interface FilterOptionHeader extends FilterOption {
@@ -70,8 +73,12 @@ export interface FilterConfig {
     plural: string;
     key: string;
     visible: boolean;
+    multiSelect?: boolean;
+    searchText?: string;
+    related?: string[];
     selected: SelectedFilter[];
     options: FilterOptionHeader[];
+    version?: string;
 }
 export interface FiltersConfig {
     search?: any;

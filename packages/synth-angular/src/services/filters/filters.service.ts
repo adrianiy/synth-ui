@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { dispatch } from '@angular-redux/store';
-import { FiltersConfig } from '../../store/models';
-import actions from './../../store/actions';
+import { FiltersConfig } from 'synth-core/dist/models';
+import { actions } from 'synth-core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class SynthFilterService {
-    constructor() {}
-
+    @dispatch() setScreen = actions.filters.setScreen;
     @dispatch() initialize = actions.filters.initialize;
+
+    constructor(protected _translate: TranslateService) {}
 
     initializeFilters(
         filterEntities: any = {},
@@ -15,6 +17,6 @@ export class SynthFilterService {
         baseConfig: FiltersConfig = {},
         initialFilters: any = {}
     ) {
-        this.initialize(filterEntities, screen, baseConfig, initialFilters);
+        this.initialize(filterEntities, screen, baseConfig, initialFilters, desc => this._translate.instant(desc));
     }
 }
