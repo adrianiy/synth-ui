@@ -1,0 +1,61 @@
+{
+	"ACTIONS": {
+		"APPLY": "Apply",
+		"CANCEL": "Cancel",
+		"HIDE": "Hide",
+		"SAVE": "Save",
+		"VIEWLESS": "View less",
+		"VIEWMORE": "View all"
+	},
+	"CRO": "MAN",
+	"Calendario": "Calendar",
+	"Configurar filtros": "Config filters",
+	"Crec.": "Growth",
+	"DEVOS": "RETURNS",
+	"Descargar": "Download",
+	"Eventos": "Events",
+	"Filtros": "Filters",
+	"LANG": {
+		"EN": "English",
+		"ES": "Spanish"
+	},
+	"LOGIN": {
+		"ERROR": "Incorrect username or password"
+	},
+	"Model": "Model",
+	"NETO": "NET",
+	"NIN": "NIN",
+	"NoData": "No data",
+	"Países": "Countries",
+	"Pedidos": "Orders",
+	"Plain": "Plain",
+	"SRA": "WMN",
+	"SouthHide": "Hide Zara South filters",
+	"THEME": {
+		"dark": "Dark",
+		"light": "White",
+		"mixed": "Black & White"
+	},
+	"Tránsito": "Transit",
+	"Ubicado": "Located",
+	"Usuario": "User",
+	"Volver": "Return",
+	"amount": "Amount",
+	"borrar": {
+		"todo": "Delete all"
+	},
+	"chooseDecimals": "Show Decimals",
+	"chooseLang": "Choose a language",
+	"chooseTheme": "Pick a theme",
+	"copyClipboard": "Copy",
+	"filterConfigHidding": "Drag filters between columns to modify their visibility or change the order",
+	"orders": "Orders",
+	"productTabsTooltip": "* Sales data do not take into account integrated stock",
+	"pvp": {
+		"auxiliar": "Countries",
+		"filter": "PVP",
+		"title": "PVP countries"
+	},
+	"shareFilters": "Share filters",
+	"units": "units"
+}

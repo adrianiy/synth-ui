@@ -10,10 +10,12 @@
         "esModuleInterop": true,
         "noImplicitAny": false,
         "noImplicitReturns": true,
-        "declaration": false,
+        "isolatedModules": true,
+        "declaration": true,
         "resolveJsonModule": true,
-        "lib": ["es2020"],
+        "lib": ["es2020", "dom"],
         "types": ["node"],
+        "outDir": "./dist",
         "paths": {
             "src/*": ["./src/*"]
         }
