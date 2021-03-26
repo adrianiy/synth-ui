@@ -1,0 +1,61 @@
+{
+	"ACTIONS": {
+		"APPLY": "Aplicar",
+		"CANCEL": "Cancelar",
+		"HIDE": "Ocultar",
+		"SAVE": "Guardar",
+		"VIEWLESS": "Ver menos",
+		"VIEWMORE": "Ver todo"
+	},
+	"CRO": "CRO",
+	"Calendario": "Calendario",
+	"Configurar filtros": "Configurar filtros",
+	"Crec.": "Crec.",
+	"DEVOS": "DEVOS",
+	"Descargar": "Descargar",
+	"Eventos": "Eventos",
+	"Filtros": "Filtros",
+	"LANG": {
+		"EN": "Inglés",
+		"ES": "Español"
+	},
+	"LOGIN": {
+		"ERROR": "Usuario o contraseña incorrectos"
+	},
+	"Model": "Modelo",
+	"NETO": "NETO",
+	"NIN": "NIN",
+	"NoData": "Sin Datos",
+	"Países": "Países",
+	"Pedidos": "Pedidos",
+	"Plain": "Plano",
+	"SRA": "SRA",
+	"SouthHide": "Ocultar filtros de Zara Sur",
+	"THEME": {
+		"dark": "Oscuro",
+		"light": "Blanco",
+		"mixed": "Blanco & Negro"
+	},
+	"Tránsito": "Tránsito",
+	"Ubicado": "Ubicado",
+	"Usuario": "Usuario",
+	"Volver": "Volver",
+	"amount": "Importe",
+	"borrar": {
+		"todo": "Borrar todo"
+	},
+	"chooseDecimals": "Mostrar decimales",
+	"chooseLang": "Elige un idioma",
+	"chooseTheme": "Elige un tema",
+	"copyClipboard": "Copiar",
+	"filterConfigHidding": "Arrastra los filtros entre las columnas para modificar su visibilidad o cambiar el orden",
+	"orders": "pedidos",
+	"productTabsTooltip": "* Los datos de venta no tienen en cuenta stock integrado",
+	"pvp": {
+		"auxiliar": "Países",
+		"filter": "PVP",
+		"title": "Países PVP"
+	},
+	"shareFilters": "Compartir filtros",
+	"units": "unidades"
+}

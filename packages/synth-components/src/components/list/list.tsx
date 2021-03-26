@@ -62,7 +62,7 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        this._i18n = await getLocaleComponentStrings([ 'common', 'countries' ], this.element);
+        this._i18n = await getLocaleComponentStrings([ 'common' ], this.element);
         this._isMobile = window.innerWidth < 1050;
 
         if (this._isMobile) {
