@@ -1,5 +1,5 @@
 // DIRECTIVES
-export * from './directives/proxies';
+export * from './synth-directives/proxies';
 // SERVICES
 export * from './services/services.module';
 // STORE

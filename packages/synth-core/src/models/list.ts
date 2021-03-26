@@ -1,12 +1,7 @@
-import { DecorationType } from '../../utils/color.utils';
-
 export interface Cell {
     value: any;
-    decoration: DecorationType;
-    format?: string;
-    sign?: boolean;
-    negativeSign?: boolean;
-    showZero?: boolean;
+    format: string;
+    decoration: String;
 }
 
 export interface BaseRow {
@@ -18,4 +13,11 @@ export interface BaseRow {
 
 export interface Row extends BaseRow {
     children?: BaseRow[];
+}
+
+export interface FieldsConfig {
+    title: () => string;
+    field: () => string;
+    format: () => string;
+    decoration: () => string;
 }

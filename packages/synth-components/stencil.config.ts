@@ -8,14 +8,14 @@ export const config: Config = {
     namespace: 'synth-components',
     plugins: [
         sass({
-            injectGlobalPaths: ['src/global/global.scss'],
+            injectGlobalPaths: [ 'src/global/global.scss' ],
         }),
     ],
     globalStyle: 'src/global/global.scss',
     outputTargets: [
         angularOutputTarget({
             componentCorePackage: 'synth-components',
-            directivesProxyFile: '../synth-angular/src/directives/proxies.ts',
+            directivesProxyFile: '../synth-angular/src/synth-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
         reactOutputTarget({

@@ -1,7 +1,8 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { DecorationType, getGrowthColor } from '../../../../utils/color.utils';
+import { getGrowthColor } from '../../../../utils/color.utils';
 import { distributions, RowLayout } from '../../../../utils/layout';
-import { FieldsConfig, Row } from '../../list.model';
+import { numeralFormat } from '../../../../utils/utils';
+import { Cell, Row } from '../../list.model';
 
 @Component({
     tag: 'synth-list-row',
@@ -11,12 +12,8 @@ import { FieldsConfig, Row } from '../../list.model';
 export class RowComponent {
     /* row data */
     @Prop() row: Row;
-    /* field configuration that will compose row cells */
-    @Prop() fieldsConfig: FieldsConfig[];
     /* total flag */
     @Prop() isTotal: boolean;
-    /* decoration type */
-    @Prop() decorationType: DecorationType;
     /* expandable flag */
     @Prop() expandable: boolean;
     /* i18n object with translations */
@@ -28,12 +25,12 @@ export class RowComponent {
         return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
     }
 
-    private _renderCell(field: FieldsConfig, row: Row) {
-        const title = field.title();
-        const isGrowth = field.preffix.includes('growth_');
-        const color = isGrowth && getGrowthColor(row[title], this.decorationType);
+    private _renderCell(cell: Cell) {
+        const { value, decoration, ...formatArgs } = cell;
+        const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
+        const color = decoration && getGrowthColor(formattedValue, decoration);
 
-        return <td class={color}>{row[title]}</td>;
+        return <td class={color}>{formattedValue}</td>;
     }
 
     private _renderRow(row = this.row) {
@@ -45,7 +42,9 @@ export class RowComponent {
                         <span>{this.i18n[row.name] || row.name}</span>
                     </RowLayout>
                 </td>
-                {this.fieldsConfig.map(field => this._renderCell(field, row))}
+                {Object.keys(row)
+                    .filter(field => !field.startsWith('_') && field !== 'name')
+                    .map(field => this._renderCell(row[field]))}
             </tr>
         );
     }

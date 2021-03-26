@@ -7,19 +7,17 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type                                                                                                               | Default                    |
-| ---------------- | ----------------- | ----------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------- |
-| `data`           | --                |             | `Row[]`                                                                                                            | `undefined`                |
-| `decimals`       | `decimals`        |             | `boolean`                                                                                                          | `undefined`                |
-| `decorationType` | `decoration-type` |             | `DecorationType.InvertedGreen \| DecorationType.InvertedRed \| DecorationType.OnlyGreen \| DecorationType.OnlyRed` | `DecorationType.OnlyGreen` |
-| `enableDownload` | `enable-download` |             | `boolean`                                                                                                          | `false`                    |
-| `expandable`     | `expandable`      |             | `boolean`                                                                                                          | `undefined`                |
-| `fieldsConfig`   | --                |             | `FieldsConfig[]`                                                                                                   | `undefined`                |
-| `filterFields`   | --                |             | `string[]`                                                                                                         | `undefined`                |
-| `headerTitle`    | `header-title`    |             | `string`                                                                                                           | `undefined`                |
-| `limit`          | `limit`           |             | `number`                                                                                                           | `LIMIT`                    |
-| `loading`        | `loading`         |             | `boolean`                                                                                                          | `undefined`                |
-| `update`         | `update`          |             | `boolean`                                                                                                          | `false`                    |
+| Property           | Attribute            | Description | Type       | Default     |
+| ------------------ | -------------------- | ----------- | ---------- | ----------- |
+| `data`             | --                   |             | `Row[]`    | `undefined` |
+| `decimals`         | `decimals`           |             | `boolean`  | `undefined` |
+| `defaultSortField` | `default-sort-field` |             | `string`   | `undefined` |
+| `enableDownload`   | `enable-download`    |             | `boolean`  | `false`     |
+| `expandable`       | `expandable`         |             | `boolean`  | `undefined` |
+| `filterFields`     | --                   |             | `string[]` | `undefined` |
+| `limit`            | `limit`              |             | `number`   | `undefined` |
+| `loading`          | `loading`            |             | `boolean`  | `undefined` |
+| `update`           | `update`             |             | `boolean`  | `false`     |
 
 
 ## Dependencies
