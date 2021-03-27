@@ -1,5 +1,6 @@
 export const pipe = x => (...fns) => fns.reduce((v, f) => f(v), x);
 export const parseHash = hash => JSON.parse(atob(hash));
+export const capitalize = (text: string) => `${text[0].toUpperCase()}${text.slice(1).toLowerCase()}`;
 
 // taking into account that some filters have single codes and others have an array with multiple codes
 export const checkStrictIn = (codeToCompare: any, initialCode: any) =>

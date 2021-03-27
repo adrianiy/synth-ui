@@ -5,31 +5,29 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FieldsConfig, Row } from "./components/list/list.model";
-import { DecorationType } from "./utils/color.utils";
+import { Row } from "./components/list/list.model";
 export namespace Components {
     interface SynthList {
         "data": Row[];
         "decimals": boolean;
-        "decorationType": DecorationType;
+        "defaultSortField": string;
         "enableDownload": boolean;
         "expandable": boolean;
-        "fieldsConfig": FieldsConfig[];
         "filterFields": string[];
-        "headerTitle": string;
         "limit": number;
         "loading": boolean;
         "update": boolean;
     }
     interface SynthListRow {
-        "decorationType": DecorationType;
         "expandable": boolean;
-        "fieldsConfig": FieldsConfig[];
         "i18n": any;
         "isTotal": boolean;
         "row": Row;
     }
     interface SynthNoData {
+    }
+    interface SynthTitle {
+        "titleText": string;
     }
 }
 declare global {
@@ -51,40 +49,47 @@ declare global {
         prototype: HTMLSynthNoDataElement;
         new (): HTMLSynthNoDataElement;
     };
+    interface HTMLSynthTitleElement extends Components.SynthTitle, HTMLStencilElement {
+    }
+    var HTMLSynthTitleElement: {
+        prototype: HTMLSynthTitleElement;
+        new (): HTMLSynthTitleElement;
+    };
     interface HTMLElementTagNameMap {
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
         "synth-no-data": HTMLSynthNoDataElement;
+        "synth-title": HTMLSynthTitleElement;
     }
 }
 declare namespace LocalJSX {
     interface SynthList {
         "data"?: Row[];
         "decimals"?: boolean;
-        "decorationType"?: DecorationType;
+        "defaultSortField"?: string;
         "enableDownload"?: boolean;
         "expandable"?: boolean;
-        "fieldsConfig"?: FieldsConfig[];
         "filterFields"?: string[];
-        "headerTitle"?: string;
         "limit"?: number;
         "loading"?: boolean;
         "update"?: boolean;
     }
     interface SynthListRow {
-        "decorationType"?: DecorationType;
         "expandable"?: boolean;
-        "fieldsConfig"?: FieldsConfig[];
         "i18n"?: any;
         "isTotal"?: boolean;
         "row"?: Row;
     }
     interface SynthNoData {
     }
+    interface SynthTitle {
+        "titleText"?: string;
+    }
     interface IntrinsicElements {
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
         "synth-no-data": SynthNoData;
+        "synth-title": SynthTitle;
     }
 }
 export { LocalJSX as JSX };
@@ -94,6 +99,7 @@ declare module "@stencil/core" {
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;
+            "synth-title": LocalJSX.SynthTitle & JSXBase.HTMLAttributes<HTMLSynthTitleElement>;
         }
     }
 }
