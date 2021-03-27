@@ -8,14 +8,41 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Row } from "./components/list/list.model";
 export namespace Components {
     interface SynthList {
+        /**
+          * Component data. Fields preffixed with `_` will not render
+         */
         "data": Row[];
+        /**
+          * Show decimals flag
+         */
         "decimals": boolean;
+        /**
+          * Default sorting field, it could be a private or public field
+         */
         "defaultSortField": string;
+        /**
+          * Enable download xlsx file
+         */
         "enableDownload": boolean;
+        /**
+          * Expandable flag
+         */
         "expandable": boolean;
+        /**
+          * Rows that has no data on these fields will not render
+         */
         "filterFields": string[];
+        /**
+          * Rows limit. If not set will take `16` as default value or `10` in small screens
+         */
         "limit": number;
+        /**
+          * Loading state. If true will render skeleton loader
+         */
         "loading": boolean;
+        /**
+          * Force component update if flag is true
+         */
         "update": boolean;
     }
     interface SynthListRow {
@@ -25,6 +52,18 @@ export namespace Components {
         "row": Row;
     }
     interface SynthNoData {
+        /**
+          * ***optional*** Bottom text. only applies if render mode is advanced
+         */
+        "bottomText": string;
+        /**
+          * Render mode, [ 'simple' | 'complex' ]
+         */
+        "mode": string;
+        /**
+          * ***optional*** Top text. only applies if render mode is advanced
+         */
+        "text": string;
     }
     interface SynthTitle {
         "titleText": string;
@@ -64,14 +103,41 @@ declare global {
 }
 declare namespace LocalJSX {
     interface SynthList {
+        /**
+          * Component data. Fields preffixed with `_` will not render
+         */
         "data"?: Row[];
+        /**
+          * Show decimals flag
+         */
         "decimals"?: boolean;
+        /**
+          * Default sorting field, it could be a private or public field
+         */
         "defaultSortField"?: string;
+        /**
+          * Enable download xlsx file
+         */
         "enableDownload"?: boolean;
+        /**
+          * Expandable flag
+         */
         "expandable"?: boolean;
+        /**
+          * Rows that has no data on these fields will not render
+         */
         "filterFields"?: string[];
+        /**
+          * Rows limit. If not set will take `16` as default value or `10` in small screens
+         */
         "limit"?: number;
+        /**
+          * Loading state. If true will render skeleton loader
+         */
         "loading"?: boolean;
+        /**
+          * Force component update if flag is true
+         */
         "update"?: boolean;
     }
     interface SynthListRow {
@@ -81,6 +147,18 @@ declare namespace LocalJSX {
         "row"?: Row;
     }
     interface SynthNoData {
+        /**
+          * ***optional*** Bottom text. only applies if render mode is advanced
+         */
+        "bottomText"?: string;
+        /**
+          * Render mode, [ 'simple' | 'complex' ]
+         */
+        "mode"?: string;
+        /**
+          * ***optional*** Top text. only applies if render mode is advanced
+         */
+        "text"?: string;
     }
     interface SynthTitle {
         "titleText"?: string;

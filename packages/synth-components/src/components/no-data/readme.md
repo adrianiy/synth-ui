@@ -5,6 +5,15 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property     | Attribute     | Description                                                         | Type     | Default             |
+| ------------ | ------------- | ------------------------------------------------------------------- | -------- | ------------------- |
+| `bottomText` | `bottom-text` | ***optional*** Bottom text. only applies if render mode is advanced | `string` | `undefined`         |
+| `mode`       | `mode`        | Render mode, [ 'simple' \| 'complex' ]                              | `string` | `NoDataType.Simple` |
+| `text`       | `text`        | ***optional*** Top text. only applies if render mode is advanced    | `string` | `undefined`         |
+
+
 ## Dependencies
 
 ### Used by
