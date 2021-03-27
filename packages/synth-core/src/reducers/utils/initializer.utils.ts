@@ -2,7 +2,7 @@ import { FilterConfig, FilterOption, FilterOptionHeader } from '../../models/fil
 import { checkStrictIn } from '../../utils/utils';
 import { selectOptionAux } from './filter.utils';
 
-export const selectFilterOptions = (filter: any) => {
+export const selectFilterOptions = (filter: FilterConfig) => {
     const options = filter.options.map((option: FilterOptionHeader) => {
         const haveChildren = option.children;
         const results = haveChildren ? selectChildrenOptions(option, filter) : selectOptionAux(filter, option);
@@ -48,49 +48,18 @@ export const updateOptionsWithEntities = (options: FilterOptionHeader[], entitie
 };
 
 // update, add or remove saved filters
-export const updateSavedFilters = (savedFilters: any, baseFilters: { [x: string]: any }) => {
+export const updateSavedFilters = (
+    savedFilters: { [key: string]: FilterConfig },
+    baseFilters: { [x: string]: any }
+) => {
     Object.keys(savedFilters).forEach(key => {
-        let filterGroup = savedFilters[key];
-        const baseFilterGroup = baseFilters[key];
+        const baseFilter = baseFilters[key];
 
-        filterGroup = _deleteOrUpdate(filterGroup, baseFilterGroup);
-        filterGroup = _pushRecentlyAddedFilters(filterGroup, baseFilterGroup);
-
-        savedFilters = { ...savedFilters, [key]: filterGroup };
-    });
-
-    return savedFilters;
-};
-
-const _deleteOrUpdate = (filterGroup: FilterConfig[], baseFilterGroup: FilterConfig[]) => {
-    filterGroup?.forEach((filter: FilterConfig, i: number) => {
-        const baseFilterMatch = baseFilterGroup?.find((baseFilter: { key: any }) => baseFilter.key === filter.key);
-        if (!baseFilterMatch) {
-            // mark as removable if filter is no longer present in base config
-            filter['delete'] = true;
-        } else if (filter.version !== baseFilterMatch?.version) {
-            // update filter if version have changed
-            filterGroup[i] = baseFilterMatch;
+        if (!baseFilter) {
+            const { [key]: remove, ...rest } = savedFilters;
+            savedFilters = rest;
         }
     });
 
-    // remove saved filters that are no longer present in base config
-    filterGroup = filterGroup?.filter((filter: any) => !filter.delete);
-
-    return filterGroup;
-};
-
-const _pushRecentlyAddedFilters = (filterGroup: FilterConfig[], baseFilterGroup: FilterConfig[]) => {
-    // add filters that are recently added to base config
-    const savedKeys = filterGroup.map(filter => filter.key);
-    const baseKeys = baseFilterGroup.map(filter => filter.key);
-
-    const newKeys = baseKeys?.filter((key: any) => !savedKeys?.includes(key));
-
-    newKeys?.forEach((key: any) => {
-        const newFilter = baseFilterGroup.find((filter: { key: any }) => filter.key === key);
-        filterGroup = [ ...filterGroup, newFilter ];
-    });
-
-    return filterGroup;
+    return { ...savedFilters, ...baseFilters };
 };
