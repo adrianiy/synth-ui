@@ -1,6 +1,6 @@
 {
     "name": "synth-angular",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "files": [
         "dist/"
     ],
@@ -37,7 +37,7 @@
         "redux-logger": "^3.0.6",
         "redux-observable": "^1.2.0",
         "scss-bundle": "3.0.1",
-        "synth-components": "^0.1.0",
-        "synth-core": "^0.1.0"
+        "synth-components": "^0.1.1",
+        "synth-core": "^0.1.1"
     }
 }

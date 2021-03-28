@@ -1,6 +1,6 @@
 {
     "name": "synth-core",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "scripts": {
         "start": "nodemon --exec npm run build",
         "build": "npm run tsc && babel src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps inline",
