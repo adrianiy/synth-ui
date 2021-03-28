@@ -1,6 +1,6 @@
 import { defineCustomElements } from '../packages/synth-components/dist/esm/loader';
 
-import '!style-loader!css-loader!sass-loader!./global.scss';
+import '!style-loader!css-loader!sass-loader!../packages/synth-components/dist/synth-components/synth-components.css';
 
 defineCustomElements();
 

@@ -10,7 +10,7 @@
 | Property     | Attribute    | Description | Type      | Default     |
 | ------------ | ------------ | ----------- | --------- | ----------- |
 | `expandable` | `expandable` |             | `boolean` | `undefined` |
-| `i18n`       | `i-1-8n`     |             | `any`     | `undefined` |
+| `i18n`       | `i-1-8n`     |             | `any`     | `{}`        |
 | `isTotal`    | `is-total`   |             | `boolean` | `undefined` |
 | `row`        | --           |             | `Row`     | `undefined` |
 

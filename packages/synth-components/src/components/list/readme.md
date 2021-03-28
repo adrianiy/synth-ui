@@ -25,12 +25,14 @@
 ### Depends on
 
 - [synth-list-row](./components/row)
+- [synth-loader](../loader)
 - [synth-no-data](../no-data)
 
 ### Graph
 ```mermaid
 graph TD;
   synth-list --> synth-list-row
+  synth-list --> synth-loader
   synth-list --> synth-no-data
   style synth-list fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -17,7 +17,7 @@ export class RowComponent {
     /* expandable flag */
     @Prop() expandable: boolean;
     /* i18n object with translations */
-    @Prop() i18n: any;
+    @Prop() i18n: any = {};
 
     private _expandRow() {}
 
