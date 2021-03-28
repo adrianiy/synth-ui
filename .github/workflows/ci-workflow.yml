@@ -22,7 +22,6 @@ jobs:
         yarn
         yarn lint
         yarn build
-        yarn deploy:docs -- --ci
     - name: Publish to chromatic
       uses: chromaui/action@v1
       with:
