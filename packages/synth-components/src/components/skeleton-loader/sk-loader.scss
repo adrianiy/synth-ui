@@ -1,0 +1,19 @@
+.skeleton-loader {
+	display: flex;
+	height: 100%;
+	flex: 1;
+	background: var(--zd-color--third);
+	animation: loading 3s infinite;
+	margin-bottom: var(--zd-padding--s);
+}
+
+@keyframes loading {
+	25% {
+		opacity: 1
+	}
+	75% {
+		opacity: 0
+	}
+
+}
+
