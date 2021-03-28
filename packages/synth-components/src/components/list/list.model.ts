@@ -15,5 +15,5 @@ export interface BaseRow {
 }
 
 export interface Row extends BaseRow {
-    children?: BaseRow[];
+    _children?: BaseRow[];
 }

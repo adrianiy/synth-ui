@@ -1,6 +1,6 @@
 export interface FieldConfig {
     title: () => string;
-    value: () => number;
+    value: () => string;
     format: () => string;
     decoration?: () => string;
     sign?: () => boolean;

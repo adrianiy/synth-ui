@@ -2,27 +2,41 @@
     "name": "synth-angular",
     "version": "0.0.0",
     "files": [
-        "src/"
+        "dist/"
     ],
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "ng build --prod && npm run build:scss",
+        "build:scss": "scss-bundle"
+    },
     "peerDependencies": {
         "@angular/common": "11.0.5",
         "@angular/core": "11.0.5"
     },
     "dependencies": {
+        "@angular-devkit/build-angular": "^0.1100.5",
         "@angular-redux/form": "^10.0.0",
         "@angular-redux/router": "^10.0.0",
         "@angular-redux/store": "^9.0.0",
         "@angular/common": "11.0.5",
+        "@angular/compiler": "11.0.5",
+        "@angular/compiler-cli": "11.0.5",
         "@angular/core": "11.0.5",
+        "@angular/forms": "11.0.5",
+        "@angular/router": "11.0.5",
         "@ngx-translate/core": "^13.0.0",
         "@ngx-translate/http-loader": "^6.0.0",
         "@types/redux-logger": "^3.0.8",
+        "concurrently": "^6.0.0",
         "moment": "^2.29.1",
+        "ng-packagr": "11.0.3",
+        "nodemon": "^2.0.7",
         "numeral": "^2.0.6",
-        "redux": "^4.0.1",
+        "redux": "4.0.1",
         "redux-logger": "^3.0.6",
         "redux-observable": "^1.2.0",
-        "synth-core": "*",
-        "synth-components": "*"
+        "scss-bundle": "3.0.1",
+        "synth-components": "*",
+        "synth-core": "*"
     }
 }

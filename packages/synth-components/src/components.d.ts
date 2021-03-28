@@ -33,6 +33,10 @@ export namespace Components {
          */
         "filterFields": string[];
         /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
           * Rows limit. If not set will take `16` as default value or `10` in small screens
          */
         "limit": number;
@@ -53,17 +57,31 @@ export namespace Components {
     }
     interface SynthNoData {
         /**
-          * ***optional*** Bottom text. only applies if render mode is advanced
+          * Bottom text. only applies if render mode is advanced
          */
         "bottomText": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
         /**
           * Render mode, [ 'simple' | 'complex' ]
          */
         "mode": string;
         /**
-          * ***optional*** Top text. only applies if render mode is advanced
+          * Top text. only applies if render mode is advanced
          */
         "text": string;
+    }
+    interface SynthSkLoader {
+        /**
+          * Height of loader line
+         */
+        "height": number;
+        /**
+          * Number of loader lines that will be rendered
+         */
+        "repetitions": number;
     }
     interface SynthTitle {
         "titleText": string;
@@ -88,6 +106,12 @@ declare global {
         prototype: HTMLSynthNoDataElement;
         new (): HTMLSynthNoDataElement;
     };
+    interface HTMLSynthSkLoaderElement extends Components.SynthSkLoader, HTMLStencilElement {
+    }
+    var HTMLSynthSkLoaderElement: {
+        prototype: HTMLSynthSkLoaderElement;
+        new (): HTMLSynthSkLoaderElement;
+    };
     interface HTMLSynthTitleElement extends Components.SynthTitle, HTMLStencilElement {
     }
     var HTMLSynthTitleElement: {
@@ -98,6 +122,7 @@ declare global {
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
         "synth-no-data": HTMLSynthNoDataElement;
+        "synth-sk-loader": HTMLSynthSkLoaderElement;
         "synth-title": HTMLSynthTitleElement;
     }
 }
@@ -128,6 +153,10 @@ declare namespace LocalJSX {
          */
         "filterFields"?: string[];
         /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
           * Rows limit. If not set will take `16` as default value or `10` in small screens
          */
         "limit"?: number;
@@ -148,17 +177,31 @@ declare namespace LocalJSX {
     }
     interface SynthNoData {
         /**
-          * ***optional*** Bottom text. only applies if render mode is advanced
+          * Bottom text. only applies if render mode is advanced
          */
         "bottomText"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
         /**
           * Render mode, [ 'simple' | 'complex' ]
          */
         "mode"?: string;
         /**
-          * ***optional*** Top text. only applies if render mode is advanced
+          * Top text. only applies if render mode is advanced
          */
         "text"?: string;
+    }
+    interface SynthSkLoader {
+        /**
+          * Height of loader line
+         */
+        "height"?: number;
+        /**
+          * Number of loader lines that will be rendered
+         */
+        "repetitions"?: number;
     }
     interface SynthTitle {
         "titleText"?: string;
@@ -167,6 +210,7 @@ declare namespace LocalJSX {
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
         "synth-no-data": SynthNoData;
+        "synth-sk-loader": SynthSkLoader;
         "synth-title": SynthTitle;
     }
 }
@@ -177,6 +221,7 @@ declare module "@stencil/core" {
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;
+            "synth-sk-loader": LocalJSX.SynthSkLoader & JSXBase.HTMLAttributes<HTMLSynthSkLoaderElement>;
             "synth-title": LocalJSX.SynthTitle & JSXBase.HTMLAttributes<HTMLSynthTitleElement>;
         }
     }

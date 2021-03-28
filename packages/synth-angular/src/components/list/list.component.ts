@@ -36,7 +36,7 @@ export class ListComponent implements OnChanges {
 
         if (this.activeKpi !== 'orders') {
             newRow['_expanded'] = isExpanded;
-            newRow['children'] = this._parseListChildren(row['children']);
+            newRow['_children'] = this._parseListChildren(row['children']);
         }
 
         return newRow;
@@ -53,7 +53,10 @@ export class ListComponent implements OnChanges {
     }
 
     private _configFields(row: any) {
-        const newRow = {};
+        const newRow = {
+            _isTotal: row._isTotal,
+            name: row.name,
+        };
 
         this.fieldsConfig.forEach((field) => {
             const fieldTitle = field.title();

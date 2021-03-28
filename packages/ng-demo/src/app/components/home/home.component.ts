@@ -7,18 +7,21 @@ import { DataService } from '../../services/data.service';
     styleUrls: [ './home.component.scss' ],
 })
 export class HomeComponent implements OnInit {
+    public loading = true;
     public listData = [];
     public fieldsConfig = [
         {
             title: () => 'amount',
             value: () => 'amount',
             format: () => '0,0',
+            decoration: () => 'green',
             sign: () => false,
         },
         {
             title: () => 'crec.',
             value: () => 'growth_amount',
             format: () => '0,0.0 %',
+            decoration: () => 'green',
             sign: () => false,
         },
     ];
@@ -31,5 +34,6 @@ export class HomeComponent implements OnInit {
 
     private async _loadListData() {
         this.listData = await this._dataService.getListData();
+        this.loading = false;
     }
 }

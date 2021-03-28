@@ -1,8 +1,8 @@
 <synth-title [titleText]="title"></synth-title>
 <synth-list
     [loading]="loading"
-    [data]="data"
-    [filterFields]="[activeKpi]"
+    [data]="parsedData"
+    [filterFields]="activeKpi && [activeKpi]"
     [defaultSortField]="activeKpi"
     [decimals]="decimals"
     [expandable]="expandable"

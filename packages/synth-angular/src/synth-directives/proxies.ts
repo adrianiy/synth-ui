@@ -8,13 +8,13 @@ import { Components } from 'synth-components';
 
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'limit', 'loading', 'update']
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
 })
 @Component({
   selector: 'synth-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'limit', 'loading', 'update']
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
 })
 export class SynthList {
   protected el: HTMLElement;
@@ -46,15 +46,34 @@ export class SynthListRow {
 
 export declare interface SynthNoData extends Components.SynthNoData {}
 @ProxyCmp({
-  inputs: ['bottomText', 'mode', 'text']
+  inputs: ['bottomText', 'i18n', 'mode', 'text']
 })
 @Component({
   selector: 'synth-no-data',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['bottomText', 'mode', 'text']
+  inputs: ['bottomText', 'i18n', 'mode', 'text']
 })
 export class SynthNoData {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface SynthSkLoader extends Components.SynthSkLoader {}
+@ProxyCmp({
+  inputs: ['height', 'repetitions']
+})
+@Component({
+  selector: 'synth-sk-loader',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['height', 'repetitions']
+})
+export class SynthSkLoader {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
