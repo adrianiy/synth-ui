@@ -6,7 +6,7 @@
     ],
     "types": "dist/index.d.ts",
     "scripts": {
-        "build": "ng build --prod && npm run build:scss",
+        "build:prod": "ng build --prod && npm run build:scss",
         "build:scss": "scss-bundle"
     },
     "peerDependencies": {
