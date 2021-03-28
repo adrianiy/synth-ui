@@ -5,7 +5,7 @@
     "start": "concurrently \"npm run start:front\" \"npm run start:docs\"",
     "start:front": "lerna run start --parallel",
     "start:docs": "start-storybook --quiet -s ./packages/synth-components/dist -p 6006 --no-manager-cache",
-    "deploy:docs": "storybook-to-ghpages",
+    "deploy:docs": "storybook-to-ghpages --source-branch=main",
     "build": "lerna run build --stream && npm run build:docs",
     "build:docs": "build-storybook --quiet",
     "postinstall": "npm run bootstrap",
