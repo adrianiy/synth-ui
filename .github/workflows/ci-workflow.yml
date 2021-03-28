@@ -20,8 +20,8 @@ jobs:
     - name: yarn install, build, and test
       run: |
         yarn
-        yarn lint --if-present
-        yarn test:coverage --if-present
-        yarn build --if-present
+        yarn lint
+        yarn build
+        yarn deploy:docs -- --ci
       env:
         CI: true
