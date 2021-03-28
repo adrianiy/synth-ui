@@ -49,14 +49,14 @@ export const data = [
     {
         _isTotal: true,
         name: 'total',
-        amount: { value: Math.random() * 1000 - 1, format: '0,0' },
-        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+        amount: { value: 98123122, format: '0,0' },
+        growth: { value: 0.9, format: '0,0.0%', decoration: 'red' },
     },
-].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map(name => (
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
     {
         _isTotal: false,
         name,
-        amount: { value: Math.random() * 1000 - 1, format: '0,0' },
-        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+        amount: { value: 11111, format: '0,0' },
+        growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
     }
 )));
