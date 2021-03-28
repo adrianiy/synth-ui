@@ -11,17 +11,21 @@ import { NoDataType } from './no-data.model';
 export class NoDataComponent {
     /** Render mode, [ 'simple' | 'complex' ] */
     @Prop() mode: string = NoDataType.Simple;
-    /** ***optional*** Top text. only applies if render mode is advanced */
+    /** Top text. only applies if render mode is advanced */
     @Prop() text: string;
-    /** ***optional*** Bottom text. only applies if render mode is advanced */
+    /** Bottom text. only applies if render mode is advanced */
     @Prop() bottomText: string;
+    /** Extra i18n translation object */
+    @Prop() i18n: { [key: string]: string } = {};
 
     @Element() element: HTMLElement;
 
     private _i18n: any;
 
     async componentWillLoad() {
-        this._i18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
+        this._i18n = { ...componentI18n, ...this.i18n };
+        console.log(this.i18n, this._i18n);
     }
 
     private _simpleRender() {

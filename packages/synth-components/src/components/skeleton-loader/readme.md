@@ -22,8 +22,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  synth-list --> synth-loader
-  style synth-loader fill:#f9f,stroke:#333,stroke-width:4px
+  synth-list --> synth-sk-loader
+  style synth-sk-loader fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

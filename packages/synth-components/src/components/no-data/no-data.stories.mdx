@@ -2,6 +2,10 @@ import { html } from 'lit-html';
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
+export const Template = (args) => {
+    return html` <synth-no-data mode=${args.mode} text=${args.text} bottom-text=${args.bottomText} /> `;
+};
+
 <Meta 
     title="WebComponents/components/No Data" 
     parameters={{ notes, viewMode: 'docs' }} 
@@ -14,9 +18,6 @@ Auxiliar component to render no data errors
 
 ### Simple Error
 
-export const Template = (args) => {
-    return html` <synth-no-data mode=${args.mode} text=${args.text} bottom-text=${args.bottomText} /> `;
-};
 
 
 Predefined error component to use in most components.
