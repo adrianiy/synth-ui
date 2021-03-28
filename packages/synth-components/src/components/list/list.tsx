@@ -210,7 +210,7 @@ export class ListComponent {
     private _renderLoading = () => {
         return Array(this.limit + 1)
             .fill(0)
-            .map(() => <synth-loader />);
+            .map(() => <synth-sk-loader />);
     };
 
     private _renderNoData = () => <synth-no-data />;
