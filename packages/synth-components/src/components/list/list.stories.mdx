@@ -1,11 +1,11 @@
 import { html } from 'lit-html';
-import { Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 export const limit = 3;
+
 export const Template = (args) => {
     return html` <synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> `;
 };
-
 
 <Meta 
     title="WebComponents/components/List" 

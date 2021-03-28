@@ -36,7 +36,7 @@ export class NoDataComponent {
     private _advancedRender() {
         return (
             <ColumnLayout className={`no-data ${this.mode}`} distribution={[ distributions.CENTER ]}>
-                <em class="material-icons">report_problem</em>
+                <em class="material-icons-outlined">report_problem</em>
                 <h3>{this.text}</h3>
                 <p>{this.bottomText}</p>
             </ColumnLayout>

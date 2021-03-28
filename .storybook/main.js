@@ -1,4 +1,6 @@
 const path = require('path');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+
 module.exports = {
     webpackFinal: async (config, { configType }) => {
         // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -11,7 +13,7 @@ module.exports = {
             use: [ 'style-loader', 'css-loader', 'sass-loader' ],
             include: path.resolve(__dirname, '../'),
         });
-
+        config.plugins.push(new ProgressBarPlugin());
         // Return the altered config
         return config;
     },
