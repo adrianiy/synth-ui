@@ -58,6 +58,9 @@
             "@semantic-release/git",
             "@semantic-release/github"
         ],
-        "branches": ["main"]
-    }
+        "branches": [
+            "main"
+        ]
+    },
+    "version": "1.0.0"
 }
