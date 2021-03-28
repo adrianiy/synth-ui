@@ -24,6 +24,16 @@ export const config: Config = {
         }),
         {
             type: 'dist',
+            copy: [
+                {
+                    src: '**/*.i18n.*.json',
+                    dest: '../assets/i18n',
+                },
+                {
+                    src: '**/*.woff2',
+                    dest: '../assets/fonts',
+                },
+            ],
         },
         {
             type: 'dist-custom-elements-bundle',
@@ -34,6 +44,12 @@ export const config: Config = {
         {
             type: 'www',
             serviceWorker: null, // disable service workers
+            copy: [
+                {
+                    src: '**/*.i18n.*.json',
+                    dest: 'assets/i18n',
+                },
+            ],
         },
     ],
 };

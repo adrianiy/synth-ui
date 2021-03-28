@@ -1,0 +1,62 @@
+import { html } from 'lit-html';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+export const limit = 3;
+
+export const Template = (args) => {
+    return html` <synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> `;
+};
+
+<Meta 
+    title="WebComponents/components/List" 
+    parameters={{ notes, viewMode: 'docs' }} 
+/>
+
+# List
+##### synth-list
+
+Paginated list component.
+
+## Simple list
+
+<Canvas>
+    <Story name="Basic" args={{ data, limit, loading: false }}>{Template.bind({})}</Story>
+</Canvas>
+
+### Keep in mind
+
+-   Row fields preffixed with `_` are private properties used internally but never rendered.
+-   First row will always be visible
+-   When `view more` is active, pagination is hidden
+-   Rows are sortable `asc` or `desc` style.
+    -   **Total** will always be the first row.
+    -   The default sort value is conserved on first load
+
+### Loading list
+
+<Canvas>
+    <Story name="Loading" args={{ data, limit, loading: true }}>{Template.bind({})}</Story>
+</Canvas>
+
+## No data list
+
+<Canvas>
+    <Story name="No data" args={{ data: [], loading: false }}>{Template.bind({})}</Story>
+</Canvas>
+
+
+export const data = [
+    {
+        _isTotal: true,
+        name: 'total',
+        amount: { value: Math.random() * 1000 - 1, format: '0,0' },
+        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+    },
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map(name => (
+    {
+        _isTotal: false,
+        name,
+        amount: { value: Math.random() * 1000 - 1, format: '0,0' },
+        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+    }
+)));

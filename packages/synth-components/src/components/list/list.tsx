@@ -10,27 +10,44 @@ const RESPONSIVE_LIMIT = 10;
 @Component({
     tag: 'synth-list',
     styleUrl: 'list.scss',
-    assetsDirs: [ 'i18n' ],
     shadow: true,
 })
 export class ListComponent {
-    /* loading state */
+    /**
+     * Loading state. If true will render skeleton loader
+     */
     @Prop() loading: boolean;
-    /* component data, private fields are preffixed with _. These fields will not render */
+    /**
+     * Component data. Fields preffixed with `_` will not render
+     */
     @Prop() data: Row[];
-    /* these fields should not be empty if this variable is informed */
+    /**
+     * Rows that has no data on these fields will not render
+     */
     @Prop() filterFields: string[];
-    /* default sorting field, it could be a private or public field */
+    /**
+     * Default sorting field, it could be a private or public field
+     */
     @Prop() defaultSortField: string;
-    /* show decimals flag */
+    /**
+     * Show decimals flag
+     */
     @Prop() decimals: boolean;
-    /* expandable flag */
+    /**
+     * Expandable flag
+     */
     @Prop() expandable: boolean;
-    /* list rows limit */
+    /**
+     * Rows limit. If not set will take `16` as default value or `10` in small screens
+     */
     @Prop({ mutable: true }) limit: number;
-    /* enable download xlsx file */
+    /**
+     * Enable download xlsx file
+     */
     @Prop() enableDownload: boolean = false;
-    /* force component update if flag is true */
+    /**
+     * Force component update if flag is true
+     */
     @Prop({ mutable: true }) update: boolean = false;
     /* Element reference */
     @Element() element: HTMLElement;
@@ -54,9 +71,11 @@ export class ListComponent {
     }
 
     componentWillRender() {
-        this._fields = Object.keys(this.data[0])
-            .filter(key => !key.startsWith('_') && key !== 'name')
-            .map(key => key);
+        if (this.data?.length) {
+            this._fields = Object.keys(this.data[0])
+                .filter(key => !key.startsWith('_') && key !== 'name')
+                .map(key => key);
+        }
         this._parseData();
     }
 
@@ -205,7 +224,7 @@ export class ListComponent {
         return (
             <ColumnLayout className="country__container">
                 {showData ? this._renderTable() : this._renderNoData()}
-                {showData && this._renderPagination()}
+                {showData ? this._renderPagination() : null}
             </ColumnLayout>
         );
     }

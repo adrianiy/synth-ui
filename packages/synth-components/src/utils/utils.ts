@@ -1,5 +1,4 @@
 import { ValueAccessorConfig } from '@stencil/angular-output-target';
-import { getAssetPath } from '@stencil/core';
 import numeral from 'numeral';
 
 export function format(first: string, middle: string, last: string): string {
@@ -14,7 +13,7 @@ const _getComponentClosestLanguage = (element: HTMLElement): string => {
 
 const _fetchLocaleStringsForComponent = async (componentName: string, locale: string) => {
     try {
-        const assetPath = getAssetPath('./i18n');
+        const assetPath = '../assets/i18n';
         return (await fetch(`${assetPath}/${componentName}.i18n.${locale}.json`)).json();
     } catch (e) {
         return {};

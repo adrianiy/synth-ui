@@ -45,11 +45,14 @@ export class SynthListRow {
 
 
 export declare interface SynthLoader extends Components.SynthLoader {}
-
+@ProxyCmp({
+  inputs: ['height', 'repetitions']
+})
 @Component({
   selector: 'synth-loader',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['height', 'repetitions']
 })
 export class SynthLoader {
   protected el: HTMLElement;
@@ -61,11 +64,14 @@ export class SynthLoader {
 
 
 export declare interface SynthNoData extends Components.SynthNoData {}
-
+@ProxyCmp({
+  inputs: ['bottomText', 'mode', 'text']
+})
 @Component({
   selector: 'synth-no-data',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>'
+  template: '<ng-content></ng-content>',
+  inputs: ['bottomText', 'mode', 'text']
 })
 export class SynthNoData {
   protected el: HTMLElement;
