@@ -90,7 +90,6 @@ export class ListComponent {
 
     private _parseData() {
         this._parsedList = this._setListConfig();
-        console.log(this._parsedList);
         this._pages = Array(Math.round(this._parsedList.length / this.limit)).fill(0);
     }
 
@@ -99,7 +98,6 @@ export class ListComponent {
     }
 
     private _filterListData() {
-        console.log(this.filterFields);
         if (this.filterFields) {
             this._setOriginalIndex();
 
