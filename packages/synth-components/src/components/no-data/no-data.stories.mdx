@@ -1,0 +1,34 @@
+import { html } from 'lit-html';
+import { Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+<Meta 
+    title="WebComponents/components/No Data" 
+    parameters={{ notes, viewMode: 'docs' }} 
+/>
+
+# No Data
+##### synth-no-data
+
+Auxiliar component to render no data errors
+
+### Simple Error
+
+export const Template = (args) => {
+    return html` <synth-no-data mode=${args.mode} text=${args.text} bottom-text=${args.bottomText} /> `;
+};
+
+
+Predefined error component to use in most components.
+
+<Canvas>
+    <Story name="Simple" args={{ mode: 'simple' }}>{Template.bind({})}</Story>
+</Canvas>
+
+### Complex error
+
+Configurable error to show in some cases where you need to give some more info to the user.
+
+<Canvas>
+    <Story name="Complex" args={{ mode: 'complex', text: "Advanced error", bottomText: "This is an advanced error example" }}>{Template.bind({})}</Story>
+</Canvas>

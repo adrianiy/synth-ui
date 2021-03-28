@@ -1,6 +1,6 @@
 @use 'flex-mixin'as flex;
 
-.col {
+.column {
     @include flex.flex(column);
 
     &.start {

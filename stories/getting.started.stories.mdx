@@ -1,0 +1,74 @@
+<Meta title="Synth-UI/Getting Started" />
+
+# Getting Started
+
+## As User
+
+### Install
+
+🚧not published yet
+
+### Use it
+
+Choose a implementations that matches your favourite framework!
+
+#### As Web Components
+
+🚧 under construction
+
+#### As Angular Components
+
+🚧 under construction
+
+#### As React Components
+
+🚧 under construction
+
+#### As AmigaJS Middlewares
+
+🚧 under construction
+
+## As Developer
+
+### Install
+
+```bash
+  yarn
+```
+
+### Run
+
+These are the reserved ports for each app:
+
+- **Docs**: 6006.
+- **WebComponents**: 3333
+- **Angular**: 4200
+
+#### Run everything
+
+This is the main develpment script, this will open all framework watchers and Doc server.
+
+The documentation will be visible at `localhost:6006` and will trigger `hmr` every time you change something anywhere in the code
+
+```bash
+  yarn start
+```
+
+#### Run only framework implementations 
+
+If you need to test components within a framework implementation we recommend you to execute `npm start` on root folder.
+This script will open all frameworks syncronized in different ports, so if you change something in a higher layer framework or in the core
+the demo application should trigger a `hmr` reload.
+
+```bash
+  yarn start:front
+```
+
+#### Run only documentation 
+
+If you are going to modify docs only you should try this lightweighted script.
+
+```bash
+  yarn start:docs
+```
+

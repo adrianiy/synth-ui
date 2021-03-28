@@ -8,14 +8,14 @@ export const config: Config = {
     namespace: 'synth-components',
     plugins: [
         sass({
-            injectGlobalPaths: ['src/global/global.scss'],
+            injectGlobalPaths: [ 'src/global/global.scss' ],
         }),
     ],
     globalStyle: 'src/global/global.scss',
     outputTargets: [
         angularOutputTarget({
             componentCorePackage: 'synth-components',
-            directivesProxyFile: '../synth-angular/src/directives/proxies.ts',
+            directivesProxyFile: '../synth-angular/src/synth-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
         reactOutputTarget({
@@ -27,11 +27,11 @@ export const config: Config = {
             copy: [
                 {
                     src: '**/*.i18n.*.json',
-                    dest: '../i18n',
+                    dest: '../assets/i18n',
                 },
                 {
                     src: '**/*.woff2',
-                    dest: '../fonts',
+                    dest: '../assets/fonts',
                 },
             ],
         },
@@ -43,17 +43,13 @@ export const config: Config = {
         },
         {
             type: 'www',
+            serviceWorker: null, // disable service workers
             copy: [
                 {
                     src: '**/*.i18n.*.json',
-                    dest: 'i18n',
-                },
-                {
-                    src: '**/*.woff2',
-                    dest: 'fonts',
+                    dest: 'assets/i18n',
                 },
             ],
-            serviceWorker: null, // disable service workers
         },
     ],
 };

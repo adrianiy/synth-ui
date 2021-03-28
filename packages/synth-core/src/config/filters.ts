@@ -1,4 +1,20 @@
 import moment from 'moment';
+import { FiltersState } from '../models';
+
+export const initialState: FiltersState = {
+    filterVersion: '0.0.0',
+    filtersConfig: undefined,
+    baseFilters: undefined,
+    screen: undefined,
+    savedFilters: {},
+    initialFilters: [],
+    restrictedFilters: [],
+    restrictedParents: {},
+    dateRanges: undefined,
+    dateConfig: undefined,
+    cacheId: undefined,
+    cacheVersion: undefined
+};
 
 export const defaultConfig = {
     maxCalDate: moment()

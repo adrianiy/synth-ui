@@ -1,61 +1,46 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/synth-components.esm.js"></script>
-    <script nomodule src="/build/synth-components.js"></script>
-    <link href="/build/synth-components.css" rel="stylesheet" />
-  </head>
-  <style>
-  body {
-    padding: var(--zd-padding--m);
-  }
-  synth-list {
-    width: 300px;
-    display: block;
-  }
-  </style>
-  <body>
-    <synth-list />
-  <script>
-    const listElement = document.querySelector('synth-list');
-    listElement.headerTitle = 'Países';
-    listElement.data = [
-        {
-          _isTotal: true,
-          name: 'total',
-          amount: Math.random() * 10000 - 1,
-          growth_amount: Math.random()
-        },
-        ].concat(['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(country => (
-        {
-          name: country,
-          amount: Math.random() * 10000 - 1,
-          growth_amount: Math.random()
+        <script type="module" src="/build/synth-components.esm.js"></script>
+        <script nomodule src="/build/synth-components.js"></script>
+        <link href="/build/synth-components.css" rel="stylesheet" />
+    </head>
+    <style>
+        body {
+            padding: var(--zd-padding--m);
         }
-        )));
-    listElement.fieldsConfig = [
-        {
-          title: () => 'amount',
-          preffix: '',
-          suffix: '',
-          format: '0,0',
-          sign: false,
-          field: () => 'amount'
-        },
-        {
-          title: () => 'crec.',
-          preffix: 'growth_',
-          suffix: '',
-          format: '0,0.0 %',
-          sign: false,
-          field: () => 'amount'
+        synth-list {
+            width: 300px;
+            display: block;
         }
-      ];
-      listElement.limit = 3;
-  </script>
-  </body>
+    </style>
+    <body>
+        <synth-title title-text="List"></synth-title>
+        <synth-list loading="false"></synth-list>
+        <script>
+            const listElement = document.querySelector('synth-list');
+            listElement.headerTitle = 'Países';
+            listElement.data = [
+                {
+                    _isTotal: true,
+                    name: 'total',
+                    amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                    growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                },
+            ].concat(
+                ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(
+                    country => ({
+                        name: country,
+                        amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                    }),
+                ),
+            );
+            listElement.limit = 3;
+        </script>
+    </body>
 </html>

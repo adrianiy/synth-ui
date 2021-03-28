@@ -11,7 +11,7 @@ const _isNegative = (num: string) => {
     return num?.startsWith('-') && isNumber;
 };
 
-const _getSuccess = (decorationType, isNegative) => {
+const _getSuccess = (decorationType: string, isNegative: boolean) => {
     switch (decorationType) {
         case DecorationType.OnlyGreen:
             return !isNegative;
@@ -21,7 +21,7 @@ const _getSuccess = (decorationType, isNegative) => {
             return false;
     }
 };
-const _getAlert = (decorationType, isNegative) => {
+const _getAlert = (decorationType: string, isNegative: boolean) => {
     switch (decorationType) {
         case DecorationType.OnlyRed:
             return isNegative;

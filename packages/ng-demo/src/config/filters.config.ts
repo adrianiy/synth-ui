@@ -1,6 +1,7 @@
 export const FiltersConfig = {
     search: {
-        usableIn: [],
+        usableIn: [ 'test' ],
+        key: 'search',
         selected: [],
         lastSearchs: [],
         activePos: -1,
@@ -28,48 +29,41 @@ export const FiltersConfig = {
         ],
         filters: []
     },
-    budgetDate: [
-        {
-            usableIn: [ 'budget' ],
-            description: 'Mes',
-            plural: 'Meses',
-            key: 'budget_date',
-            visible: true,
-            selected: [],
-            options: []
-        }
-    ],
-    product: [
-        {
-            usableIn: [ 'budget' ],
-            description: 'Producto',
-            plural: 'Productos',
-            key: 'cod_product',
-            visible: true,
-            selected: [],
-            options: []
-        },
-        {
-            usableIn: [ 'budget' ],
-            description: 'Sección',
-            plural: 'Secciones',
-            key: 'cod_section',
-            visible: true,
-            selected: [],
-            options: []
-        }
-    ],
-    location: [
-        {
-            usableIn: [ 'budget' ],
-            description: 'Mercado',
-            plural: 'Mercados',
-            key: 'cod_market',
-            search: 'Busca Alovera, Corea ...',
-            searchText: '',
-            visible: true,
-            selected: [],
-            options: []
-        }
-    ]
+    testDate: {
+        usableIn: [ 'test' ],
+        description: 'Mes',
+        plural: 'Meses',
+        key: 'test_date',
+        visible: true,
+        selected: [],
+        options: []
+    },
+    product: {
+        usableIn: [ 'test' ],
+        description: 'Producto',
+        plural: 'Productos',
+        key: 'cod_product',
+        visible: true,
+        selected: [],
+        options: []
+    },
+    section: {
+        usableIn: [ 'test' ],
+        description: 'Sección',
+        plural: 'Secciones',
+        key: 'cod_section',
+        visible: true,
+        selected: [],
+        options: []
+    },
+    market: {
+        usableIn: [ 'test' ],
+        description: 'Mercado',
+        plural: 'Mercados',
+        key: 'cod_market',
+        searchPlaceholder: 'Busca Alovera, Corea ...',
+        visible: true,
+        selected: [],
+        options: []
+    }
 };
