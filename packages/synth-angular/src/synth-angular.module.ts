@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { defineCustomElements } from 'synth-components/loader';
 
-import { SynthList, SynthListRow, SynthNoData } from './synth-directives/proxies';
+import { SynthList, SynthListRow, SynthNoData, SynthTitle, SynthSkLoader } from './synth-directives/proxies';
+import { ListComponent } from './components/list/list.component';
 
 import { StoreModule } from './store.module';
 
@@ -12,13 +13,17 @@ const DECLARATIONS = [
     // proxies
     SynthList,
     SynthListRow,
-    SynthNoData
+    SynthNoData,
+    SynthTitle,
+    SynthSkLoader,
+    // components
+    ListComponent,
 ];
 
 @NgModule({
     declarations: DECLARATIONS,
     exports: DECLARATIONS,
     imports: [ StoreModule, TranslateModule ],
-    providers: []
+    providers: [],
 })
 export class SynthComponentsModule {}

@@ -1,0 +1,11 @@
+<synth-title [titleText]="title"></synth-title>
+<synth-list
+    [loading]="loading"
+    [data]="parsedData"
+    [filterFields]="activeKpi && [activeKpi]"
+    [defaultSortField]="activeKpi"
+    [decimals]="decimals"
+    [expandable]="expandable"
+    [limit]="limit"
+    [enableDownload]="enableDownload"
+></synth-list>

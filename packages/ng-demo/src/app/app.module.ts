@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SynthComponentsModule, SynthServicesModule } from './../../../synth-angular/src';
+import { SynthComponentsModule, SynthServicesModule } from 'synth-angular/src';
 import { HomeComponent } from './components/home/home.component';
 import { environment } from '../environments/environment';
 import { fakeBackendProvider } from '../helpers/fake-backend';
@@ -17,7 +17,7 @@ export function createTranslateLoader(http: HttpClient) {
         { prefix: './assets/i18n/shared/', suffix: '.json' },
         { prefix: './assets/i18n/countries/', suffix: '.json' },
         { prefix: './assets/i18n/filters/', suffix: '.json' },
-        { prefix: './assets/i18n/screens/', suffix: '.json' }
+        { prefix: './assets/i18n/screens/', suffix: '.json' },
     ]);
 }
 
@@ -33,11 +33,11 @@ export function createTranslateLoader(http: HttpClient) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: createTranslateLoader,
-                deps: [ HttpClient ]
-            }
-        })
+                deps: [ HttpClient ],
+            },
+        }),
     ],
     providers: [ fakeBackendProvider ],
-    bootstrap: [ AppComponent ]
+    bootstrap: [ AppComponent ],
 })
 export class AppModule {}

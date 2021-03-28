@@ -1,0 +1,7 @@
+{
+    "bundlerOptions": {
+        "entryFile": "./src/index.scss",
+        "outFile": "./dist/index.scss",
+        "ignoreImports": ["~@angular/.*"]
+    }
+}

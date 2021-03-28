@@ -1,4 +1,5 @@
 {
+  "npmClient": "yarn",
   "packages": [
     "packages/synth-components",
     "packages/synth-core",
@@ -6,5 +7,5 @@
     "packages/synth-docs",
     "packages/ng-demo"
   ],
-  "version": "0.0.0"
+  "version": "0.1.0"
 }

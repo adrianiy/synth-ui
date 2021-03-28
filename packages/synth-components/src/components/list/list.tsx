@@ -64,7 +64,7 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'list',  'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'list', 'no-data' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
         this._isMobile = window.innerWidth < 1050;
 
@@ -198,7 +198,7 @@ export class ListComponent {
             .map(() => <synth-sk-loader />);
     };
 
-    private _renderNoData = () => <synth-no-data i18n={ this._i18n }/>;
+    private _renderNoData = () => <synth-no-data i18n={this._i18n} />;
 
     render() {
         if (this.loading) {

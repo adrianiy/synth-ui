@@ -1,9 +1,4 @@
-export enum DecorationType {
-    OnlyGreen = 'green',
-    OnlyRed = 'red',
-    InvertedGreen = 'inverted-green',
-    InvertedRed = 'inverted-red',
-}
+import { DecorationType } from './color.model';
 
 const _isNegative = (num: string) => {
     const isNumber = num !== '--';
@@ -32,7 +27,7 @@ const _getAlert = (decorationType: string, isNegative: boolean) => {
     }
 };
 
-export const getGrowthColor = (num: string, decorationType: DecorationType) => {
+export const getGrowthColor = (num: string, decorationType: string) => {
     const isNegative = _isNegative(num);
     const isSuccess = _getSuccess(decorationType, isNegative);
     const isAlert = _getAlert(decorationType, isNegative);
