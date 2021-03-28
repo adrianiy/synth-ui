@@ -1,4 +1,5 @@
 import { ValueAccessorConfig } from '@stencil/angular-output-target';
+import { getAssetPath } from '@stencil/core';
 import numeral from 'numeral';
 
 export function format(first: string, middle: string, last: string): string {
@@ -13,7 +14,8 @@ const _getComponentClosestLanguage = (element: HTMLElement): string => {
 
 const _fetchLocaleStringsForComponent = async (componentName: string, locale: string) => {
     try {
-        return (await fetch(`../i18n/${componentName}.i18n.${locale}.json`)).json();
+        const assetPath = getAssetPath('./i18n');
+        return (await fetch(`${assetPath}/${componentName}.i18n.${locale}.json`)).json();
     } catch (e) {
         return {};
     }
@@ -78,7 +80,7 @@ if (numeral.locale['user-locale'] === undefined) {
             billion: 'b',
             trillion: 't',
         },
-        ordinal: function() {
+        ordinal: function () {
             return 'º';
         },
         currency: {

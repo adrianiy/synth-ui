@@ -5,6 +5,7 @@ import { getLocaleComponentStrings } from '../../utils/utils';
 @Component({
     tag: 'synth-no-data',
     styleUrl: 'no-data.scss',
+    assetsDirs: [ 'i18n' ],
     shadow: true,
 })
 export class NoDataComponent {
@@ -12,7 +13,7 @@ export class NoDataComponent {
     private _i18n: any;
 
     async componentWillLoad() {
-        this._i18n = await getLocaleComponentStrings([ 'common' ], this.element);
+        this._i18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
     }
 
     render() {
