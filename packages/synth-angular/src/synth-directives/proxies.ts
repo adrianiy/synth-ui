@@ -44,25 +44,6 @@ export class SynthListRow {
 }
 
 
-export declare interface SynthLoader extends Components.SynthLoader {}
-@ProxyCmp({
-  inputs: ['height', 'repetitions']
-})
-@Component({
-  selector: 'synth-loader',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['height', 'repetitions']
-})
-export class SynthLoader {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-
 export declare interface SynthNoData extends Components.SynthNoData {}
 @ProxyCmp({
   inputs: ['bottomText', 'mode', 'text']

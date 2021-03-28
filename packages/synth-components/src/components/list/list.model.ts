@@ -1,8 +1,6 @@
-import { DecorationType } from '../../utils/color.utils';
-
 export interface Cell {
     value: any;
-    decoration: DecorationType;
+    decoration: string;
     format?: string;
     sign?: boolean;
     negativeSign?: boolean;

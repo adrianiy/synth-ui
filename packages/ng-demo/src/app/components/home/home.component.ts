@@ -4,27 +4,23 @@ import { DataService } from '../../services/data.service';
 @Component({
     selector: 'ng-fib-home',
     templateUrl: './home.component.html',
-    styleUrls: [ './home.component.scss' ]
+    styleUrls: [ './home.component.scss' ],
 })
 export class HomeComponent implements OnInit {
     public listData = [];
     public fieldsConfig = [
         {
             title: () => 'amount',
-            preffix: '',
-            suffix: '',
-            format: '0,0',
-            sign: false,
-            field: () => 'amount'
+            value: () => 'amount',
+            format: () => '0,0',
+            sign: () => false,
         },
         {
             title: () => 'crec.',
-            preffix: 'growth_',
-            suffix: '',
-            format: '0,0.0 %',
-            sign: false,
-            field: () => 'amount'
-        }
+            value: () => 'growth_amount',
+            format: () => '0,0.0 %',
+            sign: () => false,
+        },
     ];
 
     constructor(private _dataService: DataService) {}
