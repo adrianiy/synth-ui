@@ -24,6 +24,8 @@ export namespace Components {
         "isTotal": boolean;
         "row": Row;
     }
+    interface SynthLoader {
+    }
     interface SynthNoData {
     }
     interface SynthTitle {
@@ -43,6 +45,12 @@ declare global {
         prototype: HTMLSynthListRowElement;
         new (): HTMLSynthListRowElement;
     };
+    interface HTMLSynthLoaderElement extends Components.SynthLoader, HTMLStencilElement {
+    }
+    var HTMLSynthLoaderElement: {
+        prototype: HTMLSynthLoaderElement;
+        new (): HTMLSynthLoaderElement;
+    };
     interface HTMLSynthNoDataElement extends Components.SynthNoData, HTMLStencilElement {
     }
     var HTMLSynthNoDataElement: {
@@ -58,6 +66,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
+        "synth-loader": HTMLSynthLoaderElement;
         "synth-no-data": HTMLSynthNoDataElement;
         "synth-title": HTMLSynthTitleElement;
     }
@@ -80,6 +89,8 @@ declare namespace LocalJSX {
         "isTotal"?: boolean;
         "row"?: Row;
     }
+    interface SynthLoader {
+    }
     interface SynthNoData {
     }
     interface SynthTitle {
@@ -88,6 +99,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
+        "synth-loader": SynthLoader;
         "synth-no-data": SynthNoData;
         "synth-title": SynthTitle;
     }
@@ -98,6 +110,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
+            "synth-loader": LocalJSX.SynthLoader & JSXBase.HTMLAttributes<HTMLSynthLoaderElement>;
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;
             "synth-title": LocalJSX.SynthTitle & JSXBase.HTMLAttributes<HTMLSynthTitleElement>;
         }

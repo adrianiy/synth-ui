@@ -10,6 +10,7 @@ const RESPONSIVE_LIMIT = 10;
 @Component({
     tag: 'synth-list',
     styleUrl: 'list.scss',
+    assetsDirs: [ 'i18n' ],
     shadow: true,
 })
 export class ListComponent {
@@ -60,7 +61,7 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        this._i18n = await getLocaleComponentStrings([ 'common' ], this.element);
+        this._i18n = await getLocaleComponentStrings([ 'list' ], this.element);
         this._isMobile = window.innerWidth < 1050;
 
         if (!this.limit) {
@@ -161,7 +162,7 @@ export class ListComponent {
         </table>
     );
 
-    private _renderPages = () => {
+    private _renderPages() {
         return this._pages.map((_, index) => (
             <span
                 role="button"
@@ -171,9 +172,9 @@ export class ListComponent {
                 {index + 1}
             </span>
         ));
-    };
+    }
 
-    private _renderPagination = () => {
+    private _renderPagination() {
         return (
             <RowLayout distribution={[ distributions.MIDDLE, distributions.SPACED ]} className="pagination__container">
                 <RowLayout className="pagination">{!this.showAll && this._renderPages()}</RowLayout>
@@ -185,11 +186,20 @@ export class ListComponent {
                 </RowLayout>
             </RowLayout>
         );
+    }
+
+    private _renderLoading = () => {
+        return Array(this.limit + 1)
+            .fill(0)
+            .map(() => <synth-loader />);
     };
 
     private _renderNoData = () => <synth-no-data />;
 
     render() {
+        if (this.loading) {
+            return this._renderLoading();
+        }
         const showData = !this.loading && this._parsedList.length;
 
         return (
