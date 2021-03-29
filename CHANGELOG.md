@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/adrianiy/synth-ui/compare/v1.2.0...v1.2.1) (2021-03-29)
+
+
+### Bug Fixes
+
+* **angular:** use shared list utils from synth-core ([#31](https://github.com/adrianiy/synth-ui/issues/31)) ([1760297](https://github.com/adrianiy/synth-ui/commit/1760297801ff1161be97bced6e328631bb60e4b1))
+
 # [1.2.0](https://github.com/adrianiy/synth-ui/compare/v1.1.0...v1.2.0) (2021-03-29)
 
 
