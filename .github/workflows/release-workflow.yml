@@ -20,5 +20,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
-      - name: Update versions
-        run: npx lerna version --conventional-commits --no-changelog --yes --no-git-tag-version
