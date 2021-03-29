@@ -21,4 +21,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npx semantic-release
       - name: Update versions
-        run: lerna version --conventional-commits --no-changelog --yes --no-git-tag-version --exact 1.1.0    
+        run: npx lerna version --conventional-commits --no-changelog --yes --no-git-tag-version
