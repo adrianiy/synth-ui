@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/adrianiy/synth-ui/compare/v1.1.0...v1.2.0) (2021-03-29)
+
+
+### Bug Fixes
+
+* **docs:** fix docs ([#22](https://github.com/adrianiy/synth-ui/issues/22)) ([18c1182](https://github.com/adrianiy/synth-ui/commit/18c11828d30b0186ec2dc05b50428050d4785db0))
+
+
+### Features
+
+* **angular:** add list component ([#28](https://github.com/adrianiy/synth-ui/issues/28)) ([b2bc1ac](https://github.com/adrianiy/synth-ui/commit/b2bc1acf50c930cd2872678e79a2bb3d726900d8))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
