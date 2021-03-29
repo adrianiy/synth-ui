@@ -13,41 +13,25 @@ const RESPONSIVE_LIMIT = 10;
     shadow: true,
 })
 export class ListComponent {
-    /**
-     * Loading state. If true will render skeleton loader
-     */
+    /** Loading state. If true will render skeleton loader */
     @Prop() loading: boolean;
-    /**
-     * Component data. Fields preffixed with `_` will not render
-     */
+    /** Component data. Fields preffixed with `_` will not render */
     @Prop() data: Row[];
-    /**
-     * Rows that has no data on these fields will not render
-     */
+    /** Rows that has no data on these fields will not render */
     @Prop() filterFields: string[];
-    /**
-     * Default sorting field, it could be a private or public field
-     */
+    /** Default sorting field, it could be a private or public field */
     @Prop() defaultSortField: string;
-    /**
-     * Show decimals flag
-     */
+    /** Extra i18n translation object */
+    @Prop() i18n: { [key: string]: string } = {};
+    /** Show decimals flag */
     @Prop() decimals: boolean;
-    /**
-     * Expandable flag
-     */
+    /** Expandable flag */
     @Prop() expandable: boolean;
-    /**
-     * Rows limit. If not set will take `16` as default value or `10` in small screens
-     */
+    /** Rows limit. If not set will take `16` as default value or `10` in small screens */
     @Prop({ mutable: true }) limit: number;
-    /**
-     * Enable download xlsx file
-     */
+    /** Enable download xlsx file */
     @Prop() enableDownload: boolean = false;
-    /**
-     * Force component update if flag is true
-     */
+    /** Force component update if flag is true  */
     @Prop({ mutable: true }) update: boolean = false;
     /* Element reference */
     @Element() element: HTMLElement;
@@ -80,7 +64,8 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        this._i18n = await getLocaleComponentStrings([ 'list' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'list', 'no-data' ], this.element);
+        this._i18n = { ...componentI18n, ...this.i18n };
         this._isMobile = window.innerWidth < 1050;
 
         if (!this.limit) {
@@ -210,10 +195,10 @@ export class ListComponent {
     private _renderLoading = () => {
         return Array(this.limit + 1)
             .fill(0)
-            .map(() => <synth-loader />);
+            .map(() => <synth-sk-loader />);
     };
 
-    private _renderNoData = () => <synth-no-data />;
+    private _renderNoData = () => <synth-no-data i18n={this._i18n} />;
 
     render() {
         if (this.loading) {

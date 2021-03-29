@@ -33,6 +33,10 @@ export const config: Config = {
                     src: '**/*.woff2',
                     dest: '../assets/fonts',
                 },
+                {
+                    src: '**/*.model.ts',
+                    dest: '../models',
+                },
             ],
         },
         {

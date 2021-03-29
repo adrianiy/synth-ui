@@ -33,7 +33,7 @@ export class RowComponent {
         return <td class={color}>{formattedValue}</td>;
     }
 
-    private _renderRow(row = this.row) {
+    private _renderRow = (row = this.row) => {
         return (
             <tr role="button" class={this._getRowClass()} onClick={() => this.expandable && this._expandRow()}>
                 <td>
@@ -47,10 +47,10 @@ export class RowComponent {
                     .map(field => this._renderCell(row[field]))}
             </tr>
         );
-    }
+    };
 
     private _renderChildren() {
-        return this.row.children?.map(this._renderRow);
+        return this.row._expanded && this.row._children?.map(this._renderRow);
     }
 
     render() {

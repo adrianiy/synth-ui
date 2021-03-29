@@ -1,36 +1,26 @@
 {
-  "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
-    "strictMetadataEmit": true,
-    "flatModuleOutFile": "core.js",
-    "skipTemplateCodegen": true,
-    "fullTemplateTypeCheck": false
-  },
-  "compilerOptions": {
-    "alwaysStrict": true,
-    "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "allowUnreachableCode": false,
-    "declaration": true,
-    "declarationDir": "dist",
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "lib": ["dom", "es2017"],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "outDir": "build/es2015",
-    "pretty": true,
-    "removeComments": false,
-    "importHelpers": true,
-    "rootDir": "src",
-    "strictPropertyInitialization": false,
-    "skipLibCheck": true,
-    "target": "es2015"
-  },
-  "exclude": ["node_modules"],
-  "files": ["src/index.ts"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "src",
+        "emitDecoratorMetadata": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "resolveJsonModule": true,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "es2020",
+        "lib": ["dom", "es6", "es2019", "es2018", "es2015"],
+        "typeRoots": [
+          "node_modules/@types"
+        ]
+    },
+    "files": [ "src/index.ts" ]
 }

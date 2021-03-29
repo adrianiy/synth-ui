@@ -1,6 +1,6 @@
 {
   "name": "synth-components",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "Core web components for synth-ui",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
+    "concurrently": "^6.0.0",
+    "nodemon": "^2.0.7",
     "numeral": "^2.0.6"
   },
   "license": "MIT",
