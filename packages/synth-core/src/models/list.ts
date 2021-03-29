@@ -17,7 +17,10 @@ export interface Row extends BaseRow {
 
 export interface FieldsConfig {
     title: () => string;
-    field: () => string;
+    value: () => string;
     format: () => string;
-    decoration: () => string;
+    decoration?: () => string;
+    sign?: () => boolean;
+    negativeSign?: () => boolean;
+    showZero?: () => boolean;
 }
