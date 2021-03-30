@@ -3,6 +3,7 @@ dist
 target
 # Local config
 .npmrc
+.yarnrc
 # Logs
 *.log
 *.heapsnapshot
