@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/adrianiy/synth-ui/compare/v1.3.2...v1.3.3) (2021-03-30)
+
+
+### Bug Fixes
+
+* **docs:** upload doc folder. It is needed for gh-pages deployment ([252a973](https://github.com/adrianiy/synth-ui/commit/252a9730e0cb17f1355f9d76b7bb294510fa1dfa))
+
 ## [1.3.2](https://github.com/adrianiy/synth-ui/compare/v1.3.1...v1.3.2) (2021-03-30)
 
 ### Bug Fixes
