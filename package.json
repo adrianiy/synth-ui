@@ -12,7 +12,7 @@
     "bootstrap": "lerna bootstrap",
     "lint": "eslint packages/*/src/**/*.{js,ts,tsx} --fix",
     "link": "lerna link",
-    "creevey": "lerna run creevey --parallel"
+    "creevey": "creevey --extract && move-file stories.json storybook-static/stories.json"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",
@@ -40,6 +40,7 @@
     "husky": "^4.3.8",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.4",
+    "move-file-cli": "^2.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
     "semantic-release": "^17.0.6"
   },
