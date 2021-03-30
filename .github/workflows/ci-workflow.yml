@@ -25,7 +25,6 @@ jobs:
     - name: Publish to chromatic
       uses: chromaui/action@v1
       with:
-        storybookBuildDir: storybook-static
         token: ${{ secrets.GH_TOKEN }}
         projectToken: ${{ secrets.CHROMATIC_TOKEN }}
       env:
