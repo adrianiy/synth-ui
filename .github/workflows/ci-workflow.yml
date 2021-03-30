@@ -22,7 +22,7 @@ jobs:
         yarn
         yarn lint
         yarn build
-        yarn publish
+        yarn publish:docs
       env:
         CI: true
         PROJECT_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
