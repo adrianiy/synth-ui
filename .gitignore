@@ -3,6 +3,7 @@ dist
 target
 # Local config
 .npmrc
+.yarnrc
 # Logs
 *.log
 *.heapsnapshot
@@ -12,5 +13,5 @@ node_modules
 coverage
 test-report.json
 # Docs
-storybook-static
+# storybook-static
 

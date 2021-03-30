@@ -22,11 +22,7 @@ jobs:
         yarn
         yarn lint
         yarn build
-    - name: Publish to chromatic
-      uses: chromaui/action@v1
-      with:
-        buildScriptName: build:docs
-        token: ${{ secrets.GH_TOKEN }}
-        projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+        yarn publish:docs
       env:
         CI: true
+        PROJECT_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}

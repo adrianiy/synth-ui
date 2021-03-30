@@ -16,7 +16,8 @@
     "enableResourceInlining": true
   },
   "exclude": [
-	"test.ts",
-	"./index.ts"
+    "test.ts",
+    "./index.ts",
+    "**/*.stories.*"
   ]
 }

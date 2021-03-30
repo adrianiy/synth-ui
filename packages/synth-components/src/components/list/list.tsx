@@ -16,7 +16,7 @@ export class ListComponent {
     /** Loading state. If true will render skeleton loader */
     @Prop() loading: boolean;
     /** Component data. Fields preffixed with `_` will not render */
-    @Prop() data: Row[];
+    @Prop({ reflect: true }) data: Row[];
     /** Rows that has no data on these fields will not render */
     @Prop() filterFields: string[];
     /** Default sorting field, it could be a private or public field */

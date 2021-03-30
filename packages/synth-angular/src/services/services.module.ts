@@ -13,13 +13,13 @@ export class SynthServicesModule {
             providers: [
                 {
                     provide: SynthFilterService,
-                    useClass: impl.filterService || SynthFilterService
+                    useClass: impl.synthFilterService || SynthFilterService,
                 },
                 {
                     provide: 'env', // you can also use InjectionToken
-                    useValue: environment
-                }
-            ]
+                    useValue: environment,
+                },
+            ],
         };
     }
 }

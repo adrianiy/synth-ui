@@ -1,0 +1,16 @@
+{
+  "entries": [
+    "./components/list/list.js",
+    "./components/list/components/row/row.js",
+    "./components/no-data/no-data.js",
+    "./components/skeleton-loader/sk-loader.js",
+    "./components/title/title.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.5.1",
+    "typescriptVersion": "4.2.3"
+  },
+  "collections": [],
+  "bundles": []
+}

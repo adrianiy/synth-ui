@@ -10,29 +10,29 @@ export class ValueAccessor implements ControlValueAccessor {
   constructor(protected el: ElementRef) {}
 
   writeValue(value: any) {
-    this.el.nativeElement.value = this.lastValue = value == null ? '' : value;
+      this.el.nativeElement.value = this.lastValue = value == null ? '' : value;
   }
 
   handleChangeEvent(value: any) {
-    if (value !== this.lastValue) {
-      this.lastValue = value;
-      this.onChange(value);
-    }
+      if (value !== this.lastValue) {
+          this.lastValue = value;
+          this.onChange(value);
+      }
   }
 
   @HostListener('focusout')
   _handleBlurEvent() {
-    this.onTouched();
+      this.onTouched();
   }
 
   registerOnChange(fn: (value: any) => void) {
-    this.onChange = fn;
+      this.onChange = fn;
   }
   registerOnTouched(fn: () => void) {
-    this.onTouched = fn;
+      this.onTouched = fn;
   }
 
   setDisabledState(isDisabled: boolean) {
-    this.el.nativeElement.disabled = isDisabled;
+      this.el.nativeElement.disabled = isDisabled;
   }
 }

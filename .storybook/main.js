@@ -7,28 +7,34 @@ module.exports = {
         // You can change the configuration based on that.
         // 'PRODUCTION' is used when building the static version of storybook.
 
-        // Make whatever fine-grained changes you need
-        config.module.rules.push({
-            test: /\.scss$/,
-            use: [ 'style-loader', 'css-loader', 'sass-loader' ],
-            include: path.resolve(__dirname, '../'),
-        });
         config.plugins.push(new ProgressBarPlugin());
         // Return the altered config
         return config;
     },
-    stories: [
-        '../stories/**/*.stories.mdx',
-        '../stories/**/*.stories.@(js|jsx|ts|tsx)',
-        '../packages/synth-components/src/**/*.stories.mdx',
-        '../packages/synth-components/src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
-    addons: [
-        '@storybook/addon-notes',
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-postcss',
-        '@storybook/addon-viewport',
-        '@storybook/preset-scss',
-    ],
+    refs: (config, { configType }) => {
+        if (configType === 'DEVELOPMENT') {
+            return {
+                webComponents: {
+                    title: 'Web Components',
+                    url: 'http://localhost:6007',
+                },
+                angular: {
+                    title: 'Angular',
+                    url: 'http://localhost:6008',
+                },
+            };
+        }
+        return {
+            webComponents: {
+                title: 'Web Components',
+                url: '/webcomponents',
+            },
+            angular: {
+                title: 'Angular',
+                url: '/angular',
+            },
+        };
+    },
+    stories: [ '../stories/**/*.stories.mdx' ],
+    addons: [ '@storybook/addon-links', '@storybook/addon-essentials', 'creevey' ],
 };
