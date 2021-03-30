@@ -13,5 +13,5 @@ node_modules
 coverage
 test-report.json
 # Docs
-storybook-static
+# storybook-static
 
