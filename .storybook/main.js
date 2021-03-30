@@ -25,13 +25,13 @@ module.exports = {
             };
         }
         return {
-            react: {
-                title: 'Composed React Storybook running in production',
-                url: 'https://your-production-react-storybook-url',
+            webComponents: {
+                title: 'Web Components',
+                url: '/webcomponents',
             },
             angular: {
-                title: 'Composed Angular Storybook running in production',
-                url: 'https://your-production-angular-storybook-url',
+                title: 'Angular',
+                url: '/angular',
             },
         };
     },

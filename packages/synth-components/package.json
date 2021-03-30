@@ -20,13 +20,11 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:docs": "build-storybook --quiet"
+    "build:docs": "build-storybook --quiet -o ./../../storybook-static/webcomponents"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
-    "concurrently": "^6.0.0",
     "css-loader": "^5.2.0",
-    "nodemon": "^2.0.7",
     "numeral": "^2.0.6",
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "10.1.1",
@@ -41,7 +39,6 @@
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "^6.1.21",
-    "@storybook/addon-notes": "^5.3.21",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/addon-viewport": "^6.1.21",
     "@storybook/preset-scss": "^1.0.3",

@@ -19,7 +19,6 @@ module.exports = {
     },
     stories: [ '../src/**/*.stories.@(mdx|jsx|ts|tsx)' ],
     addons: [
-        '@storybook/addon-notes',
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-postcss',
