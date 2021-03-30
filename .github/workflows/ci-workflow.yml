@@ -23,6 +23,8 @@ jobs:
         yarn lint
         yarn build
     - name: Publish to chromatic
+      run: 
+        yarn publish
       with:
         buildScriptName: build:docs
         token: ${{ secrets.GH_TOKEN }}

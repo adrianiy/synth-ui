@@ -10,6 +10,7 @@
     "build:docs": "build-storybook --quiet -s ./packages/synth-components/dist",
     "postbuild:docs": "npm run creevey && lerna run build:docs --parallel",
     "postinstall": "npm run bootstrap",
+    "publish": "npx chromatic --skip",
     "bootstrap": "lerna bootstrap",
     "lint": "eslint packages/*/src/**/*.{js,ts,tsx} --fix",
     "link": "lerna link",
