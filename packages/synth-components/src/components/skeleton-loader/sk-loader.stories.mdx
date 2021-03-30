@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
 export const Template = (args) => {
@@ -10,7 +10,7 @@ export const TemplateHeight = (args) => {
     return html` <synth-sk-loader repetitions=${args.repetitions} height=${args.height} /> `;
 };
 
-<Meta title="WebComponents/components/Skeleton Loader" parameters={{ notes, viewMode: 'docs' }}/>
+<Meta title="Components/Skeleton Loader" parameters={{ viewMode: 'docs' }}/>
 
 # Skeleton Loader
 ##### synth-sk-loader
@@ -40,3 +40,8 @@ This component is configurable by height, so you can adapt it to your needs!
 </Canvas>
 
 
+---
+
+<Description>
+    { notes }
+</Description>

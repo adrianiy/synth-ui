@@ -16,21 +16,38 @@
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --watch --serve",
+    "start:docs": "start-storybook --quiet -s ./dist -p 6007 --no-manager-cache",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "build:docs": "build-storybook --quiet"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
     "concurrently": "^6.0.0",
+    "css-loader": "^5.2.0",
     "nodemon": "^2.0.7",
-    "numeral": "^2.0.6"
+    "numeral": "^2.0.6",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "sass-loader": "10.1.1",
+    "style-loader": "^2.0.0"
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.13.13",
     "@stencil/angular-output-target": "0.0.5",
     "@stencil/react-output-target": "0.0.9",
     "@stencil/sass": "^1.4.1",
-    "@types/numeral": "^2.0.1"
+    "@storybook/addon-actions": "^6.1.21",
+    "@storybook/addon-essentials": "^6.1.21",
+    "@storybook/addon-links": "^6.1.21",
+    "@storybook/addon-notes": "^5.3.21",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/addon-viewport": "^6.1.21",
+    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/web-components": "^6.1.21",
+    "@types/numeral": "^2.0.1",
+    "lit-html": "^1.3.0",
+    "sass": "^1.32.8"
   }
 }

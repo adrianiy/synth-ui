@@ -65,11 +65,11 @@ export namespace Components {
          */
         "i18n": { [key: string]: string };
         /**
-          * Render mode, [ 'simple' | 'complex' ]
+          * Render mode [ 'simple' | 'complex' ]
          */
         "mode": string;
         /**
-          * Top text. only applies if render mode is advanced
+          * Top text only applies if render mode is advanced
          */
         "text": string;
     }
@@ -185,11 +185,11 @@ declare namespace LocalJSX {
          */
         "i18n"?: { [key: string]: string };
         /**
-          * Render mode, [ 'simple' | 'complex' ]
+          * Render mode [ 'simple' | 'complex' ]
          */
         "mode"?: string;
         /**
-          * Top text. only applies if render mode is advanced
+          * Top text only applies if render mode is advanced
          */
         "text"?: string;
     }

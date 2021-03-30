@@ -9,9 +9,9 @@ import { NoDataType } from './no-data.model';
     shadow: true,
 })
 export class NoDataComponent {
-    /** Render mode, [ 'simple' | 'complex' ] */
+    /** Render mode [ 'simple' | 'complex' ] */
     @Prop() mode: string = NoDataType.Simple;
-    /** Top text. only applies if render mode is advanced */
+    /** Top text only applies if render mode is advanced */
     @Prop() text: string;
     /** Bottom text. only applies if render mode is advanced */
     @Prop() bottomText: string;

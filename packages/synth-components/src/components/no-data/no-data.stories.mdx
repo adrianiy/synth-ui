@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
 export const Template = (args) => {
@@ -7,8 +7,8 @@ export const Template = (args) => {
 };
 
 <Meta 
-    title="WebComponents/components/No Data" 
-    parameters={{ notes, viewMode: 'docs' }} 
+    title="Components/No Data" 
+    parameters={{ viewMode: 'docs' }} 
 />
 
 # No Data
@@ -33,3 +33,9 @@ Configurable error to show in some cases where you need to give some more info t
 <Canvas>
     <Story name="Complex" args={{ mode: 'complex', text: "Advanced error", bottomText: "This is an advanced error example" }}>{Template.bind({})}</Story>
 </Canvas>
+
+---
+
+<Description>
+    { notes }
+</Description>

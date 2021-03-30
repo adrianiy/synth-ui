@@ -1,15 +1,13 @@
 import { html } from 'lit-html';
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 export const limit = 3;
 
-export const Template = (args) => {
-    return html` <synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> `;
-};
+export const Template = (args) => html` <synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> `;
 
 <Meta 
-    title="WebComponents/components/List" 
-    parameters={{ notes, viewMode: 'docs' }} 
+    title="Components/List" 
+    parameters={{ viewMode: 'docs' }} 
 />
 
 # List
@@ -17,10 +15,12 @@ export const Template = (args) => {
 
 Paginated list component.
 
-## Simple list
+## Basic list
 
 <Canvas>
-    <Story name="Basic" args={{ data, limit, loading: false }}>{Template.bind({})}</Story>
+    <Story 
+    name="Basic" 
+    args={{ data, limit, loading: false }}>{Template.bind({})}</Story>
 </Canvas>
 
 ### Keep in mind
@@ -44,6 +44,11 @@ Paginated list component.
     <Story name="No data" args={{ data: [], loading: false }}>{Template.bind({})}</Story>
 </Canvas>
 
+---
+
+<Description>
+    { notes }
+</Description>
 
 export const data = [
     {
