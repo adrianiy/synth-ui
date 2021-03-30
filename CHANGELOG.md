@@ -1,3 +1,11 @@
+## [1.3.2](https://github.com/adrianiy/synth-ui/compare/v1.3.1...v1.3.2) (2021-03-30)
+
+
+### Bug Fixes
+
+* **core:** use creevey on pre-commit ([84253a0](https://github.com/adrianiy/synth-ui/commit/84253a041d65f90927e201b0cc3516286a9397bb))
+* **docs:** generate docs on build ([dbfea52](https://github.com/adrianiy/synth-ui/commit/dbfea52d473cca006b772a210530532a5fbcf2ce))
+
 ## [1.3.1](https://github.com/adrianiy/synth-ui/compare/v1.3.0...v1.3.1) (2021-03-30)
 
 
