@@ -22,12 +22,7 @@ jobs:
         yarn
         yarn lint
         yarn build
-    - name: Publish to chromatic
-      uses: chromaui/action@v1
-      with:
-        storybookBuildDir: storybook-static
-        token: ${{ secrets.GH_TOKEN }}
-        projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-        skip: true
+        yarn publish
       env:
         CI: true
+        PROJECT_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
