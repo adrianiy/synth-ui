@@ -36,5 +36,5 @@ module.exports = {
         };
     },
     stories: [ '../stories/**/*.stories.mdx' ],
-    addons: [ '@storybook/addon-links', '@storybook/addon-essentials' ],
+    addons: [ '@storybook/addon-links', '@storybook/addon-essentials', 'creevey' ],
 };

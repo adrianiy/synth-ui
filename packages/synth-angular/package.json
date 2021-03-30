@@ -11,7 +11,8 @@
         "docs:json": "compodoc ./src -p ./src/tsconfig.lib.json -e json -d ./",
         "docs:base": "start-storybook -p 6008 --quiet --no-manager-cache -s ./../synth-components/dist",
         "start:docs": "concurrently \"nodemon --exec yarn docs:json\" \"npm run docs:base\"",
-        "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../storybook-static/angular"
+        "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../storybook-static/angular && npm run creevey",
+        "creevey": "creevey --extract && move-file stories.json ./../../storybook-static/angular/stories.json"
     },
     "peerDependencies": {
         "@angular/common": "11.0.5",
@@ -38,6 +39,7 @@
         "@webcomponents/custom-elements": "^1.4.3",
         "concurrently": "^6.0.0",
         "moment": "^2.29.1",
+        "move-file-cli": "^2.0.0",
         "ng-packagr": "11.0.3",
         "nodemon": "^2.0.7",
         "numeral": "^2.0.6",
@@ -57,8 +59,8 @@
         "@storybook/addon-actions": "^6.2.0-rc.11",
         "@storybook/addon-essentials": "^6.2.0-rc.11",
         "@storybook/addon-links": "^6.2.0-rc.11",
-        "@storybook/angular": "^6.2.0-rc.11",
         "@storybook/addon-notes": "^5.3.21",
-        "@storybook/addon-viewport": "^6.1.21"
+        "@storybook/addon-viewport": "^6.1.21",
+        "@storybook/angular": "^6.2.0-rc.11"
     }
 }

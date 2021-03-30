@@ -20,11 +20,13 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:docs": "build-storybook --quiet -o ./../../storybook-static/webcomponents"
+    "build:docs": "build-storybook --quiet -o ./../../storybook-static/webcomponents && npm run creevey",
+    "creevey": "creevey --extract && move-file stories.json ./../../storybook-static/webcomponents/stories.json"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
     "css-loader": "^5.2.0",
+    "move-file-cli": "^2.0.0",
     "numeral": "^2.0.6",
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "10.1.1",
