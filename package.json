@@ -8,13 +8,12 @@
         "docs:base": "start-storybook --quiet -p 6006 --no-manager-cache",
         "build": "lerna run build --stream",
         "build:docs": "build-storybook --quiet -s ./packages/synth-components/dist -o ./docs",
-        "postbuild:docs": "npm run creevey && lerna run build:docs --parallel",
+        "postbuild:docs": "lerna run build:docs --parallel",
         "postinstall": "npm run bootstrap",
-        "publish:docs": "npx chromatic --storybook-build-dir storybook-static --skip --project-token $PROJECT_TOKEN",
         "bootstrap": "lerna bootstrap",
         "lint": "eslint packages/*/src/**/*.{js,ts,tsx} --fix",
         "link": "lerna link",
-        "creevey": "creevey --extract && move-file stories.json storybook-static/stories.json"
+        "creevey": "lerna run creevey --parallel"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
@@ -55,7 +54,7 @@
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-            "pre-commit": "lint-staged",
+            "pre-commit": "lint-staged && yarn creevey && git add .",
             "pre-push": "npm run lint"
         }
     },

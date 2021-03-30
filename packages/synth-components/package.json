@@ -21,7 +21,8 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "build:docs": "build-storybook --quiet -o ./../../docs/webcomponents && npm run creevey",
-    "creevey": "creevey --extract && move-file stories.json ./../../docs/webcomponents/stories.json"
+    "postbuild:docs": "move-file stories.json ./../../docs/webcomponents/stories.json",
+    "creevey": "creevey --extract"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
