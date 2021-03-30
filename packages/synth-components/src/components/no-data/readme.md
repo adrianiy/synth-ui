@@ -1,4 +1,4 @@
-# fib-no-data
+# synth-no-data
 
 
 
@@ -11,8 +11,8 @@
 | ------------ | ------------- | ---------------------------------------------------- | ---------------------------- | ------------------- |
 | `bottomText` | `bottom-text` | Bottom text. only applies if render mode is advanced | `string`                     | `undefined`         |
 | `i18n`       | --            | Extra i18n translation object                        | `{ [key: string]: string; }` | `{}`                |
-| `mode`       | `mode`        | Render mode, [ 'simple' \| 'complex' ]               | `string`                     | `NoDataType.Simple` |
-| `text`       | `text`        | Top text. only applies if render mode is advanced    | `string`                     | `undefined`         |
+| `mode`       | `mode`        | Render mode [ 'simple' \| 'complex' ]                | `string`                     | `NoDataType.Simple` |
+| `text`       | `text`        | Top text only applies if render mode is advanced     | `string`                     | `undefined`         |
 
 
 ## Dependencies
