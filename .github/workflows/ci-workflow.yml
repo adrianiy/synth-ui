@@ -28,5 +28,6 @@ jobs:
         buildScriptName: build:docs
         token: ${{ secrets.GH_TOKEN }}
         projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+        skip: true
       env:
         CI: true

@@ -11,7 +11,7 @@
         "docs:json": "compodoc ./src -p ./src/tsconfig.lib.json -e json -d ./",
         "docs:base": "start-storybook -p 6008 --quiet --no-manager-cache -s ./../synth-components/dist",
         "start:docs": "concurrently \"nodemon --exec yarn docs:json\" \"npm run docs:base\"",
-        "build:docsa": "yarn docs:json && build-storybook --quiet -o ./../../storybook-static/angular && npm run creevey",
+        "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../storybook-static/angular && npm run creevey",
         "creevey": "creevey --extract && move-file stories.json ./../../storybook-static/angular/stories.json"
     },
     "peerDependencies": {
