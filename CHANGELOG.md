@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/adrianiy/synth-ui/compare/v1.3.3...v1.4.0) (2021-03-30)
+
+
+### Features
+
+* **docs:** add basic README ([0687893](https://github.com/adrianiy/synth-ui/commit/06878933d9fa561643e7b3a2dfa367d90b2bc0da))
+
 ## [1.3.3](https://github.com/adrianiy/synth-ui/compare/v1.3.2...v1.3.3) (2021-03-30)
 
 
