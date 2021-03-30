@@ -3,15 +3,19 @@
   "globalParameters": {},
   "kindParameters": {
     "Components/List": {
-      "fileName": "./src/components/list/list.component.stories.mdx",
+      "fileName": "./src/components/list/list.stories.mdx",
       "framework": "html"
     },
-    "Services/Filters": {
-      "fileName": "./src/services/filters/filters.service.stories.mdx",
+    "Components/No Data": {
+      "fileName": "./src/components/no-data/no-data.stories.mdx",
+      "framework": "html"
+    },
+    "Components/Skeleton Loader": {
+      "fileName": "./src/components/skeleton-loader/sk-loader.stories.mdx",
       "framework": "html"
     },
     "Introduction": {
-      "fileName": "./src/stories/introduction.stories.mdx",
+      "fileName": "./src/stories/components.introduction.stories.mdx",
       "framework": "html"
     }
   },
@@ -43,14 +47,49 @@
         "__id": "components-list--no-data"
       }
     },
-    "services-filters--page": {
-      "id": "services-filters--page",
-      "name": "Page",
-      "kind": "Services/Filters",
-      "story": "Page",
+    "components-no-data--simple": {
+      "id": "components-no-data--simple",
+      "name": "Simple",
+      "kind": "Components/No Data",
+      "story": "Simple",
       "parameters": {
-        "docsOnly": true,
-        "__id": "services-filters--page"
+        "__id": "components-no-data--simple"
+      }
+    },
+    "components-no-data--complex": {
+      "id": "components-no-data--complex",
+      "name": "Complex",
+      "kind": "Components/No Data",
+      "story": "Complex",
+      "parameters": {
+        "__id": "components-no-data--complex"
+      }
+    },
+    "components-skeleton-loader--line": {
+      "id": "components-skeleton-loader--line",
+      "name": "Line",
+      "kind": "Components/Skeleton Loader",
+      "story": "Line",
+      "parameters": {
+        "__id": "components-skeleton-loader--line"
+      }
+    },
+    "components-skeleton-loader--multi-line": {
+      "id": "components-skeleton-loader--multi-line",
+      "name": "Multi line",
+      "kind": "Components/Skeleton Loader",
+      "story": "Multi line",
+      "parameters": {
+        "__id": "components-skeleton-loader--multi-line"
+      }
+    },
+    "components-skeleton-loader--custom-size": {
+      "id": "components-skeleton-loader--custom-size",
+      "name": "Custom size",
+      "kind": "Components/Skeleton Loader",
+      "story": "Custom size",
+      "parameters": {
+        "__id": "components-skeleton-loader--custom-size"
       }
     },
     "introduction--page": {
