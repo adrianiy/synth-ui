@@ -17,6 +17,6 @@ module.exports = {
         // Return the altered config
         return config;
     },
-    stories: [ '../src/**/*.stories.@(mdx|jsx|ts|tsx)' ],
+    stories: [ '../projects/synth-angular/**/*.stories.@(mdx|jsx|ts|tsx)' ],
     addons: [ '@storybook/addon-notes', '@storybook/addon-links', '@storybook/addon-essentials' ],
 };

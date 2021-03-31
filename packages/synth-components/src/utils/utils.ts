@@ -8,7 +8,7 @@ export function format(first: string, middle: string, last: string): string {
 const _getComponentClosestLanguage = (element: HTMLElement): string => {
     const closestElement = element.closest('[lang]') as HTMLElement;
 
-    return closestElement ? closestElement.lang : 'es';
+    return closestElement != null ? closestElement.lang : 'es';
 };
 
 const _fetchLocaleStringsForComponent = async (componentName: string, locale: string) => {

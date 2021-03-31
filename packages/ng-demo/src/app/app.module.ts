@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SynthComponentsModule, SynthServicesModule } from 'synth-angular/src';
+import { SynthComponentsModule, SynthServicesModule } from 'synth-angular';
 import { HomeComponent } from './components/home/home.component';
 import { environment } from '../environments/environment';
 import { fakeBackendProvider } from '../helpers/fake-backend';
@@ -22,7 +22,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [ AppComponent, HomeComponent ],
+    declarations: [AppComponent, HomeComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
@@ -33,11 +33,11 @@ export function createTranslateLoader(http: HttpClient) {
             loader: {
                 provide: TranslateLoader,
                 useFactory: createTranslateLoader,
-                deps: [ HttpClient ],
+                deps: [HttpClient],
             },
         }),
     ],
-    providers: [ fakeBackendProvider ],
-    bootstrap: [ AppComponent ],
+    providers: [fakeBackendProvider],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

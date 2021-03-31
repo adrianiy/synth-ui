@@ -4,6 +4,7 @@
     "packages/synth-components",
     "packages/synth-core",
     "packages/synth-angular",
+    "packages/synth-react",
     "packages/synth-docs",
     "packages/ng-demo"
   ],

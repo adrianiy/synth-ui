@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
     tag: 'synth-sk-loader',
@@ -12,8 +12,14 @@ export class SkeletonLoaderComponent {
     @Prop() height: number = 38;
 
     render() {
-        return Array(this.repetitions)
-            .fill(0)
-            .map(() => <div class="skeleton-loader" style={{ height: `${this.height}px` }} />);
+        return (
+            <Host>
+                {Array(this.repetitions)
+                    .fill(0)
+                    .map(() => (
+                        <div class="skeleton-loader" style={{ height: `${this.height}px` }} />
+                    ))}
+            </Host>
+        );
     }
 }

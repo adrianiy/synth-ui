@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, State } from '@stencil/core';
+import { Component, Host, Element, h, Prop, State } from '@stencil/core';
 import { Row } from './list.model';
 import { filterEmptyRows, sortList } from './utils/list';
 import { getLocaleComponentStrings } from '../../utils/utils';
@@ -34,7 +34,7 @@ export class ListComponent {
     /** Force component update if flag is true  */
     @Prop({ mutable: true }) update: boolean = false;
     /* Element reference */
-    @Element() element: HTMLElement;
+    @Element() element: HTMLSynthListElement;
     /* Sort value */
     @State() sort = 'default';
     /* Sort field */
@@ -73,20 +73,20 @@ export class ListComponent {
         }
     }
 
-    private _toggleShowAll() {
+    private _toggleShowAll = () => () => {
         this.showAll = !this.showAll;
-    }
+    };
 
-    private _changePage(page: number) {
+    private _changePage = (page: number) => () => {
         this.currentPage = page;
-    }
+    };
 
-    private _changeSort(sort: string, key: string) {
+    private _changeSort = (sort: string, key: string) => () => {
         this.sort = this.sort === sort ? 'default' : sort;
 
         this.sortField = key;
         this._parseData();
-    }
+    };
 
     private _parseData() {
         this._parsedList = this._setListConfig();
@@ -98,7 +98,7 @@ export class ListComponent {
     }
 
     private _filterListData() {
-        if (this.filterFields) {
+        if (this.filterFields != undefined) {
             this._setOriginalIndex();
 
             return filterEmptyRows(this.data, this.filterFields);
@@ -135,14 +135,14 @@ export class ListComponent {
                                 <em
                                     role="button"
                                     class={`material-icons ${!isDesc && isSortField && 'active'}`}
-                                    onClick={() => this._changeSort('asc', field)}
+                                    onClick={this._changeSort('asc', field)}
                                 >
                                     arrow_upward
                                 </em>
                                 <em
                                     role="button"
                                     class={`material-icons ${isDesc && isSortField && 'active'}`}
-                                    onClick={() => this._changeSort('desc', field)}
+                                    onClick={this._changeSort('desc', field)}
                                 >
                                     arrow_downward
                                 </em>
@@ -167,23 +167,26 @@ export class ListComponent {
     );
 
     private _renderPages() {
-        return this._pages.map((_, index) => (
-            <span
-                role="button"
-                class={`pagination__page ${this.currentPage === index && 'active'}`}
-                onClick={() => this._changePage(index)}
-            >
-                {index + 1}
-            </span>
-        ));
+        return (
+            !this.showAll &&
+            this._pages.map((_, index) => (
+                <span
+                    role="button"
+                    class={`pagination__page ${this.currentPage === index && 'active'}`}
+                    onClick={this._changePage(index)}
+                >
+                    {index + 1}
+                </span>
+            ))
+        );
     }
 
     private _renderPagination() {
         return (
             <RowLayout distribution={[ distributions.MIDDLE, distributions.SPACED ]} className="pagination__container">
-                <RowLayout className="pagination">{!this.showAll && this._renderPages()}</RowLayout>
+                <RowLayout className="pagination">{this._renderPages()}</RowLayout>
                 <RowLayout className="actions">
-                    <span class="view-all" onClick={() => this._toggleShowAll()}>
+                    <span class="view-all" onClick={this._toggleShowAll()}>
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>
                     {this.enableDownload && <em class="material-icons download">get_app</em>}
@@ -193,14 +196,21 @@ export class ListComponent {
     }
 
     private _renderLoading = () => {
-        return Array(this.limit + 1)
-            .fill(0)
-            .map(() => <synth-sk-loader />);
+        return (
+            <Host>
+                {Array(this.limit + 1)
+                    .fill(0)
+                    .map(() => (
+                        <synth-sk-loader />
+                    ))}
+            </Host>
+        );
     };
 
     private _renderNoData = () => <synth-no-data i18n={this._i18n} />;
 
     render() {
+        this.update = false;
         if (this.loading) {
             return this._renderLoading();
         }
