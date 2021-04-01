@@ -1,0 +1,1638 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Implementations",
+            "id": "interface-Implementations-18e8abde2d5b09bd4f6476d2448bb475",
+            "file": "projects/synth-angular/src/services/implementations.interface.ts",
+            "type": "interface",
+            "sourceCode": "import { SynthFilterService } from './filters/filters.service';\r\n\r\nexport interface Implementations {\r\n    /** implementation of filter service class **/\r\n    synthFilterService?: SynthFilterService | any;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "synthFilterService",
+                    "type": "SynthFilterService | any",
+                    "optional": true,
+                    "description": "<p>implementation of filter service class *</p>\n",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "SynthFilterService",
+            "id": "injectable-SynthFilterService-2db5f90e2641100b84450933029ec4ab",
+            "file": "projects/synth-angular/src/services/filters/filters.service.ts",
+            "properties": [
+                {
+                    "name": "initialize",
+                    "defaultValue": "actions.filters.initialize",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Action to trigger filter initialization </p>\n",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "dispatch",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "setScreen",
+                    "defaultValue": "actions.filters.setScreen",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Action to change screen name. This will be used in multi-screen\naps to set filter visibility, and get correct query filters</p>\n",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "dispatch",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "initializeFilters",
+                    "args": [
+                        {
+                            "name": "filterEntities",
+                            "type": "any",
+                            "defaultValue": "{}"
+                        },
+                        {
+                            "name": "screen",
+                            "type": "string",
+                            "defaultValue": "''"
+                        },
+                        {
+                            "name": "baseConfig",
+                            "type": "FiltersConfig",
+                            "defaultValue": "{}"
+                        },
+                        {
+                            "name": "initialFilters",
+                            "type": "any",
+                            "defaultValue": "{}"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "description": "<p>Initialize filters state.\nGet filters from localStorage and merge them with <strong>baseConfig</strong> and <strong>filterEntities</strong>.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 850,
+                                "end": 864,
+                                "flags": 0,
+                                "escapedText": "filterEntities"
+                            },
+                            "type": "any",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 844,
+                                "end": 849,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>set of filters received from DB</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 912,
+                                "end": 918,
+                                "flags": 0,
+                                "escapedText": "screen"
+                            },
+                            "type": "string",
+                            "defaultValue": "''",
+                            "tagName": {
+                                "pos": 906,
+                                "end": 911,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>current active screen</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 956,
+                                "end": 966,
+                                "flags": 0,
+                                "escapedText": "baseConfig"
+                            },
+                            "type": "FiltersConfig",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 950,
+                                "end": 955,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>basic filter structure</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 1005,
+                                "end": 1019,
+                                "flags": 0,
+                                "escapedText": "initialFilters"
+                            },
+                            "type": "any",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 999,
+                                "end": 1004,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>which filters should be active on first load</p>\n"
+                        }
+                    ]
+                }
+            ],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { dispatch } from '@angular-redux/store';\r\nimport { FiltersConfig } from 'synth-core/dist/models';\r\nimport { actions } from 'synth-core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Injectable()\r\nexport class SynthFilterService {\r\n    /**\r\n     * Action to change screen name. This will be used in multi-screen\r\n     * aps to set filter visibility, and get correct query filters\r\n     */\r\n    @dispatch() setScreen = actions.filters.setScreen;\r\n    /** Action to trigger filter initialization */\r\n    @dispatch() initialize = actions.filters.initialize;\r\n\r\n    constructor(protected _translate: TranslateService) {}\r\n\r\n    /**\r\n     * Initialize filters state.\r\n     * Get filters from localStorage and merge them with **baseConfig** and **filterEntities**.\r\n     *\r\n     * @param filterEntities set of filters received from DB\r\n     * @param screen current active screen\r\n     * @param baseConfig basic filter structure\r\n     * @param initialFilters which filters should be active on first load\r\n     */\r\n    initializeFilters(\r\n        filterEntities: any = {},\r\n        screen: string = '',\r\n        baseConfig: FiltersConfig = {},\r\n        initialFilters: any = {}\r\n    ) {\r\n        this.initialize(filterEntities, screen, baseConfig, initialFilters, (desc) => this._translate.instant(desc));\r\n    }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "_translate",
+                        "type": "TranslateService"
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "_translate",
+                        "type": "TranslateService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        }
+    ],
+    "classes": [
+        {
+            "name": "ValueAccessor",
+            "id": "class-ValueAccessor-fb30c323e6a381822de84c3e6e69d196",
+            "file": "projects/synth-angular/src/synth-directives/value-accessor.ts",
+            "type": "class",
+            "sourceCode": "import { ElementRef, HostListener } from '@angular/core';\r\nimport { ControlValueAccessor } from '@angular/forms';\r\n\r\nexport class ValueAccessor implements ControlValueAccessor {\r\n\r\n  private onChange: (value: any) => void = () => {/**/};\r\n  private onTouched: () => void = () => {/**/};\r\n  protected lastValue: any;\r\n\r\n  constructor(protected el: ElementRef) {}\r\n\r\n  writeValue(value: any) {\r\n    this.el.nativeElement.value = this.lastValue = value == null ? '' : value;\r\n  }\r\n\r\n  handleChangeEvent(value: any) {\r\n    if (value !== this.lastValue) {\r\n      this.lastValue = value;\r\n      this.onChange(value);\r\n    }\r\n  }\r\n\r\n  @HostListener('focusout')\r\n  _handleBlurEvent() {\r\n    this.onTouched();\r\n  }\r\n\r\n  registerOnChange(fn: (value: any) => void) {\r\n    this.onChange = fn;\r\n  }\r\n  registerOnTouched(fn: () => void) {\r\n    this.onTouched = fn;\r\n  }\r\n\r\n  setDisabledState(isDisabled: boolean) {\r\n    this.el.nativeElement.disabled = isDisabled;\r\n  }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 8,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "lastValue",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        113
+                    ]
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "handleChangeEvent",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "any"
+                                }
+                            ]
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "any"
+                                }
+                            ],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "focusout",
+                    "args": [],
+                    "argsDecorator": [],
+                    "line": 24
+                }
+            ],
+            "implements": [
+                "ControlValueAccessor"
+            ]
+        }
+    ],
+    "directives": [
+        {
+            "name": "BooleanValueAccessor",
+            "id": "directive-BooleanValueAccessor-f15794da4024530438f317a29e064156",
+            "file": "projects/synth-angular/src/synth-directives/boolean-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\n\r\nimport { ValueAccessor } from './value-accessor';\r\n\r\n@Directive({\r\n  /* tslint:disable-next-line:directive-selector */\r\n  selector: 'my-checkbox',\r\n  host: {\r\n    '(myChange)': 'handleChangeEvent($event.target.checked)'\r\n  },\r\n  providers: [\r\n    {\r\n      provide: NG_VALUE_ACCESSOR,\r\n      useExisting: BooleanValueAccessor,\r\n      multi: true\r\n    }\r\n  ]\r\n})\r\nexport class BooleanValueAccessor extends ValueAccessor {\r\n  constructor(el: ElementRef) {\r\n    super(el);\r\n  }\r\n  writeValue(value: any) {\r\n    this.el.nativeElement.checked = this.lastValue = value == null ? false : value;\r\n  }\r\n}\r\n",
+            "selector": "my-checkbox",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: BooleanValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "NumericValueAccessor",
+            "id": "directive-NumericValueAccessor-061e6f7ef5da3f3e622dc1188e54d53e",
+            "file": "projects/synth-angular/src/synth-directives/number-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\n\r\nimport { ValueAccessor } from './value-accessor';\r\n\r\n@Directive({\r\n  /* tslint:disable-next-line:directive-selector */\r\n  selector: 'my-input[type=number]',\r\n  host: {\r\n    '(myChange)': 'handleChangeEvent($event.target.value)'\r\n  },\r\n  providers: [\r\n    {\r\n      provide: NG_VALUE_ACCESSOR,\r\n      useExisting: NumericValueAccessor,\r\n      multi: true\r\n    }\r\n  ]\r\n})\r\nexport class NumericValueAccessor extends ValueAccessor {\r\n  constructor(el: ElementRef) {\r\n    super(el);\r\n  }\r\n  registerOnChange(fn: (_: number | null) => void) {\r\n    super.registerOnChange(value => {\r\n      fn(value === '' ? null : parseFloat(value));\r\n    });\r\n  }\r\n}\r\n",
+            "selector": "my-input[type=number]",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: NumericValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "_",
+                                    "type": "number | null"
+                                }
+                            ]
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "_",
+                                    "type": "number | null"
+                                }
+                            ],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "RadioValueAccessor",
+            "id": "directive-RadioValueAccessor-ac807a20546fee09030e0b132a7c1443",
+            "file": "projects/synth-angular/src/synth-directives/radio-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\n\r\nimport { ValueAccessor } from './value-accessor';\r\n\r\n@Directive({\r\n  /* tslint:disable-next-line:directive-selector */\r\n  selector: 'my-radio',\r\n  host: {\r\n    '(mySelect)': 'handleChangeEvent($event.target.checked)'\r\n  },\r\n  providers: [\r\n    {\r\n      provide: NG_VALUE_ACCESSOR,\r\n      useExisting: RadioValueAccessor,\r\n      multi: true\r\n    }\r\n  ]\r\n})\r\nexport class RadioValueAccessor extends ValueAccessor {\r\n  constructor(el: ElementRef) {\r\n    super(el);\r\n  }\r\n}\r\n",
+            "selector": "my-radio",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: RadioValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SelectValueAccessor",
+            "id": "directive-SelectValueAccessor-8ff352d8fb6c103c424f42eca7b45967",
+            "file": "projects/synth-angular/src/synth-directives/select-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\n\r\nimport { ValueAccessor } from './value-accessor';\r\n\r\n@Directive({\r\n  /* tslint:disable-next-line:directive-selector */\r\n  selector: 'my-range, my-radio-group',\r\n  host: {\r\n    '(myChange)': 'handleChangeEvent($event.target.value)'\r\n  },\r\n  providers: [\r\n    {\r\n      provide: NG_VALUE_ACCESSOR,\r\n      useExisting: SelectValueAccessor,\r\n      multi: true\r\n    }\r\n  ]\r\n})\r\nexport class SelectValueAccessor extends ValueAccessor {\r\n  constructor(el: ElementRef) {\r\n    super(el);\r\n  }\r\n}\r\n",
+            "selector": "my-range, my-radio-group",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: SelectValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TextValueAccessor",
+            "id": "directive-TextValueAccessor-dde95c6c351b9569344249a5a67f1c64",
+            "file": "projects/synth-angular/src/synth-directives/text-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\r\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\r\n\r\nimport { ValueAccessor } from './value-accessor';\r\n\r\n@Directive({\r\n  /* tslint:disable-next-line:directive-selector */\r\n  selector: 'my-input[type=text]',\r\n  host: {\r\n    '(myChange)': 'handleChangeEvent($event.target.value)'\r\n  },\r\n  providers: [\r\n    {\r\n      provide: NG_VALUE_ACCESSOR,\r\n      useExisting: TextValueAccessor,\r\n      multi: true\r\n    }\r\n  ]\r\n})\r\nexport class TextValueAccessor extends ValueAccessor {\r\n  constructor(el: ElementRef) {\r\n    super(el);\r\n  }\r\n}\r\n",
+            "selector": "my-input[type=text]",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: TextValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "ListComponent",
+            "id": "component-ListComponent-ea14f245f87c5545cc1197267eaf2a54",
+            "file": "projects/synth-angular/src/components/list/list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-ng-list",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "activeKpi",
+                    "description": "<p>Active kpi. it&#39;s going to be used to filter list data </p>\n",
+                    "line": 17,
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "description": "<p>Component data, this is going to be parsed internally </p>\n",
+                    "line": 15,
+                    "type": "Array<any>"
+                },
+                {
+                    "name": "decimals",
+                    "description": "<p>Flag to show decimals </p>\n",
+                    "line": 23,
+                    "type": "boolean"
+                },
+                {
+                    "name": "enableDownload",
+                    "description": "<p>Flag to enable data download as xlsx </p>\n",
+                    "line": 27,
+                    "type": "boolean"
+                },
+                {
+                    "name": "expandable",
+                    "description": "<p>Flag to set list as expandable </p>\n",
+                    "line": 25,
+                    "type": "boolean"
+                },
+                {
+                    "name": "fieldsConfig",
+                    "description": "<p><strong>!REQUIRED</strong> Field configuration used in parse process </p>\n",
+                    "line": 21,
+                    "type": "FieldsConfig[]"
+                },
+                {
+                    "name": "i18n",
+                    "description": "<p>i18n custom translations </p>\n",
+                    "line": 29,
+                    "type": "literal type"
+                },
+                {
+                    "name": "limit",
+                    "description": "<p>List row limit </p>\n",
+                    "line": 19,
+                    "type": "number"
+                },
+                {
+                    "name": "loading",
+                    "description": "<p>Load status </p>\n",
+                    "line": 11,
+                    "type": "boolean"
+                },
+                {
+                    "name": "title",
+                    "description": "<p>Component title </p>\n",
+                    "line": 13,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "_parseList",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 44,
+                    "description": "<p>If data exists and has length we will parse data</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 1412,
+                                "end": 1418,
+                                "flags": 0,
+                                "escapedText": "return"
+                            },
+                            "comment": "<p>A list with a format acepted by synth-list</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "description": "<p>Triggers on each input change </p>\n"
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnChanges } from '@angular/core';\r\nimport { FieldsConfig, Row } from 'synth-core/dist/models/list';\r\nimport { configRow } from 'synth-core/dist/utils';\r\n\r\n@Component({\r\n    selector: 'synth-ng-list',\r\n    templateUrl: './list.component.html',\r\n})\r\nexport class ListComponent implements OnChanges {\r\n    /** Load status */\r\n    @Input() loading: boolean;\r\n    /** Component title */\r\n    @Input() title: string;\r\n    /** Component data, this is going to be parsed internally */\r\n    @Input() data: Array<any>;\r\n    /** Active kpi. it's going to be used to filter list data */\r\n    @Input() activeKpi: string;\r\n    /** List row limit */\r\n    @Input() limit: number;\r\n    /** **!REQUIRED** Field configuration used in parse process */\r\n    @Input() fieldsConfig: FieldsConfig[];\r\n    /** Flag to show decimals */\r\n    @Input() decimals: boolean;\r\n    /** Flag to set list as expandable */\r\n    @Input() expandable: boolean;\r\n    /** Flag to enable data download as xlsx */\r\n    @Input() enableDownload: boolean;\r\n    /** i18n custom translations */\r\n    @Input() i18n: { [key: string]: string };\r\n\r\n    /** @ignore Result data that will be use as synth-list input */\r\n    public parsedData: Row[] = [];\r\n\r\n    /** Triggers on each input change */\r\n    ngOnChanges() {\r\n        this._parseList();\r\n    }\r\n\r\n    /**\r\n     * If data exists and has length we will parse data\r\n     *\r\n     * @return A list with a format acepted by synth-list\r\n     */\r\n    private _parseList() {\r\n        if (this.fieldsConfig && this.data) {\r\n            this.parsedData = this.data?.map(row => configRow(row, this.fieldsConfig)) || [];\r\n        }\r\n    }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<synth-title [titleText]=\"title\"></synth-title>\r\n<synth-list\r\n    [loading]=\"loading\"\r\n    [data]=\"parsedData\"\r\n    [filterFields]=\"activeKpi && [activeKpi]\"\r\n    [defaultSortField]=\"activeKpi\"\r\n    [decimals]=\"decimals\"\r\n    [expandable]=\"expandable\"\r\n    [limit]=\"limit\"\r\n    [enableDownload]=\"enableDownload\"\r\n    [i18n]=\"i18n\"\r\n></synth-list>\r\n"
+        },
+        {
+            "name": "SynthList",
+            "id": "component-SynthList-a9662b4d6cd07c898ae48fc361337636",
+            "file": "projects/synth-angular/src/synth-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "data",
+                "decimals",
+                "defaultSortField",
+                "enableDownload",
+                "expandable",
+                "filterFields",
+                "i18n",
+                "limit",
+                "loading",
+                "update"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-list",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\r\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\r\n\r\nimport { Components } from 'synth-components';\r\n\r\n\r\nexport declare interface SynthList extends Components.SynthList {}\r\n@ProxyCmp({\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\n@Component({\r\n  selector: 'synth-list',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\nexport class SynthList {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthListRow extends Components.SynthListRow {}\r\n@ProxyCmp({\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\n@Component({\r\n  selector: 'synth-list-row',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\nexport class SynthListRow {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthNoData extends Components.SynthNoData {}\r\n@ProxyCmp({\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\n@Component({\r\n  selector: 'synth-no-data',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\nexport class SynthNoData {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthSkLoader extends Components.SynthSkLoader {}\r\n@ProxyCmp({\r\n  inputs: ['height', 'repetitions']\r\n})\r\n@Component({\r\n  selector: 'synth-sk-loader',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['height', 'repetitions']\r\n})\r\nexport class SynthSkLoader {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthTitle extends Components.SynthTitle {}\r\n@ProxyCmp({\r\n  inputs: ['titleText']\r\n})\r\n@Component({\r\n  selector: 'synth-title',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['titleText']\r\n})\r\nexport class SynthTitle {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SynthListRow",
+            "id": "component-SynthListRow-a9662b4d6cd07c898ae48fc361337636",
+            "file": "projects/synth-angular/src/synth-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "expandable",
+                "i18n",
+                "isTotal",
+                "row"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-list-row",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 39,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\r\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\r\n\r\nimport { Components } from 'synth-components';\r\n\r\n\r\nexport declare interface SynthList extends Components.SynthList {}\r\n@ProxyCmp({\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\n@Component({\r\n  selector: 'synth-list',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\nexport class SynthList {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthListRow extends Components.SynthListRow {}\r\n@ProxyCmp({\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\n@Component({\r\n  selector: 'synth-list-row',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\nexport class SynthListRow {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthNoData extends Components.SynthNoData {}\r\n@ProxyCmp({\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\n@Component({\r\n  selector: 'synth-no-data',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\nexport class SynthNoData {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthSkLoader extends Components.SynthSkLoader {}\r\n@ProxyCmp({\r\n  inputs: ['height', 'repetitions']\r\n})\r\n@Component({\r\n  selector: 'synth-sk-loader',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['height', 'repetitions']\r\n})\r\nexport class SynthSkLoader {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthTitle extends Components.SynthTitle {}\r\n@ProxyCmp({\r\n  inputs: ['titleText']\r\n})\r\n@Component({\r\n  selector: 'synth-title',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['titleText']\r\n})\r\nexport class SynthTitle {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 39,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SynthNoData",
+            "id": "component-SynthNoData-a9662b4d6cd07c898ae48fc361337636",
+            "file": "projects/synth-angular/src/synth-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "bottomText",
+                "i18n",
+                "mode",
+                "text"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-no-data",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 58,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\r\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\r\n\r\nimport { Components } from 'synth-components';\r\n\r\n\r\nexport declare interface SynthList extends Components.SynthList {}\r\n@ProxyCmp({\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\n@Component({\r\n  selector: 'synth-list',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\nexport class SynthList {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthListRow extends Components.SynthListRow {}\r\n@ProxyCmp({\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\n@Component({\r\n  selector: 'synth-list-row',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\nexport class SynthListRow {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthNoData extends Components.SynthNoData {}\r\n@ProxyCmp({\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\n@Component({\r\n  selector: 'synth-no-data',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\nexport class SynthNoData {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthSkLoader extends Components.SynthSkLoader {}\r\n@ProxyCmp({\r\n  inputs: ['height', 'repetitions']\r\n})\r\n@Component({\r\n  selector: 'synth-sk-loader',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['height', 'repetitions']\r\n})\r\nexport class SynthSkLoader {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthTitle extends Components.SynthTitle {}\r\n@ProxyCmp({\r\n  inputs: ['titleText']\r\n})\r\n@Component({\r\n  selector: 'synth-title',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['titleText']\r\n})\r\nexport class SynthTitle {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 58,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SynthSkLoader",
+            "id": "component-SynthSkLoader-a9662b4d6cd07c898ae48fc361337636",
+            "file": "projects/synth-angular/src/synth-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "height",
+                "repetitions"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-sk-loader",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 77,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\r\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\r\n\r\nimport { Components } from 'synth-components';\r\n\r\n\r\nexport declare interface SynthList extends Components.SynthList {}\r\n@ProxyCmp({\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\n@Component({\r\n  selector: 'synth-list',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\nexport class SynthList {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthListRow extends Components.SynthListRow {}\r\n@ProxyCmp({\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\n@Component({\r\n  selector: 'synth-list-row',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\nexport class SynthListRow {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthNoData extends Components.SynthNoData {}\r\n@ProxyCmp({\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\n@Component({\r\n  selector: 'synth-no-data',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\nexport class SynthNoData {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthSkLoader extends Components.SynthSkLoader {}\r\n@ProxyCmp({\r\n  inputs: ['height', 'repetitions']\r\n})\r\n@Component({\r\n  selector: 'synth-sk-loader',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['height', 'repetitions']\r\n})\r\nexport class SynthSkLoader {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthTitle extends Components.SynthTitle {}\r\n@ProxyCmp({\r\n  inputs: ['titleText']\r\n})\r\n@Component({\r\n  selector: 'synth-title',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['titleText']\r\n})\r\nexport class SynthTitle {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 77,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SynthTitle",
+            "id": "component-SynthTitle-a9662b4d6cd07c898ae48fc361337636",
+            "file": "projects/synth-angular/src/synth-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "titleText"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "synth-title",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 96,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\r\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\r\n\r\nimport { Components } from 'synth-components';\r\n\r\n\r\nexport declare interface SynthList extends Components.SynthList {}\r\n@ProxyCmp({\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\n@Component({\r\n  selector: 'synth-list',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\r\n})\r\nexport class SynthList {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthListRow extends Components.SynthListRow {}\r\n@ProxyCmp({\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\n@Component({\r\n  selector: 'synth-list-row',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['expandable', 'i18n', 'isTotal', 'row']\r\n})\r\nexport class SynthListRow {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthNoData extends Components.SynthNoData {}\r\n@ProxyCmp({\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\n@Component({\r\n  selector: 'synth-no-data',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\r\n})\r\nexport class SynthNoData {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthSkLoader extends Components.SynthSkLoader {}\r\n@ProxyCmp({\r\n  inputs: ['height', 'repetitions']\r\n})\r\n@Component({\r\n  selector: 'synth-sk-loader',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['height', 'repetitions']\r\n})\r\nexport class SynthSkLoader {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n\r\n\r\nexport declare interface SynthTitle extends Components.SynthTitle {}\r\n@ProxyCmp({\r\n  inputs: ['titleText']\r\n})\r\n@Component({\r\n  selector: 'synth-title',\r\n  changeDetection: ChangeDetectionStrategy.OnPush,\r\n  template: '<ng-content></ng-content>',\r\n  inputs: ['titleText']\r\n})\r\nexport class SynthTitle {\r\n  protected el: HTMLElement;\r\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\r\n    c.detach();\r\n    this.el = r.nativeElement;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 96,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "modules": [
+        {
+            "name": "StoreModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SynthComponentsModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ListComponent"
+                        },
+                        {
+                            "name": "SynthList"
+                        },
+                        {
+                            "name": "SynthListRow"
+                        },
+                        {
+                            "name": "SynthNoData"
+                        },
+                        {
+                            "name": "SynthSkLoader"
+                        },
+                        {
+                            "name": "SynthTitle"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "StoreModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ListComponent"
+                        },
+                        {
+                            "name": "SynthList"
+                        },
+                        {
+                            "name": "SynthListRow"
+                        },
+                        {
+                            "name": "SynthNoData"
+                        },
+                        {
+                            "name": "SynthSkLoader"
+                        },
+                        {
+                            "name": "SynthTitle"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SynthServicesModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "DECLARATIONS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/synth-angular/src/synth-angular.module.ts",
+                "type": "[]",
+                "defaultValue": "[\r\n    // proxies\r\n    SynthList,\r\n    SynthListRow,\r\n    SynthNoData,\r\n    SynthTitle,\r\n    SynthSkLoader,\r\n    // components\r\n    ListComponent,\r\n]"
+            },
+            {
+                "name": "proxyInputs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(Cmp: any, inputs: string[]) => {\r\n  const Prototype = Cmp.prototype;\r\n  inputs.forEach((item) => {\r\n    Object.defineProperty(Prototype, item, {\r\n      get() {\r\n        return this.el[item];\r\n      },\r\n      set(val: any) {\r\n        this.z.runOutsideAngular(() => (this.el[item] = val));\r\n      },\r\n    });\r\n  });\r\n}"
+            },
+            {
+                "name": "proxyMethods",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(Cmp: any, methods: string[]) => {\r\n  const Prototype = Cmp.prototype;\r\n  methods.forEach((methodName) => {\r\n    Prototype[methodName] = function () {\r\n      const args = arguments;\r\n      return this.z.runOutsideAngular(() => this.el[methodName].apply(this.el, args));\r\n    };\r\n  });\r\n}"
+            },
+            {
+                "name": "proxyOutputs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(instance: any, el: any, events: string[]) => {\r\n  events.forEach((eventName) => (instance[eventName] = fromEvent(el, eventName)));\r\n}"
+            }
+        ],
+        "functions": [
+            {
+                "name": "ProxyCmp",
+                "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "opts"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "opts",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/synth-angular/src/synth-angular.module.ts": [
+                {
+                    "name": "DECLARATIONS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/synth-angular/src/synth-angular.module.ts",
+                    "type": "[]",
+                    "defaultValue": "[\r\n    // proxies\r\n    SynthList,\r\n    SynthListRow,\r\n    SynthNoData,\r\n    SynthTitle,\r\n    SynthSkLoader,\r\n    // components\r\n    ListComponent,\r\n]"
+                }
+            ],
+            "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts": [
+                {
+                    "name": "proxyInputs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(Cmp: any, inputs: string[]) => {\r\n  const Prototype = Cmp.prototype;\r\n  inputs.forEach((item) => {\r\n    Object.defineProperty(Prototype, item, {\r\n      get() {\r\n        return this.el[item];\r\n      },\r\n      set(val: any) {\r\n        this.z.runOutsideAngular(() => (this.el[item] = val));\r\n      },\r\n    });\r\n  });\r\n}"
+                },
+                {
+                    "name": "proxyMethods",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(Cmp: any, methods: string[]) => {\r\n  const Prototype = Cmp.prototype;\r\n  methods.forEach((methodName) => {\r\n    Prototype[methodName] = function () {\r\n      const args = arguments;\r\n      return this.z.runOutsideAngular(() => this.el[methodName].apply(this.el, args));\r\n    };\r\n  });\r\n}"
+                },
+                {
+                    "name": "proxyOutputs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(instance: any, el: any, events: string[]) => {\r\n  events.forEach((eventName) => (instance[eventName] = fromEvent(el, eventName)));\r\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts": [
+                {
+                    "name": "ProxyCmp",
+                    "file": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "opts"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "opts",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 10,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/synth-angular/src/components/list/list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListComponent",
+                "coveragePercent": 92,
+                "coverageCount": "12/13",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/synth-angular/src/services/filters/filters.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "SynthFilterService",
+                "coveragePercent": 60,
+                "coverageCount": "3/5",
+                "status": "good"
+            },
+            {
+                "filePath": "projects/synth-angular/src/services/implementations.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Implementations",
+                "coveragePercent": 50,
+                "coverageCount": "1/2",
+                "status": "medium"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-angular.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DECLARATIONS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "ProxyCmp",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyInputs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyMethods",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyOutputs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/boolean-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "BooleanValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/number-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "NumericValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SynthList",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SynthListRow",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SynthNoData",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SynthSkLoader",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SynthTitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/radio-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "RadioValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/select-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "SelectValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/text-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "TextValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/synth-angular/src/synth-directives/value-accessor.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            }
+        ]
+    }
+}

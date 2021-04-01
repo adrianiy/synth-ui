@@ -54,16 +54,16 @@ interface Props {
     i18n?: { [key: string]: string };
 }
 
-//SynthReactList.defaultProps = {
-//loading: true,
-//title: '',
-//data: [],
-//limit: undefined,
-//activeKpi: undefined,
-//fieldsConfig: [],
-//decimals: true,
-//expandable: false,
-//enableDownload: false,
-//} as Props;
+SynthReactList.defaultProps = {
+    loading: true,
+    title: '',
+    data: [],
+    limit: undefined,
+    activeKpi: undefined,
+    fieldsConfig: [],
+    decimals: true,
+    expandable: false,
+    enableDownload: false,
+} as Props;
 
 export default SynthReactList;
