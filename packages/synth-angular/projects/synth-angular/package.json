@@ -6,9 +6,7 @@
         "@angular/core": "^10.1.6"
     },
     "dependencies": {
-        "tslib": "^2.0.0",
-        "synth-components": "*",
-        "synth-core": "*"
+        "tslib": "^2.0.0"
     }
 }
 

@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { applyPolyfills, defineCustomElements } from 'synth-components/loader';
+import { setup } from 'synth-react';
 
-applyPolyfills().then(() => {
-    defineCustomElements();
-});
+setup();
 
 ReactDOM.render(
     <React.StrictMode>

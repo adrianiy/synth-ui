@@ -16,7 +16,6 @@ export default {
         babel({
             exclude: 'node_modules/**',
         }),
-        del({ targets: ['dist/*'] }),
         copy({
             targets: [{ src: './node_modules/synth-components/dist/assets', dest: 'dist' }],
             verbose: true,

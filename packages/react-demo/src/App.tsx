@@ -22,8 +22,6 @@ function App() {
     ];
     const data = getListData();
 
-    console.log(process.env.PUBLIC_URL + '/assets/list.i18n.en.json');
-
     return (
         <div className="App">
             <div className="list">

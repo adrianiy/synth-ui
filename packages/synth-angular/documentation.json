@@ -1337,7 +1337,7 @@
                 "subtype": "variable",
                 "file": "projects/synth-angular/src/synth-angular.module.ts",
                 "type": "[]",
-                "defaultValue": "[\r\n  // proxies\r\n  SynthList,\r\n  SynthListRow,\r\n  SynthNoData,\r\n  SynthTitle,\r\n  SynthSkLoader,\r\n  // components\r\n  ListComponent,\r\n]"
+                "defaultValue": "[\r\n    // proxies\r\n    SynthList,\r\n    SynthListRow,\r\n    SynthNoData,\r\n    SynthTitle,\r\n    SynthSkLoader,\r\n    // components\r\n    ListComponent,\r\n]"
             },
             {
                 "name": "proxyInputs",
@@ -1396,7 +1396,7 @@
                     "subtype": "variable",
                     "file": "projects/synth-angular/src/synth-angular.module.ts",
                     "type": "[]",
-                    "defaultValue": "[\r\n  // proxies\r\n  SynthList,\r\n  SynthListRow,\r\n  SynthNoData,\r\n  SynthTitle,\r\n  SynthSkLoader,\r\n  // components\r\n  ListComponent,\r\n]"
+                    "defaultValue": "[\r\n    // proxies\r\n    SynthList,\r\n    SynthListRow,\r\n    SynthNoData,\r\n    SynthTitle,\r\n    SynthSkLoader,\r\n    // components\r\n    ListComponent,\r\n]"
                 }
             ],
             "projects/synth-angular/src/synth-directives/angular-component-lib/utils.ts": [

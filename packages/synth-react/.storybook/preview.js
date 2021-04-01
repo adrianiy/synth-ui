@@ -1,4 +1,4 @@
-import { applyPolyfills, defineCustomElements } from 'synth-components/loader';
+import { applyPolyfills, defineCustomElements } from 'synth-components/dist/loader';
 import 'synth-components/dist/synth-components/synth-components.css';
 
 applyPolyfills().then(() => {
