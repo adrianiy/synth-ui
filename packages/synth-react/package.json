@@ -6,6 +6,7 @@
     "module": "dist/index.esm.js",
     "typings": "dist/index.d.ts",
     "source": "src/index.tsx",
+    "description": "Wrapper of web components for react",
     "dependencies": {
         "@storybook/preset-create-react-app": "^3.1.7",
         "@testing-library/jest-dom": "^5.11.4",
