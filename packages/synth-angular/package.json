@@ -13,6 +13,7 @@
         "creevey": "creevey --extract && move-file stories.json ./../../docs/angular/stories.json",
         "lint": "eslint --ext ts,html --fix"
     },
+    "description": "Wrapper of web components for angular",
     "private": true,
     "main": "dist/synth-angular/bundles/synth-angular.umd.js",
     "module": "dist/synth-angular/fesm2015/synth-angular.js",

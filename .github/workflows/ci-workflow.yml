@@ -22,4 +22,3 @@ jobs:
         yarn
         yarn lint
         yarn build
-        yarn build:docs
