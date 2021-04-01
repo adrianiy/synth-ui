@@ -15,10 +15,10 @@ import { distributions, RowLayout } from '../../../../utils/layout';
 import { numeralFormat } from '../../../../utils/utils';
 export class RowComponent {
   constructor() {
-    /* i18n object with translations */
+    /** i18n object with translations */
     this.i18n = {};
     this._renderRow = (row = this.row) => {
-      return (h("tr", { role: "button", class: this._getRowClass(), onClick: () => this.expandable && this._expandRow() },
+      return (h("tr", { role: "button", class: this._getRowClass(), onClick: this._expandRow },
         h("td", null,
           h(RowLayout, { distribution: distributions.MIDDLE },
             this.expandable && h("em", { class: "material-icons" }, "expand_more"),
@@ -28,7 +28,11 @@ export class RowComponent {
           .map(field => this._renderCell(row[field]))));
     };
   }
-  _expandRow() { }
+  _expandRow() {
+    if (this.expandable) {
+      // TODO implement expand logic
+    }
+  }
   _getRowClass() {
     return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
   }
@@ -72,7 +76,7 @@ export class RowComponent {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "row data"
       }
     },
     "isTotal": {
@@ -87,7 +91,7 @@ export class RowComponent {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "total flag"
       },
       "attribute": "is-total",
       "reflect": false
@@ -104,7 +108,7 @@ export class RowComponent {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "expandable flag"
       },
       "attribute": "expandable",
       "reflect": false
@@ -121,7 +125,7 @@ export class RowComponent {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "i18n object with translations"
       },
       "attribute": "i-1-8n",
       "reflect": false,

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const index = require('./index-9cd48f3f.js');
+const index = require('./index-0e1768ec.js');
 
 const filterEmptyRows = (list, fields) => {
   return list.filter((row) => fields.every((field) => row[field]));
@@ -1047,12 +1047,12 @@ return numeral;
 
 const _getComponentClosestLanguage = (element) => {
   const closestElement = element.closest('[lang]');
-  return closestElement ? closestElement.lang : 'es';
+  return closestElement != null ? closestElement.lang : 'es';
 };
 const _fetchLocaleStringsForComponent = async (componentName, locale) => {
   try {
-    const assetPath = '../assets/i18n';
-    return (await fetch(`${assetPath}/${componentName}.i18n.${locale}.json`)).json();
+    const path = index.getAssetPath('../assets/i18n');
+    return (await fetch(`${path}/${componentName}.i18n.${locale}.json`)).json();
   }
   catch (e) {
     return {};
@@ -1165,18 +1165,29 @@ const ListComponent = class {
     this._parsedList = [];
     this._isMobile = false;
     this._pages = [];
+    this._toggleShowAll = () => () => {
+      this.showAll = !this.showAll;
+    };
+    this._changePage = (page) => () => {
+      this.currentPage = page;
+    };
+    this._changeSort = (sort, key) => () => {
+      this.sort = this.sort === sort ? 'default' : sort;
+      this.sortField = key;
+      this._parseData();
+    };
     this._renderTable = () => (index.h("table", null, index.h("thead", null, index.h("th", null), this._fields.map(field => {
       const isDesc = this.sort === 'desc';
       const isSortField = this.sortField === field;
-      return (index.h("th", null, index.h(RowLayout, { className: "nowrap", distribution: distributions.RIGHT }, this._i18n[field] || field, index.h("em", { role: "button", class: `material-icons ${!isDesc && isSortField && 'active'}`, onClick: () => this._changeSort('asc', field) }, "arrow_upward"), index.h("em", { role: "button", class: `material-icons ${isDesc && isSortField && 'active'}`, onClick: () => this._changeSort('desc', field) }, "arrow_downward"))));
+      return (index.h("th", null, index.h(RowLayout, { className: "nowrap", distribution: distributions.RIGHT }, this._i18n[field] || field, index.h("em", { role: "button", class: `material-icons ${!isDesc && isSortField && 'active'}`, onClick: this._changeSort('asc', field) }, "arrow_upward"), index.h("em", { role: "button", class: `material-icons ${isDesc && isSortField && 'active'}`, onClick: this._changeSort('desc', field) }, "arrow_downward"))));
     })), this._parsedList[0]._isTotal && (index.h("synth-list-row", { row: this._parsedList[0], isTotal: true, expandable: this.expandable, i18n: this._i18n })), this._parsedList
       .slice(this._parsedList[0]._isTotal ? 1 : 0)
       .slice(this.showAll ? 0 : this.currentPage * this.limit, this.showAll ? undefined : (this.currentPage + 1) * this.limit)
       .map(row => (index.h("synth-list-row", { row: row, isTotal: row._isTotal, expandable: this.expandable, i18n: this._i18n })))));
     this._renderLoading = () => {
-      return Array(this.limit + 1)
+      return (index.h(index.Host, null, Array(this.limit + 1)
         .fill(0)
-        .map(() => index.h("synth-sk-loader", null));
+        .map(() => (index.h("synth-sk-loader", null)))));
     };
     this._renderNoData = () => index.h("synth-no-data", { i18n: this._i18n });
   }
@@ -1200,17 +1211,6 @@ const ListComponent = class {
       this.limit = this._isMobile ? RESPONSIVE_LIMIT : LIMIT;
     }
   }
-  _toggleShowAll() {
-    this.showAll = !this.showAll;
-  }
-  _changePage(page) {
-    this.currentPage = page;
-  }
-  _changeSort(sort, key) {
-    this.sort = this.sort === sort ? 'default' : sort;
-    this.sortField = key;
-    this._parseData();
-  }
   _parseData() {
     this._parsedList = this._setListConfig();
     this._pages = Array(Math.round(this._parsedList.length / this.limit)).fill(0);
@@ -1219,7 +1219,7 @@ const ListComponent = class {
     return this._sortListData(this._filterListData(), this.sortField);
   }
   _filterListData() {
-    if (this.filterFields) {
+    if (this.filterFields != undefined) {
       this._setOriginalIndex();
       return filterEmptyRows(this.data, this.filterFields);
     }
@@ -1238,12 +1238,14 @@ const ListComponent = class {
     this.data.forEach((row, index) => (row['_originalIndex'] = index));
   }
   _renderPages() {
-    return this._pages.map((_, index$1) => (index.h("span", { role: "button", class: `pagination__page ${this.currentPage === index$1 && 'active'}`, onClick: () => this._changePage(index$1) }, index$1 + 1)));
+    return (!this.showAll &&
+      this._pages.map((_, index$1) => (index.h("span", { role: "button", class: `pagination__page ${this.currentPage === index$1 && 'active'}`, onClick: this._changePage(index$1) }, index$1 + 1))));
   }
   _renderPagination() {
-    return (index.h(RowLayout, { distribution: [distributions.MIDDLE, distributions.SPACED], className: "pagination__container" }, index.h(RowLayout, { className: "pagination" }, !this.showAll && this._renderPages()), index.h(RowLayout, { className: "actions" }, index.h("span", { class: "view-all", onClick: () => this._toggleShowAll() }, this._i18n[this.showAll ? 'viewless' : 'viewmore']), this.enableDownload && index.h("em", { class: "material-icons download" }, "get_app"))));
+    return (index.h(RowLayout, { distribution: [distributions.MIDDLE, distributions.SPACED], className: "pagination__container" }, index.h(RowLayout, { className: "pagination" }, this._renderPages()), index.h(RowLayout, { className: "actions" }, index.h("span", { class: "view-all", onClick: this._toggleShowAll() }, this._i18n[this.showAll ? 'viewless' : 'viewmore']), this.enableDownload && index.h("em", { class: "material-icons download" }, "get_app"))));
   }
   render() {
+    this.update = false;
     if (this.loading) {
       return this._renderLoading();
     }
@@ -1310,15 +1312,16 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
 const RowComponent = class {
   constructor(hostRef) {
     index.registerInstance(this, hostRef);
-    /* i18n object with translations */
+    /** i18n object with translations */
     this.i18n = {};
     this._renderRow = (row = this.row) => {
-      return (index.h("tr", { role: "button", class: this._getRowClass(), onClick: () => this.expandable && this._expandRow() }, index.h("td", null, index.h(RowLayout, { distribution: distributions.MIDDLE }, this.expandable && index.h("em", { class: "material-icons" }, "expand_more"), index.h("span", null, this.i18n[row.name] || row.name))), Object.keys(row)
+      return (index.h("tr", { role: "button", class: this._getRowClass(), onClick: this._expandRow }, index.h("td", null, index.h(RowLayout, { distribution: distributions.MIDDLE }, this.expandable && index.h("em", { class: "material-icons" }, "expand_more"), index.h("span", null, this.i18n[row.name] || row.name))), Object.keys(row)
         .filter(field => !field.startsWith('_') && field !== 'name')
         .map(field => this._renderCell(row[field]))));
     };
   }
-  _expandRow() { }
+  _expandRow() {
+  }
   _getRowClass() {
     return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
   }
@@ -1382,9 +1385,9 @@ const SkeletonLoaderComponent = class {
     this.height = 38;
   }
   render() {
-    return Array(this.repetitions)
+    return (index.h(index.Host, null, Array(this.repetitions)
       .fill(0)
-      .map(() => index.h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } }));
+      .map(() => (index.h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } })))));
   }
 };
 SkeletonLoaderComponent.style = skLoaderCss;

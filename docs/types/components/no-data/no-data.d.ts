@@ -9,7 +9,7 @@ export declare class NoDataComponent {
   i18n: {
     [key: string]: string;
   };
-  element: HTMLElement;
+  element: HTMLSynthNoDataElement;
   private _i18n;
   componentWillLoad(): Promise<void>;
   private _simpleRender;

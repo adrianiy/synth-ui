@@ -22,6 +22,10 @@ module.exports = {
                     title: 'Angular',
                     url: 'http://localhost:6008',
                 },
+                react: {
+                    title: 'React',
+                    url: 'http://localhost:6009',
+                },
             };
         }
         return {
@@ -32,6 +36,10 @@ module.exports = {
             angular: {
                 title: 'Angular',
                 url: '/synth-ui/angular',
+            },
+            react: {
+                title: 'React',
+                url: '/react',
             },
         };
     },

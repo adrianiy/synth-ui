@@ -1,15 +1,16 @@
+import { getAssetPath } from '@stencil/core';
 import numeral from 'numeral';
 export function format(first, middle, last) {
   return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 const _getComponentClosestLanguage = (element) => {
   const closestElement = element.closest('[lang]');
-  return closestElement ? closestElement.lang : 'es';
+  return closestElement != null ? closestElement.lang : 'es';
 };
 const _fetchLocaleStringsForComponent = async (componentName, locale) => {
   try {
-    const assetPath = '../assets/i18n';
-    return (await fetch(`${assetPath}/${componentName}.i18n.${locale}.json`)).json();
+    const path = getAssetPath('../assets/i18n');
+    return (await fetch(`${path}/${componentName}.i18n.${locale}.json`)).json();
   }
   catch (e) {
     return {};

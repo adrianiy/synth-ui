@@ -50,9 +50,21 @@ export namespace Components {
         "update": boolean;
     }
     interface SynthListRow {
+        /**
+          * expandable flag
+         */
         "expandable": boolean;
+        /**
+          * i18n object with translations
+         */
         "i18n": any;
+        /**
+          * total flag
+         */
         "isTotal": boolean;
+        /**
+          * row data
+         */
         "row": Row;
     }
     interface SynthNoData {
@@ -84,6 +96,9 @@ export namespace Components {
         "repetitions": number;
     }
     interface SynthTitle {
+        /**
+          * title text
+         */
         "titleText": string;
     }
 }
@@ -170,9 +185,21 @@ declare namespace LocalJSX {
         "update"?: boolean;
     }
     interface SynthListRow {
+        /**
+          * expandable flag
+         */
         "expandable"?: boolean;
+        /**
+          * i18n object with translations
+         */
         "i18n"?: any;
+        /**
+          * total flag
+         */
         "isTotal"?: boolean;
+        /**
+          * row data
+         */
         "row"?: Row;
     }
     interface SynthNoData {
@@ -204,6 +231,9 @@ declare namespace LocalJSX {
         "repetitions"?: number;
     }
     interface SynthTitle {
+        /**
+          * title text
+         */
         "titleText"?: string;
     }
     interface IntrinsicElements {

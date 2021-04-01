@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 export class SkeletonLoaderComponent {
   constructor() {
     /** Number of loader lines that will be rendered */
@@ -7,9 +7,9 @@ export class SkeletonLoaderComponent {
     this.height = 38;
   }
   render() {
-    return Array(this.repetitions)
+    return (h(Host, null, Array(this.repetitions)
       .fill(0)
-      .map(() => h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } }));
+      .map(() => (h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } })))));
   }
   static get is() { return "synth-sk-loader"; }
   static get encapsulation() { return "shadow"; }

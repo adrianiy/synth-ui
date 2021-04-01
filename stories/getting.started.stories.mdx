@@ -38,6 +38,18 @@ Choose a implementations that matches your favourite framework!
   yarn
 ```
 
+To make **react-demo** work locally you'll need to simlink `react` and `react-dom` deps between **react-demo** and **synth-react** so they use the same exact version.
+
+```bash
+cd packages/react-demo/node_modules/react
+npm link
+cd ../react-dom
+npm link
+cd ../../synth-react
+npm link react
+npm link react-dom
+```
+
 ### Run
 
 These are the reserved ports for each app:
@@ -45,8 +57,10 @@ These are the reserved ports for each app:
 - **Docs**: 6006
     - ***WebComponents***: 6007
     - ***Angular***: 6008
+    - ***React***: 6009
 - **WebComponents**: 3333
 - **Angular**: 4200
+- **React**: 3000
 
 #### Run everything
 
@@ -60,7 +74,7 @@ The documentation will be visible at `localhost:6006` and will trigger `hmr` eve
 
 #### Run only framework implementations 
 
-If you need to test components within a framework implementation we recommend you to execute `npm start` on root folder.
+If you need to test how web components are implemented in frameworks we recommend you to execute `yarn start:front`.
 This script will open all frameworks syncronized in different ports, so if you change something in a higher layer framework or in the core
 the demo application should trigger a `hmr` reload.
 
@@ -68,11 +82,27 @@ the demo application should trigger a `hmr` reload.
   yarn start:front
 ```
 
+
 #### Run only documentation 
 
 If you are going to modify docs only you should try this lightweighted script.
 
 ```bash
   yarn start:docs
+```
+
+#### Run by framework
+
+You can run any package script by framework, let lerna do the job using `lerna run --scoped=*{fwk}* --parallel`.
+You can type something like:
+
+```bash
+yarn react start
+```
+
+or
+
+```bash
+yarn angular build
 ```
 

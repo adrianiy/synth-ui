@@ -24,7 +24,7 @@ export class TitleComponent {
       "optional": false,
       "docs": {
         "tags": [],
-        "text": ""
+        "text": "title text"
       },
       "attribute": "title-text",
       "reflect": false

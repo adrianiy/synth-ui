@@ -1,5 +1,5 @@
 {
-  "extends": "../src/tsconfig.lib.json",
+  "extends": "../projects/synth-angular/tsconfig.lib.json",
   "compilerOptions": {
     "skipLibCheck": true,
     "types": [
@@ -7,13 +7,11 @@
     ]
   },
   "exclude": [
-    "../src/test.ts",
-    "../src/**/*.spec.ts",
-    "../projects/**/*.spec.ts"
+    "../projects/synth-angular/src/test.ts",
+    "../projects/synth-angular/src/**/*.spec.ts"
   ],
   "include": [
-    "../src/**/*",
-    "../projects/**/*"
+    "../projects/synth-angular/src/**/*"
   ],
   "files": [
     "./typings.d.ts"

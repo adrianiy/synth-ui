@@ -10,16 +10,20 @@ import { Cell, Row } from '../../list.model';
     shadow: false,
 })
 export class RowComponent {
-    /* row data */
+    /** row data */
     @Prop() row: Row;
-    /* total flag */
+    /**  total flag */
     @Prop() isTotal: boolean;
-    /* expandable flag */
+    /** expandable flag */
     @Prop() expandable: boolean;
-    /* i18n object with translations */
+    /** i18n object with translations */
     @Prop() i18n: any = {};
 
-    private _expandRow() {}
+    private _expandRow() {
+        if (this.expandable) {
+            // TODO implement expand logic
+        }
+    }
 
     private _getRowClass() {
         return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
@@ -35,7 +39,7 @@ export class RowComponent {
 
     private _renderRow = (row = this.row) => {
         return (
-            <tr role="button" class={this._getRowClass()} onClick={() => this.expandable && this._expandRow()}>
+            <tr role="button" class={this._getRowClass()} onClick={this._expandRow}>
                 <td>
                     <RowLayout distribution={distributions.MIDDLE}>
                         {this.expandable && <em class="material-icons">expand_more</em>}

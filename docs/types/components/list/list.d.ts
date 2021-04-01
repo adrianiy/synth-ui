@@ -22,7 +22,7 @@ export declare class ListComponent {
   enableDownload: boolean;
   /** Force component update if flag is true  */
   update: boolean;
-  element: HTMLElement;
+  element: HTMLSynthListElement;
   sort: string;
   sortField: string;
   currentPage: number;

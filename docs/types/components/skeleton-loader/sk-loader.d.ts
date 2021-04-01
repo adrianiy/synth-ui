@@ -3,5 +3,5 @@ export declare class SkeletonLoaderComponent {
   repetitions: number;
   /** Height of loader line */
   height: number;
-  render(): any[];
+  render(): any;
 }

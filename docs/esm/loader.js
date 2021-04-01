@@ -1,4 +1,4 @@
-import { p as promiseResolve, b as bootstrapLazy } from './index-409737c9.js';
+import { p as promiseResolve, b as bootstrapLazy } from './index-1382ced4.js';
 
 /*
  Stencil Client Patch Esm v2.5.2 | MIT Licensed | https://stenciljs.com

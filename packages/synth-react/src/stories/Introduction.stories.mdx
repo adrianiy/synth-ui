@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# SynthUI-React-Components
+#### React library implemented over webComponents
+
+This library allow to share logic across Drive React applications. Developers do not need to care about how components interact with application state, or how they
+transform raw data into usable components.
+
+## Install
+
+🚧 The library is not currently published
+
+## Use
+
+To use this React library simply import components where you want to use them.
+
+```javascript
+import { SynthReactList } from 'synth-react';
+
+...
+
+    return (
+        <div className="App">
+            <div className="list">
+                <SynthReactList title={'List'} limit={3} data={data} fieldsConfig={fieldsConfig} />
+            </div>
+        </div>
+    );
+...
+```
+
+## Local Development
+
+Execute
+
+
+```bash
+yarn react start:docs
+```
+
+You'll have react docs available on port *6009*.
+
+### Using demo playground
+
+```bash
+yarn react start
+```
+
+You'll have a react application running on port *3000*

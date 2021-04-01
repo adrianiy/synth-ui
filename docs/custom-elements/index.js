@@ -1,4 +1,4 @@
-import { h, attachShadow, Host, proxyCustomElement } from '@stencil/core/internal/client';
+import { getAssetPath, h, attachShadow, Host, proxyCustomElement } from '@stencil/core/internal/client';
 export { setAssetPath, setPlatformOptions } from '@stencil/core/internal/client';
 
 const filterEmptyRows = (list, fields) => {
@@ -1044,12 +1044,12 @@ return numeral;
 
 const _getComponentClosestLanguage = (element) => {
   const closestElement = element.closest('[lang]');
-  return closestElement ? closestElement.lang : 'es';
+  return closestElement != null ? closestElement.lang : 'es';
 };
 const _fetchLocaleStringsForComponent = async (componentName, locale) => {
   try {
-    const assetPath = '../assets/i18n';
-    return (await fetch(`${assetPath}/${componentName}.i18n.${locale}.json`)).json();
+    const path = getAssetPath('../assets/i18n');
+    return (await fetch(`${path}/${componentName}.i18n.${locale}.json`)).json();
   }
   catch (e) {
     return {};
@@ -1164,18 +1164,29 @@ const ListComponent = class extends HTMLElement {
     this._parsedList = [];
     this._isMobile = false;
     this._pages = [];
+    this._toggleShowAll = () => () => {
+      this.showAll = !this.showAll;
+    };
+    this._changePage = (page) => () => {
+      this.currentPage = page;
+    };
+    this._changeSort = (sort, key) => () => {
+      this.sort = this.sort === sort ? 'default' : sort;
+      this.sortField = key;
+      this._parseData();
+    };
     this._renderTable = () => (h("table", null, h("thead", null, h("th", null), this._fields.map(field => {
       const isDesc = this.sort === 'desc';
       const isSortField = this.sortField === field;
-      return (h("th", null, h(RowLayout, { className: "nowrap", distribution: distributions.RIGHT }, this._i18n[field] || field, h("em", { role: "button", class: `material-icons ${!isDesc && isSortField && 'active'}`, onClick: () => this._changeSort('asc', field) }, "arrow_upward"), h("em", { role: "button", class: `material-icons ${isDesc && isSortField && 'active'}`, onClick: () => this._changeSort('desc', field) }, "arrow_downward"))));
+      return (h("th", null, h(RowLayout, { className: "nowrap", distribution: distributions.RIGHT }, this._i18n[field] || field, h("em", { role: "button", class: `material-icons ${!isDesc && isSortField && 'active'}`, onClick: this._changeSort('asc', field) }, "arrow_upward"), h("em", { role: "button", class: `material-icons ${isDesc && isSortField && 'active'}`, onClick: this._changeSort('desc', field) }, "arrow_downward"))));
     })), this._parsedList[0]._isTotal && (h("synth-list-row", { row: this._parsedList[0], isTotal: true, expandable: this.expandable, i18n: this._i18n })), this._parsedList
       .slice(this._parsedList[0]._isTotal ? 1 : 0)
       .slice(this.showAll ? 0 : this.currentPage * this.limit, this.showAll ? undefined : (this.currentPage + 1) * this.limit)
       .map(row => (h("synth-list-row", { row: row, isTotal: row._isTotal, expandable: this.expandable, i18n: this._i18n })))));
     this._renderLoading = () => {
-      return Array(this.limit + 1)
+      return (h(Host, null, Array(this.limit + 1)
         .fill(0)
-        .map(() => h("synth-sk-loader", null));
+        .map(() => (h("synth-sk-loader", null)))));
     };
     this._renderNoData = () => h("synth-no-data", { i18n: this._i18n });
   }
@@ -1199,17 +1210,6 @@ const ListComponent = class extends HTMLElement {
       this.limit = this._isMobile ? RESPONSIVE_LIMIT : LIMIT;
     }
   }
-  _toggleShowAll() {
-    this.showAll = !this.showAll;
-  }
-  _changePage(page) {
-    this.currentPage = page;
-  }
-  _changeSort(sort, key) {
-    this.sort = this.sort === sort ? 'default' : sort;
-    this.sortField = key;
-    this._parseData();
-  }
   _parseData() {
     this._parsedList = this._setListConfig();
     this._pages = Array(Math.round(this._parsedList.length / this.limit)).fill(0);
@@ -1218,7 +1218,7 @@ const ListComponent = class extends HTMLElement {
     return this._sortListData(this._filterListData(), this.sortField);
   }
   _filterListData() {
-    if (this.filterFields) {
+    if (this.filterFields != undefined) {
       this._setOriginalIndex();
       return filterEmptyRows(this.data, this.filterFields);
     }
@@ -1237,12 +1237,14 @@ const ListComponent = class extends HTMLElement {
     this.data.forEach((row, index) => (row['_originalIndex'] = index));
   }
   _renderPages() {
-    return this._pages.map((_, index) => (h("span", { role: "button", class: `pagination__page ${this.currentPage === index && 'active'}`, onClick: () => this._changePage(index) }, index + 1)));
+    return (!this.showAll &&
+      this._pages.map((_, index) => (h("span", { role: "button", class: `pagination__page ${this.currentPage === index && 'active'}`, onClick: this._changePage(index) }, index + 1))));
   }
   _renderPagination() {
-    return (h(RowLayout, { distribution: [distributions.MIDDLE, distributions.SPACED], className: "pagination__container" }, h(RowLayout, { className: "pagination" }, !this.showAll && this._renderPages()), h(RowLayout, { className: "actions" }, h("span", { class: "view-all", onClick: () => this._toggleShowAll() }, this._i18n[this.showAll ? 'viewless' : 'viewmore']), this.enableDownload && h("em", { class: "material-icons download" }, "get_app"))));
+    return (h(RowLayout, { distribution: [distributions.MIDDLE, distributions.SPACED], className: "pagination__container" }, h(RowLayout, { className: "pagination" }, this._renderPages()), h(RowLayout, { className: "actions" }, h("span", { class: "view-all", onClick: this._toggleShowAll() }, this._i18n[this.showAll ? 'viewless' : 'viewmore']), this.enableDownload && h("em", { class: "material-icons download" }, "get_app"))));
   }
   render() {
+    this.update = false;
     if (this.loading) {
       return this._renderLoading();
     }
@@ -1310,15 +1312,16 @@ const RowComponent = class extends HTMLElement {
   constructor() {
     super();
     this.__registerHost();
-    /* i18n object with translations */
+    /** i18n object with translations */
     this.i18n = {};
     this._renderRow = (row = this.row) => {
-      return (h("tr", { role: "button", class: this._getRowClass(), onClick: () => this.expandable && this._expandRow() }, h("td", null, h(RowLayout, { distribution: distributions.MIDDLE }, this.expandable && h("em", { class: "material-icons" }, "expand_more"), h("span", null, this.i18n[row.name] || row.name))), Object.keys(row)
+      return (h("tr", { role: "button", class: this._getRowClass(), onClick: this._expandRow }, h("td", null, h(RowLayout, { distribution: distributions.MIDDLE }, this.expandable && h("em", { class: "material-icons" }, "expand_more"), h("span", null, this.i18n[row.name] || row.name))), Object.keys(row)
         .filter(field => !field.startsWith('_') && field !== 'name')
         .map(field => this._renderCell(row[field]))));
     };
   }
-  _expandRow() { }
+  _expandRow() {
+  }
   _getRowClass() {
     return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
   }
@@ -1386,9 +1389,9 @@ const SkeletonLoaderComponent = class extends HTMLElement {
     this.height = 38;
   }
   render() {
-    return Array(this.repetitions)
+    return (h(Host, null, Array(this.repetitions)
       .fill(0)
-      .map(() => h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } }));
+      .map(() => (h("div", { class: "skeleton-loader", style: { height: `${this.height}px` } })))));
   }
   static get style() { return skLoaderCss; }
 };

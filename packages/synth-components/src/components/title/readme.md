@@ -9,7 +9,7 @@
 
 | Property    | Attribute    | Description | Type     | Default     |
 | ----------- | ------------ | ----------- | -------- | ----------- |
-| `titleText` | `title-text` |             | `string` | `undefined` |
+| `titleText` | `title-text` | title text  | `string` | `undefined` |
 
 
 ----------------------------------------------
