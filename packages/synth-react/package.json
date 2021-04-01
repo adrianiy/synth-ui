@@ -4,6 +4,7 @@
     "private": true,
     "main": "dist/index.cjs.js",
     "module": "dist/index.esm.js",
+    "typings": "dist/index.d.ts",
     "source": "src/index.tsx",
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.4",
@@ -29,7 +30,7 @@
     },
     "scripts": {
         "start": "rollup -c -w",
-        "build": "rollup -c",
+        "build": "rollup -c && tsc",
         "build:watch": "rollup -c -w",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
@@ -62,6 +63,7 @@
         "@rollup/plugin-babel": "^5.3.0",
         "@types/prop-types": "^15.7.3",
         "rollup": "^2.44.0",
+        "rollup-plugin-copy": "^3.4.0",
         "rollup-plugin-delete": "^2.0.0",
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-typescript2": "^0.30.0"
