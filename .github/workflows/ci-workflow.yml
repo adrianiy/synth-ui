@@ -22,6 +22,3 @@ jobs:
         yarn
         yarn lint
         yarn build
-      env:
-        CI: true
-        PROJECT_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}

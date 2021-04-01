@@ -31,11 +31,11 @@ module.exports = {
         return {
             webComponents: {
                 title: 'Web Components',
-                url: '/webcomponents',
+                url: '/synth-ui/webcomponents',
             },
             angular: {
                 title: 'Angular',
-                url: '/angular',
+                url: '/synth-ui/angular',
             },
             react: {
                 title: 'React',

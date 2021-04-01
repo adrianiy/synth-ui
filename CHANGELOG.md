@@ -1,9 +1,41 @@
-## [1.2.1](https://github.com/adrianiy/synth-ui/compare/v1.2.0...v1.2.1) (2021-03-29)
+# [1.4.0](https://github.com/adrianiy/synth-ui/compare/v1.3.3...v1.4.0) (2021-03-30)
+
+
+### Features
+
+* **docs:** add basic README ([0687893](https://github.com/adrianiy/synth-ui/commit/06878933d9fa561643e7b3a2dfa367d90b2bc0da))
+
+## [1.3.3](https://github.com/adrianiy/synth-ui/compare/v1.3.2...v1.3.3) (2021-03-30)
 
 
 ### Bug Fixes
 
-* **angular:** use shared list utils from synth-core ([#31](https://github.com/adrianiy/synth-ui/issues/31)) ([1760297](https://github.com/adrianiy/synth-ui/commit/1760297801ff1161be97bced6e328631bb60e4b1))
+* **docs:** upload doc folder. It is needed for gh-pages deployment ([252a973](https://github.com/adrianiy/synth-ui/commit/252a9730e0cb17f1355f9d76b7bb294510fa1dfa))
+
+## [1.3.2](https://github.com/adrianiy/synth-ui/compare/v1.3.1...v1.3.2) (2021-03-30)
+
+### Bug Fixes
+
+-   **core:** use creevey on pre-commit ([84253a0](https://github.com/adrianiy/synth-ui/commit/84253a041d65f90927e201b0cc3516286a9397bb))
+-   **docs:** generate docs on build ([dbfea52](https://github.com/adrianiy/synth-ui/commit/dbfea52d473cca006b772a210530532a5fbcf2ce))
+
+## [1.3.1](https://github.com/adrianiy/synth-ui/compare/v1.3.0...v1.3.1) (2021-03-30)
+
+### Bug Fixes
+
+-   **doc:** fix gh-pages submodule path ([98c3ccb](https://github.com/adrianiy/synth-ui/commit/98c3ccb65ffa322ec8c6a78de26abc559adac3fc))
+
+# [1.3.0](https://github.com/adrianiy/synth-ui/compare/v1.2.1...v1.3.0) (2021-03-30)
+
+### Features
+
+-   **docs:** add angular documentation ([#32](https://github.com/adrianiy/synth-ui/issues/32)) ([afa2885](https://github.com/adrianiy/synth-ui/commit/afa288599d53e1a4dc9fb07a8ff9f03981754c7b))
+
+## [1.2.1](https://github.com/adrianiy/synth-ui/compare/v1.2.0...v1.2.1) (2021-03-29)
+
+### Bug Fixes
+
+-   **angular:** use shared list utils from synth-core ([#31](https://github.com/adrianiy/synth-ui/issues/31)) ([1760297](https://github.com/adrianiy/synth-ui/commit/1760297801ff1161be97bced6e328631bb60e4b1))
 
 # [1.2.0](https://github.com/adrianiy/synth-ui/compare/v1.1.0...v1.2.0) (2021-03-29)
 
