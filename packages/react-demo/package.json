@@ -22,7 +22,6 @@
   "scripts": {
     "start": "npm run cpy-assets && react-scripts start",
     "cpy-assets": "ncp ./node_modules/synth-react/dist/assets public/assets",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
