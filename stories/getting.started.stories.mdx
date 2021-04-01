@@ -38,6 +38,18 @@ Choose a implementations that matches your favourite framework!
   yarn
 ```
 
+To make **react-demo** work locally you'll need to simlink `react` and `react-dom` deps between **react-demo** and **synth-react** so they use the same exact version.
+
+```bash
+cd packages/react-demo/node_modules/react
+npm link
+cd ../react-dom
+npm link
+cd ../../synth-react
+npm link react
+npm link react-dom
+```
+
 ### Run
 
 These are the reserved ports for each app:
