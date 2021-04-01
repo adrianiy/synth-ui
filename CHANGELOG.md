@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/adrianiy/synth-ui/compare/v1.4.0...v1.5.0) (2021-04-01)
+
+
+### Bug Fixes
+
+* **core:** fix eslint. fix react+angular libraries ([14bf47f](https://github.com/adrianiy/synth-ui/commit/14bf47f9ede4288d32e5d4b8cf04214b35bb936e))
+* **core:** simplify run scripts using multiscoped runs ([3d3b1c7](https://github.com/adrianiy/synth-ui/commit/3d3b1c7b5d32b33faa7ed1a2228ce519ace9ec22))
+
+
+### Features
+
+* **docs:** add react docs ([3871751](https://github.com/adrianiy/synth-ui/commit/387175130d3070f3a84848db324580c32bba9420))
+* **react:** add react demo ([2fb6986](https://github.com/adrianiy/synth-ui/commit/2fb6986da3fb10616843050bfdc0bd60096f96dc))
+
 # [1.4.0](https://github.com/adrianiy/synth-ui/compare/v1.3.3...v1.4.0) (2021-03-30)
 
 
