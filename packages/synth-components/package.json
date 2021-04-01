@@ -20,12 +20,13 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:docs": "build-storybook --quiet -o ./../../storybook-static/webcomponents && npm run creevey",
-    "creevey": "creevey --extract && move-file stories.json ./../../storybook-static/webcomponents/stories.json",
+    "build:docs": "build-storybook --quiet -o ./../../docs/webcomponents && npm run creevey",
+    "creevey": "creevey --extract && move-file stories.json ./../../docs/webcomponents/stories.json",
     "lint": "eslint src/**/*{.ts,.tsx} --fix"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
+    "@storybook/addon-postcss": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "numeral": "^2.0.6"
   },

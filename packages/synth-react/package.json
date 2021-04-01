@@ -7,6 +7,7 @@
     "typings": "dist/index.d.ts",
     "source": "src/index.tsx",
     "dependencies": {
+        "@storybook/preset-create-react-app": "^3.1.7",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
@@ -15,12 +16,13 @@
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
         "npm-run-all": "^4.1.5",
+        "progress-bar-webpack-plugin": "^2.1.0",
         "prop-types": "^15.7.2",
         "react-redux": "^7.2.3",
         "react-scripts": "4.0.3",
         "redux": "^4.0.5",
-        "synth-components": "1.1.0",
-        "synth-core": "1.1.0",
+        "synth-components": "*",
+        "synth-core": "*",
         "typescript": "^4.1.2",
         "web-vitals": "^1.0.1"
     },
@@ -34,7 +36,10 @@
         "build:watch": "rollup -c -w",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "eslint src/**/*.{ts,tsx} --fix --resolve-plugins-relative-to ."
+        "lint": "eslint src/**/*.{ts,tsx} --fix --resolve-plugins-relative-to .",
+        "start:docs": "start-storybook -p 6009 --quiet --no-manager-cache -s ./../synth-components/dist",
+        "build:docs": "build-storybook --quiet -o ./../../docs/react && npm run creevey",
+        "creevey": "creevey --extract && move-file stories.json ./../../docs/react/stories.json"
     },
     "eslintConfig": {
         "extends": [
@@ -61,7 +66,12 @@
         "@babel/preset-react": "^7.13.13",
         "@babel/preset-typescript": "^7.13.0",
         "@rollup/plugin-babel": "^5.3.0",
+        "@storybook/addon-actions": "^6.2.1",
+        "@storybook/addon-essentials": "^6.2.1",
+        "@storybook/addon-links": "^6.2.1",
+        "@storybook/react": "^6.2.1",
         "@types/prop-types": "^15.7.3",
+        "babel-loader": "^8.2.2",
         "rollup": "^2.44.0",
         "rollup-plugin-copy": "^3.4.0",
         "rollup-plugin-delete": "^2.0.0",

@@ -4,4 +4,6 @@ import SynthReactList from './wrappers/list/list';
 
 export * from './components';
 
+export * from 'synth-core';
+
 export { SynthReactList };

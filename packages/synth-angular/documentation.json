@@ -650,7 +650,7 @@
     "components": [
         {
             "name": "ListComponent",
-            "id": "component-ListComponent-7026aa4a6701a057c4ada827475417e4",
+            "id": "component-ListComponent-c685a6bd45a05563f73fd836cea83f48",
             "file": "projects/synth-angular/src/components/list/list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -702,6 +702,12 @@
                     "type": "FieldsConfig[]"
                 },
                 {
+                    "name": "i18n",
+                    "description": "<p>i18n custom translations </p>\n",
+                    "line": 29,
+                    "type": "literal type"
+                },
+                {
                     "name": "limit",
                     "description": "<p>List row limit </p>\n",
                     "line": 19,
@@ -729,7 +735,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 44,
                     "description": "<p>If data exists and has length we will parse data</p>\n",
                     "modifierKind": [
                         112
@@ -737,8 +743,8 @@
                     "jsdoctags": [
                         {
                             "tagName": {
-                                "pos": 1289,
-                                "end": 1295,
+                                "pos": 1371,
+                                "end": 1377,
                                 "flags": 0,
                                 "escapedText": "return"
                             },
@@ -752,7 +758,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 33,
+                    "line": 35,
                     "description": "<p>Triggers on each input change </p>\n"
                 }
             ],
@@ -761,14 +767,14 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnChanges } from '@angular/core';\nimport { FieldsConfig, Row } from 'synth-core/dist/models/list';\nimport { configRow } from 'synth-core/dist/utils';\n\n@Component({\n    selector: 'synth-ng-list',\n    templateUrl: './list.component.html',\n})\nexport class ListComponent implements OnChanges {\n    /** Load status */\n    @Input() loading: boolean;\n    /** Component title */\n    @Input() title: string;\n    /** Component data, this is going to be parsed internally */\n    @Input() data: Array<any>;\n    /** Active kpi. it's going to be used to filter list data */\n    @Input() activeKpi: string;\n    /** List row limit */\n    @Input() limit: number;\n    /** **!REQUIRED** Field configuration used in parse process */\n    @Input() fieldsConfig: FieldsConfig[];\n    /** Flag to show decimals */\n    @Input() decimals: boolean;\n    /** Flag to set list as expandable */\n    @Input() expandable: boolean;\n    /** Flag to enable data download as xlsx */\n    @Input() enableDownload: boolean;\n\n    /** @ignore Result data that will be use as synth-list input */\n    public parsedData: Row[] = [];\n\n    /** Triggers on each input change */\n    ngOnChanges() {\n        this._parseList();\n    }\n\n    /**\n     * If data exists and has length we will parse data\n     *\n     * @return A list with a format acepted by synth-list\n     */\n    private _parseList() {\n        if (this.fieldsConfig && this.data) {\n            this.parsedData = this.data?.map((row) => configRow(row, this.fieldsConfig)) || [];\n        }\n    }\n}\n",
+            "sourceCode": "import { Component, Input, OnChanges } from '@angular/core';\nimport { FieldsConfig, Row } from 'synth-core/dist/models/list';\nimport { configRow } from 'synth-core/dist/utils';\n\n@Component({\n    selector: 'synth-ng-list',\n    templateUrl: './list.component.html',\n})\nexport class ListComponent implements OnChanges {\n    /** Load status */\n    @Input() loading: boolean;\n    /** Component title */\n    @Input() title: string;\n    /** Component data, this is going to be parsed internally */\n    @Input() data: Array<any>;\n    /** Active kpi. it's going to be used to filter list data */\n    @Input() activeKpi: string;\n    /** List row limit */\n    @Input() limit: number;\n    /** **!REQUIRED** Field configuration used in parse process */\n    @Input() fieldsConfig: FieldsConfig[];\n    /** Flag to show decimals */\n    @Input() decimals: boolean;\n    /** Flag to set list as expandable */\n    @Input() expandable: boolean;\n    /** Flag to enable data download as xlsx */\n    @Input() enableDownload: boolean;\n    /** i18n custom translations */\n    @Input() i18n: { [key: string]: string };\n\n    /** @ignore Result data that will be use as synth-list input */\n    public parsedData: Row[] = [];\n\n    /** Triggers on each input change */\n    ngOnChanges() {\n        this._parseList();\n    }\n\n    /**\n     * If data exists and has length we will parse data\n     *\n     * @return A list with a format acepted by synth-list\n     */\n    private _parseList() {\n        if (this.fieldsConfig && this.data) {\n            this.parsedData = this.data?.map(row => configRow(row, this.fieldsConfig)) || [];\n        }\n    }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<synth-title [titleText]=\"title\"></synth-title>\r\n<synth-list\r\n    [loading]=\"loading\"\r\n    [data]=\"parsedData\"\r\n    [filterFields]=\"activeKpi && [activeKpi]\"\r\n    [defaultSortField]=\"activeKpi\"\r\n    [decimals]=\"decimals\"\r\n    [expandable]=\"expandable\"\r\n    [limit]=\"limit\"\r\n    [enableDownload]=\"enableDownload\"\r\n></synth-list>\r\n"
+            "templateData": "<synth-title [titleText]=\"title\"></synth-title>\r\n<synth-list\r\n    [loading]=\"loading\"\r\n    [data]=\"parsedData\"\r\n    [filterFields]=\"activeKpi && [activeKpi]\"\r\n    [defaultSortField]=\"activeKpi\"\r\n    [decimals]=\"decimals\"\r\n    [expandable]=\"expandable\"\r\n    [limit]=\"limit\"\r\n    [enableDownload]=\"enableDownload\"\r\n    [i18n]=\"i18n\"\r\n></synth-list>\r\n"
         },
         {
             "name": "SynthList",
@@ -1457,8 +1463,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ListComponent",
-                "coveragePercent": 91,
-                "coverageCount": "11/12",
+                "coveragePercent": 92,
+                "coverageCount": "12/13",
                 "status": "very-good"
             },
             {

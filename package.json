@@ -8,14 +8,14 @@
     "start:subdocs": "lerna run start:docs --parallel",
     "docs:base": "wait-on -c wait-on.json && start-storybook --quiet -p 6006 --no-manager-cache",
     "build": "lerna run build --stream",
-    "build:docs": "build-storybook --quiet -s ./packages/synth-components/dist",
+    "build:docs": "build-storybook --quiet -s ./packages/synth-components/dist -o ./docs",
     "postbuild:docs": "npm run creevey && lerna run build:docs --parallel",
     "postinstall": "npm run bootstrap",
     "publish:docs": "npx chromatic --storybook-build-dir storybook-static --skip --project-token $PROJECT_TOKEN",
     "bootstrap": "lerna bootstrap",
     "lint": "lerna run lint --parallel",
     "link": "lerna link",
-    "creevey": "creevey --extract && move-file stories.json storybook-static/stories.json"
+    "creevey": "creevey --extract && move-file stories.json docs/stories.json"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",

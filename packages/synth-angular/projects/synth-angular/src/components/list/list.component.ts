@@ -25,6 +25,8 @@ export class ListComponent implements OnChanges {
     @Input() expandable: boolean;
     /** Flag to enable data download as xlsx */
     @Input() enableDownload: boolean;
+    /** i18n custom translations */
+    @Input() i18n: { [key: string]: string };
 
     /** @ignore Result data that will be use as synth-list input */
     public parsedData: Row[] = [];
@@ -41,7 +43,7 @@ export class ListComponent implements OnChanges {
      */
     private _parseList() {
         if (this.fieldsConfig && this.data) {
-            this.parsedData = this.data?.map((row) => configRow(row, this.fieldsConfig)) || [];
+            this.parsedData = this.data?.map(row => configRow(row, this.fieldsConfig)) || [];
         }
     }
 }
