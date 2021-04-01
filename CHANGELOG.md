@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/adrianiy/synth-ui/compare/v1.5.0...v1.6.0) (2021-04-01)
+
+
+### Features
+
+* **docs:** Publish docs on gh-pages branch on CI ([7f92ed9](https://github.com/adrianiy/synth-ui/commit/7f92ed91fe4296e7ea73523e47e896554b9a3cf8))
+
 # [1.5.0](https://github.com/adrianiy/synth-ui/compare/v1.4.0...v1.5.0) (2021-04-01)
 
 
