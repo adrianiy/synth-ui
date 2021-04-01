@@ -39,7 +39,7 @@ module.exports = {
             },
             react: {
                 title: 'React',
-                url: '/react',
+                url: '/synth-ui/react',
             },
         };
     },
