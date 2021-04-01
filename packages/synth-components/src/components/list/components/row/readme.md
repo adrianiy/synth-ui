@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `expandable` | `expandable` |             | `boolean` | `undefined` |
-| `i18n`       | `i-1-8n`     |             | `any`     | `{}`        |
-| `isTotal`    | `is-total`   |             | `boolean` | `undefined` |
-| `row`        | --           |             | `Row`     | `undefined` |
+| Property     | Attribute    | Description                   | Type      | Default     |
+| ------------ | ------------ | ----------------------------- | --------- | ----------- |
+| `expandable` | `expandable` | expandable flag               | `boolean` | `undefined` |
+| `i18n`       | `i-1-8n`     | i18n object with translations | `any`     | `{}`        |
+| `isTotal`    | `is-total`   | total flag                    | `boolean` | `undefined` |
+| `row`        | --           | row data                      | `Row`     | `undefined` |
 
 
 ## Dependencies
@@ -30,4 +30,4 @@ graph TD;
 
 ----------------------------------------------
 
-*Built with [StencilJS](https://stenciljs.com/)*
+

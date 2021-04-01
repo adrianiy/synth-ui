@@ -6,7 +6,7 @@ import { Component, h, Prop } from '@stencil/core';
     shadow: true,
 })
 export class TitleComponent {
-    /* title text */
+    /** title text */
     @Prop() titleText: string;
 
     render() {

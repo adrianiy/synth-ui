@@ -1,26 +1,25 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "src",
-        "emitDecoratorMetadata": true,
-        "removeComments": false,
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "resolveJsonModule": true,
-        "noImplicitAny": false,
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "es2020",
-        "lib": ["dom", "es6", "es2019", "es2018", "es2015"],
-        "typeRoots": [
-          "node_modules/@types"
-        ]
-    },
-    "files": [ "src/index.ts"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "synth-angular": [
+        "dist/synth-angular/synth-angular",
+        "dist/synth-angular"
+      ]
+    }
+  }
 }

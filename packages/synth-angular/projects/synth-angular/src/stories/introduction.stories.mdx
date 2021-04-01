@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# SynthUI-Angular-Components
+#### Angular library implemented over webComponents
+
+This library allow to share logic across Drive Angular applications. Developers do not need to care about how components interact with application state, or how they
+transform raw data into usable components.
+
+## Install
+
+🚧 The library is not currently published
+
+## Use
+
+To use it as Angular Component library, simply import modules in app.module so you can use in all your app.
+
+You can import Services module too, this will inject some common services in root (use `forRoot()`).
+This needs an `environment` variable as first argument, this will be used by services to get environment app variables.
+
+```javascript
+import { SynthComponentsModule, SynthServicesModule } from 'synth-angular';
+
+@NgModule({
+    declarations: [ ... ],
+    imports: [
+        ...
+        SynthComponentsModule,
+        SynthServicesModule.forRoot(environment),
+        ...
+    ],
+    providers: [ ... ],
+    bootstrap: [ ... ],
+})
+export class AppModule {}
+```
+
+### Custom services implementations
+
+The second argument of `SynthServicesModule.forRoot()` is an object of classes to inject your custom services implementations in root.
+
+You can create a custom class that extends FilterService
+
+```javascript
+import { Injectable } from '@angular/core';
+import { SynthFilterService } from 'synth-angular'
+
+@Injectable()
+export class CustomFiltersServie extends SynthFilterService {
+  constructor(...) {
+    super(...)
+  }
+
+  // this is an extended method
+  initializeFilters(...) {
+    super.initializeFilters(...);
+    // Custom filters initialization logic
+  }
+
+  // this is a new method
+  customMethod() {
+    // this is a custom method
+  }
+}
+```
+
+Now you can pass an object to `forRoot` informed with your custom implementations
+
+```javascript
+import { SynthComponentsModule, SynthServicesModule } from 'synth-angular';
+
+@NgModule({
+    declarations: [ ... ],
+    imports: [
+        ...
+        SynthServicesModule.forRoot(environment, { synthFilterService: CustomFiltersServie }),
+        ...
+    ],
+    providers: [ ... ],
+    bootstrap: [ ... ],
+})
+export class AppModule {}
+```
+
+
+## Local Development
+
+Execute
+
+### Using docs
+
+```bash
+yarn angular start:docs
+```
+
+You'll have angular docs available on port *6008*.
+
+### Using demo playground
+
+```bash
+yarn angular start
+```
+
+You'll have an angular application running on port *4200*.
