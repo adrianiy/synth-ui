@@ -17,15 +17,15 @@ export class RowComponent {
     @Prop() expandable: boolean;
     /** i18n object with translations */
     @Prop() i18n: any = {};
+    /** expand row callback */
+    @Prop() expandHandle: (row: Row) => () => any;
+    /** Render fields */
+    @Prop() fields: string[];
 
-    private _expandRow() {
-        if (this.expandable) {
-            // TODO implement expand logic
-        }
-    }
-
-    private _getRowClass() {
-        return `${this.isTotal && 'total'} ${!this.expandable && 'child-disabled'} ${this.row._expanded && 'expanded'}`;
+    private _getRowClass(child = false) {
+        return `${this.isTotal && 'total'} ${child && 'child'} ${!this.expandable && 'child-disabled'} ${
+            this.row._expanded && 'expanded'
+        }`;
     }
 
     private _renderCell(cell: Cell) {
@@ -41,7 +41,7 @@ export class RowComponent {
                 {actions.map(action => (
                     <RowLayout
                         className="row-action"
-                        distribution={[ distributions.MIDDLE, distributions.SPACED ]}
+                        distribution={[distributions.MIDDLE, distributions.SPACED]}
                         onClick={action.action}
                     >
                         <span>{action.title}</span>
@@ -58,7 +58,7 @@ export class RowComponent {
                 <div class="row-action__wrapper">
                     <RowLayout
                         className="row-action__container"
-                        distribution={[ distributions.MIDDLE, distributions.CENTER ]}
+                        distribution={[distributions.MIDDLE, distributions.CENTER]}
                     >
                         {actions.length === 1 ? (
                             <em class="row-action material-icons" onClick={actions[0].action}>
@@ -74,25 +74,32 @@ export class RowComponent {
         }
     }
 
-    private _renderRow = (row = this.row) => {
+    private _renderRow = (row = this.row, child = false) => {
+        if (row._loading) {
+            return (
+                <tr class={this._getRowClass(child)}>
+                    <td colSpan={this.fields.length + 1} class="loader">
+                        <synth-sk-loader />
+                    </td>
+                </tr>
+            );
+        }
         return (
-            <tr role="button" class={this._getRowClass()} onClick={this._expandRow}>
+            <tr role="button" class={this._getRowClass(child)} onClick={this.expandHandle(row)}>
                 <td>
                     <RowLayout distribution={distributions.MIDDLE}>
-                        {this.expandable && <em class="material-icons">expand_more</em>}
+                        {this.expandable && !child && <em class="material-icons">expand_more</em>}
                         <span>{this.i18n[row.name] || row.name}</span>
                     </RowLayout>
                 </td>
-                {Object.keys(row)
-                    .filter(field => !field.startsWith('_') && field !== 'name')
-                    .map(field => this._renderCell(row[field]))}
+                {this.fields.map(field => this._renderCell(row[field]))}
                 {this._renderActions(row._actions)}
             </tr>
         );
     };
 
     private _renderChildren() {
-        return this.row._expanded && this.row._children?.map(this._renderRow);
+        return this.row._children?.map(child => this._renderRow(child, true));
     }
 
     render() {

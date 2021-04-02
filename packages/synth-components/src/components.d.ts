@@ -51,9 +51,17 @@ export namespace Components {
     }
     interface SynthListRow {
         /**
+          * expand row callback
+         */
+        "expandHandle": (row: Row) => () => any;
+        /**
           * expandable flag
          */
         "expandable": boolean;
+        /**
+          * Render fields
+         */
+        "fields": string[];
         /**
           * i18n object with translations
          */
@@ -186,9 +194,17 @@ declare namespace LocalJSX {
     }
     interface SynthListRow {
         /**
+          * expand row callback
+         */
+        "expandHandle"?: (row: Row) => () => any;
+        /**
           * expandable flag
          */
         "expandable"?: boolean;
+        /**
+          * Render fields
+         */
+        "fields"?: string[];
         /**
           * i18n object with translations
          */

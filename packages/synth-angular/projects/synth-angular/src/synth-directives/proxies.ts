@@ -27,13 +27,13 @@ export class SynthList {
 
 export declare interface SynthListRow extends Components.SynthListRow {}
 @ProxyCmp({
-  inputs: ['expandable', 'i18n', 'isTotal', 'row']
+  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']
 })
 @Component({
   selector: 'synth-list-row',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['expandable', 'i18n', 'isTotal', 'row']
+  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']
 })
 export class SynthListRow {
   protected el: HTMLElement;

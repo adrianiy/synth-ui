@@ -17,6 +17,7 @@ export interface BaseRow {
     _isTotal?: boolean;
     _expanded?: boolean;
     _originalIndex?: number;
+    _loading?: boolean;
     _actions?: RowAction[];
     [key: string]: Cell | any;
 }

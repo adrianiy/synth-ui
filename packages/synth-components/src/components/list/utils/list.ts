@@ -2,18 +2,6 @@ import { getGrowthColor } from '../../../utils/color.utils';
 import { numeralFormat } from '../../../utils/utils';
 import { Cell, Row } from '../list.model';
 
-export const expandRows = (list: any, selectedCountryIdx: number) => {
-    const shouldExpandAll = selectedCountryIdx === 0;
-
-    if (shouldExpandAll) {
-        return list.map((row: Row) => ({ ...row, expanded: true }));
-    } else if (selectedCountryIdx) {
-        return list.map((row: Row, index: number) =>
-            index === selectedCountryIdx ? { ...row, _expanded: true } : row,
-        );
-    }
-};
-
 export const filterEmptyRows = (list: Row[], fields: any[]) => {
     return list.filter((row: Row) => fields.every((field: any) => row[field]));
 };
@@ -52,7 +40,7 @@ export const parseExcelData = (data: Row[], fields: string[]) => {
 };
 
 const _parseCsvRow = (fields: string[], row: Row, suffix = '') => {
-    return [ `${suffix}${row['name']}` ].concat(
+    return [`${suffix}${row['name']}`].concat(
         fields.map(field => {
             const { value } = row[field];
 
