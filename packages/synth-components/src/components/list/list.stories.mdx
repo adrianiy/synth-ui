@@ -20,7 +20,7 @@ Paginated list component.
 <Canvas>
     <Story 
     name="Basic" 
-    args={{ data, limit, loading: false }}>{Template.bind({})}</Story>
+    args={{ data, limit, loading: false, enable-download: true }}>{Template.bind({})}</Story>
 </Canvas>
 
 ### Keep in mind
@@ -31,6 +31,7 @@ Paginated list component.
 -   Rows are sortable `asc` or `desc` style.
     -   **Total** will always be the first row.
     -   The default sort value is conserved on first load
+- You can allow users to download data setting `enableDownload` to `true`.
 
 ## List with actions
 

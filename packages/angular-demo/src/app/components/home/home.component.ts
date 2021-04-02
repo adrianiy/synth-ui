@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
 
     private async _loadListData() {
         this.listData = await this._dataService.getListData();
-        console.log(this.listData);
         this.loading = false;
     }
 }

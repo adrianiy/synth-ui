@@ -5,8 +5,9 @@ export const parameters = {
             order: [
                 'Synth-UI',
                 [ 'Introduction', 'Getting Started', 'Roadmap', 'Changelog' ],
-                'WebComponents',
-                [ 'Introduction', 'Components' ],
+                'Web Components',
+                'Angular',
+                'React',
             ],
         },
     },

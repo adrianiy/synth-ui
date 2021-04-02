@@ -1,8 +1,10 @@
 import { Component, Host, Element, h, Prop, State } from '@stencil/core';
 import { Row } from './list.model';
-import { filterEmptyRows, sortList } from './utils/list';
+import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
+import { Workbook } from 'exceljs';
+import * as fs from 'file-saver';
 
 const LIMIT = 16;
 const RESPONSIVE_LIMIT = 10;
@@ -86,6 +88,21 @@ export class ListComponent {
 
         this.sortField = key;
         this._parseData();
+    };
+
+    private _downloadExcel = () => {
+        const workbook = new Workbook();
+        const workSheet = workbook.addWorksheet('countries');
+        const header = [ '' ].concat(this._fields);
+        const excelData = parseExcelData(this._parsedList, this._fields);
+        workSheet.addRow(header);
+        excelData.forEach(row => workSheet.addRow(row));
+        workbook.xlsx.writeBuffer().then(data => {
+            const blob = new Blob([ data ], {
+                type: 'application/vnd.openxmlformats-officedocument.spreadsheethtml.sheet',
+            });
+            fs.saveAs(blob, `download-${new Date().toISOString()}.xlsx`);
+        });
     };
 
     private _parseData() {
@@ -185,11 +202,15 @@ export class ListComponent {
         return (
             <RowLayout distribution={[ distributions.MIDDLE, distributions.SPACED ]} className="pagination__container">
                 <RowLayout className="pagination">{this._renderPages()}</RowLayout>
-                <RowLayout className="actions">
-                    <span class="view-all" onClick={this._toggleShowAll()}>
+                <RowLayout className="actions" distribution={[ distributions.MIDDLE ]}>
+                    <span class="view-all" onClick={this._toggleShowAll()} role="button">
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>
-                    {this.enableDownload && <em class="material-icons download">get_app</em>}
+                    {this.enableDownload && (
+                        <em class="material-icons download" role="button" onClick={this._downloadExcel}>
+                            get_app
+                        </em>
+                    )}
                 </RowLayout>
             </RowLayout>
         );

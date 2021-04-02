@@ -1,8 +1,7 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { getGrowthColor } from '../../../../utils/color.utils';
 import { distributions, RowLayout } from '../../../../utils/layout';
-import { numeralFormat } from '../../../../utils/utils';
 import { Cell, Row, RowAction } from '../../list.model';
+import { getCellValues } from '../../utils/list';
 
 @Component({
     tag: 'synth-list-row',
@@ -30,9 +29,7 @@ export class RowComponent {
     }
 
     private _renderCell(cell: Cell) {
-        const { value, decoration, ...formatArgs } = cell;
-        const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
-        const color = decoration && getGrowthColor(formattedValue, decoration);
+        const { color, formattedValue } = getCellValues(cell);
 
         return <td class={color}>{formattedValue}</td>;
     }
@@ -42,10 +39,14 @@ export class RowComponent {
             <div class="row-action__list">
                 <h4>{this.i18n['actions']}</h4>
                 {actions.map(action => (
-                    <div class="row-action row middle space-between" onClick={action.action}>
+                    <RowLayout
+                        className="row-action"
+                        distribution={[ distributions.MIDDLE, distributions.SPACED ]}
+                        onClick={action.action}
+                    >
                         <span>{action.title}</span>
                         <em class="material-icons">{action.icon}</em>
-                    </div>
+                    </RowLayout>
                 ))}
             </div>
         );
@@ -55,7 +56,10 @@ export class RowComponent {
         if (actions?.length) {
             return (
                 <div class="row-action__wrapper">
-                    <div class="row-action__container row middle center">
+                    <RowLayout
+                        className="row-action__container"
+                        distribution={[ distributions.MIDDLE, distributions.CENTER ]}
+                    >
                         {actions.length === 1 ? (
                             <em class="row-action material-icons" onClick={actions[0].action}>
                                 {actions[0].icon}
@@ -64,7 +68,7 @@ export class RowComponent {
                             <em class="material-icons">more_horiz</em>
                         )}
                         {actions.length > 1 && this._renderMultiActions(actions)}
-                    </div>
+                    </RowLayout>
                 </div>
             );
         }
