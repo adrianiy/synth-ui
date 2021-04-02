@@ -1,11 +1,9 @@
 name: Publish
-
 on:
   release:
     types: published
-
 jobs:
-  build:
+  publish:
     name: publish
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +12,7 @@ jobs:
     - name: Setup Node.jobs
       uses: actions/setup-node@v1
       with:
-        node-version: 14
+        node-version: 12
     - name: Install and build
       run: |
         yarn
