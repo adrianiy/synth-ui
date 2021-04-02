@@ -1,3 +1,38 @@
+## [1.7.3](https://github.com/adrianiy/synth-ui/compare/v1.7.2...v1.7.3) (2021-04-02)
+
+
+### Bug Fixes
+
+* add environment vars in publish workflow ([ab075af](https://github.com/adrianiy/synth-ui/commit/ab075af24b3e8c66d715d7fe18114325702a67de))
+
+## [1.7.2](https://github.com/adrianiy/synth-ui/compare/v1.7.1...v1.7.2) (2021-04-02)
+
+
+### Bug Fixes
+
+* add github user for publication ([e390a93](https://github.com/adrianiy/synth-ui/commit/e390a93c794dbd8121bbdd832c9fe3bf33fa8986))
+
+## [1.7.1](https://github.com/adrianiy/synth-ui/compare/v1.7.0...v1.7.1) (2021-04-02)
+
+
+### Bug Fixes
+
+* fix use key in publish action ([d5d0a69](https://github.com/adrianiy/synth-ui/commit/d5d0a698020fa83b0d86f532f4ddd0ce1de927c0))
+
+# [1.7.0](https://github.com/adrianiy/synth-ui/compare/v1.6.0...v1.7.0) (2021-04-02)
+
+
+### Features
+
+* add publish workflow ([19da5c7](https://github.com/adrianiy/synth-ui/commit/19da5c79534ac33c2e3a066c23673727526e042c))
+
+# [1.6.0](https://github.com/adrianiy/synth-ui/compare/v1.5.0...v1.6.0) (2021-04-01)
+
+
+### Features
+
+* **docs:** Publish docs on gh-pages branch on CI ([7f92ed9](https://github.com/adrianiy/synth-ui/commit/7f92ed91fe4296e7ea73523e47e896554b9a3cf8))
+
 # [1.5.0](https://github.com/adrianiy/synth-ui/compare/v1.4.0...v1.5.0) (2021-04-01)
 
 

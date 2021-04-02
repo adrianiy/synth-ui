@@ -1,0 +1,25 @@
+name: Publish
+on:
+  release:
+    types: published
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup Node.jobs
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install and build
+      run: |
+        yarn
+        yarn lint
+        yarn build
+        yarn build:docs
+    - name: Publish to gh-pages
+      run: yarn publish:docs
+      env:
+        GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}
