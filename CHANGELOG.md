@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/adrianiy/synth-ui/compare/v1.6.0...v1.7.0) (2021-04-02)
+
+
+### Features
+
+* add publish workflow ([19da5c7](https://github.com/adrianiy/synth-ui/commit/19da5c79534ac33c2e3a066c23673727526e042c))
+
 # [1.6.0](https://github.com/adrianiy/synth-ui/compare/v1.5.0...v1.6.0) (2021-04-01)
 
 
