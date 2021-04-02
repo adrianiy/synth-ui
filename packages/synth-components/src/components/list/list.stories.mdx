@@ -3,7 +3,7 @@ import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 export const limit = 3;
 
-export const Template = (args) => html`<div style="width: 300px;"><synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> </div>`;
+export const Template = (args) => html`<div style="width: 300px;"><synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} enable-download=${args.enableDownload} expandable=${args.expandable} /> </div>`;
 
 <Meta 
     title="Components/List" 
@@ -20,7 +20,7 @@ Paginated list component.
 <Canvas>
     <Story 
     name="Basic" 
-    args={{ data, limit, loading: false, enable-download: true }}>{Template.bind({})}</Story>
+    args={{ data, limit, loading: false, enableDownload: true, expandable: false }}>{Template.bind({})}</Story>
 </Canvas>
 
 ### Keep in mind
@@ -42,7 +42,17 @@ This button trigger `action.action` on click.
 <Canvas>
     <Story 
     name="With actions" 
-    args={{ data: actionData, limit, loading: false }}>{Template.bind({})}</Story>
+    args={{ data: actionData, limit, loading: false, expandable: false }}>{Template.bind({})}</Story>
+</Canvas>
+
+## List with children
+
+Rows can have children data that will be displayed on row expand.
+
+<Canvas>
+    <Story 
+    name="With children" 
+    args={{ data: childrenData, limit, loading: false, expandable: true }}>{Template.bind({})}</Story>
 </Canvas>
 
 ### Loading list
@@ -74,11 +84,42 @@ export const data = [
     {
         _isTotal: false,
         name,
-        amount: { value: 11111, format: '0,0' },
-        growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
+        amount: { value: Math.random() * 100000, format: '0,0' },
+        growth: { value: Math.random() * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
     }
 )));
 
+export const childrenData = [
+    {
+        _isTotal: true,
+        name: 'total',
+        amount: { value: 98123122, format: '0,0' },
+        growth: { value: 0.9, format: '0,0.0%', decoration: 'red' },
+        _children: [
+        {
+            _loading: true,
+        },
+        {
+            _loading: true,
+        }
+        ]
+    },
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
+    {
+        _isTotal: false,
+        name,
+        amount: { value: 11111, format: '0,0' },
+        growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
+        _children: [
+        {
+            _isTotal: false,
+            name: 'CHILD',
+            amount: { value: 11111, format: '0,0' },
+            growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
+        }
+        ]
+    }
+)));
 export const actionData = [
     {
         _isTotal: true,

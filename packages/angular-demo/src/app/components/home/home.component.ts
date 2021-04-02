@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
         this._loadListData();
     }
 
+    async rowExpandEvent(event) {
+        this.listData = await this._dataService.getChildrenData();
+    }
+
     private async _loadListData() {
         this.listData = await this._dataService.getListData();
         this.loading = false;

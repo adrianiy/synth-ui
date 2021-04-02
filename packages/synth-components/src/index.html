@@ -20,7 +20,7 @@
     </style>
     <body>
         <synth-title title-text="List"></synth-title>
-        <synth-list loading="false" enable-download="true"></synth-list>
+        <synth-list loading="false" enable-download="true" expandable="true"></synth-list>
         <script>
             const listElement = document.querySelector('synth-list');
             listElement.headerTitle = 'Países';
@@ -38,6 +38,14 @@
                         _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
                         amount: { value: Math.random() * 10000 - 1, format: '0,0' },
                         growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                        _children: [
+                            {
+                                name: 'Section',
+                                _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
+                                amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                                growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                            },
+                        ],
                     }),
                 ),
             );
