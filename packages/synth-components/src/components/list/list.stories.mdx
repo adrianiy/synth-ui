@@ -3,7 +3,7 @@ import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 export const limit = 3;
 
-export const Template = (args) => html` <synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> `;
+export const Template = (args) => html`<div style="width: 300px;"><synth-list .data=${args.data} limit=${args.limit} loading=${args.loading} /> </div>`;
 
 <Meta 
     title="Components/List" 
@@ -31,6 +31,18 @@ Paginated list component.
 -   Rows are sortable `asc` or `desc` style.
     -   **Total** will always be the first row.
     -   The default sort value is conserved on first load
+
+## List with actions
+
+Rows accept `_actions` attribute that will render a floating button on the right side of the list.
+
+This button trigger `action.action` on click.
+
+<Canvas>
+    <Story 
+    name="With actions" 
+    args={{ data: actionData, limit, loading: false }}>{Template.bind({})}</Story>
+</Canvas>
 
 ### Loading list
 
@@ -60,6 +72,25 @@ export const data = [
 ].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
     {
         _isTotal: false,
+        name,
+        amount: { value: 11111, format: '0,0' },
+        growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },
+    }
+)));
+
+export const actionData = [
+    {
+        _isTotal: true,
+        name: 'total',
+        amount: { value: 98123122, format: '0,0' },
+        growth: { value: 0.9, format: '0,0.0%', decoration: 'red' },
+    },
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
+    {
+        _isTotal: false,
+        _actions: i % 2 
+            ? [ { icon: 'bar_chart', title: 'Analize', action: () => alert('action') } ] 
+            : [{ icon: 'bar_chart', title: 'Analize', action: () => alert('analyze') },{ icon: 'lightbulb', title: 'Insights', action: () => alert('insight') }],
         name,
         amount: { value: 11111, format: '0,0' },
         growth: { value: 0.2 * (i % 2 ? -1 : 1),format: '0,0.0%', decoration: 'red' },

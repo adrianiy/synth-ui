@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 import { getGrowthColor } from '../../../../utils/color.utils';
 import { distributions, RowLayout } from '../../../../utils/layout';
 import { numeralFormat } from '../../../../utils/utils';
-import { Cell, Row } from '../../list.model';
+import { Cell, Row, RowAction } from '../../list.model';
 
 @Component({
     tag: 'synth-list-row',
@@ -37,6 +37,39 @@ export class RowComponent {
         return <td class={color}>{formattedValue}</td>;
     }
 
+    private _renderMultiActions(actions: RowAction[]) {
+        return (
+            <div class="row-action__list">
+                <h4>{this.i18n['actions']}</h4>
+                {actions.map(action => (
+                    <div class="row-action row middle space-between" onClick={action.action}>
+                        <span>{action.title}</span>
+                        <em class="material-icons">{action.icon}</em>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+    private _renderActions(actions: RowAction[]) {
+        if (actions?.length) {
+            return (
+                <div class="row-action__wrapper">
+                    <div class="row-action__container row middle center">
+                        {actions.length === 1 ? (
+                            <em class="row-action material-icons" onClick={actions[0].action}>
+                                {actions[0].icon}
+                            </em>
+                        ) : (
+                            <em class="material-icons">more_horiz</em>
+                        )}
+                        {actions.length > 1 && this._renderMultiActions(actions)}
+                    </div>
+                </div>
+            );
+        }
+    }
+
     private _renderRow = (row = this.row) => {
         return (
             <tr role="button" class={this._getRowClass()} onClick={this._expandRow}>
@@ -49,6 +82,7 @@ export class RowComponent {
                 {Object.keys(row)
                     .filter(field => !field.startsWith('_') && field !== 'name')
                     .map(field => this._renderCell(row[field]))}
+                {this._renderActions(row._actions)}
             </tr>
         );
     };

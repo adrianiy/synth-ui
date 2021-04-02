@@ -35,6 +35,7 @@
                 ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(
                     country => ({
                         name: country,
+                        _actions: [{ icon: 'analytics', title: 'Analyze', action: () => alert('action') }],
                         amount: { value: Math.random() * 10000 - 1, format: '0,0' },
                         growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
                     }),
