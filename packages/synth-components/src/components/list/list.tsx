@@ -1,5 +1,5 @@
-import { Component, Host, Element, h, Prop, State, Watch } from '@stencil/core';
-import { Row } from './list.model';
+import { Component, Host, Element, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
+import { ExpandRowEvent, Row } from './list.model';
 import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
@@ -41,12 +41,14 @@ export class ListComponent {
     @State() sort = 'default';
     /** Sort field */
     @State() sortField: string;
-    /** current page */
+    /** Current page */
     @State() currentPage: number = 0;
-    /** show all flag */
+    /** Show all flag */
     @State() showAll: boolean = false;
-    /** parsed list */
+    /** Parsed list */
     @State() parsedList: Row[] = [];
+    /** Expand row event */
+    @Event() expandRow: EventEmitter<ExpandRowEvent>;
 
     private _fields = [];
     private _isMobile = false;
@@ -118,6 +120,8 @@ export class ListComponent {
                 return row;
             }
         });
+
+        this.expandRow.emit({ row });
     };
 
     private _parseData() {

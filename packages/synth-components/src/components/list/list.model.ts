@@ -25,3 +25,7 @@ export interface BaseRow {
 export interface Row extends BaseRow {
     _children?: BaseRow[];
 }
+
+export interface ExpandRowEvent {
+    row: Row;
+}
