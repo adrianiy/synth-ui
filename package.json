@@ -14,7 +14,7 @@
         "build:docs": "build-storybook --quiet -s ./packages/synth-components/dist -o ./docs",
         "postbuild:docs": "npm run creevey && lerna run build:docs --parallel",
         "postinstall": "npm run bootstrap",
-        "publish:docs": "storybook-to-ghpages --existing-output-dir=docs",
+        "publish:docs": "storybook-to-ghpages --existing-output-dir=docs --ci",
         "bootstrap": "lerna bootstrap",
         "lint": "lerna run lint --parallel",
         "link": "lerna link",
@@ -85,6 +85,11 @@
         "branches": [
             "main"
         ]
+    },
+    "storybook-deployer": {
+        "gitUsername": "Adrian Insua",
+        "gitEmail": "adrianiy@ext.inditex.com",
+        "commitMessage": "chore: Deploy Storybook [skip ci]"
     },
     "version": "1.7.0"
 }

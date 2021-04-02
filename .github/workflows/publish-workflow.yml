@@ -21,5 +21,3 @@ jobs:
         yarn build:docs
     - name: Publish to gh-pages
       run: yarn publish:docs
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
