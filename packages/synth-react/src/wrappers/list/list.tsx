@@ -16,13 +16,13 @@ function SynthReactList({
     i18n,
     onExpandRow,
 }: Props) {
-    const [parsedData, setParsedData] = useState([] as Row[]);
+    const [ parsedData, setParsedData ] = useState([] as Row[]);
 
     useEffect(() => {
         if (fieldsConfig && data) {
             setParsedData(data.map(row => configRow(row, fieldsConfig)));
         }
-    }, [data, fieldsConfig]);
+    }, [ data, fieldsConfig ]);
 
     return (
         <div>
@@ -30,7 +30,7 @@ function SynthReactList({
             <SynthList
                 loading={loading}
                 data={parsedData}
-                filterFields={activeKpi ? [activeKpi] : []}
+                filterFields={activeKpi ? [ activeKpi ] : []}
                 defaultSortField={activeKpi}
                 decimals={decimals}
                 expandable={expandable}

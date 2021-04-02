@@ -5,7 +5,7 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'synth-components';
 
-import { ListComponent as IListComponent } from 'synth-components/dist/custom-elements/components/list/list';
+import { ListComponent as IListComponent } from 'synth-components/dist/types/components/list/list';
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({
   inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
