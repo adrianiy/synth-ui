@@ -21,6 +21,13 @@
 | `update`           | `update`             | Force component update if flag is true                                          | `boolean`                    | `false`     |
 
 
+## Events
+
+| Event       | Description      | Type                          |
+| ----------- | ---------------- | ----------------------------- |
+| `expandRow` | Expand row event | `CustomEvent<ExpandRowEvent>` |
+
+
 ## Dependencies
 
 ### Depends on

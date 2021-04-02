@@ -5,7 +5,7 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'synth-components';
 
-
+import { ListComponent as IListComponent } from 'synth-components/dist/custom-elements/components/list/list';
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({
   inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
@@ -14,13 +14,17 @@ export declare interface SynthList extends Components.SynthList {}
   selector: 'synth-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],
+  outputs: ['expandRow']
 })
 export class SynthList {
+  /** Expand row event */
+  expandRow!: IListComponent['expandRow'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['expandRow']);
   }
 }
 

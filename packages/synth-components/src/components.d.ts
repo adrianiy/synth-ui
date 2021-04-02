@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Row } from "./components/list/list.model";
+import { ExpandRowEvent, Row } from "./components/list/list.model";
 export namespace Components {
     interface SynthList {
         /**
@@ -187,6 +187,10 @@ declare namespace LocalJSX {
           * Loading state. If true will render skeleton loader
          */
         "loading"?: boolean;
+        /**
+          * Expand row event
+         */
+        "onExpandRow"?: (event: CustomEvent<ExpandRowEvent>) => void;
         /**
           * Force component update if flag is true
          */

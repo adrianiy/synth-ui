@@ -1,1 +1,1 @@
-<synth-ng-list [loading]="loading" enableDownload="true" [data]="listData" [fieldsConfig]="fieldsConfig" [limit]="3"></synth-ng-list>
+<synth-ng-list title="List" [loading]="loading" expandable enableDownload [data]="listData" [fieldsConfig]="fieldsConfig" [limit]="3" (expandRow)="rowExpandEvent($event)"></synth-ng-list>
