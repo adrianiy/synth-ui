@@ -91,5 +91,5 @@
         "gitEmail": "adrianiy@ext.inditex.com",
         "commitMessage": "chore: Deploy Storybook [skip ci]"
     },
-    "version": "1.7.2"
+    "version": "1.7.3"
 }

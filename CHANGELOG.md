@@ -1,3 +1,10 @@
+## [1.7.3](https://github.com/adrianiy/synth-ui/compare/v1.7.2...v1.7.3) (2021-04-02)
+
+
+### Bug Fixes
+
+* add environment vars in publish workflow ([ab075af](https://github.com/adrianiy/synth-ui/commit/ab075af24b3e8c66d715d7fe18114325702a67de))
+
 ## [1.7.2](https://github.com/adrianiy/synth-ui/compare/v1.7.1...v1.7.2) (2021-04-02)
 
 
