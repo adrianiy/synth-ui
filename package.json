@@ -6,6 +6,7 @@
         "start:front": "lerna run start --parallel",
         "start:docs": "npm-run-all --parallel docs:wait start:projectDocs",
         "start:projectDocs": "lerna run start:docs --parallel",
+        "stencil": "lerna run --scope=*components* --parallel",
         "react": "lerna run --scope=*react* --parallel",
         "angular": "lerna run --scope=*angular* --parallel",
         "docs:wait": "wait-on -c wait-on.json && npm run docs:base",

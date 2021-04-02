@@ -7,10 +7,17 @@ export interface Cell {
     showZero?: boolean;
 }
 
+export interface RowAction {
+    title: string;
+    icon?: string;
+    action: () => void;
+}
+
 export interface BaseRow {
     _isTotal?: boolean;
     _expanded?: boolean;
     _originalIndex?: number;
+    _actions?: RowAction[];
     [key: string]: Cell | any;
 }
 

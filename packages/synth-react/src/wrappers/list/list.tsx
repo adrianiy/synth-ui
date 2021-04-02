@@ -15,13 +15,13 @@ function SynthReactList({
     enableDownload,
     i18n,
 }: Props) {
-    const [ parsedData, setParsedData ] = useState([] as Row[]);
+    const [parsedData, setParsedData] = useState([] as Row[]);
 
     useEffect(() => {
         if (fieldsConfig && data) {
             setParsedData(data.map(row => configRow(row, fieldsConfig)));
         }
-    }, [ data, fieldsConfig ]);
+    }, [data, fieldsConfig]);
 
     return (
         <div>
@@ -29,7 +29,7 @@ function SynthReactList({
             <SynthList
                 loading={loading}
                 data={parsedData}
-                filterFields={activeKpi && [ activeKpi ]}
+                filterFields={activeKpi && [activeKpi]}
                 defaultSortField={activeKpi}
                 decimals={decimals}
                 expandable={expandable}
@@ -42,15 +42,25 @@ function SynthReactList({
 }
 
 interface Props {
+    /** Loading state. If true will render skeleton loader */
     loading?: boolean;
+    /** Component title */
     title?: string;
+    /** Component data, this is going to be parsed internally */
     data?: Row[];
+    /** List row limit */
     limit?: number;
+    /** **!REQUIRED** Field configuration used in parse process */
     fieldsConfig: FieldsConfig[];
+    /** Active kpi. it's going to be used to filter list data */
     activeKpi?: string;
+    /** Flag to show decimals */
     decimals?: boolean;
+    /** Flag to set list as expandable */
     expandable?: boolean;
+    /** Flag to enable data download as xlsx */
     enableDownload?: boolean;
+    /** i18n custom translations */
     i18n?: { [key: string]: string };
 }
 

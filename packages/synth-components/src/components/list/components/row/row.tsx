@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 import { getGrowthColor } from '../../../../utils/color.utils';
 import { distributions, RowLayout } from '../../../../utils/layout';
 import { numeralFormat } from '../../../../utils/utils';
-import { Cell, Row } from '../../list.model';
+import { Cell, Row, RowAction } from '../../list.model';
 
 @Component({
     tag: 'synth-list-row',
@@ -37,6 +37,16 @@ export class RowComponent {
         return <td class={color}>{formattedValue}</td>;
     }
 
+    private _renderActions(actions: RowAction[]) {
+        if (actions?.length) {
+            return (
+                <div class="row-action row middle" onClick={actions[0].action}>
+                    <em class="material-icons">{actions[0].icon}</em>
+                </div>
+            );
+        }
+    }
+
     private _renderRow = (row = this.row) => {
         return (
             <tr role="button" class={this._getRowClass()} onClick={this._expandRow}>
@@ -49,6 +59,7 @@ export class RowComponent {
                 {Object.keys(row)
                     .filter(field => !field.startsWith('_') && field !== 'name')
                     .map(field => this._renderCell(row[field]))}
+                {this._renderActions(row._actions)}
             </tr>
         );
     };
