@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/adrianiy/synth-ui/compare/v1.7.0...v1.7.1) (2021-04-02)
+
+
+### Bug Fixes
+
+* fix use key in publish action ([d5d0a69](https://github.com/adrianiy/synth-ui/commit/d5d0a698020fa83b0d86f532f4ddd0ce1de927c0))
+
 # [1.7.0](https://github.com/adrianiy/synth-ui/compare/v1.6.0...v1.7.0) (2021-04-02)
 
 
