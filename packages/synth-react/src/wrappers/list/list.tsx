@@ -14,14 +14,15 @@ function SynthReactList({
     expandable,
     enableDownload,
     i18n,
+    onExpandRow,
 }: Props) {
-    const [ parsedData, setParsedData ] = useState([] as Row[]);
+    const [parsedData, setParsedData] = useState([] as Row[]);
 
     useEffect(() => {
         if (fieldsConfig && data) {
             setParsedData(data.map(row => configRow(row, fieldsConfig)));
         }
-    }, [ data, fieldsConfig ]);
+    }, [data, fieldsConfig]);
 
     return (
         <div>
@@ -29,13 +30,14 @@ function SynthReactList({
             <SynthList
                 loading={loading}
                 data={parsedData}
-                filterFields={activeKpi && [ activeKpi ]}
+                filterFields={activeKpi ? [activeKpi] : []}
                 defaultSortField={activeKpi}
                 decimals={decimals}
                 expandable={expandable}
                 limit={limit}
                 enableDownload={enableDownload}
                 i18n={i18n}
+                onExpandRow={onExpandRow}
             />
         </div>
     );
@@ -62,6 +64,8 @@ interface Props {
     enableDownload?: boolean;
     /** i18n custom translations */
     i18n?: { [key: string]: string };
+    /** On expand row event handler */
+    onExpandRow?: any;
 }
 
 SynthReactList.defaultProps = {
@@ -74,6 +78,7 @@ SynthReactList.defaultProps = {
     decimals: true,
     expandable: false,
     enableDownload: false,
+    onExpandRow: undefined,
 } as Props;
 
 export default SynthReactList;
