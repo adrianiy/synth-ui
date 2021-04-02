@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/adrianiy/synth-ui/compare/v1.7.1...v1.7.2) (2021-04-02)
+
+
+### Bug Fixes
+
+* add github user for publication ([e390a93](https://github.com/adrianiy/synth-ui/commit/e390a93c794dbd8121bbdd832c9fe3bf33fa8986))
+
 ## [1.7.1](https://github.com/adrianiy/synth-ui/compare/v1.7.0...v1.7.1) (2021-04-02)
 
 
