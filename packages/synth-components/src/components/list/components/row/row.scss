@@ -120,17 +120,22 @@
             color: var(--zd-color--font--contrast);
             font-size: var(--zd-font--m);
             position: relative;
+
+            &:hover {
+                background: var(--zd-color--contrast);
+            }
         }
 
         .row-action__list {
             display: none;
             left: 100%;
-            top:0;
+            top: 0;
             position: absolute;
             color: var(--zd-color--font);
             background: var(--zd-color--background--third);
             box-shadow: var(--zd-shadow--tiny);
             padding: var(--zd-padding--s);
+            padding-bottom: var(--zd-padding--m);
             width: 150px;
             font-size: var(--zd-font--m);
 
@@ -139,8 +144,8 @@
             }
 
             .row-action {
-                margin-top: var(--zd-padding--m);
-                font-size: var(--zd-font--s);
+                margin-top: var(--zd-padding--l);
+                font-size: var(--zd-font--xs);
                 opacity: 0.7;
             }
         }
@@ -154,8 +159,6 @@
         }
 
         &:hover {
-            color: var(--zd-color--contrast);
-
             .row-action__list {
                 display: block;
             }
