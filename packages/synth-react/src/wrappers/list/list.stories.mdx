@@ -21,7 +21,7 @@ It is a wrapper of **synth-list**. Handles data transformation between apps and 
 ## Basic list
 
 <Canvas>
-    <Story name="Basic" args={{ loading: false, data, activeKpi: 'amount', fieldsConfig, title: 'List', limit: 3 }}>
+    <Story name="Basic" args={{ loading: false, data, activeKpi: 'amount', fieldsConfig, title: 'List', limit: 3, enableDownload: true }}>
         { Template}
     </Story>
 </Canvas>
@@ -32,7 +32,7 @@ It is a wrapper of **synth-list**. Handles data transformation between apps and 
     <Story 
         name="With actions" 
         decorators={[(Story) => <div style={{ width: '300px' }}><Story/></div>]}
-        args={{ data: actionData, limit: 3, loading: false, activeKpi: 'amount' , fieldsConfig, title: 'List with actions' }}>
+        args={{ data: actionData, limit: 3, loading: false, activeKpi: 'amount' , fieldsConfig, title: 'List with actions', enableDownload: true}}>
         {Template.bind({})}
     </Story>
 </Canvas>
