@@ -37,11 +37,34 @@ export class RowComponent {
         return <td class={color}>{formattedValue}</td>;
     }
 
+    private _renderMultiActions(actions: RowAction[]) {
+        return (
+            <div class="row-action__list">
+                <h4>{this.i18n['actions']}</h4>
+                {actions.map(action => (
+                    <div class="row-action row middle space-between" onClick={action.action}>
+                        <span>{action.title}</span>
+                        <em class="material-icons">{action.icon}</em>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
     private _renderActions(actions: RowAction[]) {
         if (actions?.length) {
             return (
-                <div class="row-action row middle" onClick={actions[0].action}>
-                    <em class="material-icons">{actions[0].icon}</em>
+                <div class="row-action__wrapper">
+                    <div class="row-action__container row middle center">
+                        {actions.length === 1 ? (
+                            <em class="row-action material-icons" onClick={actions[0].action}>
+                                {actions[0].icon}
+                            </em>
+                        ) : (
+                            <em class="material-icons">more_horiz</em>
+                        )}
+                        {actions.length > 1 && this._renderMultiActions(actions)}
+                    </div>
                 </div>
             );
         }

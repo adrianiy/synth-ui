@@ -1,4 +1,6 @@
 .row__container {
+    --row-action--size: 25px;
+
     display: table-row-group;
     position: relative;
     vertical-align: middle;
@@ -104,23 +106,63 @@
             }
         }
     }
-    .row-action {
+    .row-action__wrapper {
         margin-right: calc(calc(var(--zd-font--xl) + var(--zd-padding--m)) * -1);
-        height: 100%;
-        font-size: var(--zd-font--xl);
-        padding: var(--zd-padding--xs) 0;
+        padding: var(--zd-padding--s) 0;
         padding-left: var(--zd-padding--m);
-        cursor: pointer;
         opacity: 0;
-        user-select: none;    
-        color: var(--zd-color--third);
+        user-select: none;
+
+        .row-action__container {
+            width: var(--row-action--size);
+            height: var(--row-action--size);
+            background: var(--zd-color--third);
+            color: var(--zd-color--font--contrast);
+            font-size: var(--zd-font--m);
+            position: relative;
+        }
+
+        .row-action__list {
+            display: none;
+            left: 100%;
+            top:0;
+            position: absolute;
+            color: var(--zd-color--font);
+            background: var(--zd-color--background--third);
+            box-shadow: var(--zd-shadow--tiny);
+            padding: var(--zd-padding--s);
+            width: 150px;
+            font-size: var(--zd-font--m);
+
+            h4 {
+                margin-top: 0;
+            }
+
+            .row-action {
+                margin-top: var(--zd-padding--m);
+                font-size: var(--zd-font--s);
+                opacity: 0.7;
+            }
+        }
+
+        .row-action {
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
 
         &:hover {
-            color: var(--zd-color--contrast); 
+            color: var(--zd-color--contrast);
+
+            .row-action__list {
+                display: block;
+            }
         }
     }
     &:hover {
-        .row-action {
+        .row-action__wrapper {
             opacity: 1;
         }
     }
