@@ -1,3 +1,23 @@
+# [1.8.0](https://github.com/adrianiy/synth-ui/compare/v1.7.3...v1.8.0) (2021-04-02)
+
+
+### Bug Fixes
+
+* **components:** **workaround** for components with events ([d0e4d1a](https://github.com/adrianiy/synth-ui/commit/d0e4d1a89d579a17dc43effd57e4af5dae5a788f))
+
+
+### Features
+
+* **angular:** update demo with expandable list ([ebe207c](https://github.com/adrianiy/synth-ui/commit/ebe207c762bd13dea23ea24eeee8e5168b88847e))
+* **components:** add download list data method ([b7610d0](https://github.com/adrianiy/synth-ui/commit/b7610d0505b94a18e19abfc61b8b263a53839b7c))
+* **components:** add expand rows management ([e9d0648](https://github.com/adrianiy/synth-ui/commit/e9d0648e6f31ff72ad2005365c734b188d02cead))
+* **components:** add multi actions ([1b33e94](https://github.com/adrianiy/synth-ui/commit/1b33e9463fa3b5949dd7e93900a3744386f530ae))
+* **components:** add row actions ([8d5d14a](https://github.com/adrianiy/synth-ui/commit/8d5d14a87e2b7a1e7f95626d172fad18bae5caa8))
+* **components:** emit event on row expand ([f1ffbd2](https://github.com/adrianiy/synth-ui/commit/f1ffbd2ab2f8bd1907018f20ac0c96962e38fee5))
+* **docs:** add angular example for multi action list ([bb679f9](https://github.com/adrianiy/synth-ui/commit/bb679f921d33f5d6eda985ea2087e81e2e822091))
+* **docs:** add react example for multi action list ([030f9e6](https://github.com/adrianiy/synth-ui/commit/030f9e66773b931801e62eb05eff6fa18a135228))
+* **react:** update demo with expandable list ([7cc563b](https://github.com/adrianiy/synth-ui/commit/7cc563ba0a50c21a5d9d53824ed09b4071e1e9dc))
+
 ## [1.7.3](https://github.com/adrianiy/synth-ui/compare/v1.7.2...v1.7.3) (2021-04-02)
 
 
