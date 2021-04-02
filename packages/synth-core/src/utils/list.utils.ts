@@ -7,18 +7,19 @@ export const configRow = (row: Row, fieldsConfig: FieldsConfig[]) => {
     return {
         name: capitalize(row.name),
         _isTotal: row._isTotal,
+        _actions: row._actions,
         _children: _parseChildren(row.children, fieldsConfig),
         ...fields,
     };
 };
 
 const _configFields = (row: Row, fieldsConfig: FieldsConfig[]) => {
-    return fieldsConfig.map((field) => [ field.title(), _getValue(row, field) ]);
+    return fieldsConfig.map(field => [ field.title(), _getValue(row, field) ]);
 };
 
 const _parseChildren = (children: Row[], fieldsConfig: FieldsConfig[]) => {
     if (children) {
-        return children.map((row) => _configFields(row, fieldsConfig));
+        return children.map(row => configRow(row, fieldsConfig));
     } else {
         return Array(3)
             .fill(0)

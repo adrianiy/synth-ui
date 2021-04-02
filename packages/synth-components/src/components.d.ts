@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Row } from "./components/list/list.model";
+import { ExpandRowEvent, Row } from "./components/list/list.model";
 export namespace Components {
     interface SynthList {
         /**
@@ -51,9 +51,17 @@ export namespace Components {
     }
     interface SynthListRow {
         /**
+          * expand row callback
+         */
+        "expandHandle": (row: Row) => () => any;
+        /**
           * expandable flag
          */
         "expandable": boolean;
+        /**
+          * Render fields
+         */
+        "fields": string[];
         /**
           * i18n object with translations
          */
@@ -180,15 +188,27 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * Expand row event
+         */
+        "onExpandRow"?: (event: CustomEvent<ExpandRowEvent>) => void;
+        /**
           * Force component update if flag is true
          */
         "update"?: boolean;
     }
     interface SynthListRow {
         /**
+          * expand row callback
+         */
+        "expandHandle"?: (row: Row) => () => any;
+        /**
           * expandable flag
          */
         "expandable"?: boolean;
+        /**
+          * Render fields
+         */
+        "fields"?: string[];
         /**
           * i18n object with translations
          */

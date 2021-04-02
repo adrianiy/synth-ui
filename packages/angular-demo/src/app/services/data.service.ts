@@ -16,4 +16,19 @@ export class DataService {
     async getListData(): Promise<Row[]> {
         return await this._http.get<Row[]>('/country').toPromise();
     }
+
+    async getChildrenData(): Promise<Row[]> {
+        const data = await this._http.get<Row[]>('/country').toPromise();
+        data.forEach(row => {
+            row.children = [
+                {
+                    name: 'child',
+                    amount: Math.random() * 10000 - 1,
+                    growth_amount: Math.random(),
+                },
+            ];
+        });
+
+        return data;
+    }
 }

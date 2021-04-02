@@ -21,8 +21,27 @@ It is a wrapper of **synth-list**. Handles data transformation between apps and 
 ## Basic list
 
 <Canvas>
-    <Story name="Basic" args={{ loading: false, data, activeKpi: 'amount', fieldsConfig, title: 'List', limit: 3 }}>
-        { Template}
+    <Story name="Basic" args={{ loading: false, data, activeKpi: 'amount', fieldsConfig, title: 'List', limit: 3, enableDownload: true }}>
+        { Template.bind({})}
+    </Story>
+</Canvas>
+
+## List with children
+
+<Canvas>
+    <Story name="With children" args={{ loading: false, data: childrenData, activeKpi: 'amount', fieldsConfig, title: 'List', limit: 3, enableDownload: true, expandable: true }}>
+        { Template.bind({})}
+    </Story>
+</Canvas>
+
+## List with actions
+
+<Canvas>
+    <Story 
+        name="With actions" 
+        decorators={[(Story) => <div style={{ width: '300px' }}><Story/></div>]}
+        args={{ data: actionData, limit: 3, loading: false, activeKpi: 'amount' , fieldsConfig, title: 'List with actions', enableDownload: true}}>
+        {Template.bind({})}
     </Story>
 </Canvas>
 
@@ -59,6 +78,46 @@ export const data = [
     }
 )));
 
+export const childrenData = [
+    {
+        _isTotal: true,
+        name: 'total',
+        amount: 999999,
+        growth_amount: 0.23,
+    },
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
+    {
+        _isTotal: false,
+        name,
+        amount: 12311,
+        growth_amount: 0.98,
+        children: [
+            {
+                name: 'child',
+                amount: 999999,
+                growth_amount: 0.23,
+            }
+        ]
+    }
+)));
+export const actionData = [
+    {
+        _isTotal: true,
+        name: 'total',
+        amount: 999999,
+        growth_amount: 0.23,
+    },
+].concat([ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => (
+    {
+        _isTotal: false,
+        _actions: i % 2 
+            ? [ { icon: 'bar_chart', title: 'Analize', action: () => alert('action') } ] 
+            : [{ icon: 'bar_chart', title: 'Analize', action: () => alert('analyze') },{ icon: 'lightbulb', title: 'Insights', action: () => alert('insight') }],
+        name,
+        amount: 12311,
+        growth_amount: 0.98,
+    }
+)));
 export const fieldsConfig = [
     {
         title: () => 'amount',
