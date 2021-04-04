@@ -1,0 +1,34 @@
+.filter-chip {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+
+    em {
+        font-size: var(--zd-font--m);
+        transition: all ease-in 300ms;
+    }
+
+    &.expanded {
+        em {
+            transform: rotate(180deg);
+        }
+    }
+}
+.filter-options__container {
+    position: absolute;
+    margin-top: var(--zd-padding--xs);
+    background: var(--zd-color--background--third);
+    border: var(--zd-border--light);
+    padding: var(--zd-padding--s);
+    box-shadow: var(--zd-shadow);
+    min-width: 150px;
+    overflow: hidden;
+
+    .option {
+        font-size: var(--zd-font--xs);
+        padding: var(--zd-padding--xxs) 0;
+        margin: 0;
+        text-transform: none;
+        cursor: pointer;
+    }
+}

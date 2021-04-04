@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { FieldsConfig, Row } from 'synth-core/dist/models/list';
-import { configRow } from 'synth-core/dist/utils';
+import { configRow, FieldsConfig, Row } from 'synth-core';
 
 @Component({
     selector: 'synth-ng-list',

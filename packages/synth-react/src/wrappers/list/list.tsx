@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { configRow } from 'synth-core/dist/utils';
-import { FieldsConfig, Row } from 'synth-core/dist/models/list';
+import { FieldsConfig, Row, configRow } from 'synth-core';
 import { SynthList, SynthTitle } from '../../components';
 
 function SynthReactList({
@@ -16,13 +15,13 @@ function SynthReactList({
     i18n,
     onExpandRow,
 }: Props) {
-    const [ parsedData, setParsedData ] = useState([] as Row[]);
+    const [parsedData, setParsedData] = useState([] as Row[]);
 
     useEffect(() => {
         if (fieldsConfig && data) {
             setParsedData(data.map(row => configRow(row, fieldsConfig)));
         }
-    }, [ data, fieldsConfig ]);
+    }, [data, fieldsConfig]);
 
     return (
         <div>
@@ -30,7 +29,7 @@ function SynthReactList({
             <SynthList
                 loading={loading}
                 data={parsedData}
-                filterFields={activeKpi ? [ activeKpi ] : []}
+                filterFields={activeKpi ? [activeKpi] : []}
                 defaultSortField={activeKpi}
                 decimals={decimals}
                 expandable={expandable}

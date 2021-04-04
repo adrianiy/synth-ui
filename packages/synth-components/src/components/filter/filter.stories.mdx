@@ -1,0 +1,40 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+export const limit = 3;
+
+export const Template = args => html`<div style="width: 300px; height: 400px"><synth-filter ...=${spread(args)} /></div>`;
+
+<Meta title="Components/Filter" parameters={{ viewMode: 'docs' }} />
+
+# Filter
+
+##### synth-filter
+
+Filter component. This component will render a chip when some option is selected and also an
+options list on drilldown.
+
+## Basic filter
+
+<Canvas>
+    <Story name="Basic" args={filter}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const filter = {
+    description: 'test filter',
+    plural: 'filters',
+    multiSelect: false,
+    '.selected': [],
+    '.options': [
+        { description: 'option', active: false, display: true },
+        { description: 'option 2', active: false, display: true },
+        { description: 'option 3', active: false, display: true },
+    ],
+}

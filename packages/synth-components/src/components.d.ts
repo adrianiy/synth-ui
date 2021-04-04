@@ -7,6 +7,32 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ExpandRowEvent, Row } from "./components/list/list.model";
 export namespace Components {
+    interface SynthFilter {
+        /**
+          * Filter description
+         */
+        "description": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Multiselect flag
+         */
+        "multiSelect": boolean;
+        /**
+          * Filter options
+         */
+        "options": any[];
+        /**
+          * Filter plural
+         */
+        "plural": string;
+        /**
+          * Filter selected
+         */
+        "selected": any[];
+    }
     interface SynthList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -111,6 +137,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLSynthFilterElement extends Components.SynthFilter, HTMLStencilElement {
+    }
+    var HTMLSynthFilterElement: {
+        prototype: HTMLSynthFilterElement;
+        new (): HTMLSynthFilterElement;
+    };
     interface HTMLSynthListElement extends Components.SynthList, HTMLStencilElement {
     }
     var HTMLSynthListElement: {
@@ -142,6 +174,7 @@ declare global {
         new (): HTMLSynthTitleElement;
     };
     interface HTMLElementTagNameMap {
+        "synth-filter": HTMLSynthFilterElement;
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
         "synth-no-data": HTMLSynthNoDataElement;
@@ -150,6 +183,32 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface SynthFilter {
+        /**
+          * Filter description
+         */
+        "description"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Multiselect flag
+         */
+        "multiSelect"?: boolean;
+        /**
+          * Filter options
+         */
+        "options"?: any[];
+        /**
+          * Filter plural
+         */
+        "plural"?: string;
+        /**
+          * Filter selected
+         */
+        "selected"?: any[];
+    }
     interface SynthList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -257,6 +316,7 @@ declare namespace LocalJSX {
         "titleText"?: string;
     }
     interface IntrinsicElements {
+        "synth-filter": SynthFilter;
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
         "synth-no-data": SynthNoData;
@@ -268,6 +328,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "synth-filter": LocalJSX.SynthFilter & JSXBase.HTMLAttributes<HTMLSynthFilterElement>;
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;

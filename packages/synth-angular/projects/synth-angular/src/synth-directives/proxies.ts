@@ -5,6 +5,25 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'synth-components';
 
+
+export declare interface SynthFilter extends Components.SynthFilter {}
+@ProxyCmp({
+  inputs: ['description', 'i18n', 'multiSelect', 'options', 'plural', 'selected']
+})
+@Component({
+  selector: 'synth-filter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['description', 'i18n', 'multiSelect', 'options', 'plural', 'selected']
+})
+export class SynthFilter {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { ListComponent as IListComponent } from 'synth-components/dist/types/components/list/list';
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({

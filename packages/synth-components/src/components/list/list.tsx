@@ -1,10 +1,11 @@
 import { Component, Host, Element, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
-import { ExpandRowEvent, Row } from './list.model';
 import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
 import { Workbook } from 'exceljs';
+import { Row } from 'synth-core';
 import * as fs from 'file-saver';
+import { ExpandRowEvent } from './list.model';
 
 const LIMIT = 16;
 const RESPONSIVE_LIMIT = 10;
@@ -66,7 +67,7 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'list', 'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(['list', 'no-data'], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
         this._isMobile = window.innerWidth < 1050;
 
@@ -97,12 +98,12 @@ export class ListComponent {
     private _downloadExcel = () => {
         const workbook = new Workbook();
         const workSheet = workbook.addWorksheet('countries');
-        const header = [ '' ].concat(this._fields);
+        const header = [''].concat(this._fields);
         const excelData = parseExcelData(this.parsedList, this._fields);
         workSheet.addRow(header);
         excelData.forEach(row => workSheet.addRow(row));
         workbook.xlsx.writeBuffer().then(data => {
-            const blob = new Blob([ data ], {
+            const blob = new Blob([data], {
                 type: 'application/vnd.openxmlformats-officedocument.spreadsheethtml.sheet',
             });
             fs.saveAs(blob, `download-${new Date().toISOString()}.xlsx`);
@@ -154,7 +155,7 @@ export class ListComponent {
         const customSort = this.sort !== 'default';
 
         if (customSort) {
-            list = [ list[0] ].concat(sortList(list.slice(1), field, this.sort));
+            list = [list[0]].concat(sortList(list.slice(1), field, this.sort));
         }
         return list;
     }
@@ -247,9 +248,9 @@ export class ListComponent {
 
     private _renderPagination() {
         return (
-            <RowLayout distribution={[ distributions.MIDDLE, distributions.SPACED ]} className="pagination__container">
+            <RowLayout distribution={[distributions.MIDDLE, distributions.SPACED]} className="pagination__container">
                 <RowLayout className="pagination">{this._renderPages()}</RowLayout>
-                <RowLayout className="actions" distribution={[ distributions.MIDDLE ]}>
+                <RowLayout className="actions" distribution={[distributions.MIDDLE]}>
                     <span class="view-all" onClick={this._toggleShowAll()} role="button">
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>

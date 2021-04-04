@@ -27,14 +27,11 @@
     /* borders */
     --zd-border--dark: 1px solid black;
     --zd-border--medium: 1px solid #eae9e9;
-    --zd-border--light: 1px solid rgba(0, 0, 0, 0.12);
+    --zd-border--light: 1px solid rgba(0, 0, 0, 0.8);
     --zd-border--header: var(--zd-border--light);
 
     /* shadows */
-    --zd-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --zd-shadow--small: 0 -10px 16px rgba(0, 0, 0, 0.12);
-    --zd-shadow--tiny: 0 2px 11px rgba(0, 0, 0, 0.12);
-    --zd-shadow--top: 0 -17px 16px rgba(0, 0, 0, 0.12);
+    --zd-shadow: 0px 2px 5px 0px rgb(0 0 0 / 3%), 0px 9px 11px 2px rgb(0 0 0 / 4%);
 
     /* filters */
     --zd-logo-filter: invert(0);
