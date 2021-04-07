@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { defineCustomElements } from 'synth-components/dist/loader';
 
-import { SynthList, SynthListRow, SynthNoData, SynthTitle, SynthSkLoader, SynthFilter, SynthToggler } from './synth-directives/proxies';
+import {
+    SynthList,
+    SynthListRow,
+    SynthNoData,
+    SynthTitle,
+    SynthSkLoader,
+    SynthFilter,
+    SynthToggler,
+} from './synth-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
 import { StoreModule } from './store.module';
@@ -17,7 +25,7 @@ const DECLARATIONS = [
     SynthTitle,
     SynthSkLoader,
     SynthFilter,
-    SynthToggler
+    SynthToggler,
     // components
     ListComponent,
 ];
