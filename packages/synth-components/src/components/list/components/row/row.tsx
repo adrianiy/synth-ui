@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { distributions, RowLayout } from '../../../../utils/layout';
-import { Cell, Row, RowAction } from '../../list.model';
+import { Cell, Row, RowAction } from 'synth-core';
 import { getCellValues } from '../../utils/list';
 
 @Component({

@@ -5,6 +5,33 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from 'synth-components';
 
+import { FilterComponent as IFilterComponent } from 'synth-components/dist/types/components/filter/filter';
+export declare interface SynthFilter extends Components.SynthFilter {}
+@ProxyCmp({
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']
+})
+@Component({
+  selector: 'synth-filter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],
+  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
+})
+export class SynthFilter {
+  /** Option click event */
+  optionClickEvent!: IFilterComponent['optionClickEvent'];
+  /** Clear selected filters callback */
+  clearEvent!: IFilterComponent['clearEvent'];
+  /** Multiselect toggler callback */
+  multiSelectEvent!: IFilterComponent['multiSelectEvent'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);
+  }
+}
+
 import { ListComponent as IListComponent } from 'synth-components/dist/types/components/list/list';
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({
@@ -97,6 +124,25 @@ export declare interface SynthTitle extends Components.SynthTitle {}
   inputs: ['titleText']
 })
 export class SynthTitle {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface SynthToggler extends Components.SynthToggler {}
+@ProxyCmp({
+  inputs: ['active', 'callback']
+})
+@Component({
+  selector: 'synth-toggler',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['active', 'callback']
+})
+export class SynthToggler {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

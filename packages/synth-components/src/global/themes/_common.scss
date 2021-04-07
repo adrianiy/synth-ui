@@ -40,6 +40,11 @@ body {
     /* transitions */
     --zd-transition--300: all ease-in-out 300ms;
 
+    /* shadows */
+    --zd-shadow--small: 0 -10px 16px rgba(0, 0, 0, 0.12);
+    --zd-shadow--tiny: 0 2px 11px rgba(0, 0, 0, 0.12);
+    --zd-shadow--top: 0 -17px 16px rgba(0, 0, 0, 0.12);
+
     /* ios*/
     --zd-padding--ios: 115px;
     --zd-padding--ios--scrolled: 70px;
