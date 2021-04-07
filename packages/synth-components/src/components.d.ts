@@ -41,10 +41,6 @@ export namespace Components {
           * Filter selected
          */
         "selected": SelectedFilter[];
-        /**
-          * Force component update if flag is true
-         */
-        "update": boolean;
     }
     interface SynthList {
         /**
@@ -258,10 +254,6 @@ declare namespace LocalJSX {
           * Filter selected
          */
         "selected"?: SelectedFilter[];
-        /**
-          * Force component update if flag is true
-         */
-        "update"?: boolean;
     }
     interface SynthList {
         /**

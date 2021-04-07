@@ -26,8 +26,6 @@ export class FilterComponent {
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
-    /** Force component update if flag is true  */
-    @Prop({ mutable: true }) update: boolean = false;
     /** Option click event */
     @Event() optionClickEvent: EventEmitter<any>;
     /** Clear selected filters callback */
