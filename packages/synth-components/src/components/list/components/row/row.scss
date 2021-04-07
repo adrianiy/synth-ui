@@ -100,7 +100,7 @@
             max-height: 0;
 
             &.loader {
-                padding-left: calc(var(--zd-padding--m) + var(--zd-padding--xxs))!important;
+                padding-left: calc(var(--zd-padding--m) + var(--zd-padding--xxs)) !important;
             }
 
             &:first-of-type {
@@ -144,8 +144,13 @@
             font-size: var(--zd-font--m);
             position: relative;
 
+            * {
+                color: var(--zd-color--font--contrast);
+            }
+
             &:hover {
                 background: var(--zd-color--contrast);
+                color: var(--zd-color--font--contrast);
             }
         }
 
@@ -154,13 +159,16 @@
             left: 100%;
             top: 0;
             position: absolute;
-            color: var(--zd-color--font);
             background: var(--zd-color--background--third);
             box-shadow: var(--zd-shadow--tiny);
             padding: var(--zd-padding--s);
             padding-bottom: var(--zd-padding--m);
             width: 150px;
             font-size: var(--zd-font--m);
+
+            * {
+                color: var(--zd-color--font);
+            }
 
             .row-action {
                 margin-top: var(--zd-padding--l);

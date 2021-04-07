@@ -13,3 +13,4 @@ export const SynthListRow = /*@__PURE__*/createReactComponent<JSX.SynthListRow, 
 export const SynthNoData = /*@__PURE__*/createReactComponent<JSX.SynthNoData, HTMLSynthNoDataElement>('synth-no-data');
 export const SynthSkLoader = /*@__PURE__*/createReactComponent<JSX.SynthSkLoader, HTMLSynthSkLoaderElement>('synth-sk-loader');
 export const SynthTitle = /*@__PURE__*/createReactComponent<JSX.SynthTitle, HTMLSynthTitleElement>('synth-title');
+export const SynthToggler = /*@__PURE__*/createReactComponent<JSX.SynthToggler, HTMLSynthTogglerElement>('synth-toggler');

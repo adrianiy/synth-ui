@@ -19,6 +19,26 @@
         }
     </style>
     <body>
+        <synth-filter description="filter" plural="filters"></synth-filter>
+        <script>
+            const filterElement = document.querySelector('synth-filter');
+            filterElement.options =[
+                { description: 'option', active: false, display: true },
+                { description: 'option 2', active: false, display: true },
+                { description: 'option 3', active: false, display: true },
+            ]
+
+            filterElement.selected = [];
+            filterElement.addEventListener('optionClickEvent', event => {
+                const filterElement = document.querySelector('synth-filter');
+                filterElement.options = [
+                    { description: 'option', active: true, display: true },
+                    { description: 'option 2', active: false, display: true },
+                    { description: 'option 3', active: false, display: true },
+                ]
+
+            })
+        </script>
         <synth-title title-text="List"></synth-title>
         <synth-list loading="false" enable-download="true" expandable="true"></synth-list>
         <script>

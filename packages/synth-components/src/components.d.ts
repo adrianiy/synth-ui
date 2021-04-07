@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ExpandRowEvent, Row } from "./components/list/list.model";
+import { FilterOptionHeader, Row, SelectedFilter } from "synth-core";
+import { ExpandRowEvent } from "./components/list/list.model";
 export namespace Components {
     interface SynthFilter {
         /**
@@ -13,25 +14,37 @@ export namespace Components {
          */
         "description": string;
         /**
+          * Multiselect flag. True if filter allows multiselect toggler
+         */
+        "haveMultiSelect": boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
         /**
-          * Multiselect flag
+          * This flag is true if multiselect is active
          */
         "multiSelect": boolean;
         /**
           * Filter options
          */
-        "options": any[];
+        "options": FilterOptionHeader[];
         /**
           * Filter plural
          */
         "plural": string;
         /**
+          * Search placeholder
+         */
+        "searchPlaceholder": string;
+        /**
           * Filter selected
          */
-        "selected": any[];
+        "selected": SelectedFilter[];
+        /**
+          * Force component update if flag is true
+         */
+        "update": boolean;
     }
     interface SynthList {
         /**
@@ -135,6 +148,16 @@ export namespace Components {
          */
         "titleText": string;
     }
+    interface SynthToggler {
+        /**
+          * Toggler state
+         */
+        "active": boolean;
+        /**
+          * Click callback
+         */
+        "callback": () => any;
+    }
 }
 declare global {
     interface HTMLSynthFilterElement extends Components.SynthFilter, HTMLStencilElement {
@@ -173,6 +196,12 @@ declare global {
         prototype: HTMLSynthTitleElement;
         new (): HTMLSynthTitleElement;
     };
+    interface HTMLSynthTogglerElement extends Components.SynthToggler, HTMLStencilElement {
+    }
+    var HTMLSynthTogglerElement: {
+        prototype: HTMLSynthTogglerElement;
+        new (): HTMLSynthTogglerElement;
+    };
     interface HTMLElementTagNameMap {
         "synth-filter": HTMLSynthFilterElement;
         "synth-list": HTMLSynthListElement;
@@ -180,6 +209,7 @@ declare global {
         "synth-no-data": HTMLSynthNoDataElement;
         "synth-sk-loader": HTMLSynthSkLoaderElement;
         "synth-title": HTMLSynthTitleElement;
+        "synth-toggler": HTMLSynthTogglerElement;
     }
 }
 declare namespace LocalJSX {
@@ -189,25 +219,49 @@ declare namespace LocalJSX {
          */
         "description"?: string;
         /**
+          * Multiselect flag. True if filter allows multiselect toggler
+         */
+        "haveMultiSelect"?: boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
         /**
-          * Multiselect flag
+          * This flag is true if multiselect is active
          */
         "multiSelect"?: boolean;
         /**
+          * Clear selected filters callback
+         */
+        "onClearEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Multiselect toggler callback
+         */
+        "onMultiSelectEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Option click event
+         */
+        "onOptionClickEvent"?: (event: CustomEvent<any>) => void;
+        /**
           * Filter options
          */
-        "options"?: any[];
+        "options"?: FilterOptionHeader[];
         /**
           * Filter plural
          */
         "plural"?: string;
         /**
+          * Search placeholder
+         */
+        "searchPlaceholder"?: string;
+        /**
           * Filter selected
          */
-        "selected"?: any[];
+        "selected"?: SelectedFilter[];
+        /**
+          * Force component update if flag is true
+         */
+        "update"?: boolean;
     }
     interface SynthList {
         /**
@@ -315,6 +369,16 @@ declare namespace LocalJSX {
          */
         "titleText"?: string;
     }
+    interface SynthToggler {
+        /**
+          * Toggler state
+         */
+        "active"?: boolean;
+        /**
+          * Click callback
+         */
+        "callback"?: () => any;
+    }
     interface IntrinsicElements {
         "synth-filter": SynthFilter;
         "synth-list": SynthList;
@@ -322,6 +386,7 @@ declare namespace LocalJSX {
         "synth-no-data": SynthNoData;
         "synth-sk-loader": SynthSkLoader;
         "synth-title": SynthTitle;
+        "synth-toggler": SynthToggler;
     }
 }
 export { LocalJSX as JSX };
@@ -334,6 +399,7 @@ declare module "@stencil/core" {
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;
             "synth-sk-loader": LocalJSX.SynthSkLoader & JSXBase.HTMLAttributes<HTMLSynthSkLoaderElement>;
             "synth-title": LocalJSX.SynthTitle & JSXBase.HTMLAttributes<HTMLSynthTitleElement>;
+            "synth-toggler": LocalJSX.SynthToggler & JSXBase.HTMLAttributes<HTMLSynthTogglerElement>;
         }
     }
 }
