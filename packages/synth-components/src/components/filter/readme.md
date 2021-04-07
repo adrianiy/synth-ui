@@ -17,7 +17,6 @@
 | `plural`            | `plural`             | Filter plural                                               | `string`                     | `undefined` |
 | `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                     | `undefined` |
 | `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`           | `undefined` |
-| `update`            | `update`             | Force component update if flag is true                      | `boolean`                    | `false`     |
 
 
 ## Events

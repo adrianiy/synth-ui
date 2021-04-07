@@ -8,13 +8,13 @@ import { Components } from 'synth-components';
 import { FilterComponent as IFilterComponent } from 'synth-components/dist/types/components/filter/filter';
 export declare interface SynthFilter extends Components.SynthFilter {}
 @ProxyCmp({
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected', 'update']
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']
 })
 @Component({
   selector: 'synth-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected', 'update'],
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],
   outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
 })
 export class SynthFilter {

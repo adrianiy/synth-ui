@@ -91,7 +91,7 @@ export class FilterComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['filter'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -137,7 +137,7 @@ export class FilterComponent {
 
     private _renderMultiSelect = () => {
         return (
-            <RowLayout className="operation" distribution={[distributions.SPACED, distributions.MIDDLE]}>
+            <RowLayout className="operation" distribution={[ distributions.SPACED, distributions.MIDDLE ]}>
                 <span>{this._i18n['multiselect']}</span>
                 <synth-toggler active={this.multiSelect} callback={this._multiSelectClick} />
             </RowLayout>
@@ -177,7 +177,7 @@ export class FilterComponent {
                             <RowLayout
                                 onClick={this._optionClick(option)}
                                 className={`option ${option.active && 'active'}`}
-                                distribution={[distributions.SPACED]}
+                                distribution={[ distributions.SPACED ]}
                             >
                                 {option.header
                                     ? this._renderOptionHeader(option)
@@ -205,7 +205,7 @@ export class FilterComponent {
         return (
             <Host>
                 <RowLayout
-                    distribution={[distributions.MIDDLE]}
+                    distribution={[ distributions.MIDDLE ]}
                     className={`filter-chip ${!!this.selected.length && 'active'} ${this.expanded && 'expanded'}`}
                     onClick={this._expandFilter}
                 >
