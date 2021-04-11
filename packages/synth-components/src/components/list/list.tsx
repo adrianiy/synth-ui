@@ -1,10 +1,11 @@
 import { Component, Host, Element, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
-import { ExpandRowEvent, Row } from './list.model';
 import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
 import { Workbook } from 'exceljs';
+import { Row } from 'synth-core';
 import * as fs from 'file-saver';
+import { ExpandRowEvent } from './list.model';
 
 const LIMIT = 16;
 const RESPONSIVE_LIMIT = 10;

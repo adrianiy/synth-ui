@@ -1,7 +1,7 @@
 export interface Cell {
     value: any;
     format: string;
-    decoration: String;
+    decoration: string;
 }
 
 export interface RowAction {

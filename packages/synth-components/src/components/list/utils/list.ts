@@ -1,6 +1,6 @@
 import { getGrowthColor } from '../../../utils/color.utils';
 import { numeralFormat } from '../../../utils/utils';
-import { Cell, Row } from '../list.model';
+import { Cell, Row } from 'synth-core';
 
 export const filterEmptyRows = (list: Row[], fields: any[]) => {
     return list.filter((row: Row) => fields.every((field: any) => row[field]));

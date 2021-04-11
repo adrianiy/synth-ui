@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { configRow } from 'synth-core/dist/utils';
-import { FieldsConfig, Row } from 'synth-core/dist/models/list';
+import { FieldsConfig, Row, configRow } from 'synth-core';
 import { SynthList, SynthTitle } from '../../components';
 
 function SynthReactList({

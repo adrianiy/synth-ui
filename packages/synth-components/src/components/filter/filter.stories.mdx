@@ -1,0 +1,197 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<div style="width: 300px; height: 250px"><synth-filter ...=${spread(args)} @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
+
+<Meta title="Components/Filter" parameters={{ viewMode: 'docs' }} />
+
+# Filter
+
+##### synth-filter
+
+Filter component. This component will render a chip when some option is selected and also an
+options list on drilldown.
+
+## Basic filter
+
+<Canvas>
+    <Story name="Basic" args={filter}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Multiselect filter
+
+Filters allow multiselect option. When this option is true users can select more than one option at the same time.
+
+If more than one option is selected and `multiselect` flag toggles to false all options are unchecked.
+
+<Canvas>
+    <Story name="Multiselect" args={{...filter, 'have-multi-select': true }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Search filter
+
+If filter has `searchPlaceholder` attribute configured the drilldown menu will show a search input.
+
+Filter options will be filtered on the fly while users type.
+
+<Canvas>
+    <Story name="Search" args={{...filter, 'have-multi-select': true, 'search-placeholder': 'Search filters...' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Filters with children
+
+Filters can be complex, as they can be of type **header** and contain one or more children inside.
+
+<Canvas>
+    <Story name="With children" args={{...filterWithChildren, 'have-multi-select': true, 'search-placeholder': 'Search filters...' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const filter = {
+    description: 'Test filter',
+    plural: 'filters',
+    'have-multi-select': false,
+    'multi-select': false,
+    '.selected': [],
+    '.options': [
+        { description: 'option', active: false, display: true, code: 1 },
+        { description: 'option 2', active: false, display: true, code: 2 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+    ],
+}
+
+export const filterWithChildren = {
+    description: 'Test filter',
+    plural: 'filters',
+    'have-multi-select': false,
+    'multi-select': false,
+    '.selected': [],
+    '.options': [
+        {
+        description: 'header', display: true, header: true, code: 88, children: [
+                { description: 'option', active: false, display: true, code: 1 },
+                { description: 'option 2', active: false, display: true, code: 2 },
+                { description: 'option 3', active: false, display: true, code: 3 },
+            ]
+        },
+        {
+        description: 'header2', display: true, header: true, code: 99, children: [
+                { description: 'option', active: false, display: true, code: 4 },
+                { description: 'option 2', active: false, display: true, code: 5 },
+                { description: 'option 3', active: false, display: true, code: 6 },
+            ]
+        }
+    ],
+}
+
+export const optionClickEvent = (event) => {
+    const code = event.detail.code;
+    const header = event.detail.header;
+    let index = event.target.options.findIndex(option => option.code === code);
+    let subindex = -1;
+    if (index === -1) {
+        index = event.target.options.findIndex(option => option.children?.some(child => child.code === code));
+        subindex = event.target.options[index].children.findIndex(child => child.code === code);
+    }
+    let option = {...event.target.options[index]};
+    if (header) {
+        event.target.options = [
+            ...event.target.options.slice(0, index),
+            {
+                ...option, expanded: !option.expanded
+            },
+            ...event.target.options.slice(index + 1)
+        ];
+        return null;
+    }
+    const multiSelect = event.target.multiSelect;
+    if (!multiSelect) {
+        event.target.options.forEach(opt => {
+            opt.active = false;
+            opt.children?.forEach(child => child.active = false);
+        });
+    }
+    if (subindex === -1) {
+        event.target.options = [
+            ...event.target.options.slice(0, index),
+            {
+                ...option, active: !option.active
+            },
+            ...event.target.options.slice(index + 1)
+        ];
+        event.target.selected = event.target.options.filter(opt => opt.active).map(opt => ({
+            default: false, description: option.description, option: opt
+        }))
+    } else {
+        const child = option.children[subindex];
+        const children = [
+            ...option.children.slice(0, subindex),
+            {
+                ...child, active: !child.active
+            },
+            ...option.children.slice(subindex + 1)
+        ];
+        event.target.options = [
+            ...event.target.options.slice(0, index),
+            {
+                ...option, children, expanded: !option.expanded
+            },
+            ...event.target.options.slice(index + 1)
+        ];
+        event.target.selected = event.target.options.filter(opt => opt.children.some(child => child.active)).reduce((acc, curr) =>
+            acc.concat(curr.children.filter(child => child.active).map(child => ({ default: false, description: child.description, option: child })))
+        , []);
+        return null;
+    }
+}
+
+export const clearEvent = (event) => {
+    event.target.selected = [];
+    if (event.target.haveMultiSelect) {
+        event.target.options =[
+            {
+            description: 'header', display: true, header: true, code: 88, children: [
+                    { description: 'option', active: false, display: true, code: 1 },
+                    { description: 'option 2', active: false, display: true, code: 2 },
+                    { description: 'option 3', active: false, display: true, code: 3 },
+                ]
+            },
+            {
+            description: 'header2', display: true, header: true, code: 99, children: [
+                    { description: 'option', active: false, display: true, code: 4 },
+                    { description: 'option 2', active: false, display: true, code: 5 },
+                    { description: 'option 3', active: false, display: true, code: 6 },
+                ]
+            }
+        ];
+    } else {
+        event.target.options = [
+            { description: 'option', active: false, display: true },
+            { description: 'option 2', active: false, display: true },
+            { description: 'option 3', active: false, display: true },
+        ]
+    }
+}
+
+export const multiSelectEvent = (event) => {
+    event.target.multiSelect = !event.target.multiSelect;
+    if (!event.target.multiSelect) {
+        event.target.options.forEach(opt => opt.active = false);
+        event.target.selected = event.target.options.filter(opt => opt.active).map(opt => ({
+            default: false, description: option.description, option: opt
+        }));
+    }
+}
