@@ -30,6 +30,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [synth-chipsbar](../chipsbar)
+
 ### Depends on
 
 - [synth-toggler](../toggler)
@@ -38,6 +42,7 @@
 ```mermaid
 graph TD;
   synth-filter --> synth-toggler
+  synth-chipsbar --> synth-filter
   style synth-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

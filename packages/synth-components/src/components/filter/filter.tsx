@@ -1,8 +1,7 @@
-import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, State, Host, Element, Event, EventEmitter, Listen } from '@stencil/core';
 import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { FilterOption, FilterOptionHeader, SelectedFilter } from 'synth-core';
-import { ClickOutside } from 'stencil-click-outside';
 
 @Component({
     tag: 'synth-filter',
@@ -43,9 +42,9 @@ export class FilterComponent {
 
     private _i18n: any;
 
-    @ClickOutside()
-    clickOutsideHandler() {
-        if (this.expanded) {
+    @Listen('click', { target: 'window' })
+    handleClick(ev: any) {
+        if (!ev.path[0].closest('.filter-options__container') && !ev.path[0].closest('.filter-chip') && this.expanded) {
             this._expandFilter();
         }
     }
@@ -62,7 +61,7 @@ export class FilterComponent {
         this.expanded = !this.expanded;
     };
 
-    private _optionClick = option => () => {
+    private _optionClick = (option: FilterOptionHeader) => () => {
         this.optionClickEvent.emit(option);
 
         if (!this.multiSelect && !option.header) {
@@ -74,7 +73,7 @@ export class FilterComponent {
         this.multiSelectEvent.emit();
     };
 
-    private _onClear = event => {
+    private _onClear = (event: any) => {
         if (this.selected.length) {
             this.clearEvent.emit();
             event.stopPropagation();
@@ -106,11 +105,11 @@ export class FilterComponent {
         return true;
     }
 
-    private _handleInputChange = event => {
+    private _handleInputChange = (event: any) => {
         this.searchValue = event.target.value;
     };
 
-    private _handleKeyUp = event => {
+    private _handleKeyUp = (event: any) => {
         const isEnter = event.key === 'Enter';
         if (isEnter) {
             const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
@@ -167,7 +166,7 @@ export class FilterComponent {
         );
     };
 
-    private _renderOptionsList = options => {
+    private _renderOptionsList = (options: FilterOptionHeader[]) => {
         return (
             <ul>
                 {options

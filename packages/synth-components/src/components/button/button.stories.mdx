@@ -1,0 +1,36 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<synth-button ...=${spread(args)} @click=${clickEvent} />`;
+
+<Meta title="Components/Button" parameters={{ viewMode: 'docs' }} />
+
+# Button
+
+##### synth-button
+
+Button component, can be rendered with **text** or with **icon**.
+
+## Text button
+
+<Canvas>
+    <Story name="Text" args={{ text: 'button1' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Icon button
+
+<Canvas>
+    <Story name="Icon" args={{ icon: 'close' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const clickEvent = () => alert('event')

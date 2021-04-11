@@ -51,6 +51,7 @@
     min-width: var(--min-width);
     overflow: hidden;
     user-select: none;
+    z-index: 2;
 
     .operation {
         --side-margin: calc(var(--zd-padding--s) * -1);
