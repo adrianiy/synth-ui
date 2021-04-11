@@ -35,7 +35,7 @@ export class ChipsBarComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['chipsbar'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -89,7 +89,7 @@ export class ChipsBarComponent {
 
     render() {
         return (
-            <RowLayout className="chipsbar__container" distribution={[distributions.MIDDLE, distributions.SPACED]}>
+            <RowLayout className="chipsbar__container" distribution={[ distributions.MIDDLE, distributions.SPACED ]}>
                 {this._renderChips()}
                 {this._renderButtons()}
             </RowLayout>
