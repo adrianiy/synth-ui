@@ -3,55 +3,24 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<div style="width: 300px; height: 250px"><synth-filter ...=${spread(args)} @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
+export const Template = args => html`<synth-chipsbar .filtersConfig=${args.filtersConfig} @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @filterMultiSelect=${multiSelectEvent} />`;
 
-<Meta title="Components/Filter" parameters={{ viewMode: 'docs' }} />
+<Meta title="Components/Chipsbar" parameters={{ viewMode: 'docs' }} />
 
-# Filter
+# Chipsbar
 
-##### synth-filter
+##### synth-chipsbar
 
-Filter component. This component will render a chip when some option is selected and also an
-options list on drilldown.
+A bar to handle filter rendering.
 
-## Basic filter
+This bar takes a json with filters configuration and renders a chip for each filter. It returns an event for each option event.
 
-<Canvas>
-    <Story name="Basic" args={filter}>
-        {Template.bind({})}
-    </Story>
-</Canvas>
+This bar allows users to configure filters order and visibility using **configure filters** button shown on the right side.
 
-## Multiselect filter
-
-Filters allow multiselect option. When this option is true users can select more than one option at the same time.
-
-If more than one option is selected and `multiselect` flag toggles to false all options are unchecked.
+## Basic chipsbar
 
 <Canvas>
-    <Story name="Multiselect" args={{...filter, 'have-multi-select': true }}>
-        {Template.bind({})}
-    </Story>
-</Canvas>
-
-## Search filter
-
-If filter has `searchPlaceholder` attribute configured the drilldown menu will show a search input.
-
-Filter options will be filtered on the fly while users type.
-
-<Canvas>
-    <Story name="Search" args={{...filter, 'have-multi-select': true, 'search-placeholder': 'Search filters...' }}>
-        {Template.bind({})}
-    </Story>
-</Canvas>
-
-## Filters with children
-
-Filters can be complex, as they can be of type **header** and contain one or more children inside.
-
-<Canvas>
-    <Story name="With children" args={{...filterWithChildren, 'have-multi-select': true, 'search-placeholder': 'Search filters...' }}>
+    <Story name="Basic" args={{ filtersConfig }}>
         {Template.bind({})}
     </Story>
 </Canvas>
@@ -63,10 +32,10 @@ Filters can be complex, as they can be of type **header** and contain one or mor
 export const filter = {
     description: 'Test filter',
     plural: 'filters',
-    'have-multi-select': false,
-    'multi-select': false,
-    '.selected': [],
-    '.options': [
+    haveMultiSelect: false,
+    multiSelect: false,
+    selected: [],
+    options: [
         { description: 'option', active: false, display: true, code: 1 },
         { description: 'option 2', active: false, display: true, code: 2 },
         { description: 'option 3', active: false, display: true, code: 3 },
@@ -76,10 +45,11 @@ export const filter = {
 export const filterWithChildren = {
     description: 'Test filter',
     plural: 'filters',
-    'have-multi-select': false,
-    'multi-select': false,
-    '.selected': [],
-    '.options': [
+    haveMultiSelect: true,
+    multiSelect: false,
+    selected: [],
+    searchPlaceholder: 'Search filters...',
+    options: [
         {
         description: 'header', display: true, header: true, code: 88, children: [
                 { description: 'option', active: false, display: true, code: 1 },
@@ -96,6 +66,12 @@ export const filterWithChildren = {
         }
     ],
 }
+
+export const filtersConfig = {
+    filter1: filter,
+    filter2: filterWithChildren
+}
+console.log(filtersConfig);
 
 export const optionClickEvent = (event) => {
     const code = event.detail.code;

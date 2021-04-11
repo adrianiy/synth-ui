@@ -7,6 +7,8 @@ import type { JSX } from 'synth-components';
 
 
 
+export const SynthButton = /*@__PURE__*/createReactComponent<JSX.SynthButton, HTMLSynthButtonElement>('synth-button');
+export const SynthChipsbar = /*@__PURE__*/createReactComponent<JSX.SynthChipsbar, HTMLSynthChipsbarElement>('synth-chipsbar');
 export const SynthFilter = /*@__PURE__*/createReactComponent<JSX.SynthFilter, HTMLSynthFilterElement>('synth-filter');
 export const SynthList = /*@__PURE__*/createReactComponent<JSX.SynthList, HTMLSynthListElement>('synth-list');
 export const SynthListRow = /*@__PURE__*/createReactComponent<JSX.SynthListRow, HTMLSynthListRowElement>('synth-list-row');

@@ -5,9 +5,29 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FilterOptionHeader, Row, SelectedFilter } from "synth-core";
+import { FilterOptionHeader, FiltersConfig, Row, SelectedFilter } from "synth-core";
 import { ExpandRowEvent } from "./components/list/list.model";
 export namespace Components {
+    interface SynthButton {
+        /**
+          * Material icons id
+         */
+        "icon": string;
+        /**
+          * Button text
+         */
+        "text": string;
+    }
+    interface SynthChipsbar {
+        /**
+          * Filters configuration object
+         */
+        "filtersConfig": FiltersConfig;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+    }
     interface SynthFilter {
         /**
           * Filter description
@@ -156,6 +176,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLSynthButtonElement extends Components.SynthButton, HTMLStencilElement {
+    }
+    var HTMLSynthButtonElement: {
+        prototype: HTMLSynthButtonElement;
+        new (): HTMLSynthButtonElement;
+    };
+    interface HTMLSynthChipsbarElement extends Components.SynthChipsbar, HTMLStencilElement {
+    }
+    var HTMLSynthChipsbarElement: {
+        prototype: HTMLSynthChipsbarElement;
+        new (): HTMLSynthChipsbarElement;
+    };
     interface HTMLSynthFilterElement extends Components.SynthFilter, HTMLStencilElement {
     }
     var HTMLSynthFilterElement: {
@@ -199,6 +231,8 @@ declare global {
         new (): HTMLSynthTogglerElement;
     };
     interface HTMLElementTagNameMap {
+        "synth-button": HTMLSynthButtonElement;
+        "synth-chipsbar": HTMLSynthChipsbarElement;
         "synth-filter": HTMLSynthFilterElement;
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
@@ -209,6 +243,42 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface SynthButton {
+        /**
+          * Material icons id
+         */
+        "icon"?: string;
+        /**
+          * Button text
+         */
+        "text"?: string;
+    }
+    interface SynthChipsbar {
+        /**
+          * Filters configuration object
+         */
+        "filtersConfig"?: FiltersConfig;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Clear all filters event
+         */
+        "onClearAll"?: (event: CustomEvent<any>) => void;
+        /**
+          * Filter clear event
+         */
+        "onFilterClear"?: (event: CustomEvent<any>) => void;
+        /**
+          * Filter multiselect event
+         */
+        "onFilterMultiSelect"?: (event: CustomEvent<any>) => void;
+        /**
+          * Filter select event
+         */
+        "onFilterSelect"?: (event: CustomEvent<any>) => void;
+    }
     interface SynthFilter {
         /**
           * Filter description
@@ -372,6 +442,8 @@ declare namespace LocalJSX {
         "callback"?: () => any;
     }
     interface IntrinsicElements {
+        "synth-button": SynthButton;
+        "synth-chipsbar": SynthChipsbar;
         "synth-filter": SynthFilter;
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
@@ -385,6 +457,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "synth-button": LocalJSX.SynthButton & JSXBase.HTMLAttributes<HTMLSynthButtonElement>;
+            "synth-chipsbar": LocalJSX.SynthChipsbar & JSXBase.HTMLAttributes<HTMLSynthChipsbarElement>;
             "synth-filter": LocalJSX.SynthFilter & JSXBase.HTMLAttributes<HTMLSynthFilterElement>;
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
