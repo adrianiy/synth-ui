@@ -1,0 +1,121 @@
+.filter-chip {
+    cursor: pointer;
+    border-radius: 2px;
+    user-select: none;
+    position: relative;
+    font-size: var(--gui-font--xs);
+    margin: 0 var(--gui-padding--m) 0 0;
+    padding: var(--gui-padding--xs);
+    padding-left: 0;
+    white-space: nowrap;
+    width: max-content;
+
+    span {
+        line-height: var(--gui-font--s);
+        margin: var(--gui-padding--xxs) 0;
+    }
+
+    em {
+        font-size: var(--gui-font--m);
+        transition: all ease-in 300ms;
+    }
+
+    &.expanded:not(.active) {
+        em {
+            transform: rotate(180deg);
+        }
+    }
+
+    &.active {
+        background: var(--gui-color--primary);
+        margin-right: var(--gui-padding--l);
+        padding-left: var(--gui-padding--xs);
+
+        em {
+            margin-left: var(--gui-padding--s);
+            margin-top: var(--gui-padding--nano);
+            font-size: var(--gui-font--xs);
+        }
+    }
+}
+.filter-options__container {
+    --max-height: 300px;
+    --min-width: 150px;
+
+    position: absolute;
+    margin-top: var(--gui-padding--xs);
+    background: var(--gui-color--background--third);
+    border: var(--gui-border--light);
+    padding: var(--gui-padding--s);
+    box-shadow: var(--gui-shadow);
+    min-width: var(--min-width);
+    overflow: hidden;
+    user-select: none;
+    z-index: 2;
+
+    .operation {
+        --side-margin: calc(var(--gui-padding--s) * -1);
+        font-size: var(--gui-font--xs);
+        border: var(--gui-border--light);
+        padding: var(--gui-padding--xs) 0;
+        padding-left: var(--gui-padding--s);
+        padding-right: var(--gui-padding--s);
+        margin: 0 var(--side-margin) 0 var(--side-margin);
+        border-right: 0;
+        border-left: 0;
+    }
+
+    .search-box {
+        border: var(--gui-border--light);
+        border-radius: 2px;
+        padding-left: var(--gui-padding--xxs);
+        margin-bottom: var(--gui-padding--s);
+
+        input {
+            outline: 0;
+            border: none;
+            background: var(--gui-color--background--third);
+            font-size: var(--gui-font--xxs);
+            margin: var(--gui-padding--xxs) 0;
+            margin-left: var(--gui-padding--xxxs);
+            color: var(--gui-color--font);
+        }
+    }
+
+    .children__container {
+        width: 100%;
+        ul {
+            padding-left: var(--gui-padding--s);
+        }
+    }
+
+    ul {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: var(--max-height);
+        padding-right: var(--gui-padding--s);
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li,
+        .option {
+            font-size: var(--gui-font--xs);
+            padding: var(--gui-padding--xxs) 0;
+            margin: 0;
+        }
+        .option {
+            width: 100%;
+            text-transform: none;
+            cursor: pointer;
+
+            em {
+                width: 13px;
+            }
+
+            &.active {
+                font-weight: var(--gui-font-weight--extra-bold);
+            }
+        }
+    }
+}

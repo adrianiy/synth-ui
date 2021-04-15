@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Synth-UI/Getting Started" />
+<Meta title="glyph-UI/Getting Started" />
 
 # Getting Started
 
@@ -38,14 +38,14 @@ Choose a implementations that matches your favourite framework!
   yarn
 ```
 
-To make **react-demo** work locally you'll need to simlink `react` and `react-dom` deps between **react-demo** and **synth-react** so they use the same exact version.
+To make **react-demo** work locally you'll need to simlink `react` and `react-dom` deps between **react-demo** and **glyph-react** so they use the same exact version.
 
 ```bash
 cd packages/react-demo/node_modules/react
 yarn link
 cd ../react-dom
 yarn link
-cd ../../../synth-react
+cd ../../../glyph-react
 yarn link react
 yarn link react-dom
 ```
@@ -72,7 +72,7 @@ The documentation will be visible at `localhost:6006` and will trigger `hmr` eve
   yarn start
 ```
 
-#### Run only framework implementations 
+#### Run only framework implementations
 
 If you need to test how web components are implemented in frameworks we recommend you to execute `yarn start:front`.
 This script will open all frameworks syncronized in different ports, so if you change something in a higher layer framework or in the core
@@ -83,7 +83,7 @@ the demo application should trigger a `hmr` reload.
 ```
 
 
-#### Run only documentation 
+#### Run only documentation
 
 If you are going to modify docs only you should try this lightweighted script.
 

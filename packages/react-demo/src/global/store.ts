@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { rootReducer } from 'synth-react';
+import { rootReducer } from 'glyph-react';
 
 const store = createStore(
     rootReducer,

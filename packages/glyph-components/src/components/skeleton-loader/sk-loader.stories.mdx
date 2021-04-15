@@ -1,0 +1,47 @@
+import { html } from 'lit-html';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = (args) => {
+    return html` <glyph-sk-loader repetitions=${args.repetitions}  /> `;
+};
+
+export const TemplateHeight = (args) => {
+    return html` <glyph-sk-loader repetitions=${args.repetitions} height=${args.height} /> `;
+};
+
+<Meta title="Components/Skeleton Loader" parameters={{ viewMode: 'docs' }}/>
+
+# Skeleton Loader
+##### glyph-sk-loader
+
+Skeleton loader with an opacity animation from grey to transparent
+
+## Line loader
+
+<Canvas>
+    <Story name="Line" args={{ repetitions: 1 }}>{ Template.bind({}) }</Story>
+</Canvas>
+
+## Multiline loader
+
+You can repeat it multiple times to simulate a list or a table component.
+
+<Canvas>
+    <Story name="Multi line" args={{ repetitions: 3 }}>{ Template.bind({}) }</Story>
+</Canvas>
+
+## Customized size
+
+This component is configurable by height, so you can adapt it to your needs!
+
+<Canvas>
+    <Story name="Custom size" args={{ repetitions: 3, height: 10 }}>{ TemplateHeight.bind({}) }</Story>
+</Canvas>
+
+
+---
+
+<Description>
+    { notes }
+</Description>

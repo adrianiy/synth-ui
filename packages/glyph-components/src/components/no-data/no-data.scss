@@ -1,0 +1,36 @@
+.no-data {
+    font-size: var(--gui-font--s);
+    line-height: var(--gui-font--m);
+
+    em {
+        font-size: var(--gui-font--l);
+    }
+
+    &.simple {
+        em {
+            margin-right: var(--gui-padding--xxs);
+            padding-right: 0px;
+            color: var(--gui-color--danger);
+        }
+    }
+
+    &.complex {
+        h3 {
+            font-weight: var(--gui-font-weight--normal);
+            font-size: var(--gui-font--m);
+            line-height: var(--gui-font--l);
+            margin: 0;
+        }
+
+        p {
+            font-weight: var(--gui-font-weight--light);
+            font-size: var(--gui-font--m);
+            line-height: var(--gui-font--l);
+            color: var(--gui-color--secondary);
+            margin: 0;
+        }
+        em {
+            font-size: var(--gui-font--xxl);
+        }
+    }
+}

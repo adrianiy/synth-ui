@@ -31,15 +31,15 @@ module.exports = {
         return {
             webComponents: {
                 title: 'Web Components',
-                url: '/synth-ui/webcomponents',
+                url: '/glyph-ui/webcomponents',
             },
             angular: {
                 title: 'Angular',
-                url: '/synth-ui/angular',
+                url: '/glyph-ui/angular',
             },
             react: {
                 title: 'React',
-                url: '/synth-ui/react',
+                url: '/glyph-ui/react',
             },
         };
     },

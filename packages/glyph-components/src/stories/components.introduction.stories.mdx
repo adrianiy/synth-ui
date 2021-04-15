@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# SynthUI-Components
+#### WebComponents library implemented with [StencilJS](https://stenciljs.com)
+
+This library born to allow developers to use whatever framework they like to implement an application with a look and feel similar to Drive.
+Until this day we were tied to Angular as main framework, with a big component library implemented in it.
+
+## Why WebComponents?
+
+Using webcomponents we are creating a set of native components that can be used in any framework. The only thing we'll need to care about
+is the correct project import and pass attributes to components correctly.
+
+## Install
+
+🚧 The library is not currently published
+
+## Use
+
+To use it as WebComponents, check StencilJS Javascript integration [DOCS](https://stenciljs.com/docs/javascript)
+
+For components accepting complex input properties you should set component attributes manually using JS in a script tag.
+
+```html
+<todo-list></todo-list>
+<script>
+  const todoListElement = document.querySelector('todo-list');
+  todoListElement.myObject = {};
+  todoListElement.myArray = [];
+</script>
+```
+
+## Local Development
+
+Execute
+
+```bash
+  yarn start
+```
+

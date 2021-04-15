@@ -1,0 +1,29 @@
+* {
+    color: var(--gui-color--font);
+}
+h1 {
+    font-size: var(--gui-font--xl);
+    margin: 0;
+    margin-bottom: var(--gui-padding--xs);
+}
+h2 {
+    font-size: var(--gui-font--l);
+    margin: 0;
+    margin-bottom: var(--gui-padding--xs);
+}
+h3 {
+    font-size: var(--gui-font--s);
+    margin-top: 6px;
+    margin-bottom: var(--gui-padding--xs);
+}
+h4 {
+    font-size: var(--gui-font--xs);
+    font-weight: 600;
+    margin: 0 0 var(--gui-padding--xs) 0;
+}
+
+h5 {
+    font-size: var(--gui-font--xxs);
+    font-weight: 600;
+    margin: 0 0 var(--gui-padding--xs) 0;
+}

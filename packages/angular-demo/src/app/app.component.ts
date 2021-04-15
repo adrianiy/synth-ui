@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SynthFilterService } from 'synth-angular';
+import { SynthFilterService } from 'glyph-angular';
 import { FiltersConfig } from '../config/filters.config';
 import { DataService } from './services/data.service';
 

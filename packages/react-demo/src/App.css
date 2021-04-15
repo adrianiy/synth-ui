@@ -1,5 +1,5 @@
 .App {
-  padding: var(--zd-padding--l);
+  padding: var(--gui-padding--l);
 }
 .list {
   width: 300px;

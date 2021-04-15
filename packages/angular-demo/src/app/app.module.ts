@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SynthComponentsModule, SynthServicesModule } from 'synth-angular';
+import { SynthComponentsModule, SynthServicesModule } from 'glyph-angular';
 import { HomeComponent } from './components/home/home.component';
 import { environment } from '../environments/environment';
 import { fakeBackendProvider } from '../helpers/fake-backend';

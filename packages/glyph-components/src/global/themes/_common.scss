@@ -1,0 +1,51 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    /* Padding and margin */
+    --gui-padding--nano: 2px;
+    --gui-padding--xxxs: 4px;
+    --gui-padding--xxs: 6px;
+    --gui-padding--xs: 8px;
+    --gui-padding--s: 12px;
+    --gui-padding--m: 16px;
+    --gui-padding--l: 24px;
+    --gui-padding--xl: 32px;
+    --gui-padding--xxl: 48px;
+    --gui-padding--xxxl: 64px;
+    --gui-padding--huge: 124px;
+
+    /* Font sizes */
+    --gui-font--nano: 5px;
+    --gui-font--xxxs: 8px;
+    --gui-font--xxs: 11px;
+    --gui-font--xs: 12px;
+    --gui-font--s: 14px;
+    --gui-font--m: 17px;
+    --gui-font--l: 25px;
+    --gui-font--xl: 32px;
+    --gui-font--xxl: 48px;
+    --gui-font--xxxl: 64px;
+
+    /* font weights */
+    --gui-font-weight--light: 300;
+    --gui-font-weight--normal: 400;
+    --gui-font-weight--bold: 500;
+    --gui-font-weight--extra-bold: 600;
+
+    /* font family */
+    --gui-font-family: 'Roboto', sans-serif;
+
+    /* transitions */
+    --gui-transition--300: all ease-in-out 300ms;
+
+    /* shadows */
+    --gui-shadow--small: 0 -10px 16px rgba(0, 0, 0, 0.12);
+    --gui-shadow--tiny: 0 2px 11px rgba(0, 0, 0, 0.12);
+    --gui-shadow--top: 0 -17px 16px rgba(0, 0, 0, 0.12);
+
+    /* ios*/
+    --gui-padding--ios: 115px;
+    --gui-padding--ios--scrolled: 70px;
+}

@@ -1,0 +1,18 @@
+overrides:
+  - files: 
+      - '*.ts'
+    parserOptions:
+      project: './tsconfig.json'
+    plugins:
+      - "@angular-eslint"
+    rules:
+      '@angular-eslint/directive-selector':
+        - error
+        - { type: "attribute", prefix: "synth", style: "camelCase" }
+      '@angular-eslint/component-selector':
+        - error
+        - { type: "element", prefix: "synth", style: "kebab-case" }
+  - files: 
+    - '*.html'
+    extends:
+      - 'plugin:@angular-eslint/template/recommended'

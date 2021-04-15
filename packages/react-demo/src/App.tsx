@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { actions, SynthReactList } from 'synth-react';
+import { actions, SynthReactList } from 'glyph-react';
 import { getChildrenList, getListData } from './services/data.service';
 import './App.css';
 import { useDispatch } from 'react-redux';
