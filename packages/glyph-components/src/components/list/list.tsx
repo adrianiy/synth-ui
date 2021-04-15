@@ -37,7 +37,7 @@ export class ListComponent {
     /** Force component update if flag is true  */
     @Prop({ mutable: true }) update: boolean = false;
     /** Element reference */
-    @Element() element: HTMLSynthListElement;
+    @Element() element: HTMLGlyphListElement;
     /** Sort value */
     @State() sort = 'default';
     /** Sort field */

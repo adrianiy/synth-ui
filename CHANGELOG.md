@@ -4,7 +4,7 @@
 ### Features
 
 * **components:** add chipsbar ([6f71d57](https://github.com/adrianiy/glyph-ui/commit/6f71d579feb5a665eedb742300e6743f355f1216))
-* **components:** add filter component move all models to synth core ([6f378c7](https://github.com/adrianiy/glyph-ui/commit/6f378c7a448dc23f02323422e67d907cd623b441))
+* **components:** add filter component move all models to glyph core ([6f378c7](https://github.com/adrianiy/glyph-ui/commit/6f378c7a448dc23f02323422e67d907cd623b441))
 * **components:** add filter example in docs ([43034df](https://github.com/adrianiy/glyph-ui/commit/43034df6073be5f922651f44d60cae9a7d329611))
 
 # [1.8.0](https://github.com/adrianiy/glyph-ui/compare/v1.7.3...v1.8.0) (2021-04-02)

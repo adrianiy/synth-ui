@@ -32,7 +32,7 @@ export class FilterComponent {
     /** Multiselect toggler callback */
     @Event() multiSelectEvent: EventEmitter<any>;
     /** Element reference */
-    @Element() element: HTMLSynthFilterElement;
+    @Element() element: HTMLGlyphFilterElement;
     /** Chip description */
     @State() chipDescription: string;
     /** Filter expanded flag */

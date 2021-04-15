@@ -18,7 +18,7 @@ export class NoDataComponent {
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
 
-    @Element() element: HTMLSynthNoDataElement;
+    @Element() element: HTMLGlyphNoDataElement;
 
     private _i18n: any;
 

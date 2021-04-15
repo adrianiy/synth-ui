@@ -1,19 +1,19 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { SynthFilterService } from './filters/filters.service';
+import { GlyphFilterService } from './filters/filters.service';
 import { Implementations } from './implementations.interface';
 
 @NgModule({})
-export class SynthServicesModule {
+export class GlyphServicesModule {
     public static forRoot(
         environment: any,
         impl: Implementations = {} as any
-    ): ModuleWithProviders<SynthServicesModule> {
+    ): ModuleWithProviders<GlyphServicesModule> {
         return {
-            ngModule: SynthServicesModule,
+            ngModule: GlyphServicesModule,
             providers: [
                 {
-                    provide: SynthFilterService,
-                    useClass: impl.synthFilterService || SynthFilterService,
+                    provide: GlyphFilterService,
+                    useClass: impl.glyphFilterService || GlyphFilterService,
                 },
                 {
                     provide: 'env', // you can also use InjectionToken
@@ -24,4 +24,4 @@ export class SynthServicesModule {
     }
 }
 
-export { SynthFilterService } from './filters/filters.service';
+export { GlyphFilterService } from './filters/filters.service';

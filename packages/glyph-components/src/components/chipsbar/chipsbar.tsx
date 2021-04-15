@@ -26,7 +26,7 @@ export class ChipsBarComponent {
     @State() scrolled: boolean = false;
 
     /** Element reference */
-    @Element() element: HTMLSynthChipsbarElement;
+    @Element() element: HTMLGlyphChipsbarElement;
 
     private _i18n: any;
 

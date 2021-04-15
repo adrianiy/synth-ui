@@ -5,7 +5,7 @@ import { actions } from 'glyph-core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
-export class SynthFilterService {
+export class GlyphFilterService {
     /**
      * Action to change screen name. This will be used in multi-screen
      * aps to set filter visibility, and get correct query filters

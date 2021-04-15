@@ -7,12 +7,12 @@ import type { JSX } from 'glyph-components';
 
 
 
-export const SynthButton = /*@__PURE__*/createReactComponent<JSX.SynthButton, HTMLSynthButtonElement>('glyph-button');
-export const SynthChipsbar = /*@__PURE__*/createReactComponent<JSX.SynthChipsbar, HTMLSynthChipsbarElement>('glyph-chipsbar');
-export const SynthFilter = /*@__PURE__*/createReactComponent<JSX.SynthFilter, HTMLSynthFilterElement>('glyph-filter');
-export const SynthList = /*@__PURE__*/createReactComponent<JSX.SynthList, HTMLSynthListElement>('glyph-list');
-export const SynthListRow = /*@__PURE__*/createReactComponent<JSX.SynthListRow, HTMLSynthListRowElement>('glyph-list-row');
-export const SynthNoData = /*@__PURE__*/createReactComponent<JSX.SynthNoData, HTMLSynthNoDataElement>('glyph-no-data');
-export const SynthSkLoader = /*@__PURE__*/createReactComponent<JSX.SynthSkLoader, HTMLSynthSkLoaderElement>('glyph-sk-loader');
-export const SynthTitle = /*@__PURE__*/createReactComponent<JSX.SynthTitle, HTMLSynthTitleElement>('glyph-title');
-export const SynthToggler = /*@__PURE__*/createReactComponent<JSX.SynthToggler, HTMLSynthTogglerElement>('glyph-toggler');
+export const GlyphButton = /*@__PURE__*/createReactComponent<JSX.GlyphButton, HTMLGlyphButtonElement>('glyph-button');
+export const GlyphChipsbar = /*@__PURE__*/createReactComponent<JSX.GlyphChipsbar, HTMLGlyphChipsbarElement>('glyph-chipsbar');
+export const GlyphFilter = /*@__PURE__*/createReactComponent<JSX.GlyphFilter, HTMLGlyphFilterElement>('glyph-filter');
+export const GlyphList = /*@__PURE__*/createReactComponent<JSX.GlyphList, HTMLGlyphListElement>('glyph-list');
+export const GlyphListRow = /*@__PURE__*/createReactComponent<JSX.GlyphListRow, HTMLGlyphListRowElement>('glyph-list-row');
+export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
+export const GlyphSkLoader = /*@__PURE__*/createReactComponent<JSX.GlyphSkLoader, HTMLGlyphSkLoaderElement>('glyph-sk-loader');
+export const GlyphTitle = /*@__PURE__*/createReactComponent<JSX.GlyphTitle, HTMLGlyphTitleElement>('glyph-title');
+export const GlyphToggler = /*@__PURE__*/createReactComponent<JSX.GlyphToggler, HTMLGlyphTogglerElement>('glyph-toggler');

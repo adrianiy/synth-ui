@@ -3,15 +3,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { defineCustomElements } from 'glyph-components/dist/loader';
 
 import {
-    SynthList,
-    SynthListRow,
-    SynthNoData,
-    SynthTitle,
-    SynthSkLoader,
-    SynthFilter,
-    SynthToggler,
-    SynthChipsbar,
-    SynthButton,
+    GlyphList,
+    GlyphListRow,
+    GlyphNoData,
+    GlyphTitle,
+    GlyphSkLoader,
+    GlyphFilter,
+    GlyphToggler,
+    GlyphChipsbar,
+    GlyphButton,
 } from './glyph-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
@@ -21,15 +21,15 @@ defineCustomElements(window);
 
 const DECLARATIONS = [
     // proxies
-    SynthList,
-    SynthListRow,
-    SynthNoData,
-    SynthTitle,
-    SynthSkLoader,
-    SynthFilter,
-    SynthToggler,
-    SynthButton,
-    SynthChipsbar,
+    GlyphList,
+    GlyphListRow,
+    GlyphNoData,
+    GlyphTitle,
+    GlyphSkLoader,
+    GlyphFilter,
+    GlyphToggler,
+    GlyphButton,
+    GlyphChipsbar,
     // components
     ListComponent,
 ];
@@ -40,4 +40,4 @@ const DECLARATIONS = [
     imports: [StoreModule, TranslateModule],
     providers: [],
 })
-export class SynthComponentsModule {}
+export class GlyphComponentsModule {}

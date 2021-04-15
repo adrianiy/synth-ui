@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FieldsConfig, Row, configRow } from 'glyph-core';
-import { SynthList, SynthTitle } from '../../components';
+import { GlyphList, GlyphTitle } from '../../components';
 
-function SynthReactList({
+function GlyphReactList({
     loading,
     title,
     data,
@@ -25,8 +25,8 @@ function SynthReactList({
 
     return (
         <div>
-            <SynthTitle titleText={title} />
-            <SynthList
+            <GlyphTitle titleText={title} />
+            <GlyphList
                 loading={loading}
                 data={parsedData}
                 filterFields={activeKpi ? [ activeKpi ] : []}
@@ -67,7 +67,7 @@ interface Props {
     onExpandRow?: any;
 }
 
-SynthReactList.defaultProps = {
+GlyphReactList.defaultProps = {
     loading: true,
     title: '',
     data: [],
@@ -80,4 +80,4 @@ SynthReactList.defaultProps = {
     onExpandRow: undefined,
 } as Props;
 
-export default SynthReactList;
+export default GlyphReactList;

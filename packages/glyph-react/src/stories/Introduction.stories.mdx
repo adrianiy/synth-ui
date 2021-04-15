@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Introduction" />
 
-# SynthUI-React-Components
+# GlyphUI-React-Components
 #### React library implemented over webComponents
 
 This library allow to share logic across Drive React applications. Developers do not need to care about how components interact with application state, or how they
@@ -17,14 +17,14 @@ transform raw data into usable components.
 To use this React library simply import components where you want to use them.
 
 ```javascript
-import { SynthReactList } from 'glyph-react';
+import { GlyphReactList } from 'glyph-react';
 
 ...
 
     return (
         <div className="App">
             <div className="list">
-                <SynthReactList title={'List'} limit={3} data={data} fieldsConfig={fieldsConfig} />
+                <GlyphReactList title={'List'} limit={3} data={data} fieldsConfig={fieldsConfig} />
             </div>
         </div>
     );

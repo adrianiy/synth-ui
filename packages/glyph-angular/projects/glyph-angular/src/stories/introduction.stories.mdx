@@ -2,7 +2,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title="Introduction" />
 
-# SynthUI-Angular-Components
+# GlyphUI-Angular-Components
 #### Angular library implemented over webComponents
 
 This library allow to share logic across Drive Angular applications. Developers do not need to care about how components interact with application state, or how they
@@ -20,14 +20,14 @@ You can import Services module too, this will inject some common services in roo
 This needs an `environment` variable as first argument, this will be used by services to get environment app variables.
 
 ```javascript
-import { SynthComponentsModule, SynthServicesModule } from 'glyph-angular';
+import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
 
 @NgModule({
     declarations: [ ... ],
     imports: [
         ...
-        SynthComponentsModule,
-        SynthServicesModule.forRoot(environment),
+        GlyphComponentsModule,
+        GlyphServicesModule.forRoot(environment),
         ...
     ],
     providers: [ ... ],
@@ -38,16 +38,16 @@ export class AppModule {}
 
 ### Custom services implementations
 
-The second argument of `SynthServicesModule.forRoot()` is an object of classes to inject your custom services implementations in root.
+The second argument of `GlyphServicesModule.forRoot()` is an object of classes to inject your custom services implementations in root.
 
 You can create a custom class that extends FilterService
 
 ```javascript
 import { Injectable } from '@angular/core';
-import { SynthFilterService } from 'glyph-angular'
+import { GlyphFilterService } from 'glyph-angular'
 
 @Injectable()
-export class CustomFiltersServie extends SynthFilterService {
+export class CustomFiltersServie extends GlyphFilterService {
   constructor(...) {
     super(...)
   }
@@ -68,13 +68,13 @@ export class CustomFiltersServie extends SynthFilterService {
 Now you can pass an object to `forRoot` informed with your custom implementations
 
 ```javascript
-import { SynthComponentsModule, SynthServicesModule } from 'glyph-angular';
+import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
 
 @NgModule({
     declarations: [ ... ],
     imports: [
         ...
-        SynthServicesModule.forRoot(environment, { synthFilterService: CustomFiltersServie }),
+        GlyphServicesModule.forRoot(environment, { glyphFilterService: CustomFiltersServie }),
         ...
     ],
     providers: [ ... ],

@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FilterOptionHeader, FiltersConfig, Row, SelectedFilter } from "glyph-core";
 import { ExpandRowEvent } from "./components/list/list.model";
 export namespace Components {
-    interface SynthButton {
+    interface GlyphButton {
         /**
           * Material icons id
          */
@@ -18,7 +18,7 @@ export namespace Components {
          */
         "text": string;
     }
-    interface SynthChipsbar {
+    interface GlyphChipsbar {
         /**
           * Filters configuration object
          */
@@ -28,7 +28,7 @@ export namespace Components {
          */
         "i18n": { [key: string]: string };
     }
-    interface SynthFilter {
+    interface GlyphFilter {
         /**
           * Filter description
          */
@@ -62,7 +62,7 @@ export namespace Components {
          */
         "selected": SelectedFilter[];
     }
-    interface SynthList {
+    interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
          */
@@ -104,7 +104,7 @@ export namespace Components {
          */
         "update": boolean;
     }
-    interface SynthListRow {
+    interface GlyphListRow {
         /**
           * expand row callback
          */
@@ -130,7 +130,7 @@ export namespace Components {
          */
         "row": Row;
     }
-    interface SynthNoData {
+    interface GlyphNoData {
         /**
           * Bottom text. only applies if render mode is advanced
          */
@@ -148,7 +148,7 @@ export namespace Components {
          */
         "text": string;
     }
-    interface SynthSkLoader {
+    interface GlyphSkLoader {
         /**
           * Height of loader line
          */
@@ -158,13 +158,13 @@ export namespace Components {
          */
         "repetitions": number;
     }
-    interface SynthTitle {
+    interface GlyphTitle {
         /**
           * title text
          */
         "titleText": string;
     }
-    interface SynthToggler {
+    interface GlyphToggler {
         /**
           * Toggler state
          */
@@ -176,74 +176,74 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLSynthButtonElement extends Components.SynthButton, HTMLStencilElement {
+    interface HTMLGlyphButtonElement extends Components.GlyphButton, HTMLStencilElement {
     }
-    var HTMLSynthButtonElement: {
-        prototype: HTMLSynthButtonElement;
-        new (): HTMLSynthButtonElement;
+    var HTMLGlyphButtonElement: {
+        prototype: HTMLGlyphButtonElement;
+        new (): HTMLGlyphButtonElement;
     };
-    interface HTMLSynthChipsbarElement extends Components.SynthChipsbar, HTMLStencilElement {
+    interface HTMLGlyphChipsbarElement extends Components.GlyphChipsbar, HTMLStencilElement {
     }
-    var HTMLSynthChipsbarElement: {
-        prototype: HTMLSynthChipsbarElement;
-        new (): HTMLSynthChipsbarElement;
+    var HTMLGlyphChipsbarElement: {
+        prototype: HTMLGlyphChipsbarElement;
+        new (): HTMLGlyphChipsbarElement;
     };
-    interface HTMLSynthFilterElement extends Components.SynthFilter, HTMLStencilElement {
+    interface HTMLGlyphFilterElement extends Components.GlyphFilter, HTMLStencilElement {
     }
-    var HTMLSynthFilterElement: {
-        prototype: HTMLSynthFilterElement;
-        new (): HTMLSynthFilterElement;
+    var HTMLGlyphFilterElement: {
+        prototype: HTMLGlyphFilterElement;
+        new (): HTMLGlyphFilterElement;
     };
-    interface HTMLSynthListElement extends Components.SynthList, HTMLStencilElement {
+    interface HTMLGlyphListElement extends Components.GlyphList, HTMLStencilElement {
     }
-    var HTMLSynthListElement: {
-        prototype: HTMLSynthListElement;
-        new (): HTMLSynthListElement;
+    var HTMLGlyphListElement: {
+        prototype: HTMLGlyphListElement;
+        new (): HTMLGlyphListElement;
     };
-    interface HTMLSynthListRowElement extends Components.SynthListRow, HTMLStencilElement {
+    interface HTMLGlyphListRowElement extends Components.GlyphListRow, HTMLStencilElement {
     }
-    var HTMLSynthListRowElement: {
-        prototype: HTMLSynthListRowElement;
-        new (): HTMLSynthListRowElement;
+    var HTMLGlyphListRowElement: {
+        prototype: HTMLGlyphListRowElement;
+        new (): HTMLGlyphListRowElement;
     };
-    interface HTMLSynthNoDataElement extends Components.SynthNoData, HTMLStencilElement {
+    interface HTMLGlyphNoDataElement extends Components.GlyphNoData, HTMLStencilElement {
     }
-    var HTMLSynthNoDataElement: {
-        prototype: HTMLSynthNoDataElement;
-        new (): HTMLSynthNoDataElement;
+    var HTMLGlyphNoDataElement: {
+        prototype: HTMLGlyphNoDataElement;
+        new (): HTMLGlyphNoDataElement;
     };
-    interface HTMLSynthSkLoaderElement extends Components.SynthSkLoader, HTMLStencilElement {
+    interface HTMLGlyphSkLoaderElement extends Components.GlyphSkLoader, HTMLStencilElement {
     }
-    var HTMLSynthSkLoaderElement: {
-        prototype: HTMLSynthSkLoaderElement;
-        new (): HTMLSynthSkLoaderElement;
+    var HTMLGlyphSkLoaderElement: {
+        prototype: HTMLGlyphSkLoaderElement;
+        new (): HTMLGlyphSkLoaderElement;
     };
-    interface HTMLSynthTitleElement extends Components.SynthTitle, HTMLStencilElement {
+    interface HTMLGlyphTitleElement extends Components.GlyphTitle, HTMLStencilElement {
     }
-    var HTMLSynthTitleElement: {
-        prototype: HTMLSynthTitleElement;
-        new (): HTMLSynthTitleElement;
+    var HTMLGlyphTitleElement: {
+        prototype: HTMLGlyphTitleElement;
+        new (): HTMLGlyphTitleElement;
     };
-    interface HTMLSynthTogglerElement extends Components.SynthToggler, HTMLStencilElement {
+    interface HTMLGlyphTogglerElement extends Components.GlyphToggler, HTMLStencilElement {
     }
-    var HTMLSynthTogglerElement: {
-        prototype: HTMLSynthTogglerElement;
-        new (): HTMLSynthTogglerElement;
+    var HTMLGlyphTogglerElement: {
+        prototype: HTMLGlyphTogglerElement;
+        new (): HTMLGlyphTogglerElement;
     };
     interface HTMLElementTagNameMap {
-        "glyph-button": HTMLSynthButtonElement;
-        "glyph-chipsbar": HTMLSynthChipsbarElement;
-        "glyph-filter": HTMLSynthFilterElement;
-        "glyph-list": HTMLSynthListElement;
-        "glyph-list-row": HTMLSynthListRowElement;
-        "glyph-no-data": HTMLSynthNoDataElement;
-        "glyph-sk-loader": HTMLSynthSkLoaderElement;
-        "glyph-title": HTMLSynthTitleElement;
-        "glyph-toggler": HTMLSynthTogglerElement;
+        "glyph-button": HTMLGlyphButtonElement;
+        "glyph-chipsbar": HTMLGlyphChipsbarElement;
+        "glyph-filter": HTMLGlyphFilterElement;
+        "glyph-list": HTMLGlyphListElement;
+        "glyph-list-row": HTMLGlyphListRowElement;
+        "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-title": HTMLGlyphTitleElement;
+        "glyph-toggler": HTMLGlyphTogglerElement;
     }
 }
 declare namespace LocalJSX {
-    interface SynthButton {
+    interface GlyphButton {
         /**
           * Material icons id
          */
@@ -253,7 +253,7 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
-    interface SynthChipsbar {
+    interface GlyphChipsbar {
         /**
           * Filters configuration object
          */
@@ -279,7 +279,7 @@ declare namespace LocalJSX {
          */
         "onFilterSelect"?: (event: CustomEvent<any>) => void;
     }
-    interface SynthFilter {
+    interface GlyphFilter {
         /**
           * Filter description
          */
@@ -325,7 +325,7 @@ declare namespace LocalJSX {
          */
         "selected"?: SelectedFilter[];
     }
-    interface SynthList {
+    interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
          */
@@ -371,7 +371,7 @@ declare namespace LocalJSX {
          */
         "update"?: boolean;
     }
-    interface SynthListRow {
+    interface GlyphListRow {
         /**
           * expand row callback
          */
@@ -397,7 +397,7 @@ declare namespace LocalJSX {
          */
         "row"?: Row;
     }
-    interface SynthNoData {
+    interface GlyphNoData {
         /**
           * Bottom text. only applies if render mode is advanced
          */
@@ -415,7 +415,7 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
-    interface SynthSkLoader {
+    interface GlyphSkLoader {
         /**
           * Height of loader line
          */
@@ -425,13 +425,13 @@ declare namespace LocalJSX {
          */
         "repetitions"?: number;
     }
-    interface SynthTitle {
+    interface GlyphTitle {
         /**
           * title text
          */
         "titleText"?: string;
     }
-    interface SynthToggler {
+    interface GlyphToggler {
         /**
           * Toggler state
          */
@@ -442,30 +442,30 @@ declare namespace LocalJSX {
         "callback"?: () => any;
     }
     interface IntrinsicElements {
-        "glyph-button": SynthButton;
-        "glyph-chipsbar": SynthChipsbar;
-        "glyph-filter": SynthFilter;
-        "glyph-list": SynthList;
-        "glyph-list-row": SynthListRow;
-        "glyph-no-data": SynthNoData;
-        "glyph-sk-loader": SynthSkLoader;
-        "glyph-title": SynthTitle;
-        "glyph-toggler": SynthToggler;
+        "glyph-button": GlyphButton;
+        "glyph-chipsbar": GlyphChipsbar;
+        "glyph-filter": GlyphFilter;
+        "glyph-list": GlyphList;
+        "glyph-list-row": GlyphListRow;
+        "glyph-no-data": GlyphNoData;
+        "glyph-sk-loader": GlyphSkLoader;
+        "glyph-title": GlyphTitle;
+        "glyph-toggler": GlyphToggler;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "glyph-button": LocalJSX.SynthButton & JSXBase.HTMLAttributes<HTMLSynthButtonElement>;
-            "glyph-chipsbar": LocalJSX.SynthChipsbar & JSXBase.HTMLAttributes<HTMLSynthChipsbarElement>;
-            "glyph-filter": LocalJSX.SynthFilter & JSXBase.HTMLAttributes<HTMLSynthFilterElement>;
-            "glyph-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
-            "glyph-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
-            "glyph-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;
-            "glyph-sk-loader": LocalJSX.SynthSkLoader & JSXBase.HTMLAttributes<HTMLSynthSkLoaderElement>;
-            "glyph-title": LocalJSX.SynthTitle & JSXBase.HTMLAttributes<HTMLSynthTitleElement>;
-            "glyph-toggler": LocalJSX.SynthToggler & JSXBase.HTMLAttributes<HTMLSynthTogglerElement>;
+            "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
+            "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
+            "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
+            "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
+            "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
+            "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;
+            "glyph-toggler": LocalJSX.GlyphToggler & JSXBase.HTMLAttributes<HTMLGlyphTogglerElement>;
         }
     }
 }

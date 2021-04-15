@@ -8,8 +8,8 @@ For more info refer to [DOCS](https://adrianiy.github.io/glyph-ui)
 
 As our team grows we are using more and more frameworks on our daily basis. We cannot be tied to a single framework anymore.
 
-The **SynthUI Design System** was created to help us **build products more efficiently**. Established to be the **single source of truth**
-for product teams working on Drive products. The SynthUI Design System contains everything from Getting Started guides to core components
+The **GlyphUI Design System** was created to help us **build products more efficiently**. Established to be the **single source of truth**
+for product teams working on Drive products. The GlyphUI Design System contains everything from Getting Started guides to core components
 and Vanilla Javascript functions intended to help product teams to desing and develop with speed, **consistency and quality, no matter
 which framework your team have choosen**.
 

@@ -2,6 +2,6 @@ import { create } from '@storybook/theming';
 
 export default create({
     base: 'light',
-    brandTitle: 'SynthUI',
-    brandImage: './logo.png',
+    brandTitle: 'GlyphUI',
+    brandImage: 'https://github.com/adrianiy/glyph-ui/blob/main/assets/logo.png?raw=true',
 });

@@ -8,6 +8,6 @@ export * from './glyph-angular.module';
 export { ListComponent } from './components';
 
 // PACKAGE MODULE
-export { SynthComponentsModule } from './glyph-angular.module';
+export { GlyphComponentsModule } from './glyph-angular.module';
 
-export { SynthList, SynthListRow, SynthNoData, SynthTitle, SynthSkLoader } from './glyph-directives/proxies';
+export { GlyphList, GlyphListRow, GlyphNoData, GlyphTitle, GlyphSkLoader } from './glyph-directives/proxies';
