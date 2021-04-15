@@ -8,14 +8,14 @@ plugins:
   - 'eslint-plugin-prettier'
 parser:
   '@typescript-eslint/parser'
-ignorePatterns: 
-  - '**/synth-react/**/dev.ts'
+ignorePatterns:
+  - '**/glyph-react/**/dev.ts'
   - '**/documentation/**'
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
 rules:
-  curly: 
+  curly:
     - error
     - all
   object-curly-spacing:

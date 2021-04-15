@@ -1,11 +1,11 @@
 {
   "npmClient": "yarn",
   "packages": [
-    "packages/synth-components",
-    "packages/synth-core",
-    "packages/synth-angular",
-    "packages/synth-react",
-    "packages/synth-docs",
+    "packages/glyph-components",
+    "packages/glyph-core",
+    "packages/glyph-angular",
+    "packages/glyph-react",
+    "packages/glyph-docs",
     "packages/angular-demo",
     "packages/react-demo"
   ],

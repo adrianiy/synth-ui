@@ -1,0 +1,91 @@
+table {
+    user-select: none;
+    border-collapse: collapse;
+
+    thead {
+        th {
+            cursor: default;
+            text-align: right;
+            font-size: var(--gui-font--xxs);
+            text-transform: uppercase;
+            color: var(--gui-color--secondary);
+            padding-top: var(--gui-padding--xxxs);
+
+            div {
+                padding-left: var(--gui-padding--xs);
+            }
+
+            &:first-of-type {
+                text-align: left;
+            }
+
+            .material-icons {
+                display: none;
+                cursor: pointer;
+                font-size: var(--gui-font--xxs);
+                padding-left: var(--gui-padding--nano);
+                opacity: 0.5;
+
+                &.active {
+                    opacity: 1;
+                    display: block;
+                }
+            }
+
+            &:hover {
+                .material-icons {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.pagination__container {
+    margin-top: var(--gui-padding--s);
+
+    .pagination {
+        .pagination__page {
+            transition: var(--gui-transition--300);
+            font-size: var(--gui-font--xs);
+            font-weight: var(--gui-font-weight--bold);
+            padding: var(--gui-padding--xxs) var(--gui-padding--s);
+            color: var(--gui-color--font--lighter);
+            border-bottom: var(--gui-border--medium);
+            border-bottom-width: 2px;
+            cursor: pointer;
+            display: inline-block;
+
+            &.active {
+                color: var(--gui-color--font);
+                border-bottom-color: var(--gui-color--font--light);
+            }
+        }
+    }
+
+    .actions {
+        .view-all {
+            font-size: var(--gui-font--xs);
+            margin-bottom: var(--gui-padding--xxs) 0;
+            cursor: pointer;
+            font-weight: var(--gui-font-weight--bold);
+            color: var(--gui-color--font--medium);
+
+            &:hover {
+                color: var(--gui-color--secondary);
+            }
+        }
+
+        .download {
+            cursor: pointer;
+            color: var(--gui-color--font--medium);
+            padding-left: var(--gui-padding--xxs);
+            font-size: var(--gui-font--s);
+
+            &:hover {
+                color: var(--gui-color--secondary);
+            }
+        }
+    }
+}
+

@@ -1,0 +1,10 @@
+extends:
+  - 'airbnb/hooks'
+plugins:
+  - 'react'
+ignorePatterns:
+  - '**/react-component-lib/**'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  project: './tsconfig.json'

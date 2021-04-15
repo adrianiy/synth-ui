@@ -1,0 +1,23 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": ".",
+        "module": "commonjs",
+        "target": "es2019",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "isolatedModules": true,
+        "declaration": true,
+        "resolveJsonModule": true,
+        "lib": ["es2020", "dom"],
+        "types": ["node"],
+        "outDir": "./dist",
+        "paths": {
+            "src/*": ["./src/*"]
+        }
+    }
+}

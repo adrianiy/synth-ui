@@ -1,0 +1,5 @@
+.buttons__container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: var(--gui-padding--s);
+}

@@ -1,0 +1,27 @@
+.toggler__wrapper {
+    --size: 11px;
+    background: var(--gui-color--font--medium);
+    padding: 2px;
+    width: 26px;
+    border-radius: 14px;
+    margin-left: var(--gui-padding--xs);
+    transition: var(--gui-transition--300);
+    height: var(--size);
+    cursor: pointer;
+
+    .toggler {
+        border-radius: 100%;
+        width: var(--size);
+        height: var(--size);
+        background: var(--gui-color--background);
+        transition: var(--gui-transition--300);
+    }
+
+    &.active {
+        background: var(--gui-color--contrast);
+
+        .toggler {
+            transform: translateX(15px);
+        }
+    }
+}

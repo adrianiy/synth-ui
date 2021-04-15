@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+        <title>Stencil Component Starter</title>
+
+        <script type="module" src="/build/glyph-components.esm.js"></script>
+        <script nomodule src="/build/glyph-components.js"></script>
+        <link href="/build/glyph-components.css" rel="stylesheet" />
+    </head>
+    <style>
+        body {
+            padding: var(--gui-padding--m);
+        }
+        glyph-list {
+            width: 300px;
+            display: block;
+        }
+    </style>
+    <body>
+        <glyph-filter description="filter" plural="filters"></glyph-filter>
+        <script>
+            const filterElement = document.querySelector('glyph-filter');
+            filterElement.options =[
+                { description: 'option', active: false, display: true },
+                { description: 'option 2', active: false, display: true },
+                { description: 'option 3', active: false, display: true },
+            ]
+
+            filterElement.selected = [];
+            filterElement.addEventListener('optionClickEvent', event => {
+                const filterElement = document.querySelector('glyph-filter');
+                filterElement.options = [
+                    { description: 'option', active: true, display: true },
+                    { description: 'option 2', active: false, display: true },
+                    { description: 'option 3', active: false, display: true },
+                ]
+
+            })
+        </script>
+        <glyph-title title-text="List"></glyph-title>
+        <glyph-list loading="false" enable-download="true" expandable="true"></glyph-list>
+        <script>
+            const listElement = document.querySelector('glyph-list');
+            listElement.headerTitle = 'Países';
+            listElement.data = [
+                {
+                    _isTotal: true,
+                    name: 'total',
+                    amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                    growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                },
+            ].concat(
+                ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(
+                    country => ({
+                        name: country,
+                        _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
+                        amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                        _children: [
+                            {
+                                name: 'Section',
+                                _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
+                                amount: { value: Math.random() * 10000 - 1, format: '0,0' },
+                                growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
+                            },
+                        ],
+                    }),
+                ),
+            );
+            listElement.limit = 3;
+        </script>
+    </body>
+</html>

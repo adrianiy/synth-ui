@@ -1,0 +1,7 @@
+extends:
+  - 'plugin:@stencil/recommended'
+parserOptions:
+  project: './tsconfig.json'
+rules:
+  '@stencil/strict-boolean-conditions':
+    - off

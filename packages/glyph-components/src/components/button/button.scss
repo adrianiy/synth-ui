@@ -1,0 +1,19 @@
+.button__wrapper {
+    background-color: var(--gui-color--primary);
+    padding: var(--gui-padding--xs) var(--gui-padding--m);
+    display: inline-flex;
+    vertical-align:middle;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    font-size: var(--gui-font--xs);
+
+    &:hover {
+        filter: brightness(.95);
+    }
+
+    &.icon {
+        padding: var(--gui-padding--xs);
+    }
+}
