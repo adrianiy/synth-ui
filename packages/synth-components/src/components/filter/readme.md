@@ -36,12 +36,13 @@
 
 ### Depends on
 
-- [synth-toggler](../toggler)
+- [synth-filter-options](./components/options)
 
 ### Graph
 ```mermaid
 graph TD;
-  synth-filter --> synth-toggler
+  synth-filter --> synth-filter-options
+  synth-filter-options --> synth-toggler
   synth-chipsbar --> synth-filter
   style synth-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

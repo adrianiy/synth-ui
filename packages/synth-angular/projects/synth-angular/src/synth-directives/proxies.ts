@@ -80,6 +80,25 @@ export class SynthFilter {
   }
 }
 
+
+export declare interface SynthFilterOptions extends Components.SynthFilterOptions {}
+@ProxyCmp({
+  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+@Component({
+  selector: 'synth-filter-options',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+export class SynthFilterOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { ListComponent as IListComponent } from 'synth-components/dist/types/components/list/list';
 export declare interface SynthList extends Components.SynthList {}
 @ProxyCmp({

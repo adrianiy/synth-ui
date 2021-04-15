@@ -35,7 +35,8 @@
 graph TD;
   synth-chipsbar --> synth-filter
   synth-chipsbar --> synth-button
-  synth-filter --> synth-toggler
+  synth-filter --> synth-filter-options
+  synth-filter-options --> synth-toggler
   style synth-chipsbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

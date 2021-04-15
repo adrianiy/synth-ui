@@ -17,12 +17,12 @@
 
 ### Used by
 
- - [synth-filter](../filter)
+ - [synth-filter-options](../filter/components/options)
 
 ### Graph
 ```mermaid
 graph TD;
-  synth-filter --> synth-toggler
+  synth-filter-options --> synth-toggler
   style synth-toggler fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
