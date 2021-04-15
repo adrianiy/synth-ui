@@ -3,7 +3,7 @@ export const parameters = {
     options: {
         storySort: {
             order: [
-                'Synth-UI',
+                'glyph-UI',
                 [ 'Introduction', 'Getting Started', 'Roadmap', 'Changelog' ],
                 'Web Components',
                 'Angular',

@@ -1,0 +1,2199 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Implementations",
+            "id": "interface-Implementations-18e8abde2d5b09bd4f6476d2448bb475",
+            "file": "projects/glyph-angular/src/services/implementations.interface.ts",
+            "type": "interface",
+            "sourceCode": "import { GlyphFilterService } from './filters/filters.service';\r\n\r\nexport interface Implementations {\r\n    /** implementation of filter service class **/\r\n    glyphFilterService?: GlyphFilterService | any;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "glyphFilterService",
+                    "type": "GlyphFilterService | any",
+                    "optional": true,
+                    "description": "<p>implementation of filter service class *</p>\n",
+                    "line": 5
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
+    "injectables": [
+        {
+            "name": "GlyphFilterService",
+            "id": "injectable-GlyphFilterService-2db5f90e2641100b84450933029ec4ab",
+            "file": "projects/glyph-angular/src/services/filters/filters.service.ts",
+            "properties": [
+                {
+                    "name": "initialize",
+                    "defaultValue": "actions.filters.initialize",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Action to trigger filter initialization </p>\n",
+                    "line": 15,
+                    "decorators": [
+                        {
+                            "name": "dispatch",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "setScreen",
+                    "defaultValue": "actions.filters.setScreen",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Action to change screen name. This will be used in multi-screen\naps to set filter visibility, and get correct query filters</p>\n",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "dispatch",
+                            "stringifiedArguments": ""
+                        }
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "initializeFilters",
+                    "args": [
+                        {
+                            "name": "filterEntities",
+                            "type": "any",
+                            "defaultValue": "{}"
+                        },
+                        {
+                            "name": "screen",
+                            "type": "string",
+                            "defaultValue": "''"
+                        },
+                        {
+                            "name": "baseConfig",
+                            "type": "FiltersConfig",
+                            "defaultValue": "{}"
+                        },
+                        {
+                            "name": "initialFilters",
+                            "type": "any",
+                            "defaultValue": "{}"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "description": "<p>Initialize filters state.\nGet filters from localStorage and merge them with <strong>baseConfig</strong> and <strong>filterEntities</strong>.</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 850,
+                                "end": 864,
+                                "flags": 0,
+                                "escapedText": "filterEntities"
+                            },
+                            "type": "any",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 844,
+                                "end": 849,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>set of filters received from DB</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 912,
+                                "end": 918,
+                                "flags": 0,
+                                "escapedText": "screen"
+                            },
+                            "type": "string",
+                            "defaultValue": "''",
+                            "tagName": {
+                                "pos": 906,
+                                "end": 911,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>current active screen</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 956,
+                                "end": 966,
+                                "flags": 0,
+                                "escapedText": "baseConfig"
+                            },
+                            "type": "FiltersConfig",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 950,
+                                "end": 955,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>basic filter structure</p>\n"
+                        },
+                        {
+                            "name": {
+                                "pos": 1005,
+                                "end": 1019,
+                                "flags": 0,
+                                "escapedText": "initialFilters"
+                            },
+                            "type": "any",
+                            "defaultValue": "{}",
+                            "tagName": {
+                                "pos": 999,
+                                "end": 1004,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<p>which filters should be active on first load</p>\n"
+                        }
+                    ]
+                }
+            ],
+            "description": "",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { dispatch } from '@angular-redux/store';\r\nimport { FiltersConfig } from 'glyph-core/dist/models';\r\nimport { actions } from 'glyph-core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Injectable()\r\nexport class GlyphFilterService {\r\n    /**\r\n     * Action to change screen name. This will be used in multi-screen\r\n     * aps to set filter visibility, and get correct query filters\r\n     */\r\n    @dispatch() setScreen = actions.filters.setScreen;\r\n    /** Action to trigger filter initialization */\r\n    @dispatch() initialize = actions.filters.initialize;\r\n\r\n    constructor(protected _translate: TranslateService) {}\r\n\r\n    /**\r\n     * Initialize filters state.\r\n     * Get filters from localStorage and merge them with **baseConfig** and **filterEntities**.\r\n     *\r\n     * @param filterEntities set of filters received from DB\r\n     * @param screen current active screen\r\n     * @param baseConfig basic filter structure\r\n     * @param initialFilters which filters should be active on first load\r\n     */\r\n    initializeFilters(\r\n        filterEntities: any = {},\r\n        screen: string = '',\r\n        baseConfig: FiltersConfig = {},\r\n        initialFilters: any = {}\r\n    ) {\r\n        this.initialize(filterEntities, screen, baseConfig, initialFilters, (desc) => this._translate.instant(desc));\r\n    }\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "_translate",
+                        "type": "TranslateService"
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "_translate",
+                        "type": "TranslateService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
+        }
+    ],
+    "classes": [
+        {
+            "name": "ValueAccessor",
+            "id": "class-ValueAccessor-358413eafe65eed32bc4f135c06d7bc9",
+            "file": "projects/glyph-angular/src/glyph-directives/value-accessor.ts",
+            "type": "class",
+            "sourceCode": "import { ElementRef, HostListener } from '@angular/core';\nimport { ControlValueAccessor } from '@angular/forms';\n\nexport class ValueAccessor implements ControlValueAccessor {\n\n  private onChange: (value: any) => void = () => {/**/};\n  private onTouched: () => void = () => {/**/};\n  protected lastValue: any;\n\n  constructor(protected el: ElementRef) {}\n\n  writeValue(value: any) {\n    this.el.nativeElement.value = this.lastValue = value == null ? '' : value;\n  }\n\n  handleChangeEvent(value: any) {\n    if (value !== this.lastValue) {\n      this.lastValue = value;\n      this.onChange(value);\n    }\n  }\n\n  @HostListener('focusout')\n  _handleBlurEvent() {\n    this.onTouched();\n  }\n\n  registerOnChange(fn: (value: any) => void) {\n    this.onChange = fn;\n  }\n  registerOnTouched(fn: () => void) {\n    this.onTouched = fn;\n  }\n\n  setDisabledState(isDisabled: boolean) {\n    this.el.nativeElement.disabled = isDisabled;\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 8,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "properties": [
+                {
+                    "name": "lastValue",
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        113
+                    ]
+                },
+                {
+                    "name": "onChange",
+                    "defaultValue": "() => {...}",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "onTouched",
+                    "defaultValue": "() => {...}",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "modifierKind": [
+                        112
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "handleChangeEvent",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "any"
+                                }
+                            ]
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "value",
+                                    "type": "any"
+                                }
+                            ],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": []
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35,
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "focusout",
+                    "args": [],
+                    "argsDecorator": [],
+                    "line": 24
+                }
+            ],
+            "implements": [
+                "ControlValueAccessor"
+            ]
+        }
+    ],
+    "directives": [
+        {
+            "name": "BooleanValueAccessor",
+            "id": "directive-BooleanValueAccessor-668da7c2223b45c7b80dcb4c58d2d325",
+            "file": "projects/glyph-angular/src/glyph-directives/boolean-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\n\nimport { ValueAccessor } from './value-accessor';\n\n@Directive({\n  /* tslint:disable-next-line:directive-selector */\n  selector: 'my-checkbox',\n  host: {\n    '(myChange)': 'handleChangeEvent($event.target.checked)'\n  },\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: BooleanValueAccessor,\n      multi: true\n    }\n  ]\n})\nexport class BooleanValueAccessor extends ValueAccessor {\n  constructor(el: ElementRef) {\n    super(el);\n  }\n  writeValue(value: any) {\n    this.el.nativeElement.checked = this.lastValue = value == null ? false : value;\n  }\n}\n",
+            "selector": "my-checkbox",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: BooleanValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "any"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "any",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "NumericValueAccessor",
+            "id": "directive-NumericValueAccessor-3f899557846bcc80d5334209f82af393",
+            "file": "projects/glyph-angular/src/glyph-directives/number-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\n\nimport { ValueAccessor } from './value-accessor';\n\n@Directive({\n  /* tslint:disable-next-line:directive-selector */\n  selector: 'my-input[type=number]',\n  host: {\n    '(myChange)': 'handleChangeEvent($event.target.value)'\n  },\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: NumericValueAccessor,\n      multi: true\n    }\n  ]\n})\nexport class NumericValueAccessor extends ValueAccessor {\n  constructor(el: ElementRef) {\n    super(el);\n  }\n  registerOnChange(fn: (_: number | null) => void) {\n    super.registerOnChange(value => {\n      fn(value === '' ? null : parseFloat(value));\n    });\n  }\n}\n",
+            "selector": "my-input[type=number]",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: NumericValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "_",
+                                    "type": "number | null"
+                                }
+                            ]
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "function",
+                            "function": [
+                                {
+                                    "name": "_",
+                                    "type": "number | null"
+                                }
+                            ],
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "RadioValueAccessor",
+            "id": "directive-RadioValueAccessor-e195b1c12c9cd495d8483962e64b2574",
+            "file": "projects/glyph-angular/src/glyph-directives/radio-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\n\nimport { ValueAccessor } from './value-accessor';\n\n@Directive({\n  /* tslint:disable-next-line:directive-selector */\n  selector: 'my-radio',\n  host: {\n    '(mySelect)': 'handleChangeEvent($event.target.checked)'\n  },\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: RadioValueAccessor,\n      multi: true\n    }\n  ]\n})\nexport class RadioValueAccessor extends ValueAccessor {\n  constructor(el: ElementRef) {\n    super(el);\n  }\n}\n",
+            "selector": "my-radio",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: RadioValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "SelectValueAccessor",
+            "id": "directive-SelectValueAccessor-9ff79622953df867fff58cc618fb07e9",
+            "file": "projects/glyph-angular/src/glyph-directives/select-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\n\nimport { ValueAccessor } from './value-accessor';\n\n@Directive({\n  /* tslint:disable-next-line:directive-selector */\n  selector: 'my-range, my-radio-group',\n  host: {\n    '(myChange)': 'handleChangeEvent($event.target.value)'\n  },\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: SelectValueAccessor,\n      multi: true\n    }\n  ]\n})\nexport class SelectValueAccessor extends ValueAccessor {\n  constructor(el: ElementRef) {\n    super(el);\n  }\n}\n",
+            "selector": "my-range, my-radio-group",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: SelectValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "TextValueAccessor",
+            "id": "directive-TextValueAccessor-66db48a4c7739bbc2ab73a3e415898c9",
+            "file": "projects/glyph-angular/src/glyph-directives/text-value-accessor.ts",
+            "type": "directive",
+            "description": "",
+            "sourceCode": "import { Directive, ElementRef } from '@angular/core';\nimport { NG_VALUE_ACCESSOR } from '@angular/forms';\n\nimport { ValueAccessor } from './value-accessor';\n\n@Directive({\n  /* tslint:disable-next-line:directive-selector */\n  selector: 'my-input[type=text]',\n  host: {\n    '(myChange)': 'handleChangeEvent($event.target.value)'\n  },\n  providers: [\n    {\n      provide: NG_VALUE_ACCESSOR,\n      useExisting: TextValueAccessor,\n      multi: true\n    }\n  ]\n})\nexport class TextValueAccessor extends ValueAccessor {\n  constructor(el: ElementRef) {\n    super(el);\n  }\n}\n",
+            "selector": "my-input[type=text]",
+            "providers": [
+                {
+                    "name": "{\n    provide: NG_VALUE_ACCESSOR, useExisting: TextValueAccessor, multi: true\n}"
+                }
+            ],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "ListComponent",
+            "id": "component-ListComponent-41368bccb3111d1a7de0abbaede66ff6",
+            "file": "projects/glyph-angular/src/components/list/list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-ng-list",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "activeKpi",
+                    "description": "<p>Active kpi. it&#39;s going to be used to filter list data </p>\n",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "description": "<p>Component data, this is going to be parsed internally </p>\n",
+                    "line": 14,
+                    "type": "Array<any>"
+                },
+                {
+                    "name": "decimals",
+                    "description": "<p>Flag to show decimals </p>\n",
+                    "line": 22,
+                    "type": "boolean"
+                },
+                {
+                    "name": "enableDownload",
+                    "description": "<p>Flag to enable data download as xlsx </p>\n",
+                    "line": 26,
+                    "type": "boolean"
+                },
+                {
+                    "name": "expandable",
+                    "description": "<p>Flag to set list as expandable </p>\n",
+                    "line": 24,
+                    "type": "boolean"
+                },
+                {
+                    "name": "fieldsConfig",
+                    "description": "<p><strong>!REQUIRED</strong> Field configuration used in parse process </p>\n",
+                    "line": 20,
+                    "type": "FieldsConfig[]"
+                },
+                {
+                    "name": "i18n",
+                    "description": "<p>i18n custom translations </p>\n",
+                    "line": 28,
+                    "type": "literal type"
+                },
+                {
+                    "name": "limit",
+                    "description": "<p>List row limit </p>\n",
+                    "line": 18,
+                    "type": "number"
+                },
+                {
+                    "name": "loading",
+                    "description": "<p>Load status </p>\n",
+                    "line": 10,
+                    "type": "boolean"
+                },
+                {
+                    "name": "title",
+                    "description": "<p>Component title </p>\n",
+                    "line": 12,
+                    "type": "string"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "_parseList",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "description": "<p>If data exists and has length we will parse data</p>\n",
+                    "modifierKind": [
+                        112
+                    ],
+                    "jsdoctags": [
+                        {
+                            "tagName": {
+                                "pos": 1354,
+                                "end": 1360,
+                                "flags": 0,
+                                "escapedText": "return"
+                            },
+                            "comment": "<p>A list with a format acepted by glyph-list</p>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "description": "<p>Triggers on each input change </p>\n"
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnChanges } from '@angular/core';\r\nimport { configRow, FieldsConfig, Row } from 'glyph-core';\r\n\r\n@Component({\r\n    selector: 'glyph-ng-list',\r\n    templateUrl: './list.component.html',\r\n})\r\nexport class ListComponent implements OnChanges {\r\n    /** Load status */\r\n    @Input() loading: boolean;\r\n    /** Component title */\r\n    @Input() title: string;\r\n    /** Component data, this is going to be parsed internally */\r\n    @Input() data: Array<any>;\r\n    /** Active kpi. it's going to be used to filter list data */\r\n    @Input() activeKpi: string;\r\n    /** List row limit */\r\n    @Input() limit: number;\r\n    /** **!REQUIRED** Field configuration used in parse process */\r\n    @Input() fieldsConfig: FieldsConfig[];\r\n    /** Flag to show decimals */\r\n    @Input() decimals: boolean;\r\n    /** Flag to set list as expandable */\r\n    @Input() expandable: boolean;\r\n    /** Flag to enable data download as xlsx */\r\n    @Input() enableDownload: boolean;\r\n    /** i18n custom translations */\r\n    @Input() i18n: { [key: string]: string };\r\n\r\n    /** @ignore Result data that will be use as glyph-list input */\r\n    public parsedData: Row[] = [];\r\n\r\n    /** Triggers on each input change */\r\n    ngOnChanges() {\r\n        this._parseList();\r\n    }\r\n\r\n    /**\r\n     * If data exists and has length we will parse data\r\n     *\r\n     * @return A list with a format acepted by glyph-list\r\n     */\r\n    private _parseList() {\r\n        if (this.fieldsConfig && this.data) {\r\n            this.parsedData = this.data?.map(row => configRow(row, this.fieldsConfig)) || [];\r\n            console.log(this.parsedData);\r\n        }\r\n    }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<glyph-title [titleText]=\"title\"></glyph-title>\r\n<glyph-list\r\n    [loading]=\"loading\"\r\n    [data]=\"parsedData\"\r\n    [filterFields]=\"activeKpi && [activeKpi]\"\r\n    [defaultSortField]=\"activeKpi\"\r\n    [decimals]=\"decimals\"\r\n    [expandable]=\"expandable\"\r\n    [limit]=\"limit\"\r\n    [enableDownload]=\"enableDownload\"\r\n    [i18n]=\"i18n\"\r\n></glyph-list>\r\n"
+        },
+        {
+            "name": "GlyphButton",
+            "id": "component-GlyphButton-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "icon",
+                "text"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-button",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphChipsbar",
+            "id": "component-GlyphChipsbar-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "filtersConfig",
+                "i18n"
+            ],
+            "outputs": [
+                "filterSelect",
+                "filterClear",
+                "filterMultiSelect",
+                "clearAll"
+            ],
+            "providers": [],
+            "selector": "glyph-chipsbar",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "clearAll",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Clear all filters event </p>\n",
+                    "line": 47
+                },
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 48,
+                    "modifierKind": [
+                        113
+                    ]
+                },
+                {
+                    "name": "filterClear",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Filter clear event </p>\n",
+                    "line": 43
+                },
+                {
+                    "name": "filterMultiSelect",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Filter multiselect event </p>\n",
+                    "line": 45
+                },
+                {
+                    "name": "filterSelect",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Filter select event </p>\n",
+                    "line": 41
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 48,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphFilter",
+            "id": "component-GlyphFilter-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "description",
+                "haveMultiSelect",
+                "i18n",
+                "multiSelect",
+                "options",
+                "plural",
+                "searchPlaceholder",
+                "selected"
+            ],
+            "outputs": [
+                "optionClickEvent",
+                "clearEvent",
+                "multiSelectEvent"
+            ],
+            "providers": [],
+            "selector": "glyph-filter",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "clearEvent",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Clear selected filters callback </p>\n",
+                    "line": 72
+                },
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 75,
+                    "modifierKind": [
+                        113
+                    ]
+                },
+                {
+                    "name": "multiSelectEvent",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Multiselect toggler callback </p>\n",
+                    "line": 74
+                },
+                {
+                    "name": "optionClickEvent",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Option click event </p>\n",
+                    "line": 70
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 75,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphFilterOptions",
+            "id": "component-GlyphFilterOptions-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "closeEvent",
+                "description",
+                "haveMultiSelect",
+                "i18n",
+                "multiSelect",
+                "multiSelectEvent",
+                "optionClickEvent",
+                "options",
+                "searchPlaceholder"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-filter-options",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 95,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 95,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphList",
+            "id": "component-GlyphList-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "data",
+                "decimals",
+                "defaultSortField",
+                "enableDownload",
+                "expandable",
+                "filterFields",
+                "i18n",
+                "limit",
+                "loading",
+                "update"
+            ],
+            "outputs": [
+                "expandRow"
+            ],
+            "providers": [],
+            "selector": "glyph-list",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 117,
+                    "modifierKind": [
+                        113
+                    ]
+                },
+                {
+                    "name": "expandRow",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Expand row event </p>\n",
+                    "line": 116
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 117,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphListRow",
+            "id": "component-GlyphListRow-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "expandHandle",
+                "expandable",
+                "fields",
+                "i18n",
+                "isTotal",
+                "row"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-list-row",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 137,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 137,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphNoData",
+            "id": "component-GlyphNoData-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "bottomText",
+                "i18n",
+                "mode",
+                "text"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-no-data",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 156,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 156,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphSkLoader",
+            "id": "component-GlyphSkLoader-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "height",
+                "repetitions"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-sk-loader",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 175,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 175,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphTitle",
+            "id": "component-GlyphTitle-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "titleText"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-title",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 194,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 194,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "GlyphToggler",
+            "id": "component-GlyphToggler-a1483bd45f328edf9034712a35ac0e59",
+            "file": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [
+                "active",
+                "callback"
+            ],
+            "outputs": [],
+            "providers": [],
+            "selector": "glyph-toggler",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<ng-content></ng-content>",
+            "templateUrl": [],
+            "viewProviders": [],
+            "propertiesClass": [
+                {
+                    "name": "el",
+                    "type": "HTMLElement",
+                    "optional": false,
+                    "description": "",
+                    "line": 213,
+                    "modifierKind": [
+                        113
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, NgZone } from '@angular/core';\nimport { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';\n\nimport { Components } from 'glyph-components';\n\n\nexport declare interface GlyphButton extends Components.GlyphButton {}\n@ProxyCmp({\n  inputs: ['icon', 'text']\n})\n@Component({\n  selector: 'glyph-button',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['icon', 'text']\n})\nexport class GlyphButton {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';\nexport declare interface GlyphChipsbar extends Components.GlyphChipsbar {}\n@ProxyCmp({\n  inputs: ['filtersConfig', 'i18n']\n})\n@Component({\n  selector: 'glyph-chipsbar',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['filtersConfig', 'i18n'],\n  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']\n})\nexport class GlyphChipsbar {\n  /** Filter select event */\n  filterSelect!: IChipsBarComponent['filterSelect'];\n  /** Filter clear event */\n  filterClear!: IChipsBarComponent['filterClear'];\n  /** Filter multiselect event */\n  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];\n  /** Clear all filters event */\n  clearAll!: IChipsBarComponent['clearAll'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);\n  }\n}\n\nimport { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';\nexport declare interface GlyphFilter extends Components.GlyphFilter {}\n@ProxyCmp({\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']\n})\n@Component({\n  selector: 'glyph-filter',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['description', 'haveMultiSelect', 'i18n', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],\n  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']\n})\nexport class GlyphFilter {\n  /** Option click event */\n  optionClickEvent!: IFilterComponent['optionClickEvent'];\n  /** Clear selected filters callback */\n  clearEvent!: IFilterComponent['clearEvent'];\n  /** Multiselect toggler callback */\n  multiSelectEvent!: IFilterComponent['multiSelectEvent'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);\n  }\n}\n\n\nexport declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}\n@ProxyCmp({\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\n@Component({\n  selector: 'glyph-filter-options',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']\n})\nexport class GlyphFilterOptions {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\nimport { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';\nexport declare interface GlyphList extends Components.GlyphList {}\n@ProxyCmp({\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']\n})\n@Component({\n  selector: 'glyph-list',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],\n  outputs: ['expandRow']\n})\nexport class GlyphList {\n  /** Expand row event */\n  expandRow!: IListComponent['expandRow'];\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n    proxyOutputs(this, this.el, ['expandRow']);\n  }\n}\n\n\nexport declare interface GlyphListRow extends Components.GlyphListRow {}\n@ProxyCmp({\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\n@Component({\n  selector: 'glyph-list-row',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']\n})\nexport class GlyphListRow {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphNoData extends Components.GlyphNoData {}\n@ProxyCmp({\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\n@Component({\n  selector: 'glyph-no-data',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['bottomText', 'i18n', 'mode', 'text']\n})\nexport class GlyphNoData {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphSkLoader extends Components.GlyphSkLoader {}\n@ProxyCmp({\n  inputs: ['height', 'repetitions']\n})\n@Component({\n  selector: 'glyph-sk-loader',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['height', 'repetitions']\n})\nexport class GlyphSkLoader {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphTitle extends Components.GlyphTitle {}\n@ProxyCmp({\n  inputs: ['titleText']\n})\n@Component({\n  selector: 'glyph-title',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['titleText']\n})\nexport class GlyphTitle {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n\n\nexport declare interface GlyphToggler extends Components.GlyphToggler {}\n@ProxyCmp({\n  inputs: ['active', 'callback']\n})\n@Component({\n  selector: 'glyph-toggler',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  template: '<ng-content></ng-content>',\n  inputs: ['active', 'callback']\n})\nexport class GlyphToggler {\n  protected el: HTMLElement;\n  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {\n    c.detach();\n    this.el = r.nativeElement;\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef"
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef"
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone"
+                    }
+                ],
+                "line": 213,
+                "jsdoctags": [
+                    {
+                        "name": "c",
+                        "type": "ChangeDetectorRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "r",
+                        "type": "ElementRef",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "z",
+                        "type": "NgZone",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "modules": [
+        {
+            "name": "StoreModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "GlyphComponentsModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ListComponent"
+                        },
+                        {
+                            "name": "GlyphButton"
+                        },
+                        {
+                            "name": "GlyphChipsbar"
+                        },
+                        {
+                            "name": "GlyphFilter"
+                        },
+                        {
+                            "name": "GlyphList"
+                        },
+                        {
+                            "name": "GlyphListRow"
+                        },
+                        {
+                            "name": "GlyphNoData"
+                        },
+                        {
+                            "name": "GlyphSkLoader"
+                        },
+                        {
+                            "name": "GlyphTitle"
+                        },
+                        {
+                            "name": "GlyphToggler"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "StoreModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ListComponent"
+                        },
+                        {
+                            "name": "GlyphButton"
+                        },
+                        {
+                            "name": "GlyphChipsbar"
+                        },
+                        {
+                            "name": "GlyphFilter"
+                        },
+                        {
+                            "name": "GlyphList"
+                        },
+                        {
+                            "name": "GlyphListRow"
+                        },
+                        {
+                            "name": "GlyphNoData"
+                        },
+                        {
+                            "name": "GlyphSkLoader"
+                        },
+                        {
+                            "name": "GlyphTitle"
+                        },
+                        {
+                            "name": "GlyphToggler"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "GlyphServicesModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "DECLARATIONS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/glyph-angular/src/glyph-angular.module.ts",
+                "type": "[]",
+                "defaultValue": "[\r\n    // proxies\r\n    GlyphList,\r\n    GlyphListRow,\r\n    GlyphNoData,\r\n    GlyphTitle,\r\n    GlyphSkLoader,\r\n    GlyphFilter,\r\n    GlyphToggler,\r\n    GlyphButton,\r\n    GlyphChipsbar,\r\n    // components\r\n    ListComponent,\r\n]"
+            },
+            {
+                "name": "proxyInputs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(Cmp: any, inputs: string[]) => {\n  const Prototype = Cmp.prototype;\n  inputs.forEach((item) => {\n    Object.defineProperty(Prototype, item, {\n      get() {\n        return this.el[item];\n      },\n      set(val: any) {\n        this.z.runOutsideAngular(() => (this.el[item] = val));\n      },\n    });\n  });\n}"
+            },
+            {
+                "name": "proxyMethods",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(Cmp: any, methods: string[]) => {\n  const Prototype = Cmp.prototype;\n  methods.forEach((methodName) => {\n    Prototype[methodName] = function () {\n      const args = arguments;\n      return this.z.runOutsideAngular(() => this.el[methodName].apply(this.el, args));\n    };\n  });\n}"
+            },
+            {
+                "name": "proxyOutputs",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "",
+                "defaultValue": "(instance: any, el: any, events: string[]) => {\n  events.forEach((eventName) => (instance[eventName] = fromEvent(el, eventName)));\n}"
+            }
+        ],
+        "functions": [
+            {
+                "name": "ProxyCmp",
+                "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "description": "",
+                "args": [
+                    {
+                        "name": "opts"
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "opts",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/glyph-angular/src/glyph-angular.module.ts": [
+                {
+                    "name": "DECLARATIONS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/glyph-angular/src/glyph-angular.module.ts",
+                    "type": "[]",
+                    "defaultValue": "[\r\n    // proxies\r\n    GlyphList,\r\n    GlyphListRow,\r\n    GlyphNoData,\r\n    GlyphTitle,\r\n    GlyphSkLoader,\r\n    GlyphFilter,\r\n    GlyphToggler,\r\n    GlyphButton,\r\n    GlyphChipsbar,\r\n    // components\r\n    ListComponent,\r\n]"
+                }
+            ],
+            "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts": [
+                {
+                    "name": "proxyInputs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(Cmp: any, inputs: string[]) => {\n  const Prototype = Cmp.prototype;\n  inputs.forEach((item) => {\n    Object.defineProperty(Prototype, item, {\n      get() {\n        return this.el[item];\n      },\n      set(val: any) {\n        this.z.runOutsideAngular(() => (this.el[item] = val));\n      },\n    });\n  });\n}"
+                },
+                {
+                    "name": "proxyMethods",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(Cmp: any, methods: string[]) => {\n  const Prototype = Cmp.prototype;\n  methods.forEach((methodName) => {\n    Prototype[methodName] = function () {\n      const args = arguments;\n      return this.z.runOutsideAngular(() => this.el[methodName].apply(this.el, args));\n    };\n  });\n}"
+                },
+                {
+                    "name": "proxyOutputs",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                    "type": "",
+                    "defaultValue": "(instance: any, el: any, events: string[]) => {\n  events.forEach((eventName) => (instance[eventName] = fromEvent(el, eventName)));\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {
+            "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts": [
+                {
+                    "name": "ProxyCmp",
+                    "file": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "opts"
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "opts",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 13,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/glyph-angular/src/components/list/list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ListComponent",
+                "coveragePercent": 92,
+                "coverageCount": "12/13",
+                "status": "very-good"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/services/filters/filters.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "GlyphFilterService",
+                "coveragePercent": 60,
+                "coverageCount": "3/5",
+                "status": "good"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/services/implementations.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Implementations",
+                "coveragePercent": 50,
+                "coverageCount": "1/2",
+                "status": "medium"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-angular.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DECLARATIONS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "function",
+                "linksubtype": "function",
+                "name": "ProxyCmp",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyInputs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyMethods",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "proxyOutputs",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/boolean-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "BooleanValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/number-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "NumericValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphButton",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphChipsbar",
+                "coveragePercent": 57,
+                "coverageCount": "4/7",
+                "status": "good"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphFilter",
+                "coveragePercent": 50,
+                "coverageCount": "3/6",
+                "status": "medium"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphFilterOptions",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphList",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphListRow",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphNoData",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphSkLoader",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphTitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/proxies.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "GlyphToggler",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/radio-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "RadioValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/select-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "SelectValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/text-value-accessor.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "TextValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/glyph-directives/value-accessor.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "ValueAccessor",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            }
+        ]
+    }
+}

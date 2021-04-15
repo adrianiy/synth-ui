@@ -1,0 +1,30 @@
+@use 'flex-mixin'as flex;
+
+.row {
+    @include flex.flex(row);
+
+    &.middle {
+        align-items: center;
+    }
+    &.end {
+        align-items: flex-end;
+    }
+    &.start {
+        align-items: flex-start;
+    }
+    &.right {
+        justify-content: flex-end;
+    }
+    &.left {
+        justify-content: flex-start;
+    }
+    &.center {
+        justify-content: center;
+    }
+    &.space-between {
+        justify-content: space-between;
+    }
+    &.space-around {
+        justify-content: space-around;
+    }
+}

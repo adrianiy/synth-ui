@@ -15,13 +15,13 @@
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-scripts": "4.0.3",
-    "synth-react": "*",
+    "glyph-react": "*",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "npm run cpy-assets && react-scripts start",
-    "cpy-assets": "ncp ./node_modules/synth-react/dist/assets public/assets",
+    "cpy-assets": "ncp ./node_modules/glyph-react/dist/assets public/assets",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

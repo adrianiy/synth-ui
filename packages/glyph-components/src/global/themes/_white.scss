@@ -1,0 +1,46 @@
+:root {
+    /* colors */
+    --gui-color--background: white;
+    --gui-color--background--secondary: white;
+    --gui-color--background--third: white;
+    --gui-color--contrast: black;
+    --gui-color--primary: rgb(245, 245, 245);
+    --gui-color--secondary: #767676;
+    --gui-color--third: #ddd;
+    --gui-color--dark: #383838;
+    --gui-color--highlight: #00a699;
+    --gui-color--success: #27ae60;
+    --gui-color--alert: #cf4433;
+    --gui-color--attention: #ff904c;
+    --gui-color--overlay: rgba(0, 0, 0, 0.25);
+    --gui-color--link: #2a8bce;
+    --gui-color--danger: #ff5a5f;
+    --gui-color--font: rgba(0, 0, 0, 0.9);
+    --gui-color--font--secondary: rba(0, 0, 0, 0.9);
+    --gui-color--font--medium: silver;
+    --gui-color--font--light: #767676;
+    --gui-color--font--lighter: rgba(0, 0, 0, 0.5);
+    --gui-color--font--contrast: rgba(255, 255, 255, 0.9);
+    --gui-color--article--footer: rgba(255, 255, 255, 0.7);
+    --gui-color--background--overlay: #00000038;
+
+    /* borders */
+    --gui-border--dark: 1px solid black;
+    --gui-border--medium: 1px solid #eae9e9;
+    --gui-border--light: 1px solid rgba(0, 0, 0, 0.08);
+    --gui-border--header: var(--gui-border--light);
+
+    /* shadows */
+    --gui-shadow: 0px 2px 5px 0px rgb(0 0 0 / 3%), 0px 9px 11px 2px rgb(0 0 0 / 4%);
+
+    /* filters */
+    --gui-logo-filter: invert(0);
+    --gui-widget-filter: none;
+    --article-filter: opacity(1);
+
+    /* tabs */
+    --gui-tab-shadow: inset 0px -2px 0px 0px #000000;
+
+    /* charts */
+    --gui-color--analytic-chart--rest: rgba(232, 236, 236, 0.7);
+}

@@ -1,0 +1,19 @@
+{
+  "extends": "../projects/glyph-angular/tsconfig.lib.json",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "types": [
+      "node"
+    ]
+  },
+  "exclude": [
+    "../projects/glyph-angular/src/test.ts",
+    "../projects/glyph-angular/src/**/*.spec.ts"
+  ],
+  "include": [
+    "../projects/glyph-angular/src/**/*"
+  ],
+  "files": [
+    "./typings.d.ts"
+  ]
+}
