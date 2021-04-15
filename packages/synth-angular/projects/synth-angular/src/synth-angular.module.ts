@@ -12,6 +12,7 @@ import {
     SynthToggler,
     SynthChipsbar,
     SynthButton,
+    SynthFilterOptions,
 } from './synth-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
@@ -27,6 +28,7 @@ const DECLARATIONS = [
     SynthTitle,
     SynthSkLoader,
     SynthFilter,
+    SynthFilterOptions,
     SynthToggler,
     SynthButton,
     SynthChipsbar,
