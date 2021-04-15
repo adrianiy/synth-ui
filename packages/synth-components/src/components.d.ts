@@ -62,6 +62,44 @@ export namespace Components {
          */
         "selected": SelectedFilter[];
     }
+    interface SynthFilterOptions {
+        /**
+          * Close callback
+         */
+        "closeEvent": () => void;
+        /**
+          * Filter description
+         */
+        "description": string;
+        /**
+          * Multiselect flag. True if filter allows multiselect toggler
+         */
+        "haveMultiSelect": boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * This flag is true if multiselect is active
+         */
+        "multiSelect": boolean;
+        /**
+          * Multiselect toggler callback
+         */
+        "multiSelectEvent": () => void;
+        /**
+          * Option click event
+         */
+        "optionClickEvent": (option: FilterOptionHeader) => void;
+        /**
+          * Filter options
+         */
+        "options": FilterOptionHeader[];
+        /**
+          * Search placeholder
+         */
+        "searchPlaceholder": string;
+    }
     interface SynthList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -194,6 +232,12 @@ declare global {
         prototype: HTMLSynthFilterElement;
         new (): HTMLSynthFilterElement;
     };
+    interface HTMLSynthFilterOptionsElement extends Components.SynthFilterOptions, HTMLStencilElement {
+    }
+    var HTMLSynthFilterOptionsElement: {
+        prototype: HTMLSynthFilterOptionsElement;
+        new (): HTMLSynthFilterOptionsElement;
+    };
     interface HTMLSynthListElement extends Components.SynthList, HTMLStencilElement {
     }
     var HTMLSynthListElement: {
@@ -234,6 +278,7 @@ declare global {
         "synth-button": HTMLSynthButtonElement;
         "synth-chipsbar": HTMLSynthChipsbarElement;
         "synth-filter": HTMLSynthFilterElement;
+        "synth-filter-options": HTMLSynthFilterOptionsElement;
         "synth-list": HTMLSynthListElement;
         "synth-list-row": HTMLSynthListRowElement;
         "synth-no-data": HTMLSynthNoDataElement;
@@ -324,6 +369,44 @@ declare namespace LocalJSX {
           * Filter selected
          */
         "selected"?: SelectedFilter[];
+    }
+    interface SynthFilterOptions {
+        /**
+          * Close callback
+         */
+        "closeEvent"?: () => void;
+        /**
+          * Filter description
+         */
+        "description"?: string;
+        /**
+          * Multiselect flag. True if filter allows multiselect toggler
+         */
+        "haveMultiSelect"?: boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * This flag is true if multiselect is active
+         */
+        "multiSelect"?: boolean;
+        /**
+          * Multiselect toggler callback
+         */
+        "multiSelectEvent"?: () => void;
+        /**
+          * Option click event
+         */
+        "optionClickEvent"?: (option: FilterOptionHeader) => void;
+        /**
+          * Filter options
+         */
+        "options"?: FilterOptionHeader[];
+        /**
+          * Search placeholder
+         */
+        "searchPlaceholder"?: string;
     }
     interface SynthList {
         /**
@@ -445,6 +528,7 @@ declare namespace LocalJSX {
         "synth-button": SynthButton;
         "synth-chipsbar": SynthChipsbar;
         "synth-filter": SynthFilter;
+        "synth-filter-options": SynthFilterOptions;
         "synth-list": SynthList;
         "synth-list-row": SynthListRow;
         "synth-no-data": SynthNoData;
@@ -460,6 +544,7 @@ declare module "@stencil/core" {
             "synth-button": LocalJSX.SynthButton & JSXBase.HTMLAttributes<HTMLSynthButtonElement>;
             "synth-chipsbar": LocalJSX.SynthChipsbar & JSXBase.HTMLAttributes<HTMLSynthChipsbarElement>;
             "synth-filter": LocalJSX.SynthFilter & JSXBase.HTMLAttributes<HTMLSynthFilterElement>;
+            "synth-filter-options": LocalJSX.SynthFilterOptions & JSXBase.HTMLAttributes<HTMLSynthFilterOptionsElement>;
             "synth-list": LocalJSX.SynthList & JSXBase.HTMLAttributes<HTMLSynthListElement>;
             "synth-list-row": LocalJSX.SynthListRow & JSXBase.HTMLAttributes<HTMLSynthListRowElement>;
             "synth-no-data": LocalJSX.SynthNoData & JSXBase.HTMLAttributes<HTMLSynthNoDataElement>;

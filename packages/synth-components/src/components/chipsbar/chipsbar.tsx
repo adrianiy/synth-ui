@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
 import { FiltersConfig } from 'synth-core';
-import { distributions, RowLayout } from '../../utils/layout';
+import { distributions, Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
 @Component({
@@ -35,7 +35,7 @@ export class ChipsBarComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(['chipsbar'], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -64,7 +64,7 @@ export class ChipsBarComponent {
         const chips = Object.keys(this.filtersConfig || {});
 
         return (
-            <RowLayout className="chips__container">
+            <Flex row className="chips__container">
                 {chips.map(chip => (
                     <synth-filter
                         {...this.filtersConfig[chip]}
@@ -74,25 +74,25 @@ export class ChipsBarComponent {
                         onMultiSelectEvent={this._handleMultiSelect}
                     />
                 ))}
-            </RowLayout>
+            </Flex>
         );
     };
 
     private _renderButtons = () => {
         return (
-            <RowLayout className="buttons__container" distribution={distributions.MIDDLE}>
+            <Flex row className="buttons__container" distribution={distributions.MIDDLE}>
                 <synth-button icon="close" onClick={this._handleClearAll} />
                 <synth-button text={this._i18n['configFilters']} onClick={this._handleFilterConfig} />
-            </RowLayout>
+            </Flex>
         );
     };
 
     render() {
         return (
-            <RowLayout className="chipsbar__container" distribution={[ distributions.MIDDLE, distributions.SPACED ]}>
+            <Flex row className="chipsbar__container" distribution={[distributions.MIDDLE, distributions.SPACED]}>
                 {this._renderChips()}
                 {this._renderButtons()}
-            </RowLayout>
+            </Flex>
         );
     }
 }
