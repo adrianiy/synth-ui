@@ -41,7 +41,7 @@ export class RowComponent {
                 {actions.map(action => (
                     <RowLayout
                         className="row-action"
-                        distribution={[ distributions.MIDDLE, distributions.SPACED ]}
+                        distribution={[distributions.MIDDLE, distributions.SPACED]}
                         onClick={action.action}
                     >
                         <span>{action.title}</span>
@@ -58,7 +58,7 @@ export class RowComponent {
                 <div class="row-action__wrapper">
                     <RowLayout
                         className="row-action__container"
-                        distribution={[ distributions.MIDDLE, distributions.CENTER ]}
+                        distribution={[distributions.MIDDLE, distributions.CENTER]}
                     >
                         {actions.length === 1 ? (
                             <em class="row-action material-icons" onClick={actions[0].action}>

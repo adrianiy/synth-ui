@@ -29,17 +29,14 @@ We've implemented a "multi-layer" components library composed by a core of web-c
 most common frameworks. We have included also a set of vanillaJS functions and AmigaJS middelwares that should be able to use in your project to manage application's state
 and back-to-front backends.
 
--   **Components**: Web components usable in any framework.
--   **Angular**: Wrapper for components that implements angular particularities.
--   **React**: Wrapper for components that implements react particularities.
 -   **Core**:
     -   JS Functions (based on Redux implementation) to manage application's state
     -   Middlewares to use in AmigaJS Framework.
+    -   Common JS Functions like list transforms, etc.
+    -   Common Interfaces.
+-   **Components**: Web components usable in any framework.
+-   **Angular**: Wrapper for components that implements angular particularities, it should contain only logic to communicate **components** with **core**.
+-   **React**: Wrapper for components that implements react particularities, it should contain only logic to communicate **components** with **core**.
 
-## Do you want to create a Drive-Like Application?
 
-### This is your solution!
-
-Do you need your application to look like _Drive_? Or just use the logic behind filter and search management?
-
-Even if you only want to use one of our components, we've created this library for you :)
+## ENJOY! 😄

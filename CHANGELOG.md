@@ -1,5 +1,11 @@
-# [1.9.0](https://github.com/adrianiy/glyph-ui/compare/v1.8.0...v1.9.0) (2021-04-11)
+## [1.9.1](https://github.com/adrianiy/glyph-ui/compare/v1.9.0...v1.9.1) (2021-04-15)
 
+
+### Bug Fixes
+
+* **filter:** fix close on click outside ([fcb599a](https://github.com/adrianiy/glyph-ui/commit/fcb599a841bbea0dafb12fbb56c0690c881ba111))
+
+# [1.9.0](https://github.com/adrianiy/glyph-ui/compare/v1.8.0...v1.9.0) (2021-04-11)
 
 ### Features
 

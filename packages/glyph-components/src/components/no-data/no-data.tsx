@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop } from '@stencil/core';
-import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
+import { Flex, distributions } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { NoDataType } from './no-data.model';
 
@@ -23,26 +23,26 @@ export class NoDataComponent {
     private _i18n: any;
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(['no-data'], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
     private _simpleRender() {
         return (
-            <RowLayout className={`no-data ${this.mode}`} distribution={[ distributions.MIDDLE ]}>
+            <Flex row className={`no-data ${this.mode}`} distribution={[distributions.MIDDLE]}>
                 <em class="material-icons">error_outline</em>
                 {this._i18n.noData}
-            </RowLayout>
+            </Flex>
         );
     }
 
     private _advancedRender() {
         return (
-            <ColumnLayout className={`no-data ${this.mode}`} distribution={[ distributions.CENTER ]}>
+            <Flex className={`no-data ${this.mode}`} distribution={[distributions.CENTER]}>
                 <em class="material-icons-outlined">report_problem</em>
                 <h3>{this.text}</h3>
                 <p>{this.bottomText}</p>
-            </ColumnLayout>
+            </Flex>
         );
     }
 
