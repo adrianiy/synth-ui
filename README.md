@@ -1,3 +1,6 @@
+<p align="center">
+  <img alt="GlyphUI" src="https://github.com/adrianiy/glyph-ui/blob/main/assets/logo.png?raw=true" width="480">
+</p>
 # GLYPH UI
 
 A cross-framework component library.
