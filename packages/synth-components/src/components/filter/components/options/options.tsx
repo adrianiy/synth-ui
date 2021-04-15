@@ -37,7 +37,6 @@ export class FilterOptionsComponent {
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
         if (!event.path.some((el: HTMLElement) => el.closest?.('.filter-options__container'))) {
-            console.log('close');
             this.closeEvent();
         }
     }
