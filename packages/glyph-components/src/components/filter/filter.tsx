@@ -1,7 +1,7 @@
-import { Component, Prop, h, State, Host, Element, Event, EventEmitter, Listen } from '@stencil/core';
-import { ColumnLayout, distributions, RowLayout } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
-import { FilterOption, FilterOptionHeader, SelectedFilter } from 'glyph-core';
+import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@stencil/core';
+import { Flex } from '../../utils/layout';
+import { UIInterface, FilterOptionHeader, SelectedFilter } from 'glyph-core';
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-filter',
@@ -25,6 +25,8 @@ export class FilterComponent {
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** Filter chip interface ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
     @Event() optionClickEvent: EventEmitter<any>;
     /** Clear selected filters callback */
@@ -40,19 +42,6 @@ export class FilterComponent {
     /** Filter search value */
     @State() searchValue: string;
 
-    private _i18n: any;
-
-    @Listen('click', { target: 'window' })
-    handleClick(ev: any) {
-        if (!ev.path[0].closest('.filter-options__container') && !ev.path[0].closest('.filter-chip') && this.expanded) {
-            this._expandFilter();
-        }
-    }
-
-    async componentWillLoad() {
-        await this._initializeVariables();
-    }
-
     componentWillRender() {
         this._changeDescription();
     }
@@ -61,7 +50,11 @@ export class FilterComponent {
         this.expanded = !this.expanded;
     };
 
-    private _optionClick = (option: FilterOptionHeader) => () => {
+    private _closeFilter = () => {
+        this.expanded = false;
+    };
+
+    private _optionClick = (option: FilterOptionHeader) => {
         this.optionClickEvent.emit(option);
 
         if (!this.multiSelect && !option.header) {
@@ -89,130 +82,46 @@ export class FilterComponent {
         }
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['filter'], this.element);
-        this._i18n = { ...componentI18n, ...this.i18n };
+    private _renderFilterOptions() {
+        return (
+            <glyph-filter-options
+                description={this.description}
+                options={this.options}
+                haveMultiSelect={this.haveMultiSelect}
+                multiSelect={this.multiSelect}
+                searchPlaceholder={this.searchPlaceholder}
+                i18n={this.i18n}
+                interface={this.interface}
+                optionClickEvent={this._optionClick}
+                multiSelectEvent={this._multiSelectClick}
+                closeEvent={this._closeFilter}
+            />
+        );
     }
-
-    private _inSearch({ description, children }: { description: string; children?: FilterOption[] }) {
-        if (this.searchValue) {
-            if (children) {
-                return children.some(child => this._inSearch(child));
-            }
-            return description.toLowerCase().includes(this.searchValue.toLowerCase());
-        }
-
-        return true;
-    }
-
-    private _handleInputChange = (event: any) => {
-        this.searchValue = event.target.value;
-    };
-
-    private _handleKeyUp = (event: any) => {
-        const isEnter = event.key === 'Enter';
-        if (isEnter) {
-            const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
-
-            if (visibleOptions.length === 1) {
-                this._optionClick(visibleOptions[0])();
-            }
-        }
-    };
-
-    private _renderSearch = () => {
-        return (
-            <div class="search-box">
-                <input
-                    type="text"
-                    placeholder={this.searchPlaceholder}
-                    value={this.searchValue}
-                    onKeyUp={this._handleKeyUp}
-                    onInput={this._handleInputChange}
-                />
-            </div>
-        );
-    };
-
-    private _renderMultiSelect = () => {
-        return (
-            <RowLayout className="operation" distribution={[distributions.SPACED, distributions.MIDDLE]}>
-                <span>{this._i18n['multiselect']}</span>
-                <glyph-toggler active={this.multiSelect} callback={this._multiSelectClick} />
-            </RowLayout>
-        );
-    };
-
-    private _renderOptionDescription = (description: string) => {
-        if (this.searchValue) {
-            description = description.split(this.searchValue).join(`<b>${this.searchValue}</b>`);
-        }
-
-        return <span innerHTML={description} />;
-    };
-
-    private _renderOptionHeader = (option: FilterOptionHeader) => {
-        const childInDescription = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInDescription);
-
-        return (
-            <ColumnLayout className="children__container">
-                <span>
-                    {expanded ? '- ' : '+ '}
-                    {this._renderOptionDescription(option.description)}
-                </span>
-                {expanded && this._renderOptionsList(option.children)}
-            </ColumnLayout>
-        );
-    };
-
-    private _renderOptionsList = (options: FilterOptionHeader[]) => {
-        return (
-            <ul>
-                {options
-                    .filter(option => option.display && this._inSearch(option))
-                    .map(option => (
-                        <li>
-                            <RowLayout
-                                onClick={this._optionClick(option)}
-                                className={`option ${option.active && 'active'}`}
-                                distribution={[distributions.SPACED]}
-                            >
-                                {option.header
-                                    ? this._renderOptionHeader(option)
-                                    : this._renderOptionDescription(option.description)}
-                                {option.active && <em class="material-icons">checkmark</em>}
-                            </RowLayout>
-                        </li>
-                    ))}
-            </ul>
-        );
-    };
-
-    private _renderFilterOptions = () => {
-        return (
-            <ColumnLayout className="filter-options__container">
-                <h5>{this.description}</h5>
-                {this.searchPlaceholder && this._renderSearch()}
-                {this.haveMultiSelect && this._renderMultiSelect()}
-                {this._renderOptionsList(this.options)}
-            </ColumnLayout>
-        );
-    };
 
     render() {
         return (
             <Host>
-                <RowLayout
-                    distribution={[distributions.MIDDLE]}
-                    className={`filter-chip ${!!this.selected.length && 'active'} ${this.expanded && 'expanded'}`}
+                <Flex
+                    row
+                    middle
+                    className={cls(
+                        'filter-chip',
+                        !!this.selected.length && 'active',
+                        this.expanded && 'expanded',
+                        this.interface,
+                    )}
                     onClick={this._expandFilter}
                 >
                     <span>{this.chipDescription}</span>
                     <em class="material-icons" onClick={this._onClear}>
-                        {this.selected.length ? 'close' : 'arrow_drop_down'}
+                        {this.selected.length
+                            ? 'close'
+                            : this.interface === UIInterface.classic
+                            ? 'arrow_drop_down'
+                            : 'expand_more'}
                     </em>
-                </RowLayout>
+                </Flex>
                 {this.expanded && this._renderFilterOptions()}
             </Host>
         );

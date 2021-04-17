@@ -3,9 +3,9 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<div style="width: 300px; height: 250px"><glyph-filter ...=${spread(args)} @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
+export const Template = args => html`<div style="width: 300px; height: 250px"><glyph-filter ...=${spread(args)} interface='modern' @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
 
-<Meta title="Components/Filter/Classic" parameters={{ viewMode: 'docs' }} />
+<Meta title="Components/Filter/Modern" parameters={{ viewMode: 'docs' }} />
 
 # Filter
 
@@ -13,6 +13,8 @@ export const Template = args => html`<div style="width: 300px; height: 250px"><g
 
 Filter component. This component will render a chip when some option is selected and also an
 options list on drilldown.
+
+This version of filter renders a rounded chip using a modern interface and colors
 
 ## Basic filter
 

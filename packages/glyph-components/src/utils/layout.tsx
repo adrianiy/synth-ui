@@ -3,10 +3,13 @@ import { cls } from './utils';
 
 export const distributions = {
     SPACED: 'space-between',
+    AROUND: 'space-around',
     MIDDLE: 'middle',
     CENTER: 'center',
     LEFT: 'left',
     RIGHT: 'right',
+    TOP: 'top',
+    BOTTOM: 'bottom',
     FULLSIZE: 'fl-1',
 };
 
@@ -21,6 +24,14 @@ export const paddings = {
 interface LayoutProps {
     row?: boolean;
     column?: boolean;
+    spaced?: boolean;
+    around?: boolean;
+    middle?: boolean;
+    center?: boolean;
+    left?: boolean;
+    right?: boolean;
+    top?: boolean;
+    bottom?: boolean;
     testId?: string;
     distribution?: string | string[];
     className?: string;
@@ -46,6 +57,17 @@ const composeClassNames = (
     return cls(flexType, distribution, className, padding, vPadding, hPadding);
 };
 
+const getDistribution = props => {
+    const flexType = props.row ? 'row' : 'column';
+    const flexDist = Object.keys(props)
+        .filter(key => props[key])
+        .map(key => distributions[key.toUpperCase()])
+        .filter(dist => dist)
+        .join(' ');
+
+    return `${flexType} ${flexDist}`.trim();
+};
+
 export const Flex: FunctionalComponent<LayoutProps> = (props, children) => {
     if (props.row) {
         return <RowLayout {...props}>{children}</RowLayout>;
@@ -54,32 +76,48 @@ export const Flex: FunctionalComponent<LayoutProps> = (props, children) => {
     }
 };
 
-export const RowLayout: FunctionalComponent<LayoutProps> = (
-    { testId = '', distribution, className, id, padding, verticalPadding, horizontalPadding, onClick, ref },
-    children,
-) => (
-    <div
-        data-testid={testId}
-        class={composeClassNames('row', distribution, className, padding, verticalPadding, horizontalPadding)}
-        onClick={onClick}
-        id={id}
-        ref={ref}
-    >
-        {children}
-    </div>
-);
+export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => {
+    const { testId = '', className, id, padding, verticalPadding, horizontalPadding, onClick, ref } = props;
 
-export const ColumnLayout: FunctionalComponent<LayoutProps> = (
-    { testId = '', distribution, className, id, padding, verticalPadding, horizontalPadding, onClick, ref },
-    children,
-) => (
-    <div
-        data-testid={testId}
-        class={composeClassNames('column', distribution, className, padding, verticalPadding, horizontalPadding)}
-        onClick={onClick}
-        id={id}
-        ref={ref}
-    >
-        {children}
-    </div>
-);
+    return (
+        <div
+            data-testid={testId}
+            class={composeClassNames(
+                'row',
+                getDistribution(props),
+                className,
+                padding,
+                verticalPadding,
+                horizontalPadding,
+            )}
+            onClick={onClick}
+            id={id}
+            ref={ref}
+        >
+            {children}
+        </div>
+    );
+};
+
+export const ColumnLayout: FunctionalComponent<LayoutProps> = (props, children) => {
+    const { testId = '', className, id, padding, verticalPadding, horizontalPadding, onClick, ref } = props;
+
+    return (
+        <div
+            data-testid={testId}
+            class={composeClassNames(
+                'column',
+                getDistribution(props),
+                className,
+                padding,
+                verticalPadding,
+                horizontalPadding,
+            )}
+            onClick={onClick}
+            id={id}
+            ref={ref}
+        >
+            {children}
+        </div>
+    );
+};

@@ -1,6 +1,6 @@
 .filter-chip {
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: var(--gui-border-radius--chip);
     user-select: none;
     position: relative;
     font-size: var(--gui-font--xs);
@@ -37,84 +37,31 @@
             font-size: var(--gui-font--xs);
         }
     }
-}
-.filter-options__container {
-    --max-height: 300px;
-    --min-width: 150px;
 
-    position: absolute;
-    margin-top: var(--gui-padding--xs);
-    background: var(--gui-color--background--third);
-    border: var(--gui-border--light);
-    padding: var(--gui-padding--s);
-    box-shadow: var(--gui-shadow);
-    min-width: var(--min-width);
-    overflow: hidden;
-    user-select: none;
-    z-index: 2;
+    &.modern {
+        padding: var(--gui-padding--xxs) var(--gui-padding--xs);
+        border-radius: var(--gui-border-radius--chip--modern);
 
-    .operation {
-        --side-margin: calc(var(--gui-padding--s) * -1);
-        font-size: var(--gui-font--xs);
-        border: var(--gui-border--light);
-        padding: var(--gui-padding--xs) 0;
-        padding-left: var(--gui-padding--s);
-        padding-right: var(--gui-padding--s);
-        margin: 0 var(--side-margin) 0 var(--side-margin);
-        border-right: 0;
-        border-left: 0;
-    }
-
-    .search-box {
-        border: var(--gui-border--light);
-        border-radius: 2px;
-        padding-left: var(--gui-padding--xxs);
-        margin-bottom: var(--gui-padding--s);
-
-        input {
-            outline: 0;
-            border: none;
-            background: var(--gui-color--background--third);
-            font-size: var(--gui-font--xxs);
-            margin: var(--gui-padding--xxs) 0;
-            margin-left: var(--gui-padding--xxxs);
-            color: var(--gui-color--font);
-        }
-    }
-
-    .children__container {
-        width: 100%;
-        ul {
-            padding-left: var(--gui-padding--s);
-        }
-    }
-
-    ul {
-        overflow-y: auto;
-        overflow-x: hidden;
-        max-height: var(--max-height);
-        padding-right: var(--gui-padding--s);
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li,
-        .option {
-            font-size: var(--gui-font--xs);
-            padding: var(--gui-padding--xxs) 0;
+        span {
+            text-transform: capitalize;
             margin: 0;
         }
-        .option {
-            width: 100%;
-            text-transform: none;
-            cursor: pointer;
 
-            em {
-                width: 13px;
+        em {
+            font-size: var(--gui-font--xs);
+            margin-left: var(--gui-padding--xxs);
+        }
+
+        &.active {
+            background: var(--gui-color--background--modern);
+
+            span {
+                margin-left: var(--gui-padding--nano);
             }
 
-            &.active {
-                font-weight: var(--gui-font-weight--extra-bold);
+            em {
+                color: var(--gui-color--modern);
+                font-weight: bold;
             }
         }
     }

@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { UIInterface } from './../enums';
 
 export interface CalendarConfig {
     /** minimun selectable date in calendar */
@@ -88,6 +89,7 @@ export interface FilterConfig {
     related?: string[];
     relatedByBrand?: boolean;
     relatedByProduct?: boolean;
+    interface?: UIInterface;
     selected?: SelectedFilter[];
     options?: FilterOptionHeader[];
 }

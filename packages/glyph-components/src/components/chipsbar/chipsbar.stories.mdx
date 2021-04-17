@@ -3,13 +3,13 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<div style="min-height: 200px"><synth-chipsbar .filtersConfig=${args.filtersConfig} @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @filterMultiSelect=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
+export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='classic' @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @filterMultiSelect=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
 
-<Meta title="Components/Chipsbar" parameters={{ viewMode: 'docs' }} />
+<Meta title="Components/Chipsbar/Classic" parameters={{ viewMode: 'docs' }} />
 
 # Chipsbar
 
-##### synth-chipsbar
+##### glyph-chipsbar
 
 A bar to handle filter rendering.
 

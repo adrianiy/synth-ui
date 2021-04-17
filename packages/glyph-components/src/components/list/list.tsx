@@ -1,7 +1,7 @@
 import { Component, Host, Element, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
 import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
-import { getLocaleComponentStrings } from '../../utils/utils';
-import { Flex, distributions } from '../../utils/layout';
+import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import { Flex } from '../../utils/layout';
 import { Workbook } from 'exceljs';
 import { Row } from 'glyph-core';
 import * as fs from 'file-saver';
@@ -181,18 +181,18 @@ export class ListComponent {
 
                     return (
                         <th>
-                            <Flex row className="nowrap" distribution={distributions.RIGHT}>
+                            <Flex row right className="nowrap">
                                 {this._i18n[field] || field}
                                 <em
                                     role="button"
-                                    class={`material-icons ${!isDesc && isSortField && 'active'}`}
+                                    class={cls('material-icons', !isDesc && isSortField && 'active')}
                                     onClick={this._changeSort('asc', field)}
                                 >
                                     arrow_upward
                                 </em>
                                 <em
                                     role="button"
-                                    class={`material-icons ${isDesc && isSortField && 'active'}`}
+                                    class={cls('material-icons', isDesc && isSortField && 'active')}
                                     onClick={this._changeSort('desc', field)}
                                 >
                                     arrow_downward
@@ -237,7 +237,7 @@ export class ListComponent {
             this._pages.map((_, index) => (
                 <span
                     role="button"
-                    class={`pagination__page ${this.currentPage === index && 'active'}`}
+                    class={cls('pagination__page', this.currentPage === index && 'active')}
                     onClick={this._changePage(index)}
                 >
                     {index + 1}
@@ -248,11 +248,11 @@ export class ListComponent {
 
     private _renderPagination() {
         return (
-            <Flex row distribution={[distributions.MIDDLE, distributions.SPACED]} className="pagination__container">
+            <Flex row middle spaced className="pagination__container">
                 <Flex row className="pagination">
                     {this._renderPages()}
                 </Flex>
-                <Flex row className="actions" distribution={[distributions.MIDDLE]}>
+                <Flex row middle className="actions">
                     <span class="view-all" onClick={this._toggleShowAll()} role="button">
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>

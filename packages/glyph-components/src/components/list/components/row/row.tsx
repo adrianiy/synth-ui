@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop } from '@stencil/core';
-import { distributions, RowLayout } from '../../../../utils/layout';
+import { Flex } from '../../../../utils/layout';
 import { Cell, Row, RowAction } from 'glyph-core';
 import { getCellValues } from '../../utils/list';
 
@@ -39,14 +39,10 @@ export class RowComponent {
             <div class="row-action__list">
                 <h4>{this.i18n['actions']}</h4>
                 {actions.map(action => (
-                    <RowLayout
-                        className="row-action"
-                        distribution={[distributions.MIDDLE, distributions.SPACED]}
-                        onClick={action.action}
-                    >
+                    <Flex row middle spaced className="row-action" onClick={action.action}>
                         <span>{action.title}</span>
                         <em class="material-icons">{action.icon}</em>
-                    </RowLayout>
+                    </Flex>
                 ))}
             </div>
         );
@@ -56,10 +52,7 @@ export class RowComponent {
         if (actions?.length) {
             return (
                 <div class="row-action__wrapper">
-                    <RowLayout
-                        className="row-action__container"
-                        distribution={[distributions.MIDDLE, distributions.CENTER]}
-                    >
+                    <Flex row middle center className="row-action__container">
                         {actions.length === 1 ? (
                             <em class="row-action material-icons" onClick={actions[0].action}>
                                 {actions[0].icon}
@@ -68,7 +61,7 @@ export class RowComponent {
                             <em class="material-icons">more_horiz</em>
                         )}
                         {actions.length > 1 && this._renderMultiActions(actions)}
-                    </RowLayout>
+                    </Flex>
                 </div>
             );
         }
@@ -87,10 +80,10 @@ export class RowComponent {
         return (
             <tr role="button" class={this._getRowClass(child)} onClick={this.expandHandle(row)}>
                 <td>
-                    <RowLayout distribution={distributions.MIDDLE}>
+                    <Flex row middle>
                         {this.expandable && !child && <em class="material-icons">expand_more</em>}
                         <span>{this.i18n[row.name] || row.name}</span>
-                    </RowLayout>
+                    </Flex>
                 </td>
                 {this.fields.map(field => this._renderCell(row[field]))}
                 {this._renderActions(row._actions)}
@@ -99,7 +92,7 @@ export class RowComponent {
     };
 
     private _renderChildren() {
-        return this.row._children?.map(child => this._renderRow(child, true));
+        return this.row._children?.map((child: Row) => this._renderRow(child, true));
     }
 
     render() {

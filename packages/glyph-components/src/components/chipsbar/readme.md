@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property        | Attribute | Description                   | Type                         | Default     |
-| --------------- | --------- | ----------------------------- | ---------------------------- | ----------- |
-| `filtersConfig` | --        | Filters configuration object  | `FiltersConfig`              | `undefined` |
-| `i18n`          | --        | Extra i18n translation object | `{ [key: string]: string; }` | `{}`        |
+| Property        | Attribute   | Description                            | Type                                        | Default               |
+| --------------- | ----------- | -------------------------------------- | ------------------------------------------- | --------------------- |
+| `filtersConfig` | --          | Filters configuration object           | `FiltersConfig`                             | `undefined`           |
+| `i18n`          | --          | Extra i18n translation object          | `{ [key: string]: string; }`                | `{}`                  |
+| `interface`     | `interface` | Interface type [ 'MODERN', 'CLASSIC' ] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 
 
 ## Events
@@ -35,7 +36,8 @@
 graph TD;
   glyph-chipsbar --> glyph-filter
   glyph-chipsbar --> glyph-button
-  glyph-filter --> glyph-toggler
+  glyph-filter --> glyph-filter-options
+  glyph-filter-options --> glyph-toggler
   style glyph-chipsbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,6 +1,6 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { FiltersConfig } from 'glyph-core';
-import { distributions, RowLayout } from '../../utils/layout';
+import { FiltersConfig, UIInterface } from 'glyph-core';
+import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
 @Component({
@@ -13,6 +13,8 @@ export class ChipsBarComponent {
     @Prop() filtersConfig: FiltersConfig;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** Interface type [ 'MODERN', 'CLASSIC' ] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
     @Event() filterSelect: EventEmitter<any>;
     /** Filter clear event */
@@ -64,35 +66,40 @@ export class ChipsBarComponent {
         const chips = Object.keys(this.filtersConfig || {});
 
         return (
-            <RowLayout className="chips__container">
+            <Flex row className="chips__container">
                 {chips.map(chip => (
                     <glyph-filter
                         {...this.filtersConfig[chip]}
+                        interface={this.interface}
                         i18n={this._i18n}
                         onOptionClickEvent={this._handleOptionClick}
                         onClearEvent={this._handleFilterClear}
                         onMultiSelectEvent={this._handleMultiSelect}
                     />
                 ))}
-            </RowLayout>
+            </Flex>
         );
     };
 
     private _renderButtons = () => {
         return (
-            <RowLayout className="buttons__container" distribution={distributions.MIDDLE}>
-                <glyph-button icon="close" onClick={this._handleClearAll} />
-                <glyph-button text={this._i18n['configFilters']} onClick={this._handleFilterConfig} />
-            </RowLayout>
+            <Flex middle className="buttons__container">
+                <glyph-button icon="close" interface={this.interface} onClick={this._handleClearAll} />
+                <glyph-button
+                    text={this._i18n['configFilters']}
+                    interface={this.interface}
+                    onClick={this._handleFilterConfig}
+                />
+            </Flex>
         );
     };
 
     render() {
         return (
-            <RowLayout className="chipsbar__container" distribution={[distributions.MIDDLE, distributions.SPACED]}>
+            <Flex row middle spaced className="chipsbar__container">
                 {this._renderChips()}
                 {this._renderButtons()}
-            </RowLayout>
+            </Flex>
         );
     }
 }

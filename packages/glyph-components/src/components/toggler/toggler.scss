@@ -24,4 +24,20 @@
             transform: translateX(15px);
         }
     }
+
+    &.modern {
+        padding: 0;
+        height: 6px;
+        width: 20px;
+
+        .toggler {
+            border: 1px solid var(--gui-color--font--medium);
+        }
+        &.active {
+            .toggler {
+                transform: translateX(7px);
+                border: var(--gui-border--dark);
+            }
+        }
+    }
 }

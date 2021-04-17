@@ -45,7 +45,8 @@ body {
     --gui-shadow--tiny: 0 2px 11px rgba(0, 0, 0, 0.12);
     --gui-shadow--top: 0 -17px 16px rgba(0, 0, 0, 0.12);
 
-    /* ios*/
-    --gui-padding--ios: 115px;
-    --gui-padding--ios--scrolled: 70px;
+    /* border radius */
+    --gui-border-radius: 4px;
+    --gui-border-radius--chip: 2px;
+    --gui-border-radius--chip--modern: 14px;
 }
