@@ -7,22 +7,23 @@
 
 ## Properties
 
-| Property   | Attribute | Description    | Type        | Default     |
-| ---------- | --------- | -------------- | ----------- | ----------- |
-| `active`   | `active`  | Toggler state  | `boolean`   | `false`     |
-| `callback` | --        | Click callback | `() => any` | `undefined` |
+| Property    | Attribute   | Description                          | Type                                        | Default               |
+| ----------- | ----------- | ------------------------------------ | ------------------------------------------- | --------------------- |
+| `active`    | `active`    | Toggler state                        | `boolean`                                   | `false`               |
+| `callback`  | --          | Click callback                       | `() => any`                                 | `undefined`           |
+| `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [glyph-filter](../filter)
+ - [glyph-filter-options](../filter/components/options)
 
 ### Graph
 ```mermaid
 graph TD;
-  glyph-filter --> glyph-toggler
+  glyph-filter-options --> glyph-toggler
   style glyph-toggler fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

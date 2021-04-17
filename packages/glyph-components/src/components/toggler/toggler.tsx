@@ -1,4 +1,8 @@
 import { Component, Prop, h } from '@stencil/core';
+import { UIInterface } from 'glyph-core';
+import { Flex } from '../../utils/layout';
+
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-toggler',
@@ -10,12 +14,19 @@ export class TogglerComponent {
     @Prop() active: boolean = false;
     /** Click callback */
     @Prop() callback: () => any;
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
-            <div class={`toggler__wrapper ${this.active && 'active'}`} onClick={this.callback}>
+            <Flex
+                row
+                middle
+                className={cls('toggler__wrapper', this.active && 'active', this.interface)}
+                onClick={this.callback}
+            >
                 <div class="toggler" />
-            </div>
+            </Flex>
         );
     }
 }

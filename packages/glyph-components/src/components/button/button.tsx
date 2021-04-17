@@ -1,4 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
+import { UIInterface } from 'glyph-core';
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-button',
@@ -10,10 +12,12 @@ export class ButtonComponent {
     @Prop() text: string;
     /** Material icons id */
     @Prop() icon: string;
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
-            <div class={`button__wrapper ${this.text && 'text'} ${this.icon && 'icon'}`}>
+            <div class={cls('button__wrapper', this.text && 'text', this.icon && 'icon', this.interface)}>
                 {this.text && this.text}
                 {this.icon && <em class="material-icons">{this.icon}</em>}
             </div>

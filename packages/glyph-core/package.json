@@ -30,6 +30,7 @@
         "@babel/preset-env": "^7.13.10",
         "@babel/preset-typescript": "^7.13.0",
         "@types/lodash-es": "^4.17.4",
+        "babel-plugin-const-enum": "^1.0.1",
         "move-file-cli": "^2.0.0",
         "nodemon": "^2.0.7"
     }

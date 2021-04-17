@@ -1,10 +1,10 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { FilterOption, FilterOptionHeader } from 'synth-core';
-import { distributions, Flex } from '../../../../utils/layout';
-import { getLocaleComponentStrings } from '../../../../utils/utils';
+import { UIInterface, FilterOption, FilterOptionHeader } from 'glyph-core';
+import { Flex } from '../../../../utils/layout';
+import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
 
 @Component({
-    tag: 'synth-filter-options',
+    tag: 'glyph-filter-options',
     styleUrl: 'options.scss',
     shadow: true,
 })
@@ -21,6 +21,8 @@ export class FilterOptionsComponent {
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** Filter chip interface ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
     @Prop() optionClickEvent: (option: FilterOptionHeader) => void;
     /** Multiselect toggler callback */
@@ -28,7 +30,7 @@ export class FilterOptionsComponent {
     /** Close callback */
     @Prop() closeEvent: () => void;
     /** Element reference */
-    @Element() element: HTMLElement;
+    @Element() element: HTMLGlyphFilterOptionsElement;
     /** Filter search value */
     @State() searchValue: string;
 
@@ -100,9 +102,13 @@ export class FilterOptionsComponent {
 
     private _renderMultiSelect = () => {
         return (
-            <Flex row className="operation" distribution={[distributions.SPACED, distributions.MIDDLE]}>
-                <span>{this._i18n['multiselect']}</span>
-                <synth-toggler active={this.multiSelect} callback={this._multiSelectClick} />
+            <Flex row spaced middle className="operation">
+                {this.interface === UIInterface.classic ? (
+                    <span>{this._i18n['multiselect']}</span>
+                ) : (
+                    <em class="material-icons">done_all</em>
+                )}
+                <glyph-toggler active={this.multiSelect} callback={this._multiSelectClick} interface={this.interface} />
             </Flex>
         );
     };
@@ -139,9 +145,9 @@ export class FilterOptionsComponent {
                         <li>
                             <Flex
                                 row
+                                spaced
                                 onClick={this._optionClick(option)}
-                                className={`option ${option.active && 'active'}`}
-                                distribution={[distributions.SPACED]}
+                                className={cls('option', option.active && 'active')}
                             >
                                 {option.header
                                     ? this._renderOptionHeader(option)
@@ -156,10 +162,17 @@ export class FilterOptionsComponent {
 
     render() {
         return (
-            <Flex className="filter-options__container">
-                <h5>{this.description}</h5>
+            <Flex className={cls('filter-options__container', this.interface)}>
+                {this.interface === UIInterface.modern ? (
+                    <Flex row spaced>
+                        <h3>{this.description}</h3>
+                        {this.haveMultiSelect && this._renderMultiSelect()}
+                    </Flex>
+                ) : (
+                    <h5>{this.description}</h5>
+                )}
                 {this.searchPlaceholder && this._renderSearch()}
-                {this.haveMultiSelect && this._renderMultiSelect()}
+                {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
                 {this._renderOptionsList(this.options)}
             </Flex>
         );

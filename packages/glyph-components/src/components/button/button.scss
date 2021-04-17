@@ -16,4 +16,25 @@
     &.icon {
         padding: var(--gui-padding--xs);
     }
+
+    &.modern {
+        background-color: transparent;
+        border: 2px solid var(--gui-color--dark);
+        border-radius: var(--gui-border-radius);
+        transition: all ease-in 100ms;
+
+        &.icon {
+            border: none;
+            font-size: var(--gui-font--m);
+        }
+
+        &:hover {
+            background-color: var(--gui-color--dark);
+            color: var(--gui-color--font--contrast);
+
+            em {
+                color: var(--gui-color--font--contrast);
+            }
+        }
+    }
 }

@@ -3,9 +3,9 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<glyph-button ...=${spread(args)} @click=${clickEvent} />`;
+export const Template = args => html`<glyph-button ...=${spread(args)} interface='modern' @click=${clickEvent} />`;
 
-<Meta title="Components/Button/Classic" parameters={{ viewMode: 'docs' }} />
+<Meta title="Components/Button/Modern" parameters={{ viewMode: 'docs' }} />
 
 # Button
 

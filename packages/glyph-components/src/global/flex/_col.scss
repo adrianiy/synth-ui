@@ -3,13 +3,13 @@
 .column {
     @include flex.flex(column);
 
-    &.start {
+    &.top {
         justify-content: flex-start;
     }
     &.middle {
         justify-content: center;
     }
-    &.end {
+    &.bottom {
         justify-content: flex-end;
     }
     &.space-between {

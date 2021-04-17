@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                                                 | Type                         | Default     |
-| ------------------- | -------------------- | ----------------------------------------------------------- | ---------------------------- | ----------- |
-| `description`       | `description`        | Filter description                                          | `string`                     | `undefined` |
-| `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler | `boolean`                    | `true`      |
-| `i18n`              | --                   | Extra i18n translation object                               | `{ [key: string]: string; }` | `{}`        |
-| `multiSelect`       | `multi-select`       | This flag is true if multiselect is active                  | `boolean`                    | `false`     |
-| `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`       | `undefined` |
-| `plural`            | `plural`             | Filter plural                                               | `string`                     | `undefined` |
-| `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                     | `undefined` |
-| `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`           | `undefined` |
+| Property            | Attribute            | Description                                                 | Type                                        | Default               |
+| ------------------- | -------------------- | ----------------------------------------------------------- | ------------------------------------------- | --------------------- |
+| `description`       | `description`        | Filter description                                          | `string`                                    | `undefined`           |
+| `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler | `boolean`                                   | `true`                |
+| `i18n`              | --                   | Extra i18n translation object                               | `{ [key: string]: string; }`                | `{}`                  |
+| `interface`         | `interface`          | Filter chip interface ['MODERN', 'CLASSIC']                 | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
+| `multiSelect`       | `multi-select`       | This flag is true if multiselect is active                  | `boolean`                                   | `false`               |
+| `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`                      | `undefined`           |
+| `plural`            | `plural`             | Filter plural                                               | `string`                                    | `undefined`           |
+| `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                                    | `undefined`           |
+| `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`                          | `undefined`           |
 
 
 ## Events
@@ -36,12 +37,13 @@
 
 ### Depends on
 
-- [glyph-toggler](../toggler)
+- [glyph-filter-options](./components/options)
 
 ### Graph
 ```mermaid
 graph TD;
-  glyph-filter --> glyph-toggler
+  glyph-filter --> glyph-filter-options
+  glyph-filter-options --> glyph-toggler
   glyph-chipsbar --> glyph-filter
   style glyph-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

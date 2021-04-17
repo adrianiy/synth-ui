@@ -3,49 +3,62 @@
     --min-width: 150px;
 
     position: absolute;
-    margin-top: var(--zd-padding--xs);
-    background: var(--zd-color--background--third);
-    border: var(--zd-border--light);
-    padding: var(--zd-padding--s);
-    box-shadow: var(--zd-shadow);
+    margin-top: var(--gui-padding--xs);
+    background: var(--gui-color--background--third);
+    border: var(--gui-border--light);
+    padding: var(--gui-padding--s);
+    box-shadow: var(--gui-shadow);
     min-width: var(--min-width);
     overflow: hidden;
     user-select: none;
     z-index: 2;
 
     .operation {
-        --side-margin: calc(var(--zd-padding--s) * -1);
-        font-size: var(--zd-font--xs);
-        border: var(--zd-border--light);
-        padding: var(--zd-padding--xs) 0;
-        padding-left: var(--zd-padding--s);
-        padding-right: var(--zd-padding--s);
+        --side-margin: calc(var(--gui-padding--s) * -1);
+        font-size: var(--gui-font--xs);
+        border: var(--gui-border--light);
+        padding: var(--gui-padding--xs) 0;
+        padding-left: var(--gui-padding--s);
+        padding-right: var(--gui-padding--s);
         margin: 0 var(--side-margin) 0 var(--side-margin);
         border-right: 0;
         border-left: 0;
     }
+    &.modern {
+        .operation {
+            margin: 0;
+            border: none;
+            padding-right: 0;
+        }
+    }
 
     .search-box {
-        border: var(--zd-border--light);
+        border: var(--gui-border--light);
         border-radius: 2px;
-        padding-left: var(--zd-padding--xxs);
-        margin-bottom: var(--zd-padding--s);
+        padding-left: var(--gui-padding--xxs);
+        margin-bottom: var(--gui-padding--s);
 
         input {
             outline: 0;
             border: none;
-            background: var(--zd-color--background--third);
-            font-size: var(--zd-font--xxs);
-            margin: var(--zd-padding--xxs) 0;
-            margin-left: var(--zd-padding--xxxs);
-            color: var(--zd-color--font);
+            background: var(--gui-color--background--third);
+            font-size: var(--gui-font--xxs);
+            margin: var(--gui-padding--xxs) 0;
+            margin-left: var(--gui-padding--xxxs);
+            color: var(--gui-color--font);
+        }
+    }
+
+    &.modern {
+        .search-box {
+            margin: var(--gui-padding--s) 0;
         }
     }
 
     .children__container {
         width: 100%;
         ul {
-            padding-left: var(--zd-padding--s);
+            padding-left: var(--gui-padding--s);
         }
     }
 
@@ -53,15 +66,15 @@
         overflow-y: auto;
         overflow-x: hidden;
         max-height: var(--max-height);
-        padding-right: var(--zd-padding--s);
+        padding-right: var(--gui-padding--s);
         list-style: none;
         padding: 0;
         margin: 0;
 
         li,
         .option {
-            font-size: var(--zd-font--xs);
-            padding: var(--zd-padding--xxs) 0;
+            font-size: var(--gui-font--xs);
+            padding: var(--gui-padding--xxs) 0;
             margin: 0;
         }
         .option {
@@ -74,7 +87,7 @@
             }
 
             &.active {
-                font-weight: var(--zd-font-weight--extra-bold);
+                font-weight: var(--gui-font-weight--extra-bold);
             }
         }
     }

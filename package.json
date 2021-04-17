@@ -9,6 +9,7 @@
         "stencil": "lerna run --scope=*components* --parallel",
         "react": "lerna run --scope=*react* --parallel",
         "angular": "lerna run --scope=*angular* --parallel",
+        "core": "lerna run --scope=*core* --parallel",
         "docs:wait": "wait-on -c wait-on.json && npm run docs:base",
         "docs:base": "start-storybook --quiet -p 6006 --no-manager-cache",
         "build": "lerna run build --stream",

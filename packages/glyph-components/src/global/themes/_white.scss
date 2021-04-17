@@ -3,11 +3,17 @@
     --gui-color--background: white;
     --gui-color--background--secondary: white;
     --gui-color--background--third: white;
-    --gui-color--contrast: black;
+    --gui-color--background--overlay: #00000038;
+    --gui-color--background--modern: #e2e7e8;
+
     --gui-color--primary: rgb(245, 245, 245);
     --gui-color--secondary: #767676;
     --gui-color--third: #ddd;
+    --gui-color--modern: #3c585f;
+
+    --gui-color--contrast: black;
     --gui-color--dark: #383838;
+
     --gui-color--highlight: #00a699;
     --gui-color--success: #27ae60;
     --gui-color--alert: #cf4433;
@@ -15,14 +21,15 @@
     --gui-color--overlay: rgba(0, 0, 0, 0.25);
     --gui-color--link: #2a8bce;
     --gui-color--danger: #ff5a5f;
+
     --gui-color--font: rgba(0, 0, 0, 0.9);
     --gui-color--font--secondary: rba(0, 0, 0, 0.9);
     --gui-color--font--medium: silver;
     --gui-color--font--light: #767676;
     --gui-color--font--lighter: rgba(0, 0, 0, 0.5);
     --gui-color--font--contrast: rgba(255, 255, 255, 0.9);
+
     --gui-color--article--footer: rgba(255, 255, 255, 0.7);
-    --gui-color--background--overlay: #00000038;
 
     /* borders */
     --gui-border--dark: 1px solid black;
