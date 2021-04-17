@@ -1,18 +1,19 @@
 :root {
     /* colors */
     --gui-color--background: white;
-    --gui-color--background--secondary: white;
-    --gui-color--background--third: white;
-    --gui-color--background--overlay: #00000038;
+    --gui-color--background--light: rgb(245, 245, 245);
+    --gui-color--background--lighter: white;
     --gui-color--background--modern: #e2e7e8;
 
-    --gui-color--primary: rgb(245, 245, 245);
-    --gui-color--secondary: #767676;
-    --gui-color--third: #ddd;
+    --gui-color: #111;
+    --gui-color--light: #767676;
+    --gui-color--lighter: #bebebe;
+    --gui-color--lightest: #eaeaea;
     --gui-color--modern: #3c585f;
+    --gui-color--modern--contrast: var(--gui-color--contrast);
 
-    --gui-color--contrast: black;
-    --gui-color--dark: #383838;
+    --gui-color--background--contrast: var(--gui-color);
+    --gui-color--contrast: var(--gui-color--background);
 
     --gui-color--highlight: #00a699;
     --gui-color--success: #27ae60;
@@ -22,20 +23,13 @@
     --gui-color--link: #2a8bce;
     --gui-color--danger: #ff5a5f;
 
-    --gui-color--font: rgba(0, 0, 0, 0.9);
-    --gui-color--font--secondary: rba(0, 0, 0, 0.9);
-    --gui-color--font--medium: silver;
-    --gui-color--font--light: #767676;
-    --gui-color--font--lighter: rgba(0, 0, 0, 0.5);
-    --gui-color--font--contrast: rgba(255, 255, 255, 0.9);
-
     --gui-color--article--footer: rgba(255, 255, 255, 0.7);
 
     /* borders */
-    --gui-border--dark: 1px solid black;
-    --gui-border--medium: 1px solid #eae9e9;
-    --gui-border--light: 1px solid rgba(0, 0, 0, 0.08);
-    --gui-border--header: var(--gui-border--light);
+    --gui-border: 1px solid var(--gui-color);
+    --gui-border--light: 1px solid var(--gui-color--light);
+    --gui-border--lighter: 1px solid var(--gui-color--lighter);
+    --gui-border--lightest: 1px solid var(--gui-color--lightest);
 
     /* shadows */
     --gui-shadow: 0px 2px 5px 0px rgb(0 0 0 / 3%), 0px 9px 11px 2px rgb(0 0 0 / 4%);
@@ -47,7 +41,4 @@
 
     /* tabs */
     --gui-tab-shadow: inset 0px -2px 0px 0px #000000;
-
-    /* charts */
-    --gui-color--analytic-chart--rest: rgba(232, 236, 236, 0.7);
 }

@@ -1,5 +1,5 @@
 .button__wrapper {
-    background-color: var(--gui-color--primary);
+    background-color: var(--gui-color--background--light);
     padding: var(--gui-padding--xs) var(--gui-padding--m);
     display: inline-flex;
     vertical-align:middle;
@@ -8,18 +8,26 @@
     white-space: nowrap;
     user-select: none;
     font-size: var(--gui-font--xs);
+    outline: none;
+    border: none;
 
     &:hover {
         filter: brightness(.95);
+    }
+    &:focus {
+        filter: brightness(.9);
+        outline: none;
     }
 
     &.icon {
         padding: var(--gui-padding--xs);
     }
 
+
     &.modern {
         background-color: transparent;
-        border: 2px solid var(--gui-color--dark);
+        border: var(--gui-border--light);
+        border-width: 2px;
         border-radius: var(--gui-border-radius);
         transition: all ease-in 100ms;
 
@@ -29,11 +37,11 @@
         }
 
         &:hover {
-            background-color: var(--gui-color--dark);
-            color: var(--gui-color--font--contrast);
+            background-color: var(--gui-color--light);
+            color: var(--gui-color--contrast);
 
             em {
-                color: var(--gui-color--font--contrast);
+                color: var(--gui-color--contrast);
             }
         }
     }
