@@ -224,10 +224,6 @@ export namespace Components {
          */
         "active": boolean;
         /**
-          * Click callback
-         */
-        "callback": () => any;
-        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -555,10 +551,6 @@ declare namespace LocalJSX {
           * Toggler state
          */
         "active"?: boolean;
-        /**
-          * Click callback
-         */
-        "callback"?: () => any;
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */

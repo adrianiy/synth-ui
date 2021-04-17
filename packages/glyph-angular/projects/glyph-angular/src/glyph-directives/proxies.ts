@@ -201,13 +201,13 @@ export class GlyphTitle {
 
 export declare interface GlyphToggler extends Components.GlyphToggler {}
 @ProxyCmp({
-  inputs: ['active', 'callback', 'interface']
+  inputs: ['active', 'interface']
 })
 @Component({
   selector: 'glyph-toggler',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'callback', 'interface']
+  inputs: ['active', 'interface']
 })
 export class GlyphToggler {
   protected el: HTMLElement;

@@ -10,7 +10,6 @@
 | Property    | Attribute   | Description                          | Type                                        | Default               |
 | ----------- | ----------- | ------------------------------------ | ------------------------------------------- | --------------------- |
 | `active`    | `active`    | Toggler state                        | `boolean`                                   | `false`               |
-| `callback`  | --          | Click callback                       | `() => any`                                 | `undefined`           |
 | `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 
 

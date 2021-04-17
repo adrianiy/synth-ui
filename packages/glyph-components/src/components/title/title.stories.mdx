@@ -1,0 +1,24 @@
+import { html } from 'lit-html';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-title title-text="Test"  />`;
+
+<Meta title="Components/Title" parameters={{ viewMode: 'docs' }} />
+
+# Title
+
+##### glyph-title
+
+Renders component title using `h2`.
+
+<Canvas>
+    <Story name="Basic">
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+

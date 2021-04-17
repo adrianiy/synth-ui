@@ -108,7 +108,7 @@ export class FilterOptionsComponent {
                 ) : (
                     <em class="material-icons">done_all</em>
                 )}
-                <glyph-toggler active={this.multiSelect} callback={this._multiSelectClick} interface={this.interface} />
+                <glyph-toggler active={this.multiSelect} onClick={this._multiSelectClick} interface={this.interface} />
             </Flex>
         );
     };
