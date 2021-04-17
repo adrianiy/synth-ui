@@ -10,19 +10,20 @@ module.exports = {
         // Make whatever fine-grained changes you need
         config.module.rules.push({
             test: /\.scss$/,
-            use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+            use: ['style-loader', 'css-loader', 'sass-loader'],
             include: path.resolve(__dirname, '../'),
         });
         config.plugins.push(new ProgressBarPlugin());
         // Return the altered config
         return config;
     },
-    stories: [ '../src/**/*.stories.@(mdx|jsx|ts|tsx)' ],
+    stories: ['../src/**/*.stories.@(mdx|jsx|ts|tsx)'],
     addons: [
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-postcss',
         '@storybook/addon-viewport',
         '@storybook/preset-scss',
+        'storybook-addon-themes',
     ],
 };

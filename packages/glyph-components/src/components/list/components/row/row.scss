@@ -139,18 +139,18 @@
         .row-action__container {
             width: var(--row-action--size);
             height: var(--row-action--size);
-            background: var(--gui-color--third);
-            color: var(--gui-color--font--contrast);
+            background: var(--gui-color--light);
+            color: var(--gui-color--contrast);
             font-size: var(--gui-font--m);
             position: relative;
 
             * {
-                color: var(--gui-color--font--contrast);
+                color: var(--gui-color--contrast);
             }
 
             &:hover {
-                background: var(--gui-color--contrast);
-                color: var(--gui-color--font--contrast);
+                background: var(--gui-color--background--contrast);
+                color: var(--gui-color--contrast);
             }
         }
 
@@ -159,7 +159,7 @@
             left: 100%;
             top: 0;
             position: absolute;
-            background: var(--gui-color--background--third);
+            background: var(--gui-color--background--lighter);
             box-shadow: var(--gui-shadow--tiny);
             padding: var(--gui-padding--s);
             padding-bottom: var(--gui-padding--m);
@@ -167,7 +167,7 @@
             font-size: var(--gui-font--m);
 
             * {
-                color: var(--gui-color--font);
+                color: var(--gui-color);
             }
 
             .row-action {

@@ -1,6 +1,6 @@
 .toggler__wrapper {
     --size: 11px;
-    background: var(--gui-color--font--medium);
+    background: var(--gui-color--light);
     padding: 2px;
     width: 26px;
     border-radius: 14px;
@@ -18,7 +18,7 @@
     }
 
     &.active {
-        background: var(--gui-color--contrast);
+        background: var(--gui-color--background--contrast);
 
         .toggler {
             transform: translateX(15px);
@@ -27,16 +27,16 @@
 
     &.modern {
         padding: 0;
-        height: 6px;
-        width: 20px;
+        height: 11px;
+        width: 21px;
 
         .toggler {
-            border: 1px solid var(--gui-color--font--medium);
+            border: 1px solid var(--gui-color--light);
         }
         &.active {
             .toggler {
-                transform: translateX(7px);
-                border: var(--gui-border--dark);
+                transform: translateX(8px);
+                border: var(--gui-border);
             }
         }
     }
