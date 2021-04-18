@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Brands, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, UIInterface, UserData } from "glyph-core";
+import { Brands, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
 import { ExpandRowEvent } from "./components/list/list.model";
 export namespace Components {
     interface GlyphAppMenu {
@@ -290,6 +290,10 @@ export namespace Components {
          */
         "complexOptions": ComplexSelectorOptions;
         /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -337,6 +341,30 @@ export namespace Components {
           * Number of loader lines that will be rendered
          */
         "repetitions": number;
+    }
+    interface GlyphTabs {
+        /**
+          * Tab rendering style big | small
+         */
+        "tabStyle": TabStyle;
+        /**
+          * Component tabs
+         */
+        "tabs": Tab[];
+    }
+    interface GlyphTimeline {
+        /**
+          * Timeline events
+         */
+        "events": TimelineEvent[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
     }
     interface GlyphTitle {
         /**
@@ -462,6 +490,18 @@ declare global {
         prototype: HTMLGlyphSkLoaderElement;
         new (): HTMLGlyphSkLoaderElement;
     };
+    interface HTMLGlyphTabsElement extends Components.GlyphTabs, HTMLStencilElement {
+    }
+    var HTMLGlyphTabsElement: {
+        prototype: HTMLGlyphTabsElement;
+        new (): HTMLGlyphTabsElement;
+    };
+    interface HTMLGlyphTimelineElement extends Components.GlyphTimeline, HTMLStencilElement {
+    }
+    var HTMLGlyphTimelineElement: {
+        prototype: HTMLGlyphTimelineElement;
+        new (): HTMLGlyphTimelineElement;
+    };
     interface HTMLGlyphTitleElement extends Components.GlyphTitle, HTMLStencilElement {
     }
     var HTMLGlyphTitleElement: {
@@ -500,6 +540,8 @@ declare global {
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-tabs": HTMLGlyphTabsElement;
+        "glyph-timeline": HTMLGlyphTimelineElement;
         "glyph-title": HTMLGlyphTitleElement;
         "glyph-toaster": HTMLGlyphToasterElement;
         "glyph-toggler": HTMLGlyphTogglerElement;
@@ -821,6 +863,10 @@ declare namespace LocalJSX {
          */
         "complexOptions"?: ComplexSelectorOptions;
         /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
@@ -872,6 +918,34 @@ declare namespace LocalJSX {
           * Number of loader lines that will be rendered
          */
         "repetitions"?: number;
+    }
+    interface GlyphTabs {
+        /**
+          * Tab selection event
+         */
+        "onTabSelect"?: (event: CustomEvent<Tab>) => void;
+        /**
+          * Tab rendering style big | small
+         */
+        "tabStyle"?: TabStyle;
+        /**
+          * Component tabs
+         */
+        "tabs"?: Tab[];
+    }
+    interface GlyphTimeline {
+        /**
+          * Timeline events
+         */
+        "events"?: TimelineEvent[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
     }
     interface GlyphTitle {
         /**
@@ -935,6 +1009,8 @@ declare namespace LocalJSX {
         "glyph-selector": GlyphSelector;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
+        "glyph-tabs": GlyphTabs;
+        "glyph-timeline": GlyphTimeline;
         "glyph-title": GlyphTitle;
         "glyph-toaster": GlyphToaster;
         "glyph-toggler": GlyphToggler;
@@ -958,6 +1034,8 @@ declare module "@stencil/core" {
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
+            "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;
             "glyph-toaster": LocalJSX.GlyphToaster & JSXBase.HTMLAttributes<HTMLGlyphToasterElement>;
             "glyph-toggler": LocalJSX.GlyphToggler & JSXBase.HTMLAttributes<HTMLGlyphTogglerElement>;

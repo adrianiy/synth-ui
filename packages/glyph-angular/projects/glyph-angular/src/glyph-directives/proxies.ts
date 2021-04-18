@@ -220,13 +220,13 @@ export class GlyphNoData {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options']
+  inputs: ['complexOptions', 'i18n', 'interface', 'label', 'multiSelect', 'options']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options'],
+  inputs: ['complexOptions', 'i18n', 'interface', 'label', 'multiSelect', 'options'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {
@@ -271,6 +271,48 @@ export declare interface GlyphSkLoader extends Components.GlyphSkLoader {}
   inputs: ['height', 'repetitions']
 })
 export class GlyphSkLoader {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+import { TabsComponent as ITabsComponent } from 'glyph-components/dist/types/components/tabs/tabs';
+export declare interface GlyphTabs extends Components.GlyphTabs {}
+@ProxyCmp({
+  inputs: ['tabStyle', 'tabs']
+})
+@Component({
+  selector: 'glyph-tabs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['tabStyle', 'tabs'],
+  outputs: ['tabSelect']
+})
+export class GlyphTabs {
+  /** Tab selection event */
+  tabSelect!: ITabsComponent['tabSelect'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['tabSelect']);
+  }
+}
+
+
+export declare interface GlyphTimeline extends Components.GlyphTimeline {}
+@ProxyCmp({
+  inputs: ['events', 'i18n', 'interface']
+})
+@Component({
+  selector: 'glyph-timeline',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['events', 'i18n', 'interface']
+})
+export class GlyphTimeline {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

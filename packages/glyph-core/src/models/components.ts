@@ -7,3 +7,8 @@ export interface SelectorOption {
 export interface ComplexSelectorOptions {
     [key: string]: SelectorOption[];
 }
+
+export interface Tab {
+    description: string;
+    active?: boolean;
+}

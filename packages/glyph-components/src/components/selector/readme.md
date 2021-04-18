@@ -10,6 +10,7 @@
 | Property         | Attribute      | Description                          | Type                                        | Default               |
 | ---------------- | -------------- | ------------------------------------ | ------------------------------------------- | --------------------- |
 | `complexOptions` | --             | Complex selector options             | `ComplexSelectorOptions`                    | `undefined`           |
+| `i18n`           | --             | Extra i18n translation object        | `{ [key: string]: string; }`                | `{}`                  |
 | `interface`      | `interface`    | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 | `label`          | `label`        | Selector label                       | `string`                                    | `undefined`           |
 | `multiSelect`    | `multi-select` | Multiselect flag                     | `boolean`                                   | `false`               |
@@ -22,6 +23,19 @@
 | -------------- | ------------------ | ----------------------------- |
 | `optionSelect` | on change callback | `CustomEvent<SelectorOption>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [glyph-timeline](../timeline)
+
+### Graph
+```mermaid
+graph TD;
+  glyph-timeline --> glyph-selector
+  style glyph-selector fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
