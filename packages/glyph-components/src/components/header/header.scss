@@ -3,6 +3,7 @@
     border-bottom: var(--gui-border--lightest);
     background: var(--gui-color--background--lighter);
     padding: 0 var(--gui-padding--xxxl);
+    position: relative;
 
     .header--left {
         img {
@@ -95,6 +96,22 @@
             }
         }
     }
+    .widget__menu--sidebar {
+        position: absolute;
+        width: 350px;
+        right: 0;
+        padding: var(--gui-padding--m) var(--gui-padding--xxxl) var(--gui-padding--l) var(--gui-padding--m);
+        background: var(--gui-color--background--lighter);
+        border: var(--gui-border--lightest);
+        box-shadow: var(--gui-shadow);
+        height: calc(100vh - var(--gui-header-size));
+        top: var(--gui-header-size);
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none
+        }
+    }
 
     &.modern {
         height: var(--gui-header-size--modern);
@@ -111,6 +128,12 @@
                 font-weight: var(--gui-font-weight--bold);
             }
         }
+        .widget__menu--sidebar {
+            top: 94px;
+            right: 50px;
+            height: calc(100vh / 2);
+            padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
+        }
 
         .header--right {
             .share {
@@ -122,7 +145,13 @@
             }
             .widget__container {
                 .widget__menu {
-                    top: 50px;
+                    top: 47px;
+                    &--app {
+                        top: 45px;
+                    }
+                    &--share {
+                        top: 45px;
+                    }
                     &--user {
                         top: 55px;
                     }

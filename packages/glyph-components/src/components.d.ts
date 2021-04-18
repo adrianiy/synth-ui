@@ -166,6 +166,14 @@ export namespace Components {
          */
         "brand": boolean;
         /**
+          * Calendar events
+         */
+        "calendarEvents": TimelineEvent[];
+        /**
+          * Events
+         */
+        "events": TimelineEvent[];
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
@@ -290,10 +298,6 @@ export namespace Components {
          */
         "complexOptions": ComplexSelectorOptions;
         /**
-          * Extra i18n translation object
-         */
-        "i18n": { [key: string]: string };
-        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -369,6 +373,10 @@ export namespace Components {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
     }
     interface GlyphTitle {
         /**
@@ -739,6 +747,14 @@ declare namespace LocalJSX {
          */
         "brand"?: boolean;
         /**
+          * Calendar events
+         */
+        "calendarEvents"?: TimelineEvent[];
+        /**
+          * Events
+         */
+        "events"?: TimelineEvent[];
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
@@ -867,10 +883,6 @@ declare namespace LocalJSX {
          */
         "complexOptions"?: ComplexSelectorOptions;
         /**
-          * Extra i18n translation object
-         */
-        "i18n"?: { [key: string]: string };
-        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
@@ -954,6 +966,10 @@ declare namespace LocalJSX {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
     }
     interface GlyphTitle {
         /**

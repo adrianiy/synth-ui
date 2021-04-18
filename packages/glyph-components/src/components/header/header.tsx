@@ -1,5 +1,5 @@
 import { Component, getAssetPath, Prop, h, State, Element } from '@stencil/core';
-import { Brands, UIInterface, UserData, Screen } from 'glyph-core';
+import { Brands, UIInterface, UserData, Screen, TimelineEvent } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
@@ -34,6 +34,10 @@ export class HeaderComponent {
     @Prop() userData: UserData;
     /** Apps data */
     @Prop() appData: Screen[];
+    /** Calendar events */
+    @Prop() calendarEvents: TimelineEvent[];
+    /** Events */
+    @Prop() events: TimelineEvent[];
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Extra i18n translation object */
@@ -47,6 +51,8 @@ export class HeaderComponent {
     @State() showAppsMenu: boolean = false;
     /** show share menu flag */
     @State() showShareMenu: boolean = false;
+    /** show timeline flag */
+    @State() showTimeline: boolean = false;
 
     private _renderShare = () => {
         return (
@@ -59,7 +65,7 @@ export class HeaderComponent {
                 </div>
                 {this.showShareMenu && (
                     <glyph-share-menu
-                        class="widget__menu widget__menu--share"
+                        class="widget__menu widget__menu--share animated fadeIn"
                         appTitle={this.appTitle}
                         appSubtitle={this.appSubtitle}
                         interface={this.interface}
@@ -81,7 +87,7 @@ export class HeaderComponent {
                 <Icon button icon="apps" onClick={() => (this.showAppsMenu = !this.showAppsMenu)} />
                 {this.showAppsMenu && (
                     <glyph-app-menu
-                        class="widget__menu widget__menu--apps"
+                        class="widget__menu widget__menu--apps animated fadeIn"
                         apps={this.appData}
                         outsideCallback={() => (this.showAppsMenu = false)}
                         i18n={this.i18n}
@@ -92,7 +98,7 @@ export class HeaderComponent {
     };
 
     private _renderTimeline = () => {
-        return <Icon button icon="calendar_today" />;
+        return <Icon button icon="calendar_today" onClick={() => (this.showTimeline = !this.showTimeline)} />;
     };
 
     private _renderAvatar = () => {
@@ -101,12 +107,31 @@ export class HeaderComponent {
                 <glyph-avatar {...this.userData} onClick={() => (this.showUserMenu = !this.showUserMenu)} />
                 {this.showUserMenu && (
                     <glyph-user-menu
-                        class="widget__menu widget__menu--user"
+                        class="widget__menu widget__menu--user animated fadeIn"
                         name={this.userData.name}
                         outsideCallback={() => (this.showUserMenu = false)}
                         i18n={this.i18n}
                     />
                 )}
+            </Flex>
+        );
+    };
+
+    private _renderTimelineSidebar = () => {
+        return (
+            <Flex
+                className={cls(
+                    'widget__menu widget__menu--sidebar animated',
+                    this.interface === UIInterface.classic ? 'fadeInRight' : 'fadeIn',
+                )}
+            >
+                <glyph-timeline
+                    calendarEvents={this.calendarEvents}
+                    events={this.events}
+                    i18n={this.i18n}
+                    interface={this.interface}
+                    outsideCallback={() => (this.showTimeline = false)}
+                />
             </Flex>
         );
     };
@@ -131,6 +156,7 @@ export class HeaderComponent {
                     {this.timeline && this._renderTimeline()}
                     {this.avatar && this.userData && this._renderAvatar()}
                 </div>
+                {this.showTimeline && this._renderTimelineSidebar()}
             </Flex>
         );
     }

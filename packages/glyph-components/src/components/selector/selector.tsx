@@ -20,8 +20,6 @@ export class SelectorComponent {
     @Prop() multiSelect: boolean = false;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
-    /** Extra i18n translation object */
-    @Prop() i18n: { [key: string]: string } = {};
     /** on change callback */
     @Event() optionSelect: EventEmitter<SelectorOption>;
 
@@ -86,7 +84,7 @@ export class SelectorComponent {
                 {options.map((option: SelectorOption) => (
                     <Flex className="option" row middle left onClick={this._selectOption(option)}>
                         {this.multiSelect && this._renderCheckbox(option)}
-                        <span>{this.i18n[option.name] || option.name}</span>
+                        <span>{option.name}</span>
                     </Flex>
                 ))}
             </Flex>

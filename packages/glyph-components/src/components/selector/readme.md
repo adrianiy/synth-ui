@@ -10,7 +10,6 @@
 | Property         | Attribute      | Description                          | Type                                        | Default               |
 | ---------------- | -------------- | ------------------------------------ | ------------------------------------------- | --------------------- |
 | `complexOptions` | --             | Complex selector options             | `ComplexSelectorOptions`                    | `undefined`           |
-| `i18n`           | --             | Extra i18n translation object        | `{ [key: string]: string; }`                | `{}`                  |
 | `interface`      | `interface`    | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 | `label`          | `label`        | Selector label                       | `string`                                    | `undefined`           |
 | `multiSelect`    | `multi-select` | Multiselect flag                     | `boolean`                                   | `false`               |

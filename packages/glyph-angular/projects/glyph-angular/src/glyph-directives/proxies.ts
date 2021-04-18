@@ -140,13 +140,13 @@ export class GlyphFilterOptions {
 
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
 })
 @Component({
   selector: 'glyph-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
 })
 export class GlyphHeader {
   protected el: HTMLElement;
@@ -220,13 +220,13 @@ export class GlyphNoData {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'i18n', 'interface', 'label', 'multiSelect', 'options']
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'i18n', 'interface', 'label', 'multiSelect', 'options'],
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {
@@ -304,13 +304,13 @@ export class GlyphTabs {
 
 export declare interface GlyphTimeline extends Components.GlyphTimeline {}
 @ProxyCmp({
-  inputs: ['calendarEvents', 'events', 'i18n', 'interface']
+  inputs: ['calendarEvents', 'events', 'i18n', 'interface', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-timeline',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['calendarEvents', 'events', 'i18n', 'interface']
+  inputs: ['calendarEvents', 'events', 'i18n', 'interface', 'outsideCallback']
 })
 export class GlyphTimeline {
   protected el: HTMLElement;

@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, h } from '@stencil/core';
+import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { CalendarEvent, CalendarGroup, SelectorOption, Tab, TimelineEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
@@ -17,6 +17,8 @@ export class TimelineComponent {
     @Prop() i18n: { [key: string]: string } = {};
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
+    /** Event triggered when user clicks outside component container */
+    @Prop() outsideCallback: () => void;
     /** Element reference */
     @Element() element: HTMLGlyphTimelineElement;
 
@@ -37,6 +39,13 @@ export class TimelineComponent {
 
     private _i18n: { [key: string]: string } = {};
 
+    @Listen('click', { target: 'window' })
+    clickOutside(event: any) {
+        if (!event.path.some((el: HTMLElement) => el.closest?.('.timeline__container'))) {
+            this.outsideCallback();
+        }
+    }
+
     componentWillLoad() {
         this._initializeVariables();
     }
@@ -49,6 +58,7 @@ export class TimelineComponent {
     private async _initializeVariables() {
         const componentI18n = await getLocaleComponentStrings(['timeline'], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.options.forEach(option => (option.name = this._i18n[option.name]));
     }
 
     private _handleSelect = (event: CustomEvent<SelectorOption>) => {
@@ -93,7 +103,6 @@ export class TimelineComponent {
                     <glyph-selector
                         options={this.options}
                         interface={this.interface}
-                        i18n={this._i18n}
                         onOptionSelect={this._handleSelect}
                     />
                     <glyph-tabs tabs={this.tabs} onTabSelect={this._handleTab} />
