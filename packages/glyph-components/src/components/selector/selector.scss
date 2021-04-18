@@ -1,0 +1,77 @@
+.selector__container {
+    font-size: var(--gui-font--xxs);
+
+    .selector__input {
+        border-bottom: var(--gui-border);
+        padding-bottom: var(--gui-padding--xxs);
+        cursor: pointer;
+        user-select: none;
+
+        label {
+            cursor: pointer;
+            font-weight: var(--gui-font-weight--bold);
+            text-transform: capitalize;
+            transition: var(--gui-transition--300);
+
+            &.active {
+                font-size: var(--gui-font--xxxs);
+                position: absolute;
+                margin-top: calc(var(--gui-padding--s) * -1);
+            }
+        }
+        em {
+            font-size: var(--gui-font--s);
+            transition: var(--gui-transition--300);
+
+            &.active {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .selector__options__container {
+        background: var(--gui-color--background--lighter);
+        box-shadow: var(--gui-shadow);
+
+        label {
+            padding: var(--gui-padding--s);
+            font-weight: var(--gui-font-weight--bold);
+            text-transform: capitalize;
+        }
+
+        .option {
+            font-size: var(--gui-font--xxs);
+            padding: var(--gui-padding--s);
+            cursor: pointer;
+            user-select: none;
+
+            &:hover {
+                background: var(--gui-color--background--light);
+            }
+
+            .checkbox {
+                --size: 10px;
+                width: var(--size);
+                height: var(--size);
+                border: var(--gui-border);
+                margin-right: var(--gui-padding--xs);
+
+                &.active {
+                    background: var(--gui-color--background--contrast);
+
+                    em {
+                        color: var(--gui-color--contrast);
+                        width: var(--size);
+                        height: var(--size);
+                        margin-left: -1px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.modern {
+        .selector__input {
+            border-bottom: none;
+        }
+    }
+}
