@@ -5,9 +5,33 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { FilterOptionHeader, FiltersConfig, Row, SelectedFilter, UIInterface } from "glyph-core";
+import { Brands, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, UIInterface, UserData } from "glyph-core";
 import { ExpandRowEvent } from "./components/list/list.model";
 export namespace Components {
+    interface GlyphAppMenu {
+        /**
+          * List of apps
+         */
+        "apps": Screen[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
+    }
+    interface GlyphAvatar {
+        /**
+          * User avatar image
+         */
+        "image": UserData['image'];
+        /**
+          * User name, used as image fallback
+         */
+        "name": UserData['name'];
+    }
     interface GlyphButton {
         /**
           * Material icons id
@@ -116,6 +140,64 @@ export namespace Components {
          */
         "searchPlaceholder": string;
     }
+    interface GlyphHeader {
+        /**
+          * Application brand
+         */
+        "activeBrand": Brands;
+        /**
+          * Apps data
+         */
+        "appData": Screen[];
+        /**
+          * Application subtitle
+         */
+        "appSubtitle": string;
+        /**
+          * Application title
+         */
+        "appTitle": string;
+        /**
+          * User avatar flag
+         */
+        "avatar": boolean;
+        /**
+          * Brand selector flag
+         */
+        "brand": boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * View menu flag
+         */
+        "menu": boolean;
+        /**
+          * Notification flag
+         */
+        "notifications": boolean;
+        /**
+          * Search flag
+         */
+        "search": boolean;
+        /**
+          * Share menu flag
+         */
+        "share": boolean;
+        /**
+          * Timeline flag
+         */
+        "timeline": boolean;
+        /**
+          * User data
+         */
+        "userData": UserData;
+    }
     interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -202,6 +284,50 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphSelector {
+        /**
+          * Complex selector options
+         */
+        "complexOptions": ComplexSelectorOptions;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Selector label
+         */
+        "label": string;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect": boolean;
+        /**
+          * Selector options
+         */
+        "options": SelectorOption[];
+    }
+    interface GlyphShareMenu {
+        /**
+          * Application subtitle
+         */
+        "appSubtitle": string;
+        /**
+          * Application title
+         */
+        "appTitle": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
+    }
     interface GlyphSkLoader {
         /**
           * Height of loader line
@@ -218,6 +344,20 @@ export namespace Components {
          */
         "titleText": string;
     }
+    interface GlyphToaster {
+        /**
+          * Id of event that trigger toaster show
+         */
+        "eventId": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Time to live for shown toaster
+         */
+        "ttl": number;
+    }
     interface GlyphToggler {
         /**
           * Toggler state
@@ -228,8 +368,34 @@ export namespace Components {
          */
         "interface": UIInterface;
     }
+    interface GlyphUserMenu {
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * User name
+         */
+        "name": string;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
+    }
 }
 declare global {
+    interface HTMLGlyphAppMenuElement extends Components.GlyphAppMenu, HTMLStencilElement {
+    }
+    var HTMLGlyphAppMenuElement: {
+        prototype: HTMLGlyphAppMenuElement;
+        new (): HTMLGlyphAppMenuElement;
+    };
+    interface HTMLGlyphAvatarElement extends Components.GlyphAvatar, HTMLStencilElement {
+    }
+    var HTMLGlyphAvatarElement: {
+        prototype: HTMLGlyphAvatarElement;
+        new (): HTMLGlyphAvatarElement;
+    };
     interface HTMLGlyphButtonElement extends Components.GlyphButton, HTMLStencilElement {
     }
     var HTMLGlyphButtonElement: {
@@ -254,6 +420,12 @@ declare global {
         prototype: HTMLGlyphFilterOptionsElement;
         new (): HTMLGlyphFilterOptionsElement;
     };
+    interface HTMLGlyphHeaderElement extends Components.GlyphHeader, HTMLStencilElement {
+    }
+    var HTMLGlyphHeaderElement: {
+        prototype: HTMLGlyphHeaderElement;
+        new (): HTMLGlyphHeaderElement;
+    };
     interface HTMLGlyphListElement extends Components.GlyphList, HTMLStencilElement {
     }
     var HTMLGlyphListElement: {
@@ -272,6 +444,18 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphSelectorElement extends Components.GlyphSelector, HTMLStencilElement {
+    }
+    var HTMLGlyphSelectorElement: {
+        prototype: HTMLGlyphSelectorElement;
+        new (): HTMLGlyphSelectorElement;
+    };
+    interface HTMLGlyphShareMenuElement extends Components.GlyphShareMenu, HTMLStencilElement {
+    }
+    var HTMLGlyphShareMenuElement: {
+        prototype: HTMLGlyphShareMenuElement;
+        new (): HTMLGlyphShareMenuElement;
+    };
     interface HTMLGlyphSkLoaderElement extends Components.GlyphSkLoader, HTMLStencilElement {
     }
     var HTMLGlyphSkLoaderElement: {
@@ -284,26 +468,69 @@ declare global {
         prototype: HTMLGlyphTitleElement;
         new (): HTMLGlyphTitleElement;
     };
+    interface HTMLGlyphToasterElement extends Components.GlyphToaster, HTMLStencilElement {
+    }
+    var HTMLGlyphToasterElement: {
+        prototype: HTMLGlyphToasterElement;
+        new (): HTMLGlyphToasterElement;
+    };
     interface HTMLGlyphTogglerElement extends Components.GlyphToggler, HTMLStencilElement {
     }
     var HTMLGlyphTogglerElement: {
         prototype: HTMLGlyphTogglerElement;
         new (): HTMLGlyphTogglerElement;
     };
+    interface HTMLGlyphUserMenuElement extends Components.GlyphUserMenu, HTMLStencilElement {
+    }
+    var HTMLGlyphUserMenuElement: {
+        prototype: HTMLGlyphUserMenuElement;
+        new (): HTMLGlyphUserMenuElement;
+    };
     interface HTMLElementTagNameMap {
+        "glyph-app-menu": HTMLGlyphAppMenuElement;
+        "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
+        "glyph-header": HTMLGlyphHeaderElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-selector": HTMLGlyphSelectorElement;
+        "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
         "glyph-title": HTMLGlyphTitleElement;
+        "glyph-toaster": HTMLGlyphToasterElement;
         "glyph-toggler": HTMLGlyphTogglerElement;
+        "glyph-user-menu": HTMLGlyphUserMenuElement;
     }
 }
 declare namespace LocalJSX {
+    interface GlyphAppMenu {
+        /**
+          * List of apps
+         */
+        "apps"?: Screen[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
+    }
+    interface GlyphAvatar {
+        /**
+          * User avatar image
+         */
+        "image"?: UserData['image'];
+        /**
+          * User name, used as image fallback
+         */
+        "name"?: UserData['name'];
+    }
     interface GlyphButton {
         /**
           * Material icons id
@@ -440,6 +667,64 @@ declare namespace LocalJSX {
          */
         "searchPlaceholder"?: string;
     }
+    interface GlyphHeader {
+        /**
+          * Application brand
+         */
+        "activeBrand"?: Brands;
+        /**
+          * Apps data
+         */
+        "appData"?: Screen[];
+        /**
+          * Application subtitle
+         */
+        "appSubtitle"?: string;
+        /**
+          * Application title
+         */
+        "appTitle"?: string;
+        /**
+          * User avatar flag
+         */
+        "avatar"?: boolean;
+        /**
+          * Brand selector flag
+         */
+        "brand"?: boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * View menu flag
+         */
+        "menu"?: boolean;
+        /**
+          * Notification flag
+         */
+        "notifications"?: boolean;
+        /**
+          * Search flag
+         */
+        "search"?: boolean;
+        /**
+          * Share menu flag
+         */
+        "share"?: boolean;
+        /**
+          * Timeline flag
+         */
+        "timeline"?: boolean;
+        /**
+          * User data
+         */
+        "userData"?: UserData;
+    }
     interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -530,6 +815,54 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphSelector {
+        /**
+          * Complex selector options
+         */
+        "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Selector label
+         */
+        "label"?: string;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect"?: boolean;
+        /**
+          * on change callback
+         */
+        "onOptionSelect"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
+          * Selector options
+         */
+        "options"?: SelectorOption[];
+    }
+    interface GlyphShareMenu {
+        /**
+          * Application subtitle
+         */
+        "appSubtitle"?: string;
+        /**
+          * Application title
+         */
+        "appTitle"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
+    }
     interface GlyphSkLoader {
         /**
           * Height of loader line
@@ -546,6 +879,20 @@ declare namespace LocalJSX {
          */
         "titleText"?: string;
     }
+    interface GlyphToaster {
+        /**
+          * Id of event that trigger toaster show
+         */
+        "eventId"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Time to live for shown toaster
+         */
+        "ttl"?: number;
+    }
     interface GlyphToggler {
         /**
           * Toggler state
@@ -556,33 +903,65 @@ declare namespace LocalJSX {
          */
         "interface"?: UIInterface;
     }
+    interface GlyphUserMenu {
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * User name
+         */
+        "name"?: string;
+        /**
+          * Logout event, trigger an event identified with **logout** key
+         */
+        "onLogout"?: (event: CustomEvent<any>) => void;
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
+    }
     interface IntrinsicElements {
+        "glyph-app-menu": GlyphAppMenu;
+        "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
+        "glyph-header": GlyphHeader;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
         "glyph-no-data": GlyphNoData;
+        "glyph-selector": GlyphSelector;
+        "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
         "glyph-title": GlyphTitle;
+        "glyph-toaster": GlyphToaster;
         "glyph-toggler": GlyphToggler;
+        "glyph-user-menu": GlyphUserMenu;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
+            "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
+            "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
+            "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;
+            "glyph-toaster": LocalJSX.GlyphToaster & JSXBase.HTMLAttributes<HTMLGlyphToasterElement>;
             "glyph-toggler": LocalJSX.GlyphToggler & JSXBase.HTMLAttributes<HTMLGlyphTogglerElement>;
+            "glyph-user-menu": LocalJSX.GlyphUserMenu & JSXBase.HTMLAttributes<HTMLGlyphUserMenuElement>;
         }
     }
 }

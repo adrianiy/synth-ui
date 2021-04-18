@@ -18,11 +18,13 @@
 ### Used by
 
  - [glyph-filter-options](../filter/components/options)
+ - [glyph-share-menu](../share-menu)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-filter-options --> glyph-toggler
+  glyph-share-menu --> glyph-toggler
   style glyph-toggler fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,4 +1,4 @@
 export const enum ToasterTypes {
-    succes = 'SUCCESS',
-    fail = 'FAIL',
+    succes = 'success',
+    fail = 'fail',
 }

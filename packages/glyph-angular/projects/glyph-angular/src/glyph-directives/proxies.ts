@@ -6,6 +6,44 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 import { Components } from 'glyph-components';
 
 
+export declare interface GlyphAppMenu extends Components.GlyphAppMenu {}
+@ProxyCmp({
+  inputs: ['apps', 'i18n', 'outsideCallback']
+})
+@Component({
+  selector: 'glyph-app-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['apps', 'i18n', 'outsideCallback']
+})
+export class GlyphAppMenu {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface GlyphAvatar extends Components.GlyphAvatar {}
+@ProxyCmp({
+  inputs: ['image', 'name']
+})
+@Component({
+  selector: 'glyph-avatar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['image', 'name']
+})
+export class GlyphAvatar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
   inputs: ['icon', 'interface', 'text']
@@ -99,6 +137,25 @@ export class GlyphFilterOptions {
   }
 }
 
+
+export declare interface GlyphHeader extends Components.GlyphHeader {}
+@ProxyCmp({
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
+})
+@Component({
+  selector: 'glyph-header',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData']
+})
+export class GlyphHeader {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
@@ -160,6 +217,48 @@ export class GlyphNoData {
   }
 }
 
+import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
+export declare interface GlyphSelector extends Components.GlyphSelector {}
+@ProxyCmp({
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options']
+})
+@Component({
+  selector: 'glyph-selector',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options'],
+  outputs: ['optionSelect']
+})
+export class GlyphSelector {
+  /** on change callback */
+  optionSelect!: ISelectorComponent['optionSelect'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['optionSelect']);
+  }
+}
+
+
+export declare interface GlyphShareMenu extends Components.GlyphShareMenu {}
+@ProxyCmp({
+  inputs: ['appSubtitle', 'appTitle', 'i18n', 'interface', 'outsideCallback']
+})
+@Component({
+  selector: 'glyph-share-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['appSubtitle', 'appTitle', 'i18n', 'interface', 'outsideCallback']
+})
+export class GlyphShareMenu {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 
 export declare interface GlyphSkLoader extends Components.GlyphSkLoader {}
 @ProxyCmp({
@@ -199,6 +298,25 @@ export class GlyphTitle {
 }
 
 
+export declare interface GlyphToaster extends Components.GlyphToaster {}
+@ProxyCmp({
+  inputs: ['eventId', 'i18n', 'ttl']
+})
+@Component({
+  selector: 'glyph-toaster',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['eventId', 'i18n', 'ttl']
+})
+export class GlyphToaster {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphToggler extends Components.GlyphToggler {}
 @ProxyCmp({
   inputs: ['active', 'interface']
@@ -214,5 +332,28 @@ export class GlyphToggler {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+import { UserMenuComponent as IUserMenuComponent } from 'glyph-components/dist/types/components/user-menu/user-menu';
+export declare interface GlyphUserMenu extends Components.GlyphUserMenu {}
+@ProxyCmp({
+  inputs: ['i18n', 'name', 'outsideCallback']
+})
+@Component({
+  selector: 'glyph-user-menu',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['i18n', 'name', 'outsideCallback'],
+  outputs: ['logout']
+})
+export class GlyphUserMenu {
+  /** Logout event, trigger an event identified with **logout** key */
+  logout!: IUserMenuComponent['logout'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['logout']);
   }
 }

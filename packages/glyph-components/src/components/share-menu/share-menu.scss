@@ -1,0 +1,37 @@
+.share-menu__container {
+    width: 300px;
+
+    .url {
+        margin-top: var(--gui-padding--xs);
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: var(--gui-font--s);
+    }
+    .caption {
+        margin-top: var(--gui-padding--xs);
+        color: var(--gui-color--lighter);
+    }
+    .button__container {
+        margin-top: var(--gui-padding--m);
+        padding-top: var(--gui-padding--m);
+        border-top: var(--gui-border--lighter);
+
+        span {
+            font-size: var(--gui-font--xs);
+        }
+
+        .link {
+            cursor: pointer;
+            user-select: none;
+            * {
+                color: var(--gui-color--link);
+            }
+            em {
+                font-size: var(--gui-font--l);
+                margin-right: var(--gui-padding--xs);
+            }
+        }
+    }
+}

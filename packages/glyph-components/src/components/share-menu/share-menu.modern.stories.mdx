@@ -1,0 +1,43 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-share-menu ...=${spread(args)} interface='modern'  />`;
+
+<Meta title="Components/Share menu/Modern" parameters={{ viewMode: 'docs' }} />
+
+# Share menu
+
+##### glyph-share-menu
+
+Menu used to share application link with partners. You can share the url with or without filter paramenter.
+
+## With title
+
+<Canvas>
+    <Story name="With title" args={{ 'app-title': 'TEST' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## With subtitle
+
+<Canvas>
+    <Story name="With subtitle" args={{ 'app-subtitle': 'DEMO' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## With title and subtitle
+
+<Canvas>
+    <Story name="With title and subtitle" args={{ 'app-title': 'TEST', 'app-subtitle': 'DEMO' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
