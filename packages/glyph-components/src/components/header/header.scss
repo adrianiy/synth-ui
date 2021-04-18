@@ -1,0 +1,162 @@
+.header__container {
+    height: var(--gui-header-size);
+    border-bottom: var(--gui-border--lightest);
+    background: var(--gui-color--background--lighter);
+    padding: 0 var(--gui-padding--xxxl);
+    position: relative;
+
+    .header--left {
+        img {
+            height: calc(var(--gui-header-size) - 15px);
+            padding-right: var(--gui-padding--s);
+            margin-right: var(--gui-padding--s);
+            border-right: var(--gui-border);
+            filter: var(--gui-logo-filter);
+
+            &.clickable {
+                cursor: pointer;
+            }
+        }
+        h2,
+        h4 {
+            margin-bottom: 0;
+            font-weight: var(--gui-font-weight--normal);
+        }
+    }
+
+    .header--right {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: var(--gui-padding--l);
+        font-size: var(--gui-font--l);
+        align-items: center;
+        user-select: none;
+
+        em {
+            cursor: pointer;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+        .share {
+            cursor: pointer;
+            position: relative;
+            &:hover {
+                opacity: 0.7;
+            }
+
+            em {
+                transform: scaleX(-1);
+                position: absolute;
+                right: -7px;
+                top: -6px;
+                transform: scaleX(-1);
+            }
+
+            .square {
+                --size: 17px;
+                width: var(--size);
+                height: var(--size);
+                border: var(--gui-border);
+                border-color: var(--gui-color);
+                border-width: 2px;
+                border-radius: var(--gui-border-radius);
+
+                &--bite {
+                    --size: 16px;
+                    background: var(--gui-color--background--lighter);
+                    height: var(--size);
+                    width: var(--size);
+                    position: absolute;
+                    right: -4px;
+                    top: 0;
+                }
+            }
+        }
+
+        .widget__container {
+            position: relative;
+
+            .widget__menu {
+                position: absolute;
+                background: var(--gui-color--background--lighter);
+                border: var(--gui-border--lightest);
+                box-shadow: var(--gui-shadow);
+                min-width: 200px;
+                top: 37px;
+                padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
+
+                &--user {
+                    right: 0;
+                    top: 45px;
+                }
+                &--share {
+                    top: 35px;
+                }
+            }
+        }
+    }
+    .widget__menu--sidebar {
+        position: absolute;
+        width: 350px;
+        right: 0;
+        padding: var(--gui-padding--m) var(--gui-padding--xxxl) var(--gui-padding--l) var(--gui-padding--m);
+        background: var(--gui-color--background--lighter);
+        border: var(--gui-border--lightest);
+        box-shadow: var(--gui-shadow);
+        height: calc(100vh - var(--gui-header-size));
+        top: var(--gui-header-size);
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none
+        }
+    }
+
+    &.modern {
+        height: var(--gui-header-size--modern);
+        border-bottom: none;
+        background-color: var(--gui-color--background);
+
+        .header--left {
+            img {
+                padding-right: var(--gui-padding--m);
+                margin-right: var(--gui-padding--m);
+            }
+            h2 {
+                font-size: var(--gui-font--m);
+                font-weight: var(--gui-font-weight--bold);
+            }
+        }
+        .widget__menu--sidebar {
+            top: 94px;
+            right: 50px;
+            height: calc(100vh / 2);
+            padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
+        }
+
+        .header--right {
+            .share {
+                .square {
+                    &--bite {
+                        background-color: var(--gui-color--background);
+                    }
+                }
+            }
+            .widget__container {
+                .widget__menu {
+                    top: 47px;
+                    &--app {
+                        top: 45px;
+                    }
+                    &--share {
+                        top: 45px;
+                    }
+                    &--user {
+                        top: 55px;
+                    }
+                }
+            }
+        }
+    }
+}

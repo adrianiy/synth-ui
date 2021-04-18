@@ -2,6 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 import { Flex } from '../../../../utils/layout';
 import { Cell, Row, RowAction } from 'glyph-core';
 import { getCellValues } from '../../utils/list';
+import { Icon } from '../../../../utils/icons';
 
 @Component({
     tag: 'glyph-list-row',
@@ -41,7 +42,7 @@ export class RowComponent {
                 {actions.map(action => (
                     <Flex row middle spaced className="row-action" onClick={action.action}>
                         <span>{action.title}</span>
-                        <em class="material-icons">{action.icon}</em>
+                        <Icon icon={action.icon} />
                     </Flex>
                 ))}
             </div>
@@ -54,11 +55,9 @@ export class RowComponent {
                 <div class="row-action__wrapper">
                     <Flex row middle center className="row-action__container">
                         {actions.length === 1 ? (
-                            <em class="row-action material-icons" onClick={actions[0].action}>
-                                {actions[0].icon}
-                            </em>
+                            <Icon className="row-action" icon={actions[0].icon} onClick={actions[0].action} />
                         ) : (
-                            <em class="material-icons">more_horiz</em>
+                            <Icon icon="more_horiz" />
                         )}
                         {actions.length > 1 && this._renderMultiActions(actions)}
                     </Flex>

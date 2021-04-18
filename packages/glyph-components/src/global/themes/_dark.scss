@@ -1,24 +1,19 @@
 .dark {
     /* colors */
     --gui-color--background: #181818;
-    --gui-color--background--secondary: #202020;
-    --gui-color--background--third: #202020;
-    --gui-color--background--overlay: rgba(0, 0, 0, 0.72);
-    --gui-color--primary: rgb(49 49 49);
-    --gui-color--contrast: rgba(255, 255, 255, 0.9);
-    --gui-color--third: #313030;
-    --gui-color--dark: rgba(255, 255, 255, 0.7);
-    --gui-color--font: rgba(255, 255, 255, 1);
-    --gui-color--font--light: rgba(255, 255, 255, 0.7);
-    --gui-color--font--lighter: rgb(193, 193, 193, 0.5);
-    --gui-color--font--contrast: rgba(0, 0, 0, 0.9);
-    --gui-color--background--search-bar: var(--gui-color--background);
+    --gui-color--background--light: rgb(49, 49, 49);
+    --gui-color--background--lighter: #202020;
+
+    --gui-color: #eee;
+    --gui-color--background--contrast: var(--gui-color);
+    --gui-color--contrast: var(--gui-color--background--light);
+    --gui-color--modern: #2d2d2d;
+    --gui-color--modern--contrast: rgba(0, 0, 0, 0.9);
 
     /* borders */
-    --gui-border--light: 1px solid rgb(255 255 255 / 5%);
-    --gui-border--medium: none;
-    --gui-border--dark: 1px solid #777777;
-    --gui-border--header: none;
+    --gui-border: 1px solid #777777;
+    --gui-border--light: 1px solid #bbb;
+    --gui-border--lightest: 1px solid rgba(255, 255, 255, .5);
 
     /* shadows */
     --gui-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.19);
@@ -27,36 +22,10 @@
     --gui-logo-filter: invert(1);
     --gui-widget-filter: saturate(180%) blur(5px);
     --article-filter: opacity(0.8);
-
-    /* tabs */
-    --gui-tab-shadow: inset 0px -2px 0px 0px #fff;
-
-    /* chars */
-    --gui-color--analytic-chart--rest: #3c3b3b;
-
-    .ranking {
-        --text-color-regular: #202020;
-    }
-
-    .article__tags {
-        .article__tags--new {
-            color: var(--gui-color--primary) !important;
-        }
-
-        .article__tags--pvp {
-            color: var(--gui-color--font) !important;
-        }
-    }
-
-    article {
-        footer span {
-            color: var(--gui-color--primary) !important;
-        }
-    }
 }
 
 @media only screen and (max-width: 1024px) {
     .search-box {
-        border-bottom: var(--gui-border--dark) !important;
+        border-bottom: var(--gui-border) !important;
     }
 }

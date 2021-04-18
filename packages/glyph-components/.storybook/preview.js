@@ -8,7 +8,33 @@ export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     options: {
         storySort: {
-            order: [ 'Introduction', 'Components' ],
+            order: [
+                'Introduction',
+                'Components',
+                [
+                    'Avatar',
+                    'User menu',
+                    'App menu',
+                    'Share menu',
+                    'Title',
+                    'Button',
+                    'Selector',
+                    'Toggler',
+                    'Filter',
+                    'Chipsbar',
+                    'Header',
+                    'List',
+                    'No Data',
+                    'Skeleton Loader',
+                ],
+            ],
         },
+    },
+    themes: {
+        default: 'light',
+        list: [
+            { name: 'light', class: ['light', 'light-mode'] },
+            { name: 'dark', class: ['dark', 'dark-mode'] },
+        ],
     },
 };

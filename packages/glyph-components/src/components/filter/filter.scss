@@ -27,7 +27,7 @@
     }
 
     &.active {
-        background: var(--gui-color--primary);
+        background: var(--gui-color--background--light);
         margin-right: var(--gui-padding--l);
         padding-left: var(--gui-padding--xs);
 
@@ -56,6 +56,7 @@
             background: var(--gui-color--background--modern);
 
             span {
+                color: var(--gui-color--modern--contrast);
                 margin-left: var(--gui-padding--nano);
             }
 

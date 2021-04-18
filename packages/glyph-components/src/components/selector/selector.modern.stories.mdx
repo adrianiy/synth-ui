@@ -1,0 +1,98 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<div style="height: 200px"><glyph-selector ...=${spread(args)} interface='modern' @optionSelect=${changeEvent} /></div>`;
+export const ComplexTemplate = args => html`<div style="height: 200px"><glyph-selector ...=${spread(args)} interface='modern' @optionSelect=${changeEventComplex} /></div>`;
+
+<Meta title="Components/Selector/Modern" parameters={{ viewMode: 'docs' }} />
+
+# Selector
+
+##### glyph-selctor
+
+Selector component. receive an array of options that can be single or multiselct.
+
+Options can be grouped in columns too.
+
+## Simple selector
+
+A selector configured with single select and basic option list
+
+```js
+options = [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }]
+```
+
+<Canvas>
+    <Story name="Simple" args={{ label:  'simple', '.options': [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Multiselect
+
+A selector configured with multiSelect flag, this allows user to select more than 1 option at the same time.
+
+<Canvas>
+    <Story name="Multiselect" args={{ 'multi-select': true, label: 'simple', '.options': [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Complex options
+
+A selector configured with complex options object, using `complexOptions` input, that will group options in columns.
+
+Columns are identified with object keys. An example of how objects should be configurated:
+
+```js
+options = { 
+    group1: [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }],
+    group2: [{ name: 'option 3', active: false, value: 3 }, { name: 'option 4', active: false, value: 4 }]
+}
+```
+
+
+<Canvas>
+    <Story name="Comples" args={{ 'multi-select': true, label: 'simple', '.complexOptions': { group1: [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }],
+group2: [{ name: 'option 3', active: false, value: 3 }, { name: 'option 4', active: false, value: 4 }]} }}>
+        {ComplexTemplate.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const changeEvent = (event) => {
+    event.target.options = event.target.options.map(option => {
+        if (option.value === event.detail.value) {
+            if (event.target.multiSelect) {
+                option.active = !option.active;
+            } else {
+                option.active = true;
+            }
+        } else if (!event.target.multiSelect) {
+            option.active = false;
+        }
+        return option;
+    })
+}
+export const changeEventComplex = (event) => {
+    event.target.complexOptions = Object.keys(event.target.complexOptions).reduce((prev, curr) => {
+        prev[curr] = event.target.complexOptions[curr].map(option => {
+            if (option.value === event.detail.value) {
+                if (event.target.multiSelect) {
+                    option.active = !option.active;
+                } else {
+                    option.active = true;
+                }
+            } else if (!event.target.multiSelect) {
+                option.active = false;
+            }
+            return option;
+        })
+        return prev;
+    }, {})
+}

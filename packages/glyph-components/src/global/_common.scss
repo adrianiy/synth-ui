@@ -1,13 +1,15 @@
 * {
-    color: var(--gui-color--font);
+    color: var(--gui-color);
 }
 h1 {
     font-size: var(--gui-font--xl);
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
+    font-weight: var(--gui-font-weight--extra-bold);
 }
 h2 {
     font-size: var(--gui-font--l);
+    line-height: calc(var(--gui-font--l) + 1px);
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
 }
@@ -21,9 +23,16 @@ h4 {
     font-weight: 600;
     margin: 0 0 var(--gui-padding--xs) 0;
 }
-
 h5 {
     font-size: var(--gui-font--xxs);
     font-weight: 600;
     margin: 0 0 var(--gui-padding--xs) 0;
+}
+.caption {
+    font-size: var(--gui-font--xxs);
+    font-weight: var(--gui-font-weight--normal);
+
+    &--small {
+        font-size: var(--gui-font--xxxs);
+    }
 }

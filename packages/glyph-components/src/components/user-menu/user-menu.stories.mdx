@@ -1,0 +1,32 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-user-menu ...=${spread(args)} />`;
+
+<Meta title="Components/User menu" parameters={{ viewMode: 'docs' }} />
+
+# User Menu
+
+##### glyph-user-menu
+
+An user menu that allows users to do logout and modify some application settings like:
+
+- Language
+- Theme
+- Decimals
+
+## Menu
+
+<Canvas>
+    <Story name="Menu" args={{ name: 'Test User' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+---
+
+<Description>{notes}</Description>
+

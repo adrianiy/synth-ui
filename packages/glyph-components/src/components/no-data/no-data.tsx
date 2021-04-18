@@ -1,4 +1,5 @@
 import { Component, Element, h, Prop } from '@stencil/core';
+import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 import { NoDataType } from './no-data.model';
@@ -30,7 +31,7 @@ export class NoDataComponent {
     private _simpleRender() {
         return (
             <Flex row middle className={`no-data ${this.mode}`}>
-                <em class="material-icons">error_outline</em>
+                <Icon icon="error_outline" />
                 {this._i18n.noData}
             </Flex>
         );
@@ -39,7 +40,7 @@ export class NoDataComponent {
     private _advancedRender() {
         return (
             <Flex center className={`no-data ${this.mode}`}>
-                <em class="material-icons-outlined">report_problem</em>
+                <Icon outlined icon="report_problem" />
                 <h3>{this.text}</h3>
                 <p>{this.bottomText}</p>
             </Flex>

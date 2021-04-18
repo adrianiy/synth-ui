@@ -1,0 +1,38 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-tabs ...=${spread(args)} @tabSelect=${clickEvent} />`;
+
+<Meta title="Components/Tabs" parameters={{ viewMode: 'docs' }} />
+
+# Tabs
+
+##### glyph-tabs
+
+Tab organizator.
+
+## Small tabs
+
+<Canvas>
+    <Story name="Small" args={{ '.tabs': [ { description: 'tab1', active: true }, { description: 'tab2', active: false } ] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Big tabs
+
+<Canvas>
+    <Story name="Big" args={{ '.tabStyle': 'big', '.tabs': [ { description: 'tab1', active: true }, { description: 'tab2', active: false } ] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const clickEvent = (event) => {
+    event.target.tabs = event.target.tabs.map(tab => ({ ...tab, active: tab.description === event.detail.description }))
+}

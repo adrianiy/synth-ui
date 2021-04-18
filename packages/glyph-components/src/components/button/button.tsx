@@ -1,5 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { UIInterface } from 'glyph-core';
+import { Icon } from '../../utils/icons';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -17,10 +18,10 @@ export class ButtonComponent {
 
     render() {
         return (
-            <div class={cls('button__wrapper', this.text && 'text', this.icon && 'icon', this.interface)}>
+            <button class={cls('button__wrapper', this.text && 'text', this.icon && 'icon', this.interface)}>
                 {this.text && this.text}
-                {this.icon && <em class="material-icons">{this.icon}</em>}
-            </div>
+                {this.icon && <Icon icon={this.icon} />}
+            </button>
         );
     }
 }

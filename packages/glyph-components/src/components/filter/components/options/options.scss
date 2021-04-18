@@ -4,8 +4,8 @@
 
     position: absolute;
     margin-top: var(--gui-padding--xs);
-    background: var(--gui-color--background--third);
-    border: var(--gui-border--light);
+    background: var(--gui-color--background--lighter);
+    border: var(--gui-border--lightest);
     padding: var(--gui-padding--s);
     box-shadow: var(--gui-shadow);
     min-width: var(--min-width);
@@ -16,11 +16,11 @@
     .operation {
         --side-margin: calc(var(--gui-padding--s) * -1);
         font-size: var(--gui-font--xs);
-        border: var(--gui-border--light);
+        border: var(--gui-border--lightest);
         padding: var(--gui-padding--xs) 0;
         padding-left: var(--gui-padding--s);
         padding-right: var(--gui-padding--s);
-        margin: 0 var(--side-margin) 0 var(--side-margin);
+        margin: 0 var(--side-margin) var(--gui-padding--xxs) var(--side-margin);
         border-right: 0;
         border-left: 0;
     }
@@ -33,7 +33,7 @@
     }
 
     .search-box {
-        border: var(--gui-border--light);
+        border: var(--gui-border--lightest);
         border-radius: 2px;
         padding-left: var(--gui-padding--xxs);
         margin-bottom: var(--gui-padding--s);
@@ -41,7 +41,7 @@
         input {
             outline: 0;
             border: none;
-            background: var(--gui-color--background--third);
+            background: var(--gui-color--background--lighter);
             font-size: var(--gui-font--xxs);
             margin: var(--gui-padding--xxs) 0;
             margin-left: var(--gui-padding--xxxs);

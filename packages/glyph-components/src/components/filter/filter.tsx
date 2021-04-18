@@ -2,6 +2,7 @@ import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@
 import { Flex } from '../../utils/layout';
 import { UIInterface, FilterOptionHeader, SelectedFilter } from 'glyph-core';
 import { cls } from '../../utils/utils';
+import { Icon } from '../../utils/icons';
 
 @Component({
     tag: 'glyph-filter',
@@ -114,13 +115,16 @@ export class FilterComponent {
                     onClick={this._expandFilter}
                 >
                     <span>{this.chipDescription}</span>
-                    <em class="material-icons" onClick={this._onClear}>
-                        {this.selected.length
-                            ? 'close'
-                            : this.interface === UIInterface.classic
-                            ? 'arrow_drop_down'
-                            : 'expand_more'}
-                    </em>
+                    <Icon
+                        onClick={this._onClear}
+                        icon={
+                            this.selected.length
+                                ? 'close'
+                                : this.interface === UIInterface.classic
+                                ? 'arrow_drop_down'
+                                : 'expand_more'
+                        }
+                    />
                 </Flex>
                 {this.expanded && this._renderFilterOptions()}
             </Host>

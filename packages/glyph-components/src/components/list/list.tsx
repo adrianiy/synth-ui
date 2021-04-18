@@ -4,8 +4,9 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Flex } from '../../utils/layout';
 import { Workbook } from 'exceljs';
 import { Row } from 'glyph-core';
-import * as fs from 'file-saver';
 import { ExpandRowEvent } from './list.model';
+import * as fs from 'file-saver';
+import { Icon } from '../../utils/icons';
 
 const LIMIT = 16;
 const RESPONSIVE_LIMIT = 10;
@@ -54,7 +55,7 @@ export class ListComponent {
     private _fields = [];
     private _isMobile = false;
     private _pages = [];
-    private _i18n: any;
+    private _i18n: { [key: string]: string } = {};
 
     @Watch('data')
     onDataChange() {
@@ -183,20 +184,18 @@ export class ListComponent {
                         <th>
                             <Flex row right className="nowrap">
                                 {this._i18n[field] || field}
-                                <em
-                                    role="button"
-                                    class={cls('material-icons', !isDesc && isSortField && 'active')}
+                                <Icon
+                                    button
+                                    className={cls(!isDesc && isSortField && 'active')}
+                                    icon="arrow_upward"
                                     onClick={this._changeSort('asc', field)}
-                                >
-                                    arrow_upward
-                                </em>
-                                <em
-                                    role="button"
-                                    class={cls('material-icons', isDesc && isSortField && 'active')}
+                                />
+                                <Icon
+                                    button
+                                    className={cls(isDesc && isSortField && 'active')}
+                                    icon="arrow_downward"
                                     onClick={this._changeSort('desc', field)}
-                                >
-                                    arrow_downward
-                                </em>
+                                />
                             </Flex>
                         </th>
                     );
@@ -257,9 +256,7 @@ export class ListComponent {
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>
                     {this.enableDownload && (
-                        <em class="material-icons download" role="button" onClick={this._downloadExcel}>
-                            get_app
-                        </em>
+                        <Icon className="download" button icon="get_app" onClick={this._downloadExcel} />
                     )}
                 </Flex>
             </Flex>

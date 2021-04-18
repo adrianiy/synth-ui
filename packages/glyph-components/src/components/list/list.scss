@@ -8,10 +8,11 @@ table {
             text-align: right;
             font-size: var(--gui-font--xxs);
             text-transform: uppercase;
-            color: var(--gui-color--secondary);
+            color: var(--gui-color--light);
             padding-top: var(--gui-padding--xxxs);
 
             div {
+                color: var(--gui-color--light);
                 padding-left: var(--gui-padding--xs);
             }
 
@@ -50,15 +51,15 @@ table {
             font-size: var(--gui-font--xs);
             font-weight: var(--gui-font-weight--bold);
             padding: var(--gui-padding--xxs) var(--gui-padding--s);
-            color: var(--gui-color--font--lighter);
-            border-bottom: var(--gui-border--medium);
+            color: var(--gui-color--lighter);
+            border-bottom: var(--gui-border--lighter);
             border-bottom-width: 2px;
             cursor: pointer;
             display: inline-block;
 
             &.active {
-                color: var(--gui-color--font);
-                border-bottom-color: var(--gui-color--font--light);
+                color: var(--gui-color--light);
+                border-bottom-color: var(--gui-border--light);
             }
         }
     }
@@ -69,21 +70,21 @@ table {
             margin-bottom: var(--gui-padding--xxs) 0;
             cursor: pointer;
             font-weight: var(--gui-font-weight--bold);
-            color: var(--gui-color--font--medium);
+            color: var(--gui-color--light);
 
             &:hover {
-                color: var(--gui-color--secondary);
+                color: var(--gui-color);
             }
         }
 
         .download {
             cursor: pointer;
-            color: var(--gui-color--font--medium);
+            color: var(--gui-color--light);
             padding-left: var(--gui-padding--xxs);
             font-size: var(--gui-font--s);
 
             &:hover {
-                color: var(--gui-color--secondary);
+                color: var(--gui-color);
             }
         }
     }
