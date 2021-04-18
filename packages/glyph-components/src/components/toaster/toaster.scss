@@ -1,0 +1,66 @@
+.toaster__wrapper {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 100%;
+
+    .toaster__container {
+        border-radius: var(--gui-border-radius);
+        padding: var(--gui-padding--xxs) var(--gui-padding--l);
+        position: relative;
+        overflow: hidden;
+
+        * {
+            color: var(--gui-color--contrast);
+        }
+
+        span {
+            font-size: var(--gui-font--xs);
+        }
+
+        em {
+            margin-right: var(--gui-padding--m);
+            padding-right: var(--gui-padding--s);
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            width: var(--gui-font--m);
+        }
+
+        &.success {
+            background: var(--gui-color--success);
+        }
+        &.fail {
+            background: var(--gui-color--alert);
+        }
+
+        .ttl-bar__container {
+            --size:3px;
+            height: var(--size);
+            width: 100%;
+            background: rgba(0,0,0,.2);
+            position: absolute;
+            bottom:0;
+            left: 0;
+
+            .ttl-bar {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: var(--size);
+                background: rgba(255,255,255,.7);
+            }
+        }
+
+        button {
+            outline: none;
+            background: transparent;
+            opacity: .5;
+            border: none;
+            margin-left: var(--gui-padding--l);
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

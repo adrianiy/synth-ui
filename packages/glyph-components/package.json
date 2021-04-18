@@ -17,7 +17,7 @@
     "build": "stencil build --docs",
     "start": "stencil build --watch --serve",
     "start:dev": "npm-run-all --parallel start start:docs",
-    "start:docs": "start-storybook --quiet -s ./dist -p 6007 --no-manager-cache",
+    "start:docs": "start-storybook --quiet -s ./www -p 6007 --no-manager-cache",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",

@@ -12,19 +12,12 @@ import { cls } from '../../utils/utils';
 export class TogglerComponent {
     /** Toggler state */
     @Prop() active: boolean = false;
-    /** Click callback */
-    @Prop() callback: () => any;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
-            <Flex
-                row
-                middle
-                className={cls('toggler__wrapper', this.active && 'active', this.interface)}
-                onClick={this.callback}
-            >
+            <Flex row middle className={cls('toggler__wrapper', this.active && 'active', this.interface)}>
                 <div class="toggler" />
             </Flex>
         );

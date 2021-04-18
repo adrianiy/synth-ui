@@ -1,0 +1,18 @@
+.tab {
+    padding-bottom: var(--gui-padding--xxs);
+    margin-left: var(--gui-padding--s);
+    font-size: var(--gui-font--xs);
+    transition: var(--gui-transition--300);
+    text-transform: uppercase;
+    cursor: pointer;
+    user-select: none;
+
+    &.big {
+        padding: var(--gui-padding--m);
+        margin-left: var(--gui-padding--xs);
+    }
+
+    &.active {
+        box-shadow: var(--gui-shadow--tab);
+    }
+}

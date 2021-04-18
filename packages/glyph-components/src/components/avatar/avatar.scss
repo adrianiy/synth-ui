@@ -1,0 +1,23 @@
+.avatar {
+    border-radius: 100%;
+    overflow: hidden;
+    width: var(--gui-avatar-size);
+    height: var(--gui-avatar-size);
+    cursor: pointer;
+    user-select: none;
+    transition: var(--gui-transition--300);
+    background-color: var(--gui-color--background--light);
+
+    img {
+        width: var(--gui-avatar-size);
+    }
+
+    h2 {
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        box-shadow: 0 0 0 2px #000;
+    }
+}
