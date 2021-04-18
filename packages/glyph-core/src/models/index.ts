@@ -13,4 +13,4 @@ export type { UserData } from './user';
 export type { Screen } from './screens';
 export type { SelectorOption, ComplexSelectorOptions, Tab } from './components';
 export type { ToasterEvent } from './events';
-export type { CalendarEvent, TimelineEvent } from './timeline';
+export type { CalendarEvent, CalendarGroup, TimelineEvent } from './timeline';

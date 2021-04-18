@@ -304,13 +304,13 @@ export class GlyphTabs {
 
 export declare interface GlyphTimeline extends Components.GlyphTimeline {}
 @ProxyCmp({
-  inputs: ['events', 'i18n', 'interface']
+  inputs: ['calendarEvents', 'events', 'i18n', 'interface']
 })
 @Component({
   selector: 'glyph-timeline',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['events', 'i18n', 'interface']
+  inputs: ['calendarEvents', 'events', 'i18n', 'interface']
 })
 export class GlyphTimeline {
   protected el: HTMLElement;

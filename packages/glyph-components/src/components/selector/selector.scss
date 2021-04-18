@@ -6,6 +6,7 @@
         padding-bottom: var(--gui-padding--xxs);
         cursor: pointer;
         user-select: none;
+        width: fit-content;
 
         label {
             cursor: pointer;
@@ -22,6 +23,7 @@
         em {
             font-size: var(--gui-font--s);
             transition: var(--gui-transition--300);
+            margin-left: var(--gui-padding--xxs);
 
             &.active {
                 transform: rotate(180deg);
@@ -29,8 +31,12 @@
         }
     }
     .selector__options__container {
+        position: absolute;
+        margin-top: 21px;
         background: var(--gui-color--background--lighter);
         box-shadow: var(--gui-shadow);
+        border: var(--gui-border--lightest);
+        width: fit-content;
 
         label {
             padding: var(--gui-padding--s);

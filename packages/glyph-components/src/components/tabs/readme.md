@@ -20,6 +20,19 @@
 | `tabSelect` | Tab selection event | `CustomEvent<Tab>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [glyph-timeline](../timeline)
+
+### Graph
+```mermaid
+graph TD;
+  glyph-timeline --> glyph-tabs
+  style glyph-tabs fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

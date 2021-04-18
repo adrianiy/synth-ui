@@ -1,0 +1,34 @@
+.timeline__container {
+    .timeline__options {
+        margin-bottom: var(--gui-padding--m);
+    }
+    .date {
+        margin: var(--gui-padding--m) 0;
+    }
+    .event__container {
+        .event__wrapper {
+            margin: var(--gui-padding--m) 0;
+
+            &__decoration {
+                margin-right: var(--gui-padding--m);
+            }
+            .line {
+                width: 2px;
+                flex: 1;
+                background-color: var(--gui-color--success);
+            }
+            .circle {
+                --size: 10px;
+                width: var(--size);
+                height: var(--size);
+                background-color: var(--gui-color--success);
+                margin: var(--gui-padding--xxxs) 0;
+                border-radius: 100%;
+            }
+            .caption {
+                margin-top: var(--gui-padding--m);
+                text-transform: uppercase;
+            }
+        }
+    }
+}

@@ -354,7 +354,11 @@ export namespace Components {
     }
     interface GlyphTimeline {
         /**
-          * Timeline events
+          * Calendar events
+         */
+        "calendarEvents": TimelineEvent[];
+        /**
+          * Events
          */
         "events": TimelineEvent[];
         /**
@@ -935,7 +939,11 @@ declare namespace LocalJSX {
     }
     interface GlyphTimeline {
         /**
-          * Timeline events
+          * Calendar events
+         */
+        "calendarEvents"?: TimelineEvent[];
+        /**
+          * Events
          */
         "events"?: TimelineEvent[];
         /**
