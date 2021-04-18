@@ -1,5 +1,6 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { UIInterface, FilterOption, FilterOptionHeader } from 'glyph-core';
+import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
 
@@ -106,7 +107,7 @@ export class FilterOptionsComponent {
                 {this.interface === UIInterface.classic ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
-                    <em class="material-icons">done_all</em>
+                    <Icon icon="done_all" />
                 )}
                 <glyph-toggler active={this.multiSelect} onClick={this._multiSelectClick} interface={this.interface} />
             </Flex>
@@ -152,7 +153,7 @@ export class FilterOptionsComponent {
                                 {option.header
                                     ? this._renderOptionHeader(option)
                                     : this._renderOptionDescription(option.description)}
-                                {option.active && <em class="material-icons">checkmark</em>}
+                                {option.active && <Icon icon="checkmark" />}
                             </Flex>
                         </li>
                     ))}
