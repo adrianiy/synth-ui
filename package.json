@@ -90,5 +90,10 @@
             "main"
         ]
     },
+    "storybook-deployer": {
+        "gitUsername": "Adrian Insua",
+        "gitEmail": "adrianiy@ext.inditex.com",
+        "commitMessage": "chore: Deploy Storybook [skip ci]"
+    },
     "version": "1.10.0"
 }
