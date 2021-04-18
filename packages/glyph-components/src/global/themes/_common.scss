@@ -23,7 +23,7 @@ body {
     --gui-font--xs: 12px;
     --gui-font--s: 14px;
     --gui-font--m: 17px;
-    --gui-font--l: 25px;
+    --gui-font--l: 24px;
     --gui-font--xl: 32px;
     --gui-font--xxl: 48px;
     --gui-font--xxxl: 64px;
@@ -49,4 +49,9 @@ body {
     --gui-border-radius: 4px;
     --gui-border-radius--chip: 2px;
     --gui-border-radius--chip--modern: 14px;
+
+    /* common sizes */ 
+    --gui-header-size: 50px;
+    --gui-header-size--modern: 118px;
+    --gui-avatar-size: 40px;
 }
