@@ -13,6 +13,15 @@ import {
     GlyphToggler,
     GlyphChipsbar,
     GlyphButton,
+    GlyphAvatar,
+    GlyphSelector,
+    GlyphTabs,
+    GlyphHeader,
+    GlyphAppMenu,
+    GlyphShareMenu,
+    GlyphUserMenu,
+    GlyphToaster,
+    GlyphTimeline,
 } from './glyph-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
@@ -32,6 +41,15 @@ const DECLARATIONS = [
     GlyphToggler,
     GlyphButton,
     GlyphChipsbar,
+    GlyphAvatar,
+    GlyphSelector,
+    GlyphTabs,
+    GlyphHeader,
+    GlyphAppMenu,
+    GlyphShareMenu,
+    GlyphUserMenu,
+    GlyphToaster,
+    GlyphTimeline,
     // components
     ListComponent,
 ];
