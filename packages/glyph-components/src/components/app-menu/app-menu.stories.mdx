@@ -1,0 +1,30 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-app-menu ...=${spread(args)} />`;
+
+<Meta title="Components/App menu" parameters={{ viewMode: 'docs' }} />
+
+# App Menu
+
+##### glyph-app-menu
+
+An app menu that allows users to do navigate through applications.
+
+This menu can be filtered using search input.
+
+## Menu
+
+<Canvas>
+    <Story name="Menu" args={{ '.apps': [ { icon: 'home', name: 'home', active: true }, { icon: 'info', name: 'info' }, { icon: 'lightbulb', name: 'test' }, { icon: 'dashboard', name: 'dashboard' } ] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+---
+
+<Description>{notes}</Description>
+
