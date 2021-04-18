@@ -1,3 +1,25 @@
+# [1.10.0](https://github.com/adrianiy/glyph-ui/compare/v1.9.1...v1.10.0) (2021-04-18)
+
+
+### Features
+
+* **components:** add app menu ([744668a](https://github.com/adrianiy/glyph-ui/commit/744668a76491ad8081ef924f163cff3d0ca21abe))
+* **components:** add avatar component ([629df42](https://github.com/adrianiy/glyph-ui/commit/629df421b975a7de9410260cf878749e552df70f))
+* **components:** add brand image ([45f12fd](https://github.com/adrianiy/glyph-ui/commit/45f12fd46956f5a601a4444e72e399e06e1253b4))
+* **components:** add header component ([43f44ae](https://github.com/adrianiy/glyph-ui/commit/43f44ae0324aa20a64eff809d069be3c112ee0e4))
+* **components:** add Icon functional component ([8846550](https://github.com/adrianiy/glyph-ui/commit/88465503498e40c5398f14b46aed8f15df5cf4cb))
+* **components:** add modern interface ([0ca040b](https://github.com/adrianiy/glyph-ui/commit/0ca040b849b6caeaf4a5c185a77e49a55d5a0a25))
+* **components:** add selector component ([1adbb34](https://github.com/adrianiy/glyph-ui/commit/1adbb347dab10850ffe2f1d23272728d377b55fd))
+* **components:** add share menu component ([393c419](https://github.com/adrianiy/glyph-ui/commit/393c41953edd6fcb3e2bdc3703c04d11bda5f970))
+* **components:** add tabs selector component ([c094dd5](https://github.com/adrianiy/glyph-ui/commit/c094dd574ff109759c09303d6ae31d1fec69cb41))
+* **components:** add timeline component ([0f85ddb](https://github.com/adrianiy/glyph-ui/commit/0f85ddb964fa3117c59e6afbca65166e9a1b64dd))
+* **components:** add toaster component ([187e455](https://github.com/adrianiy/glyph-ui/commit/187e455a2d94f1517a05d0dd43ac77a7f783fbea))
+* **components:** add user menu ([34815c6](https://github.com/adrianiy/glyph-ui/commit/34815c6c88486ff9d6604ab2b1a48c4116c25b52))
+* **core:** add brand and event enums ([b6e0db5](https://github.com/adrianiy/glyph-ui/commit/b6e0db555d87b350ce2308d4db2088d9d85fa1ab))
+* **core:** add event, input, screen and user interfaces ([e12b4ae](https://github.com/adrianiy/glyph-ui/commit/e12b4ae8383c7fc5435a67748e30744f52424e3f))
+* **docs:** add docs for toggler and title ([d38f3a8](https://github.com/adrianiy/glyph-ui/commit/d38f3a87a059012aca3bc52ad5aa9140a4de1ad2))
+* **docs:** add theme switch ([057fb34](https://github.com/adrianiy/glyph-ui/commit/057fb34845fd702e932f137d2a5b79c558f14a98))
+
 ## [1.9.1](https://github.com/adrianiy/glyph-ui/compare/v1.9.0...v1.9.1) (2021-04-15)
 
 
