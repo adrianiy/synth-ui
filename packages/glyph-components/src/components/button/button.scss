@@ -2,7 +2,7 @@
     background-color: var(--gui-color--background--light);
     padding: var(--gui-padding--xs) var(--gui-padding--m);
     display: inline-flex;
-    vertical-align:middle;
+    vertical-align: middle;
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
@@ -12,10 +12,10 @@
     border: none;
 
     &:hover {
-        filter: brightness(.95);
+        filter: brightness(0.95);
     }
-    &:focus {
-        filter: brightness(.9);
+    &:active {
+        filter: brightness(0.9);
         outline: none;
     }
 
@@ -23,6 +23,19 @@
         padding: var(--gui-padding--xs);
     }
 
+    &.cancel {
+        color: var(--gui-color--contrast);
+        background-color: var(--gui-color--alert);
+    }
+
+    &.only-text {
+        background-color: transparent;
+        font-weight: var(--gui-font-weight--extra-bold);
+
+        &.cancel {
+            color: var(--gui-color--alert);
+        }
+    }
 
     &.modern {
         background-color: transparent;
@@ -36,6 +49,27 @@
             font-size: var(--gui-font--m);
         }
 
+        &.cancel {
+            color: var(--gui-color--alert);
+            border-color: var(--gui-color--alert);
+
+            &:hover {
+                background-color: var(--gui-color--alert);
+                color: var(--gui-color--contrast);
+            }
+        }
+
+        &.only-text {
+            border: none;
+            &:hover {
+                background-color: transparent;
+                color: inherit;
+                opacity: 0.8;
+                &.cancel {
+                    color: var(--gui-color--alert);
+                }
+            }
+        }
         &:hover {
             background-color: var(--gui-color--light);
             color: var(--gui-color--contrast);

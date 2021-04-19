@@ -22,6 +22,7 @@ import {
     GlyphUserMenu,
     GlyphToaster,
     GlyphTimeline,
+    GlyphModal,
 } from './glyph-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
@@ -50,6 +51,7 @@ const DECLARATIONS = [
     GlyphUserMenu,
     GlyphToaster,
     GlyphTimeline,
+    GlyphModal,
     // components
     ListComponent,
 ];

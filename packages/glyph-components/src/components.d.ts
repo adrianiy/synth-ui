@@ -34,6 +34,10 @@ export namespace Components {
     }
     interface GlyphButton {
         /**
+          * Cancel type button. Renders in red
+         */
+        "cancel": boolean;
+        /**
           * Material icons id
          */
         "icon": string;
@@ -41,6 +45,10 @@ export namespace Components {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * Renders only text (without borders)
+         */
+        "onlyText": boolean;
         /**
           * Button text
          */
@@ -274,6 +282,32 @@ export namespace Components {
          */
         "row": Row;
     }
+    interface GlyphModal {
+        /**
+          * Apply button text. Renders button if set
+         */
+        "applyButton": string;
+        /**
+          * Cancel button text. Renders button if set
+         */
+        "cancelButton": string;
+        /**
+          * Close button flag
+         */
+        "closeButton": boolean;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Modal title
+         */
+        "modalTitle": string;
+        /**
+          * Modal visibility flag
+         */
+        "visible": boolean;
+    }
     interface GlyphNoData {
         /**
           * Bottom text. only applies if render mode is advanced
@@ -478,6 +512,12 @@ declare global {
         prototype: HTMLGlyphListRowElement;
         new (): HTMLGlyphListRowElement;
     };
+    interface HTMLGlyphModalElement extends Components.GlyphModal, HTMLStencilElement {
+    }
+    var HTMLGlyphModalElement: {
+        prototype: HTMLGlyphModalElement;
+        new (): HTMLGlyphModalElement;
+    };
     interface HTMLGlyphNoDataElement extends Components.GlyphNoData, HTMLStencilElement {
     }
     var HTMLGlyphNoDataElement: {
@@ -548,6 +588,7 @@ declare global {
         "glyph-header": HTMLGlyphHeaderElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
+        "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
@@ -587,6 +628,10 @@ declare namespace LocalJSX {
     }
     interface GlyphButton {
         /**
+          * Cancel type button. Renders in red
+         */
+        "cancel"?: boolean;
+        /**
           * Material icons id
          */
         "icon"?: string;
@@ -594,6 +639,10 @@ declare namespace LocalJSX {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * Renders only text (without borders)
+         */
+        "onlyText"?: boolean;
         /**
           * Button text
          */
@@ -859,6 +908,44 @@ declare namespace LocalJSX {
          */
         "row"?: Row;
     }
+    interface GlyphModal {
+        /**
+          * Apply button text. Renders button if set
+         */
+        "applyButton"?: string;
+        /**
+          * Cancel button text. Renders button if set
+         */
+        "cancelButton"?: string;
+        /**
+          * Close button flag
+         */
+        "closeButton"?: boolean;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Modal title
+         */
+        "modalTitle"?: string;
+        /**
+          * apply event
+         */
+        "onApply"?: (event: CustomEvent<any>) => void;
+        /**
+          * cancel event
+         */
+        "onCancel"?: (event: CustomEvent<any>) => void;
+        /**
+          * close event
+         */
+        "onClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Modal visibility flag
+         */
+        "visible"?: boolean;
+    }
     interface GlyphNoData {
         /**
           * Bottom text. only applies if render mode is advanced
@@ -1029,6 +1116,7 @@ declare namespace LocalJSX {
         "glyph-header": GlyphHeader;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
+        "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-selector": GlyphSelector;
         "glyph-share-menu": GlyphShareMenu;
@@ -1054,6 +1142,7 @@ declare module "@stencil/core" {
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
+            "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
