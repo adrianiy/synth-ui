@@ -1,8 +1,4 @@
-export interface Cell {
-    value: any;
-    format: string;
-    decoration: string;
-}
+import { Cell } from './common';
 
 export interface RowAction {
     title: string;

@@ -1,0 +1,10 @@
+.button-group__container {
+    border: var(--gui-border--light);
+    border-radius: var(--gui-border-radius);
+
+    .button {
+        &.active {
+            background-color: var(--gui-color-background--light);
+        }
+    }
+}

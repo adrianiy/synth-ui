@@ -1,4 +1,4 @@
-import { DecorationType } from './color.model';
+import { DecorationType } from 'glyph-core';
 
 const _isNegative = (num: string) => {
     const isNumber = num !== '--';

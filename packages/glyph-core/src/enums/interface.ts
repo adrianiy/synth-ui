@@ -7,3 +7,10 @@ export const enum TabStyle {
     big = 'big',
     small = 'small',
 }
+
+export const enum DecorationType {
+    OnlyGreen = 'green',
+    OnlyRed = 'red',
+    InvertedGreen = 'inverted-green',
+    InvertedRed = 'inverted-red',
+}

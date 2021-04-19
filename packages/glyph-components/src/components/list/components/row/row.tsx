@@ -1,8 +1,8 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { Flex } from '../../../../utils/layout';
 import { Cell, Row, RowAction } from 'glyph-core';
-import { getCellValues } from '../../utils/list';
 import { Icon } from '../../../../utils/icons';
+import { getFormatedValues } from '../../../../utils/utils';
 
 @Component({
     tag: 'glyph-list-row',
@@ -30,7 +30,7 @@ export class RowComponent {
     }
 
     private _renderCell(cell: Cell) {
-        const { color, formattedValue } = getCellValues(cell);
+        const { color, formattedValue } = getFormatedValues(cell);
 
         return <td class={color}>{formattedValue}</td>;
     }

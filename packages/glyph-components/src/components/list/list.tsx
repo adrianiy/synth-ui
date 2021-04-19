@@ -4,7 +4,6 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Flex } from '../../utils/layout';
 import { Workbook } from 'exceljs';
 import { Row } from 'glyph-core';
-import { ExpandRowEvent } from './list.model';
 import * as fs from 'file-saver';
 import { Icon } from '../../utils/icons';
 
@@ -50,7 +49,7 @@ export class ListComponent {
     /** Parsed list */
     @State() parsedList: Row[] = [];
     /** Expand row event */
-    @Event() expandRow: EventEmitter<ExpandRowEvent>;
+    @Event() expandRow: EventEmitter<Row>;
 
     private _fields = [];
     private _isMobile = false;
