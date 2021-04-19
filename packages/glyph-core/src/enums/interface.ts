@@ -14,3 +14,8 @@ export const enum DecorationType {
     InvertedGreen = 'inverted-green',
     InvertedRed = 'inverted-red',
 }
+
+export const enum ButtonGroupStyle {
+    big = 'big',
+    small = 'small',
+}

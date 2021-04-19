@@ -1,5 +1,6 @@
 import {Component, Prop, h} from "@stencil/core";
 import { Button } from 'glyph-core';
+import { Color } from "../../utils/color";
 import { Flex } from "../../utils/layout";
 import { cls, getFormatedValues } from "../../utils/utils";
 
@@ -13,15 +14,15 @@ export class ButtonGroupComponent {
     @Prop() buttons: Button[];
 
     private _renderTitle = (button: Button) => {
-        const {color, formattedValue} = getFormatedValues(button.title);
+        const formattedValue = getFormatedValues(button.title);
     
-        return <h2 class={color}>{formattedValue}</h2>
+        return <h2><Color value={formattedValue} decoration={button.title.decoration}>{formattedValue}</Color></h2>
     }
 
     private _renderSubtitle = (button: Button) => {
-        const {color, formattedValue} = getFormatedValues(button.subtitle);
+        const formattedValue = getFormatedValues(button.subtitle);
     
-        return <h4 class={color}>{formattedValue}</h4>
+        return <h4><Color value={formattedValue} decoration={button.subtitle.decoration}>{formattedValue}</Color></h4>
     }
 
     return() {

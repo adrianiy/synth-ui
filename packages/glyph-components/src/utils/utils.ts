@@ -2,7 +2,6 @@ import { ValueAccessorConfig } from '@stencil/angular-output-target';
 import { getAssetPath } from '@stencil/core';
 import { Cell } from 'glyph-core';
 import numeral from 'numeral';
-import { getGrowthColor } from './color.utils';
 
 export function format(first: string, middle: string, last: string): string {
     return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
@@ -130,11 +129,10 @@ export const numeralFormat = (
 };
 
 export const getFormatedValues = (cell: Cell) => {
-    const { value, decoration, ...formatArgs } = cell;
+    const { value, ...formatArgs } = cell;
     const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
-    const color = decoration && getGrowthColor(formattedValue, decoration);
 
-    return { color, formattedValue, value };
+    return formattedValue;
 };
 
 export const cls = (...classNames) =>

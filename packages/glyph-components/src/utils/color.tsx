@@ -1,4 +1,10 @@
-import { DecorationType } from 'glyph-core';
+import { FunctionalComponent, h } from '@stencil/core';
+import { DecorationType, IDecorationType } from 'glyph-core';
+
+interface ColorProps {
+    value: string;
+    decoration?: IDecorationType;
+}
 
 const _isNegative = (num: string) => {
     const isNumber = num !== '--';
@@ -27,10 +33,17 @@ const _getAlert = (decorationType: string, isNegative: boolean) => {
     }
 };
 
-export const getGrowthColor = (num: string, decorationType: string) => {
-    const isNegative = _isNegative(num);
-    const isSuccess = _getSuccess(decorationType, isNegative);
-    const isAlert = _getAlert(decorationType, isNegative);
+export const Color: FunctionalComponent<ColorProps> = (props, children) => {
+    const { value, decoration } = props;
+    const isNegative = _isNegative(value);
+    const isSuccess = _getSuccess(decoration, isNegative);
+    const isAlert = _getAlert(decoration, isNegative);
 
-    return `${isSuccess && 'color_success'} ${isAlert && 'color_alert'}`;
+    return (
+        <span
+            style={{ color: (isSuccess && 'var(--gui-color--success)') || (isAlert && 'var(--gui-color--alert)')  }}
+        >
+            {children}
+        </span>
+    );
 };

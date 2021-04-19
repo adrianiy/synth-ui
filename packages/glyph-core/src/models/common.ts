@@ -4,5 +4,4 @@ export interface Cell {
     value: any;
     format: string;
     decoration: DecorationType;
-    action?: () => void;
 }

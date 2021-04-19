@@ -1,0 +1,37 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-button-group ...=${spread(args)} />`;
+
+<Meta title="Components/Button group" parameters={{ viewMode: 'docs' }} />
+
+# Button group
+
+##### glyph-button-group
+
+This component will render a button group that will marc active button with a background color.
+
+Each button can be configured with a **title** a **subtitle** and a **action** trigered on click;
+
+This component has two interface versions **big** and **small**.
+
+## Big
+
+<Canvas>
+    <Story name="Big" args={{ '.buttons': buttons }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+---
+
+<Description>{notes}</Description>
+
+export const buttons = [
+    { title: { value: '1000', format: '0,0' }, subtitle: { value: 'text1' }, active: true, action: () => clickEvent() },
+    { title: { value: '1000', format: '0,0', decoration: 'only-green' }, subtitle: { value: 'text2' }, active: true, action: () => clickEvent() },
+]
+export const clickEvent = () => alert('event')
