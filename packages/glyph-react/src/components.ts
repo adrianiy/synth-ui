@@ -16,6 +16,7 @@ export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFil
 export const GlyphHeader = /*@__PURE__*/createReactComponent<JSX.GlyphHeader, HTMLGlyphHeaderElement>('glyph-header');
 export const GlyphList = /*@__PURE__*/createReactComponent<JSX.GlyphList, HTMLGlyphListElement>('glyph-list');
 export const GlyphListRow = /*@__PURE__*/createReactComponent<JSX.GlyphListRow, HTMLGlyphListRowElement>('glyph-list-row');
+export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTMLGlyphModalElement>('glyph-modal');
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
 export const GlyphSelector = /*@__PURE__*/createReactComponent<JSX.GlyphSelector, HTMLGlyphSelectorElement>('glyph-selector');
 export const GlyphShareMenu = /*@__PURE__*/createReactComponent<JSX.GlyphShareMenu, HTMLGlyphShareMenuElement>('glyph-share-menu');

@@ -13,12 +13,25 @@ export class ButtonComponent {
     @Prop() text: string;
     /** Material icons id */
     @Prop() icon: string;
+    /** Cancel type button. Renders in red */
+    @Prop() cancel: boolean;
+    /** Renders only text (without borders) */
+    @Prop() onlyText: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
-            <button class={cls('button__wrapper', this.text && 'text', this.icon && 'icon', this.interface)}>
+            <button
+                class={cls(
+                    'button__wrapper',
+                    this.text && 'text',
+                    this.icon && 'icon',
+                    this.interface,
+                    this.cancel && 'cancel',
+                    this.onlyText && 'only-text',
+                )}
+            >
                 {this.text && this.text}
                 {this.icon && <Icon icon={this.icon} />}
             </button>

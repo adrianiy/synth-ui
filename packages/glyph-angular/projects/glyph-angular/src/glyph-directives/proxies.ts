@@ -46,13 +46,13 @@ export class GlyphAvatar {
 
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
-  inputs: ['icon', 'interface', 'text']
+  inputs: ['cancel', 'icon', 'interface', 'onlyText', 'text']
 })
 @Component({
   selector: 'glyph-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['icon', 'interface', 'text']
+  inputs: ['cancel', 'icon', 'interface', 'onlyText', 'text']
 })
 export class GlyphButton {
   protected el: HTMLElement;
@@ -195,6 +195,33 @@ export class GlyphListRow {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+import { ModalComponent as IModalComponent } from 'glyph-components/dist/types/components/modal/modal';
+export declare interface GlyphModal extends Components.GlyphModal {}
+@ProxyCmp({
+  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'modalTitle', 'visible']
+})
+@Component({
+  selector: 'glyph-modal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'modalTitle', 'visible'],
+  outputs: ['close', 'apply', 'cancel']
+})
+export class GlyphModal {
+  /** close event */
+  close!: IModalComponent['close'];
+  /** apply event */
+  apply!: IModalComponent['apply'];
+  /** cancel event */
+  cancel!: IModalComponent['cancel'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['close', 'apply', 'cancel']);
   }
 }
 
