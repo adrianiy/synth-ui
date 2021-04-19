@@ -17,6 +17,7 @@ export const parameters = {
                     'App menu',
                     'Share menu',
                     'Button',
+                    'Button group',
                     'Selector',
                     'Toggler',
                     'Tabs',

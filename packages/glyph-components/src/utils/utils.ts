@@ -130,12 +130,16 @@ export const numeralFormat = (
 
 export const getFormatedValues = (cell: Cell) => {
     const { value, ...formatArgs } = cell;
-    const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
+    if (typeof value === 'string') {
+        return value;
+    } else {
+        const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
 
-    return formattedValue;
+        return formattedValue;
+    }
 };
 
-export const cls = (...classNames) =>
+export const cls = (...classNames: string[]) =>
     classNames
         .filter(className => className)
         .map(className => [].concat(className).join(' '))

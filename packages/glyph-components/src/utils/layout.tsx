@@ -33,7 +33,7 @@ interface LayoutProps {
     top?: boolean;
     bottom?: boolean;
     testId?: string;
-    distribution?: string | string[];
+    distribution?: string;
     className?: string;
     id?: string;
     padding?: string;
@@ -45,7 +45,7 @@ interface LayoutProps {
 
 const composeClassNames = (
     flexType: string,
-    distribution: string | string[],
+    distribution: string,
     className: string,
     padding: string,
     verticalPadding: string,
@@ -57,7 +57,7 @@ const composeClassNames = (
     return cls(flexType, distribution, className, padding, vPadding, hPadding);
 };
 
-const getDistribution = props => {
+const getDistribution = (props: LayoutProps) => {
     const flexType = props.row ? 'row' : 'column';
     const flexDist = Object.keys(props)
         .filter(key => props[key])

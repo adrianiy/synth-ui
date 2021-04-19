@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Brands, Button, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -55,9 +55,17 @@ export namespace Components {
     }
     interface GlyphButtonGroup {
         /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment": Alignment;
+        /**
           * Buttons configuration
          */
         "buttons": Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size": ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**
@@ -662,9 +670,17 @@ declare namespace LocalJSX {
     }
     interface GlyphButtonGroup {
         /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment"?: Alignment;
+        /**
           * Buttons configuration
          */
         "buttons"?: Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size"?: ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**

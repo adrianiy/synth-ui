@@ -19,3 +19,9 @@ export const enum ButtonGroupStyle {
     big = 'big',
     small = 'small',
 }
+
+export const enum Alignment {
+    left = 'left',
+    right = 'right',
+    center = 'center',
+}

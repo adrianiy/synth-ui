@@ -65,13 +65,13 @@ export class GlyphButton {
 
 export declare interface GlyphButtonGroup extends Components.GlyphButtonGroup {}
 @ProxyCmp({
-  inputs: ['buttons']
+  inputs: ['alignment', 'buttons', 'size']
 })
 @Component({
   selector: 'glyph-button-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['buttons']
+  inputs: ['alignment', 'buttons', 'size']
 })
 export class GlyphButtonGroup {
   protected el: HTMLElement;

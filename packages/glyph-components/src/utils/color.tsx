@@ -40,9 +40,7 @@ export const Color: FunctionalComponent<ColorProps> = (props, children) => {
     const isAlert = _getAlert(decoration, isNegative);
 
     return (
-        <span
-            style={{ color: (isSuccess && 'var(--gui-color--success)') || (isAlert && 'var(--gui-color--alert)')  }}
-        >
+        <span style={{ color: (isSuccess && 'var(--gui-color--success)') || (isAlert && 'var(--gui-color--alert)') }}>
             {children}
         </span>
     );

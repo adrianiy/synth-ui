@@ -1,40 +1,56 @@
-import {Component, Prop, h} from "@stencil/core";
-import { Button } from 'glyph-core';
-import { Color } from "../../utils/color";
-import { Flex } from "../../utils/layout";
-import { cls, getFormatedValues } from "../../utils/utils";
+import { Component, Prop, h } from '@stencil/core';
+import { Button, ButtonGroupStyle, Alignment } from 'glyph-core';
+import { Format } from '../../utils/format';
+import { Flex } from '../../utils/layout';
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-button-group',
     styleUrl: 'button-group.scss',
-    shadow: true
+    shadow: true,
 })
 export class ButtonGroupComponent {
     /** Buttons configuration */
-    @Prop() buttons: Button[];
+    @Prop({ mutable: true }) buttons: Button[];
+    /** Button group size ['big', 'small'] */
+    @Prop() size: ButtonGroupStyle = ButtonGroupStyle.big;
+    /** Button alignment ['left', 'center', 'right'] */
+    @Prop() alignment: Alignment = Alignment.center;
+
+    private _handleClick = (button: Button, idx: number) => () => {
+        this.buttons = this.buttons.map((btn, index) => ({ ...btn, active: index === idx }));
+        button.action();
+    };
 
     private _renderTitle = (button: Button) => {
-        const formattedValue = getFormatedValues(button.title);
-    
-        return <h2><Color value={formattedValue} decoration={button.title.decoration}>{formattedValue}</Color></h2>
-    }
+        return (
+            <h3>
+                <Format config={button.title} decorate />
+            </h3>
+        );
+    };
 
     private _renderSubtitle = (button: Button) => {
-        const formattedValue = getFormatedValues(button.subtitle);
-    
-        return <h4><Color value={formattedValue} decoration={button.subtitle.decoration}>{formattedValue}</Color></h4>
-    }
-
-    return() {
         return (
-            <Flex row className="button-group__container">
-                { this.buttons.map(button => (
-                    <Flex center middle className={cls("button", button.active && 'active')} onClick={button.action}>
-                        { button.title && this._renderTitle(button) }
-                        { button.subtitle && this._renderSubtitle(button) }
-                    </Flex>
-                )) }
+            <span class="caption caption--small">
+                <Format config={button.subtitle} decorate />
+            </span>
+        );
+    };
+
+    render() {
+        return (
+            <Flex row className={cls('button-group__container', this.size)}>
+                {this.buttons.map((button, idx) => (
+                    <div
+                        class={cls('button', button.active && 'active', this.alignment)}
+                        onClick={this._handleClick(button, idx)}
+                    >
+                        {button.title && this._renderTitle(button)}
+                        {button.subtitle && this._renderSubtitle(button)}
+                    </div>
+                ))}
             </Flex>
-        )
+        );
     }
 }
