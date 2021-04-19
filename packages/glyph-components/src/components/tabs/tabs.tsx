@@ -10,22 +10,26 @@ import { cls } from '../../utils/utils';
 })
 export class TabsComponent {
     /** Component tabs */
-    @Prop() tabs: Tab[];
+    @Prop({ mutable: true }) tabs: Tab[];
     /** Tab rendering style big | small */
     @Prop() tabStyle: TabStyle = TabStyle.small;
 
     /** Tab selection event */
     @Event() tabSelect: EventEmitter<Tab>;
 
-    private _selectTab = Tab => () => {
-        this.tabSelect.emit(Tab);
+    private _selectTab = (selectedTab: Tab, index: number) => () => {
+        this.tabs = this.tabs.map((tab, idx) => ({ ...tab, active: idx === index }));
+        this.tabSelect.emit(selectedTab);
     };
 
     render() {
         return (
             <Flex row middle className="tabs__container">
-                {this.tabs.map((tab: Tab) => (
-                    <span class={cls('tab', tab.active && 'active', this.tabStyle)} onClick={this._selectTab(tab)}>
+                {this.tabs.map((tab: Tab, index: number) => (
+                    <span
+                        class={cls('tab', tab.active && 'active', this.tabStyle)}
+                        onClick={this._selectTab(tab, index)}
+                    >
                         {tab.description}
                     </span>
                 ))}

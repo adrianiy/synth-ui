@@ -1,6 +1,4 @@
-import { getGrowthColor } from '../../../utils/color.utils';
-import { numeralFormat } from '../../../utils/utils';
-import { Cell, Row } from 'glyph-core';
+import { Row } from 'glyph-core';
 
 export const filterEmptyRows = (list: Row[], fields: any[]) => {
     return list.filter((row: Row) => fields.every((field: any) => row[field]));
@@ -18,14 +16,6 @@ export const sortList = (list: Row[], field: string, direction: string) => {
     return list.sort(sortFunction);
 };
 
-export const getCellValues = (cell: Cell) => {
-    const { value, decoration, ...formatArgs } = cell;
-    const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
-    const color = decoration && getGrowthColor(formattedValue, decoration);
-
-    return { color, formattedValue, value };
-};
-
 export const parseExcelData = (data: Row[], fields: string[]) => {
     const excelData = [];
 
@@ -40,7 +30,7 @@ export const parseExcelData = (data: Row[], fields: string[]) => {
 };
 
 const _parseCsvRow = (fields: string[], row: Row, suffix = '') => {
-    return [ `${suffix}${row['name']}` ].concat(
+    return [`${suffix}${row['name']}`].concat(
         fields.map(field => {
             const { value } = row[field];
 

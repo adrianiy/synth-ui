@@ -1,0 +1,72 @@
+.button-group__container {
+    border: var(--gui-border--lightest);
+    border-radius: var(--gui-border-radius);
+    overflow: hidden;
+
+    .button {
+        display: grid;
+        border-right: var(--gui-border--lightest);
+        cursor: pointer;
+        user-select: none;
+        grid-gap: var(--gui-padding--xxs);
+        flex: 1;
+
+        &.center {
+            justify-content: center;
+            text-align: center;
+        }
+        &.right {
+            text-align: right;
+        }
+
+        &:last-of-type {
+            border-right: none;
+        }
+
+        h3 {
+            align-self: center;
+            margin: 0;
+        }
+
+        span {
+            align-self: center;
+            font-weight: var(--gui-font-weight--normal);
+            margin-bottom: 0;
+            text-transform: uppercase;
+        }
+
+        &.active {
+            background-color: var(--gui-color--dark);
+
+            h3 {
+                * {
+                    font-weight: var(--gui-font-weight--extra-bold);
+                }
+            }
+            * {
+                color: var(--gui-color--lightest);
+            }
+        }
+    }
+    &.big {
+        h3 {
+            font-size: var(--gui-font--m);
+        }
+        .button {
+            padding: var(--gui-padding--m);
+        }
+    }
+    &.small {
+        .button {
+            grid-template-columns: repeat(2, min-content);
+            padding: var(--gui-padding--xs);
+        }
+        h3 {
+            text-align: right;
+        }
+        span {
+            text-align: left;
+            align-self: center;
+        }
+    }
+}

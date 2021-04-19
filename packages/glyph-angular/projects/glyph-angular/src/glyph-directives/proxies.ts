@@ -62,6 +62,25 @@ export class GlyphButton {
   }
 }
 
+
+export declare interface GlyphButtonGroup extends Components.GlyphButtonGroup {}
+@ProxyCmp({
+  inputs: ['alignment', 'buttons', 'size']
+})
+@Component({
+  selector: 'glyph-button-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['alignment', 'buttons', 'size']
+})
+export class GlyphButtonGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({

@@ -10,6 +10,7 @@ import type { JSX } from 'glyph-components';
 export const GlyphAppMenu = /*@__PURE__*/createReactComponent<JSX.GlyphAppMenu, HTMLGlyphAppMenuElement>('glyph-app-menu');
 export const GlyphAvatar = /*@__PURE__*/createReactComponent<JSX.GlyphAvatar, HTMLGlyphAvatarElement>('glyph-avatar');
 export const GlyphButton = /*@__PURE__*/createReactComponent<JSX.GlyphButton, HTMLGlyphButtonElement>('glyph-button');
+export const GlyphButtonGroup = /*@__PURE__*/createReactComponent<JSX.GlyphButtonGroup, HTMLGlyphButtonGroupElement>('glyph-button-group');
 export const GlyphChipsbar = /*@__PURE__*/createReactComponent<JSX.GlyphChipsbar, HTMLGlyphChipsbarElement>('glyph-chipsbar');
 export const GlyphFilter = /*@__PURE__*/createReactComponent<JSX.GlyphFilter, HTMLGlyphFilterElement>('glyph-filter');
 export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFilterOptions, HTMLGlyphFilterOptionsElement>('glyph-filter-options');

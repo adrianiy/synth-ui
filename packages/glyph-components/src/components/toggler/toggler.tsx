@@ -11,13 +11,22 @@ import { cls } from '../../utils/utils';
 })
 export class TogglerComponent {
     /** Toggler state */
-    @Prop() active: boolean = false;
+    @Prop({ mutable: true }) active: boolean = false;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
 
+    private _handleToggle = () => {
+        this.active = !this.active;
+    };
+
     render() {
         return (
-            <Flex row middle className={cls('toggler__wrapper', this.active && 'active', this.interface)}>
+            <Flex
+                row
+                middle
+                className={cls('toggler__wrapper', this.active && 'active', this.interface)}
+                onClick={this._handleToggle}
+            >
                 <div class="toggler" />
             </Flex>
         );

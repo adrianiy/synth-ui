@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Brands, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
-import { ExpandRowEvent } from "./components/list/list.model";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -53,6 +52,20 @@ export namespace Components {
           * Button text
          */
         "text": string;
+    }
+    interface GlyphButtonGroup {
+        /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment": Alignment;
+        /**
+          * Buttons configuration
+         */
+        "buttons": Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size": ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**
@@ -476,6 +489,12 @@ declare global {
         prototype: HTMLGlyphButtonElement;
         new (): HTMLGlyphButtonElement;
     };
+    interface HTMLGlyphButtonGroupElement extends Components.GlyphButtonGroup, HTMLStencilElement {
+    }
+    var HTMLGlyphButtonGroupElement: {
+        prototype: HTMLGlyphButtonGroupElement;
+        new (): HTMLGlyphButtonGroupElement;
+    };
     interface HTMLGlyphChipsbarElement extends Components.GlyphChipsbar, HTMLStencilElement {
     }
     var HTMLGlyphChipsbarElement: {
@@ -582,6 +601,7 @@ declare global {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
+        "glyph-button-group": HTMLGlyphButtonGroupElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
@@ -647,6 +667,20 @@ declare namespace LocalJSX {
           * Button text
          */
         "text"?: string;
+    }
+    interface GlyphButtonGroup {
+        /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment"?: Alignment;
+        /**
+          * Buttons configuration
+         */
+        "buttons"?: Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size"?: ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**
@@ -876,7 +910,7 @@ declare namespace LocalJSX {
         /**
           * Expand row event
          */
-        "onExpandRow"?: (event: CustomEvent<ExpandRowEvent>) => void;
+        "onExpandRow"?: (event: CustomEvent<Row>) => void;
         /**
           * Force component update if flag is true
          */
@@ -1110,6 +1144,7 @@ declare namespace LocalJSX {
         "glyph-app-menu": GlyphAppMenu;
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
+        "glyph-button-group": GlyphButtonGroup;
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
@@ -1136,6 +1171,7 @@ declare module "@stencil/core" {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
+            "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;

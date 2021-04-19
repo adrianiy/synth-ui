@@ -23,9 +23,9 @@
 
 ## Events
 
-| Event       | Description      | Type                          |
-| ----------- | ---------------- | ----------------------------- |
-| `expandRow` | Expand row event | `CustomEvent<ExpandRowEvent>` |
+| Event       | Description      | Type               |
+| ----------- | ---------------- | ------------------ |
+| `expandRow` | Expand row event | `CustomEvent<Row>` |
 
 
 ## Dependencies
