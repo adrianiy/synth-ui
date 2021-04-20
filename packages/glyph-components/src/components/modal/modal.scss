@@ -1,0 +1,25 @@
+.modal__wrapper {
+    background-color: rgba(0,0,0,.4);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+
+    .modal__container {
+        background-color: var(--gui-color--background--lighter);
+        border-radius: var(--gui-border-radius);
+        min-width: 80%;
+        box-shadow: var(--gui-shadow--small);
+        padding: var(--gui-padding--m);
+
+        &__header {
+            em {
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+    }
+
+}

@@ -43,7 +43,6 @@ export class ListComponent implements OnChanges {
     private _parseList() {
         if (this.fieldsConfig && this.data) {
             this.parsedData = this.data?.map(row => configRow(row, this.fieldsConfig)) || [];
-            console.log(this.parsedData);
         }
     }
 }

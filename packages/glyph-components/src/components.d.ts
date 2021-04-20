@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Brands, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
-import { ExpandRowEvent } from "./components/list/list.model";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -34,6 +33,10 @@ export namespace Components {
     }
     interface GlyphButton {
         /**
+          * Cancel type button. Renders in red
+         */
+        "cancel": boolean;
+        /**
           * Material icons id
          */
         "icon": string;
@@ -42,9 +45,27 @@ export namespace Components {
          */
         "interface": UIInterface;
         /**
+          * Renders only text (without borders)
+         */
+        "onlyText": boolean;
+        /**
           * Button text
          */
         "text": string;
+    }
+    interface GlyphButtonGroup {
+        /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment": Alignment;
+        /**
+          * Buttons configuration
+         */
+        "buttons": Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size": ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**
@@ -205,6 +226,10 @@ export namespace Components {
           * User data
          */
         "userData": UserData;
+        /**
+          * User menu config
+         */
+        "userMenuConfig": UserMenuConfiguration;
     }
     interface GlyphList {
         /**
@@ -273,6 +298,32 @@ export namespace Components {
           * row data
          */
         "row": Row;
+    }
+    interface GlyphModal {
+        /**
+          * Apply button text. Renders button if set
+         */
+        "applyButton": string;
+        /**
+          * Cancel button text. Renders button if set
+         */
+        "cancelButton": string;
+        /**
+          * Close button flag
+         */
+        "closeButton": boolean;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Modal title
+         */
+        "modalTitle": string;
+        /**
+          * Modal visibility flag
+         */
+        "visible": boolean;
     }
     interface GlyphNoData {
         /**
@@ -410,9 +461,25 @@ export namespace Components {
     }
     interface GlyphUserMenu {
         /**
+          * Show custom config button
+         */
+        "customConfig": boolean;
+        /**
+          * Show decimal config flag
+         */
+        "decimals": boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Application languages
+         */
+        "languages": SelectorOption[];
         /**
           * User name
          */
@@ -421,6 +488,10 @@ export namespace Components {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback": () => void;
+        /**
+          * Application themes
+         */
+        "themes": SelectorOption[];
     }
 }
 declare global {
@@ -441,6 +512,12 @@ declare global {
     var HTMLGlyphButtonElement: {
         prototype: HTMLGlyphButtonElement;
         new (): HTMLGlyphButtonElement;
+    };
+    interface HTMLGlyphButtonGroupElement extends Components.GlyphButtonGroup, HTMLStencilElement {
+    }
+    var HTMLGlyphButtonGroupElement: {
+        prototype: HTMLGlyphButtonGroupElement;
+        new (): HTMLGlyphButtonGroupElement;
     };
     interface HTMLGlyphChipsbarElement extends Components.GlyphChipsbar, HTMLStencilElement {
     }
@@ -477,6 +554,12 @@ declare global {
     var HTMLGlyphListRowElement: {
         prototype: HTMLGlyphListRowElement;
         new (): HTMLGlyphListRowElement;
+    };
+    interface HTMLGlyphModalElement extends Components.GlyphModal, HTMLStencilElement {
+    }
+    var HTMLGlyphModalElement: {
+        prototype: HTMLGlyphModalElement;
+        new (): HTMLGlyphModalElement;
     };
     interface HTMLGlyphNoDataElement extends Components.GlyphNoData, HTMLStencilElement {
     }
@@ -542,12 +625,14 @@ declare global {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
+        "glyph-button-group": HTMLGlyphButtonGroupElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
         "glyph-header": HTMLGlyphHeaderElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
+        "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
@@ -587,6 +672,10 @@ declare namespace LocalJSX {
     }
     interface GlyphButton {
         /**
+          * Cancel type button. Renders in red
+         */
+        "cancel"?: boolean;
+        /**
           * Material icons id
          */
         "icon"?: string;
@@ -595,9 +684,27 @@ declare namespace LocalJSX {
          */
         "interface"?: UIInterface;
         /**
+          * Renders only text (without borders)
+         */
+        "onlyText"?: boolean;
+        /**
           * Button text
          */
         "text"?: string;
+    }
+    interface GlyphButtonGroup {
+        /**
+          * Button alignment ['left', 'center', 'right']
+         */
+        "alignment"?: Alignment;
+        /**
+          * Buttons configuration
+         */
+        "buttons"?: Button[];
+        /**
+          * Button group size ['big', 'small']
+         */
+        "size"?: ButtonGroupStyle;
     }
     interface GlyphChipsbar {
         /**
@@ -771,6 +878,18 @@ declare namespace LocalJSX {
          */
         "notifications"?: boolean;
         /**
+          * Decimals change event
+         */
+        "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Language change event
+         */
+        "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
+          * Theme change event
+         */
+        "onThemeChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Search flag
          */
         "search"?: boolean;
@@ -786,6 +905,10 @@ declare namespace LocalJSX {
           * User data
          */
         "userData"?: UserData;
+        /**
+          * User menu config
+         */
+        "userMenuConfig"?: UserMenuConfiguration;
     }
     interface GlyphList {
         /**
@@ -827,7 +950,7 @@ declare namespace LocalJSX {
         /**
           * Expand row event
          */
-        "onExpandRow"?: (event: CustomEvent<ExpandRowEvent>) => void;
+        "onExpandRow"?: (event: CustomEvent<Row>) => void;
         /**
           * Force component update if flag is true
          */
@@ -858,6 +981,44 @@ declare namespace LocalJSX {
           * row data
          */
         "row"?: Row;
+    }
+    interface GlyphModal {
+        /**
+          * Apply button text. Renders button if set
+         */
+        "applyButton"?: string;
+        /**
+          * Cancel button text. Renders button if set
+         */
+        "cancelButton"?: string;
+        /**
+          * Close button flag
+         */
+        "closeButton"?: boolean;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Modal title
+         */
+        "modalTitle"?: string;
+        /**
+          * apply event
+         */
+        "onApply"?: (event: CustomEvent<any>) => void;
+        /**
+          * cancel event
+         */
+        "onCancel"?: (event: CustomEvent<any>) => void;
+        /**
+          * close event
+         */
+        "onClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Modal visibility flag
+         */
+        "visible"?: boolean;
     }
     interface GlyphNoData {
         /**
@@ -1003,32 +1164,66 @@ declare namespace LocalJSX {
     }
     interface GlyphUserMenu {
         /**
+          * Show custom config button
+         */
+        "customConfig"?: boolean;
+        /**
+          * Show decimal config flag
+         */
+        "decimals"?: boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Application languages
+         */
+        "languages"?: SelectorOption[];
         /**
           * User name
          */
         "name"?: string;
         /**
+          * Decimals change event
+         */
+        "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Language change event
+         */
+        "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Logout event, trigger an event identified with **logout** key
          */
         "onLogout"?: (event: CustomEvent<any>) => void;
         /**
+          * Theme change event
+         */
+        "onThemeChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Event triggered when user clicks outside component container
          */
         "outsideCallback"?: () => void;
+        /**
+          * Application themes
+         */
+        "themes"?: SelectorOption[];
     }
     interface IntrinsicElements {
         "glyph-app-menu": GlyphAppMenu;
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
+        "glyph-button-group": GlyphButtonGroup;
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
         "glyph-header": GlyphHeader;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
+        "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-selector": GlyphSelector;
         "glyph-share-menu": GlyphShareMenu;
@@ -1048,12 +1243,14 @@ declare module "@stencil/core" {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
+            "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
+            "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;

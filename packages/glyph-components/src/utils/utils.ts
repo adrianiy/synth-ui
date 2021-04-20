@@ -1,5 +1,6 @@
 import { ValueAccessorConfig } from '@stencil/angular-output-target';
 import { getAssetPath } from '@stencil/core';
+import { Cell } from 'glyph-core';
 import numeral from 'numeral';
 
 export function format(first: string, middle: string, last: string): string {
@@ -37,31 +38,31 @@ export async function getLocaleComponentStrings(requiredI18n: string[], element:
 
 export const angularValueAccessorBindings: ValueAccessorConfig[] = [
     {
-        elementSelectors: [ 'my-input[type=text]' ],
+        elementSelectors: ['my-input[type=text]'],
         event: 'myChange',
         targetAttr: 'value',
         type: 'text',
     },
     {
-        elementSelectors: [ 'my-input[type=number]' ],
+        elementSelectors: ['my-input[type=number]'],
         event: 'myChange',
         targetAttr: 'value',
         type: 'number',
     },
     {
-        elementSelectors: [ 'my-checkbox' ],
+        elementSelectors: ['my-checkbox'],
         event: 'myChange',
         targetAttr: 'checked',
         type: 'boolean',
     },
     {
-        elementSelectors: [ 'my-radio' ],
+        elementSelectors: ['my-radio'],
         event: 'mySelect',
         targetAttr: 'checked',
         type: 'radio',
     },
     {
-        elementSelectors: [ 'my-range', 'my-radio-group' ],
+        elementSelectors: ['my-range', 'my-radio-group'],
         event: 'myChange',
         targetAttr: 'value',
         type: 'select',
@@ -127,7 +128,18 @@ export const numeralFormat = (
     }
 };
 
-export const cls = (...classNames) =>
+export const getFormatedValues = (cell: Cell) => {
+    const { value, ...formatArgs } = cell;
+    if (typeof value === 'string') {
+        return value;
+    } else {
+        const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
+
+        return formattedValue;
+    }
+};
+
+export const cls = (...classNames: string[]) =>
     classNames
         .filter(className => className)
         .map(className => [].concat(className).join(' '))

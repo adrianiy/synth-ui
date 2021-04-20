@@ -1,5 +1,13 @@
-import { Component, getAssetPath, Prop, h, State, Element } from '@stencil/core';
-import { Brands, UIInterface, UserData, Screen, TimelineEvent } from 'glyph-core';
+import { Component, getAssetPath, Prop, h, State, Element, EventEmitter, Event } from '@stencil/core';
+import {
+    Brands,
+    UIInterface,
+    UserData,
+    Screen,
+    TimelineEvent,
+    UserMenuConfiguration,
+    SelectorOption,
+} from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
@@ -34,6 +42,8 @@ export class HeaderComponent {
     @Prop() userData: UserData;
     /** Apps data */
     @Prop() appData: Screen[];
+    /** User menu config */
+    @Prop() userMenuConfig: UserMenuConfiguration;
     /** Calendar events */
     @Prop() calendarEvents: TimelineEvent[];
     /** Events */
@@ -44,6 +54,12 @@ export class HeaderComponent {
     @Prop() i18n: { [key: string]: string } = {};
     /** Element reference */
     @Element() element: HTMLGlyphHeaderElement;
+    /** Language change event */
+    @Event() langChange: EventEmitter<SelectorOption>;
+    /** Theme change event */
+    @Event() themeChange: EventEmitter<SelectorOption>;
+    /** Decimals change event */
+    @Event() decimalsChange: EventEmitter<boolean>;
 
     /** show user menu flag */
     @State() showUserMenu: boolean = false;
@@ -111,6 +127,11 @@ export class HeaderComponent {
                         name={this.userData.name}
                         outsideCallback={() => (this.showUserMenu = false)}
                         i18n={this.i18n}
+                        interface={this.interface}
+                        {...this.userMenuConfig}
+                        onLangChange={({ detail }) => this.langChange.emit(detail)}
+                        onThemeChange={({ detail }) => this.themeChange.emit(detail)}
+                        onDecimalsChange={({ detail }) => this.decimalsChange.emit(detail)}
                     />
                 )}
             </Flex>

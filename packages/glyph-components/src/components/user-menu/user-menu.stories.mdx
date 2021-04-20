@@ -16,11 +16,12 @@ An user menu that allows users to do logout and modify some application settings
 - Language
 - Theme
 - Decimals
+- You can show a configuration button to implemt your own configuration modal
 
 ## Menu
 
 <Canvas>
-    <Story name="Menu" args={{ name: 'Test User' }}>
+    <Story name="Menu" args={{ name: 'Test User', '.customConfig': true, decimals: true, '.themes': themes, '.languages': languages }}>
         {Template.bind({})}
     </Story>
 </Canvas>
@@ -30,3 +31,5 @@ An user menu that allows users to do logout and modify some application settings
 
 <Description>{notes}</Description>
 
+export const themes =[ {name: 'white', value: 'white', active: true}, { name:'dark', value: 'dark', active: false } ];
+export const languages =[ {name: 'english', value: 'en', active: true}, { name:'spanish', value: 'es', active: false } ];

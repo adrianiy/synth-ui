@@ -34,5 +34,5 @@ Tab organizator.
 <Description>{notes}</Description>
 
 export const clickEvent = (event) => {
-    event.target.tabs = event.target.tabs.map(tab => ({ ...tab, active: tab.description === event.detail.description }))
+    console.log(event.detail.description);
 }
