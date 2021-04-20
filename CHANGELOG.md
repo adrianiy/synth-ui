@@ -1,3 +1,13 @@
+# [1.11.0](https://github.com/adrianiy/glyph-ui/compare/v1.10.0...v1.11.0) (2021-04-20)
+
+
+### Features
+
+* **components:** add application configuration in user menu ([7085e6a](https://github.com/adrianiy/glyph-ui/commit/7085e6a008f07d69171338c78ca8f36d76e05e5c))
+* **components:** add button group ([1eeba73](https://github.com/adrianiy/glyph-ui/commit/1eeba73d6cfad021d2756501f53ba7a8492e2553))
+* **components:** add Color decorator component ([ebbfe3f](https://github.com/adrianiy/glyph-ui/commit/ebbfe3f5639c97b8873adc81edcfaac21abc4b23))
+* **components:** add modal component ([193142a](https://github.com/adrianiy/glyph-ui/commit/193142af1a33b5525212a86df597d46f57a9d169))
+
 # [1.10.0](https://github.com/adrianiy/glyph-ui/compare/v1.9.1...v1.10.0) (2021-04-18)
 
 
