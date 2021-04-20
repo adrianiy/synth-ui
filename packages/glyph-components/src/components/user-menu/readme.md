@@ -7,18 +7,26 @@
 
 ## Properties
 
-| Property          | Attribute | Description                                                  | Type                         | Default     |
-| ----------------- | --------- | ------------------------------------------------------------ | ---------------------------- | ----------- |
-| `i18n`            | --        | Extra i18n translation object                                | `{ [key: string]: string; }` | `{}`        |
-| `name`            | `name`    | User name                                                    | `string`                     | `undefined` |
-| `outsideCallback` | --        | Event triggered when user clicks outside component container | `() => void`                 | `undefined` |
+| Property          | Attribute       | Description                                                  | Type                                        | Default               |
+| ----------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------- | --------------------- |
+| `customConfig`    | `custom-config` | Show custom config button                                    | `boolean`                                   | `undefined`           |
+| `decimals`        | `decimals`      | Show decimal config flag                                     | `boolean`                                   | `undefined`           |
+| `i18n`            | --              | Extra i18n translation object                                | `{ [key: string]: string; }`                | `{}`                  |
+| `interface`       | `interface`     | Interface type ['MODERN', 'CLASSIC']                         | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
+| `languages`       | --              | Application languages                                        | `SelectorOption[]`                          | `undefined`           |
+| `name`            | `name`          | User name                                                    | `string`                                    | `undefined`           |
+| `outsideCallback` | --              | Event triggered when user clicks outside component container | `() => void`                                | `undefined`           |
+| `themes`          | --              | Application themes                                           | `SelectorOption[]`                          | `undefined`           |
 
 
 ## Events
 
-| Event    | Description                                                   | Type               |
-| -------- | ------------------------------------------------------------- | ------------------ |
-| `logout` | Logout event, trigger an event identified with **logout** key | `CustomEvent<any>` |
+| Event            | Description                                                   | Type                          |
+| ---------------- | ------------------------------------------------------------- | ----------------------------- |
+| `decimalsChange` | Decimals change event                                         | `CustomEvent<boolean>`        |
+| `langChange`     | Language change event                                         | `CustomEvent<SelectorOption>` |
+| `logout`         | Logout event, trigger an event identified with **logout** key | `CustomEvent<any>`            |
+| `themeChange`    | Theme change event                                            | `CustomEvent<SelectorOption>` |
 
 
 ## Dependencies
@@ -27,9 +35,16 @@
 
  - [glyph-header](../header)
 
+### Depends on
+
+- [glyph-selector](../selector)
+- [glyph-toggler](../toggler)
+
 ### Graph
 ```mermaid
 graph TD;
+  glyph-user-menu --> glyph-selector
+  glyph-user-menu --> glyph-toggler
   glyph-header --> glyph-user-menu
   style glyph-user-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,5 +1,8 @@
 {
     "user": "usuario",
     "settings": "Configuración",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "pickTheme": "Elige un tema",
+    "pickLang": "Elige un idioma",
+    "showDecimals": "Mostrar decimales"
 }

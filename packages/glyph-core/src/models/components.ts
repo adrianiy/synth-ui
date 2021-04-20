@@ -21,3 +21,10 @@ export interface Button {
     active?: boolean;
     action: () => void;
 }
+
+export interface UserMenuConfiguration {
+    themes: SelectorOption[];
+    languages: SelectorOption[];
+    decimals: boolean;
+    customConfig: boolean;
+}

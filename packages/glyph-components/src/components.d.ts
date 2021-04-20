@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -226,6 +226,10 @@ export namespace Components {
           * User data
          */
         "userData": UserData;
+        /**
+          * User menu config
+         */
+        "userMenuConfig": UserMenuConfiguration;
     }
     interface GlyphList {
         /**
@@ -457,9 +461,25 @@ export namespace Components {
     }
     interface GlyphUserMenu {
         /**
+          * Show custom config button
+         */
+        "customConfig": boolean;
+        /**
+          * Show decimal config flag
+         */
+        "decimals": boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Application languages
+         */
+        "languages": SelectorOption[];
         /**
           * User name
          */
@@ -468,6 +488,10 @@ export namespace Components {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback": () => void;
+        /**
+          * Application themes
+         */
+        "themes": SelectorOption[];
     }
 }
 declare global {
@@ -854,6 +878,18 @@ declare namespace LocalJSX {
          */
         "notifications"?: boolean;
         /**
+          * Decimals change event
+         */
+        "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Language change event
+         */
+        "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
+          * Theme change event
+         */
+        "onThemeChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Search flag
          */
         "search"?: boolean;
@@ -869,6 +905,10 @@ declare namespace LocalJSX {
           * User data
          */
         "userData"?: UserData;
+        /**
+          * User menu config
+         */
+        "userMenuConfig"?: UserMenuConfiguration;
     }
     interface GlyphList {
         /**
@@ -1124,21 +1164,53 @@ declare namespace LocalJSX {
     }
     interface GlyphUserMenu {
         /**
+          * Show custom config button
+         */
+        "customConfig"?: boolean;
+        /**
+          * Show decimal config flag
+         */
+        "decimals"?: boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Application languages
+         */
+        "languages"?: SelectorOption[];
         /**
           * User name
          */
         "name"?: string;
         /**
+          * Decimals change event
+         */
+        "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Language change event
+         */
+        "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Logout event, trigger an event identified with **logout** key
          */
         "onLogout"?: (event: CustomEvent<any>) => void;
         /**
+          * Theme change event
+         */
+        "onThemeChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
           * Event triggered when user clicks outside component container
          */
         "outsideCallback"?: () => void;
+        /**
+          * Application themes
+         */
+        "themes"?: SelectorOption[];
     }
     interface IntrinsicElements {
         "glyph-app-menu": GlyphAppMenu;

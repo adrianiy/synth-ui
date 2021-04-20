@@ -25,6 +25,16 @@
 | `share`          | `share`         | Share menu flag                      | `boolean`                                                                                                                                                                  | `undefined`           |
 | `timeline`       | `timeline`      | Timeline flag                        | `boolean`                                                                                                                                                                  | `undefined`           |
 | `userData`       | --              | User data                            | `UserData`                                                                                                                                                                 | `undefined`           |
+| `userMenuConfig` | --              | User menu config                     | `UserMenuConfiguration`                                                                                                                                                    | `undefined`           |
+
+
+## Events
+
+| Event            | Description           | Type                          |
+| ---------------- | --------------------- | ----------------------------- |
+| `decimalsChange` | Decimals change event | `CustomEvent<boolean>`        |
+| `langChange`     | Language change event | `CustomEvent<SelectorOption>` |
+| `themeChange`    | Theme change event    | `CustomEvent<SelectorOption>` |
 
 
 ## Dependencies
@@ -47,6 +57,8 @@ graph TD;
   glyph-header --> glyph-timeline
   glyph-share-menu --> glyph-toggler
   glyph-share-menu --> glyph-toaster
+  glyph-user-menu --> glyph-selector
+  glyph-user-menu --> glyph-toggler
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs
