@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { FiltersConfig, UIInterface } from 'glyph-core';
+import { FiltersConfig, FilterSelectEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
@@ -16,7 +16,7 @@ export class ChipsBarComponent {
     /** Interface type [ 'MODERN', 'CLASSIC' ] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
-    @Event() filterSelect: EventEmitter<any>;
+    @Event() filterSelect: EventEmitter<FilterSelectEvent>;
     /** Filter clear event */
     @Event() filterClear: EventEmitter<any>;
     /** Filter multiselect event */
@@ -41,7 +41,8 @@ export class ChipsBarComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _handleOptionClick = (event: any) => {
+    private _handleOptionClick = (key: string) => (ev: CustomEvent<FilterSelectEvent>) => {
+        const event = { ...ev.detail, filterCode: key };
         this.filterSelect.emit(event);
     };
 
@@ -72,7 +73,7 @@ export class ChipsBarComponent {
                         {...this.filtersConfig[chip]}
                         interface={this.interface}
                         i18n={this._i18n}
-                        onOptionClickEvent={this._handleOptionClick}
+                        onOptionClickEvent={this._handleOptionClick(chip)}
                         onClearEvent={this._handleFilterClear}
                         onMultiSelectEvent={this._handleMultiSelect}
                     />

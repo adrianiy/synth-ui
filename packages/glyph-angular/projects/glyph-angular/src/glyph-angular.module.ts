@@ -26,6 +26,7 @@ import {
     GlyphButtonGroup,
 } from './glyph-directives/proxies';
 import { ListComponent } from './components/list/list.component';
+import { ChipsbarComponent } from './components/chipsbar/chipsbar.component';
 
 import { StoreModule } from './store.module';
 
@@ -56,6 +57,7 @@ const DECLARATIONS = [
     GlyphButtonGroup,
     // components
     ListComponent,
+    ChipsbarComponent,
 ];
 
 @NgModule({

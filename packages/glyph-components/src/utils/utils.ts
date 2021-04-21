@@ -129,11 +129,11 @@ export const numeralFormat = (
 };
 
 export const getFormatedValues = (cell: Cell) => {
-    const { value, ...formatArgs } = cell;
+    const { value, format, sign } = cell;
     if (typeof value === 'string') {
         return value;
     } else {
-        const formattedValue = numeralFormat(value, ...Object.values(formatArgs));
+        const formattedValue = numeralFormat(value, format, sign);
 
         return formattedValue;
     }

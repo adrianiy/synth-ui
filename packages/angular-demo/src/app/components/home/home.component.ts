@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
             title: () => 'amount',
             value: () => 'amount',
             format: () => '0,0',
-            decoration: () => 'green',
             sign: () => false,
         },
         {

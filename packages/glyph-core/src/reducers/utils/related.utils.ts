@@ -1,7 +1,7 @@
 import { FiltersConfig } from '../../models';
 import { FilterConfig } from '../../models';
 import { FilterOption, FilterOptionHeader, SelectedFilter } from '../../models/filters';
-import { selectOption } from './filter.utils';
+import { selectOptionAux } from './filter.utils';
 import { codeToArray } from '../../utils/utils';
 
 /**
@@ -16,7 +16,7 @@ export const checkRelations = (baseFilter: FilterConfig, filtersConfig: FiltersC
         const match = related?.includes(description);
 
         if (match) {
-            const options = filter.options.map(option => _setHideValue(option, selected, description));
+            const options = filter.options.map(option => _setHideValue(option, selected, filter));
             filtersConfig = { ...filtersConfig, [key]: { ...filter, options } };
         }
     });
@@ -39,7 +39,7 @@ export const setHideValue = (
     row: FilterOptionHeader,
     selected: SelectedFilter[],
     parentCode: any,
-    description: string
+    description: string,
 ) => {
     // save old hide value
     const visibilityWillBeChecked = selected.length && parentCode != null;
@@ -49,23 +49,24 @@ export const setHideValue = (
         ...row,
         // row will be hidden if some parent hide options are true
         hide: Object.keys(row['parents']).some(c => row[`${c}Hide`]),
-        [`${description}Hide`]: visibilityWillBeChecked && !parentCodeIsSelected
+        [`${description}Hide`]: visibilityWillBeChecked && !parentCodeIsSelected,
     };
 };
 
-const _setHideValue = (row: FilterOptionHeader, selected: SelectedFilter[], description: string, filter?: any) => {
+const _setHideValue = (row: FilterOptionHeader, selected: SelectedFilter[], filter?: any) => {
+    const { description } = filter;
     const oldHideValue = row['hide'] || false;
     const parentCode = row.parents[description] || row[description];
     const newRow = setHideValue(row, selected, parentCode, description);
 
     // if hide value changes filter should not be setted so we must unset it
     if (oldHideValue !== newRow['hide'] && newRow['active']) {
-        selectOption(row, false, filter, false);
+        filter = selectOptionAux(filter, row, false).filter;
     }
 
     // repeat process with children
     if (row['children']) {
-        row['children'].forEach(child => _setHideValue(child, selected, description, filter));
+        row['children'] = row['children'].map(child => _setHideValue(child, selected, filter));
     }
 
     return { ...row, ...newRow };
@@ -79,6 +80,6 @@ const _setBrandHideValue = (option: FilterOptionHeader, selectedBrands: any) => 
     return {
         ...option,
         display: someBrandIsIncluded,
-        children: children?.map((child: FilterOption) => _setBrandHideValue(child, selectedBrands))
+        children: children?.map((child: FilterOption) => _setBrandHideValue(child, selectedBrands)),
     };
 };

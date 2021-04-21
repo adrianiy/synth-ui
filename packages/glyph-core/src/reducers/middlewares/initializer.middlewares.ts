@@ -1,6 +1,6 @@
 import { FiltersState } from '../../models';
 import { parseHash, pipe } from '../../utils/utils';
-import { selectOption } from './../utils/filter.utils';
+import { selectOptionAux } from './../utils/filter.utils';
 import { applySharedDates, applySharedFilters } from './../utils/shared.utils';
 import { selectFilterOptions, updateOptionsWithEntities, updateSavedFilters } from './../utils/initializer.utils';
 import { FilterOptionHeader } from '../../models/filters';
@@ -19,7 +19,7 @@ export const loadSavedFilters = (state: FiltersState): FiltersState => {
     return {
         ...state,
         filtersConfig: savedFilters || filtersConfig,
-        savedFilters
+        savedFilters,
     };
 };
 
@@ -57,7 +57,7 @@ export const saveOriginalDescriptions = (state: FiltersState) => {
                 return {
                     ...option,
                     _originalDescription: description,
-                    children: children?.map(child => ({ ...child, _originalDescription: child.description }))
+                    children: children?.map(child => ({ ...child, _originalDescription: child.description })),
                 };
             });
 
@@ -67,7 +67,7 @@ export const saveOriginalDescriptions = (state: FiltersState) => {
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -90,7 +90,7 @@ export const selectRestrictedFilters = (state: FiltersState) => {
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -110,7 +110,7 @@ export const updateFiltersWithEntities = (filterEntities: any) => (state: Filter
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -127,7 +127,7 @@ export const filterUsableInScreenFilters = (state: FiltersState) => {
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -135,7 +135,7 @@ export const filterUsableInScreenFilters = (state: FiltersState) => {
  * Set default screen filters
  */
 export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState): FiltersState => {
-    const { initialFilters, filtersConfig } = state;
+    let { initialFilters, filtersConfig } = state;
 
     if (!initialFilters.length) {
         return state;
@@ -151,13 +151,17 @@ export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState
             const willApply = initial.default || applyNotDefault;
 
             if (initialOption && willApply) {
-                selectOption(initialOption, initial.default, filter, false);
+                const newFilterState = {
+                    ...filter,
+                    ...selectOptionAux(filter, initialOption, initial.default).filter,
+                };
+                filtersConfig = { ...filtersConfig, [initial.type]: newFilterState };
             }
         }
     });
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };

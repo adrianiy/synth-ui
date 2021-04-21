@@ -16,12 +16,12 @@
 
 ## Events
 
-| Event               | Description              | Type               |
-| ------------------- | ------------------------ | ------------------ |
-| `clearAll`          | Clear all filters event  | `CustomEvent<any>` |
-| `filterClear`       | Filter clear event       | `CustomEvent<any>` |
-| `filterMultiSelect` | Filter multiselect event | `CustomEvent<any>` |
-| `filterSelect`      | Filter select event      | `CustomEvent<any>` |
+| Event               | Description              | Type                             |
+| ------------------- | ------------------------ | -------------------------------- |
+| `clearAll`          | Clear all filters event  | `CustomEvent<any>`               |
+| `filterClear`       | Filter clear event       | `CustomEvent<any>`               |
+| `filterMultiSelect` | Filter multiselect event | `CustomEvent<any>`               |
+| `filterSelect`      | Filter select event      | `CustomEvent<FilterSelectEvent>` |
 
 
 ## Dependencies

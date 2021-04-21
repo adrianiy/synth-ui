@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { UIInterface, FilterOption, FilterOptionHeader } from 'glyph-core';
+import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
@@ -13,7 +13,7 @@ export class FilterOptionsComponent {
     /** Filter description */
     @Prop() description: string;
     /** Filter options */
-    @Prop() options: FilterOptionHeader[];
+    @Prop({ mutable: true }) options: FilterOptionHeader[];
     /** Multiselect flag. True if filter allows multiselect toggler */
     @Prop() haveMultiSelect: boolean = true;
     /** This flag is true if multiselect is active */
@@ -48,8 +48,15 @@ export class FilterOptionsComponent {
         await this._initializeVariables();
     }
 
-    private _optionClick = (option: FilterOptionHeader) => () => {
-        this.optionClickEvent(option);
+    private _optionClick = (option: FilterOptionHeader, index?: number) => () => {
+        if (option.header && index != undefined) {
+            this.options = Object.values({
+                ...this.options,
+                [index]: { ...option, expanded: !option.expanded },
+            }) as FilterOptionHeader[];
+        } else {
+            this.optionClickEvent(option);
+        }
     };
 
     private _multiSelectClick = () => {
@@ -61,14 +68,13 @@ export class FilterOptionsComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _inSearch({ description, children }: { description: string; children?: FilterOption[] }) {
+    private _inSearch(option: FilterOptionHeader) {
         if (this.searchValue) {
-            if (children) {
-                return children.some(child => this._inSearch(child));
+            if (option.header) {
+                return option.children.some(child => this._inSearch(child));
             }
-            return description.toLowerCase().includes(this.searchValue.toLowerCase());
+            return option.description.toLowerCase().includes(this.searchValue.toLowerCase());
         }
-
         return true;
     }
 
@@ -116,24 +122,29 @@ export class FilterOptionsComponent {
 
     private _renderOptionDescription = (description: string) => {
         if (this.searchValue) {
-            description = description.split(this.searchValue).join(`<b>${this.searchValue}</b>`);
+            description = description
+                .toLowerCase()
+                .split(this.searchValue.toLowerCase())
+                .join(`<b>${this.searchValue}</b>`);
         }
 
         return <span innerHTML={description} />;
     };
 
     private _renderOptionHeader = (option: FilterOptionHeader) => {
-        const childInDescription = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInDescription);
+        const childInSearch = option.children.some(child => this._inSearch(child));
+        const expanded = option.expanded || (this.searchValue && childInSearch);
 
         return (
-            <Flex className="children__container">
-                <span>
-                    {expanded ? '- ' : '+ '}
-                    {this._renderOptionDescription(option.description)}
-                </span>
-                {expanded && this._renderOptionsList(option.children)}
-            </Flex>
+            childInSearch && (
+                <Flex className="children__container">
+                    <Flex row>
+                        <span>{expanded ? '- ' : '+ '}</span>
+                        <span>{this._renderOptionDescription(option.description)}</span>
+                    </Flex>
+                    {expanded && this._renderOptionsList(option.children)}
+                </Flex>
+            )
         );
     };
 
@@ -142,12 +153,12 @@ export class FilterOptionsComponent {
             <ul>
                 {options
                     .filter(option => option.display && this._inSearch(option))
-                    .map(option => (
+                    .map((option, index) => (
                         <li>
                             <Flex
                                 row
                                 spaced
-                                onClick={this._optionClick(option)}
+                                onClick={this._optionClick(option, index)}
                                 className={cls('option', option.active && 'active')}
                             >
                                 {option.header

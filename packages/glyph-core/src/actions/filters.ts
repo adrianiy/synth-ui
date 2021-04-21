@@ -1,19 +1,17 @@
-import { FiltersConfig } from '../models';
+import { FiltersConfig, FilterSelectEvent } from '../models';
 import { filterActions } from '../reducers/filters';
 
 const setScreen = (screen: string) => ({
     type: filterActions.setScreen,
-    props: {
-        screen
-    }
+    screen,
 });
 
-const loadCacheKeys = (user, filterVersion) => ({
+const loadCacheKeys = (user, filterVersion: string) => ({
     type: filterActions.loadCacheKeys,
     props: {
         user,
-        filterVersion
-    }
+        filterVersion,
+    },
 });
 
 const initialize = (
@@ -21,7 +19,7 @@ const initialize = (
     screen: string,
     baseConfig: FiltersConfig,
     initialFilters: any,
-    translateFn: (arg0: string) => string
+    translateFn: (arg0: string) => string,
 ) => ({
     type: filterActions.initialize,
     props: {
@@ -29,44 +27,49 @@ const initialize = (
         screen,
         baseConfig,
         initialFilters,
-        translateFn
-    }
+        translateFn,
+    },
 });
 
 const translate = (translateFn: (arg0: string) => string) => ({
     type: filterActions.translate,
-    props: {
-        translateFn
-    }
+    translateFn,
 });
 
 const setFilters = (filtersConfig: any) => ({
     type: filterActions.setFilters,
-    filtersConfig
+    filtersConfig,
+});
+
+const selectOption = (selection: FilterSelectEvent) => ({
+    type: filterActions.selectOption,
+    selection,
 });
 
 const setDateRanges = (dateRanges: any) => ({
     type: filterActions.setDateRanges,
-    dateRanges
+    dateRanges,
 });
 
 const setDateConfig = (dateConfig: any) => ({
     type: filterActions.setDateConfig,
-    dateConfig
+    dateConfig,
 });
 
 const saveFilters = () => ({
-    type: filterActions.saveFilters
+    type: filterActions.saveFilters,
 });
 
 const actions = {
     setScreen,
     loadCacheKeys,
     initialize,
+    translate,
+    selectOption,
     setFilters,
     setDateRanges,
     setDateConfig,
-    saveFilters
+    saveFilters,
 };
 
 export default actions;

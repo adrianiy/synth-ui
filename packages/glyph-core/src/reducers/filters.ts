@@ -1,6 +1,6 @@
 import { pipe } from './../utils/utils';
 import { defaultConfig, initialState } from '../config/filters';
-import { FiltersConfig, FiltersState } from '../models/filters';
+import { FilterOptionHeader, FiltersConfig, FiltersState } from '../models/filters';
 import {
     loadSavedFilters,
     filterUsableInScreenFilters,
@@ -8,15 +8,16 @@ import {
     selectRestrictedFilters,
     setInitialFilter,
     recoverSharedFilters,
-    updateFiltersWithEntities
+    updateFiltersWithEntities,
 } from './middlewares/initializer.middlewares';
 import {
     cleanCacheIfVersionNotMatch,
     loadUserCacheAndVersion,
-    saveFiltersInStorage
+    saveFiltersInStorage,
 } from './middlewares/storage.middlewares';
-import { checkFilterRelations, translateDescriptions } from './middlewares/filter.middlewares';
+import { checkFilterRelations, selectOption, translateDescriptions } from './middlewares/filter.middlewares';
 import cloneDeep from 'lodash-es/cloneDeep';
+import { FilterSelectEvent } from 'src/models';
 
 export const filterActions = {
     setScreen: 'SETSCREEN',
@@ -24,9 +25,10 @@ export const filterActions = {
     initialize: 'INITIALIZE',
     translate: 'TRANSLATEFILTERS',
     setFilters: 'SETFILTERS',
+    selectOption: 'SELECTOPTION',
     setDateConfig: 'SETDATECONFIG',
     setDateRanges: 'SETDATERANGES',
-    saveFilters: 'SAVEFILTERS'
+    saveFilters: 'SAVEFILTERS',
 };
 
 // SETTERS
@@ -37,7 +39,7 @@ export const filterActions = {
 const setFilters = (state: FiltersState, filtersConfig: FiltersConfig): FiltersState => {
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -47,7 +49,7 @@ const setFilters = (state: FiltersState, filtersConfig: FiltersConfig): FiltersS
 const setDateConfig = (state: FiltersState, dateConfig: any): FiltersState => {
     return {
         ...state,
-        dateConfig: { ...defaultConfig, ...dateConfig }
+        dateConfig: { ...defaultConfig, ...dateConfig },
     };
 };
 
@@ -57,7 +59,7 @@ const setDateConfig = (state: FiltersState, dateConfig: any): FiltersState => {
 const setDateRanges = (state: FiltersState, dateRanges: any): FiltersState => {
     return {
         ...state,
-        dateRanges
+        dateRanges,
     };
 };
 
@@ -72,6 +74,18 @@ const saveFilters = (state: FiltersState): FiltersState => {
     }
 };
 
+/**
+ * Select and option and save results in ***localStorage***
+ */
+const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent): FiltersState => {
+    try {
+        return pipe(state)(selectOption(selection), saveFiltersInStorage);
+    } catch (err) {
+        console.error(err);
+        return state;
+    }
+};
+
 // INIT METHODS
 
 /**
@@ -80,7 +94,7 @@ const saveFilters = (state: FiltersState): FiltersState => {
  */
 const initializeFilters = (
     state: FiltersState,
-    { filterEntities, screen, baseConfig, initialFilters, translateFn }: any
+    { filterEntities, screen, baseConfig, initialFilters, translateFn }: any,
 ) => {
     try {
         return pipe({
@@ -90,7 +104,7 @@ const initializeFilters = (
             baseFilters: cloneDeep(baseConfig),
             initialFilters,
             restrictedFilters: [],
-            restrictedParents: {}
+            restrictedParents: {},
         })(
             loadSavedFilters,
             filterUsableInScreenFilters,
@@ -102,7 +116,7 @@ const initializeFilters = (
             setInitialFilter(),
             translateDescriptions(translateFn),
             recoverSharedFilters,
-            saveFiltersInStorage
+            saveFiltersInStorage,
         );
     } catch (err) {
         console.error(err);
@@ -134,7 +148,7 @@ const loadCacheKeys = (state: FiltersState, { user, filterVersion }) => {
 const setScreen = (state: FiltersState, screen: string) => {
     return {
         ...state,
-        screen
+        screen,
     };
 };
 
@@ -150,6 +164,8 @@ const filterReducer = (state = initialState, action: any) => {
             return translateFilters(state, action.translateFn);
         case filterActions.setFilters:
             return setFilters(state, action.filtersConfig);
+        case filterActions.selectOption:
+            return selectOptionAndSave(state, action.selection);
         case filterActions.setDateRanges:
             return setDateRanges(state, action.dateRanges);
         case filterActions.setDateRanges:

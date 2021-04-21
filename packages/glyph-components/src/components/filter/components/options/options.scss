@@ -79,8 +79,16 @@
         }
         .option {
             width: 100%;
-            text-transform: none;
             cursor: pointer;
+
+            span {
+                text-transform: lowercase;
+                margin-right: var(--gui-padding--xxxs);
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
 
             em {
                 width: 13px;

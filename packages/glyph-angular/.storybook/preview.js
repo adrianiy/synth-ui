@@ -15,4 +15,11 @@ export const parameters = {
             order: [ 'Introduction', 'Components', 'Services' ],
         },
     },
+    themes: {
+        default: 'light',
+        list: [
+            { name: 'light', class: [ 'light', 'light-mode' ] },
+            { name: 'dark', class: [ 'dark', 'dark-mode' ] },
+        ],
+    },
 };

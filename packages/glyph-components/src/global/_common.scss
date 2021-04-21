@@ -1,5 +1,8 @@
-* {
+body {
     color: var(--gui-color);
+}
+::-webkit-scrollbar {
+    display: none;
 }
 h1 {
     font-size: var(--gui-font--xl);

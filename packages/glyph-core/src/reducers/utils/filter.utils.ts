@@ -2,12 +2,12 @@
 
 import { FilterOption } from '../../models';
 import { FilterConfig, FilterOptionHeader, SelectedFilter } from '../../models/filters';
-import { checkStrictIn, codeToArray } from '../../utils/utils';
+import { checkStrictIn } from '../../utils/utils';
 
-export const selectOptionAux = (filter: FilterConfig, option: FilterOptionHeader, defaultOption?: undefined) => {
+export const selectOptionAux = (filter: FilterConfig, option: FilterOptionHeader, defaultOption?: boolean) => {
     return {
         filter: addNewFilter(filter, option, defaultOption),
-        option: { ...option, active: true }
+        option: { ...option, active: true },
     };
 };
 
@@ -25,14 +25,14 @@ export const cleanSelected = (filters: any) => {
             return {
                 ...option,
                 children,
-                selected: []
+                selected: [],
             };
         });
 
         return {
             ...filter,
             selected: [],
-            options
+            options,
         };
     });
 };
@@ -59,7 +59,7 @@ const _selectDate = (filter: FilterConfig, selected: SelectedFilter[]) => {
         ...filter,
         selected,
         compDates: undefined,
-        compType: 'commercial'
+        compType: 'commercial',
     };
 };
 
@@ -70,7 +70,7 @@ const _selectFilter = (filter: FilterConfig, option: FilterOptionHeader, selecte
         options = options.map((_option: FilterOptionHeader) => {
             if (_option.header) {
                 _option.children.forEach(
-                    (child: FilterOption) => (child.active = checkStrictIn(child.code, option.code))
+                    (child: FilterOption) => (child.active = checkStrictIn(child.code, option.code)),
                 );
             } else {
                 _option.active = checkStrictIn(_option.code, option.code);
@@ -84,7 +84,7 @@ const _selectFilter = (filter: FilterConfig, option: FilterOptionHeader, selecte
     return {
         ...filter,
         options,
-        selected
+        selected,
     };
 };
 
@@ -93,7 +93,7 @@ const _applyMultiSelectFilter = (filter: FilterConfig, option: FilterOptionHeade
 
     if (!option.active || option.changeOperationValue) {
         newSelected = newSelected.filter(
-            (selectedOption: SelectedFilter) => !checkStrictIn(selectedOption.option.code, selected[0].option.code)
+            (selectedOption: SelectedFilter) => !checkStrictIn(selectedOption.option.code, selected[0].option.code),
         );
     }
     if (option.active) {
@@ -102,7 +102,7 @@ const _applyMultiSelectFilter = (filter: FilterConfig, option: FilterOptionHeade
 
     return {
         ...filter,
-        selected: newSelected
+        selected: newSelected,
     };
 };
 
@@ -133,11 +133,6 @@ export const cleanFiltersCache = (filtersVersion: string) => {
             localStorage.removeItem(k);
         });
     localStorage.setItem('Drive.Filters.Version', filtersVersion);
-};
-
-export const selectOption = (option, defaultOpt, parentFilter?, triggerUpdate = true) => {
-    // eslint-disable-next-line no-console
-    console.log(`select option ${option}`);
 };
 
 export const translateDescription = (option: FilterOption, translateFn: (arg0: string) => string) => {

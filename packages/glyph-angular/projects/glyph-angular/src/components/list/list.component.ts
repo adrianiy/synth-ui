@@ -12,7 +12,7 @@ export class ListComponent implements OnChanges {
     @Input() title: string;
     /** Component data, this is going to be parsed internally */
     @Input() data: Array<any>;
-    /** Active kpi. it's going to be used to filter list data */
+    /** Active kpi. it is going to be used to filter list data */
     @Input() activeKpi: string;
     /** List row limit */
     @Input() limit: number;

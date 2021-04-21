@@ -1,6 +1,21 @@
-import { FilterConfig, FiltersState } from '../../models';
-import { translateDescription } from '../utils/filter.utils';
+import { FilterConfig, FilterSelectEvent, FiltersState } from '../../models';
+import { addNewFilter, selectOptionAux, translateDescription } from '../utils/filter.utils';
 import { checkRelations, filterRestrictedOptions } from '../utils/related.utils';
+
+export const selectOption = (selected: FilterSelectEvent) => (state: FiltersState) => {
+    const { filterCode, option, defaultOption } = selected;
+    const { filtersConfig } = state;
+
+    option.active = !option.active;
+
+    const { filter } = selectOptionAux(filtersConfig[filterCode], option, defaultOption);
+    console.log(filter, option);
+
+    return {
+        ...state,
+        filtersConfig: { ...filtersConfig, [filterCode]: filter },
+    };
+};
 
 export const checkFilterRelations = (selectedFilter?: FilterConfig) => (state: FiltersState): FiltersState => {
     let { filtersConfig, restrictedParents } = state;
@@ -21,7 +36,7 @@ export const checkFilterRelations = (selectedFilter?: FilterConfig) => (state: F
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -41,8 +56,8 @@ export const translateDescriptions = (translateFn: (arg0: string) => string) => 
                     description: translateDescription(option, translateFn),
                     children: children?.map(child => ({
                         ...child,
-                        description: translateDescription(child, translateFn)
-                    }))
+                        description: translateDescription(child, translateFn),
+                    })),
                 };
             });
 
@@ -52,6 +67,6 @@ export const translateDescriptions = (translateFn: (arg0: string) => string) => 
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
