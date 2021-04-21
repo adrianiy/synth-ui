@@ -54,7 +54,6 @@ export class GlyphFilterService {
      * @param selection Selection data
      */
     selectOption(selection: FilterSelectEvent) {
-        console.log(selection);
         this.select(selection);
     }
 }

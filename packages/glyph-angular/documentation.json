@@ -24,7 +24,7 @@
     "injectables": [
         {
             "name": "GlyphFilterService",
-            "id": "injectable-GlyphFilterService-4b2ce5f13c209b0b8d9a2b744c9cefc6",
+            "id": "injectable-GlyphFilterService-03b0082492adc613efe2d25d9692cefd",
             "file": "projects/glyph-angular/src/services/filters/filters.service.ts",
             "properties": [
                 {
@@ -38,6 +38,19 @@
                         {
                             "name": "dispatch",
                             "stringifiedArguments": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "filtersConfig",
+                    "type": "Observable<FiltersConfig>",
+                    "optional": false,
+                    "description": "<p>filters state </p>\n",
+                    "line": 20,
+                    "decorators": [
+                        {
+                            "name": "select",
+                            "stringifiedArguments": "undefined"
                         }
                     ]
                 },
@@ -98,21 +111,21 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 33,
                     "description": "<p>Initialize filters state.\nGet filters from localStorage and merge them with <strong>baseConfig</strong> and <strong>filterEntities</strong>.</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 975,
-                                "end": 989,
+                                "pos": 1090,
+                                "end": 1104,
                                 "flags": 0,
                                 "escapedText": "filterEntities"
                             },
                             "type": "any",
                             "defaultValue": "{}",
                             "tagName": {
-                                "pos": 969,
-                                "end": 974,
+                                "pos": 1084,
+                                "end": 1089,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -120,16 +133,16 @@
                         },
                         {
                             "name": {
-                                "pos": 1037,
-                                "end": 1043,
+                                "pos": 1152,
+                                "end": 1158,
                                 "flags": 0,
                                 "escapedText": "screen"
                             },
                             "type": "string",
                             "defaultValue": "''",
                             "tagName": {
-                                "pos": 1031,
-                                "end": 1036,
+                                "pos": 1146,
+                                "end": 1151,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -137,16 +150,16 @@
                         },
                         {
                             "name": {
-                                "pos": 1081,
-                                "end": 1091,
+                                "pos": 1196,
+                                "end": 1206,
                                 "flags": 0,
                                 "escapedText": "baseConfig"
                             },
                             "type": "FiltersConfig",
                             "defaultValue": "{}",
                             "tagName": {
-                                "pos": 1075,
-                                "end": 1080,
+                                "pos": 1190,
+                                "end": 1195,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -154,16 +167,16 @@
                         },
                         {
                             "name": {
-                                "pos": 1130,
-                                "end": 1144,
+                                "pos": 1245,
+                                "end": 1259,
                                 "flags": 0,
                                 "escapedText": "initialFilters"
                             },
                             "type": "any",
                             "defaultValue": "{}",
                             "tagName": {
-                                "pos": 1124,
-                                "end": 1129,
+                                "pos": 1239,
+                                "end": 1244,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -182,20 +195,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 56,
                     "description": "<p>Apply filter selction, toggles option <code>active</code> status and add option to selected array</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1813,
-                                "end": 1822,
+                                "pos": 1928,
+                                "end": 1937,
                                 "flags": 0,
                                 "escapedText": "selection"
                             },
                             "type": "FilterSelectEvent",
                             "tagName": {
-                                "pos": 1807,
-                                "end": 1812,
+                                "pos": 1922,
+                                "end": 1927,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -214,20 +227,20 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 47,
                     "description": "<p>Change screen in filters state</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1570,
-                                "end": 1576,
+                                "pos": 1685,
+                                "end": 1691,
                                 "flags": 0,
                                 "escapedText": "screen"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 1564,
-                                "end": 1569,
+                                "pos": 1679,
+                                "end": 1684,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -237,7 +250,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { dispatch } from '@angular-redux/store';\r\nimport { FiltersConfig, FilterSelectEvent } from 'glyph-core/dist/models';\r\nimport { actions } from 'glyph-core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\n\r\n@Injectable()\r\nexport class GlyphFilterService {\r\n    /**\r\n     * Action to change screen name. This will be used in multi-screen\r\n     * aps to set filter visibility, and get correct query filters\r\n     */\r\n    @dispatch() changeScreen = actions.filters.setScreen;\r\n    /** Action to trigger filter initialization */\r\n    @dispatch() initialize = actions.filters.initialize;\r\n    /** Action to trigger filter selection */\r\n    @dispatch() select = actions.filters.selectOption;\r\n\r\n    constructor(protected _translate: TranslateService) {}\r\n\r\n    /**\r\n     * Initialize filters state.\r\n     * Get filters from localStorage and merge them with **baseConfig** and **filterEntities**.\r\n     *\r\n     * @param filterEntities set of filters received from DB\r\n     * @param screen current active screen\r\n     * @param baseConfig basic filter structure\r\n     * @param initialFilters which filters should be active on first load\r\n     */\r\n    initializeFilters(\r\n        filterEntities: any = {},\r\n        screen: string = '',\r\n        baseConfig: FiltersConfig = {},\r\n        initialFilters: any = {},\r\n    ) {\r\n        this.initialize(filterEntities, screen, baseConfig, initialFilters, desc => this._translate.instant(desc));\r\n    }\r\n\r\n    /**\r\n     * Change screen in filters state\r\n     *\r\n     * @param screen current active screen\r\n     */\r\n    setScreen(screen: string) {\r\n        this.changeScreen(screen);\r\n    }\r\n\r\n    /**\r\n     * Apply filter selction, toggles option `active` status and add option to selected array\r\n     *\r\n     * @param selection Selection data\r\n     */\r\n    selectOption(selection: FilterSelectEvent) {\r\n        console.log(selection);\r\n        this.select(selection);\r\n    }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { dispatch, select } from '@angular-redux/store';\r\nimport { actions, FiltersConfig, FilterSelectEvent } from 'glyph-core';\r\nimport { TranslateService } from '@ngx-translate/core';\r\nimport { Observable } from 'rxjs';\r\n\r\n@Injectable()\r\nexport class GlyphFilterService {\r\n    /**\r\n     * Action to change screen name. This will be used in multi-screen\r\n     * aps to set filter visibility, and get correct query filters\r\n     */\r\n    @dispatch() changeScreen = actions.filters.setScreen;\r\n    /** Action to trigger filter initialization */\r\n    @dispatch() initialize = actions.filters.initialize;\r\n    /** Action to trigger filter selection */\r\n    @dispatch() select = actions.filters.selectOption;\r\n\r\n    /** filters state */\r\n    @select(['filters', 'filtersConfig']) filtersConfig: Observable<FiltersConfig>;\r\n\r\n    constructor(protected _translate: TranslateService) {}\r\n\r\n    /**\r\n     * Initialize filters state.\r\n     * Get filters from localStorage and merge them with **baseConfig** and **filterEntities**.\r\n     *\r\n     * @param filterEntities set of filters received from DB\r\n     * @param screen current active screen\r\n     * @param baseConfig basic filter structure\r\n     * @param initialFilters which filters should be active on first load\r\n     */\r\n    initializeFilters(\r\n        filterEntities: any = {},\r\n        screen: string = '',\r\n        baseConfig: FiltersConfig = {},\r\n        initialFilters: any = {},\r\n    ) {\r\n        this.initialize(filterEntities, screen, baseConfig, initialFilters, desc => this._translate.instant(desc));\r\n    }\r\n\r\n    /**\r\n     * Change screen in filters state\r\n     *\r\n     * @param screen current active screen\r\n     */\r\n    setScreen(screen: string) {\r\n        this.changeScreen(screen);\r\n    }\r\n\r\n    /**\r\n     * Apply filter selction, toggles option `active` status and add option to selected array\r\n     *\r\n     * @param selection Selection data\r\n     */\r\n    selectOption(selection: FilterSelectEvent) {\r\n        this.select(selection);\r\n    }\r\n}\r\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -247,7 +260,7 @@
                         "type": "TranslateService"
                     }
                 ],
-                "line": 17,
+                "line": 20,
                 "jsdoctags": [
                     {
                         "name": "_translate",
@@ -849,9 +862,8 @@
     "components": [
         {
             "name": "ChipsbarComponent",
-            "id": "component-ChipsbarComponent-194f4fa534b6bd4596eb05010be8b627",
+            "id": "component-ChipsbarComponent-d9605bd5e5ee5b171e1d27b92eeb821b",
             "file": "projects/glyph-angular/src/components/chipsbar/chipsbar.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -868,7 +880,7 @@
                 {
                     "name": "interface",
                     "description": "<p>Filters interface <em>MODERN</em> | <em>CLASSIC</em> </p>\n",
-                    "line": 14,
+                    "line": 11,
                     "type": "UIInterface"
                 }
             ],
@@ -876,16 +888,11 @@
             "propertiesClass": [
                 {
                     "name": "filtersConfig",
-                    "type": "Observable<FiltersConfig>",
+                    "defaultValue": "{}",
+                    "type": "object",
                     "optional": false,
-                    "description": "<p>filters state </p>\n",
-                    "line": 17,
-                    "decorators": [
-                        {
-                            "name": "select",
-                            "stringifiedArguments": "undefined"
-                        }
-                    ]
+                    "description": "",
+                    "line": 13
                 }
             ],
             "methodsClass": [
@@ -900,7 +907,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 17,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -917,7 +924,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { select } from '@angular-redux/store';\r\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\r\nimport { FiltersConfig, FilterSelectEvent, UIInterface } from 'glyph-core';\r\nimport { Observable } from 'rxjs';\r\nimport { GlyphFilterService } from '../../services/services.module';\r\n\r\n@Component({\r\n    selector: 'glyph-ng-chipsbar',\r\n    templateUrl: './chipsbar.component.html',\r\n    changeDetection: ChangeDetectionStrategy.OnPush,\r\n})\r\nexport class ChipsbarComponent {\r\n    /** Filters interface *MODERN* | *CLASSIC* */\r\n    @Input() interface: UIInterface;\r\n\r\n    /** filters state */\r\n    @select(['filters', 'filtersConfig']) filtersConfig: Observable<FiltersConfig>;\r\n\r\n    constructor(private _filterService: GlyphFilterService) {}\r\n\r\n    onFilterSelect(event: CustomEvent<FilterSelectEvent>) {\r\n        this._filterService.selectOption(event.detail);\r\n    }\r\n}\r\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { FiltersConfig, FilterSelectEvent, UIInterface } from 'glyph-core';\r\nimport { GlyphFilterService } from '../../services/services.module';\r\n\r\n@Component({\r\n    selector: 'glyph-ng-chipsbar',\r\n    templateUrl: './chipsbar.component.html',\r\n})\r\nexport class ChipsbarComponent {\r\n    /** Filters interface *MODERN* | *CLASSIC* */\r\n    @Input() interface: UIInterface;\r\n\r\n    filtersConfig = {};\r\n\r\n    constructor(private _filterService: GlyphFilterService) {}\r\n\r\n    onFilterSelect(event: CustomEvent<FilterSelectEvent>) {\r\n        this._filterService.selectOption(event.detail);\r\n    }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -930,7 +937,7 @@
                         "type": "GlyphFilterService"
                     }
                 ],
-                "line": 17,
+                "line": 13,
                 "jsdoctags": [
                     {
                         "name": "_filterService",
@@ -941,7 +948,7 @@
                     }
                 ]
             },
-            "templateData": "<glyph-chipsbar \r\n    [filtersConfig]=\"filtersConfig | async\" \r\n    [interface]=\"interface\"\r\n    (filterSelect)=\"onFilterSelect($event)\"\r\n></glyph-chipsbar>\r\n"
+            "templateData": "<glyph-chipsbar \r\n    [filtersConfig]=\"filtersConfig\" \r\n    [interface]=\"interface\"\r\n    (filterSelect)=\"onFilterSelect($event)\"\r\n></glyph-chipsbar>\r\n"
         },
         {
             "name": "GlyphAppMenu",
@@ -3616,7 +3623,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 12,
+        "count": 11,
         "status": "low",
         "files": [
             {
@@ -3643,9 +3650,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ChipsbarComponent",
-                "coveragePercent": 40,
-                "coverageCount": "2/5",
-                "status": "medium"
+                "coveragePercent": 20,
+                "coverageCount": "1/5",
+                "status": "low"
             },
             {
                 "filePath": "projects/glyph-angular/src/components/list/list.component.stories.ts",
@@ -4062,9 +4069,9 @@
                 "type": "injectable",
                 "linktype": "injectable",
                 "name": "GlyphFilterService",
-                "coveragePercent": 75,
-                "coverageCount": "6/8",
-                "status": "good"
+                "coveragePercent": 77,
+                "coverageCount": "7/9",
+                "status": "very-good"
             },
             {
                 "filePath": "projects/glyph-angular/src/services/implementations.interface.ts",

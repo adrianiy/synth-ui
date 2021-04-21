@@ -29,6 +29,7 @@ import { ListComponent } from './components/list/list.component';
 import { ChipsbarComponent } from './components/chipsbar/chipsbar.component';
 
 import { StoreModule } from './store.module';
+import { CommonModule } from '@angular/common';
 
 defineCustomElements(window);
 
@@ -63,7 +64,7 @@ const DECLARATIONS = [
 @NgModule({
     declarations: DECLARATIONS,
     exports: DECLARATIONS,
-    imports: [StoreModule, TranslateModule],
+    imports: [CommonModule, StoreModule, TranslateModule],
     providers: [],
 })
 export class GlyphComponentsModule {}

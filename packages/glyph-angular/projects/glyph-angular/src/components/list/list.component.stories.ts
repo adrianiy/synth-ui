@@ -79,6 +79,7 @@ export default {
     ],
     parameters: {
         docs: {
+            inlineStories: true,
             description: {
                 component: `
 Paginated list component.

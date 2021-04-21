@@ -1,5 +1,5 @@
 <glyph-chipsbar 
-    [filtersConfig]="filtersConfig" 
+    [filtersConfig]="filtersConfig | async" 
     [interface]="interface"
     (filterSelect)="onFilterSelect($event)"
 ></glyph-chipsbar>
