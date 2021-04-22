@@ -1,13 +1,13 @@
 import { Meta, ArgsTable } from '@storybook/addon-docs/blocks';
-import { GlyphFilterService } from './filters.service.ts'
+import { FilterService } from './filters.service.ts'
 
 <Meta
     title="Services/Filters"
-    component={ GlyphFilterService }
+    component={ FitlerService }
 />
 
 # Filters Services
-##### GlyphFilterService
+##### FilterService
 
 Injectable service that manages the core of Drive applications, **FILTERS**.
 
@@ -21,4 +21,4 @@ All logic implementation will lay on *glyph-core* vanilla javascript functions.
 For this particular case we'll use a ***redux-like*** implementation, so this is a wrapper to
 adapt Redux to Angular injectable services.
 
-<ArgsTable of={GlyphFilterService}/>
+<ArgsTable of={FilterService}/>

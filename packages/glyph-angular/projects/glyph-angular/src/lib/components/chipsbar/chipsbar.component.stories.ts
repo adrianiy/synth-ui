@@ -2,15 +2,17 @@ import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
-import { GlyphComponentsModule } from '../../glyph-angular.module';
 import { FiltersConfig } from '../../helpers/configs';
 import { TranslateServiceStub } from '../../helpers/fakers';
 import { FilterEntities } from '../../helpers/filters';
-import { GlyphFilterService } from '../../services/services.module';
 import { ChipsbarComponent } from './chipsbar.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FilterService } from '../../services';
+import { GlyphAngularComponents } from '../../glyph-angular.module';
+import { GlyphStoreModule } from '../../glyph-store.module';
+import { GlyphAngularServices } from '../../glyph-services.module';
 
-function initFilterService(filtersService: GlyphFilterService) {
+function initFilterService(filtersService: FilterService) {
     return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, {});
 }
 
@@ -19,18 +21,20 @@ export default {
     component: ChipsbarComponent,
     decorators: [
         moduleMetadata({
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
             providers: [
-                GlyphFilterService,
+                FilterService,
                 {
                     provide: APP_INITIALIZER,
                     useFactory: initFilterService,
                     multi: true,
-                    deps: [GlyphFilterService],
+                    deps: [ FilterService ],
                 },
             ],
             imports: [
-                GlyphComponentsModule,
+                GlyphAngularComponents,
+                GlyphAngularServices,
+                GlyphStoreModule,
                 RouterTestingModule,
                 TranslateModule.forRoot({
                     loader: { provide: TranslateLoader, useClass: TranslateServiceStub },
@@ -53,13 +57,13 @@ The events triggered in web-component will execute a state update.
         },
     },
     argTypes: {
-        interface: { options: ['modern', 'classic'] },
+        interface: { options: [ 'modern', 'classic' ] },
     },
 } as Meta;
 
 export const Chipsbar: Story<ChipsbarComponent> = args => ({
     props: args,
-    template: `<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>`,
+    template: '<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>',
 });
 
 Chipsbar.args = { interface: UIInterface.classic };

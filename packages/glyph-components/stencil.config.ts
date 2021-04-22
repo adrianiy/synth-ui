@@ -16,12 +16,12 @@ export const config: Config = {
     outputTargets: [
         angularOutputTarget({
             componentCorePackage: 'glyph-components',
-            directivesProxyFile: '../glyph-angular/projects/glyph-angular/src/glyph-directives/proxies.ts',
+            directivesProxyFile: '../glyph-angular-new/projects/glyph-angular/src/lib//glyph-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
         angularOutputTargetFix({
             directivesUtilsFile:
-                '../glyph-angular/projects/glyph-angular/src/glyph-directives/angular-component-lib/utils.ts',
+                '../glyph-angular-new/projects/glyph-angular/src/lib/glyph-directives/angular-component-lib/utils.ts',
         }),
         reactOutputTarget({
             componentCorePackage: 'glyph-components',

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
+import { GlyphAngularComponents, GlyphAngularServices, GlyphStoreModule } from 'glyph-angular';
 import { HomeComponent } from './components/home/home.component';
 import { fakeBackendProvider } from '../helpers/fake-backend';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -26,8 +26,9 @@ export function createTranslateLoader(http: HttpClient) {
         HttpClientModule,
         BrowserModule,
         AppRoutingModule,
-        GlyphComponentsModule,
-        GlyphServicesModule.forRoot(),
+        GlyphAngularComponents,
+        GlyphStoreModule,
+        GlyphAngularServices.forRoot(),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FiltersConfig, FilterSelectEvent, UIInterface } from 'glyph-core';
 import { Observable } from 'rxjs';
-import { GlyphFilterService } from '../../services/services.module';
+import { FilterService } from '../../services';
 
 @Component({
     selector: 'glyph-ng-chipsbar',
@@ -13,8 +13,8 @@ export class ChipsbarComponent {
 
     filtersConfig: Observable<FiltersConfig>;
 
-    constructor(private _filterService: GlyphFilterService) {
-        this.filtersConfig = this._filterService.filtersConfig;
+    constructor(private _filterService: FilterService) {
+        this.filtersConfig = _filterService.filtersConfig;
     }
 
     onFilterSelect(event: CustomEvent<FilterSelectEvent>) {

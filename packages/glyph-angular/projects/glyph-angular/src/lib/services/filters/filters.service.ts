@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class GlyphFilterService {
+export class FilterService {
     /**
      * Action to change screen name. This will be used in multi-screen
      * aps to set filter visibility, and get correct query filters
@@ -17,7 +17,7 @@ export class GlyphFilterService {
     @dispatch() select = actions.filters.selectOption;
 
     /** filters state */
-    @select(['filters', 'filtersConfig']) filtersConfig: Observable<FiltersConfig>;
+    @select([ 'filters', 'filtersConfig' ]) filtersConfig: Observable<FiltersConfig>;
 
     constructor(protected _translate: TranslateService) {}
 

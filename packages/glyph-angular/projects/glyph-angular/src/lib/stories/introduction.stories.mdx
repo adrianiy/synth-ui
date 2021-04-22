@@ -20,14 +20,14 @@ You can import Services module too, this will inject some common services in roo
 This needs an `environment` variable as first argument, this will be used by services to get environment app variables.
 
 ```javascript
-import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
+import { GlyphAngularComponents, GlyphAngularServices } from 'glyph-angular';
 
 @NgModule({
     declarations: [ ... ],
     imports: [
         ...
-        GlyphComponentsModule,
-        GlyphServicesModule.forRoot(environment),
+        GlyphAngularComponents,
+        GlyphAngularServices.forRoot(),
         ...
     ],
     providers: [ ... ],
@@ -38,16 +38,16 @@ export class AppModule {}
 
 ### Custom services implementations
 
-The second argument of `GlyphServicesModule.forRoot()` is an object of classes to inject your custom services implementations in root.
+The second argument of `GlyphAngularServices.forRoot()` is an object of classes to inject your custom services implementations in root.
 
 You can create a custom class that extends FilterService
 
 ```javascript
 import { Injectable } from '@angular/core';
-import { GlyphFilterService } from 'glyph-angular'
+import { FilterService } from 'glyph-angular'
 
 @Injectable()
-export class CustomFiltersServie extends GlyphFilterService {
+export class CustomFiltersServie extends FilterService {
   constructor(...) {
     super(...)
   }
@@ -74,7 +74,7 @@ import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
     declarations: [ ... ],
     imports: [
         ...
-        GlyphServicesModule.forRoot(environment, { glyphFilterService: CustomFiltersServie }),
+        GlyphAngularServices.forRoot({ glyphFilterService: CustomFiltersServie }),
         ...
     ],
     providers: [ ... ],

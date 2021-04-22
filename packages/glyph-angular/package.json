@@ -11,22 +11,16 @@
     "start:docs": "npm-run-all --parallel docs:json docs:base",
     "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../docs/angular && npm run creevey",
     "creevey": "creevey --extract && move-file stories.json ./../../docs/angular/stories.json",
-    "lint": "eslint --ext ts,html --fix",
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+    "lint": "eslint --ext ts,html --fix"
   },
-  "description": "Wrapper of web components for angular",
   "private": true,
   "main": "dist/glyph-angular/bundles/glyph-angular.umd.js",
-  "module_ivy_ngcc": "__ivy_ngcc__/dist/glyph-angular/fesm2015/glyph-angular.js",
   "module": "dist/glyph-angular/fesm2015/glyph-angular.js",
-  "es2015_ivy_ngcc": "__ivy_ngcc__/dist/glyph-angular/fesm2015/glyph-angular.js",
   "es2015": "dist/glyph-angular/fesm2015/glyph-angular.js",
   "esm2015": "dist/glyph-angular/esm2015/glyph-angular.js",
-  "fesm2015_ivy_ngcc": "__ivy_ngcc__/dist/glyph-angular/fesm2015/glyph-angular.js",
   "fesm2015": "dist/glyph-angular/fesm2015/glyph-angular.js",
   "typings": "dist/glyph-angular/glyph-angular.d.ts",
   "dependencies": {
-    "@angular-eslint/eslint-plugin-template": "^2.0.2",
     "@angular-redux/form": "^10.0.0",
     "@angular-redux/router": "^10.0.0",
     "@angular-redux/store": "^9.0.0",
@@ -43,19 +37,17 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@storybook/addon-postcss": "^2.0.0",
     "@webcomponents/custom-elements": "^1.4.3",
-    "npm-run-all": "^4.1.5",
+    "glyph-components": "*",
+    "glyph-core": "*",
     "redux": "4.0.1",
     "redux-logger": "^3.0.6",
     "redux-observable": "^1.2.0",
     "rxjs": "~6.6.0",
-    "glyph-components": "*",
-    "glyph-core": "*",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",
-    "@angular-eslint/eslint-plugin": "^2.0.2",
     "@angular/cli": "~10.1.3",
     "@angular/compiler-cli": "~10.1.3",
     "@compodoc/compodoc": "^1.1.11",
@@ -64,10 +56,9 @@
     "@storybook/addon-links": "^6.2.0-rc.11",
     "@storybook/addon-viewport": "^6.1.21",
     "@storybook/angular": "^6.2.0-rc.11",
+    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "@types/redux-logger": "^3.0.8",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -82,11 +73,5 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
-  },
-  "__processed_by_ivy_ngcc__": {
-    "es2015": "10.1.6",
-    "fesm2015": "10.1.6",
-    "module": "10.1.6",
-    "typings": "10.1.6"
   }
 }

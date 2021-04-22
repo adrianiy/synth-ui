@@ -55,6 +55,7 @@ export class FilterOptionsComponent {
                 [index]: { ...option, expanded: !option.expanded },
             }) as FilterOptionHeader[];
         } else {
+            console.log(option);
             this.optionClickEvent(option);
         }
     };
