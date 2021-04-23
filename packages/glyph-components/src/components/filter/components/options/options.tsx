@@ -73,31 +73,26 @@ export class FilterOptionsComponent {
     }
 
     private _handleInputChange = (event: any) => {
-        this.searchValue = event.target.value;
+        this.searchValue = event.detail;
     };
 
-    private _handleKeyUp = (event: any) => {
-        const isEnter = event.key === 'Enter';
-        if (isEnter) {
-            const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
+    private _handleEnter = () => {
+        const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
 
-            if (visibleOptions.length === 1) {
-                this._optionClick(visibleOptions[0])();
-            }
+        if (visibleOptions.length === 1) {
+            this._optionClick(visibleOptions[0])();
         }
     };
 
     private _renderSearch = () => {
         return (
-            <div class="search-box">
-                <input
-                    type="text"
-                    placeholder={this.searchPlaceholder}
-                    value={this.searchValue}
-                    onKeyUp={this._handleKeyUp}
-                    onInput={this._handleInputChange}
-                />
-            </div>
+            <glyph-input
+                box
+                autoFocus
+                placeholder={this.searchPlaceholder}
+                onEnterKey={this._handleEnter}
+                onTextChange={this._handleInputChange}
+            />
         );
     };
 

@@ -34,6 +34,7 @@ graph TD;
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs
+  glyph-selector --> glyph-input
   glyph-header --> glyph-timeline
   style glyph-timeline fill:#f9f,stroke:#333,stroke-width:4px
 ```
