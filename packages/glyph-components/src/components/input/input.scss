@@ -4,6 +4,15 @@
     em {
         font-size: var(--gui-font--s);
         color: var(--gui-color--light);
+        user-select: none;
+
+        &.eye {
+            cursor: pointer;
+            margin-right: var(--gui-padding--xxxs);
+            &:hover {
+                color: var(--gui-color);
+            }
+        }
     }
 
     &.box {
@@ -11,6 +20,12 @@
         border-radius: 2px;
         padding-left: var(--gui-padding--xxs);
         margin-bottom: var(--gui-padding--s);
+    }
+    &.error {
+        border-color: var(--gui-color--alert);
+        input, input::placeholder {
+            color: var(--gui-color--alert);
+        }
     }
     input {
         outline: 0;

@@ -18,6 +18,7 @@ export const parameters = {
                     'Share menu',
                     'Button',
                     'Button group',
+                    'Input',
                     'Selector',
                     'Toggler',
                     'Tabs',

@@ -11,6 +11,7 @@
 | ------------- | ------------- | ---------------------------------------------------- | --------- | ----------- |
 | `autoFocus`   | `auto-focus`  | Input should auto focus                              | `boolean` | `undefined` |
 | `box`         | `box`         | Renders input in a box                               | `boolean` | `undefined` |
+| `error`       | `error`       | Style input as an error                              | `boolean` | `undefined` |
 | `inputType`   | `input-type`  | Input type                                           | `string`  | `'text'`    |
 | `placeholder` | `placeholder` | Placeholder                                          | `string`  | `undefined` |
 | `search`      | `search`      | Search flag, renders a search icon if `box` is false | `boolean` | `undefined` |
