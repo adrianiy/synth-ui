@@ -35,7 +35,7 @@ export class SelectorComponent {
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
         if (!event.path.some((el: HTMLElement) => el.closest?.('.selector__container'))) {
-            this.optionsDrilldown = false;
+            this._toggleContainer();
         }
     }
 
@@ -49,6 +49,14 @@ export class SelectorComponent {
             }, []);
         }
     }
+
+    private _toggleContainer = () => {
+        this.optionsDrilldown = !this.optionsDrilldown;
+
+        if (!this.optionsDrilldown) {
+            this.searchValue = undefined;
+        }
+    };
 
     private _selectOption = (option: SelectorOption) => () => {
         this.optionSelect.emit(option);
@@ -73,7 +81,7 @@ export class SelectorComponent {
             visibleOptions = this.options.filter(this._inSearch);
         }
         if (visibleOptions.length === 1) {
-            this._selectOption(visibleOptions[0]);
+            this._selectOption(visibleOptions[0])();
         }
     };
 
@@ -148,12 +156,7 @@ export class SelectorComponent {
     render() {
         return (
             <Flex className={cls('selector__container', this.interface)}>
-                <Flex
-                    row
-                    spaced
-                    className="selector__input"
-                    onClick={() => (this.optionsDrilldown = !this.optionsDrilldown)}
-                >
+                <Flex row spaced className="selector__input" onClick={this._toggleContainer}>
                     <label class={cls(this.selectedOptions?.length && 'active')}>{this.label}</label>
                     <span>{this.selectedOptions?.map(option => option.name).join(', ') || ''}</span>
                     <Icon
