@@ -37,7 +37,7 @@ export class ChipsBarComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['chipsbar'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

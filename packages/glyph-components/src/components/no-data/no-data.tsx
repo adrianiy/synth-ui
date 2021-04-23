@@ -24,7 +24,7 @@ export class NoDataComponent {
     private _i18n: any;
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings(['no-data'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

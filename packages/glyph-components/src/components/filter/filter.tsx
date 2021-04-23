@@ -121,8 +121,8 @@ export class FilterComponent {
                             this.selected.length
                                 ? 'close'
                                 : this.interface === UIInterface.classic
-                                ? 'arrow_drop_down'
-                                : 'expand_more'
+                                    ? 'arrow_drop_down'
+                                    : 'expand_more'
                         }
                     />
                 </Flex>
