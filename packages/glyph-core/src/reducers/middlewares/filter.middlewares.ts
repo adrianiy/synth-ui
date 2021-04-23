@@ -9,7 +9,6 @@ export const selectOption = (selected: FilterSelectEvent) => (state: FiltersStat
     option.active = !option.active;
 
     const { filter } = selectOptionAux(filtersConfig[filterCode], option, defaultOption);
-    console.log(filter, option);
 
     return {
         ...state,
