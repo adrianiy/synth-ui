@@ -40,7 +40,7 @@ export class ShareMenuComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['share-menu'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'share-menu' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -80,7 +80,7 @@ export class ShareMenuComponent {
             <Flex className="share-menu__container">
                 <h3>{this._i18n['share']}</h3>
                 <span class="url">{location.href}</span>
-                <span class="caption">{[this.appTitle, this.appSubtitle].filter(chunk => chunk).join(' - ')}</span>
+                <span class="caption">{[ this.appTitle, this.appSubtitle ].filter(chunk => chunk).join(' - ')}</span>
                 <Flex row spaced className="button__container">
                     <Flex row middle className="link" onClick={this._handleCopy}>
                         <Icon icon="link" />
