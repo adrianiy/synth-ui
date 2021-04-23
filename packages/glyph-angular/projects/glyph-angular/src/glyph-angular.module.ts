@@ -24,6 +24,7 @@ import {
     GlyphTimeline,
     GlyphModal,
     GlyphButtonGroup,
+    GlyphInput,
 } from './glyph-directives/proxies';
 import { ListComponent } from './components/list/list.component';
 
@@ -44,6 +45,7 @@ const DECLARATIONS = [
     GlyphButton,
     GlyphChipsbar,
     GlyphAvatar,
+    GlyphInput,
     GlyphSelector,
     GlyphTabs,
     GlyphHeader,

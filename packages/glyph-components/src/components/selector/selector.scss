@@ -38,6 +38,11 @@
         border: var(--gui-border--lightest);
         width: fit-content;
 
+        glyph-input {
+            padding: var(--gui-padding--s);
+            padding-bottom: 0;
+        }
+
         label {
             padding: var(--gui-padding--s);
             font-weight: var(--gui-font-weight--bold);

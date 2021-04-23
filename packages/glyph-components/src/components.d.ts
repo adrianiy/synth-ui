@@ -231,6 +231,28 @@ export namespace Components {
          */
         "userMenuConfig": UserMenuConfiguration;
     }
+    interface GlyphInput {
+        /**
+          * Input should auto focus
+         */
+        "autoFocus": boolean;
+        /**
+          * Renders input in a box
+         */
+        "box": boolean;
+        /**
+          * Input type
+         */
+        "inputType": string;
+        /**
+          * Placeholder
+         */
+        "placeholder": string;
+        /**
+          * Search flag, renders a search icon if `box` is false
+         */
+        "search": boolean;
+    }
     interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -364,6 +386,10 @@ export namespace Components {
           * Selector options
          */
         "options": SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder": string;
     }
     interface GlyphShareMenu {
         /**
@@ -543,6 +569,12 @@ declare global {
         prototype: HTMLGlyphHeaderElement;
         new (): HTMLGlyphHeaderElement;
     };
+    interface HTMLGlyphInputElement extends Components.GlyphInput, HTMLStencilElement {
+    }
+    var HTMLGlyphInputElement: {
+        prototype: HTMLGlyphInputElement;
+        new (): HTMLGlyphInputElement;
+    };
     interface HTMLGlyphListElement extends Components.GlyphList, HTMLStencilElement {
     }
     var HTMLGlyphListElement: {
@@ -630,6 +662,7 @@ declare global {
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
         "glyph-header": HTMLGlyphHeaderElement;
+        "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
         "glyph-modal": HTMLGlyphModalElement;
@@ -910,6 +943,36 @@ declare namespace LocalJSX {
          */
         "userMenuConfig"?: UserMenuConfiguration;
     }
+    interface GlyphInput {
+        /**
+          * Input should auto focus
+         */
+        "autoFocus"?: boolean;
+        /**
+          * Renders input in a box
+         */
+        "box"?: boolean;
+        /**
+          * Input type
+         */
+        "inputType"?: string;
+        /**
+          * Enter key event
+         */
+        "onEnterKey"?: (event: CustomEvent<any>) => void;
+        /**
+          * Text change event
+         */
+        "onTextChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Placeholder
+         */
+        "placeholder"?: string;
+        /**
+          * Search flag, renders a search icon if `box` is false
+         */
+        "search"?: boolean;
+    }
     interface GlyphList {
         /**
           * Component data. Fields preffixed with `_` will not render
@@ -1063,6 +1126,10 @@ declare namespace LocalJSX {
           * Selector options
          */
         "options"?: SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder"?: string;
     }
     interface GlyphShareMenu {
         /**
@@ -1221,6 +1288,7 @@ declare namespace LocalJSX {
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
         "glyph-header": GlyphHeader;
+        "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
         "glyph-modal": GlyphModal;
@@ -1248,6 +1316,7 @@ declare module "@stencil/core" {
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
+            "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;

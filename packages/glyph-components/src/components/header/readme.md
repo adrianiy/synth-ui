@@ -59,6 +59,7 @@ graph TD;
   glyph-share-menu --> glyph-toaster
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
+  glyph-selector --> glyph-input
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs

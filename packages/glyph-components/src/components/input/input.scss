@@ -1,0 +1,24 @@
+.input__container {
+    border-bottom: var(--gui-border);
+
+    em {
+        font-size: var(--gui-font--s);
+        color: var(--gui-color--light);
+    }
+
+    &.box {
+        border: var(--gui-border--lightest);
+        border-radius: 2px;
+        padding-left: var(--gui-padding--xxs);
+        margin-bottom: var(--gui-padding--s);
+    }
+    input {
+        outline: 0;
+        border: none;
+        background: var(--gui-color--background--lighter);
+        font-size: var(--gui-font--xxs);
+        margin: var(--gui-padding--xxs) 0;
+        margin-left: var(--gui-padding--xxxs);
+        color: var(--gui-color--font);
+    }
+}
