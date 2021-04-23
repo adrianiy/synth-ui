@@ -26,6 +26,10 @@ export const config: Config = {
             type: 'dist',
             copy: [
                 {
+                    src: '**/*.svg',
+                    dest: '../assets/brands',
+                },
+                {
                     src: '**/*.i18n.*.json',
                     dest: '../assets/i18n',
                 },
