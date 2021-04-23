@@ -46,7 +46,6 @@ export class InputComponent {
     };
 
     private _checkInputType = () => {
-        console.log(this.inputType);
         const isPassword = this.inputType === 'password';
         if (isPassword) {
             return this.passVisible ? 'text' : 'password';
