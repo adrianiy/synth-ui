@@ -241,6 +241,10 @@ export namespace Components {
          */
         "box": boolean;
         /**
+          * Style input as an error
+         */
+        "error": boolean;
+        /**
           * Input type
          */
         "inputType": string;
@@ -952,6 +956,10 @@ declare namespace LocalJSX {
           * Renders input in a box
          */
         "box"?: boolean;
+        /**
+          * Style input as an error
+         */
+        "error"?: boolean;
         /**
           * Input type
          */

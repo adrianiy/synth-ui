@@ -39,6 +39,22 @@ If autoFocus is `true` the input will be focused on rendering.
     </Story>
 </Canvas>
 
+## Password input
+
+<Canvas>
+    <Story name="Password" args={{ placeholder: "Password input", '.inputType': "password" }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Error input
+
+<Canvas>
+    <Story name="Error" args={{ placeholder: "Error input", error: true }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
 ---
 
 <Description>{notes}</Description>
