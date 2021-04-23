@@ -1,0 +1,45 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-input ...=${spread(args)} />`;
+
+<Meta title="Components/Input" parameters={{ viewMode: 'docs' }} />
+
+# Input
+
+##### glyph-input
+
+Handles input rendering.
+
+If autoFocus is `true` the input will be focused on rendering.
+
+## Basic input
+
+<Canvas>
+    <Story name="Basic" args={{ placeholder: "Basic input" }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Box input
+
+<Canvas>
+    <Story name="Box" args={{ placeholder: "Box input", box: true }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Search input
+
+<Canvas>
+    <Story name="Search" args={{ placeholder: "Search input", search: true }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+

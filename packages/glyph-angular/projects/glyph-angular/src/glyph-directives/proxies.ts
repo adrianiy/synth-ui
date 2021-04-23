@@ -183,6 +183,31 @@ export class GlyphHeader {
   }
 }
 
+import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
+export declare interface GlyphInput extends Components.GlyphInput {}
+@ProxyCmp({
+  inputs: ['autoFocus', 'box', 'inputType', 'placeholder', 'search']
+})
+@Component({
+  selector: 'glyph-input',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['autoFocus', 'box', 'inputType', 'placeholder', 'search'],
+  outputs: ['textChange', 'enterKey']
+})
+export class GlyphInput {
+  /** Text change event */
+  textChange!: IInputComponent['textChange'];
+  /** Enter key event */
+  enterKey!: IInputComponent['enterKey'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['textChange', 'enterKey']);
+  }
+}
+
 import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
@@ -274,13 +299,13 @@ export class GlyphNoData {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options']
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options'],
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {
