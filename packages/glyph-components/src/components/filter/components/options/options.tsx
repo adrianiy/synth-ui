@@ -57,7 +57,7 @@ export class FilterOptionsComponent {
     };
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['filter'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

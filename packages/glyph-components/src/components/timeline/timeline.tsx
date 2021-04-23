@@ -56,7 +56,7 @@ export class TimelineComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['timeline'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'timeline' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
         this.options.forEach(option => (option.name = this._i18n[option.name]));
     }
