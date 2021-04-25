@@ -8,3 +8,6 @@ parserOptions:
   ecmaFeatures:
     jsx: true
   project: './tsconfig.json'
+rules:
+  no-console:
+    - off
