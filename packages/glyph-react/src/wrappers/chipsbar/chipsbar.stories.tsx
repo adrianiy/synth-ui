@@ -25,7 +25,7 @@ You can check navigator console to see how component interacts with state.
     },
 } as Meta;
 
-const Template: Story<GlyphReactChipsbarProps> = args => <GlyphReactChipsbar {...args} />;
+const Template: Story<GlyphReactChipsbarProps> = (args: any) => <GlyphReactChipsbar {...args} />;
 
 export const Chipsbar = Template.bind({});
 

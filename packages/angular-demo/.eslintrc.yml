@@ -2,8 +2,6 @@
 overrides:
   - files: 
       - '*.ts'
-    parserOptions:
-      project: './packages/angular-demo/tsconfig.json'
     rules:
       '@angular-eslint/directive-selector':
         - error

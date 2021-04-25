@@ -29,6 +29,10 @@ Develop an unified system, with appropiate controls, and quality management, to 
 
 ## How?
 
+<p align="center">
+  <img alt="GlyphUIDesign" src="https://github.com/adrianiy/glyph-ui/blob/main/assets/design.png?raw=true" width="480">
+</p>
+
 We've implemented a "multi-layer" components library composed by a core of web-compenents playing alongside with a higher level layers for each
 most common frameworks. We have included also a set of vanillaJS functions and AmigaJS middelwares that should be able to use in your project to manage application's state
 and back-to-front backends.
