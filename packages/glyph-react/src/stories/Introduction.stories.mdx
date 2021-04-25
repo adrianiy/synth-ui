@@ -35,7 +35,6 @@ import { GlyphReactList } from 'glyph-react';
 
 Execute
 
-
 ```bash
 yarn react start:docs
 ```
@@ -43,6 +42,25 @@ yarn react start:docs
 You'll have react docs available on port *6009*.
 
 ### Using demo playground
+
+To use react playground correctly you'll need to simulate a real-world installation. In order to do this you'll nedd to link `peerDependencies` from *react-demo* to *glyph-react*.
+
+Execute these commands
+
+```bash
+cd packages/react-demo/node_modules/react
+yarn link
+cd ../react-dom
+yarn link
+cd ../react-redux
+yarn link
+cd ../redux
+yarn link
+cd ../../../glyph-react
+yarn link react react-dom react-redux redux
+```
+
+Now you can run the playground! Happy coding!
 
 ```bash
 yarn react start
