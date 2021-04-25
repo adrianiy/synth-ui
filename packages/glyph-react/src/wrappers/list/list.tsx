@@ -14,7 +14,7 @@ function GlyphReactList({
     enableDownload,
     i18n,
     onExpandRow,
-}: Props) {
+}: GlyphReactListProps) {
     const [ parsedData, setParsedData ] = useState([] as Row[]);
 
     useEffect(() => {
@@ -42,7 +42,7 @@ function GlyphReactList({
     );
 }
 
-interface Props {
+export interface GlyphReactListProps {
     /** Loading state. If true will render skeleton loader */
     loading?: boolean;
     /** Component title */
@@ -78,6 +78,6 @@ GlyphReactList.defaultProps = {
     expandable: false,
     enableDownload: false,
     onExpandRow: undefined,
-} as Props;
+} as GlyphReactListProps;
 
 export default GlyphReactList;
