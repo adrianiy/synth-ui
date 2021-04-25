@@ -57,6 +57,12 @@
 
     .children__container {
         width: 100%;
+
+        .children--header {
+            &.expanded {
+                margin-bottom: var(--gui-padding--s);
+            }
+        }
         ul {
             padding-left: var(--gui-padding--s);
         }
@@ -79,8 +85,16 @@
         }
         .option {
             width: 100%;
-            text-transform: none;
             cursor: pointer;
+
+            span {
+                text-transform: lowercase;
+                margin-right: var(--gui-padding--xxxs);
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
 
             em {
                 width: 13px;

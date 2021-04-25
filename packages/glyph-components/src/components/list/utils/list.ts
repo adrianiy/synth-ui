@@ -30,7 +30,7 @@ export const parseExcelData = (data: Row[], fields: string[]) => {
 };
 
 const _parseCsvRow = (fields: string[], row: Row, suffix = '') => {
-    return [`${suffix}${row['name']}`].concat(
+    return [ `${suffix}${row['name']}` ].concat(
         fields.map(field => {
             const { value } = row[field];
 

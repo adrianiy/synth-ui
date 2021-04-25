@@ -1,0 +1,13 @@
+<glyph-title [titleText]="title"></glyph-title>
+<glyph-list
+    [loading]="loading"
+    [data]="parsedData"
+    [filterFields]="activeKpi && [activeKpi]"
+    [defaultSortField]="activeKpi"
+    [decimals]="decimals"
+    [expandable]="expandable"
+    [limit]="limit"
+    [enableDownload]="enableDownload"
+    [i18n]="i18n"
+    (expandRow)="onExpandRow($event)"
+></glyph-list>

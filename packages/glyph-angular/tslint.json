@@ -1,8 +1,5 @@
 {
   "extends": "tslint:recommended",
-  "ignorePatterns": [
-    "**/glyph-directives/**"
-  ],
   "rulesDirectory": [
     "codelyzer"
   ],

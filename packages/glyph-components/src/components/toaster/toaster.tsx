@@ -43,7 +43,7 @@ export class ToasterComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['toaster'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'toaster' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

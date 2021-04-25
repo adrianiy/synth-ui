@@ -1,6 +1,6 @@
 import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@stencil/core';
 import { Flex } from '../../utils/layout';
-import { UIInterface, FilterOptionHeader, SelectedFilter } from 'glyph-core';
+import { UIInterface, FilterOptionHeader, SelectedFilter, FilterSelectEvent } from 'glyph-core';
 import { cls } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
 
@@ -29,7 +29,7 @@ export class FilterComponent {
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
-    @Event() optionClickEvent: EventEmitter<any>;
+    @Event() optionClickEvent: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */
     @Event() clearEvent: EventEmitter<any>;
     /** Multiselect toggler callback */
@@ -56,7 +56,7 @@ export class FilterComponent {
     };
 
     private _optionClick = (option: FilterOptionHeader) => {
-        this.optionClickEvent.emit(option);
+        this.optionClickEvent.emit({ option });
 
         if (!this.multiSelect && !option.header) {
             this._expandFilter();
@@ -87,7 +87,7 @@ export class FilterComponent {
         return (
             <glyph-filter-options
                 description={this.description}
-                options={this.options}
+                options={[ ...this.options ]}
                 haveMultiSelect={this.haveMultiSelect}
                 multiSelect={this.multiSelect}
                 searchPlaceholder={this.searchPlaceholder}
@@ -121,8 +121,8 @@ export class FilterComponent {
                             this.selected.length
                                 ? 'close'
                                 : this.interface === UIInterface.classic
-                                ? 'arrow_drop_down'
-                                : 'expand_more'
+                                    ? 'arrow_drop_down'
+                                    : 'expand_more'
                         }
                     />
                 </Flex>

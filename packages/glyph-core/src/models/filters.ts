@@ -53,11 +53,12 @@ export interface QueryFilter {
     value: any;
 }
 export interface FilterOption {
-    code: any;
+    code?: any;
     description: string;
     startDate?: string;
     endDate?: string;
-    display: boolean;
+    compType?: string;
+    display?: boolean;
     active?: boolean;
     hideFilter?: boolean;
     operationIn?: boolean;
@@ -72,14 +73,12 @@ export interface FilterOptionHeader extends FilterOption {
     expanded?: boolean;
     children?: FilterOption[];
 }
-export interface SelectedFilter {
-    default?: boolean;
-    description: string;
-    option: FilterOptionHeader;
+export interface SelectedFilter extends FilterOptionHeader {
+    isDefault?: boolean;
+    type?: string;
 }
 export interface FilterConfig {
     version?: string;
-    usableIn?: string[];
     description?: string;
     searchPlaceholder?: string;
     plural?: string;

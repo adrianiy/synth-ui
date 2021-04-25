@@ -54,7 +54,7 @@ export class UserMenuComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['user-menu'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'user-menu' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

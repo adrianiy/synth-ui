@@ -61,6 +61,17 @@ group2: [{ name: 'option 3', active: false, value: 3 }, { name: 'option 4', acti
     </Story>
 </Canvas>
 
+## Selector with search
+
+Selector can be used with a search input to filter options easily.
+
+<Canvas>
+    <Story name="Search" args={{ 'multi-select': true, '.searchPlaceholder': 'Search option...', label: 'simple', '.options': [{ name: 'option 1', active: false, value: 1 }, { name: 'option 2', active: false, value: 2 }] }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
 ---
 
 <Description>{notes}</Description>

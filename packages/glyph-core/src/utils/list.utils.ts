@@ -33,7 +33,7 @@ const _getValue = (row: any, fieldConfig: FieldsConfig) => {
     return {
         value: row[value()],
         decoration: decoration?.(),
-        foramt: format?.(),
+        format: format?.(),
         sign: sign?.(),
         negativeSign: negativeSign?.(),
         showZero: showZero?.(),

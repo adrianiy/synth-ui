@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 import { angularValueAccessorBindings } from './src/utils/utils';
 import { reactOutputTarget } from '@stencil/react-output-target';
+import { angularOutputTargetFix } from './angular-output-target-fix';
 
 export const config: Config = {
     namespace: 'glyph-components',
@@ -15,8 +16,12 @@ export const config: Config = {
     outputTargets: [
         angularOutputTarget({
             componentCorePackage: 'glyph-components',
-            directivesProxyFile: '../glyph-angular/projects/glyph-angular/src/glyph-directives/proxies.ts',
+            directivesProxyFile: '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
+        }),
+        angularOutputTargetFix({
+            directivesUtilsFile:
+                '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/angular-component-lib/utils.ts',
         }),
         reactOutputTarget({
             componentCorePackage: 'glyph-components',
@@ -25,6 +30,10 @@ export const config: Config = {
         {
             type: 'dist',
             copy: [
+                {
+                    src: '**/*.svg',
+                    dest: '../assets/brands',
+                },
                 {
                     src: '**/*.i18n.*.json',
                     dest: '../assets/i18n',

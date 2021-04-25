@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { UIInterface, FilterOption, FilterOptionHeader } from 'glyph-core';
+import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
@@ -48,8 +48,10 @@ export class FilterOptionsComponent {
         await this._initializeVariables();
     }
 
-    private _optionClick = (option: FilterOptionHeader) => () => {
+    private _optionClick = (option: FilterOptionHeader) => (event?: any) => {
         this.optionClickEvent(option);
+        event?.stopPropagation();
+        event?.preventDefault();
     };
 
     private _multiSelectClick = () => {
@@ -57,19 +59,27 @@ export class FilterOptionsComponent {
     };
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['filter'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _inSearch({ description, children }: { description: string; children?: FilterOption[] }) {
+    private _inSearch(option: FilterOptionHeader) {
         if (this.searchValue) {
-            if (children) {
-                return children.some(child => this._inSearch(child));
+            if (option.header) {
+                return option.children.some(child => this._inSearch(child));
             }
-            return description.toLowerCase().includes(this.searchValue.toLowerCase());
+            return option.description.toLowerCase().includes(this.searchValue.toLowerCase());
         }
-
         return true;
+    }
+
+    private _checkHide(option: FilterOptionHeader) {
+        const { parents } = option;
+        const hideKeys = Object.keys(parents || {})
+            .map(key => `${key}Hide`)
+            .concat('hide');
+
+        return !hideKeys.some(key => option[key]);
     }
 
     private _handleInputChange = (event: any) => {
@@ -116,47 +126,53 @@ export class FilterOptionsComponent {
 
     private _renderOptionDescription = (description: string) => {
         if (this.searchValue) {
-            description = description.split(this.searchValue).join(`<b>${this.searchValue}</b>`);
+            description = description
+                .toLowerCase()
+                .split(this.searchValue.toLowerCase())
+                .join(`<b>${this.searchValue}</b>`);
         }
 
         return <span innerHTML={description} />;
     };
 
-    private _renderOptionHeader = (option: FilterOptionHeader) => {
-        const childInDescription = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInDescription);
+    private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
+        const childInSearch = option.children.some(child => this._inSearch(child));
+        const expanded = option.expanded || (this.searchValue && childInSearch) || filterQuantity === 1;
 
         return (
-            <Flex className="children__container">
-                <span>
-                    {expanded ? '- ' : '+ '}
-                    {this._renderOptionDescription(option.description)}
-                </span>
-                {expanded && this._renderOptionsList(option.children)}
-            </Flex>
+            childInSearch && (
+                <Flex className="children__container">
+                    <Flex row className={cls('children--header', expanded && 'expanded')}>
+                        <span>{expanded ? '- ' : '+ '}</span>
+                        <span>{this._renderOptionDescription(option.description)}</span>
+                    </Flex>
+                    {expanded && this._renderOptionsList(option.children)}
+                </Flex>
+            )
         );
     };
 
     private _renderOptionsList = (options: FilterOptionHeader[]) => {
+        const renderableOptions = options.filter(
+            option => option.display && this._inSearch(option) && this._checkHide(option),
+        );
         return (
             <ul>
-                {options
-                    .filter(option => option.display && this._inSearch(option))
-                    .map(option => (
-                        <li>
-                            <Flex
-                                row
-                                spaced
-                                onClick={this._optionClick(option)}
-                                className={cls('option', option.active && 'active')}
-                            >
-                                {option.header
-                                    ? this._renderOptionHeader(option)
-                                    : this._renderOptionDescription(option.description)}
-                                {option.active && <Icon icon="checkmark" />}
-                            </Flex>
-                        </li>
-                    ))}
+                {renderableOptions.map(option => (
+                    <li>
+                        <Flex
+                            row
+                            spaced
+                            onClick={this._optionClick(option)}
+                            className={cls('option', option.active && 'active')}
+                        >
+                            {option.header
+                                ? this._renderOptionHeader(option, renderableOptions.length)
+                                : this._renderOptionDescription(option.description)}
+                            {option.active && <Icon icon="checkmark" />}
+                        </Flex>
+                    </li>
+                ))}
             </ul>
         );
     };
