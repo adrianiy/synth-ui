@@ -12,6 +12,7 @@ node_modules
 # Tests
 coverage
 test-report.json
+docs
 # Docs
 # storybook-static
 
