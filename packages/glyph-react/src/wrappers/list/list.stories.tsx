@@ -1,3 +1,4 @@
+import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import GlyphReactList, { GlyphReactListProps } from './list';
 
@@ -52,7 +53,7 @@ const childrenData = [
         growth_amount: 0.23,
     },
 ].concat(
-    [ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => ({
+    [ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map(name => ({
         _isTotal: false,
         name,
         amount: 12311,
