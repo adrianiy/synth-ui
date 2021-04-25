@@ -1,5 +1,5 @@
 import { ToasterTypes } from '../enums';
-import { FilterOptionHeader } from './filters';
+import { FilterConfig, FilterOptionHeader } from './filters';
 
 export interface ToasterEvent {
     text: string;
@@ -10,5 +10,11 @@ export interface ToasterEvent {
 export interface FilterSelectEvent {
     option: FilterOptionHeader;
     filterCode?: string;
-    defaultOption?: boolean;
+    isDefault?: boolean;
+}
+
+export interface FilterUpdateEvent {
+    filterCode?: string;
+    filter: FilterConfig;
+    checkMultiSelect?: boolean;
 }

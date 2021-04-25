@@ -7,7 +7,7 @@ import { FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/fi
 import moment from 'moment';
 
 export const applySharedDates = (sharedFilters: QueryFilter[], comparableFilter: QueryFilter[]) => (
-    state: FiltersState
+    state: FiltersState,
 ) => {
     let { filtersConfig } = state;
 
@@ -19,7 +19,7 @@ export const applySharedDates = (sharedFilters: QueryFilter[], comparableFilter:
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -41,7 +41,7 @@ export const applySharedFilters = (sharedFilters: QueryFilter[]) => (state: Filt
 
     return {
         ...state,
-        filtersConfig
+        filtersConfig,
     };
 };
 
@@ -65,7 +65,7 @@ const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: Qu
 
     return {
         ...filtersConfig,
-        date
+        date,
     };
 };
 
@@ -74,10 +74,10 @@ const _applyDateFilter = (
     dateFilter: FilterConfig,
     startDate: string,
     endDate: string,
-    dateConfig: any
+    dateConfig: any,
 ) => {
     if (dateRange) {
-        return addNewFilter(dateFilter, { description: dateRange, startDate, endDate } as any, false);
+        return addNewFilter(dateFilter, { description: dateRange, startDate, endDate });
     } else {
         if (moment(startDate).diff(dateConfig.minCalDate, 'd') < 0) {
             startDate = dateConfig.minCalDate;
@@ -91,7 +91,7 @@ const _applyDateFilter = (
         if (moment(endDate).diff(dateConfig.maxCalDate, 'd') > 0) {
             endDate = dateConfig.maxCalDate;
         }
-        return addNewFilter(dateFilter, { description: `${startDate} - ${endDate}`, startDate, endDate } as any, false);
+        return addNewFilter(dateFilter, { description: `${startDate} - ${endDate}`, startDate, endDate });
     }
 };
 
@@ -99,7 +99,7 @@ const _getDateRange = (dateRanges: any, start: string, end: string) =>
     Object.keys(dateRanges).find(
         dateRange =>
             dateRanges[dateRange][0].format('YYYY-MM-DD') === start &&
-            dateRanges[dateRange][1].format('YYYY-MM-DD') === end
+            dateRanges[dateRange][1].format('YYYY-MM-DD') === end,
     );
 
 const _activateOptionsMatchingSharedFilters = (filter: FilterConfig, sharedFilter: QueryFilter) => {
@@ -123,7 +123,7 @@ const _activateOptionsMatchingSharedFilters = (filter: FilterConfig, sharedFilte
 
     return {
         ...filter,
-        options
+        options,
     };
 };
 
@@ -158,8 +158,8 @@ const _applySharedCompFilter = (comparableDates: QueryFilter[], filter: FilterCo
                 description: `comp: ${!isCustomComparable ? comparableDates[0].key : `${start} - ${end}`}`,
                 type: 'comp',
                 compType: comparableDates[0].key,
-                compDates: [ start, end ]
-            } as any
+                compDates: [ start, end ],
+            } as any,
         ];
     }
 
@@ -169,7 +169,7 @@ const _applySharedCompFilter = (comparableDates: QueryFilter[], filter: FilterCo
 const _selectOptionIfMatches = (sharedFilter: QueryFilter, filter: FilterConfig, option: FilterOptionHeader) => {
     const { code, active } = option;
     const filterContainsSharedValue = sharedFilter.value.find(
-        (value: any) => checkStrictIn(value, code) || checkIn(value, code)
+        (value: any) => checkStrictIn(value, code) || checkIn(value, code),
     );
 
     if (filterContainsSharedValue && !active) {

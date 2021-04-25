@@ -91,7 +91,7 @@ export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['filtersConfig', 'i18n', 'interface'],
-  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']
+  outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
   /** Filter select event */
@@ -99,14 +99,14 @@ export class GlyphChipsbar {
   /** Filter clear event */
   filterClear!: IChipsBarComponent['filterClear'];
   /** Filter multiselect event */
-  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];
+  updateFilter!: IChipsBarComponent['updateFilter'];
   /** Clear all filters event */
   clearAll!: IChipsBarComponent['clearAll'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);
+    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']);
   }
 }
 
@@ -180,6 +180,31 @@ export class GlyphHeader {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange']);
+  }
+}
+
+import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
+export declare interface GlyphInput extends Components.GlyphInput {}
+@ProxyCmp({
+  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search']
+})
+@Component({
+  selector: 'glyph-input',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search'],
+  outputs: ['textChange', 'enterKey']
+})
+export class GlyphInput {
+  /** Text change event */
+  textChange!: IInputComponent['textChange'];
+  /** Enter key event */
+  enterKey!: IInputComponent['enterKey'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['textChange', 'enterKey']);
   }
 }
 
@@ -274,13 +299,13 @@ export class GlyphNoData {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options']
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options'],
+  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {

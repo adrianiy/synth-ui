@@ -35,6 +35,10 @@ export class ListComponent implements OnChanges {
         this._parseList();
     }
 
+    public onExpandRow(event) {
+        console.log(event);
+    }
+
     /**
      * If data exists and has length we will parse data
      *

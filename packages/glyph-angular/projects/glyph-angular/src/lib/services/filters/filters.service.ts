@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { dispatch, select } from '@angular-redux/store';
-import { actions, FiltersConfig, FilterSelectEvent } from 'glyph-core';
+import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent } from 'glyph-core';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -15,6 +15,12 @@ export class FilterService {
     @dispatch() initialize = actions.filters.initialize;
     /** Action to trigger filter selection */
     @dispatch() select = actions.filters.selectOption;
+    /** Action to trigger filter clear */
+    @dispatch() clear = actions.filters.clearFilter;
+    /** Action to trigger clear all filters */
+    @dispatch() clearAll = actions.filters.clearAll;
+    /** Action to trigger filter update */
+    @dispatch() update = actions.filters.updateFilter;
 
     /** filters state */
     @select([ 'filters', 'filtersConfig' ]) filtersConfig: Observable<FiltersConfig>;
@@ -55,5 +61,30 @@ export class FilterService {
      */
     selectOption(selection: FilterSelectEvent) {
         this.select(selection);
+    }
+
+    /**
+     * Clear the selected options in a filter
+     *
+     * @param filterCode filter key
+     */
+    clearFilter(filterCode: string) {
+        this.clear(filterCode);
+    }
+
+    /**
+     * Clear all selected fitlers
+     */
+    clearAllFilters() {
+        this.clearAll();
+    }
+
+    /**
+     * Update some filter with a new configuration
+     *
+     * @param filterCode filter key
+     */
+    updateFilter(update: FilterUpdateEvent) {
+        this.update(update);
     }
 }

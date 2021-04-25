@@ -45,6 +45,7 @@ export default {
     ],
     parameters: {
         docs: {
+            inlineStories: true,
             description: {
                 component: `
 Component to manage application filters, wrapper of [**glyph-chipsbar**](https://adrianiy.github.io/glyph-ui/?path=/docs/webcomponents_components-chipsbar-classic--basic). 
@@ -52,6 +53,8 @@ Component to manage application filters, wrapper of [**glyph-chipsbar**](https:/
 Controls how web-components and application state interacts, uses \`filtersConfig\` state to render filters.
 
 The events triggered in web-component will execute a state update.
+
+You can check navigator console to see how component interacts with state.
                 `,
             },
         },
@@ -69,7 +72,6 @@ export const Chipsbar: Story<ChipsbarComponent> = args => ({
 Chipsbar.args = { interface: UIInterface.classic };
 Chipsbar.parameters = {
     docs: {
-        inlineStories: true,
         description: {
             story: 'test',
         },

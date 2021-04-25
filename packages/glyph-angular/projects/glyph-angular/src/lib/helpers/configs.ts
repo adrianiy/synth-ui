@@ -1,6 +1,5 @@
 export const FiltersConfig = {
     product: {
-        usableIn: [ 'test' ],
         description: 'Producto',
         plural: 'Productos',
         key: 'cod_product',
@@ -9,7 +8,6 @@ export const FiltersConfig = {
         options: [],
     },
     section: {
-        usableIn: [ 'test' ],
         description: 'Sección',
         plural: 'Secciones',
         key: 'cod_section',
@@ -18,17 +16,16 @@ export const FiltersConfig = {
         options: [],
     },
     market: {
-        usableIn: [ 'test' ],
         description: 'Mercado',
         plural: 'Mercados',
         key: 'cod_market',
+        related: [ 'platform' ],
         searchPlaceholder: 'Busca Alovera, Corea ...',
         visible: true,
         selected: [],
         options: [],
     },
     platform: {
-        usableIn: [ 'test' ],
         description: 'País',
         plural: 'Paises',
         key: 'cod_platform',

@@ -1,14 +1,18 @@
-import { FilterConfig, FilterSelectEvent, FiltersState } from '../../models';
-import { addNewFilter, selectOptionAux, translateDescription } from '../utils/filter.utils';
+import { FilterConfig, FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models';
+import {
+    checkCleanIfMultiSelectChanges,
+    cleanSelected,
+    getCompType,
+    isFilterActive,
+    selectOptionAux,
+    translateDescription,
+} from '../utils/filter.utils';
 import { checkRelations, filterRestrictedOptions } from '../utils/related.utils';
 
 export const selectOption = (selected: FilterSelectEvent) => (state: FiltersState) => {
-    const { filterCode, option, defaultOption } = selected;
+    const { filterCode, option, isDefault } = selected;
     const { filtersConfig } = state;
-
-    option.active = !option.active;
-
-    const { filter } = selectOptionAux(filtersConfig[filterCode], option, defaultOption);
+    const { filter } = selectOptionAux(filtersConfig[filterCode], { ...option, isDefault });
 
     return {
         ...state,
@@ -16,16 +20,71 @@ export const selectOption = (selected: FilterSelectEvent) => (state: FiltersStat
     };
 };
 
-export const checkFilterRelations = (selectedFilter?: FilterConfig) => (state: FiltersState): FiltersState => {
+export const clearFilter = (filterCode: string) => (state: FiltersState) => {
+    const { filtersConfig } = state;
+
+    const filter = cleanSelected([ filtersConfig[filterCode] ])[0];
+
+    return {
+        ...state,
+        filtersConfig: { ...filtersConfig, [filterCode]: filter },
+    };
+};
+
+export const clearAllFilters = (state: FiltersState) => {
+    const { filtersConfig } = state;
+
+    return Object.keys(filtersConfig).reduce((acc, key) => clearFilter(key)(acc), state);
+};
+
+export const updateFilter = (update: FilterUpdateEvent) => (state: FiltersState) => {
+    let { filter, filterCode } = update;
+    const { filtersConfig } = state;
+
+    if (update.checkMultiSelect) {
+        filter = checkCleanIfMultiSelectChanges(filter);
+    }
+
+    return {
+        ...state,
+        filtersConfig: { ...filtersConfig, [filterCode]: filter },
+    };
+};
+
+export const resetOrdinalCompType = (state: FiltersState) => {
+    const { filtersConfig } = state;
+    const compType = getCompType(filtersConfig);
+
+    if (compType === 'ordinal') {
+        const platformActive = isFilterActive(filtersConfig, 'platform');
+        const countryActive = isFilterActive(filtersConfig, 'country');
+
+        if (!platformActive && !countryActive) {
+            const date = {
+                ...filtersConfig.date,
+                selected: filtersConfig.date.selected.filter(select => select.type !== 'comp'),
+            };
+            return {
+                ...state,
+                filtersConfig: { ...filtersConfig, date },
+            };
+        }
+    }
+    return state;
+};
+
+export const checkFilterRelations = (selected?: FilterSelectEvent) => (state: FiltersState): FiltersState => {
     let { filtersConfig, restrictedParents } = state;
+    const { filterCode } = selected || {};
+    const selectedFilter = filtersConfig[filterCode];
     const relatableFilterKeys = Object.keys(filtersConfig).filter(key => ![ 'search', 'date' ].includes(key));
 
     relatableFilterKeys.forEach((key: string) => {
         let filter = filtersConfig[key];
-        const willCheckFilterRelations = !selectedFilter || filter.key === selectedFilter.key;
+        const willCheckFilterRelations = !selectedFilter || key === filterCode;
 
         if (willCheckFilterRelations) {
-            filtersConfig = checkRelations(filter, filtersConfig);
+            filtersConfig = checkRelations(key, filtersConfig);
 
             filter = filterRestrictedOptions(filter, restrictedParents);
 

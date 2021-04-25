@@ -1,4 +1,4 @@
-import { FiltersConfig, FilterSelectEvent } from '../models';
+import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent } from '../models';
 import { filterActions } from '../reducers/filters';
 
 const setScreen = (screen: string) => ({
@@ -46,6 +46,20 @@ const selectOption = (selection: FilterSelectEvent) => ({
     selection,
 });
 
+const clearFilter = (filterCode: string) => ({
+    type: filterActions.clearFilter,
+    filterCode,
+});
+
+const clearAll = () => ({
+    type: filterActions.clearAll,
+});
+
+const updateFilter = (update: FilterUpdateEvent) => ({
+    type: filterActions.updateFilter,
+    update,
+});
+
 const setDateRanges = (dateRanges: any) => ({
     type: filterActions.setDateRanges,
     dateRanges,
@@ -66,6 +80,9 @@ const actions = {
     initialize,
     translate,
     selectOption,
+    clearFilter,
+    clearAll,
+    updateFilter,
     setFilters,
     setDateRanges,
     setDateConfig,

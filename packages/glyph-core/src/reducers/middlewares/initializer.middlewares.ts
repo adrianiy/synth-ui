@@ -114,23 +114,6 @@ export const updateFiltersWithEntities = (filterEntities: any) => (state: Filter
     };
 };
 
-export const filterUsableInScreenFilters = (state: FiltersState) => {
-    let { filtersConfig, screen } = state;
-
-    Object.keys(filtersConfig).forEach(key => {
-        if (!filtersConfig[key].usableIn.includes(screen)) {
-            const { [key]: remove, ...rest } = filtersConfig;
-
-            filtersConfig = rest;
-        }
-    });
-
-    return {
-        ...state,
-        filtersConfig,
-    };
-};
-
 /**
  * Set default screen filters
  */
@@ -153,7 +136,7 @@ export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState
             if (initialOption && willApply) {
                 const newFilterState = {
                     ...filter,
-                    ...selectOptionAux(filter, initialOption, initial.default).filter,
+                    ...selectOptionAux(filter, { ...initialOption, isDefault: initial.default }).filter,
                 };
                 filtersConfig = { ...filtersConfig, [initial.type]: newFilterState };
             }

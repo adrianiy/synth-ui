@@ -37,7 +37,7 @@ const data = [
         growth_amount: 0.23,
     },
 ].concat(
-    ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(
+    [ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map(
         country =>
             ({
                 name: country,
@@ -54,7 +54,7 @@ const childrenData = [
         growth_amount: 0.23,
     },
 ].concat(
-    ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map((name, i) => ({
+    [ 'España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan' ].map((name, i) => ({
         _isTotal: false,
         name,
         amount: 12311,
@@ -74,7 +74,7 @@ export default {
     component: ListComponent,
     decorators: [
         moduleMetadata({
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
         }),
     ],
     parameters: {
@@ -93,7 +93,7 @@ It is a wrapper of [**glyph-list**](https://adrianiy.github.io/glyph-ui/?path=/d
 
 const Template: Story<ListComponent> = args => ({
     props: args,
-    template: `<glyph-ng-list [data]="data" [fieldsConfig]="fieldsConfig" [loading]="loading" [expandable]="expandable" [limit]="limit" [title]="title" [enableDownload]="enableDownload"></glyph-ng-list>`,
+    template: '<glyph-ng-list [data]="data" [fieldsConfig]="fieldsConfig" [loading]="loading" [expandable]="expandable" [limit]="limit" [title]="title" [enableDownload]="enableDownload"></glyph-ng-list>',
 });
 
 export const Basic: Story<ListComponent> = Template.bind({});
@@ -103,7 +103,7 @@ WithChildren.args = { ...defaultProps, expandable: true, data: childrenData };
 WithChildren.parameters = {
     docs: {
         description: {
-            story: `List's rows can be configured with a children array. It will be rendered as drilldown row`,
+            story: 'List\'s rows can be configured with a children array. It will be rendered as drilldown row',
         },
     },
 };
@@ -112,7 +112,7 @@ NoData.args = { ...defaultProps, data: [] };
 NoData.parameters = {
     docs: {
         description: {
-            story: `If component gets an empty array as data input an error warning will be rendered`,
+            story: 'If component gets an empty array as data input an error warning will be rendered',
         },
     },
 };

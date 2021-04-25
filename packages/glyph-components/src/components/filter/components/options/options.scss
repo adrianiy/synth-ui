@@ -57,6 +57,12 @@
 
     .children__container {
         width: 100%;
+
+        .children--header {
+            &.expanded {
+                margin-bottom: var(--gui-padding--s);
+            }
+        }
         ul {
             padding-left: var(--gui-padding--s);
         }
