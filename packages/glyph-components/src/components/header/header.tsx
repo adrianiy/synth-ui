@@ -70,10 +70,38 @@ export class HeaderComponent {
     /** show timeline flag */
     @State() showTimeline: boolean = false;
 
+    private _toggleShareMenu = (value?: boolean) => () => {
+        this.showShareMenu = value ?? !this.showShareMenu;
+    };
+
+    private _toggleShowAppsMenu = (value?: boolean) => () => {
+        this.showAppsMenu = value ?? !this.showAppsMenu;
+    };
+
+    private _toggleShowUserMenu = (value?: boolean) => () => {
+        this.showUserMenu = value ?? !this.showUserMenu;
+    };
+
+    private _toggleShowTimeline = (value?: boolean) => () => {
+        this.showTimeline = value ?? !this.showTimeline;
+    };
+
+    private _handleLangChange = ({ detail }: CustomEvent) => {
+        this.langChange.emit(detail);
+    };
+
+    private _handleThemeChange = ({ detail }: CustomEvent) => {
+        this.themeChange.emit(detail);
+    };
+
+    private _handleDecimalChange = ({ detail }: CustomEvent) => {
+        this.decimalsChange.emit(detail);
+    };
+
     private _renderShare = () => {
         return (
             <Flex row middle center className="widget__container">
-                <div class="share" onClick={() => (this.showShareMenu = !this.showShareMenu)}>
+                <div class="share" onClick={this._toggleShareMenu()}>
                     <div class="square">
                         <div class="square--bite" />
                     </div>
@@ -85,7 +113,7 @@ export class HeaderComponent {
                         appTitle={this.appTitle}
                         appSubtitle={this.appSubtitle}
                         interface={this.interface}
-                        outsideCallback={() => (this.showShareMenu = false)}
+                        outsideCallback={this._toggleShareMenu(false)}
                         i18n={this.i18n}
                     />
                 )}
@@ -100,12 +128,12 @@ export class HeaderComponent {
     private _renderMenu = () => {
         return (
             <Flex row middle center className="widget__container">
-                <Icon button icon="apps" onClick={() => (this.showAppsMenu = !this.showAppsMenu)} />
+                <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
                 {this.showAppsMenu && (
                     <glyph-app-menu
                         class="widget__menu widget__menu--apps animated fadeIn"
                         apps={this.appData}
-                        outsideCallback={() => (this.showAppsMenu = false)}
+                        outsideCallback={this._toggleShowAppsMenu(false)}
                         i18n={this.i18n}
                     />
                 )}
@@ -114,24 +142,24 @@ export class HeaderComponent {
     };
 
     private _renderTimeline = () => {
-        return <Icon button icon="calendar_today" onClick={() => (this.showTimeline = !this.showTimeline)} />;
+        return <Icon button icon="calendar_today" onClick={this._toggleShowTimeline()} />;
     };
 
     private _renderAvatar = () => {
         return (
             <Flex row middle center className="widget__container">
-                <glyph-avatar {...this.userData} onClick={() => (this.showUserMenu = !this.showUserMenu)} />
+                <glyph-avatar {...this.userData} onClick={this._toggleShowUserMenu()} />
                 {this.showUserMenu && (
                     <glyph-user-menu
                         class="widget__menu widget__menu--user animated fadeIn"
                         name={this.userData.name}
-                        outsideCallback={() => (this.showUserMenu = false)}
+                        outsideCallback={this._toggleShowUserMenu(false)}
                         i18n={this.i18n}
                         interface={this.interface}
                         {...this.userMenuConfig}
-                        onLangChange={({ detail }) => this.langChange.emit(detail)}
-                        onThemeChange={({ detail }) => this.themeChange.emit(detail)}
-                        onDecimalsChange={({ detail }) => this.decimalsChange.emit(detail)}
+                        onLangChange={this._handleLangChange}
+                        onThemeChange={this._handleThemeChange}
+                        onDecimalsChange={this._handleDecimalChange}
                     />
                 )}
             </Flex>
@@ -151,7 +179,7 @@ export class HeaderComponent {
                     events={this.events}
                     i18n={this.i18n}
                     interface={this.interface}
-                    outsideCallback={() => (this.showTimeline = false)}
+                    outsideCallback={this._toggleShowTimeline(false)}
                 />
             </Flex>
         );

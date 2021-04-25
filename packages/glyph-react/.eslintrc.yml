@@ -7,4 +7,3 @@ ignorePatterns:
 parserOptions:
   ecmaFeatures:
     jsx: true
-  project: './packages/glyph-react/tsconfig.json'

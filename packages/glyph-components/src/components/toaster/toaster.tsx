@@ -30,7 +30,7 @@ export class ToasterComponent {
     /** Current ttl countdown */
     @State() currentTtl: number;
 
-    private _countdown;
+    private _countdown: any;
     private _i18n: { [key: string]: string } = {};
 
     componentWillLoad() {
@@ -41,6 +41,10 @@ export class ToasterComponent {
     disconnectedCallback() {
         window.removeEventListener(this.eventId as any, event => this._handleToasterTrigger(event.detail));
     }
+
+    private _toggleVisibility = (value?: boolean) => () => {
+        this.visible = value ?? !this.visible;
+    };
 
     private async _initializeVariables() {
         const componentI18n = await getLocaleComponentStrings([ 'toaster' ], this.element);
@@ -73,7 +77,7 @@ export class ToasterComponent {
                             <Icon icon={this.icon} />
                             <span>{this.text}</span>
                             {!this.ttl && (
-                                <button class="close" onClick={() => (this.visible = false)}>
+                                <button class="close" onClick={this._toggleVisibility(false)}>
                                     {this._i18n['close']}
                                 </button>
                             )}
