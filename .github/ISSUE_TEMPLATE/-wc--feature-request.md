@@ -1,7 +1,7 @@
 ---
 name: "[WC] Feature request"
 about: Suggest an idea for this project
-title: "[FEAT]"
+title: ":nailcare [FEAT]"
 labels: enhancement, web-components
 assignees: adrianiy
 
@@ -17,4 +17,4 @@ assignees: adrianiy
 <!--Link to figma if you have one-->
 
 **Additional context**
-Add any other context or screenshots about the feature request here.
+<!--Add any other context or screenshots about the feature request here.-->

@@ -2,7 +2,7 @@
 name: "[NG] Feature request"
 about: Suggest an idea for angular project
 title: ":a [FEAT]"
-labels: enhancement, angular
+labels: angular, enhancement
 assignees: adrianiy
 
 ---
