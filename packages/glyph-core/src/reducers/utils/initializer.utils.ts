@@ -13,7 +13,7 @@ export const selectFilterOptions = (filter: FilterConfig) => {
 
     return {
         ...filter,
-        options
+        options,
     };
 };
 
@@ -26,7 +26,7 @@ export const selectChildrenOptions = (option: FilterOptionHeader, filter: Filter
 
     return {
         filter,
-        option: { ...option, expanded: true, children }
+        option: { ...option, expanded: true, children },
     };
 };
 
@@ -37,7 +37,7 @@ export const updateOptionsWithEntities = (options: FilterOptionHeader[], entitie
     }
 
     return entities.map((optionEntity: FilterOptionHeader) => {
-        const matchOption = options.find((entity: any) => checkStrictIn(optionEntity.code, entity.code));
+        const matchOption = options?.find((entity: any) => checkStrictIn(optionEntity.code, entity.code));
 
         if (optionEntity.header) {
             optionEntity.children = updateOptionsWithEntities(matchOption?.children, optionEntity.children);
@@ -50,7 +50,7 @@ export const updateOptionsWithEntities = (options: FilterOptionHeader[], entitie
 // update, add or remove saved filters
 export const updateSavedFilters = (
     savedFilters: { [key: string]: FilterConfig },
-    baseFilters: { [x: string]: any }
+    baseFilters: { [x: string]: any },
 ) => {
     Object.keys(savedFilters).forEach(key => {
         const baseFilter = baseFilters[key];

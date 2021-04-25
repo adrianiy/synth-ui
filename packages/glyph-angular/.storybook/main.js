@@ -18,5 +18,5 @@ module.exports = {
         return config;
     },
     stories: [ '../projects/glyph-angular/**/*.stories.@(mdx|jsx|ts|tsx)' ],
-    addons: [ '@storybook/addon-links', '@storybook/addon-essentials' ],
+    addons: [ '@storybook/addon-links', '@storybook/addon-essentials', 'storybook-addon-themes' ],
 };

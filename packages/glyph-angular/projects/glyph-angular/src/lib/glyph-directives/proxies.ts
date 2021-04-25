@@ -91,7 +91,7 @@ export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['filtersConfig', 'i18n', 'interface'],
-  outputs: ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']
+  outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
   /** Filter select event */
@@ -99,14 +99,14 @@ export class GlyphChipsbar {
   /** Filter clear event */
   filterClear!: IChipsBarComponent['filterClear'];
   /** Filter multiselect event */
-  filterMultiSelect!: IChipsBarComponent['filterMultiSelect'];
+  updateFilter!: IChipsBarComponent['updateFilter'];
   /** Clear all filters event */
   clearAll!: IChipsBarComponent['clearAll'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'filterMultiSelect', 'clearAll']);
+    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']);
   }
 }
 
@@ -186,13 +186,13 @@ export class GlyphHeader {
 import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'box', 'inputType', 'placeholder', 'search']
+  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search']
 })
 @Component({
   selector: 'glyph-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'box', 'inputType', 'placeholder', 'search'],
+  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search'],
   outputs: ['textChange', 'enterKey']
 })
 export class GlyphInput {

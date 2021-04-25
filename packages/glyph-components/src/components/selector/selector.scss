@@ -59,6 +59,14 @@
                 background: var(--gui-color--background--light);
             }
 
+            span {
+                text-transform: lowercase;
+
+                &::first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
             .checkbox {
                 --size: 10px;
                 width: var(--size);

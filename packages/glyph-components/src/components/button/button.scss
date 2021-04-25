@@ -1,5 +1,6 @@
 .button__wrapper {
     background-color: var(--gui-color--background--light);
+    color: var(--gui-color);
     padding: var(--gui-padding--xs) var(--gui-padding--m);
     display: inline-flex;
     vertical-align: middle;
@@ -10,6 +11,10 @@
     font-size: var(--gui-font--xs);
     outline: none;
     border: none;
+
+    em {
+        font-size: var(--gui-font--s);
+    }
 
     &:hover {
         filter: brightness(0.95);
@@ -46,7 +51,11 @@
 
         &.icon {
             border: none;
-            font-size: var(--gui-font--m);
+            padding: calc(var(--gui-padding--xs) + 1px) var(--gui-padding--xs);
+
+            em {
+                font-size: var(--gui-font--m);
+            }
         }
 
         &.cancel {

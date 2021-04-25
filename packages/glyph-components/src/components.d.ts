@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -763,15 +763,15 @@ declare namespace LocalJSX {
         /**
           * Filter clear event
          */
-        "onFilterClear"?: (event: CustomEvent<any>) => void;
-        /**
-          * Filter multiselect event
-         */
-        "onFilterMultiSelect"?: (event: CustomEvent<any>) => void;
+        "onFilterClear"?: (event: CustomEvent<string>) => void;
         /**
           * Filter select event
          */
-        "onFilterSelect"?: (event: CustomEvent<any>) => void;
+        "onFilterSelect"?: (event: CustomEvent<FilterSelectEvent>) => void;
+        /**
+          * Filter multiselect event
+         */
+        "onUpdateFilter"?: (event: CustomEvent<FilterUpdateEvent>) => void;
     }
     interface GlyphFilter {
         /**
@@ -805,7 +805,7 @@ declare namespace LocalJSX {
         /**
           * Option click event
          */
-        "onOptionClickEvent"?: (event: CustomEvent<any>) => void;
+        "onOptionClickEvent"?: (event: CustomEvent<FilterSelectEvent>) => void;
         /**
           * Filter options
          */

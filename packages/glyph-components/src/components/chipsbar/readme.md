@@ -16,12 +16,12 @@
 
 ## Events
 
-| Event               | Description              | Type               |
-| ------------------- | ------------------------ | ------------------ |
-| `clearAll`          | Clear all filters event  | `CustomEvent<any>` |
-| `filterClear`       | Filter clear event       | `CustomEvent<any>` |
-| `filterMultiSelect` | Filter multiselect event | `CustomEvent<any>` |
-| `filterSelect`      | Filter select event      | `CustomEvent<any>` |
+| Event          | Description              | Type                             |
+| -------------- | ------------------------ | -------------------------------- |
+| `clearAll`     | Clear all filters event  | `CustomEvent<any>`               |
+| `filterClear`  | Filter clear event       | `CustomEvent<string>`            |
+| `filterSelect` | Filter select event      | `CustomEvent<FilterSelectEvent>` |
+| `updateFilter` | Filter multiselect event | `CustomEvent<FilterUpdateEvent>` |
 
 
 ## Dependencies
@@ -37,7 +37,6 @@ graph TD;
   glyph-chipsbar --> glyph-filter
   glyph-chipsbar --> glyph-button
   glyph-filter --> glyph-filter-options
-  glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
   style glyph-chipsbar fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,0 +1,37 @@
+export const FiltersConfig = {
+    product: {
+        description: 'Producto',
+        plural: 'Productos',
+        key: 'cod_product',
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    section: {
+        description: 'Sección',
+        plural: 'Secciones',
+        key: 'cod_section',
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    market: {
+        description: 'Mercado',
+        plural: 'Mercados',
+        key: 'cod_market',
+        related: [ 'platform' ],
+        searchPlaceholder: 'Busca Alovera, Corea ...',
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    platform: {
+        description: 'País',
+        plural: 'Paises',
+        key: 'cod_platform',
+        searchPlaceholder: 'Busca España, Francia ...',
+        visible: true,
+        selected: [],
+        options: [],
+    },
+};

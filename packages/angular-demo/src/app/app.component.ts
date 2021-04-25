@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlyphFilterService } from 'glyph-angular';
+import { FilterService } from 'glyph-angular';
 import { FiltersConfig } from '../config/filters.config';
 import { DataService } from './services/data.service';
 
@@ -11,7 +11,7 @@ import { DataService } from './services/data.service';
 export class AppComponent implements OnInit {
     title = 'ng-demo';
 
-    constructor(private _filtersService: GlyphFilterService, private _dataService: DataService) {}
+    constructor(private _filtersService: FilterService, private _dataService: DataService) {}
 
     ngOnInit() {
         this.initializeFilter();

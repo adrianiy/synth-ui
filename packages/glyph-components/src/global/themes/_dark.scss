@@ -24,8 +24,3 @@
     --article-filter: opacity(0.8);
 }
 
-@media only screen and (max-width: 1024px) {
-    .search-box {
-        border-bottom: var(--gui-border) !important;
-    }
-}

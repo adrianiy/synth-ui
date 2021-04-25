@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { FiltersConfig, UIInterface } from 'glyph-core';
+import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
@@ -16,11 +16,11 @@ export class ChipsBarComponent {
     /** Interface type [ 'MODERN', 'CLASSIC' ] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
-    @Event() filterSelect: EventEmitter<any>;
+    @Event() filterSelect: EventEmitter<FilterSelectEvent>;
     /** Filter clear event */
-    @Event() filterClear: EventEmitter<any>;
+    @Event() filterClear: EventEmitter<string>;
     /** Filter multiselect event */
-    @Event() filterMultiSelect: EventEmitter<any>;
+    @Event() updateFilter: EventEmitter<FilterUpdateEvent>;
     /** Clear all filters event */
     @Event() clearAll: EventEmitter<any>;
 
@@ -41,16 +41,22 @@ export class ChipsBarComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _handleOptionClick = (event: any) => {
+    private _handleOptionClick = (key: string) => (ev: CustomEvent<FilterSelectEvent>) => {
+        const event = { ...ev.detail, filterCode: key };
         this.filterSelect.emit(event);
     };
 
-    private _handleFilterClear = (event: any) => {
-        this.filterClear.emit(event);
+    private _handleFilterClear = (key: string) => () => {
+        this.filterClear.emit(key);
     };
 
-    private _handleMultiSelect = (event: any) => {
-        this.filterMultiSelect.emit(event);
+    private _handleMultiSelect = (key: string) => () => {
+        const filter = this.filtersConfig[key];
+        this.updateFilter.emit({
+            filterCode: key,
+            checkMultiSelect: true,
+            filter: { ...filter, multiSelect: !filter.multiSelect },
+        });
     };
 
     private _handleFilterConfig = () => {
@@ -72,9 +78,9 @@ export class ChipsBarComponent {
                         {...this.filtersConfig[chip]}
                         interface={this.interface}
                         i18n={this._i18n}
-                        onOptionClickEvent={this._handleOptionClick}
-                        onClearEvent={this._handleFilterClear}
-                        onMultiSelectEvent={this._handleMultiSelect}
+                        onOptionClickEvent={this._handleOptionClick(chip)}
+                        onClearEvent={this._handleFilterClear(chip)}
+                        onMultiSelectEvent={this._handleMultiSelect(chip)}
                     />
                 ))}
             </Flex>

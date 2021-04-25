@@ -1,16 +1,19 @@
 // check if some code array is strictly included in some other option array.
 
 import { FilterOption } from '../../models';
-import { FilterConfig, FilterOptionHeader, SelectedFilter } from '../../models/filters';
-import { checkStrictIn, codeToArray } from '../../utils/utils';
+import { FilterConfig, FilterOptionHeader, FiltersConfig, SelectedFilter } from '../../models/filters';
+import { checkStrictIn } from '../../utils/utils';
 
-export const selectOptionAux = (filter: FilterConfig, option: FilterOptionHeader, defaultOption?: undefined) => {
+export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) => {
     return {
-        filter: addNewFilter(filter, option, defaultOption),
-        option: { ...option, active: true }
+        filter: addNewFilter(filter, option),
+        option: { ...option, active: true },
     };
 };
 
+/**
+ * Cleans selected array and set active status to false in options
+ */
 export const cleanSelected = (filters: any) => {
     return filters.map((filter: FilterConfig) => {
         let { options } = filter;
@@ -25,84 +28,104 @@ export const cleanSelected = (filters: any) => {
             return {
                 ...option,
                 children,
-                selected: []
+                active: false,
             };
         });
 
         return {
             ...filter,
             selected: [],
-            options
+            options,
         };
     });
 };
 
 /**
+ * If filter changes to single select and has multiple options active we need to clean selected options
+ */
+export const checkCleanIfMultiSelectChanges = (filter: FilterConfig) => {
+    const { multiSelect, selected } = filter;
+
+    if (!multiSelect && selected.length > 1) {
+        return cleanSelected([ filter ])[0];
+    }
+
+    return filter;
+};
+
+/**
  * Adds new filter to selected *** filter attribute ***.
  */
-export const addNewFilter = (filter: FilterConfig, option: FilterOptionHeader, defaultOpt: any) => {
-    const { multiSelect, key } = filter;
-    const selectedOption = [ { description: option.description, option, default: defaultOpt } ];
+export const addNewFilter = (filter: FilterConfig, option: SelectedFilter) => {
+    const { key } = filter;
     const isDate = key === 'date';
 
     if (isDate) {
-        return _selectDate(filter, selectedOption);
-    } else if (multiSelect) {
-        return _applyMultiSelectFilter(filter, option, selectedOption);
+        return _selectDate(filter, option);
     } else {
-        return _selectFilter(filter, option, selectedOption);
+        return _selectFilter(filter, option);
     }
 };
 
-const _selectDate = (filter: FilterConfig, selected: SelectedFilter[]) => {
+export const getCompType = (filters: FiltersConfig) => {
+    return filters.date?.selected[1]?.compType || 'commercial';
+};
+
+export const isFilterActive = (filters: FiltersConfig, filterCode: string) => {
+    return filters[filterCode]?.selected?.length > 0;
+};
+
+const _selectDate = (filter: FilterConfig, option: SelectedFilter) => {
     return {
         ...filter,
-        selected,
+        selected: [ option ],
         compDates: undefined,
-        compType: 'commercial'
+        compType: 'commercial',
     };
 };
 
-const _selectFilter = (filter: FilterConfig, option: FilterOptionHeader, selected: SelectedFilter[]) => {
-    let { options } = filter;
+const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOptionHeader, multiSelect: boolean) => {
+    return options.map((option: FilterOptionHeader) => {
+        const { header, children } = option;
+        const match = checkStrictIn(selected.code, option.code) && selected.header === option.header;
 
-    if (option.active) {
-        options = options.map((_option: FilterOptionHeader) => {
-            if (_option.header) {
-                _option.children.forEach(
-                    (child: FilterOption) => (child.active = checkStrictIn(child.code, option.code))
-                );
+        if (match) {
+            if (header) {
+                return { ...option, expanded: !option.expanded };
             } else {
-                _option.active = checkStrictIn(_option.code, option.code);
+                return { ...option, active: !option.active };
             }
-            return _option;
-        });
-    } else {
-        selected = [];
-    }
+        } else {
+            if (header) {
+                return { ...option, children: _matchActiveOptions(children, selected, multiSelect) };
+            } else {
+                return { ...option, active: multiSelect || selected.header ? option.active : false };
+            }
+        }
+    });
+};
+
+const _getSelectedOptions = (options: FilterOptionHeader[]) => {
+    return options
+        .reduce(
+            (acc, curr) => acc.concat(curr.header ? _getSelectedOptions(curr.children) : curr.active ? curr : null),
+            [],
+        )
+        .filter(option => option);
+};
+
+const _selectFilter = (filter: FilterConfig, selectedOption: SelectedFilter) => {
+    let { options, multiSelect } = filter;
+    const { isDefault } = selectedOption;
+
+    options = _matchActiveOptions(options, selectedOption, multiSelect);
+
+    const selected = _getSelectedOptions(options).map((option: FilterOptionHeader) => ({ ...option, isDefault }));
 
     return {
         ...filter,
         options,
-        selected
-    };
-};
-
-const _applyMultiSelectFilter = (filter: FilterConfig, option: FilterOptionHeader, selected: SelectedFilter[]) => {
-    let { selected: newSelected } = filter;
-
-    if (!option.active || option.changeOperationValue) {
-        newSelected = newSelected.filter(
-            (selectedOption: SelectedFilter) => !checkStrictIn(selectedOption.option.code, selected[0].option.code)
-        );
-    }
-    if (option.active) {
-        newSelected = newSelected.concat(selected);
-    }
-
-    return {
-        ...filter,
-        selected: newSelected
+        selected,
     };
 };
 
@@ -133,11 +156,6 @@ export const cleanFiltersCache = (filtersVersion: string) => {
             localStorage.removeItem(k);
         });
     localStorage.setItem('Drive.Filters.Version', filtersVersion);
-};
-
-export const selectOption = (option, defaultOpt, parentFilter?, triggerUpdate = true) => {
-    // eslint-disable-next-line no-console
-    console.log(`select option ${option}`);
 };
 
 export const translateDescription = (option: FilterOption, translateFn: (arg0: string) => string) => {

@@ -1,1 +1,14 @@
-<glyph-ng-list title="List" [loading]="loading" expandable enableDownload [data]="listData" [fieldsConfig]="fieldsConfig" [limit]="3" (expandRow)="rowExpandEvent($event)"></glyph-ng-list>
+<div class="container">
+    <glyph-ng-chipsbar [interface]="'classic'"></glyph-ng-chipsbar>
+
+    <glyph-ng-list
+        title="List"
+        [loading]="loading"
+        expandable
+        enableDownload
+        [data]="listData"
+        [fieldsConfig]="fieldsConfig"
+        [limit]="3"
+        (expandRow)="rowExpandEvent($event)"
+    ></glyph-ng-list>
+</div>
