@@ -7,7 +7,7 @@ import { checkStrictIn } from '../../utils/utils';
 export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) => {
     return {
         filter: addNewFilter(filter, option),
-        option: { ...option, active: !option.active },
+        option: { ...option, active: true },
     };
 };
 

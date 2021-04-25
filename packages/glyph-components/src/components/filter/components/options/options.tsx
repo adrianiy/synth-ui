@@ -13,7 +13,7 @@ export class FilterOptionsComponent {
     /** Filter description */
     @Prop() description: string;
     /** Filter options */
-    @Prop({ mutable: true }) options: FilterOptionHeader[];
+    @Prop() options: FilterOptionHeader[];
     /** Multiselect flag. True if filter allows multiselect toggler */
     @Prop() haveMultiSelect: boolean = true;
     /** This flag is true if multiselect is active */
@@ -59,7 +59,7 @@ export class FilterOptionsComponent {
     };
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(['filter'], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
