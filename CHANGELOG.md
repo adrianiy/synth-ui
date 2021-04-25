@@ -1,3 +1,10 @@
+## [1.12.1](https://github.com/adrianiy/glyph-ui/compare/v1.12.0...v1.12.1) (2021-04-25)
+
+
+### Bug Fixes
+
+* **react:** fix react playground filters ([a73991b](https://github.com/adrianiy/glyph-ui/commit/a73991b02bacb5629a8ddfdd1bce085a9a43cbf2))
+
 # [1.12.0](https://github.com/adrianiy/glyph-ui/compare/v1.11.0...v1.12.0) (2021-04-25)
 
 
