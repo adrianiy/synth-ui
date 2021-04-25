@@ -1,3 +1,21 @@
+# [1.12.0](https://github.com/adrianiy/glyph-ui/compare/v1.11.0...v1.12.0) (2021-04-25)
+
+
+### Bug Fixes
+
+* **components:** add brand svgs in dist ([f3d2c89](https://github.com/adrianiy/glyph-ui/commit/f3d2c89ba458447d33efa0338eaa36d14c5ee9be))
+* **components:** show first option letter in uppercase ([fe7d39f](https://github.com/adrianiy/glyph-ui/commit/fe7d39f0a547a44c635fb4b30a4f8a90da6976a2))
+* **components:** use auto focus input in selectors ([e182670](https://github.com/adrianiy/glyph-ui/commit/e182670a96e47223e2d5ea6b16df1f66946daf09))
+
+
+### Features
+
+* **angular:** add chipsbar component ([313d7a3](https://github.com/adrianiy/glyph-ui/commit/313d7a38a83ec0638250b4835625aeedcfff0616))
+* **components:** add input component ([22047e9](https://github.com/adrianiy/glyph-ui/commit/22047e91d4f5b33c8183270435227cf476a56d40))
+* **components:** add password and error inputs ([143ce7f](https://github.com/adrianiy/glyph-ui/commit/143ce7f18dc5be85b1d0d0f7b103c3be44900da5))
+* **core:** add option selection and angular chipsbar ([bccdad6](https://github.com/adrianiy/glyph-ui/commit/bccdad6aa1a8278721b4dcf502cd0f5ed93bbf43))
+* **react:** add chipsbar demo ([0f4475b](https://github.com/adrianiy/glyph-ui/commit/0f4475bee25399b48a84f5e14035912edd0c72bf))
+
 # [1.11.0](https://github.com/adrianiy/glyph-ui/compare/v1.10.0...v1.11.0) (2021-04-20)
 
 
