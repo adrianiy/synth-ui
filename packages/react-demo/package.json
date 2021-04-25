@@ -20,7 +20,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "npm run cpy-assets && react-scripts start",
+    "start": "npm run cpy-assets && react-scripts start --isolatedModules false",
     "cpy-assets": "ncp ./node_modules/glyph-react/dist/assets public/assets",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

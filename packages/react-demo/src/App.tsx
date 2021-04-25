@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { actions, GlyphReactList } from 'glyph-react';
+import { actions, GlyphReactChipsbar, GlyphReactList } from 'glyph-react';
 import { getChildrenList, getListData } from './services/data.service';
 import './App.css';
 import { useDispatch } from 'react-redux';
@@ -10,6 +10,7 @@ import { useState } from 'react';
 function App() {
     const [data, setData] = useState(getListData());
     const dispatch = useDispatch();
+    const uiInterface = 'classic';
 
     useEffect(() => {
         async function loadFilters() {
@@ -42,6 +43,7 @@ function App() {
 
     return (
         <div className="App">
+            <GlyphReactChipsbar uiInterface={uiInterface as any} />
             <div className="list">
                 <GlyphReactList
                     loading={false}

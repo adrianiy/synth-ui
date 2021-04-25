@@ -6,4 +6,6 @@ export * from './setup';
 
 export * from './components';
 
+export * from './providers';
+
 export * from 'glyph-core';

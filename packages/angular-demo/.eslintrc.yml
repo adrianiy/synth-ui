@@ -3,7 +3,7 @@ overrides:
   - files: 
       - '*.ts'
     parserOptions:
-      project: './tsconfig.json'
+      project: './packages/angular-demo/tsconfig.json'
     rules:
       '@angular-eslint/directive-selector':
         - error

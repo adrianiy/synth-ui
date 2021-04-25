@@ -1,7 +1,7 @@
 extends:
   - 'plugin:@stencil/recommended'
 parserOptions:
-  project: './tsconfig.json'
+  project: './packages/glyph-components/tsconfig.json'
 rules:
   '@stencil/strict-boolean-conditions':
     - off
