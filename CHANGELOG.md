@@ -1,3 +1,10 @@
+## [1.12.2](https://github.com/adrianiy/glyph-ui/compare/v1.12.1...v1.12.2) (2021-04-25)
+
+
+### Bug Fixes
+
+* **docs:** fix introduction and wc assets ([c2c86c6](https://github.com/adrianiy/glyph-ui/commit/c2c86c619abe35ced97b7f2e2bf2244589873294))
+
 ## [1.12.1](https://github.com/adrianiy/glyph-ui/compare/v1.12.0...v1.12.1) (2021-04-25)
 
 
