@@ -1,3 +1,10 @@
+## [1.12.3](https://github.com/adrianiy/glyph-ui/compare/v1.12.2...v1.12.3) (2021-04-25)
+
+
+### Bug Fixes
+
+* **docs:** fix brand assets copy ([617dd85](https://github.com/adrianiy/glyph-ui/commit/617dd85237cf89c8ec966268ee4521aa471834e8))
+
 ## [1.12.2](https://github.com/adrianiy/glyph-ui/compare/v1.12.1...v1.12.2) (2021-04-25)
 
 
