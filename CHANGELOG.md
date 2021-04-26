@@ -1,3 +1,10 @@
+## [1.12.4](https://github.com/adrianiy/glyph-ui/compare/v1.12.3...v1.12.4) (2021-04-26)
+
+
+### Bug Fixes
+
+* **core:** move all dist to wc docs folder ([d88b1ac](https://github.com/adrianiy/glyph-ui/commit/d88b1aceca30c4d3b2eafeda889eae96046d7e9f))
+
 ## [1.12.3](https://github.com/adrianiy/glyph-ui/compare/v1.12.2...v1.12.3) (2021-04-25)
 
 
