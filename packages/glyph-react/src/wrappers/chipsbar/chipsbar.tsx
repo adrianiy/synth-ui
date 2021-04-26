@@ -1,4 +1,4 @@
-import { actions, FilterSelectEvent, Store, UIInterface } from 'glyph-core';
+import { actions, FilterSelectEvent, FilterUpdateEvent, Store, UIInterface } from 'glyph-core';
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,10 @@ function GlyphReactChipsbar({ uiInterface }: GlyphReactChipsbarProps) {
 
     const handleSelectFilter = (event: CustomEvent<FilterSelectEvent>) => {
         dispatch(actions.filters.selectOption(event.detail));
+    };
+
+    const handleFilterUpdate = (event: CustomEvent<FilterUpdateEvent>)=>{
+        dispatch(actions.filters.updateFilter(event.detail));
     };
 
     const handleFilterClear = (event: CustomEvent<string>) => {
@@ -25,6 +29,7 @@ function GlyphReactChipsbar({ uiInterface }: GlyphReactChipsbarProps) {
             interface={uiInterface}
             filtersConfig={filtersConfig}
             onFilterSelect={handleSelectFilter}
+            onUpdateFilter={handleFilterUpdate}
             onFilterClear={handleFilterClear}
             onClearAll={handleClearAll}
         />
