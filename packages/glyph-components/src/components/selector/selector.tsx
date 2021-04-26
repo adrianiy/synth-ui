@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Prop, h, State, Event, EventEmitter, Listen, Element } from '@stencil/core';
 import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
@@ -25,6 +25,9 @@ export class SelectorComponent {
     /** on change callback */
     @Event() optionSelect: EventEmitter<SelectorOption>;
 
+    /** Element reference */ 
+    @Element() element: HTMLGlyphSelectorElement;
+
     /** Selected option */
     @State() selectedOptions: SelectorOption[];
     /** Options selector drilldown flag */
@@ -34,8 +37,10 @@ export class SelectorComponent {
 
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
-        if (!event.path.some((el: HTMLElement) => el.closest?.('.selector__container'))) {
-            this._toggleContainer();
+        if (this.optionsDrilldown) {
+            if (!event.composedPath().includes(this.element)) {
+                this._toggleContainer();
+            }
         }
     }
 
