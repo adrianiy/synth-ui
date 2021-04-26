@@ -3,7 +3,7 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<div style="width: 300px; height: 250px"><glyph-filter ...=${spread(args)} @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
+export const Template = args => html`<div style="width: 300px; height: 350px"><glyph-filter ...=${spread(args)} @optionClickEvent=${optionClickEvent} @clearEvent=${clearEvent} @multiSelectEvent=${multiSelectEvent} /></div>`;
 
 <Meta title="Components/Filter/Classic" parameters={{ viewMode: 'docs' }} />
 
@@ -70,6 +70,30 @@ export const filter = {
         { description: 'option', active: false, display: true, code: 1 },
         { description: 'option 2', active: false, display: true, code: 2 },
         { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
     ],
 }
 
@@ -98,8 +122,9 @@ export const filterWithChildren = {
 }
 
 export const optionClickEvent = (event) => {
-    const code = event.detail.code;
-    const header = event.detail.header;
+console.log(event);
+    const code = event.detail.option.code;
+    const header = event.detail.option.header;
     let index = event.target.options.findIndex(option => option.code === code);
     let subindex = -1;
     if (index === -1) {

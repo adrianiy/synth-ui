@@ -30,11 +30,13 @@
 ### Depends on
 
 - [glyph-toggler](../../../toggler)
+- [glyph-scroll](../../../scroll)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-filter-options --> glyph-toggler
+  glyph-filter-options --> glyph-scroll
   glyph-filter --> glyph-filter-options
   style glyph-filter-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

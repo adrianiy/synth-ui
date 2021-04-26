@@ -44,6 +44,7 @@
 graph TD;
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-toggler
+  glyph-filter-options --> glyph-scroll
   glyph-chipsbar --> glyph-filter
   style glyph-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

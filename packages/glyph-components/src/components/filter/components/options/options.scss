@@ -68,10 +68,13 @@
         }
     }
 
-    ul {
-        overflow-y: auto;
-        overflow-x: hidden;
+    .scroll__container {
+        position: relative;
+        min-height: var(--max-height);
         max-height: var(--max-height);
+    }
+
+    ul {
         padding-right: var(--gui-padding--s);
         list-style: none;
         padding: 0;

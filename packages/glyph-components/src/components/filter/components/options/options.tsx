@@ -157,23 +157,25 @@ export class FilterOptionsComponent {
             option => option.display && this._inSearch(option) && this._checkHide(option),
         );
         return (
-            <ul>
-                {renderableOptions.map(option => (
-                    <li>
-                        <Flex
-                            row
-                            spaced
-                            onClick={this._optionClick(option)}
-                            className={cls('option', option.active && 'active')}
-                        >
-                            {option.header
-                                ? this._renderOptionHeader(option, renderableOptions.length)
-                                : this._renderOptionDescription(option.description)}
-                            {option.active && <Icon icon="checkmark" />}
-                        </Flex>
-                    </li>
-                ))}
-            </ul>
+            <glyph-scroll containerClass="scroll__container">
+                <ul>
+                    {renderableOptions.map(option => (
+                        <li>
+                            <Flex
+                                row
+                                spaced
+                                onClick={this._optionClick(option)}
+                                className={cls('option', option.active && 'active')}
+                            >
+                                {option.header
+                                    ? this._renderOptionHeader(option, renderableOptions.length)
+                                    : this._renderOptionDescription(option.description)}
+                                {option.active && <Icon icon="checkmark" />}
+                            </Flex>
+                        </li>
+                    ))}
+                </ul>
+            </glyph-scroll>
         );
     };
 

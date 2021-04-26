@@ -369,6 +369,12 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphScroll {
+        /**
+          * class name to be used in scroll container
+         */
+        "containerClass": string;
+    }
     interface GlyphSelector {
         /**
           * Complex selector options
@@ -603,6 +609,12 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphScrollElement extends Components.GlyphScroll, HTMLStencilElement {
+    }
+    var HTMLGlyphScrollElement: {
+        prototype: HTMLGlyphScrollElement;
+        new (): HTMLGlyphScrollElement;
+    };
     interface HTMLGlyphSelectorElement extends Components.GlyphSelector, HTMLStencilElement {
     }
     var HTMLGlyphSelectorElement: {
@@ -671,6 +683,7 @@ declare global {
         "glyph-list-row": HTMLGlyphListRowElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
@@ -1109,6 +1122,12 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphScroll {
+        /**
+          * class name to be used in scroll container
+         */
+        "containerClass"?: string;
+    }
     interface GlyphSelector {
         /**
           * Complex selector options
@@ -1301,6 +1320,7 @@ declare namespace LocalJSX {
         "glyph-list-row": GlyphListRow;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
@@ -1329,6 +1349,7 @@ declare module "@stencil/core" {
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
