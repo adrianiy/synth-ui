@@ -1,3 +1,17 @@
+# [1.13.0](https://github.com/adrianiy/glyph-ui/compare/v1.12.4...v1.13.0) (2021-04-27)
+
+
+### Bug Fixes
+
+* **components:** do not drilldown list if expandable is false ([c479868](https://github.com/adrianiy/glyph-ui/commit/c47986828312c96963544a9568c3e854147842e1))
+* **components:** fix selector clickout ([b5921b4](https://github.com/adrianiy/glyph-ui/commit/b5921b470186c9bae2b34774be131c15d97d70e1))
+* **react:** add filter update event handler in chipsbar ([ff35da8](https://github.com/adrianiy/glyph-ui/commit/ff35da8d6e49d4660c0078d1d016e613701ba28d))
+
+
+### Features
+
+* **components:** export minimal scroll component ([60429a0](https://github.com/adrianiy/glyph-ui/commit/60429a0db7f69b9de5532cd1b4e28a5349c52486))
+
 ## [1.12.4](https://github.com/adrianiy/glyph-ui/compare/v1.12.3...v1.12.4) (2021-04-26)
 
 
