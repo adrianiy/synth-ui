@@ -1,5 +1,6 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
+import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
@@ -34,19 +35,31 @@ export class FilterOptionsComponent {
     @Element() element: HTMLGlyphFilterOptionsElement;
     /** Filter search value */
     @State() searchValue: string;
+    /** Scrollbar element */
+    @State() ps: PerfectScrollbar;
 
     private _i18n: any;
 
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
-        if (!event.path.some((el: HTMLElement) => el.closest?.('.filter-options__container'))) {
+        if (!event.composedPath().includes(this.element)) {
             this.closeEvent();
         }
+    }
+
+    componentDidRender() {
+        setTimeout(() => this.ps?.update(), 300);
     }
 
     async componentWillLoad() {
         await this._initializeVariables();
     }
+
+    private _scrollbarInit = (ps: PerfectScrollbar) => {
+        if (!this.ps) {
+            this.ps = ps;
+        }
+    };
 
     private _optionClick = (option: FilterOptionHeader) => (event?: any) => {
         this.optionClickEvent(option);
@@ -190,7 +203,9 @@ export class FilterOptionsComponent {
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
-                {this._renderOptionsList(this.options)}
+                <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="scroll__container">
+                    {this._renderOptionsList(this.options)}
+                </glyph-scroll>
             </Flex>
         );
     }

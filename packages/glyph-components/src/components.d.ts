@@ -369,6 +369,40 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphScroll {
+        /**
+          * class name to be used in scroll container
+         */
+        "containerClass": string;
+        /**
+          * height property
+         */
+        "height": number;
+        /**
+          * hide scrollbar
+         */
+        "hideScrollBar": boolean;
+        /**
+          * show horizontal bar
+         */
+        "horizontal": boolean;
+        /**
+          * scrollbar initialization callback
+         */
+        "initCallback": (ps: any) => void;
+        /**
+          * tinyh scrollbar
+         */
+        "tiny": boolean;
+        /**
+          * show vertical bar
+         */
+        "vertical": boolean;
+        /**
+          * width property
+         */
+        "width": number;
+    }
     interface GlyphSelector {
         /**
           * Complex selector options
@@ -386,6 +420,32 @@ export namespace Components {
           * Multiselect flag
          */
         "multiSelect": boolean;
+        /**
+          * Selector options
+         */
+        "options": SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder": string;
+    }
+    interface GlyphSelectorOptions {
+        /**
+          * Close event
+         */
+        "closeEvent": () => void;
+        /**
+          * Complex selector options
+         */
+        "complexOptions": ComplexSelectorOptions;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect": boolean;
+        /**
+          * Option click event
+         */
+        "optionClickEvent": (option: SelectorOption) => void;
         /**
           * Selector options
          */
@@ -603,11 +663,23 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphScrollElement extends Components.GlyphScroll, HTMLStencilElement {
+    }
+    var HTMLGlyphScrollElement: {
+        prototype: HTMLGlyphScrollElement;
+        new (): HTMLGlyphScrollElement;
+    };
     interface HTMLGlyphSelectorElement extends Components.GlyphSelector, HTMLStencilElement {
     }
     var HTMLGlyphSelectorElement: {
         prototype: HTMLGlyphSelectorElement;
         new (): HTMLGlyphSelectorElement;
+    };
+    interface HTMLGlyphSelectorOptionsElement extends Components.GlyphSelectorOptions, HTMLStencilElement {
+    }
+    var HTMLGlyphSelectorOptionsElement: {
+        prototype: HTMLGlyphSelectorOptionsElement;
+        new (): HTMLGlyphSelectorOptionsElement;
     };
     interface HTMLGlyphShareMenuElement extends Components.GlyphShareMenu, HTMLStencilElement {
     }
@@ -671,7 +743,9 @@ declare global {
         "glyph-list-row": HTMLGlyphListRowElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
+        "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
         "glyph-tabs": HTMLGlyphTabsElement;
@@ -1109,6 +1183,40 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphScroll {
+        /**
+          * class name to be used in scroll container
+         */
+        "containerClass"?: string;
+        /**
+          * height property
+         */
+        "height"?: number;
+        /**
+          * hide scrollbar
+         */
+        "hideScrollBar"?: boolean;
+        /**
+          * show horizontal bar
+         */
+        "horizontal"?: boolean;
+        /**
+          * scrollbar initialization callback
+         */
+        "initCallback"?: (ps: any) => void;
+        /**
+          * tinyh scrollbar
+         */
+        "tiny"?: boolean;
+        /**
+          * show vertical bar
+         */
+        "vertical"?: boolean;
+        /**
+          * width property
+         */
+        "width"?: number;
+    }
     interface GlyphSelector {
         /**
           * Complex selector options
@@ -1130,6 +1238,32 @@ declare namespace LocalJSX {
           * on change callback
          */
         "onOptionSelect"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
+          * Selector options
+         */
+        "options"?: SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder"?: string;
+    }
+    interface GlyphSelectorOptions {
+        /**
+          * Close event
+         */
+        "closeEvent"?: () => void;
+        /**
+          * Complex selector options
+         */
+        "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect"?: boolean;
+        /**
+          * Option click event
+         */
+        "optionClickEvent"?: (option: SelectorOption) => void;
         /**
           * Selector options
          */
@@ -1301,7 +1435,9 @@ declare namespace LocalJSX {
         "glyph-list-row": GlyphListRow;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
+        "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
         "glyph-tabs": GlyphTabs;
@@ -1329,7 +1465,9 @@ declare module "@stencil/core" {
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
+            "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;

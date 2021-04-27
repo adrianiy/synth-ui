@@ -38,16 +38,19 @@ Choose a implementations that matches your favourite framework!
   yarn
 ```
 
-To make **react-demo** work locally you'll need to simlink `react` and `react-dom` deps between **react-demo** and **glyph-react** so they use the same exact version.
+To make **react-demo** work locally you'll need to simlink `react`,`react-dom`, `react-redux` and `redux` deps between **react-demo** and **glyph-react** so they use the same exact version.
 
 ```bash
 cd packages/react-demo/node_modules/react
 yarn link
 cd ../react-dom
 yarn link
+cd ../react-redux
+yarn link
+cd ../redux
+yarn link
 cd ../../../glyph-react
-yarn link react
-yarn link react-dom
+yarn link react react-dom react-redux redux
 ```
 
 ### Run
