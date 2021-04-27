@@ -299,13 +299,13 @@ export class GlyphNoData {
 
 export declare interface GlyphScroll extends Components.GlyphScroll {}
 @ProxyCmp({
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
 })
 @Component({
   selector: 'glyph-scroll',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
 })
 export class GlyphScroll {
   protected el: HTMLElement;

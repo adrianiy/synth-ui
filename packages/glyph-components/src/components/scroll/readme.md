@@ -7,14 +7,16 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                               | Type      | Default     |
-| ---------------- | ----------------- | ----------------------------------------- | --------- | ----------- |
-| `containerClass` | `container-class` | class name to be used in scroll container | `string`  | `undefined` |
-| `height`         | `height`          | height property                           | `number`  | `undefined` |
-| `hideScrollBar`  | `hide-scroll-bar` | hide scrollbar                            | `boolean` | `undefined` |
-| `horizontal`     | `horizontal`      | show horizontal bar                       | `boolean` | `undefined` |
-| `vertical`       | `vertical`        | show vertical bar                         | `boolean` | `true`      |
-| `width`          | `width`           | width property                            | `number`  | `undefined` |
+| Property         | Attribute         | Description                               | Type                | Default     |
+| ---------------- | ----------------- | ----------------------------------------- | ------------------- | ----------- |
+| `containerClass` | `container-class` | class name to be used in scroll container | `string`            | `undefined` |
+| `height`         | `height`          | height property                           | `number`            | `undefined` |
+| `hideScrollBar`  | `hide-scroll-bar` | hide scrollbar                            | `boolean`           | `undefined` |
+| `horizontal`     | `horizontal`      | show horizontal bar                       | `boolean`           | `undefined` |
+| `initCallback`   | --                | scrollbar initialization callback         | `(ps: any) => void` | `undefined` |
+| `tiny`           | `tiny`            | tinyh scrollbar                           | `boolean`           | `undefined` |
+| `vertical`       | `vertical`        | show vertical bar                         | `boolean`           | `true`      |
+| `width`          | `width`           | width property                            | `number`            | `undefined` |
 
 
 ## Dependencies

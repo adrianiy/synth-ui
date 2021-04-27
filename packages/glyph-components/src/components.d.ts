@@ -387,6 +387,14 @@ export namespace Components {
          */
         "horizontal": boolean;
         /**
+          * scrollbar initialization callback
+         */
+        "initCallback": (ps: any) => void;
+        /**
+          * tinyh scrollbar
+         */
+        "tiny": boolean;
+        /**
           * show vertical bar
          */
         "vertical": boolean;
@@ -1192,6 +1200,14 @@ declare namespace LocalJSX {
           * show horizontal bar
          */
         "horizontal"?: boolean;
+        /**
+          * scrollbar initialization callback
+         */
+        "initCallback"?: (ps: any) => void;
+        /**
+          * tinyh scrollbar
+         */
+        "tiny"?: boolean;
         /**
           * show vertical bar
          */

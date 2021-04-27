@@ -72,6 +72,8 @@
         --scrollbar-height: var(--max-height);
         position: relative;
         max-height: var(--max-height);
+        width: 100%;
+        padding-right: var(--gui-padding--s);
     }
 
     ul {

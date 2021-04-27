@@ -1,5 +1,6 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
+import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
@@ -34,6 +35,8 @@ export class FilterOptionsComponent {
     @Element() element: HTMLGlyphFilterOptionsElement;
     /** Filter search value */
     @State() searchValue: string;
+    /** Scrollbar element */
+    @State() ps: PerfectScrollbar;
 
     private _i18n: any;
 
@@ -44,9 +47,19 @@ export class FilterOptionsComponent {
         }
     }
 
+    componentDidRender() {
+        setTimeout(() => this.ps?.update(), 300);
+    }
+
     async componentWillLoad() {
         await this._initializeVariables();
     }
+
+    private _scrollbarInit = (ps: PerfectScrollbar) => {
+        if (!this.ps) {
+            this.ps = ps;
+        }
+    };
 
     private _optionClick = (option: FilterOptionHeader) => (event?: any) => {
         this.optionClickEvent(option);
@@ -157,25 +170,23 @@ export class FilterOptionsComponent {
             option => option.display && this._inSearch(option) && this._checkHide(option),
         );
         return (
-            <glyph-scroll containerClass="scroll__container">
-                <ul>
-                    {renderableOptions.map(option => (
-                        <li>
-                            <Flex
-                                row
-                                spaced
-                                onClick={this._optionClick(option)}
-                                className={cls('option', option.active && 'active')}
-                            >
-                                {option.header
-                                    ? this._renderOptionHeader(option, renderableOptions.length)
-                                    : this._renderOptionDescription(option.description)}
-                                {option.active && <Icon icon="checkmark" />}
-                            </Flex>
-                        </li>
-                    ))}
-                </ul>
-            </glyph-scroll>
+            <ul>
+                {renderableOptions.map(option => (
+                    <li>
+                        <Flex
+                            row
+                            spaced
+                            onClick={this._optionClick(option)}
+                            className={cls('option', option.active && 'active')}
+                        >
+                            {option.header
+                                ? this._renderOptionHeader(option, renderableOptions.length)
+                                : this._renderOptionDescription(option.description)}
+                            {option.active && <Icon icon="checkmark" />}
+                        </Flex>
+                    </li>
+                ))}
+            </ul>
         );
     };
 
@@ -192,7 +203,9 @@ export class FilterOptionsComponent {
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
-                {this._renderOptionsList(this.options)}
+                <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="scroll__container">
+                    {this._renderOptionsList(this.options)}
+                </glyph-scroll>
             </Flex>
         );
     }

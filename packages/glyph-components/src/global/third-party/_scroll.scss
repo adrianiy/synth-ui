@@ -1,10 +1,34 @@
 .scrollbar__container {
-    width: var(--scrollbar-width);
-    height: var(--scrollbar-height);
+    max-width: var(--scrollbar-width);
+    max-height: var(--scrollbar-height);
+
+    .scrollbar--tiny {
+        .ps__thumb-y {
+            width: 1px;
+        }
+        .ps__thumb-x {
+            height: 1px;
+        }
+    }
+    .scrollbar--hide {
+        &--x {
+            .ps__rail-x {
+                display: none;
+            }
+        }
+        &--y {
+            .ps__rail-y {
+                display: none;
+            }
+        }
+        .ps__rail-y, .ps__rail-x {
+            display: none;
+        }
+    }
 
     > div {
-        width: var(--scrollbar-width);
-        height: var(--scrollbar-height);
+        max-width: var(--scrollbar-width);
+        max-height: var(--scrollbar-height);
     }
 
     .ps__rail-y {

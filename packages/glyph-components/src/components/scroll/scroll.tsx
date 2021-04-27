@@ -11,6 +11,8 @@ import { cls } from '../../utils/utils';
 export class ScrollComponent {
     /** hide scrollbar */
     @Prop() hideScrollBar: boolean;
+    /** tinyh scrollbar */
+    @Prop() tiny: boolean;
     /** show horizontal bar */
     @Prop() horizontal: boolean;
     /** show vertical bar */
@@ -21,9 +23,11 @@ export class ScrollComponent {
     @Prop() width: number;
     /** class name to be used in scroll container */
     @Prop() containerClass: string;
+    /** scrollbar initialization callback */
+    @Prop() initCallback: (ps: any) => void;
 
     /** Scrollbar element */
-    @State() ps: PerfectScrollbar;
+    @State() ps: any;
 
     componentWillRender() {
         this.ps?.update();
@@ -32,6 +36,7 @@ export class ScrollComponent {
     private _initScrollbar = (ps: PerfectScrollbar) => {
         if (!this.ps) {
             this.ps = ps;
+            this.initCallback(this.ps);
         }
     };
 
@@ -39,6 +44,7 @@ export class ScrollComponent {
         return (
             <Scroll
                 hideScrollBar={this.hideScrollBar}
+                tiny={this.tiny}
                 horizontal={this.horizontal}
                 vertical={this.vertical}
                 height={this.height}
