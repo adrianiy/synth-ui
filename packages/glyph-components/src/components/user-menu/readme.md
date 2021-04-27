@@ -45,7 +45,8 @@
 graph TD;
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
-  glyph-selector --> glyph-input
+  glyph-selector --> glyph-selector-options
+  glyph-selector-options --> glyph-input
   glyph-header --> glyph-user-menu
   style glyph-user-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

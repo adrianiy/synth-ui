@@ -29,12 +29,12 @@
 
 ### Used by
 
- - [glyph-selector](../selector)
+ - [glyph-selector-options](../selector/options)
 
 ### Graph
 ```mermaid
 graph TD;
-  glyph-selector --> glyph-input
+  glyph-selector-options --> glyph-input
   style glyph-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
