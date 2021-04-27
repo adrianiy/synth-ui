@@ -339,6 +339,25 @@ export class GlyphSelector {
 }
 
 
+export declare interface GlyphSelectorOptions extends Components.GlyphSelectorOptions {}
+@ProxyCmp({
+  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+@Component({
+  selector: 'glyph-selector-options',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+export class GlyphSelectorOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphShareMenu extends Components.GlyphShareMenu {}
 @ProxyCmp({
   inputs: ['appSubtitle', 'appTitle', 'i18n', 'interface', 'outsideCallback']

@@ -401,6 +401,32 @@ export namespace Components {
          */
         "searchPlaceholder": string;
     }
+    interface GlyphSelectorOptions {
+        /**
+          * Close event
+         */
+        "closeEvent": () => void;
+        /**
+          * Complex selector options
+         */
+        "complexOptions": ComplexSelectorOptions;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect": boolean;
+        /**
+          * Option click event
+         */
+        "optionClickEvent": (option: SelectorOption) => void;
+        /**
+          * Selector options
+         */
+        "options": SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder": string;
+    }
     interface GlyphShareMenu {
         /**
           * Application subtitle
@@ -621,6 +647,12 @@ declare global {
         prototype: HTMLGlyphSelectorElement;
         new (): HTMLGlyphSelectorElement;
     };
+    interface HTMLGlyphSelectorOptionsElement extends Components.GlyphSelectorOptions, HTMLStencilElement {
+    }
+    var HTMLGlyphSelectorOptionsElement: {
+        prototype: HTMLGlyphSelectorOptionsElement;
+        new (): HTMLGlyphSelectorOptionsElement;
+    };
     interface HTMLGlyphShareMenuElement extends Components.GlyphShareMenu, HTMLStencilElement {
     }
     var HTMLGlyphShareMenuElement: {
@@ -685,6 +717,7 @@ declare global {
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
+        "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
         "glyph-tabs": HTMLGlyphTabsElement;
@@ -1158,6 +1191,32 @@ declare namespace LocalJSX {
          */
         "searchPlaceholder"?: string;
     }
+    interface GlyphSelectorOptions {
+        /**
+          * Close event
+         */
+        "closeEvent"?: () => void;
+        /**
+          * Complex selector options
+         */
+        "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Multiselect flag
+         */
+        "multiSelect"?: boolean;
+        /**
+          * Option click event
+         */
+        "optionClickEvent"?: (option: SelectorOption) => void;
+        /**
+          * Selector options
+         */
+        "options"?: SelectorOption[];
+        /**
+          * Search placeholder text. If defined a search input will render
+         */
+        "searchPlaceholder"?: string;
+    }
     interface GlyphShareMenu {
         /**
           * Application subtitle
@@ -1322,6 +1381,7 @@ declare namespace LocalJSX {
         "glyph-no-data": GlyphNoData;
         "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
+        "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
         "glyph-tabs": GlyphTabs;
@@ -1351,6 +1411,7 @@ declare module "@stencil/core" {
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
+            "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;

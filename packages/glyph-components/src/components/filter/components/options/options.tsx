@@ -2,6 +2,7 @@ import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
+import { Scroll } from '../../../../utils/scroll';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
 
 @Component({
@@ -39,7 +40,7 @@ export class FilterOptionsComponent {
 
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
-        if (!event.path.some((el: HTMLElement) => el.closest?.('.filter-options__container'))) {
+        if (!event.composedPath().includes(this.element)) {
             this.closeEvent();
         }
     }
@@ -157,7 +158,7 @@ export class FilterOptionsComponent {
             option => option.display && this._inSearch(option) && this._checkHide(option),
         );
         return (
-            <glyph-scroll containerClass="scroll__container">
+            <Scroll className="scroll__container">
                 <ul>
                     {renderableOptions.map(option => (
                         <li>
@@ -175,7 +176,7 @@ export class FilterOptionsComponent {
                         </li>
                     ))}
                 </ul>
-            </glyph-scroll>
+            </Scroll>
         );
     };
 

@@ -22,6 +22,7 @@ export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTML
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
 export const GlyphScroll = /*@__PURE__*/createReactComponent<JSX.GlyphScroll, HTMLGlyphScrollElement>('glyph-scroll');
 export const GlyphSelector = /*@__PURE__*/createReactComponent<JSX.GlyphSelector, HTMLGlyphSelectorElement>('glyph-selector');
+export const GlyphSelectorOptions = /*@__PURE__*/createReactComponent<JSX.GlyphSelectorOptions, HTMLGlyphSelectorOptionsElement>('glyph-selector-options');
 export const GlyphShareMenu = /*@__PURE__*/createReactComponent<JSX.GlyphShareMenu, HTMLGlyphShareMenuElement>('glyph-share-menu');
 export const GlyphSkLoader = /*@__PURE__*/createReactComponent<JSX.GlyphSkLoader, HTMLGlyphSkLoaderElement>('glyph-sk-loader');
 export const GlyphTabs = /*@__PURE__*/createReactComponent<JSX.GlyphTabs, HTMLGlyphTabsElement>('glyph-tabs');

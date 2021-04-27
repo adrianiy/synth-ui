@@ -100,8 +100,8 @@ export const filterWithChildren = {
 }
 
 export const optionClickEvent = (event) => {
-    const code = event.detail.code;
-    const header = event.detail.header;
+    const code = event.detail.detail.code;
+    const header = event.detail.detail.header;
     let index = event.target.options.findIndex(option => option.code === code);
     let subindex = -1;
     if (index === -1) {

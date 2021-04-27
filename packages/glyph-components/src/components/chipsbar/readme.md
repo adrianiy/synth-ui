@@ -38,7 +38,6 @@ graph TD;
   glyph-chipsbar --> glyph-button
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-toggler
-  glyph-filter-options --> glyph-scroll
   style glyph-chipsbar fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
