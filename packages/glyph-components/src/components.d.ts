@@ -374,6 +374,26 @@ export namespace Components {
           * class name to be used in scroll container
          */
         "containerClass": string;
+        /**
+          * height property
+         */
+        "height": number;
+        /**
+          * hide scrollbar
+         */
+        "hideScrollBar": boolean;
+        /**
+          * show horizontal bar
+         */
+        "horizontal": boolean;
+        /**
+          * show vertical bar
+         */
+        "vertical": boolean;
+        /**
+          * width property
+         */
+        "width": number;
     }
     interface GlyphSelector {
         /**
@@ -1160,6 +1180,26 @@ declare namespace LocalJSX {
           * class name to be used in scroll container
          */
         "containerClass"?: string;
+        /**
+          * height property
+         */
+        "height"?: number;
+        /**
+          * hide scrollbar
+         */
+        "hideScrollBar"?: boolean;
+        /**
+          * show horizontal bar
+         */
+        "horizontal"?: boolean;
+        /**
+          * show vertical bar
+         */
+        "vertical"?: boolean;
+        /**
+          * width property
+         */
+        "width"?: number;
     }
     interface GlyphSelector {
         /**

@@ -23,6 +23,7 @@ export const parameters = {
                     'Toggler',
                     'Tabs',
                     'Toaster',
+                    'Scroll',
                     'Filter',
                     'Chipsbar',
                     'Header',
@@ -39,8 +40,8 @@ export const parameters = {
     themes: {
         default: 'light',
         list: [
-            { name: 'light', class: ['light', 'light-mode'] },
-            { name: 'dark', class: ['dark', 'dark-mode'] },
+            { name: 'light', class: [ 'light', 'light-mode' ] },
+            { name: 'dark', class: [ 'dark', 'dark-mode' ] },
         ],
     },
 };
