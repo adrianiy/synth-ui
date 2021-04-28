@@ -1,3 +1,24 @@
+## [1.12.4](https://github.com/adrianiy/glyph-ui/compare/v1.12.3...v1.12.4) (2021-04-26)
+
+
+### Bug Fixes
+
+* **core:** move all dist to wc docs folder ([d88b1ac](https://github.com/adrianiy/glyph-ui/commit/d88b1aceca30c4d3b2eafeda889eae96046d7e9f))
+
+## [1.12.3](https://github.com/adrianiy/glyph-ui/compare/v1.12.2...v1.12.3) (2021-04-25)
+
+
+### Bug Fixes
+
+* **docs:** fix brand assets copy ([617dd85](https://github.com/adrianiy/glyph-ui/commit/617dd85237cf89c8ec966268ee4521aa471834e8))
+
+## [1.12.2](https://github.com/adrianiy/glyph-ui/compare/v1.12.1...v1.12.2) (2021-04-25)
+
+
+### Bug Fixes
+
+* **docs:** fix introduction and wc assets ([c2c86c6](https://github.com/adrianiy/glyph-ui/commit/c2c86c619abe35ced97b7f2e2bf2244589873294))
+
 ## [1.12.1](https://github.com/adrianiy/glyph-ui/compare/v1.12.0...v1.12.1) (2021-04-25)
 
 

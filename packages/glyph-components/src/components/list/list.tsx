@@ -111,18 +111,20 @@ export class ListComponent {
     };
 
     private _expandRow = (row: Row) => () => {
-        const { _isTotal, _expanded, _originalIndex } = row;
-        this.parsedList = this.parsedList.map(row => {
-            if (_isTotal) {
-                return { ...row, _expanded: !_expanded };
-            } else if (row._originalIndex === _originalIndex) {
-                return { ...row, _expanded: !_expanded };
-            } else {
-                return row;
-            }
-        });
+        if (this.expandable) {
+            const { _isTotal, _expanded, _originalIndex } = row;
+            this.parsedList = this.parsedList.map(row => {
+                if (_isTotal) {
+                    return { ...row, _expanded: !_expanded };
+                } else if (row._originalIndex === _originalIndex) {
+                    return { ...row, _expanded: !_expanded };
+                } else {
+                    return row;
+                }
+            });
 
-        this.expandRow.emit({ row });
+            this.expandRow.emit({ row });
+        }
     };
 
     private _parseData() {

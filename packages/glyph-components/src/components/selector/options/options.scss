@@ -1,0 +1,57 @@
+.selector__options__container {
+    position: absolute;
+    background: var(--gui-color--background--lighter);
+    box-shadow: var(--gui-shadow);
+    border: var(--gui-border--lightest);
+    width: fit-content;
+
+    glyph-input {
+        padding: var(--gui-padding--s);
+        padding-bottom: 0;
+    }
+
+    label {
+        padding: var(--gui-padding--s);
+        font-weight: var(--gui-font-weight--bold);
+        text-transform: capitalize;
+    }
+
+    .option {
+        font-size: var(--gui-font--xxs);
+        padding: var(--gui-padding--s);
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            background: var(--gui-color--background--light);
+        }
+
+        span {
+            text-transform: lowercase;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        .checkbox {
+            --size: 10px;
+            width: var(--size);
+            height: var(--size);
+            border: var(--gui-border);
+            margin-right: var(--gui-padding--xs);
+
+            &.active {
+                background: var(--gui-color--background--contrast);
+
+                em {
+                    color: var(--gui-color--contrast);
+                    width: var(--size);
+                    height: var(--size);
+                    margin-left: -1px;
+                }
+            }
+        }
+    }
+}
+

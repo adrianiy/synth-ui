@@ -296,6 +296,25 @@ export class GlyphNoData {
   }
 }
 
+
+export declare interface GlyphScroll extends Components.GlyphScroll {}
+@ProxyCmp({
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+})
+@Component({
+  selector: 'glyph-scroll',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+})
+export class GlyphScroll {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
@@ -316,6 +335,25 @@ export class GlyphSelector {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['optionSelect']);
+  }
+}
+
+
+export declare interface GlyphSelectorOptions extends Components.GlyphSelectorOptions {}
+@ProxyCmp({
+  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+@Component({
+  selector: 'glyph-selector-options',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+})
+export class GlyphSelectorOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 

@@ -68,10 +68,15 @@
         }
     }
 
-    ul {
-        overflow-y: auto;
-        overflow-x: hidden;
+    .scroll__container {
+        --scrollbar-height: var(--max-height);
+        position: relative;
         max-height: var(--max-height);
+        width: 100%;
+        padding-right: var(--gui-padding--s);
+    }
+
+    ul {
         padding-right: var(--gui-padding--s);
         list-style: none;
         padding: 0;
