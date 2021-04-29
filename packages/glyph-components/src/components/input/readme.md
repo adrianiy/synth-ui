@@ -29,11 +29,15 @@
 
 ### Used by
 
+ - [glyph-filter-options](../filter/components/options)
+ - [glyph-login](../layouts/login)
  - [glyph-selector-options](../selector/options)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-filter-options --> glyph-input
+  glyph-login --> glyph-input
   glyph-selector-options --> glyph-input
   style glyph-input fill:#f9f,stroke:#333,stroke-width:4px
 ```

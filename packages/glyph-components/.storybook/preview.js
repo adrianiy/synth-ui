@@ -10,6 +10,7 @@ export const parameters = {
         storySort: {
             order: [
                 'Introduction',
+                'Layout',
                 'Components',
                 [
                     'Avatar',

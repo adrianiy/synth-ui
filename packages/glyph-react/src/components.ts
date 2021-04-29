@@ -19,6 +19,7 @@ export const GlyphHeader = /*@__PURE__*/createReactComponent<JSX.GlyphHeader, HT
 export const GlyphInput = /*@__PURE__*/createReactComponent<JSX.GlyphInput, HTMLGlyphInputElement>('glyph-input');
 export const GlyphList = /*@__PURE__*/createReactComponent<JSX.GlyphList, HTMLGlyphListElement>('glyph-list');
 export const GlyphListRow = /*@__PURE__*/createReactComponent<JSX.GlyphListRow, HTMLGlyphListRowElement>('glyph-list-row');
+export const GlyphLogin = /*@__PURE__*/createReactComponent<JSX.GlyphLogin, HTMLGlyphLoginElement>('glyph-login');
 export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTMLGlyphModalElement>('glyph-modal');
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
 export const GlyphScroll = /*@__PURE__*/createReactComponent<JSX.GlyphScroll, HTMLGlyphScrollElement>('glyph-scroll');

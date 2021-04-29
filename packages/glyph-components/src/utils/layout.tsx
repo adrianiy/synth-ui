@@ -38,12 +38,12 @@ export const Flex: FunctionalComponent<LayoutProps> = (props, children) => {
 };
 
 export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, id, onClick, ref } = props;
+    const { testId = '', className, id, onClick, ref, ...rest } = props;
 
     return (
         <div
             data-testid={testId}
-            class={cls('row', getDistribution(props), className)}
+            class={cls('row', getDistribution(rest), className)}
             onClick={onClick}
             id={id}
             ref={ref}
@@ -54,12 +54,12 @@ export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => 
 };
 
 export const ColumnLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, id, onClick, ref } = props;
+    const { testId = '', className, id, onClick, ref, ...rest } = props;
 
     return (
         <div
             data-testid={testId}
-            class={cls('column', getDistribution(props), className)}
+            class={cls('column', getDistribution(rest), className)}
             onClick={onClick}
             id={id}
             ref={ref}
