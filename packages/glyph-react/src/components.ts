@@ -14,6 +14,7 @@ export const GlyphButtonGroup = /*@__PURE__*/createReactComponent<JSX.GlyphButto
 export const GlyphChipsbar = /*@__PURE__*/createReactComponent<JSX.GlyphChipsbar, HTMLGlyphChipsbarElement>('glyph-chipsbar');
 export const GlyphFilter = /*@__PURE__*/createReactComponent<JSX.GlyphFilter, HTMLGlyphFilterElement>('glyph-filter');
 export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFilterOptions, HTMLGlyphFilterOptionsElement>('glyph-filter-options');
+export const GlyphFlex = /*@__PURE__*/createReactComponent<JSX.GlyphFlex, HTMLGlyphFlexElement>('glyph-flex');
 export const GlyphHeader = /*@__PURE__*/createReactComponent<JSX.GlyphHeader, HTMLGlyphHeaderElement>('glyph-header');
 export const GlyphInput = /*@__PURE__*/createReactComponent<JSX.GlyphInput, HTMLGlyphInputElement>('glyph-input');
 export const GlyphList = /*@__PURE__*/createReactComponent<JSX.GlyphList, HTMLGlyphListElement>('glyph-list');

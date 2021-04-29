@@ -162,6 +162,60 @@ export namespace Components {
          */
         "searchPlaceholder": string;
     }
+    interface GlyphFlex {
+        /**
+          * Apply spaced around distribution
+         */
+        "around": boolean;
+        /**
+          * Verical align = bottom
+         */
+        "bottom": boolean;
+        /**
+          * Horizontal align = center
+         */
+        "center": boolean;
+        /**
+          * Flex-direction = vertical
+         */
+        "column": boolean;
+        /**
+          * Class attribute to apply in flex div
+         */
+        "flexClass": string;
+        /**
+          * Id attribute to apply in flex div
+         */
+        "flexId": string;
+        /**
+          * Horizonal align = left
+         */
+        "left": boolean;
+        /**
+          * Vertical align = middle
+         */
+        "middle": boolean;
+        /**
+          * Horizontal align = right
+         */
+        "right": boolean;
+        /**
+          * Flex-direction = horizontal
+         */
+        "row": boolean;
+        /**
+          * Apply spaced distribution
+         */
+        "spaced": boolean;
+        /**
+          * Set an id to attribute data-testid
+         */
+        "testId": string;
+        /**
+          * Vertical align = top
+         */
+        "top": boolean;
+    }
     interface GlyphHeader {
         /**
           * Application brand
@@ -642,6 +696,12 @@ declare global {
         prototype: HTMLGlyphFilterOptionsElement;
         new (): HTMLGlyphFilterOptionsElement;
     };
+    interface HTMLGlyphFlexElement extends Components.GlyphFlex, HTMLStencilElement {
+    }
+    var HTMLGlyphFlexElement: {
+        prototype: HTMLGlyphFlexElement;
+        new (): HTMLGlyphFlexElement;
+    };
     interface HTMLGlyphHeaderElement extends Components.GlyphHeader, HTMLStencilElement {
     }
     var HTMLGlyphHeaderElement: {
@@ -758,6 +818,7 @@ declare global {
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
+        "glyph-flex": HTMLGlyphFlexElement;
         "glyph-header": HTMLGlyphHeaderElement;
         "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
@@ -960,6 +1021,60 @@ declare namespace LocalJSX {
           * Search placeholder
          */
         "searchPlaceholder"?: string;
+    }
+    interface GlyphFlex {
+        /**
+          * Apply spaced around distribution
+         */
+        "around"?: boolean;
+        /**
+          * Verical align = bottom
+         */
+        "bottom"?: boolean;
+        /**
+          * Horizontal align = center
+         */
+        "center"?: boolean;
+        /**
+          * Flex-direction = vertical
+         */
+        "column"?: boolean;
+        /**
+          * Class attribute to apply in flex div
+         */
+        "flexClass"?: string;
+        /**
+          * Id attribute to apply in flex div
+         */
+        "flexId"?: string;
+        /**
+          * Horizonal align = left
+         */
+        "left"?: boolean;
+        /**
+          * Vertical align = middle
+         */
+        "middle"?: boolean;
+        /**
+          * Horizontal align = right
+         */
+        "right"?: boolean;
+        /**
+          * Flex-direction = horizontal
+         */
+        "row"?: boolean;
+        /**
+          * Apply spaced distribution
+         */
+        "spaced"?: boolean;
+        /**
+          * Set an id to attribute data-testid
+         */
+        "testId"?: string;
+        /**
+          * Vertical align = top
+         */
+        "top"?: boolean;
     }
     interface GlyphHeader {
         /**
@@ -1469,6 +1584,7 @@ declare namespace LocalJSX {
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
+        "glyph-flex": GlyphFlex;
         "glyph-header": GlyphHeader;
         "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
@@ -1500,6 +1616,7 @@ declare module "@stencil/core" {
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
+            "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
