@@ -7,24 +7,21 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                             | Type                                                                                   | Default     |
-| ------------------- | -------------------- | --------------------------------------- | -------------------------------------------------------------------------------------- | ----------- |
-| `around`            | `around`             | Apply spaced around distribution        | `boolean`                                                                              | `undefined` |
-| `bottom`            | `bottom`             | Verical align = bottom                  | `boolean`                                                                              | `undefined` |
-| `center`            | `center`             | Horizontal align = center               | `boolean`                                                                              | `undefined` |
-| `column`            | `column`             | Flex-direction = vertical               | `boolean`                                                                              | `true`      |
-| `flexClass`         | `flex-class`         | Class attribute to apply in flex div    | `string`                                                                               | `undefined` |
-| `flexId`            | `flex-id`            | Id attribute to apply in flex div       | `string`                                                                               | `undefined` |
-| `horizontalPadding` | `horizontal-padding` | Applies a predefined horizontal padding | `paddings.BIG \| paddings.LARGE \| paddings.MEDIUM \| paddings.SMALL \| paddings.TINY` | `undefined` |
-| `left`              | `left`               | Horizonal align = left                  | `boolean`                                                                              | `undefined` |
-| `middle`            | `middle`             | Vertical align = middle                 | `boolean`                                                                              | `undefined` |
-| `padding`           | `padding`            | Applies a predefined padding            | `paddings.BIG \| paddings.LARGE \| paddings.MEDIUM \| paddings.SMALL \| paddings.TINY` | `undefined` |
-| `right`             | `right`              | Horizontal align = right                | `boolean`                                                                              | `undefined` |
-| `row`               | `row`                | Flex-direction = horizontal             | `boolean`                                                                              | `undefined` |
-| `spaced`            | `spaced`             | Apply spaced distribution               | `boolean`                                                                              | `undefined` |
-| `testId`            | `test-id`            | Set an id to attribute data-testid      | `string`                                                                               | `undefined` |
-| `top`               | `top`                | Vertical align = top                    | `boolean`                                                                              | `undefined` |
-| `verticalPadding`   | `vertical-padding`   | Applies a predefined vertical padding   | `paddings.BIG \| paddings.LARGE \| paddings.MEDIUM \| paddings.SMALL \| paddings.TINY` | `undefined` |
+| Property    | Attribute    | Description                          | Type      | Default     |
+| ----------- | ------------ | ------------------------------------ | --------- | ----------- |
+| `around`    | `around`     | Apply spaced around distribution     | `boolean` | `undefined` |
+| `bottom`    | `bottom`     | Verical align = bottom               | `boolean` | `undefined` |
+| `center`    | `center`     | Horizontal align = center            | `boolean` | `undefined` |
+| `column`    | `column`     | Flex-direction = vertical            | `boolean` | `true`      |
+| `flexClass` | `flex-class` | Class attribute to apply in flex div | `string`  | `undefined` |
+| `flexId`    | `flex-id`    | Id attribute to apply in flex div    | `string`  | `undefined` |
+| `left`      | `left`       | Horizonal align = left               | `boolean` | `undefined` |
+| `middle`    | `middle`     | Vertical align = middle              | `boolean` | `undefined` |
+| `right`     | `right`      | Horizontal align = right             | `boolean` | `undefined` |
+| `row`       | `row`        | Flex-direction = horizontal          | `boolean` | `undefined` |
+| `spaced`    | `spaced`     | Apply spaced distribution            | `boolean` | `undefined` |
+| `testId`    | `test-id`    | Set an id to attribute data-testid   | `string`  | `undefined` |
+| `top`       | `top`        | Vertical align = top                 | `boolean` | `undefined` |
 
 
 ----------------------------------------------

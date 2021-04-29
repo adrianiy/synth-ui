@@ -19,10 +19,6 @@ interface LayoutProps {
     ref?: any;
 }
 
-const composeClassNames = (flexType: string, distribution: string, className: string) => {
-    return cls(flexType, className);
-};
-
 const getDistribution = (props: LayoutProps) => {
     const flexType = props.row ? 'row' : 'column';
     const flexDist = Object.keys(props)
@@ -47,7 +43,7 @@ export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => 
     return (
         <div
             data-testid={testId}
-            class={composeClassNames('row', getDistribution(props), className)}
+            class={cls('row', getDistribution(props), className)}
             onClick={onClick}
             id={id}
             ref={ref}
@@ -63,7 +59,7 @@ export const ColumnLayout: FunctionalComponent<LayoutProps> = (props, children) 
     return (
         <div
             data-testid={testId}
-            class={composeClassNames('column', getDistribution(props), className)}
+            class={cls('column', getDistribution(props), className)}
             onClick={onClick}
             id={id}
             ref={ref}
