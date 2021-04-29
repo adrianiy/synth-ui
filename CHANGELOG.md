@@ -1,3 +1,12 @@
+# [1.14.0](https://github.com/adrianiy/glyph-ui/compare/v1.13.0...v1.14.0) (2021-04-29)
+
+
+### Features
+
+* **components:** add login layout ([beb16cb](https://github.com/adrianiy/glyph-ui/commit/beb16cb22cfcaa2ae4987cee65c17dc38eef665a))
+* **components:** add sortable list ([40c61c3](https://github.com/adrianiy/glyph-ui/commit/40c61c331b3a12a43084bb244aa71a0d0d356cff))
+* **components:** expose flex component ([4a9997b](https://github.com/adrianiy/glyph-ui/commit/4a9997b4634861715d0d3cccf1436ffa9f954084))
+
 # [1.13.0](https://github.com/adrianiy/glyph-ui/compare/v1.12.4...v1.13.0) (2021-04-27)
 
 
