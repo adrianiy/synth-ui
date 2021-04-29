@@ -1,0 +1,84 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-sortable ...=${spread(args)} />`;
+
+<Meta title="Components/Sortable list" parameters={{ viewMode: 'docs' }} />
+
+# Sortable list
+
+##### glyph-sortable
+
+Modern sortable list to allow users that uses drag&drop.
+
+
+## Basic sortable
+
+<Canvas>
+    <Story name="Basic" args={{ '.list': list }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Sortable with icon
+
+You can set an attribute `icon` per option to render a drag icon.
+
+<Canvas>
+    <Story name="With icon" args={{ '.list': listWithIcon }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Sortable with no sotable rows
+
+You can set an attribute `notSortable` per option to fix some option position.
+
+<Canvas>
+    <Story name="With no sortable" args={{ '.list': listWithFixed }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Sortable with action icon
+
+You can set an attribute `action` per row to trigger some action, like edit row for example.
+
+Action button will be visible on hover, try hovering any row!.
+
+<Canvas>
+    <Story name="With action" args={{ '.list': listWithAction }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const list = [
+    { name: 'test1' },
+    { name: 'test2' },
+    { name: 'test3' }
+];
+
+export const listWithIcon = [
+    { name: 'test1' },
+    { name: 'test2', icon: true },
+    { name: 'test3' }
+];
+
+export const listWithFixed = [
+    { name: 'test1' },
+    { name: 'test2', notSortable: true },
+    { name: 'test3' }
+];
+
+export const listWithAction = [
+    { name: 'test1', action: { icon: 'edit', action: () => alert('action') } },
+    { name: 'test2', action: { icon: 'edit', action: () => alert('action') } },
+    { name: 'test3', action: { icon: 'edit', action: () => alert('action') } },
+];
+

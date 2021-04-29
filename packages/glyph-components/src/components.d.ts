@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -487,6 +488,20 @@ export namespace Components {
          */
         "repetitions": number;
     }
+    interface GlyphSortable {
+        /**
+          * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
+         */
+        "config": SortableOptions;
+        /**
+          * List to sort
+         */
+        "list": SortableOption[];
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter": (item: any) => string;
+    }
     interface GlyphTabs {
         /**
           * Tab rendering style big | small
@@ -693,6 +708,12 @@ declare global {
         prototype: HTMLGlyphSkLoaderElement;
         new (): HTMLGlyphSkLoaderElement;
     };
+    interface HTMLGlyphSortableElement extends Components.GlyphSortable, HTMLStencilElement {
+    }
+    var HTMLGlyphSortableElement: {
+        prototype: HTMLGlyphSortableElement;
+        new (): HTMLGlyphSortableElement;
+    };
     interface HTMLGlyphTabsElement extends Components.GlyphTabs, HTMLStencilElement {
     }
     var HTMLGlyphTabsElement: {
@@ -748,6 +769,7 @@ declare global {
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-sortable": HTMLGlyphSortableElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
         "glyph-title": HTMLGlyphTitleElement;
@@ -1305,6 +1327,24 @@ declare namespace LocalJSX {
          */
         "repetitions"?: number;
     }
+    interface GlyphSortable {
+        /**
+          * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
+         */
+        "config"?: SortableOptions;
+        /**
+          * List to sort
+         */
+        "list"?: SortableOption[];
+        /**
+          * Event emitted on drag end emitting new list configuration
+         */
+        "onSortChange"?: (event: CustomEvent<SortableOption[]>) => void;
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter"?: (item: any) => string;
+    }
     interface GlyphTabs {
         /**
           * Tab selection event
@@ -1440,6 +1480,7 @@ declare namespace LocalJSX {
         "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
+        "glyph-sortable": GlyphSortable;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
         "glyph-title": GlyphTitle;
@@ -1470,6 +1511,7 @@ declare module "@stencil/core" {
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;

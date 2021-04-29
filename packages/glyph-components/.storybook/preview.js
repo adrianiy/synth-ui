@@ -31,6 +31,7 @@ export const parameters = {
                     'No Data',
                     'Skeleton Loader',
                     'List',
+                    'Sortable list',
                     'Modal',
                     'Timeline',
                 ],
