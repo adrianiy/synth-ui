@@ -395,6 +395,29 @@ export class GlyphSkLoader {
   }
 }
 
+import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
+export declare interface GlyphSortable extends Components.GlyphSortable {}
+@ProxyCmp({
+  inputs: ['config', 'list', 'valueGetter']
+})
+@Component({
+  selector: 'glyph-sortable',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['config', 'list', 'valueGetter'],
+  outputs: ['sortChange']
+})
+export class GlyphSortable {
+  /** Event emitted on drag end emitting new list configuration */
+  sortChange!: ISortableComponent['sortChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sortChange']);
+  }
+}
+
 import { TabsComponent as ITabsComponent } from 'glyph-components/dist/types/components/tabs/tabs';
 export declare interface GlyphTabs extends Components.GlyphTabs {}
 @ProxyCmp({

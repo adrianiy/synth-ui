@@ -1,0 +1,60 @@
+.sortable-list__container {
+    background: var(--gui-color--background--light);
+    border-radius: var(--gui-border-radius);
+    border: var(--gui-border--lightest);
+    margin: 0;
+    padding: 0;
+
+    li {
+        cursor: grab;
+        list-style: none;
+        padding: var(--gui-padding--s) var(--gui-padding--xs);
+        font-size: var(--gui-font--xs);
+
+        em {
+            margin-right: var(--gui-padding--xxs);
+        }
+
+        .action {
+            --size: 20px;
+            width: var(--size);
+            height: var(--size);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+        }
+
+        &:hover {
+            .action {
+                opacity: 0.2;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.fill-icon {
+            padding-left: calc(var(--gui-padding--l) + var(--gui-padding--nano));
+        }
+
+        &.use-hover {
+            &.ignore-element {
+                cursor: default;
+
+                &:hover {
+                    background: var(--gui-color--alert);
+                }
+            }
+            &:hover {
+                backdrop-filter: var(--gui-highlight-filter);
+            }
+        }
+
+        &.sortable-chosen {
+            backdrop-filter: var(--gui-highlight-filter);
+        }
+    }
+}
