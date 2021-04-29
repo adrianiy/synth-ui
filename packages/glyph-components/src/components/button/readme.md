@@ -21,12 +21,14 @@
 ### Used by
 
  - [glyph-chipsbar](../chipsbar)
+ - [glyph-login](../layouts/login)
  - [glyph-modal](../modal)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-chipsbar --> glyph-button
+  glyph-login --> glyph-button
   glyph-modal --> glyph-button
   style glyph-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

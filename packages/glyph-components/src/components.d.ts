@@ -380,6 +380,28 @@ export namespace Components {
          */
         "row": Row;
     }
+    interface GlyphLogin {
+        /**
+          * Extra i18n translates
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Component interface *modern* | *classic*
+         */
+        "interface": UIInterface;
+        /**
+          * Login callback
+         */
+        "login": (userData: { user: string; password: string }) => void;
+        /**
+          * On login success
+         */
+        "loginSuccess": (result: any) => void;
+        /**
+          * Application version
+         */
+        "version": string;
+    }
     interface GlyphModal {
         /**
           * Apply button text. Renders button if set
@@ -726,6 +748,12 @@ declare global {
         prototype: HTMLGlyphListRowElement;
         new (): HTMLGlyphListRowElement;
     };
+    interface HTMLGlyphLoginElement extends Components.GlyphLogin, HTMLStencilElement {
+    }
+    var HTMLGlyphLoginElement: {
+        prototype: HTMLGlyphLoginElement;
+        new (): HTMLGlyphLoginElement;
+    };
     interface HTMLGlyphModalElement extends Components.GlyphModal, HTMLStencilElement {
     }
     var HTMLGlyphModalElement: {
@@ -823,6 +851,7 @@ declare global {
         "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
+        "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-scroll": HTMLGlyphScrollElement;
@@ -1264,6 +1293,28 @@ declare namespace LocalJSX {
          */
         "row"?: Row;
     }
+    interface GlyphLogin {
+        /**
+          * Extra i18n translates
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Component interface *modern* | *classic*
+         */
+        "interface"?: UIInterface;
+        /**
+          * Login callback
+         */
+        "login"?: (userData: { user: string; password: string }) => void;
+        /**
+          * On login success
+         */
+        "loginSuccess"?: (result: any) => void;
+        /**
+          * Application version
+         */
+        "version"?: string;
+    }
     interface GlyphModal {
         /**
           * Apply button text. Renders button if set
@@ -1589,6 +1640,7 @@ declare namespace LocalJSX {
         "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
+        "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-scroll": GlyphScroll;
@@ -1621,6 +1673,7 @@ declare module "@stencil/core" {
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
+            "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;

@@ -269,6 +269,25 @@ export class GlyphListRow {
   }
 }
 
+
+export declare interface GlyphLogin extends Components.GlyphLogin {}
+@ProxyCmp({
+  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+})
+@Component({
+  selector: 'glyph-login',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+})
+export class GlyphLogin {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { ModalComponent as IModalComponent } from 'glyph-components/dist/types/components/modal/modal';
 export declare interface GlyphModal extends Components.GlyphModal {}
 @ProxyCmp({

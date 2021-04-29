@@ -75,7 +75,7 @@ export class InputComponent {
                 middle
                 className={cls('input__container', this.search && 'search', this.box && 'box', this.error && 'error')}
             >
-                <Flex row middle>
+                <Flex row middle className="input__wrapper">
                     {this.search && <Icon icon="search" className="search" />}
                     <input
                         ref={ref => (this.ref = ref)}

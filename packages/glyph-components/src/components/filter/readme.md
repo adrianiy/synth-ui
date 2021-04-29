@@ -43,6 +43,7 @@
 ```mermaid
 graph TD;
   glyph-filter --> glyph-filter-options
+  glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
   glyph-filter-options --> glyph-scroll
   glyph-chipsbar --> glyph-filter
