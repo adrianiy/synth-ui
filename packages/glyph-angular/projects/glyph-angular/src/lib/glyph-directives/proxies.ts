@@ -156,6 +156,25 @@ export class GlyphFilterOptions {
   }
 }
 
+
+export declare interface GlyphFlex extends Components.GlyphFlex {}
+@ProxyCmp({
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+})
+@Component({
+  selector: 'glyph-flex',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+})
+export class GlyphFlex {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({

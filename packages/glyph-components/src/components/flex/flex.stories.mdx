@@ -1,0 +1,59 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = (args) => {
+    return html` <glyph-flex ...=${ spread(args) } style="width: ${ args.width }; height: ${ args.height }; display: block"><div style="padding: 8px; background: grey;">Block 1</div><div style="padding: 8px; background: black; color: white;">Block 2</div></glyph-flex> `;
+};
+
+<Meta
+    title="Components/Flex"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+# Flex
+##### glyph-flex
+
+A helper component to distribute content in your application.
+
+Creates a flex component (with column direction by default) that uses some boolean input options to distribute content inside (see arg. table below).
+
+Go to **Play with it!** tab and try some configurations
+
+### Column
+
+Predefined column direction with center and middle alignment.
+
+<Canvas>
+    <Story name="Column" args={{ ...defaultArgs, center: true, middle: true }}>{Template.bind({})}</Story>
+</Canvas>
+
+### Row
+
+Row direction with spaced and middle alignment.
+
+<Canvas>
+    <Story name="Row" args={{ ...defaultArgs, row: true, spaced: true, middle: true }}>{Template.bind({})}</Story>
+</Canvas>
+
+---
+
+<Description>
+    { notes }
+</Description>
+
+export const defaultArgs = {
+    row: false,
+    column: true,
+    spaced: false,
+    around: false,
+    left: false,
+    center: false,
+    right: false,
+    top: false,
+    middle: false,
+    bottom: false,
+    width: '300px',
+    height: '400px'
+}

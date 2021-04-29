@@ -23,6 +23,7 @@ export const parameters = {
                     'Toggler',
                     'Tabs',
                     'Toaster',
+                    'Flex',
                     'Scroll',
                     'Filter',
                     'Chipsbar',
