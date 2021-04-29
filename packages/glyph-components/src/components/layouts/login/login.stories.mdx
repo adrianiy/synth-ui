@@ -1,0 +1,36 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = (args) => {
+    return html` <div style="width: 100%; height: 100%; overflow: hidden"><glyph-login ...=${ spread(args) } /> </div>`;
+};
+
+<Meta
+    title="Layout/Login"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+# Login
+##### glyph-login
+
+Login screen layout, can be redered in old-fashion Drive style with login form centered in the screen, or in a modern (*default*) default way, as seen below.
+
+### Modern
+
+<Canvas>
+    <Story name="Login" args={{ version: "0.0.1" }}>{Template.bind({})}</Story>
+</Canvas>
+
+### Classic
+
+<Canvas>
+    <Story name="Classic Login" args={{ version: "0.0.1", interface: 'classic' }}>{Template.bind({})}</Story>
+</Canvas>
+
+---
+
+<Description>
+    { notes }
+</Description>

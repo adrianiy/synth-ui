@@ -10,6 +10,7 @@ export const parameters = {
         storySort: {
             order: [
                 'Introduction',
+                'Layout',
                 'Components',
                 [
                     'Avatar',
@@ -23,6 +24,7 @@ export const parameters = {
                     'Toggler',
                     'Tabs',
                     'Toaster',
+                    'Flex',
                     'Scroll',
                     'Filter',
                     'Chipsbar',
@@ -31,6 +33,7 @@ export const parameters = {
                     'No Data',
                     'Skeleton Loader',
                     'List',
+                    'Sortable list',
                     'Modal',
                     'Timeline',
                 ],

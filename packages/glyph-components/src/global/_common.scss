@@ -9,6 +9,10 @@ h1 {
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
     font-weight: var(--gui-font-weight--extra-bold);
+
+    &.big {
+        font-size: var(--gui-font--xxl);
+    }
 }
 h2 {
     font-size: var(--gui-font--l);

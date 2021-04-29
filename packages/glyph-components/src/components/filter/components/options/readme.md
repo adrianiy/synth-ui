@@ -29,12 +29,14 @@
 
 ### Depends on
 
+- [glyph-input](../../../input)
 - [glyph-toggler](../../../toggler)
 - [glyph-scroll](../../../scroll)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
   glyph-filter-options --> glyph-scroll
   glyph-filter --> glyph-filter-options

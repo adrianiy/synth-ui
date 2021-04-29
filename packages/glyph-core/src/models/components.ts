@@ -28,3 +28,16 @@ export interface UserMenuConfiguration {
     decimals: boolean;
     customConfig: boolean;
 }
+
+export interface SortableAction {
+    icon: string;
+    action: () => void;
+}
+
+export interface SortableOption {
+    name?: string;
+    icon?: boolean;
+    notSortable?: boolean;
+    action?: SortableAction;
+    [key: string]: any;
+}

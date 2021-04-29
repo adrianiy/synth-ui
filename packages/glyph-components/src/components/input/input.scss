@@ -18,8 +18,17 @@
     &.box {
         border: var(--gui-border--lightest);
         border-radius: 2px;
-        padding-left: var(--gui-padding--xxs);
+        padding: 0 var(--gui-padding--xxs);
+        height: calc(100% - var(--gui-padding--s));
         margin-bottom: var(--gui-padding--s);
+
+        .input__wrapper { 
+            flex: 1;
+
+            input {
+                flex: 1;
+            }
+        }
     }
     &.error {
         border-color: var(--gui-color--alert);

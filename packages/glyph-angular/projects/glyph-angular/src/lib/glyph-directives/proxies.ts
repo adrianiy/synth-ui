@@ -156,6 +156,25 @@ export class GlyphFilterOptions {
   }
 }
 
+
+export declare interface GlyphFlex extends Components.GlyphFlex {}
+@ProxyCmp({
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+})
+@Component({
+  selector: 'glyph-flex',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+})
+export class GlyphFlex {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
@@ -243,6 +262,25 @@ export declare interface GlyphListRow extends Components.GlyphListRow {}
   inputs: ['expandHandle', 'expandable', 'fields', 'i18n', 'isTotal', 'row']
 })
 export class GlyphListRow {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface GlyphLogin extends Components.GlyphLogin {}
+@ProxyCmp({
+  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+})
+@Component({
+  selector: 'glyph-login',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+})
+export class GlyphLogin {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -392,6 +430,29 @@ export class GlyphSkLoader {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
+export declare interface GlyphSortable extends Components.GlyphSortable {}
+@ProxyCmp({
+  inputs: ['config', 'list', 'valueGetter']
+})
+@Component({
+  selector: 'glyph-sortable',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['config', 'list', 'valueGetter'],
+  outputs: ['sortChange']
+})
+export class GlyphSortable {
+  /** Event emitted on drag end emitting new list configuration */
+  sortChange!: ISortableComponent['sortChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['sortChange']);
   }
 }
 

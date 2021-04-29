@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
         /**
@@ -160,6 +161,60 @@ export namespace Components {
           * Search placeholder
          */
         "searchPlaceholder": string;
+    }
+    interface GlyphFlex {
+        /**
+          * Apply spaced around distribution
+         */
+        "around": boolean;
+        /**
+          * Verical align = bottom
+         */
+        "bottom": boolean;
+        /**
+          * Horizontal align = center
+         */
+        "center": boolean;
+        /**
+          * Flex-direction = vertical
+         */
+        "column": boolean;
+        /**
+          * Class attribute to apply in flex div
+         */
+        "flexClass": string;
+        /**
+          * Id attribute to apply in flex div
+         */
+        "flexId": string;
+        /**
+          * Horizonal align = left
+         */
+        "left": boolean;
+        /**
+          * Vertical align = middle
+         */
+        "middle": boolean;
+        /**
+          * Horizontal align = right
+         */
+        "right": boolean;
+        /**
+          * Flex-direction = horizontal
+         */
+        "row": boolean;
+        /**
+          * Apply spaced distribution
+         */
+        "spaced": boolean;
+        /**
+          * Set an id to attribute data-testid
+         */
+        "testId": string;
+        /**
+          * Vertical align = top
+         */
+        "top": boolean;
     }
     interface GlyphHeader {
         /**
@@ -325,6 +380,28 @@ export namespace Components {
          */
         "row": Row;
     }
+    interface GlyphLogin {
+        /**
+          * Extra i18n translates
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Component interface *modern* | *classic*
+         */
+        "interface": UIInterface;
+        /**
+          * Login callback
+         */
+        "login": (userData: { user: string; password: string }) => void;
+        /**
+          * On login success
+         */
+        "loginSuccess": (result: any) => void;
+        /**
+          * Application version
+         */
+        "version": string;
+    }
     interface GlyphModal {
         /**
           * Apply button text. Renders button if set
@@ -487,6 +564,20 @@ export namespace Components {
          */
         "repetitions": number;
     }
+    interface GlyphSortable {
+        /**
+          * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
+         */
+        "config": SortableOptions;
+        /**
+          * List to sort
+         */
+        "list": SortableOption[];
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter": (item: any) => string;
+    }
     interface GlyphTabs {
         /**
           * Tab rendering style big | small
@@ -627,6 +718,12 @@ declare global {
         prototype: HTMLGlyphFilterOptionsElement;
         new (): HTMLGlyphFilterOptionsElement;
     };
+    interface HTMLGlyphFlexElement extends Components.GlyphFlex, HTMLStencilElement {
+    }
+    var HTMLGlyphFlexElement: {
+        prototype: HTMLGlyphFlexElement;
+        new (): HTMLGlyphFlexElement;
+    };
     interface HTMLGlyphHeaderElement extends Components.GlyphHeader, HTMLStencilElement {
     }
     var HTMLGlyphHeaderElement: {
@@ -650,6 +747,12 @@ declare global {
     var HTMLGlyphListRowElement: {
         prototype: HTMLGlyphListRowElement;
         new (): HTMLGlyphListRowElement;
+    };
+    interface HTMLGlyphLoginElement extends Components.GlyphLogin, HTMLStencilElement {
+    }
+    var HTMLGlyphLoginElement: {
+        prototype: HTMLGlyphLoginElement;
+        new (): HTMLGlyphLoginElement;
     };
     interface HTMLGlyphModalElement extends Components.GlyphModal, HTMLStencilElement {
     }
@@ -692,6 +795,12 @@ declare global {
     var HTMLGlyphSkLoaderElement: {
         prototype: HTMLGlyphSkLoaderElement;
         new (): HTMLGlyphSkLoaderElement;
+    };
+    interface HTMLGlyphSortableElement extends Components.GlyphSortable, HTMLStencilElement {
+    }
+    var HTMLGlyphSortableElement: {
+        prototype: HTMLGlyphSortableElement;
+        new (): HTMLGlyphSortableElement;
     };
     interface HTMLGlyphTabsElement extends Components.GlyphTabs, HTMLStencilElement {
     }
@@ -737,10 +846,12 @@ declare global {
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
+        "glyph-flex": HTMLGlyphFlexElement;
         "glyph-header": HTMLGlyphHeaderElement;
         "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
+        "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-scroll": HTMLGlyphScrollElement;
@@ -748,6 +859,7 @@ declare global {
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-sortable": HTMLGlyphSortableElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
         "glyph-title": HTMLGlyphTitleElement;
@@ -939,6 +1051,60 @@ declare namespace LocalJSX {
          */
         "searchPlaceholder"?: string;
     }
+    interface GlyphFlex {
+        /**
+          * Apply spaced around distribution
+         */
+        "around"?: boolean;
+        /**
+          * Verical align = bottom
+         */
+        "bottom"?: boolean;
+        /**
+          * Horizontal align = center
+         */
+        "center"?: boolean;
+        /**
+          * Flex-direction = vertical
+         */
+        "column"?: boolean;
+        /**
+          * Class attribute to apply in flex div
+         */
+        "flexClass"?: string;
+        /**
+          * Id attribute to apply in flex div
+         */
+        "flexId"?: string;
+        /**
+          * Horizonal align = left
+         */
+        "left"?: boolean;
+        /**
+          * Vertical align = middle
+         */
+        "middle"?: boolean;
+        /**
+          * Horizontal align = right
+         */
+        "right"?: boolean;
+        /**
+          * Flex-direction = horizontal
+         */
+        "row"?: boolean;
+        /**
+          * Apply spaced distribution
+         */
+        "spaced"?: boolean;
+        /**
+          * Set an id to attribute data-testid
+         */
+        "testId"?: string;
+        /**
+          * Vertical align = top
+         */
+        "top"?: boolean;
+    }
     interface GlyphHeader {
         /**
           * Application brand
@@ -1127,6 +1293,28 @@ declare namespace LocalJSX {
          */
         "row"?: Row;
     }
+    interface GlyphLogin {
+        /**
+          * Extra i18n translates
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Component interface *modern* | *classic*
+         */
+        "interface"?: UIInterface;
+        /**
+          * Login callback
+         */
+        "login"?: (userData: { user: string; password: string }) => void;
+        /**
+          * On login success
+         */
+        "loginSuccess"?: (result: any) => void;
+        /**
+          * Application version
+         */
+        "version"?: string;
+    }
     interface GlyphModal {
         /**
           * Apply button text. Renders button if set
@@ -1305,6 +1493,24 @@ declare namespace LocalJSX {
          */
         "repetitions"?: number;
     }
+    interface GlyphSortable {
+        /**
+          * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
+         */
+        "config"?: SortableOptions;
+        /**
+          * List to sort
+         */
+        "list"?: SortableOption[];
+        /**
+          * Event emitted on drag end emitting new list configuration
+         */
+        "onSortChange"?: (event: CustomEvent<SortableOption[]>) => void;
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter"?: (item: any) => string;
+    }
     interface GlyphTabs {
         /**
           * Tab selection event
@@ -1429,10 +1635,12 @@ declare namespace LocalJSX {
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
+        "glyph-flex": GlyphFlex;
         "glyph-header": GlyphHeader;
         "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
+        "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-scroll": GlyphScroll;
@@ -1440,6 +1648,7 @@ declare namespace LocalJSX {
         "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
+        "glyph-sortable": GlyphSortable;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
         "glyph-title": GlyphTitle;
@@ -1459,10 +1668,12 @@ declare module "@stencil/core" {
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
+            "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
+            "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
@@ -1470,6 +1681,7 @@ declare module "@stencil/core" {
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;
