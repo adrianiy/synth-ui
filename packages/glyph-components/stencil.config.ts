@@ -35,7 +35,7 @@ export const config: Config = {
                     dest: '../assets/brands',
                 },
                 {
-                    src: '**/*',
+                    src: '**/assets/corporative/*',
                     dest: '../assets/corporative',
                 },
                 {
