@@ -9,7 +9,7 @@ export const config: Config = {
     namespace: 'glyph-components',
     plugins: [
         sass({
-            injectGlobalPaths: ['src/global/global.scss'],
+            injectGlobalPaths: [ 'src/global/global.scss' ],
         }),
     ],
     globalStyle: 'src/global/global.scss',
@@ -33,6 +33,10 @@ export const config: Config = {
                 {
                     src: '**/*.svg',
                     dest: '../assets/brands',
+                },
+                {
+                    src: '**/*',
+                    dest: '../assets/corporative',
                 },
                 {
                     src: '**/*.i18n.*.json',
