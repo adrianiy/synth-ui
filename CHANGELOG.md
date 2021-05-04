@@ -1,3 +1,10 @@
+## [1.14.1](https://github.com/adrianiy/glyph-ui/compare/v1.14.0...v1.14.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* **assets:** copy corporative assets ([311d69d](https://github.com/adrianiy/glyph-ui/commit/311d69dd49491e139f8db7a1665838a36c5f6723))
+
 # [1.14.0](https://github.com/adrianiy/glyph-ui/compare/v1.13.0...v1.14.0) (2021-04-29)
 
 
