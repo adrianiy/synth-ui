@@ -1,0 +1,40 @@
+.ranking__container {
+    width: 100%;
+    overflow: hidden;
+
+    .ranking__header {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: var(--columnGap);
+        justify-content: space-between;
+
+        h5 {
+            text-transform: uppercase;
+            color: var(--gui-color--light);
+        }
+    }
+    .ranking__columns {
+        overflow: scroll;
+        height: var(--elementHeight);
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        grid-column-gap: var(--columnGap);
+        grid-row-gap: var(--rowGap);
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .ranking__column {
+        display: grid;
+        justify-content: flex-start;
+        grid-gap: var(--innerGap);
+        grid-template-columns: repeat(var(--innerColumns), 1fr);
+    }
+    .article {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+}

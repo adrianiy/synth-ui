@@ -34,6 +34,7 @@ export const parameters = {
                     'Skeleton Loader',
                     'List',
                     'Sortable list',
+                    'Ranking',
                     'Modal',
                     'Timeline',
                 ],

@@ -19,6 +19,8 @@ export type {
     Button,
     UserMenuConfiguration,
     SortableOption,
+    Article,
+    RankingData,
 } from './components';
 export type { ToasterEvent, FilterSelectEvent, FilterUpdateEvent } from './events';
 export type { CalendarEvent, CalendarGroup, TimelineEvent } from './timeline';
