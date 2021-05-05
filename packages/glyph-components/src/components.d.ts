@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -446,6 +446,52 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphRanking {
+        /**
+          * Distance between columns
+         */
+        "columnGap": string;
+        /**
+          * Columns to render if ranking have more than 1 section, number of columns will apply per section
+         */
+        "columns": number;
+        /**
+          * Distance applied to both axes
+         */
+        "gap": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType": string;
+        /**
+          * Inner columns, sets how many columns should be rendered per column
+         */
+        "innerColumns": number;
+        /**
+          * Distance between elements inside a column
+         */
+        "innerGap": string;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl": (image: string) => string;
+        /**
+          * Ranking data
+         */
+        "rankingData": RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap": string;
+        /**
+          * Row to render
+         */
+        "rows": number;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -766,6 +812,12 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphRankingElement extends Components.GlyphRanking, HTMLStencilElement {
+    }
+    var HTMLGlyphRankingElement: {
+        prototype: HTMLGlyphRankingElement;
+        new (): HTMLGlyphRankingElement;
+    };
     interface HTMLGlyphScrollElement extends Components.GlyphScroll, HTMLStencilElement {
     }
     var HTMLGlyphScrollElement: {
@@ -854,6 +906,7 @@ declare global {
         "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-ranking": HTMLGlyphRankingElement;
         "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
@@ -1371,6 +1424,52 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphRanking {
+        /**
+          * Distance between columns
+         */
+        "columnGap"?: string;
+        /**
+          * Columns to render if ranking have more than 1 section, number of columns will apply per section
+         */
+        "columns"?: number;
+        /**
+          * Distance applied to both axes
+         */
+        "gap"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType"?: string;
+        /**
+          * Inner columns, sets how many columns should be rendered per column
+         */
+        "innerColumns"?: number;
+        /**
+          * Distance between elements inside a column
+         */
+        "innerGap"?: string;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl"?: (image: string) => string;
+        /**
+          * Ranking data
+         */
+        "rankingData"?: RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap"?: string;
+        /**
+          * Row to render
+         */
+        "rows"?: number;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -1643,6 +1742,7 @@ declare namespace LocalJSX {
         "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-ranking": GlyphRanking;
         "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
         "glyph-selector-options": GlyphSelectorOptions;
@@ -1676,6 +1776,7 @@ declare module "@stencil/core" {
             "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;

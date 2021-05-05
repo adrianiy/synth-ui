@@ -335,6 +335,25 @@ export class GlyphNoData {
 }
 
 
+export declare interface GlyphRanking extends Components.GlyphRanking {}
+@ProxyCmp({
+  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+})
+@Component({
+  selector: 'glyph-ranking',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+})
+export class GlyphRanking {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphScroll extends Components.GlyphScroll {}
 @ProxyCmp({
   inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']

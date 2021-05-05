@@ -36,7 +36,9 @@ export class ScrollComponent {
     private _initScrollbar = (ps: PerfectScrollbar) => {
         if (!this.ps) {
             this.ps = ps;
-            this.initCallback(this.ps);
+            if (this.initCallback) {
+                this.initCallback(this.ps);
+            }
         }
     };
 
@@ -52,9 +54,7 @@ export class ScrollComponent {
                 className={cls('scrollbar__wrapper', this.containerClass)}
                 initCallback={this._initScrollbar}
             >
-                <span>
-                    <slot></slot>
-                </span>
+                <slot></slot>
             </Scroll>
         );
     }
