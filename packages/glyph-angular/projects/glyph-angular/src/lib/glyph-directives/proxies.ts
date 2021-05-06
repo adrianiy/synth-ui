@@ -452,6 +452,29 @@ export class GlyphSkLoader {
   }
 }
 
+import { SliderComponent as ISliderComponent } from 'glyph-components/dist/types/components/slider/slider';
+export declare interface GlyphSlider extends Components.GlyphSlider {}
+@ProxyCmp({
+  inputs: ['options']
+})
+@Component({
+  selector: 'glyph-slider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['options'],
+  outputs: ['optionChange']
+})
+export class GlyphSlider {
+  /** Option change event */
+  optionChange!: ISliderComponent['optionChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['optionChange']);
+  }
+}
+
 import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
 export declare interface GlyphSortable extends Components.GlyphSortable {}
 @ProxyCmp({

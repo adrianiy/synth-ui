@@ -1,0 +1,34 @@
+.slider__container {
+    --knob-size: 9px;
+    height: var(--knob-size);
+
+    .slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: calc(100% - var(--gui-padding--m));
+        background: var(--gui-color--background--contrast);
+        height: 1px;
+        outline: none;
+        margin: 0;
+        padding: 0 var(--gui-padding--xs);
+        cursor: pointer;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none; /* Override default look */
+            appearance: none;
+            width: var(--knob-size); /* Set a specific slider handle width */
+            height: var(--knob-size); /* Slider handle height */
+            background: var(--gui-color--background--contrast); /* Green background */
+            cursor: pointer; /* Cursor on hover */
+            border-radius: 100%;
+        }
+
+        &::-moz-range-thumb {
+            width: var(--knob-size); /* Set a specific slider handle width */
+            height: var(--knob-size); /* Slider handle height */
+            background: var(--gui-color--background--contrast); /* Green background */
+            cursor: pointer; /* Cursor on hover */
+            border-radius: 100%;
+        }
+    }
+}
