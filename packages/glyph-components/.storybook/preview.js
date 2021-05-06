@@ -21,6 +21,7 @@ export const parameters = {
                     'Button group',
                     'Input',
                     'Selector',
+                    'Slider',
                     'Toggler',
                     'Tabs',
                     'Toaster',

@@ -610,6 +610,12 @@ export namespace Components {
          */
         "repetitions": number;
     }
+    interface GlyphSlider {
+        /**
+          * Slider options
+         */
+        "options": any[];
+    }
     interface GlyphSortable {
         /**
           * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
@@ -848,6 +854,12 @@ declare global {
         prototype: HTMLGlyphSkLoaderElement;
         new (): HTMLGlyphSkLoaderElement;
     };
+    interface HTMLGlyphSliderElement extends Components.GlyphSlider, HTMLStencilElement {
+    }
+    var HTMLGlyphSliderElement: {
+        prototype: HTMLGlyphSliderElement;
+        new (): HTMLGlyphSliderElement;
+    };
     interface HTMLGlyphSortableElement extends Components.GlyphSortable, HTMLStencilElement {
     }
     var HTMLGlyphSortableElement: {
@@ -912,6 +924,7 @@ declare global {
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-slider": HTMLGlyphSliderElement;
         "glyph-sortable": HTMLGlyphSortableElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
@@ -1592,6 +1605,16 @@ declare namespace LocalJSX {
          */
         "repetitions"?: number;
     }
+    interface GlyphSlider {
+        /**
+          * Option change event
+         */
+        "onOptionChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Slider options
+         */
+        "options"?: any[];
+    }
     interface GlyphSortable {
         /**
           * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
@@ -1748,6 +1771,7 @@ declare namespace LocalJSX {
         "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
+        "glyph-slider": GlyphSlider;
         "glyph-sortable": GlyphSortable;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
@@ -1782,6 +1806,7 @@ declare module "@stencil/core" {
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-slider": LocalJSX.GlyphSlider & JSXBase.HTMLAttributes<HTMLGlyphSliderElement>;
             "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
