@@ -1,0 +1,9 @@
+{
+    "units": "units",
+    "amount": "amount",
+    "orders": "orders",
+    "copyDone": "Reference copied to clipboard!",
+    "copyFail": "Something failed copying reference... :(",
+    "pvp.title": "PVP Countries",
+    "pvp.countries": "countries"
+}

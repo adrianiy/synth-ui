@@ -18,11 +18,13 @@
 
 ### Used by
 
+ - [glyph-article](../article)
  - [glyph-share-menu](../share-menu)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-article --> glyph-toaster
   glyph-share-menu --> glyph-toaster
   style glyph-toaster fill:#f9f,stroke:#333,stroke-width:4px
 ```

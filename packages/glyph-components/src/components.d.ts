@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -21,6 +21,32 @@ export namespace Components {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback": () => void;
+    }
+    interface GlyphArticle {
+        /**
+          * Article data
+         */
+        "article": Article;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType": string;
+        /**
+          * Flag to activate click callback
+         */
+        "isClickable": boolean;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl": (image: string) => string;
+        /**
+          * Field to render quantity tag
+         */
+        "quantityField": string;
     }
     interface GlyphAvatar {
         /**
@@ -734,6 +760,12 @@ declare global {
         prototype: HTMLGlyphAppMenuElement;
         new (): HTMLGlyphAppMenuElement;
     };
+    interface HTMLGlyphArticleElement extends Components.GlyphArticle, HTMLStencilElement {
+    }
+    var HTMLGlyphArticleElement: {
+        prototype: HTMLGlyphArticleElement;
+        new (): HTMLGlyphArticleElement;
+    };
     interface HTMLGlyphAvatarElement extends Components.GlyphAvatar, HTMLStencilElement {
     }
     var HTMLGlyphAvatarElement: {
@@ -904,6 +936,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
+        "glyph-article": HTMLGlyphArticleElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
@@ -948,6 +981,36 @@ declare namespace LocalJSX {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback"?: () => void;
+    }
+    interface GlyphArticle {
+        /**
+          * Article data
+         */
+        "article"?: Article;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType"?: string;
+        /**
+          * Flag to activate click callback
+         */
+        "isClickable"?: boolean;
+        /**
+          * Click event callback
+         */
+        "onArticleClick"?: (event: CustomEvent<Article>) => void;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl"?: (image: string) => string;
+        /**
+          * Field to render quantity tag
+         */
+        "quantityField"?: string;
     }
     interface GlyphAvatar {
         /**
@@ -1751,6 +1814,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "glyph-app-menu": GlyphAppMenu;
+        "glyph-article": GlyphArticle;
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
@@ -1786,6 +1850,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
+            "glyph-article": LocalJSX.GlyphArticle & JSXBase.HTMLAttributes<HTMLGlyphArticleElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;

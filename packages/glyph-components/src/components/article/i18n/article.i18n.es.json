@@ -1,0 +1,9 @@
+{
+    "units": "unidades",
+    "amount": "importe",
+    "orders": "pedidos",
+    "copyDone": "Referencia copiada al portapapeles!",
+    "copyFail": "Algo ha fallado copiando la referencia... :(",
+    "pvp.title": "Países PVP",
+    "pvp.countries": "countries"
+}

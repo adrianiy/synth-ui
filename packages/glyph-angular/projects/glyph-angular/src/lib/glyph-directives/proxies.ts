@@ -24,6 +24,29 @@ export class GlyphAppMenu {
   }
 }
 
+import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
+export declare interface GlyphArticle extends Components.GlyphArticle {}
+@ProxyCmp({
+  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField']
+})
+@Component({
+  selector: 'glyph-article',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField'],
+  outputs: ['articleClick']
+})
+export class GlyphArticle {
+  /** Click event callback */
+  articleClick!: IArticleComponent['articleClick'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['articleClick']);
+  }
+}
+
 
 export declare interface GlyphAvatar extends Components.GlyphAvatar {}
 @ProxyCmp({
