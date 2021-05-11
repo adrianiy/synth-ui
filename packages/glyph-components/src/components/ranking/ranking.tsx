@@ -5,7 +5,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 @Component({
     tag: 'glyph-ranking',
     styleUrl: 'ranking.scss',
-    shadow: true,
+    shadow: false,
 })
 export class RankingComponent {
     /** Ranking data */
@@ -44,12 +44,19 @@ export class RankingComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidLoad() {
-        this.elementHeight = this._articleRef.getBoundingClientRect().height;
+    private _setElementHeight = () => {
+        const { height } = this._articleRef.getBoundingClientRect();
+
+
+        if (height) {
+            this.elementHeight = height;
+        }
     }
 
-    private _setElementHeight = (element: HTMLElement) => {
-        this._articleRef = element;
+    private _setElementRef = (element: HTMLElement) => {
+        if (!this._articleRef) {
+            this._articleRef = element;
+        }
     };
 
     private _getHeight = () => {
@@ -74,9 +81,11 @@ export class RankingComponent {
 
     private _renderArticles = (children: Article[]) => {
         return children.map(article => (
-            <div class="article" style={{ height: `${this.elementHeight}px` }}>
+            <div
+                class="article" style={{ height: `${this.elementHeight}px` }}>
                 <img
-                    ref={this._setElementHeight}
+                    ref={this._setElementRef}
+                    onLoad={this._setElementHeight}
                     src={this.parseImageUrl ? this.parseImageUrl(article[this.imageType]) : article[this.imageType]}
                 />
             </div>
