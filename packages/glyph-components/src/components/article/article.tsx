@@ -10,6 +10,8 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class ArticleComponent {
+    /** Force visibility flag */
+    @Prop() forceVisibility: Boolean = false;
     /** Article data */
     @Prop() article: Article;
     /** Flag to activate click callback */
@@ -31,7 +33,7 @@ export class ArticleComponent {
     @State() elementHeight: number;
 
     private _i18n: any;
-    //private _observer: IntersectionObserver;
+    private _observer: IntersectionObserver;
     private _image: HTMLImageElement;
 
     async componentWillLoad() {
@@ -42,8 +44,8 @@ export class ArticleComponent {
     componentDidLoad() {
         if (this._image) {
             this.elementHeight = this._image.getBoundingClientRect().height;
-            //this._observer = new IntersectionObserver(this._onIntersection);
-            //this._observer.observe(this._image);
+            this._observer = new IntersectionObserver(this._onIntersection);
+            this._observer.observe(this._image);
         }
     }
 
@@ -57,15 +59,19 @@ export class ArticleComponent {
         this._image = el;
     };
 
-    //private _onIntersection = async (entries: any[]) => {
-    //entries.forEach(entry => {
-    //if (entry.isIntersecting) {
-    ////if (this._observer) {
-    ////this._observer.disconnect();
-    ////}
-    //}
-    //});
-    //};
+    private _onIntersection = async (entries: any[]) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (this._observer) {
+                    this._observer.disconnect();
+                }
+                if (entry.target.getAttribute('data-src')) {
+                    entry.target.setAttribute('src', entry.target.getAttribute('data-src'));
+                    entry.target.removeAttribute('data-src');
+                }
+            }
+        });
+    };
 
     private _handleCopy = () => {
         const copylistener = (e: ClipboardEvent) => {
@@ -149,6 +155,15 @@ export class ArticleComponent {
         }
     };
 
+    private _renderHeader = () => {
+        return (
+            <Flex row spaced top className="header">
+                {this._renderQuantity()}
+                {this._renderTags()}
+            </Flex>
+        );
+    };
+
     private _renderFooter = () => {
         return (
             <Flex left className="footer">
@@ -159,6 +174,7 @@ export class ArticleComponent {
             </Flex>
         );
     };
+
     render() {
         const imageSrc = this.parseImageUrl
             ? this.parseImageUrl(this.article[this.imageType])
@@ -170,9 +186,8 @@ export class ArticleComponent {
                 class={cls('article', this.isClickable && 'article--clickable')}
                 onClick={this._handleClick}
             >
-                {this._renderQuantity()}
-                {this._renderTags()}
-                <img src={imageSrc} ref={this._setImageRef} />
+                {this._renderHeader()}
+                <img data-src={imageSrc} src={this.forceVisibility ? imageSrc : null} ref={this._setImageRef} />
                 {this._renderFooter()}
                 <glyph-toaster eventId="copyReference" ttl={1000} />
             </div>

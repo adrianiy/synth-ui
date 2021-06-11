@@ -44,6 +44,10 @@ export class RankingComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
+    componentDidLoad() {
+        this._setElementHeight();
+    }
+
     private _setElementHeight = () => {
         const { height } = this._articleRef.getBoundingClientRect();
 
@@ -80,13 +84,18 @@ export class RankingComponent {
     };
 
     private _renderArticles = (children: Article[]) => {
-        return children.map(article => (
+        return children.map((article, index) => (
             <div
                 class="article" style={{ height: `${this.elementHeight}px` }}>
-                <img
+                <glyph-article
                     ref={this._setElementRef}
-                    onLoad={this._setElementHeight}
-                    src={this.parseImageUrl ? this.parseImageUrl(article[this.imageType]) : article[this.imageType]}
+                    forceVisibility={index === 0}
+                    article={article}
+                    isClickable
+                    quantity-field="units"
+                    imageType={this.imageType}
+                    parseImageUrl={this.parseImageUrl}
+                    i18n={this._i18n}
                 />
             </div>
         ));

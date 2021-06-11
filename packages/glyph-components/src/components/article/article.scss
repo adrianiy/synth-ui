@@ -7,91 +7,89 @@
         width: 100%;
     }
 
-    .quantity {
+    .header {
         position: absolute;
         top: 0;
         left: 0;
-        margin: var(--gui-padding--xxs);
-        padding: var(--gui-padding--xs) var(--gui-padding--s);
-        background: var(--gui-color--article--decoration);
-        backdrop-filter: saturate(180%) blur(5px);
-        font-size: var(--gui-font--xs);
-
-        .caption {
-            padding-top: var(--gui-padding--xxxs);
-            text-transform: uppercase;
-        }
-    }
-
-    .tags {
-        position: absolute;
-        top: 0;
         right: 0;
         margin: var(--gui-padding--xxs);
-        font-size: var(--gui-font--xs);
 
-        .new,
-        .pvp {
-            cursor: default;
-            padding: var(--gui-padding--xxxs) var(--gui-padding--xs);
-            margin-bottom: var(--gui-padding--xs);
-        }
+        .quantity {
+            padding: var(--gui-padding--xs) var(--gui-padding--s);
+            background: var(--gui-color--article--decoration);
+            font-size: var(--gui-font--xs);
 
-        .new {
-            border: var(--gui-border--dark);
-            border-style: dashed;
-            color: var(--gui-color--light);
-        }
-
-        .pvp {
-            font-weight: var(--gui-font-weight--bold);
-            color: var(--gui-color--contrast);
-            padding: var(--gui-padding--nano) var(--gui-padding--xs);
-            position: relative;
-
-            &.normal {
-                background: var(--gui-color--link);
-                border: 3px solid var(--gui-color--link);
+            .caption {
+                padding-top: var(--gui-padding--xxxs);
+                text-transform: uppercase;
             }
-            &.global {
-                background: var(--gui-color--danger);
-                border: 3px solid var(--gui-color--danger);
+        }
+        .tags {
+            font-size: var(--gui-font--xs);
+
+            .new,
+            .pvp {
+                cursor: default;
+                padding: var(--gui-padding--xxxs) var(--gui-padding--xs);
+                margin-bottom: var(--gui-padding--xs);
             }
 
-            .pvp-tooltip {
-                position: absolute;
-                white-space: nowrap;
-                background: var(--gui-color--background);
-                color: var(--gui-color);
-                padding: var(--gui-padding--s);
-                box-shadow: var(--gui-shadow);
-                width: 150px;
-                left: -180px;
-                top: -3px;
-                display: none;
+            .new {
+                border: var(--gui-border--dark);
+                border-style: dashed;
+                color: var(--gui-color--light);
+            }
 
-                h3 {
-                    margin-top: 0;
-                    margin-bottom: var(--gui-padding--l);
-                    text-transform: uppercase;
+            .pvp {
+                font-weight: var(--gui-font-weight--bold);
+                color: var(--gui-color--contrast);
+                padding: var(--gui-padding--nano) var(--gui-padding--xs);
+                position: relative;
+
+                &.normal {
+                    background: var(--gui-color--link);
+                    border: 3px solid var(--gui-color--link);
                 }
-                .pvp-row {
-                    margin-bottom: var(--gui-padding--m);
-                    opacity: 0.7;
-                    font-size: var(--gui-font--xxs);
-                    width: 100%;
+                &.global {
+                    background: var(--gui-color--danger);
+                    border: 3px solid var(--gui-color--danger);
+                }
 
-                    .country {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        padding-right: var(--gui-padding--xxs);
+                .pvp-tooltip {
+                    position: absolute;
+                    white-space: nowrap;
+                    background: var(--gui-color--background);
+                    color: var(--gui-color);
+                    padding: var(--gui-padding--s);
+                    box-shadow: var(--gui-shadow);
+                    width: 150px;
+                    left: -180px;
+                    top: -3px;
+                    display: none;
+
+                    h3 {
+                        margin-top: 0;
+                        margin-bottom: var(--gui-padding--l);
+                        text-transform: uppercase;
+                    }
+                    .pvp-row {
+                        margin-bottom: var(--gui-padding--m);
+                        opacity: 0.7;
+                        font-size: var(--gui-font--xxs);
+                        width: 100%;
+
+                        .country {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            padding-right: var(--gui-padding--xxs);
+                        }
                     }
                 }
-            }
 
-            &:hover {
-                .pvp-tooltip {
-                    display: flex;
+                &:hover {
+                    .pvp-tooltip {
+                        display: flex;
+                    }
                 }
             }
         }

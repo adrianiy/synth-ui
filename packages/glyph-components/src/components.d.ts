@@ -28,6 +28,10 @@ export namespace Components {
          */
         "article": Article;
         /**
+          * Force visibility flag
+         */
+        "forceVisibility": Boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
@@ -987,6 +991,10 @@ declare namespace LocalJSX {
           * Article data
          */
         "article"?: Article;
+        /**
+          * Force visibility flag
+         */
+        "forceVisibility"?: Boolean;
         /**
           * Extra i18n translation object
          */

@@ -22,6 +22,20 @@
 | `rows`          | `rows`          | Row to render                                                                                   | `number`                     | `1`                         |
 
 
+## Dependencies
+
+### Depends on
+
+- [glyph-article](../article)
+
+### Graph
+```mermaid
+graph TD;
+  glyph-ranking --> glyph-article
+  glyph-article --> glyph-toaster
+  style glyph-ranking fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

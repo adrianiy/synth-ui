@@ -27,13 +27,13 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField']
+  inputs: ['article', 'forceVisibility', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField']
 })
 @Component({
   selector: 'glyph-article',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField'],
+  inputs: ['article', 'forceVisibility', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField'],
   outputs: ['articleClick']
 })
 export class GlyphArticle {
