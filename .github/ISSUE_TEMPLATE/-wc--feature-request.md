@@ -1,7 +1,7 @@
 ---
 name: "[WC] Feature request"
 about: Suggest an idea for this project
-title: ":nailcare [FEAT]"
+title: ":nail_care [FEAT]"
 labels: enhancement, web-components
 assignees: adrianiy
 
