@@ -11,7 +11,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 })
 export class ArticleComponent {
     /** Force visibility flag */
-    @Prop() forceVisibility: Boolean = false;
+    @Prop() isVisible: Boolean = false;
     /** Article data */
     @Prop() article: Article;
     /** Flag to activate click callback */
@@ -28,20 +28,22 @@ export class ArticleComponent {
     @Element() element: HTMLGlyphArticleElement;
     /** Click event callback */
     @Event() articleClick: EventEmitter<Article>;
+    /** Article gets visible event */ 
+    @Event() articleVisible: EventEmitter<any>;
 
     /** article height */
     @State() elementHeight: number;
 
     private _i18n: any;
     private _observer: IntersectionObserver;
-    private _image: HTMLImageElement;
+    private _image: HTMLElement;
 
     async componentWillLoad() {
         const componentI18n = await getLocaleComponentStrings([ 'article' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidLoad() {
+    componentDidUpdate() {
         if (this._image) {
             this.elementHeight = this._image.getBoundingClientRect().height;
             this._observer = new IntersectionObserver(this._onIntersection);
@@ -55,20 +57,14 @@ export class ArticleComponent {
         }
     };
 
-    private _setImageRef = (el: HTMLImageElement) => {
+    private _setImageRef = (el: HTMLElement) => {
         this._image = el;
     };
 
     private _onIntersection = async (entries: any[]) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (this._observer) {
-                    this._observer.disconnect();
-                }
-                if (entry.target.getAttribute('data-src')) {
-                    entry.target.setAttribute('src', entry.target.getAttribute('data-src'));
-                    entry.target.removeAttribute('data-src');
-                }
+                this.articleVisible.emit();
             }
         });
     };
@@ -184,10 +180,13 @@ export class ArticleComponent {
             <div
                 style={{ heihgt: `${this.elementHeight}px` }}
                 class={cls('article', this.isClickable && 'article--clickable')}
+                ref={this._setImageRef}
                 onClick={this._handleClick}
             >
                 {this._renderHeader()}
-                <img data-src={imageSrc} src={this.forceVisibility ? imageSrc : null} ref={this._setImageRef} />
+                {
+                    this.isVisible && <img class="animated fadeIn" src={imageSrc} />
+                }
                 {this._renderFooter()}
                 <glyph-toaster eventId="copyReference" ttl={1000} />
             </div>

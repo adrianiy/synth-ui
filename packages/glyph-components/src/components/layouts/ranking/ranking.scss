@@ -1,0 +1,30 @@
+.ranking__header {
+    font-size: var(--gui-font--xxs);
+
+    span,
+    glyph-slider {
+        margin-right: var(--gui-padding--xs);
+    }
+
+    &__options {
+        height: 20px;
+
+        &__slider {
+            margin-right: var(--gui-padding--s);
+        }
+        &__image-type {
+            span {
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &.active {
+                    font-weight: var(--gui-font-weight--extra-bold);
+                }
+
+                &:last-of-type {
+                    margin-right: 0
+                }
+            }
+        }
+    }
+}

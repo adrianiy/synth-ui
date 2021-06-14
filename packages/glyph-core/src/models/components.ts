@@ -58,3 +58,11 @@ export interface RankingData {
     cod_section?: number;
     children?: Article[];
 }
+
+export interface RankingViewOptions {
+    columns: number;
+    innerColumns: number;
+    rows: number;
+    gap: string;
+    innerGap?: string;
+}

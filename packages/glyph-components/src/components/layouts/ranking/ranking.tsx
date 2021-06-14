@@ -1,0 +1,116 @@
+import { h, Component, Element, Prop, State } from '@stencil/core';
+import { RankingData, RankingViewOptions } from 'glyph-core';
+import { Flex } from '../../../utils/layout';
+import { getLocaleComponentStrings } from '../../../utils/utils';
+
+@Component({
+    tag: 'glyph-ranking-layout',
+    styleUrl: 'ranking.scss',
+    shadow: true,
+})
+export class GlyphRankingLayout {
+    /** Ranking data */
+    @Prop() rankingData: RankingData[];
+    /** Distance between columns */
+    @Prop() columnGap: string = '15%';
+    /** Distance between rows */
+    @Prop() rowGap: string = 'var(--gui-padding--xxl)';
+    /** Extra i18n translates */
+    @Prop() i18n: { [key: string]: string };
+    /** Element reference */
+    @Element() element: HTMLGlyphRankingLayoutElement;
+    /** Active view layout */
+    @State() activeView: RankingViewOptions;
+    /** Image type */ 
+    @State() imageType = 'model';
+    /** Comparable ranking flag */ 
+    @State() comparable: boolean = false;
+
+    private _i18n: any;
+    private _singleSectionOptions: RankingViewOptions[] = [
+        { columns: 3, innerColumns: 1, rows: 1, gap: undefined },
+        { columns: 6, innerColumns: 1, rows: 3, gap: 'var(--gui-padding--xs)' },
+        { columns: 8, innerColumns: 1, rows: 3, gap: 'var(--gui-padding--xs)' },
+    ];
+    private _multiSectionOptions: RankingViewOptions[] = [
+        { columns: 3, innerColumns: 1, rows: 1, gap: undefined },
+        { columns: 3, innerColumns: 2, rows: 2, gap: undefined, innerGap: 'var(--gui-padding--xs)' },
+    ];
+
+    async componentWillLoad() {
+        await this._initializeVariables();
+    }
+
+    componentDidLoad() {
+        const isSingleSection = this._isSingleRanking();
+        this.activeView = isSingleSection ? this._singleSectionOptions[0] : this._multiSectionOptions[0];
+    }
+
+    private async _initializeVariables() {
+        const componentI18n = await getLocaleComponentStrings([ 'ranking-layout' ], this.element);
+        this._i18n = { ...componentI18n, ...this.i18n };
+    }
+
+    private _isSingleRanking = () => {
+        return this.rankingData.length === 1;
+    }
+
+    private _handleSliderChange = (event: CustomEvent) => {
+        this.activeView = event.detail;
+    }
+
+    private _handleImageTypeChange = (imageType: string) => () => {
+        this.imageType = imageType;
+    }
+
+    private _renderHeaderOptions() {
+        const isSingleSection = this._isSingleRanking();
+        const sliderOptions = isSingleSection ? this._singleSectionOptions : this._multiSectionOptions;
+        const hasComparable = isSingleSection && this.activeView.columns > 3;
+
+        return (
+            <Flex row middle className="ranking__header__options">
+                {
+                    hasComparable && <Flex row middle className="ranking__header__options__comparable">
+                        <span>{this._i18n['ranking-layout.comparable']}</span>
+                        <input type="checkbox" checked={this.comparable}/>
+                    </Flex>
+                }
+                <Flex row middle className="ranking__header__options__slider">
+                    <span>{this._i18n['ranking-layout.view']}</span>
+                    <glyph-slider options={sliderOptions} onOptionChange={this._handleSliderChange} />
+                </Flex>
+                <Flex row middle className="ranking__header__options__image-type">
+                    <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>{this._i18n['ranking-layout.model']}</span>
+                    <span onClick={this._handleImageTypeChange('plain')} class={{ active: this.imageType === 'plain' }}>{this._i18n['ranking-layout.plain']}</span>
+                </Flex>
+            </Flex>
+        );
+    }
+
+    render() {
+        if (!this.activeView) {
+            return null;
+        }
+        const { columns, innerColumns, rows, gap, innerGap } = this.activeView;
+
+        return (
+            <Flex>
+                <Flex row spaced top className="ranking__header">
+                    <glyph-title titleText="Ranking" />
+                    {this._renderHeaderOptions()}
+                </Flex>
+                <glyph-ranking
+                    rankingData={this.rankingData}
+                    columns={columns}
+                    innerColumns={innerColumns}
+                    gap={gap}
+                    columnGap={gap ? gap : this.columnGap}
+                    innerGap={innerGap}
+                    rows={rows}
+                    i18n={this._i18n}
+                />
+            </Flex>
+        );
+    }
+}

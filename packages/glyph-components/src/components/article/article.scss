@@ -5,6 +5,7 @@
 
     img {
         width: 100%;
+        transition: var(--gui-transition--300);
     }
 
     .header {
@@ -13,6 +14,7 @@
         left: 0;
         right: 0;
         margin: var(--gui-padding--xxs);
+        z-index: 2;
 
         .quantity {
             padding: var(--gui-padding--xs) var(--gui-padding--s);

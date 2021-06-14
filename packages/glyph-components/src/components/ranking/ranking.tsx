@@ -35,6 +35,10 @@ export class RankingComponent {
 
     /** article height */
     @State() elementHeight: number;
+    /** last visible element */
+    @State() lastVisibleIndex: number = 0;
+    /** loading state */ 
+    @State() loading: boolean = true;
 
     private _i18n: any;
     private _articleRef: HTMLElement;
@@ -44,8 +48,9 @@ export class RankingComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidLoad() {
+    componentDidUpdate() {
         this._setElementHeight();
+        this.loading = false;
     }
 
     private _setElementHeight = () => {
@@ -53,7 +58,7 @@ export class RankingComponent {
 
 
         if (height) {
-            this.elementHeight = height;
+            this.elementHeight = height - 4;
         }
     }
 
@@ -83,19 +88,43 @@ export class RankingComponent {
         }
     };
 
+    private _handleArticleVisibility = (index: number) => () => {
+        this.lastVisibleIndex = index;
+    }
+
+    private _getColumns = () => {
+        const isSingleSection = this.rankingData.length === 1;
+        const columns = isSingleSection ? this.columns : this.innerColumns;
+
+        return columns;
+    }
+
+    private _checkArticleVisibility = (index) => {
+        const columns = this._getColumns();
+        const articlesPerView = columns * this.rows;
+        const articlesThreshold = articlesPerView * 3;
+        const min = this.lastVisibleIndex - articlesThreshold;
+        const max = this.lastVisibleIndex + articlesThreshold;
+
+        return index > min && index < max;
+    }
+
     private _renderArticles = (children: Article[]) => {
-        return children.map((article, index) => (
+        const columns = this._getColumns();
+
+        return children.slice(0, this.loading ? columns : -1).map((article, index) => (
             <div
                 class="article" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
-                    forceVisibility={index === 0}
+                    isVisible={this._checkArticleVisibility(index)}
                     article={article}
                     isClickable
                     quantity-field="units"
                     imageType={this.imageType}
                     parseImageUrl={this.parseImageUrl}
                     i18n={this._i18n}
+                    onArticleVisible={this._handleArticleVisibility(index)}
                 />
             </div>
         ));

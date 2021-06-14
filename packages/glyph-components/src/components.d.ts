@@ -28,10 +28,6 @@ export namespace Components {
          */
         "article": Article;
         /**
-          * Force visibility flag
-         */
-        "forceVisibility": Boolean;
-        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
@@ -43,6 +39,10 @@ export namespace Components {
           * Flag to activate click callback
          */
         "isClickable": boolean;
+        /**
+          * Force visibility flag
+         */
+        "isVisible": Boolean;
         /**
           * **optional** Compose image url callback
          */
@@ -522,6 +522,24 @@ export namespace Components {
          */
         "rows": number;
     }
+    interface GlyphRankingLayout {
+        /**
+          * Distance between columns
+         */
+        "columnGap": string;
+        /**
+          * Extra i18n translates
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Ranking data
+         */
+        "rankingData": RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap": string;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -860,6 +878,12 @@ declare global {
         prototype: HTMLGlyphRankingElement;
         new (): HTMLGlyphRankingElement;
     };
+    interface HTMLGlyphRankingLayoutElement extends Components.GlyphRankingLayout, HTMLStencilElement {
+    }
+    var HTMLGlyphRankingLayoutElement: {
+        prototype: HTMLGlyphRankingLayoutElement;
+        new (): HTMLGlyphRankingLayoutElement;
+    };
     interface HTMLGlyphScrollElement extends Components.GlyphScroll, HTMLStencilElement {
     }
     var HTMLGlyphScrollElement: {
@@ -956,6 +980,7 @@ declare global {
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-ranking": HTMLGlyphRankingElement;
+        "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
         "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
@@ -992,10 +1017,6 @@ declare namespace LocalJSX {
          */
         "article"?: Article;
         /**
-          * Force visibility flag
-         */
-        "forceVisibility"?: Boolean;
-        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
@@ -1008,9 +1029,17 @@ declare namespace LocalJSX {
          */
         "isClickable"?: boolean;
         /**
+          * Force visibility flag
+         */
+        "isVisible"?: Boolean;
+        /**
           * Click event callback
          */
         "onArticleClick"?: (event: CustomEvent<Article>) => void;
+        /**
+          * Article gets visible event
+         */
+        "onArticleVisible"?: (event: CustomEvent<any>) => void;
         /**
           * **optional** Compose image url callback
          */
@@ -1554,6 +1583,24 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
     }
+    interface GlyphRankingLayout {
+        /**
+          * Distance between columns
+         */
+        "columnGap"?: string;
+        /**
+          * Extra i18n translates
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Ranking data
+         */
+        "rankingData"?: RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap"?: string;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -1838,6 +1885,7 @@ declare namespace LocalJSX {
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-ranking": GlyphRanking;
+        "glyph-ranking-layout": GlyphRankingLayout;
         "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
         "glyph-selector-options": GlyphSelectorOptions;
@@ -1874,6 +1922,7 @@ declare module "@stencil/core" {
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
+            "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;

@@ -27,23 +27,25 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'forceVisibility', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField']
+  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField']
 })
 @Component({
   selector: 'glyph-article',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['article', 'forceVisibility', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField'],
-  outputs: ['articleClick']
+  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField'],
+  outputs: ['articleClick', 'articleVisible']
 })
 export class GlyphArticle {
   /** Click event callback */
   articleClick!: IArticleComponent['articleClick'];
+  /** Article gets visible event */
+  articleVisible!: IArticleComponent['articleVisible'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['articleClick']);
+    proxyOutputs(this, this.el, ['articleClick', 'articleVisible']);
   }
 }
 
@@ -369,6 +371,25 @@ export declare interface GlyphRanking extends Components.GlyphRanking {}
   inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
 })
 export class GlyphRanking {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
+@ProxyCmp({
+  inputs: ['columnGap', 'i18n', 'rankingData', 'rowGap']
+})
+@Component({
+  selector: 'glyph-ranking-layout',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['columnGap', 'i18n', 'rankingData', 'rowGap']
+})
+export class GlyphRankingLayout {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

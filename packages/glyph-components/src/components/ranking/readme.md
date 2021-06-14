@@ -24,6 +24,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [glyph-ranking-layout](../layouts/ranking)
+
 ### Depends on
 
 - [glyph-article](../article)
@@ -33,6 +37,7 @@
 graph TD;
   glyph-ranking --> glyph-article
   glyph-article --> glyph-toaster
+  glyph-ranking-layout --> glyph-ranking
   style glyph-ranking fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
