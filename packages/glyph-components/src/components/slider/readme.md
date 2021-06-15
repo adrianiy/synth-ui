@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property  | Attribute | Description    | Type    | Default     |
-| --------- | --------- | -------------- | ------- | ----------- |
-| `options` | --        | Slider options | `any[]` | `undefined` |
+| Property       | Attribute       | Description                            | Type     | Default     |
+| -------------- | --------------- | -------------------------------------- | -------- | ----------- |
+| `currentValue` | `current-value` | Current slider value between 0 and 100 | `number` | `0`         |
+| `options`      | --              | Slider options                         | `any[]`  | `undefined` |
 
 
 ## Events
 
-| Event          | Description         | Type               |
-| -------------- | ------------------- | ------------------ |
-| `optionChange` | Option change event | `CustomEvent<any>` |
+| Event          | Description         | Type                                           |
+| -------------- | ------------------- | ---------------------------------------------- |
+| `optionChange` | Option change event | `CustomEvent<{ option: any; value: number; }>` |
 
 
 ## Dependencies

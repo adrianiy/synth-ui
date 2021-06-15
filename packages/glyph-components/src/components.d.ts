@@ -664,6 +664,10 @@ export namespace Components {
     }
     interface GlyphSlider {
         /**
+          * Current slider value between 0 and 100
+         */
+        "currentValue": number;
+        /**
           * Slider options
          */
         "options": any[];
@@ -1733,9 +1737,13 @@ declare namespace LocalJSX {
     }
     interface GlyphSlider {
         /**
+          * Current slider value between 0 and 100
+         */
+        "currentValue"?: number;
+        /**
           * Option change event
          */
-        "onOptionChange"?: (event: CustomEvent<any>) => void;
+        "onOptionChange"?: (event: CustomEvent<{ option: any, value: number }>) => void;
         /**
           * Slider options
          */

@@ -504,13 +504,13 @@ export class GlyphSkLoader {
 import { SliderComponent as ISliderComponent } from 'glyph-components/dist/types/components/slider/slider';
 export declare interface GlyphSlider extends Components.GlyphSlider {}
 @ProxyCmp({
-  inputs: ['options']
+  inputs: ['currentValue', 'options']
 })
 @Component({
   selector: 'glyph-slider',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['options'],
+  inputs: ['currentValue', 'options'],
   outputs: ['optionChange']
 })
 export class GlyphSlider {

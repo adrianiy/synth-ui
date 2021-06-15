@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Prop, State } from '@stencil/core';
+import { Component, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { Flex } from '../../utils/layout';
 
 @Component({
@@ -9,14 +9,14 @@ import { Flex } from '../../utils/layout';
 export class SliderComponent {
     /** Slider options */
     @Prop() options: any[];
+    /** Current slider value between 0 and 100 */ 
+    @Prop({ mutable: true }) currentValue: number = 0;
     /** Option change event */
-    @Event() optionChange: EventEmitter<any>;
-
-    @State() currentStep: number = 0;
+    @Event() optionChange: EventEmitter<{ option: any, value: number }>;
 
     private _handleInputChange = (event: any) => {
         const value = +event.target.value;
-        this.currentStep = value;
+        this.currentValue = value;
 
         setTimeout(() => {
             const step = 1 / (this.options.length - 1);
@@ -24,8 +24,8 @@ export class SliderComponent {
             const nearest = [ ...steps ].sort((a, b) => Math.abs(value - a) - Math.abs(value - b))[0];
             const index = steps.findIndex(a => a === nearest);
 
-            this.optionChange.emit(this.options[index]);
-            this.currentStep = nearest;
+            this.currentValue = nearest;
+            this.optionChange.emit({ option: this.options[index], value: this.currentValue });
         });
     };
 
@@ -35,7 +35,7 @@ export class SliderComponent {
                 <input
                     type="range"
                     class="slider"
-                    value={this.currentStep}
+                    value={this.currentValue}
                     min="0"
                     max="100"
                     onChange={this._handleInputChange}

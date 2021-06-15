@@ -21,6 +21,8 @@ export class GlyphRankingLayout {
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active view layout */
     @State() activeView: RankingViewOptions;
+    /** Active slider value */ 
+    @State() activeViewValue: number = 0;
     /** Image type */
     @State() imageType = 'model';
     /** Comparable ranking flag */
@@ -67,7 +69,9 @@ export class GlyphRankingLayout {
     };
 
     private _handleSliderChange = (event: CustomEvent) => {
-        this.activeView = event.detail;
+        const { option, value } = event.detail;
+        this.activeView = option;
+        this.activeViewValue = value;
     };
 
     private _handleImageTypeChange = (imageType: string) => () => {
@@ -93,7 +97,7 @@ export class GlyphRankingLayout {
                 )}
                 <Flex row middle className="ranking__header__options__slider">
                     <span>{this._i18n['ranking-layout.view']}</span>
-                    <glyph-slider options={sliderOptions} onOptionChange={this._handleSliderChange} />
+                    <glyph-slider options={sliderOptions} currentValue={this.activeViewValue} onOptionChange={this._handleSliderChange} />
                 </Flex>
                 <Flex row middle className="ranking__header__options__image-type">
                     <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>
