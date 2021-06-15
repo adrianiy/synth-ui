@@ -478,6 +478,10 @@ export namespace Components {
     }
     interface GlyphRanking {
         /**
+          * This method will reset ranking container scroll
+         */
+        "backToTop": () => Promise<void>;
+        /**
           * Distance between columns
          */
         "columnGap": string;
@@ -1566,6 +1570,10 @@ declare namespace LocalJSX {
           * Distance between elements inside a column
          */
         "innerGap"?: string;
+        /**
+          * Scrolled state change event
+         */
+        "onScrollChange"?: (event: CustomEvent<boolean>) => void;
         /**
           * **optional** Compose image url callback
          */

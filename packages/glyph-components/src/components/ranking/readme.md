@@ -22,6 +22,26 @@
 | `rows`          | `rows`          | Row to render                                                                                   | `number`                     | `1`                         |
 
 
+## Events
+
+| Event          | Description                 | Type                   |
+| -------------- | --------------------------- | ---------------------- |
+| `scrollChange` | Scrolled state change event | `CustomEvent<boolean>` |
+
+
+## Methods
+
+### `backToTop() => Promise<void>`
+
+This method will reset ranking container scroll
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

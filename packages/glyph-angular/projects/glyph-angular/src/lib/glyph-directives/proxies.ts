@@ -359,22 +359,27 @@ export class GlyphNoData {
   }
 }
 
-
+import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows'],
+  methods: ['backToTop']
 })
 @Component({
   selector: 'glyph-ranking',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows'],
+  outputs: ['scrollChange']
 })
 export class GlyphRanking {
+  /** Scrolled state change event */
+  scrollChange!: IRankingComponent['scrollChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['scrollChange']);
   }
 }
 

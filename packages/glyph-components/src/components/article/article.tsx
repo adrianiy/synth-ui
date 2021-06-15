@@ -28,7 +28,7 @@ export class ArticleComponent {
     @Element() element: HTMLGlyphArticleElement;
     /** Click event callback */
     @Event() articleClick: EventEmitter<Article>;
-    /** Article gets visible event */ 
+    /** Article gets visible event */
     @Event() articleVisible: EventEmitter<any>;
 
     /** article height */
@@ -43,7 +43,7 @@ export class ArticleComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidUpdate() {
+    componentDidRender() {
         if (this._image) {
             this.elementHeight = this._image.getBoundingClientRect().height;
             this._observer = new IntersectionObserver(this._onIntersection);
@@ -184,9 +184,7 @@ export class ArticleComponent {
                 onClick={this._handleClick}
             >
                 {this._renderHeader()}
-                {
-                    this.isVisible && <img class="animated fadeIn" src={imageSrc} />
-                }
+                {this.isVisible && <img class="animated fadeIn" src={imageSrc} />}
                 {this._renderFooter()}
                 <glyph-toaster eventId="copyReference" ttl={1000} />
             </div>

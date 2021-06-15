@@ -21,10 +21,12 @@ export class GlyphRankingLayout {
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active view layout */
     @State() activeView: RankingViewOptions;
-    /** Image type */ 
+    /** Image type */
     @State() imageType = 'model';
-    /** Comparable ranking flag */ 
+    /** Comparable ranking flag */
     @State() comparable: boolean = false;
+    /** Scrolled state flag */
+    @State() scrolled: boolean = false;
 
     private _i18n: any;
     private _singleSectionOptions: RankingViewOptions[] = [
@@ -36,6 +38,7 @@ export class GlyphRankingLayout {
         { columns: 3, innerColumns: 1, rows: 1, gap: undefined },
         { columns: 3, innerColumns: 2, rows: 2, gap: undefined, innerGap: 'var(--gui-padding--xs)' },
     ];
+    private _rankingRef: HTMLGlyphRankingElement;
 
     async componentWillLoad() {
         await this._initializeVariables();
@@ -51,17 +54,29 @@ export class GlyphRankingLayout {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
+    private _setRankingRef = (element: HTMLGlyphRankingElement) => {
+        this._rankingRef = element;
+    };
+
     private _isSingleRanking = () => {
         return this.rankingData.length === 1;
-    }
+    };
+
+    private _handleScrollChange = (event: CustomEvent) => {
+        this.scrolled = event.detail;
+    };
 
     private _handleSliderChange = (event: CustomEvent) => {
         this.activeView = event.detail;
-    }
+    };
 
     private _handleImageTypeChange = (imageType: string) => () => {
         this.imageType = imageType;
-    }
+    };
+
+    private _backToTop = () => {
+        this._rankingRef.backToTop();
+    };
 
     private _renderHeaderOptions() {
         const isSingleSection = this._isSingleRanking();
@@ -70,20 +85,29 @@ export class GlyphRankingLayout {
 
         return (
             <Flex row middle className="ranking__header__options">
-                {
-                    hasComparable && <Flex row middle className="ranking__header__options__comparable">
+                {hasComparable && (
+                    <Flex row middle className="ranking__header__options__comparable">
                         <span>{this._i18n['ranking-layout.comparable']}</span>
-                        <input type="checkbox" checked={this.comparable}/>
+                        <input type="checkbox" checked={this.comparable} />
                     </Flex>
-                }
+                )}
                 <Flex row middle className="ranking__header__options__slider">
                     <span>{this._i18n['ranking-layout.view']}</span>
                     <glyph-slider options={sliderOptions} onOptionChange={this._handleSliderChange} />
                 </Flex>
                 <Flex row middle className="ranking__header__options__image-type">
-                    <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>{this._i18n['ranking-layout.model']}</span>
-                    <span onClick={this._handleImageTypeChange('plain')} class={{ active: this.imageType === 'plain' }}>{this._i18n['ranking-layout.plain']}</span>
+                    <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>
+                        {this._i18n['ranking-layout.model']}
+                    </span>
+                    <span onClick={this._handleImageTypeChange('plain')} class={{ active: this.imageType === 'plain' }}>
+                        {this._i18n['ranking-layout.plain']}
+                    </span>
                 </Flex>
+                {this.scrolled && (
+                    <Flex row middle className="ranking__header__options__back">
+                        <span onClick={this._backToTop}>{this._i18n['ranking-layout.backToTop']}</span>
+                    </Flex>
+                )}
             </Flex>
         );
     }
@@ -101,6 +125,7 @@ export class GlyphRankingLayout {
                     {this._renderHeaderOptions()}
                 </Flex>
                 <glyph-ranking
+                    ref={this._setRankingRef}
                     rankingData={this.rankingData}
                     columns={columns}
                     innerColumns={innerColumns}
@@ -109,6 +134,7 @@ export class GlyphRankingLayout {
                     innerGap={innerGap}
                     rows={rows}
                     i18n={this._i18n}
+                    onScrollChange={this._handleScrollChange}
                 />
             </Flex>
         );

@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, State } from '@stencil/core';
+import { Component, Prop, Element, h, State, Event, EventEmitter, Method } from '@stencil/core';
 import { RankingData, Article } from 'glyph-core';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
@@ -32,15 +32,20 @@ export class RankingComponent {
     @Prop() i18n: { [key: string]: string } = {};
     /** Element reference */
     @Element() element: HTMLGlyphRankingElement;
+    /** Scrolled state change event */
+    @Event() scrollChange: EventEmitter<boolean>;
 
     /** article height */
     @State() elementHeight: number;
     /** last visible element */
     @State() lastVisibleIndex: number = 0;
-    /** loading state */ 
+    /** loading state */
     @State() loading: boolean = true;
+    /** scrolled state */
+    @State() scrolled: boolean = false;
 
     private _i18n: any;
+    private _rankingContainer: HTMLElement;
     private _articleRef: HTMLElement;
 
     async componentWillLoad() {
@@ -48,24 +53,46 @@ export class RankingComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidUpdate() {
+    componentDidRender() {
         this._setElementHeight();
         this.loading = false;
     }
 
+    /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
+    /** This method will reset ranking container scroll */
+    @Method() 
+    async backToTop() {
+        this._rankingContainer.scrollTop = 0;
+        this.scrolled = false;
+        this.scrollChange.emit(false);
+    }
+
+    private _handleScroll = (ev: any) => {
+        if (ev.target.scrollTop > 0 && !this.scrolled) {
+            this.scrolled = true;
+            this.scrollChange.emit(true);
+        } else if (ev.target.scrollTop === 0 && this.scrolled) {
+            this.scrolled = false;
+            this.scrollChange.emit(false);
+        }
+    };
+
     private _setElementHeight = () => {
         const { height } = this._articleRef.getBoundingClientRect();
-
 
         if (height) {
             this.elementHeight = height - 4;
         }
-    }
+    };
 
     private _setElementRef = (element: HTMLElement) => {
         if (!this._articleRef) {
             this._articleRef = element;
         }
+    };
+
+    private _setRankingRef = (element: HTMLElement) => {
+        this._rankingContainer = element;
     };
 
     private _getHeight = () => {
@@ -90,16 +117,16 @@ export class RankingComponent {
 
     private _handleArticleVisibility = (index: number) => () => {
         this.lastVisibleIndex = index;
-    }
+    };
 
     private _getColumns = () => {
         const isSingleSection = this.rankingData.length === 1;
         const columns = isSingleSection ? this.columns : this.innerColumns;
 
         return columns;
-    }
+    };
 
-    private _checkArticleVisibility = (index) => {
+    private _checkArticleVisibility = index => {
         const columns = this._getColumns();
         const articlesPerView = columns * this.rows;
         const articlesThreshold = articlesPerView * 3;
@@ -107,14 +134,13 @@ export class RankingComponent {
         const max = this.lastVisibleIndex + articlesThreshold;
 
         return index > min && index < max;
-    }
+    };
 
     private _renderArticles = (children: Article[]) => {
         const columns = this._getColumns();
 
         return children.slice(0, this.loading ? columns : -1).map((article, index) => (
-            <div
-                class="article" style={{ height: `${this.elementHeight}px` }}>
+            <div class="article" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
                     isVisible={this._checkArticleVisibility(index)}
@@ -160,7 +186,11 @@ export class RankingComponent {
                         <h5>{this._getSectionName(cod_section)}</h5>
                     ))}
                 </div>
-                <div class={cls('ranking__columns', isSingle && 'ranking__columns--single')}>
+                <div
+                    onScroll={this._handleScroll}
+                    ref={this._setRankingRef}
+                    class={cls('ranking__columns', isSingle && 'ranking__columns--single')}
+                >
                     {this.rankingData
                         .filter(({ children }) => children.length)
                         .map(({ children }) =>

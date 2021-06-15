@@ -9,6 +9,9 @@
     &__options {
         height: 20px;
 
+        &__comparable {
+            margin-right: var(--gui-padding--s);
+        }
         &__slider {
             margin-right: var(--gui-padding--s);
         }
@@ -25,6 +28,11 @@
                     margin-right: 0
                 }
             }
+        }
+        &__back {
+            margin-left: var(--gui-padding--s);
+            cursor: pointer;
+            font-weight: var(--gui-font-weight--extra-bold);
         }
     }
 }
