@@ -78,7 +78,7 @@ export class ArticleComponent {
 
     private _getArticleSize() {
         const { width } = this.element.getBoundingClientRect();
-        this.articleSize = width < 200 ? ArticleSize.small : ArticleSize.large;
+        this.articleSize = width < 120 ? ArticleSize.small : width < 300 ? ArticleSize.medium : ArticleSize.large;
     }
 
     private _handleClick = () => {

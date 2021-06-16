@@ -30,6 +30,24 @@
             font-size: var(--gui-font--xxxs);
         }
     }
+    &.medium {
+        .header {
+            .quantity {
+                font-size: var(--gui-font--xxs);
+
+                .caption {
+                    font-size: var(--gui-font--xxs);
+                }
+            }
+            .tags {
+                font-size: var(--gui-font--xxs);
+                padding-left: 0;
+            }
+        }
+        .footer {
+            font-size: var(--gui-font--xxs);
+        }
+    }
 
     .header {
         position: absolute;
