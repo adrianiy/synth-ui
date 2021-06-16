@@ -3,5 +3,6 @@
     "ranking-layout.model": "model",
     "ranking-layout.plain": "plain",
     "ranking-layout.comparable": "Comparable ranking",
-    "ranking-layout.backToTop": "Volver arriba"
+    "ranking-layout.backToTop": "Volver arriba",
+    "ranking-layout.comparableRanking": "Ranking comparable - día completo"
 }

@@ -22,6 +22,8 @@ export class ArticleComponent {
     @Prop() imageType: string = 'image';
     /** **optional** Compose image url callback */
     @Prop() parseImageUrl: (image: string) => string;
+    /** Decorate with backdrop filter, solves some performance issues (in storybook) */
+    @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** Element reference */
@@ -100,7 +102,7 @@ export class ArticleComponent {
         const quantity = { value: this.article[this.quantityField], format: '0,0' };
 
         return (
-            <Flex left className="quantity">
+            <Flex left className={`quantity ${this.useBackdropDecoration && 'quantity--backdrop'}`}>
                 <Format config={quantity} />
                 <span class="caption">{this._i18n[this.quantityField]}</span>
             </Flex>
@@ -162,7 +164,7 @@ export class ArticleComponent {
 
     private _renderFooter = () => {
         return (
-            <Flex left className="footer">
+            <Flex left className={`footer ${this.useBackdropDecoration && 'footer--backdrop'}`}>
                 <span class="description">{this.article.description}</span>
                 <span class="reference" onClick={this._handleCopy}>
                     {this.article.partnumber}

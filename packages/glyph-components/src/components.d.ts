@@ -51,6 +51,10 @@ export namespace Components {
           * Field to render quantity tag
          */
         "quantityField": string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
     }
     interface GlyphAvatar {
         /**
@@ -478,9 +482,9 @@ export namespace Components {
     }
     interface GlyphRanking {
         /**
-          * This method will reset ranking container scroll
+          * This method will change ranking container scroll
          */
-        "backToTop": () => Promise<void>;
+        "changeScroll": (scroll?: number, listeneable?: boolean) => Promise<void>;
         /**
           * Distance between columns
          */
@@ -518,6 +522,10 @@ export namespace Components {
          */
         "rankingData": RankingData[];
         /**
+          * (optional) ranking header. Applicable on single section ranking
+         */
+        "rankingHeader": string;
+        /**
           * Distance between rows
          */
         "rowGap": string;
@@ -525,12 +533,20 @@ export namespace Components {
           * Row to render
          */
         "rows": number;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
     }
     interface GlyphRankingLayout {
         /**
           * Distance between columns
          */
         "columnGap": string;
+        /**
+          * Ranking comparable data
+         */
+        "compRankingData": RankingData[];
         /**
           * Extra i18n translates
          */
@@ -543,6 +559,10 @@ export namespace Components {
           * Distance between rows
          */
         "rowGap": string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
     }
     interface GlyphScroll {
         /**
@@ -1056,6 +1076,10 @@ declare namespace LocalJSX {
           * Field to render quantity tag
          */
         "quantityField"?: string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
     }
     interface GlyphAvatar {
         /**
@@ -1577,7 +1601,7 @@ declare namespace LocalJSX {
         /**
           * Scrolled state change event
          */
-        "onScrollChange"?: (event: CustomEvent<boolean>) => void;
+        "onScrollChange"?: (event: CustomEvent<{ scrolled: boolean; scrollTop: number }>) => void;
         /**
           * **optional** Compose image url callback
          */
@@ -1587,6 +1611,10 @@ declare namespace LocalJSX {
          */
         "rankingData"?: RankingData[];
         /**
+          * (optional) ranking header. Applicable on single section ranking
+         */
+        "rankingHeader"?: string;
+        /**
           * Distance between rows
          */
         "rowGap"?: string;
@@ -1594,12 +1622,20 @@ declare namespace LocalJSX {
           * Row to render
          */
         "rows"?: number;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
     }
     interface GlyphRankingLayout {
         /**
           * Distance between columns
          */
         "columnGap"?: string;
+        /**
+          * Ranking comparable data
+         */
+        "compRankingData"?: RankingData[];
         /**
           * Extra i18n translates
          */
@@ -1612,6 +1648,10 @@ declare namespace LocalJSX {
           * Distance between rows
          */
         "rowGap"?: string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
     }
     interface GlyphScroll {
         /**

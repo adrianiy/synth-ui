@@ -11,17 +11,21 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
 export class GlyphRankingLayout {
     /** Ranking data */
     @Prop() rankingData: RankingData[];
+    /** Ranking comparable data */
+    @Prop() compRankingData: RankingData[];
     /** Distance between columns */
     @Prop() columnGap: string = '15%';
     /** Distance between rows */
     @Prop() rowGap: string = 'var(--gui-padding--xxl)';
+    /** Decorate with backdrop filter, solves some performance issues (in storybook) */
+    @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translates */
     @Prop() i18n: { [key: string]: string };
     /** Element reference */
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active view layout */
     @State() activeView: RankingViewOptions;
-    /** Active slider value */ 
+    /** Active slider value */
     @State() activeViewValue: number = 0;
     /** Image type */
     @State() imageType = 'model';
@@ -41,6 +45,7 @@ export class GlyphRankingLayout {
         { columns: 3, innerColumns: 2, rows: 2, gap: undefined, innerGap: 'var(--gui-padding--xs)' },
     ];
     private _rankingRef: HTMLGlyphRankingElement;
+    private _compRankingRef: HTMLGlyphRankingElement;
 
     async componentWillLoad() {
         await this._initializeVariables();
@@ -60,12 +65,30 @@ export class GlyphRankingLayout {
         this._rankingRef = element;
     };
 
+    private _setCompRankingRef = (element: HTMLGlyphRankingElement) => {
+        this._compRankingRef = element;
+    };
+
     private _isSingleRanking = () => {
         return this.rankingData.length === 1;
     };
 
     private _handleScrollChange = (event: CustomEvent) => {
-        this.scrolled = event.detail;
+        const { scrolled, scrollTop } = event.detail;
+
+        this.scrolled = scrolled;
+
+        if (this.comparable) {
+            this._compRankingRef.changeScroll(scrollTop, false);
+        }
+    };
+
+    private _handleCompScrollChange = (event: CustomEvent) => {
+        const { scrolled, scrollTop } = event.detail;
+
+        this.scrolled = scrolled;
+
+        this._rankingRef.changeScroll(scrollTop, false);
     };
 
     private _handleSliderChange = (event: CustomEvent) => {
@@ -78,8 +101,12 @@ export class GlyphRankingLayout {
         this.imageType = imageType;
     };
 
+    private _handleCompChange = (event: any) => {
+        this.comparable = event.target.checked;
+    };
+
     private _backToTop = () => {
-        this._rankingRef.backToTop();
+        this._rankingRef.changeScroll(0);
     };
 
     private _renderHeaderOptions() {
@@ -92,12 +119,16 @@ export class GlyphRankingLayout {
                 {hasComparable && (
                     <Flex row middle className="ranking__header__options__comparable">
                         <span>{this._i18n['ranking-layout.comparable']}</span>
-                        <input type="checkbox" checked={this.comparable} />
+                        <input type="checkbox" checked={this.comparable} onInput={this._handleCompChange} />
                     </Flex>
                 )}
                 <Flex row middle className="ranking__header__options__slider">
                     <span>{this._i18n['ranking-layout.view']}</span>
-                    <glyph-slider options={sliderOptions} currentValue={this.activeViewValue} onOptionChange={this._handleSliderChange} />
+                    <glyph-slider
+                        options={sliderOptions}
+                        currentValue={this.activeViewValue}
+                        onOptionChange={this._handleSliderChange}
+                    />
                 </Flex>
                 <Flex row middle className="ranking__header__options__image-type">
                     <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>
@@ -113,6 +144,29 @@ export class GlyphRankingLayout {
                     </Flex>
                 )}
             </Flex>
+        );
+    }
+
+    private _renderComparable() {
+        const { columns, innerColumns, rows, gap, innerGap } = this.activeView;
+
+        return (
+            <div class="ranking--comparable">
+                <glyph-ranking
+                    ref={this._setCompRankingRef}
+                    rankingData={this.compRankingData}
+                    rankingHeader={this._i18n['ranking-layout.comparableRanking']}
+                    columns={columns}
+                    innerColumns={innerColumns}
+                    gap={gap}
+                    columnGap={gap ? gap : this.columnGap}
+                    innerGap={innerGap}
+                    rows={this.comparable ? 1 : rows}
+                    useBackdropDecoration={this.useBackdropDecoration}
+                    i18n={this._i18n}
+                    onScrollChange={this._handleCompScrollChange}
+                />
+            </div>
         );
     }
 
@@ -136,10 +190,12 @@ export class GlyphRankingLayout {
                     gap={gap}
                     columnGap={gap ? gap : this.columnGap}
                     innerGap={innerGap}
-                    rows={rows}
+                    rows={this.comparable ? 1 : rows}
                     i18n={this._i18n}
+                    useBackdropDecoration={this.useBackdropDecoration}
                     onScrollChange={this._handleScrollChange}
                 />
+                {this.comparable && this._renderComparable()}
             </Flex>
         );
     }

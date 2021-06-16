@@ -10,6 +10,8 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 export class RankingComponent {
     /** Ranking data */
     @Prop() rankingData: RankingData[];
+    /** (optional) ranking header. Applicable on single section ranking */
+    @Prop() rankingHeader: string;
     /** Distance between columns */
     @Prop() columnGap: string = '15%';
     /** Distance between rows */
@@ -28,21 +30,23 @@ export class RankingComponent {
     @Prop() imageType: string = 'image';
     /** **optional** Compose image url callback */
     @Prop() parseImageUrl: (image: string) => string;
+    /** Decorate with backdrop filter, solves some performance issues (in storybook) */
+    @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** Element reference */
     @Element() element: HTMLGlyphRankingElement;
     /** Scrolled state change event */
-    @Event() scrollChange: EventEmitter<boolean>;
+    @Event() scrollChange: EventEmitter<{ scrolled: boolean; scrollTop: number }>;
 
     /** article height */
     @State() elementHeight: number;
     /** last visible element */
     @State() lastVisibleIndex: number = 0;
+    /** is scrolling flag */
+    @State() isScrolling: boolean = false;
     /** loading state */
     @State() loading: boolean = true;
-    /** scrolled state */
-    @State() scrolled: boolean = false;
 
     private _i18n: any;
     private _rankingContainer: HTMLElement;
@@ -59,21 +63,25 @@ export class RankingComponent {
     }
 
     /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
-    /** This method will reset ranking container scroll */
-    @Method() 
-    async backToTop() {
-        this._rankingContainer.scrollTop = 0;
-        this.scrolled = false;
-        this.scrollChange.emit(false);
+    /** This method will change ranking container scroll */
+    @Method()
+    async changeScroll(scroll: number = 0, listeneable: boolean = true) {
+        this._rankingContainer.scrollTop = scroll;
+        this.isScrolling = true;
+
+        if (scroll === 0 && listeneable) {
+            this.scrollChange.emit({ scrolled: false, scrollTop: 0 });
+        }
     }
 
     private _handleScroll = (ev: any) => {
-        if (ev.target.scrollTop > 0 && !this.scrolled) {
-            this.scrolled = true;
-            this.scrollChange.emit(true);
-        } else if (ev.target.scrollTop === 0 && this.scrolled) {
-            this.scrolled = false;
-            this.scrollChange.emit(false);
+        if (this.isScrolling) {
+            this.isScrolling = false;
+        } else {
+            const { scrollTop } = ev.target;
+            const scrolled = scrollTop > 0;
+
+            this.scrollChange.emit({ scrolled, scrollTop });
         }
     };
 
@@ -126,29 +134,24 @@ export class RankingComponent {
         return columns;
     };
 
-    private _checkArticleVisibility = index => {
-        const columns = this._getColumns();
-        const articlesPerView = columns * this.rows;
-        const articlesThreshold = articlesPerView * 3;
-        const min = this.lastVisibleIndex - articlesThreshold;
-        const max = this.lastVisibleIndex + articlesThreshold;
-
-        return index > min && index < max;
-    };
-
     private _renderArticles = (children: Article[]) => {
         const columns = this._getColumns();
+        const articlesPerView = columns * this.rows;
+        const articlesThreshold = articlesPerView * 2;
+        const min = this.lastVisibleIndex - articlesThreshold;
+        const max = this.lastVisibleIndex + articlesThreshold;
 
         return children.slice(0, this.loading ? columns : -1).map((article, index) => (
             <div class="article" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
-                    isVisible={this._checkArticleVisibility(index)}
+                    isVisible={index > min && index < max}
                     article={article}
                     isClickable
                     quantity-field="units"
                     imageType={this.imageType}
                     parseImageUrl={this.parseImageUrl}
+                    useBackdropDecoration={this.useBackdropDecoration}
                     i18n={this._i18n}
                     onArticleVisible={this._handleArticleVisibility(index)}
                 />
@@ -182,9 +185,11 @@ export class RankingComponent {
                 }}
             >
                 <div class="ranking__header">
-                    {this.rankingData.map(({ cod_section }) => (
-                        <h5>{this._getSectionName(cod_section)}</h5>
-                    ))}
+                    {isSingle && this.rankingHeader ? (
+                        <h5>{this.rankingHeader}</h5>
+                    ) : (
+                        this.rankingData.map(({ cod_section }) => <h5>{this._getSectionName(cod_section)}</h5>)
+                    )}
                 </div>
                 <div
                     onScroll={this._handleScroll}

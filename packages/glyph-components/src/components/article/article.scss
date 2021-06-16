@@ -21,6 +21,9 @@
             background: var(--gui-color--article--decoration);
             font-size: var(--gui-font--xs);
 
+            &--backdrop {
+                backdrop-filter: saturate(180%) blur(5px);
+            }
             .caption {
                 padding-top: var(--gui-padding--xxxs);
                 text-transform: uppercase;
@@ -104,10 +107,13 @@
         width: calc(100% - var(--gui-padding--l));
         padding: var(--gui-padding--xs) var(--gui-padding--s);
         background: var(--gui-color--article--decoration);
-        backdrop-filter: saturate(180%) blur(5px);
         font-size: var(--gui-font--xs);
         opacity: 0;
         transition: var(--gui-transition--300);
+
+        &--backdrop {
+            backdrop-filter: saturate(180%) blur(5px);
+        }
 
         .description {
             font-weight: var(--gui-font-weight--bold);
