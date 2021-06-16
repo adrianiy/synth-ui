@@ -36,13 +36,13 @@ export class GlyphRankingLayout {
 
     private _i18n: any;
     private _singleSectionOptions: RankingViewOptions[] = [
-        { columns: 3, innerColumns: 1, rows: 1, gap: undefined },
+        { columns: 3, innerColumns: 1, rows: 1, rowGap: 'var(--gui-padding--xxl)' },
         { columns: 6, innerColumns: 1, rows: 3, gap: 'var(--gui-padding--xs)' },
         { columns: 8, innerColumns: 1, rows: 3, gap: 'var(--gui-padding--xs)' },
     ];
     private _multiSectionOptions: RankingViewOptions[] = [
-        { columns: 3, innerColumns: 1, rows: 1, gap: undefined },
-        { columns: 3, innerColumns: 2, rows: 2, gap: undefined, innerGap: 'var(--gui-padding--xs)' },
+        { columns: 3, innerColumns: 1, rows: 1 },
+        { columns: 3, innerColumns: 2, rows: 2, innerGap: 'var(--gui-padding--xs)' },
     ];
     private _rankingRef: HTMLGlyphRankingElement;
     private _compRankingRef: HTMLGlyphRankingElement;
@@ -174,7 +174,7 @@ export class GlyphRankingLayout {
         if (!this.activeView) {
             return null;
         }
-        const { columns, innerColumns, rows, gap, innerGap } = this.activeView;
+        const { columns, innerColumns, rows, gap, rowGap, innerGap } = this.activeView;
 
         return (
             <Flex>
@@ -188,6 +188,7 @@ export class GlyphRankingLayout {
                     columns={columns}
                     innerColumns={innerColumns}
                     gap={gap}
+                    rowGap={rowGap}
                     columnGap={gap ? gap : this.columnGap}
                     innerGap={innerGap}
                     rows={this.comparable ? 1 : rows}

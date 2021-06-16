@@ -28,6 +28,10 @@ export namespace Components {
          */
         "article": Article;
         /**
+          * This method will return image height
+         */
+        "getImageSize": () => Promise<DOMRect>;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };

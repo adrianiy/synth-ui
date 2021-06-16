@@ -63,6 +63,7 @@ export interface RankingViewOptions {
     columns: number;
     innerColumns: number;
     rows: number;
-    gap: string;
+    gap?: string;
+    rowGap?: string;
     innerGap?: string;
 }

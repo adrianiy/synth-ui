@@ -27,7 +27,8 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField', 'useBackdropDecoration']
+  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  methods: ['getImageSize']
 })
 @Component({
   selector: 'glyph-article',

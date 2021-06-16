@@ -3,7 +3,7 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<glyph-article style="margin-left: 200px; width: 200px; display: block" ...=${spread(args)} />`;
+export const Template = args => html`<glyph-article style="margin-left: 200px; width: 200px; display: block" ...=${spread({ ...args, '.isVisible': true })} />`;
 
 <Meta title="Components/Article" parameters={{ viewMode: 'docs' }} />
 

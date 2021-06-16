@@ -50,15 +50,15 @@ export class RankingComponent {
 
     private _i18n: any;
     private _rankingContainer: HTMLElement;
-    private _articleRef: HTMLElement;
+    private _articleRef: HTMLGlyphArticleElement;
 
     async componentWillLoad() {
         const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    componentDidRender() {
-        this._setElementHeight();
+    async componentDidRender() {
+        await this._setElementHeight();
         this.loading = false;
     }
 
@@ -85,15 +85,15 @@ export class RankingComponent {
         }
     };
 
-    private _setElementHeight = () => {
-        const { height } = this._articleRef.getBoundingClientRect();
+    private _setElementHeight = async () => {
+        const { height } = await this._articleRef.getImageSize();
 
         if (height) {
-            this.elementHeight = height - 4;
+            this.elementHeight = height;
         }
     };
 
-    private _setElementRef = (element: HTMLElement) => {
+    private _setElementRef = (element: HTMLGlyphArticleElement) => {
         if (!this._articleRef) {
             this._articleRef = element;
         }
@@ -142,7 +142,7 @@ export class RankingComponent {
         const max = this.lastVisibleIndex + articlesThreshold;
 
         return children.slice(0, this.loading ? columns : -1).map((article, index) => (
-            <div class="article" style={{ height: `${this.elementHeight}px` }}>
+            <div class="article" style={{ height: `${this.elementHeight - 4}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
                     isVisible={index > min && index < max}

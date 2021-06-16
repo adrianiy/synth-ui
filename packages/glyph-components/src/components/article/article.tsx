@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Method, Prop } from '@stencil/core';
 import { Article, ToasterTypes } from 'glyph-core';
 import { Format } from '../../utils/format';
 import { Flex } from '../../utils/layout';
@@ -33,9 +33,6 @@ export class ArticleComponent {
     /** Article gets visible event */
     @Event() articleVisible: EventEmitter<any>;
 
-    /** article height */
-    @State() elementHeight: number;
-
     private _i18n: any;
     private _observer: IntersectionObserver;
     private _image: HTMLElement;
@@ -47,10 +44,16 @@ export class ArticleComponent {
 
     componentDidRender() {
         if (this._image) {
-            this.elementHeight = this._image.getBoundingClientRect().height;
             this._observer = new IntersectionObserver(this._onIntersection);
             this._observer.observe(this._image);
         }
+    }
+
+    /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
+    /** This method will return image height */
+    @Method()
+    async getImageSize() {
+        return this._image.getBoundingClientRect();
     }
 
     private _handleClick = () => {
@@ -180,7 +183,6 @@ export class ArticleComponent {
 
         return (
             <div
-                style={{ heihgt: `${this.elementHeight}px` }}
                 class={cls('article', this.isClickable && 'article--clickable')}
                 ref={this._setImageRef}
                 onClick={this._handleClick}

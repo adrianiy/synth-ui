@@ -27,6 +27,19 @@
 | `articleVisible` | Article gets visible event | `CustomEvent<any>`     |
 
 
+## Methods
+
+### `getImageSize() => Promise<DOMRect>`
+
+This method will return image height
+
+#### Returns
+
+Type: `Promise<DOMRect>`
+
+
+
+
 ## Dependencies
 
 ### Used by
