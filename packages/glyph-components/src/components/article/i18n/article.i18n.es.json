@@ -4,6 +4,7 @@
     "orders": "pedidos",
     "copyDone": "Referencia copiada al portapapeles!",
     "copyFail": "Algo ha fallado copiando la referencia... :(",
-    "pvp.title": "Países PVP",
-    "pvp.countries": "countries"
+    "pvps.title": "Países PVP",
+    "new.title": "Países NEW",
+    "tags.countries": "countries"
 }

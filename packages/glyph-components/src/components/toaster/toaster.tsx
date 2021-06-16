@@ -52,6 +52,7 @@ export class ToasterComponent {
     }
 
     private _handleToasterTrigger = (event: ToasterEvent) => {
+        console.log(event, this.eventId);
         this.text = event.text;
         this.icon = event.icon;
         this.ttype = event.type;

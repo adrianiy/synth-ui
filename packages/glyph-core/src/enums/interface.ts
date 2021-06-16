@@ -25,3 +25,8 @@ export const enum Alignment {
     right = 'right',
     center = 'center',
 }
+
+export const enum ArticleSize {
+    small = 'small',
+    large = 'large',
+}

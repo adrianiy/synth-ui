@@ -30,11 +30,8 @@
         grid-gap: var(--innerGap);
         grid-template-columns: repeat(var(--innerColumns), 1fr);
     }
-    .article {
+    .article__container {
         width: 100%;
-
-        img {
-            width: 100%;
-        }
+        position: relative;
     }
 }

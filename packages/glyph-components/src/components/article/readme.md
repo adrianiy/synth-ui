@@ -39,6 +39,26 @@ Type: `Promise<DOMRect>`
 
 
 
+### `hideTooltip() => Promise<void>`
+
+This method will hide tooltip
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setArticleSize() => Promise<void>`
+
+This method will hide tooltip
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

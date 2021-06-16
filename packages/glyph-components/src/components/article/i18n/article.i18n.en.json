@@ -4,6 +4,7 @@
     "orders": "orders",
     "copyDone": "Reference copied to clipboard!",
     "copyFail": "Something failed copying reference... :(",
-    "pvp.title": "PVP Countries",
-    "pvp.countries": "countries"
+    "pvps.title": "PVP Countries",
+    "new.title": "NEW Countries",
+    "tags.countries": "countries"
 }

@@ -32,6 +32,10 @@ export namespace Components {
          */
         "getImageSize": () => Promise<DOMRect>;
         /**
+          * This method will hide tooltip
+         */
+        "hideTooltip": () => Promise<void>;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
@@ -55,6 +59,10 @@ export namespace Components {
           * Field to render quantity tag
          */
         "quantityField": string;
+        /**
+          * This method will hide tooltip
+         */
+        "setArticleSize": () => Promise<void>;
         /**
           * Decorate with backdrop filter, solves some performance issues (in storybook)
          */
@@ -226,6 +234,10 @@ export namespace Components {
          */
         "flexId": string;
         /**
+          * Style atttribute to apply in flex div
+         */
+        "flexStyle": any;
+        /**
           * Horizonal align = left
          */
         "left": boolean;
@@ -233,6 +245,10 @@ export namespace Components {
           * Vertical align = middle
          */
         "middle": boolean;
+        /**
+          * On click event
+         */
+        "onClickEvent": (event: any) => any;
         /**
           * Horizontal align = right
          */
@@ -1279,6 +1295,10 @@ declare namespace LocalJSX {
          */
         "flexId"?: string;
         /**
+          * Style atttribute to apply in flex div
+         */
+        "flexStyle"?: any;
+        /**
           * Horizonal align = left
          */
         "left"?: boolean;
@@ -1286,6 +1306,10 @@ declare namespace LocalJSX {
           * Vertical align = middle
          */
         "middle"?: boolean;
+        /**
+          * On click event
+         */
+        "onClickEvent"?: (event: any) => any;
         /**
           * Horizontal align = right
          */

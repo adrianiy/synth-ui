@@ -95,6 +95,7 @@ export class GlyphRankingLayout {
         const { option, value } = event.detail;
         this.activeView = option;
         this.activeViewValue = value;
+        this.comparable = false;
     };
 
     private _handleImageTypeChange = (imageType: string) => () => {

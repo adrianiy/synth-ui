@@ -5,7 +5,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 @Component({
     tag: 'glyph-ranking',
     styleUrl: 'ranking.scss',
-    shadow: false,
+    shadow: true,
 })
 export class RankingComponent {
     /** Ranking data */
@@ -50,7 +50,7 @@ export class RankingComponent {
 
     private _i18n: any;
     private _rankingContainer: HTMLElement;
-    private _articleRef: HTMLGlyphArticleElement;
+    private _articleRef: HTMLGlyphArticleElement[] = [];
 
     async componentWillLoad() {
         const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element);
@@ -60,6 +60,7 @@ export class RankingComponent {
     async componentDidRender() {
         await this._setElementHeight();
         this.loading = false;
+        this._articleRef.forEach(async article => await article.setArticleSize());
     }
 
     /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
@@ -82,11 +83,12 @@ export class RankingComponent {
             const scrolled = scrollTop > 0;
 
             this.scrollChange.emit({ scrolled, scrollTop });
+            this._articleRef.forEach(async article => await article.hideTooltip());
         }
     };
 
     private _setElementHeight = async () => {
-        const { height } = await this._articleRef.getImageSize();
+        const { height } = await this._articleRef[0].getImageSize();
 
         if (height) {
             this.elementHeight = height;
@@ -94,9 +96,7 @@ export class RankingComponent {
     };
 
     private _setElementRef = (element: HTMLGlyphArticleElement) => {
-        if (!this._articleRef) {
-            this._articleRef = element;
-        }
+        this._articleRef.push(element);
     };
 
     private _setRankingRef = (element: HTMLElement) => {
@@ -142,7 +142,7 @@ export class RankingComponent {
         const max = this.lastVisibleIndex + articlesThreshold;
 
         return children.slice(0, this.loading ? columns : -1).map((article, index) => (
-            <div class="article" style={{ height: `${this.elementHeight - 4}px` }}>
+            <div class="article__container" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
                     isVisible={index > min && index < max}

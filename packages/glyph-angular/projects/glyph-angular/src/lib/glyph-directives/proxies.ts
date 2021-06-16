@@ -28,7 +28,7 @@ import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/typ
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
   inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
-  methods: ['getImageSize']
+  methods: ['getImageSize', 'hideTooltip', 'setArticleSize']
 })
 @Component({
   selector: 'glyph-article',
@@ -185,13 +185,13 @@ export class GlyphFilterOptions {
 
 export declare interface GlyphFlex extends Components.GlyphFlex {}
 @ProxyCmp({
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
 })
 @Component({
   selector: 'glyph-flex',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
 })
 export class GlyphFlex {
   protected el: HTMLElement;
