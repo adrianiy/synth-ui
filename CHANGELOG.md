@@ -1,3 +1,28 @@
+# [1.15.0](https://github.com/adrianiy/glyph-ui/compare/v1.14.2...v1.15.0) (2021-06-17)
+
+
+### Bug Fixes
+
+* **article:** fix header element position to improve lazy loading ([eaa990b](https://github.com/adrianiy/glyph-ui/commit/eaa990b6fc8f0d6734f403b41906447b0e3ff582))
+* **article:** fix tooltip position and toaster id ([5db4730](https://github.com/adrianiy/glyph-ui/commit/5db47304af3120e72310a4f9935830b47a5814f6))
+* **components:** fix scroll component ([e57ef5b](https://github.com/adrianiy/glyph-ui/commit/e57ef5b325e9ed621d84c26d4850ed2fbbb3fd7d))
+* **core:** set decoration as optative ([9219747](https://github.com/adrianiy/glyph-ui/commit/921974754d33cce5c601cb2ddb9bc13dbaeecebb))
+* **ranking:** fix article heights ([a6ebd2c](https://github.com/adrianiy/glyph-ui/commit/a6ebd2cd905deee13c7c4eab786296960d7c8bf3))
+* **slider:** fix slider value event management ([7ccca27](https://github.com/adrianiy/glyph-ui/commit/7ccca2710ef5cf1ab0415986b3de600980b875dd))
+
+
+### Features
+
+* **components:** add article component ([6c5598f](https://github.com/adrianiy/glyph-ui/commit/6c5598fcd37bed7df72174ee5932a71979e7288f))
+* **components:** add article component ([4d43a56](https://github.com/adrianiy/glyph-ui/commit/4d43a56e122e7d94fd136ca36278365456c5bc12))
+* **components:** add ranking component ([76ef3cb](https://github.com/adrianiy/glyph-ui/commit/76ef3cbadf7a77d0c3b2fcbc456b057057ec9256))
+* **components:** add slider component ([1542ad0](https://github.com/adrianiy/glyph-ui/commit/1542ad04b140ad80138b552a3099bf650b79a843))
+* **ranking:** add back to top button ([1f52e16](https://github.com/adrianiy/glyph-ui/commit/1f52e160ebce4d87681404d3d55912fd4769c951))
+* **ranking:** add comparable ranking and fix sb problems ([885c385](https://github.com/adrianiy/glyph-ui/commit/885c3850421be3e22dcc3ee122a2077dd3f81255))
+* **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
+* **ranking:** add ranking loader ([3309c4a](https://github.com/adrianiy/glyph-ui/commit/3309c4abe7f810b886616851e62bdf404483cec5))
+* **ranking:** add ranking loading layout ([4c3f47b](https://github.com/adrianiy/glyph-ui/commit/4c3f47b634da25d4e9c06a2c44079b3b6d499550))
+
 ## [1.14.2](https://github.com/adrianiy/glyph-ui/compare/v1.14.1...v1.14.2) (2021-05-04)
 
 
