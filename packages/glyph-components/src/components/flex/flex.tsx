@@ -30,10 +30,14 @@ export class FlexComponent {
     @Prop() around: boolean;
     /** Class attribute to apply in flex div */
     @Prop() flexClass: string;
+    /** Style atttribute to apply in flex div */
+    @Prop() flexStyle: any;
     /** Id attribute to apply in flex div */
     @Prop() flexId: string;
     /** Set an id to attribute data-testid */
     @Prop() testId: string;
+    /** On click event */
+    @Prop() onClickEvent: (event: any) => any;
 
     render() {
         return (
@@ -49,7 +53,9 @@ export class FlexComponent {
                 spaced={this.spaced}
                 around={this.around}
                 className={cls('flex__container', this.flexClass)}
+                style={this.flexStyle}
                 id={this.flexId}
+                onClick={this.onClickEvent}
             >
                 <slot />
             </Flex>

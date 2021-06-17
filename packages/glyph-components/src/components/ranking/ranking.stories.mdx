@@ -3,7 +3,7 @@ import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 
-export const Template = args => html`<glyph-ranking ...=${spread(args)} />`;
+export const Template = args => html`<glyph-ranking ...=${spread(args)} use-backdrop-decoration="false"/>`;
 
 <Meta title="Components/Ranking" parameters={{ viewMode: 'docs' }} />
 
@@ -72,7 +72,19 @@ export const rankingData = [
 { 
     cod_section: 1,
     children: [
-        { image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354' },
+        { 
+    units: 1000,
+    pvpType: 'normal',
+    pvps: Array(6).fill(0).map(() => (
+        { 
+            inicio: "2021-04-01",
+            name: "REINO UNIDO LONG TEST",
+            tag: "PVP"
+        }
+    )),
+    description: 'Test article',
+    partnumber: '07385096800-I2021',
+        image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/1608/132/251/2/w/400/1608132251_1_1_1.jpg?ts=1610039415924' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/3253/306/250/2/w/400/3253306250_1_1_1.jpg?ts=1612967073363' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/3130/651/620/2/w/400/3130651620_1_1_1.jpg?ts=1618227511701' },
@@ -129,7 +141,16 @@ export const sectionData = [
 { 
     cod_section: 1,
     children: [
-        { image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354' },
+        { 
+    pvpType: 'normal',
+    pvps: Array(6).fill(0).map(() => (
+        { 
+            inicio: "2021-04-01",
+            name: "REINO UNIDO LONG TEST",
+            tag: "PVP"
+        }
+    )),
+        image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/1608/132/251/2/w/400/1608132251_1_1_1.jpg?ts=1610039415924' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/3253/306/250/2/w/400/3253306250_1_1_1.jpg?ts=1612967073363' },
         { image: 'https://static.zara.net/photos/2021/V/0/1/p/3130/651/620/2/w/400/3130651620_1_1_1.jpg?ts=1618227511701' },

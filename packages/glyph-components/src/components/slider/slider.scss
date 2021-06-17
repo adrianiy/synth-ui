@@ -21,6 +21,7 @@
             background: var(--gui-color--background--contrast); /* Green background */
             cursor: pointer; /* Cursor on hover */
             border-radius: 100%;
+            transition: var(--gui-transition--300);
         }
 
         &::-moz-range-thumb {
@@ -29,6 +30,7 @@
             background: var(--gui-color--background--contrast); /* Green background */
             cursor: pointer; /* Cursor on hover */
             border-radius: 100%;
+            transition: var(--gui-transition--300);
         }
     }
 }

@@ -14,8 +14,11 @@ interface LayoutProps {
     bottom?: boolean;
     testId?: string;
     className?: string;
+    style?: any;
     id?: string;
     onClick?: (event: MouseEvent) => any;
+    onMouseEnter?: (event: MouseEvent) => any;
+    onMouseLeave?: (event: MouseEvent) => any;
     ref?: any;
 }
 
@@ -38,13 +41,16 @@ export const Flex: FunctionalComponent<LayoutProps> = (props, children) => {
 };
 
 export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, id, onClick, ref, ...rest } = props;
+    const { testId = '', className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
 
     return (
         <div
             data-testid={testId}
             class={cls('row', getDistribution(rest), className)}
+            style={style}
             onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             id={id}
             ref={ref}
         >
@@ -54,13 +60,16 @@ export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => 
 };
 
 export const ColumnLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, id, onClick, ref, ...rest } = props;
+    const { testId = '', className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
 
     return (
         <div
             data-testid={testId}
             class={cls('column', getDistribution(rest), className)}
+            style={style}
             onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
             id={id}
             ref={ref}
         >

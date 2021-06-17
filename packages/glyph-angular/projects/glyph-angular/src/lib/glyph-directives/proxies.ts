@@ -27,23 +27,26 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField']
+  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  methods: ['getImageSize', 'hideTooltip', 'setArticleSize']
 })
 @Component({
   selector: 'glyph-article',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'parseImageUrl', 'quantityField'],
-  outputs: ['articleClick']
+  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  outputs: ['articleClick', 'articleVisible']
 })
 export class GlyphArticle {
   /** Click event callback */
   articleClick!: IArticleComponent['articleClick'];
+  /** Article gets visible event */
+  articleVisible!: IArticleComponent['articleVisible'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['articleClick']);
+    proxyOutputs(this, this.el, ['articleClick', 'articleVisible']);
   }
 }
 
@@ -182,13 +185,13 @@ export class GlyphFilterOptions {
 
 export declare interface GlyphFlex extends Components.GlyphFlex {}
 @ProxyCmp({
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
 })
 @Component({
   selector: 'glyph-flex',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
 })
 export class GlyphFlex {
   protected el: HTMLElement;
@@ -357,18 +360,42 @@ export class GlyphNoData {
   }
 }
 
-
+import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  methods: ['changeScroll']
 })
 @Component({
   selector: 'glyph-ranking',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rowGap', 'rows']
+  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  outputs: ['scrollChange']
 })
 export class GlyphRanking {
+  /** Scrolled state change event */
+  scrollChange!: IRankingComponent['scrollChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['scrollChange']);
+  }
+}
+
+
+export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
+@ProxyCmp({
+  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
+})
+@Component({
+  selector: 'glyph-ranking-layout',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
+})
+export class GlyphRankingLayout {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -478,13 +505,13 @@ export class GlyphSkLoader {
 import { SliderComponent as ISliderComponent } from 'glyph-components/dist/types/components/slider/slider';
 export declare interface GlyphSlider extends Components.GlyphSlider {}
 @ProxyCmp({
-  inputs: ['options']
+  inputs: ['currentValue', 'options']
 })
 @Component({
   selector: 'glyph-slider',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['options'],
+  inputs: ['currentValue', 'options'],
   outputs: ['optionChange']
 })
 export class GlyphSlider {

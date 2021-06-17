@@ -24,6 +24,7 @@ export const GlyphLogin = /*@__PURE__*/createReactComponent<JSX.GlyphLogin, HTML
 export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTMLGlyphModalElement>('glyph-modal');
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
 export const GlyphRanking = /*@__PURE__*/createReactComponent<JSX.GlyphRanking, HTMLGlyphRankingElement>('glyph-ranking');
+export const GlyphRankingLayout = /*@__PURE__*/createReactComponent<JSX.GlyphRankingLayout, HTMLGlyphRankingLayoutElement>('glyph-ranking-layout');
 export const GlyphScroll = /*@__PURE__*/createReactComponent<JSX.GlyphScroll, HTMLGlyphScrollElement>('glyph-scroll');
 export const GlyphSelector = /*@__PURE__*/createReactComponent<JSX.GlyphSelector, HTMLGlyphSelectorElement>('glyph-selector');
 export const GlyphSelectorOptions = /*@__PURE__*/createReactComponent<JSX.GlyphSelectorOptions, HTMLGlyphSelectorOptionsElement>('glyph-selector-options');

@@ -4,7 +4,7 @@
         "allowUnreachableCode": false,
         "declaration": false,
         "experimentalDecorators": true,
-        "lib": ["dom", "es2017"],
+        "lib": ["dom", "es2017", "ES6"],
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "module": "esnext",
