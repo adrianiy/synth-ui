@@ -41,3 +41,29 @@ export interface SortableOption {
     action?: SortableAction;
     [key: string]: any;
 }
+
+export interface Article {
+    image?: string;
+    plain_image?: string;
+    partnumber: string;
+    description?: string;
+    pvps?: any[];
+    new?: any[];
+    pvpType?: string;
+    tags: string[];
+    [key: string]: any;
+}
+
+export interface RankingData {
+    cod_section?: number;
+    children?: Article[];
+}
+
+export interface RankingViewOptions {
+    columns: number;
+    innerColumns: number;
+    rows: number;
+    gap?: string;
+    rowGap?: string;
+    innerGap?: string;
+}

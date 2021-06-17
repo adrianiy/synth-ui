@@ -5,6 +5,10 @@
 	background: var(--gui-color--lighter);
 	animation: loading 3s infinite;
 	margin-bottom: var(--gui-padding--s);
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
 }
 
 @keyframes loading {

@@ -1,0 +1,45 @@
+.ranking {
+    &__header {
+        font-size: var(--gui-font--xxs);
+
+        span,
+        glyph-slider {
+            margin-right: var(--gui-padding--xs);
+        }
+
+        &__options {
+            height: 20px;
+
+            &__comparable {
+                margin-right: var(--gui-padding--s);
+            }
+            &__slider {
+                margin-right: var(--gui-padding--s);
+            }
+            &__image-type {
+                span {
+                    text-transform: uppercase;
+                    cursor: pointer;
+
+                    &.active {
+                        font-weight: var(--gui-font-weight--extra-bold);
+                    }
+
+                    &:last-of-type {
+                        margin-right: 0
+                    }
+                }
+            }
+            &__back {
+                margin-left: var(--gui-padding--s);
+                cursor: pointer;
+                font-weight: var(--gui-font-weight--extra-bold);
+            }
+        }
+    }
+
+    &--comparable {
+        margin-top: var(--gui-padding--xs);
+    }
+
+}

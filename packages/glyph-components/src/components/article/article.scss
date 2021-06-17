@@ -1,0 +1,181 @@
+.article {
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    &--clickable {
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        transition: var(--gui-transition--300);
+    }
+
+    &.small {
+        .header {
+            .quantity {
+                font-size: var(--gui-font--xxxs);
+
+                .caption {
+                    font-size: var(--gui-font--xxxs);
+                }
+            }
+            .tags {
+                font-size: var(--gui-font--xxxs);
+                padding-left: 0;
+            }
+        }
+        .footer {
+            font-size: var(--gui-font--xxxs);
+        }
+    }
+    &.medium {
+        .header {
+            .quantity {
+                font-size: var(--gui-font--xxs);
+
+                .caption {
+                    font-size: var(--gui-font--xxs);
+                }
+            }
+            .tags {
+                font-size: var(--gui-font--xxs);
+                padding-left: 0;
+            }
+        }
+        .footer {
+            font-size: var(--gui-font--xxs);
+        }
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: var(--gui-padding--xxs);
+
+        .quantity {
+            padding: var(--gui-padding--xs) var(--gui-padding--s);
+            background: var(--gui-color--article--decoration);
+            font-size: var(--gui-font--xs);
+            overflow: hidden;
+
+            &--backdrop {
+                backdrop-filter: saturate(180%) blur(5px);
+            }
+            .caption {
+                padding-top: var(--gui-padding--xxxs);
+                text-transform: uppercase;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .tags {
+            font-size: var(--gui-font--xs);
+            padding-left: var(--gui-padding--l);
+
+            .new,
+            .pvp {
+                cursor: default;
+                padding: var(--gui-padding--xxxs) var(--gui-padding--xs);
+                margin-bottom: var(--gui-padding--xs);
+                position: relative;
+            }
+
+            .new {
+                border: var(--gui-border--dark);
+                border-style: dashed;
+                color: var(--gui-color--light);
+            }
+
+            .pvp {
+                font-weight: var(--gui-font-weight--bold);
+                color: var(--gui-color--contrast);
+                padding: var(--gui-padding--nano) var(--gui-padding--xs);
+
+                &.normal {
+                    background: var(--gui-color--link);
+                    border: 3px solid var(--gui-color--link);
+                }
+                &.global {
+                    background: var(--gui-color--danger);
+                    border: 3px solid var(--gui-color--danger);
+                }
+            }
+        }
+    }
+    .tag-tooltip {
+        position: fixed;
+        white-space: nowrap;
+        background: var(--gui-color--background);
+        color: var(--gui-color);
+        padding: var(--gui-padding--s);
+        font-weight: var(--gui-font-weight--normal);
+        box-shadow: var(--gui-shadow);
+        width: 150px;
+        left: -180px;
+        top: -3px;
+        z-index: 9;
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: var(--gui-padding--l);
+            text-transform: uppercase;
+        }
+        .tag-row {
+            margin-bottom: var(--gui-padding--m);
+            opacity: 0.7;
+            font-size: var(--gui-font--xxs);
+            width: 100%;
+
+            .country {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-right: var(--gui-padding--xxs);
+            }
+        }
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: calc(100% - var(--gui-padding--l));
+        padding: var(--gui-padding--xs) var(--gui-padding--s);
+        background: var(--gui-color--article--decoration);
+        font-size: var(--gui-font--xs);
+        opacity: 0;
+        transition: var(--gui-transition--300);
+
+        &--backdrop {
+            backdrop-filter: saturate(180%) blur(5px);
+        }
+
+        .description {
+            font-weight: var(--gui-font-weight--bold);
+            text-transform: uppercase;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            white-space: nowrap;
+        }
+        .reference {
+            cursor: pointer;
+            color: var(--gui-color--light);
+            margin-top: var(--gui-padding--xxxs);
+
+            &:hover {
+                color: var(--gui-color);
+            }
+        }
+    }
+
+    &:hover {
+        .footer {
+            opacity: 1;
+        }
+    }
+}

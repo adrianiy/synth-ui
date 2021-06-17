@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -21,6 +21,60 @@ export namespace Components {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback": () => void;
+    }
+    interface GlyphArticle {
+        /**
+          * Article data
+         */
+        "article": Article;
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
+          * This method will return image height
+         */
+        "getImageSize": () => Promise<DOMRect>;
+        /**
+          * This method will hide tooltip
+         */
+        "hideTooltip": () => Promise<void>;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType": string;
+        /**
+          * Flag to activate click callback
+         */
+        "isClickable": boolean;
+        /**
+          * Force visibility flag
+         */
+        "isVisible": Boolean;
+        /**
+          * Loading flag
+         */
+        "loading": boolean;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl": (image: string) => string;
+        /**
+          * Field to render quantity tag
+         */
+        "quantityField": string;
+        /**
+          * This method will hide tooltip
+         */
+        "setArticleSize": () => Promise<void>;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
     }
     interface GlyphAvatar {
         /**
@@ -188,6 +242,10 @@ export namespace Components {
          */
         "flexId": string;
         /**
+          * Style atttribute to apply in flex div
+         */
+        "flexStyle": any;
+        /**
           * Horizonal align = left
          */
         "left": boolean;
@@ -195,6 +253,10 @@ export namespace Components {
           * Vertical align = middle
          */
         "middle": boolean;
+        /**
+          * On click event
+         */
+        "onClickEvent": (event: any) => any;
         /**
           * Horizontal align = right
          */
@@ -446,6 +508,114 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphRanking {
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
+          * This method will change ranking container scroll
+         */
+        "changeScroll": (scroll?: number, listeneable?: boolean) => Promise<void>;
+        /**
+          * Distance between columns
+         */
+        "columnGap": string;
+        /**
+          * Columns to render if ranking have more than 1 section, number of columns will apply per section
+         */
+        "columns": number;
+        /**
+          * Distance applied to both axes
+         */
+        "gap": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType": string;
+        /**
+          * Inner columns, sets how many columns should be rendered per column
+         */
+        "innerColumns": number;
+        /**
+          * Distance between elements inside a column
+         */
+        "innerGap": string;
+        /**
+          * Loading flag
+         */
+        "loading": boolean;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl": (image: string) => string;
+        /**
+          * Ranking data
+         */
+        "rankingData": RankingData[];
+        /**
+          * (optional) ranking header. Applicable on single section ranking
+         */
+        "rankingHeader": string;
+        /**
+          * Distance between rows
+         */
+        "rowGap": string;
+        /**
+          * Row to render
+         */
+        "rows": number;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
+    }
+    interface GlyphRankingLayout {
+        /**
+          * Active view layout
+         */
+        "activeView": RankingViewOptions;
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
+          * Distance between columns
+         */
+        "columnGap": string;
+        /**
+          * Ranking comparable data
+         */
+        "compRankingData": RankingData[];
+        /**
+          * Extra i18n translates
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Loading flag
+         */
+        "loading": boolean;
+        /**
+          * Loading comparable flag
+         */
+        "loadingComparable": boolean;
+        /**
+          * Ranking data
+         */
+        "rankingData": RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap": string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration": boolean;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -563,6 +733,16 @@ export namespace Components {
           * Number of loader lines that will be rendered
          */
         "repetitions": number;
+    }
+    interface GlyphSlider {
+        /**
+          * Current slider value between 0 and 100
+         */
+        "currentValue": number;
+        /**
+          * Slider options
+         */
+        "options": any[];
     }
     interface GlyphSortable {
         /**
@@ -682,6 +862,12 @@ declare global {
         prototype: HTMLGlyphAppMenuElement;
         new (): HTMLGlyphAppMenuElement;
     };
+    interface HTMLGlyphArticleElement extends Components.GlyphArticle, HTMLStencilElement {
+    }
+    var HTMLGlyphArticleElement: {
+        prototype: HTMLGlyphArticleElement;
+        new (): HTMLGlyphArticleElement;
+    };
     interface HTMLGlyphAvatarElement extends Components.GlyphAvatar, HTMLStencilElement {
     }
     var HTMLGlyphAvatarElement: {
@@ -766,6 +952,18 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphRankingElement extends Components.GlyphRanking, HTMLStencilElement {
+    }
+    var HTMLGlyphRankingElement: {
+        prototype: HTMLGlyphRankingElement;
+        new (): HTMLGlyphRankingElement;
+    };
+    interface HTMLGlyphRankingLayoutElement extends Components.GlyphRankingLayout, HTMLStencilElement {
+    }
+    var HTMLGlyphRankingLayoutElement: {
+        prototype: HTMLGlyphRankingLayoutElement;
+        new (): HTMLGlyphRankingLayoutElement;
+    };
     interface HTMLGlyphScrollElement extends Components.GlyphScroll, HTMLStencilElement {
     }
     var HTMLGlyphScrollElement: {
@@ -795,6 +993,12 @@ declare global {
     var HTMLGlyphSkLoaderElement: {
         prototype: HTMLGlyphSkLoaderElement;
         new (): HTMLGlyphSkLoaderElement;
+    };
+    interface HTMLGlyphSliderElement extends Components.GlyphSlider, HTMLStencilElement {
+    }
+    var HTMLGlyphSliderElement: {
+        prototype: HTMLGlyphSliderElement;
+        new (): HTMLGlyphSliderElement;
     };
     interface HTMLGlyphSortableElement extends Components.GlyphSortable, HTMLStencilElement {
     }
@@ -840,6 +1044,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
+        "glyph-article": HTMLGlyphArticleElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
@@ -854,11 +1059,14 @@ declare global {
         "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-ranking": HTMLGlyphRankingElement;
+        "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
         "glyph-scroll": HTMLGlyphScrollElement;
         "glyph-selector": HTMLGlyphSelectorElement;
         "glyph-selector-options": HTMLGlyphSelectorOptionsElement;
         "glyph-share-menu": HTMLGlyphShareMenuElement;
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
+        "glyph-slider": HTMLGlyphSliderElement;
         "glyph-sortable": HTMLGlyphSortableElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
@@ -882,6 +1090,56 @@ declare namespace LocalJSX {
           * Event triggered when user clicks outside component container
          */
         "outsideCallback"?: () => void;
+    }
+    interface GlyphArticle {
+        /**
+          * Article data
+         */
+        "article"?: Article;
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType"?: string;
+        /**
+          * Flag to activate click callback
+         */
+        "isClickable"?: boolean;
+        /**
+          * Force visibility flag
+         */
+        "isVisible"?: Boolean;
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
+        /**
+          * Click event callback
+         */
+        "onArticleClick"?: (event: CustomEvent<Article>) => void;
+        /**
+          * Article gets visible event
+         */
+        "onArticleVisible"?: (event: CustomEvent<any>) => void;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl"?: (image: string) => string;
+        /**
+          * Field to render quantity tag
+         */
+        "quantityField"?: string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
     }
     interface GlyphAvatar {
         /**
@@ -1077,6 +1335,10 @@ declare namespace LocalJSX {
          */
         "flexId"?: string;
         /**
+          * Style atttribute to apply in flex div
+         */
+        "flexStyle"?: any;
+        /**
           * Horizonal align = left
          */
         "left"?: boolean;
@@ -1084,6 +1346,10 @@ declare namespace LocalJSX {
           * Vertical align = middle
          */
         "middle"?: boolean;
+        /**
+          * On click event
+         */
+        "onClickEvent"?: (event: any) => any;
         /**
           * Horizontal align = right
          */
@@ -1371,6 +1637,114 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphRanking {
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
+          * Distance between columns
+         */
+        "columnGap"?: string;
+        /**
+          * Columns to render if ranking have more than 1 section, number of columns will apply per section
+         */
+        "columns"?: number;
+        /**
+          * Distance applied to both axes
+         */
+        "gap"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Image type to render image | plain_image
+         */
+        "imageType"?: string;
+        /**
+          * Inner columns, sets how many columns should be rendered per column
+         */
+        "innerColumns"?: number;
+        /**
+          * Distance between elements inside a column
+         */
+        "innerGap"?: string;
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
+        /**
+          * Scrolled state change event
+         */
+        "onScrollChange"?: (event: CustomEvent<{ scrolled: boolean; scrollTop: number }>) => void;
+        /**
+          * **optional** Compose image url callback
+         */
+        "parseImageUrl"?: (image: string) => string;
+        /**
+          * Ranking data
+         */
+        "rankingData"?: RankingData[];
+        /**
+          * (optional) ranking header. Applicable on single section ranking
+         */
+        "rankingHeader"?: string;
+        /**
+          * Distance between rows
+         */
+        "rowGap"?: string;
+        /**
+          * Row to render
+         */
+        "rows"?: number;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
+    }
+    interface GlyphRankingLayout {
+        /**
+          * Active view layout
+         */
+        "activeView"?: RankingViewOptions;
+        /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
+          * Distance between columns
+         */
+        "columnGap"?: string;
+        /**
+          * Ranking comparable data
+         */
+        "compRankingData"?: RankingData[];
+        /**
+          * Extra i18n translates
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
+        /**
+          * Loading comparable flag
+         */
+        "loadingComparable"?: boolean;
+        /**
+          * Ranking data
+         */
+        "rankingData"?: RankingData[];
+        /**
+          * Distance between rows
+         */
+        "rowGap"?: string;
+        /**
+          * Decorate with backdrop filter, solves some performance issues (in storybook)
+         */
+        "useBackdropDecoration"?: boolean;
+    }
     interface GlyphScroll {
         /**
           * class name to be used in scroll container
@@ -1492,6 +1866,20 @@ declare namespace LocalJSX {
           * Number of loader lines that will be rendered
          */
         "repetitions"?: number;
+    }
+    interface GlyphSlider {
+        /**
+          * Current slider value between 0 and 100
+         */
+        "currentValue"?: number;
+        /**
+          * Option change event
+         */
+        "onOptionChange"?: (event: CustomEvent<{ option: any, value: number }>) => void;
+        /**
+          * Slider options
+         */
+        "options"?: any[];
     }
     interface GlyphSortable {
         /**
@@ -1629,6 +2017,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "glyph-app-menu": GlyphAppMenu;
+        "glyph-article": GlyphArticle;
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
@@ -1643,11 +2032,14 @@ declare namespace LocalJSX {
         "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-ranking": GlyphRanking;
+        "glyph-ranking-layout": GlyphRankingLayout;
         "glyph-scroll": GlyphScroll;
         "glyph-selector": GlyphSelector;
         "glyph-selector-options": GlyphSelectorOptions;
         "glyph-share-menu": GlyphShareMenu;
         "glyph-sk-loader": GlyphSkLoader;
+        "glyph-slider": GlyphSlider;
         "glyph-sortable": GlyphSortable;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
@@ -1662,6 +2054,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
+            "glyph-article": LocalJSX.GlyphArticle & JSXBase.HTMLAttributes<HTMLGlyphArticleElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
@@ -1676,11 +2069,14 @@ declare module "@stencil/core" {
             "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
+            "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
             "glyph-selector": LocalJSX.GlyphSelector & JSXBase.HTMLAttributes<HTMLGlyphSelectorElement>;
             "glyph-selector-options": LocalJSX.GlyphSelectorOptions & JSXBase.HTMLAttributes<HTMLGlyphSelectorOptionsElement>;
             "glyph-share-menu": LocalJSX.GlyphShareMenu & JSXBase.HTMLAttributes<HTMLGlyphShareMenuElement>;
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
+            "glyph-slider": LocalJSX.GlyphSlider & JSXBase.HTMLAttributes<HTMLGlyphSliderElement>;
             "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;

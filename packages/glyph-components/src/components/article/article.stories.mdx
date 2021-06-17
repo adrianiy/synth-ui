@@ -1,0 +1,103 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = args => html`<glyph-article style="margin-left: 200px; width: 200px; display: block" ...=${spread({ ...args, '.isVisible': true })} />`;
+
+<Meta title="Components/Article" parameters={{ viewMode: 'docs' }} />
+
+# Article
+
+##### glyph-article
+
+Component to render a articles, can render article tags like `new` and `pvp`.
+
+The **articles** can have a propert `image` or `plain_image` with a full url, or be configured using `parseImageUrl` callback, wich
+should receive `image` or `plain_image` property and return an url string.
+
+## Simple article
+
+<Canvas>
+    <Story name="Simple" args={{ '.article': articleData, '.quantityField': 'units' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Tagged article
+
+The most simple tag to render is `NEW` tag.
+
+<Canvas>
+    <Story name="NEW Tagged" args={{ '.article': newArticle, '.quantityField': 'units' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+There are other tags with more complexity, like `PVP` tags
+
+### Global PVP
+
+<Canvas>
+    <Story name="Global Tagged" args={{ '.article': globalPVP, '.quantityField': 'units' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+### Normal PVP
+
+<Canvas>
+    <Story name="Normal Tagged" args={{ '.article': normalPVP, '.quantityField': 'units' }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const articleData = { 
+    image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354', 
+    units: 1000,
+    description: 'Test article',
+    partnumber: '07385096800-I2021'
+};
+
+export const newArticle = { 
+    image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354', 
+    units: 1000,
+    new: true,
+    description: 'Test article',
+    partnumber: '07385096800-I2021'
+};
+
+export const globalPVP = { 
+    image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354', 
+    units: 1000,
+    new: true,
+    description: 'Test article',
+    partnumber: '07385096800-I2021',
+    pvpType: 'global',
+    pvps: Array(70).fill(0).map(() => (
+        { 
+            inicio: "2021-04-01",
+            name: "REINO UNIDO",
+            tag: "PVP"
+        }
+    ))
+};
+
+export const normalPVP = { 
+    image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354', 
+    units: 1000,
+    description: 'Test article',
+    partnumber: '07385096800-I2021',
+    pvpType: 'normal',
+    pvps: Array(6).fill(0).map(() => (
+        { 
+            inicio: "2021-04-01",
+            name: "REINO UNIDO LONG TEST",
+            tag: "PVP"
+        }
+    ))
+};
