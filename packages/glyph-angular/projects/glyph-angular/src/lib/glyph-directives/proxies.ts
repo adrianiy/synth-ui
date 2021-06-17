@@ -27,14 +27,14 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
   methods: ['getImageSize', 'hideTooltip', 'setArticleSize']
 })
 @Component({
   selector: 'glyph-article',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['article', 'i18n', 'imageType', 'isClickable', 'isVisible', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
   outputs: ['articleClick', 'articleVisible']
 })
 export class GlyphArticle {
@@ -363,14 +363,14 @@ export class GlyphNoData {
 import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
   methods: ['changeScroll']
 })
 @Component({
   selector: 'glyph-ranking',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
   outputs: ['scrollChange']
 })
 export class GlyphRanking {
@@ -387,13 +387,13 @@ export class GlyphRanking {
 
 export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
 @ProxyCmp({
-  inputs: ['columnGap', 'compRankingData', 'i18n', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 @Component({
   selector: 'glyph-ranking-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['columnGap', 'compRankingData', 'i18n', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 export class GlyphRankingLayout {
   protected el: HTMLElement;

@@ -28,6 +28,10 @@ export namespace Components {
          */
         "article": Article;
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
           * This method will return image height
          */
         "getImageSize": () => Promise<DOMRect>;
@@ -51,6 +55,10 @@ export namespace Components {
           * Force visibility flag
          */
         "isVisible": Boolean;
+        /**
+          * Loading flag
+         */
+        "loading": boolean;
         /**
           * **optional** Compose image url callback
          */
@@ -502,6 +510,10 @@ export namespace Components {
     }
     interface GlyphRanking {
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
           * This method will change ranking container scroll
          */
         "changeScroll": (scroll?: number, listeneable?: boolean) => Promise<void>;
@@ -534,6 +546,10 @@ export namespace Components {
          */
         "innerGap": string;
         /**
+          * Loading flag
+         */
+        "loading": boolean;
+        /**
           * **optional** Compose image url callback
          */
         "parseImageUrl": (image: string) => string;
@@ -560,6 +576,10 @@ export namespace Components {
     }
     interface GlyphRankingLayout {
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio": number;
+        /**
           * Distance between columns
          */
         "columnGap": string;
@@ -571,6 +591,14 @@ export namespace Components {
           * Extra i18n translates
          */
         "i18n": { [key: string]: string };
+        /**
+          * Loading flag
+         */
+        "loading": boolean;
+        /**
+          * Loading comparable flag
+         */
+        "loadingComparable": boolean;
         /**
           * Ranking data
          */
@@ -1065,6 +1093,10 @@ declare namespace LocalJSX {
          */
         "article"?: Article;
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
@@ -1080,6 +1112,10 @@ declare namespace LocalJSX {
           * Force visibility flag
          */
         "isVisible"?: Boolean;
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
         /**
           * Click event callback
          */
@@ -1599,6 +1635,10 @@ declare namespace LocalJSX {
     }
     interface GlyphRanking {
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
           * Distance between columns
          */
         "columnGap"?: string;
@@ -1626,6 +1666,10 @@ declare namespace LocalJSX {
           * Distance between elements inside a column
          */
         "innerGap"?: string;
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
         /**
           * Scrolled state change event
          */
@@ -1657,6 +1701,10 @@ declare namespace LocalJSX {
     }
     interface GlyphRankingLayout {
         /**
+          * Aspect ratio used to calculate loader height
+         */
+        "aspectRatio"?: number;
+        /**
           * Distance between columns
          */
         "columnGap"?: string;
@@ -1668,6 +1716,14 @@ declare namespace LocalJSX {
           * Extra i18n translates
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * Loading flag
+         */
+        "loading"?: boolean;
+        /**
+          * Loading comparable flag
+         */
+        "loadingComparable"?: boolean;
         /**
           * Ranking data
          */

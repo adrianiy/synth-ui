@@ -8,6 +8,10 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class RankingComponent {
+    /** Loading flag */
+    @Prop() loading: boolean = false;
+    /** Aspect ratio used to calculate loader height */
+    @Prop() aspectRatio: number = 340 / 512;
     /** Ranking data */
     @Prop() rankingData: RankingData[];
     /** (optional) ranking header. Applicable on single section ranking */
@@ -45,8 +49,8 @@ export class RankingComponent {
     @State() lastVisibleIndex: number = 0;
     /** is scrolling flag */
     @State() isScrolling: boolean = false;
-    /** loading state */
-    @State() loading: boolean = true;
+    /** loading articles state */
+    @State() loadingArticles: boolean = true;
 
     private _i18n: any;
     private _rankingContainer: HTMLElement;
@@ -58,9 +62,11 @@ export class RankingComponent {
     }
 
     async componentDidRender() {
-        await this._setElementHeight();
-        this.loading = false;
-        this._articleRef.forEach(async article => await article.setArticleSize());
+        if (!this.loading) {
+            await this._setElementHeight();
+            this.loadingArticles = false;
+            this._articleRef.forEach(async article => await article.setArticleSize());
+        }
     }
 
     /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
@@ -141,10 +147,12 @@ export class RankingComponent {
         const min = this.lastVisibleIndex - articlesThreshold;
         const max = this.lastVisibleIndex + articlesThreshold;
 
-        return children.slice(0, this.loading ? columns : -1).map((article, index) => (
+        return children.slice(0, this.loadingArticles ? columns : -1).map((article, index) => (
             <div class="article__container" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
+                    loading={this.loading}
+                    aspectRatio={this.aspectRatio}
                     isVisible={index > min && index < max}
                     article={article}
                     isClickable
@@ -161,6 +169,18 @@ export class RankingComponent {
 
     private _renderRankingColumn = (children: Article[]) => {
         return <div class="ranking__column">{this._renderArticles(children)}</div>;
+    };
+
+    private _renderLoader = () => {
+        const columns = Array(this.columns).fill(0);
+        const innerColumns = Array(this.innerColumns).fill(0);
+        const rows = Array(this.rows).fill({});
+
+        if (innerColumns.length > 1) {
+            return columns.map(() => innerColumns.map(() => this._renderRankingColumn(rows)));
+        } else {
+            return columns.map(() => this._renderArticles(rows));
+        }
     };
 
     render() {
@@ -196,11 +216,13 @@ export class RankingComponent {
                     ref={this._setRankingRef}
                     class={cls('ranking__columns', isSingle && 'ranking__columns--single')}
                 >
-                    {this.rankingData
-                        .filter(({ children }) => children.length)
-                        .map(({ children }) =>
-                            isSingle ? this._renderArticles(children) : this._renderRankingColumn(children),
-                        )}
+                    {this.loading && this._renderLoader()}
+                    {!this.loading &&
+                        this.rankingData
+                            .filter(({ children }) => children.length)
+                            .map(({ children }) =>
+                                isSingle ? this._renderArticles(children) : this._renderRankingColumn(children),
+                            )}
                 </div>
             </div>
         );

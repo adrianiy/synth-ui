@@ -9,6 +9,12 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
     shadow: true,
 })
 export class GlyphRankingLayout {
+    /** Loading flag */
+    @Prop() loading: boolean = false;
+    /** Loading comparable flag */
+    @Prop() loadingComparable: boolean = false;
+    /** Aspect ratio used to calculate loader height */
+    @Prop() aspectRatio: number = 340 / 512;
     /** Ranking data */
     @Prop() rankingData: RankingData[];
     /** Ranking comparable data */
@@ -155,6 +161,8 @@ export class GlyphRankingLayout {
             <div class="ranking--comparable">
                 <glyph-ranking
                     ref={this._setCompRankingRef}
+                    loading={this.loadingComparable}
+                    aspectRatio={this.aspectRatio}
                     rankingData={this.compRankingData}
                     rankingHeader={this._i18n['ranking-layout.comparableRanking']}
                     columns={columns}
@@ -185,6 +193,8 @@ export class GlyphRankingLayout {
                 </Flex>
                 <glyph-ranking
                     ref={this._setRankingRef}
+                    loading={this.loading}
+                    aspectRatio={this.aspectRatio}
                     rankingData={this.rankingData}
                     columns={columns}
                     innerColumns={innerColumns}

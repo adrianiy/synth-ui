@@ -10,6 +10,10 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class ArticleComponent {
+    /** Loading flag */
+    @Prop() loading: boolean = false;
+    /** Aspect ratio used to calculate loader height */
+    @Prop() aspectRatio: number = 340 / 512;
     /** Force visibility flag */
     @Prop() isVisible: Boolean = false;
     /** Article data */
@@ -59,7 +63,7 @@ export class ArticleComponent {
     /** This method will return image height */
     @Method()
     async getImageSize() {
-        return this._article.getBoundingClientRect();
+        return this._article?.getBoundingClientRect();
     }
 
     /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
@@ -222,7 +226,17 @@ export class ArticleComponent {
         );
     };
 
+    private _renderLoader = () => {
+        const { width } = this.element.parentElement.getBoundingClientRect();
+        const height = width / this.aspectRatio;
+
+        return <glyph-sk-loader height={height} />;
+    };
+
     render() {
+        if (this.loading) {
+            return this._renderLoader();
+        }
         const imageSrc = this.parseImageUrl
             ? this.parseImageUrl(this.article[this.imageType])
             : this.article[this.imageType];
