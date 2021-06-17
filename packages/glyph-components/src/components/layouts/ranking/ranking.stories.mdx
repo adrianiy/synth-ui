@@ -5,7 +5,7 @@ import notes from './readme.md';
 
 
 export const Template = (args) => {
-    return html` <div style="width: 100%; height: 100%; overflow: hidden"><glyph-ranking-layout ...=${ spread(args) } use-backdrop-decoration="false" .loading=${true} /> </div>`;
+    return html` <div style="width: 100%; height: 100%; overflow: hidden"><glyph-ranking-layout ...=${ spread(args) } use-backdrop-decoration="false" /> </div>`;
 };
 
 <Meta
@@ -23,10 +23,13 @@ Ranking screen layout, this layout will help to implement Drive options for rank
 - Scroll to 0
 - Comparable ranking check
 
+You can check the different loading layouts setting loading to true in **Play with it!** section.
+
 # Multiple sections
 
 <Canvas>
-    <Story name="3 Sections" args={{ '.rankingData': rankingData }}>{Template.bind({})}</Story>
+    <Story name="3 Sections" 
+    args={{ '.rankingData': rankingData, '.loading': false }}>{Template.bind({})}</Story>
 </Canvas>
 
 # Single section
@@ -34,7 +37,7 @@ Ranking screen layout, this layout will help to implement Drive options for rank
 Single section ranking layout will allow users to view comparable ranking if they are using a **grid** visualization.
 
 <Canvas>
-    <Story name="Single section" args={{ '.rankingData': sectionData, '.compRankingData': sectionData }}>{Template.bind({})}</Story>
+    <Story name="Single section" args={{ '.rankingData': sectionData, '.compRankingData': sectionData, '.loading': false, '.loadingComparable': false }}>{Template.bind({})}</Story>
 </Canvas>
 
 export const rankingData = [

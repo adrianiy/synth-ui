@@ -23,14 +23,14 @@ export class GlyphRankingLayout {
     @Prop() columnGap: string = '15%';
     /** Distance between rows */
     @Prop() rowGap: string = 'var(--gui-padding--xxl)';
+    /** Active view layout */
+    @Prop({ mutable: true }) activeView: RankingViewOptions;
     /** Decorate with backdrop filter, solves some performance issues (in storybook) */
     @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translates */
     @Prop() i18n: { [key: string]: string };
     /** Element reference */
     @Element() element: HTMLGlyphRankingLayoutElement;
-    /** Active view layout */
-    @State() activeView: RankingViewOptions;
     /** Active slider value */
     @State() activeViewValue: number = 0;
     /** Image type */

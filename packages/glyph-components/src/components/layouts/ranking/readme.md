@@ -9,6 +9,7 @@
 
 | Property                | Attribute                 | Description                                                                  | Type                         | Default                     |
 | ----------------------- | ------------------------- | ---------------------------------------------------------------------------- | ---------------------------- | --------------------------- |
+| `activeView`            | --                        | Active view layout                                                           | `RankingViewOptions`         | `undefined`                 |
 | `aspectRatio`           | `aspect-ratio`            | Aspect ratio used to calculate loader height                                 | `number`                     | `340 / 512`                 |
 | `columnGap`             | `column-gap`              | Distance between columns                                                     | `string`                     | `'15%'`                     |
 | `compRankingData`       | --                        | Ranking comparable data                                                      | `RankingData[]`              | `undefined`                 |

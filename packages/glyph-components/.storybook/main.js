@@ -22,7 +22,7 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-postcss',
-        '@storybook/addon-knobs',
+        '@storybook/addon-controls',
         '@storybook/addon-viewport',
         '@storybook/preset-scss',
         'storybook-addon-themes',

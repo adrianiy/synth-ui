@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -575,6 +575,10 @@ export namespace Components {
         "useBackdropDecoration": boolean;
     }
     interface GlyphRankingLayout {
+        /**
+          * Active view layout
+         */
+        "activeView": RankingViewOptions;
         /**
           * Aspect ratio used to calculate loader height
          */
@@ -1700,6 +1704,10 @@ declare namespace LocalJSX {
         "useBackdropDecoration"?: boolean;
     }
     interface GlyphRankingLayout {
+        /**
+          * Active view layout
+         */
+        "activeView"?: RankingViewOptions;
         /**
           * Aspect ratio used to calculate loader height
          */

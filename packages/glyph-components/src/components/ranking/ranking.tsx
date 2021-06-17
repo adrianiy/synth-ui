@@ -1,4 +1,4 @@
-import { Component, Prop, Element, h, State, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, Prop, Element, h, State, Event, EventEmitter, Method, Watch } from '@stencil/core';
 import { RankingData, Article } from 'glyph-core';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
@@ -56,13 +56,19 @@ export class RankingComponent {
     private _rankingContainer: HTMLElement;
     private _articleRef: HTMLGlyphArticleElement[] = [];
 
+    @Watch('loading')
+    handleLoadChange() {
+        this._articleRef = [];
+        this._rankingContainer.scrollTop = 0;
+    }
+
     async componentWillLoad() {
         const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
     async componentDidRender() {
-        if (!this.loading) {
+        if (!this.loading && this._articleRef.length) {
             await this._setElementHeight();
             this.loadingArticles = false;
             this._articleRef.forEach(async article => await article.setArticleSize());
@@ -84,12 +90,15 @@ export class RankingComponent {
     private _handleScroll = (ev: any) => {
         if (this.isScrolling) {
             this.isScrolling = false;
-        } else {
+        } else if (!this.loading) {
             const { scrollTop } = ev.target;
             const scrolled = scrollTop > 0;
 
             this.scrollChange.emit({ scrolled, scrollTop });
-            this._articleRef.forEach(async article => await article.hideTooltip());
+
+            if (this._articleRef.length) {
+                this._articleRef.forEach(async article => await article.hideTooltip());
+            }
         }
     };
 
@@ -151,8 +160,6 @@ export class RankingComponent {
             <div class="article__container" style={{ height: `${this.elementHeight}px` }}>
                 <glyph-article
                     ref={this._setElementRef}
-                    loading={this.loading}
-                    aspectRatio={this.aspectRatio}
                     isVisible={index > min && index < max}
                     article={article}
                     isClickable
@@ -171,16 +178,19 @@ export class RankingComponent {
         return <div class="ranking__column">{this._renderArticles(children)}</div>;
     };
 
-    private _renderLoader = () => {
-        const columns = Array(this.columns).fill(0);
-        const innerColumns = Array(this.innerColumns).fill(0);
-        const rows = Array(this.rows).fill({});
+    private _renderLoader = (children: Article[]) => {
+        return children.map((child: Article) => (
+            <div class="article__container">
+                <glyph-article loading={this.loading} aspectRatio={this.aspectRatio} isVisible={true} article={child} />
+            </div>
+        ));
+    };
 
-        if (innerColumns.length > 1) {
-            return columns.map(() => innerColumns.map(() => this._renderRankingColumn(rows)));
-        } else {
-            return columns.map(() => this._renderArticles(rows));
-        }
+    private _renderLoaders = () => {
+        const columns = Array(this.columns).fill(0);
+        const rows = Array(this.rows * this.innerColumns).fill({});
+
+        return columns.map(() => <div class="ranking__column">{this._renderLoader(rows)}</div>);
     };
 
     render() {
@@ -216,7 +226,7 @@ export class RankingComponent {
                     ref={this._setRankingRef}
                     class={cls('ranking__columns', isSingle && 'ranking__columns--single')}
                 >
-                    {this.loading && this._renderLoader()}
+                    {this.loading && this._renderLoaders()}
                     {!this.loading &&
                         this.rankingData
                             .filter(({ children }) => children.length)
