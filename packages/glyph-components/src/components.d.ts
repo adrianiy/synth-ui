@@ -412,6 +412,14 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * Number of pages to be grouped if list is larger than limit
+         */
+        "pageGroups": number;
+        /**
+          * Pagination limit
+         */
+        "paginationLimit": number;
+        /**
           * Force component update if flag is true
          */
         "update": boolean;
@@ -507,6 +515,24 @@ export namespace Components {
           * Top text only applies if render mode is advanced
          */
         "text": string;
+    }
+    interface GlyphPagination {
+        /**
+          * Active page
+         */
+        "activePage": number;
+        /**
+          * Pagination limit in first group
+         */
+        "limit": number;
+        /**
+          * Number of pages to be grouped if list is larger than limit
+         */
+        "pageGroups": number;
+        /**
+          * Number of pages to be rendered
+         */
+        "pages": number;
     }
     interface GlyphRanking {
         /**
@@ -952,6 +978,12 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphPaginationElement extends Components.GlyphPagination, HTMLStencilElement {
+    }
+    var HTMLGlyphPaginationElement: {
+        prototype: HTMLGlyphPaginationElement;
+        new (): HTMLGlyphPaginationElement;
+    };
     interface HTMLGlyphRankingElement extends Components.GlyphRanking, HTMLStencilElement {
     }
     var HTMLGlyphRankingElement: {
@@ -1059,6 +1091,7 @@ declare global {
         "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-pagination": HTMLGlyphPaginationElement;
         "glyph-ranking": HTMLGlyphRankingElement;
         "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
         "glyph-scroll": HTMLGlyphScrollElement;
@@ -1529,6 +1562,14 @@ declare namespace LocalJSX {
          */
         "onExpandRow"?: (event: CustomEvent<Row>) => void;
         /**
+          * Number of pages to be grouped if list is larger than limit
+         */
+        "pageGroups"?: number;
+        /**
+          * Pagination limit
+         */
+        "paginationLimit"?: number;
+        /**
           * Force component update if flag is true
          */
         "update"?: boolean;
@@ -1636,6 +1677,28 @@ declare namespace LocalJSX {
           * Top text only applies if render mode is advanced
          */
         "text"?: string;
+    }
+    interface GlyphPagination {
+        /**
+          * Active page
+         */
+        "activePage"?: number;
+        /**
+          * Pagination limit in first group
+         */
+        "limit"?: number;
+        /**
+          * Event emitted on page click
+         */
+        "onSetPage"?: (event: CustomEvent<number>) => void;
+        /**
+          * Number of pages to be grouped if list is larger than limit
+         */
+        "pageGroups"?: number;
+        /**
+          * Number of pages to be rendered
+         */
+        "pages"?: number;
     }
     interface GlyphRanking {
         /**
@@ -2032,6 +2095,7 @@ declare namespace LocalJSX {
         "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-pagination": GlyphPagination;
         "glyph-ranking": GlyphRanking;
         "glyph-ranking-layout": GlyphRankingLayout;
         "glyph-scroll": GlyphScroll;
@@ -2069,6 +2133,7 @@ declare module "@stencil/core" {
             "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-pagination": LocalJSX.GlyphPagination & JSXBase.HTMLAttributes<HTMLGlyphPaginationElement>;
             "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
             "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;
