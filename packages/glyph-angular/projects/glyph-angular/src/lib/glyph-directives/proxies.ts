@@ -256,13 +256,13 @@ export class GlyphInput {
 import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update']
 })
 @Component({
   selector: 'glyph-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update'],
   outputs: ['expandRow']
 })
 export class GlyphList {
@@ -357,6 +357,29 @@ export class GlyphNoData {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+import { PaginationComponent as IPaginationComponent } from 'glyph-components/dist/types/components/pagination/pagination';
+export declare interface GlyphPagination extends Components.GlyphPagination {}
+@ProxyCmp({
+  inputs: ['activePage', 'limit', 'pageGroups', 'pages']
+})
+@Component({
+  selector: 'glyph-pagination',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['activePage', 'limit', 'pageGroups', 'pages'],
+  outputs: ['setPage']
+})
+export class GlyphPagination {
+  /** Event emitted on page click */
+  setPage!: IPaginationComponent['setPage'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['setPage']);
   }
 }
 
