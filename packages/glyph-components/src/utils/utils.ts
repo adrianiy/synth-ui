@@ -139,8 +139,15 @@ export const getFormatedValues = (cell: Cell) => {
     }
 };
 
-export const cls = (...classNames: string[]) =>
+export const cls = (...classNames: any[]) =>
     classNames
-        .filter(className => className)
-        .map(className => [].concat(className).join(' '))
+        .filter(Boolean)
+        .map(className => {
+            let classNames = className;
+            if (typeof classNames === 'object') {
+                classNames = Object.keys(classNames).filter(key => classNames[key]);
+            }
+
+            return [].concat(classNames).join(' ');
+        })
         .join(' ');
