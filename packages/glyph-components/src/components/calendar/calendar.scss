@@ -1,0 +1,76 @@
+.calendar__container {
+    font-size: var(--gui-font--xs);
+
+    .calendar {
+        border-right: var(--gui-border--lightest);
+        padding: 0 var(--gui-padding--l);
+        height: 100%;
+        user-select: none;
+
+        &:last-of-type {
+            border-right: none;
+        }
+        &__header {
+            width: 100%;
+            margin: var(--gui-padding--xs) 0;
+
+            span {
+                display: flex;
+            }
+
+            &__month {
+                cursor: pointer;
+            }
+            &__arrow {
+                cursor: pointer;
+
+                &.disabled {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+                &.before {
+                    margin-left: var(--gui-padding--xxxs);
+                }
+                &.after {
+                    margin-right: var(--gui-padding--xxxs);
+                }
+            }
+        }
+        &__days__container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+
+            &__header {
+                font-weight: var(--gui-font-weight--extra-bold);
+                padding: var(--gui-padding--xxxs) 0;
+            }
+            &__day {
+                opacity: 0.5;
+                cursor: pointer;
+                padding: var(--gui-padding--xxs) var(--gui-padding--xs);
+                font-size: var(--gui-font--xxs);
+
+                &.selectable:not(.disabled) {
+                    opacity: 1;
+
+                    &.selected {
+                        background-color: var(--gui-color);
+                        color: var(--gui-color--contrast);
+                    }
+                    &.in-range:not(.disabled) {
+                        background-color: var(--gui-color);
+                        color: var(--gui-color--contrast);
+                    }
+                }
+                &.disabled {
+                    cursor: not-allowed;
+                    text-decoration: line-through;
+                }
+                &:hover:not(.disabled) {
+                    color: var(--gui-color);
+                    background-color: var(--gui-color--lightest);
+                }
+            }
+        }
+    }
+}

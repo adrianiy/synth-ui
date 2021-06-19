@@ -107,6 +107,29 @@ export class GlyphButtonGroup {
   }
 }
 
+import { CalendarComponent as ICalendarComponent } from 'glyph-components/dist/types/components/calendar/calendar';
+export declare interface GlyphCalendar extends Components.GlyphCalendar {}
+@ProxyCmp({
+  inputs: ['endDate', 'maxDate', 'minDate', 'months', 'singleSelect', 'startDate']
+})
+@Component({
+  selector: 'glyph-calendar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['endDate', 'maxDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  outputs: ['dateSelect']
+})
+export class GlyphCalendar {
+  /** Event triggered on date selection */
+  dateSelect!: ICalendarComponent['dateSelect'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['dateSelect']);
+  }
+}
+
 import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({

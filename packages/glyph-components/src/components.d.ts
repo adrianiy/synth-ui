@@ -122,6 +122,32 @@ export namespace Components {
          */
         "size": ButtonGroupStyle;
     }
+    interface GlyphCalendar {
+        /**
+          * Selected end date
+         */
+        "endDate": Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDate": Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDate": Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months": number;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect": boolean;
+        /**
+          * Selected start date
+         */
+        "startDate": Date;
+    }
     interface GlyphChipsbar {
         /**
           * Filters configuration object
@@ -912,6 +938,12 @@ declare global {
         prototype: HTMLGlyphButtonGroupElement;
         new (): HTMLGlyphButtonGroupElement;
     };
+    interface HTMLGlyphCalendarElement extends Components.GlyphCalendar, HTMLStencilElement {
+    }
+    var HTMLGlyphCalendarElement: {
+        prototype: HTMLGlyphCalendarElement;
+        new (): HTMLGlyphCalendarElement;
+    };
     interface HTMLGlyphChipsbarElement extends Components.GlyphChipsbar, HTMLStencilElement {
     }
     var HTMLGlyphChipsbarElement: {
@@ -1080,6 +1112,7 @@ declare global {
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
+        "glyph-calendar": HTMLGlyphCalendarElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
@@ -1219,6 +1252,36 @@ declare namespace LocalJSX {
           * Button group size ['big', 'small']
          */
         "size"?: ButtonGroupStyle;
+    }
+    interface GlyphCalendar {
+        /**
+          * Selected end date
+         */
+        "endDate"?: Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDate"?: Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDate"?: Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months"?: number;
+        /**
+          * Event triggered on date selection
+         */
+        "onDateSelect"?: (event: CustomEvent<{ startDate: Date; endDate: Date }>) => void;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect"?: boolean;
+        /**
+          * Selected start date
+         */
+        "startDate"?: Date;
     }
     interface GlyphChipsbar {
         /**
@@ -2084,6 +2147,7 @@ declare namespace LocalJSX {
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
+        "glyph-calendar": GlyphCalendar;
         "glyph-chipsbar": GlyphChipsbar;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
@@ -2122,6 +2186,7 @@ declare module "@stencil/core" {
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
+            "glyph-calendar": LocalJSX.GlyphCalendar & JSXBase.HTMLAttributes<HTMLGlyphCalendarElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;

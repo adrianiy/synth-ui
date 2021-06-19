@@ -12,6 +12,7 @@ export const GlyphArticle = /*@__PURE__*/createReactComponent<JSX.GlyphArticle, 
 export const GlyphAvatar = /*@__PURE__*/createReactComponent<JSX.GlyphAvatar, HTMLGlyphAvatarElement>('glyph-avatar');
 export const GlyphButton = /*@__PURE__*/createReactComponent<JSX.GlyphButton, HTMLGlyphButtonElement>('glyph-button');
 export const GlyphButtonGroup = /*@__PURE__*/createReactComponent<JSX.GlyphButtonGroup, HTMLGlyphButtonGroupElement>('glyph-button-group');
+export const GlyphCalendar = /*@__PURE__*/createReactComponent<JSX.GlyphCalendar, HTMLGlyphCalendarElement>('glyph-calendar');
 export const GlyphChipsbar = /*@__PURE__*/createReactComponent<JSX.GlyphChipsbar, HTMLGlyphChipsbarElement>('glyph-chipsbar');
 export const GlyphFilter = /*@__PURE__*/createReactComponent<JSX.GlyphFilter, HTMLGlyphFilterElement>('glyph-filter');
 export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFilterOptions, HTMLGlyphFilterOptionsElement>('glyph-filter-options');

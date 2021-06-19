@@ -1,0 +1,44 @@
+import { html } from 'lit-html';
+import dayjs from 'dayjs';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = ({ minDate, maxDate, startDate, endDate, months, singleSelect }) => {
+    return html` <glyph-calendar .minDate=${minDate} max-date=${maxDate} start-date=${startDate} end-date=${endDate} months=${months} single-select=${singleSelect} /> `;
+};
+
+<Meta
+    title="Components/Calendar"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+# Calendar
+##### glyph-calendar
+
+This component is used to display selectable dates in calendar form.
+
+It will display as many months as you specify in **months** attribute.
+
+Each month is displayed as table of days.
+
+You can set a minimum and maximum available dates to select, everythin in between will be availble to
+select as range of days or as a **singleSelect**.
+
+### Range selection
+
+By default users can select a date range between availbale dates.
+
+<Canvas>
+    <Story name="Range" args={{ minDate, maxDate, startDate, endDate, months: 2 }}>{Template.bind({})}</Story>
+</Canvas>
+
+---
+
+<Description>
+    { notes }
+</Description>
+
+export const minDate = dayjs().startOf('year').toDate();
+export const maxDate = dayjs().add(1, 'day').toDate();
+export const startDate = dayjs().toDate();
+export const endDate = dayjs().toDate();

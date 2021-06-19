@@ -7,7 +7,7 @@ export function format(first: string, middle: string, last: string): string {
     return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-const _getComponentClosestLanguage = (element: HTMLElement): string => {
+export const getComponentClosestLanguage = (element: HTMLElement): string => {
     const closestElement = element.closest('[lang]') as HTMLElement;
 
     return closestElement != null ? closestElement.lang : 'es';
@@ -23,7 +23,7 @@ const _fetchLocaleStringsForComponent = async (componentName: string, locale: st
 };
 
 export async function getLocaleComponentStrings(requiredI18n: string[], element: HTMLElement): Promise<any> {
-    let componentLanguage = _getComponentClosestLanguage(element);
+    let componentLanguage = getComponentClosestLanguage(element);
 
     try {
         const results = await Promise.all(
