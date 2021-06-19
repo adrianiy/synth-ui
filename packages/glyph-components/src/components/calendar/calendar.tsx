@@ -161,13 +161,12 @@ export class CalendarComponent {
                 <Flex
                     middle
                     center
-                    className={cls(
-                        'calendar__days__container__day',
-                        selectable && 'selectable',
-                        disabled && 'disabled',
-                        selected && 'selected',
-                        inRange && 'in-range',
-                    )}
+                    className={cls('calendar__days__container__day', {
+                        selectable,
+                        disabled,
+                        selected,
+                        'in-range': inRange,
+                    })}
                     onClick={this._handleDayClick(day)}
                     onMouseEnter={this._handleDayHover(day)}
                 >

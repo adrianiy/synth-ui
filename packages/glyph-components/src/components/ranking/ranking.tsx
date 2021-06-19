@@ -204,7 +204,7 @@ export class RankingComponent {
 
         return (
             <div
-                class={cls('ranking__container', sections.length === 1 && 'ranking__container--single-section')}
+                class={cls('ranking__container', { 'ranking__container--single-section': isSingle })}
                 style={{
                     '--columnGap': this.columnGap,
                     '--rowGap': this.rowGap,
@@ -224,7 +224,7 @@ export class RankingComponent {
                 <div
                     onScroll={this._handleScroll}
                     ref={this._setRankingRef}
-                    class={cls('ranking__columns', isSingle && 'ranking__columns--single')}
+                    class={cls('ranking__columns', { 'ranking__columns--single': isSingle })}
                 >
                     {this.loading && this._renderLoaders()}
                     {!this.loading &&

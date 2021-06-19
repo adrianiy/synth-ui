@@ -208,13 +208,13 @@ export class GlyphFilterOptions {
 
 export declare interface GlyphFlex extends Components.GlyphFlex {}
 @ProxyCmp({
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 @Component({
   selector: 'glyph-flex',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 export class GlyphFlex {
   protected el: HTMLElement;

@@ -150,7 +150,7 @@ export class FilterOptionsComponent {
         return (
             childInSearch && (
                 <Flex className="children__container">
-                    <Flex row className={cls('children--header', expanded && 'expanded')}>
+                    <Flex row className={cls('children--header', { expanded })}>
                         <span>{expanded ? '- ' : '+ '}</span>
                         <span>{this._renderOptionDescription(option.description)}</span>
                     </Flex>
@@ -172,7 +172,7 @@ export class FilterOptionsComponent {
                             row
                             spaced
                             onClick={this._optionClick(option)}
-                            className={cls('option', option.active && 'active')}
+                            className={cls('option', { active: option.active })}
                         >
                             {option.header
                                 ? this._renderOptionHeader(option, renderableOptions.length)
