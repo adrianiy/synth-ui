@@ -384,6 +384,10 @@ export namespace Components {
          */
         "box": boolean;
         /**
+          * Input default value
+         */
+        "defaultValue": any;
+        /**
           * Style input as an error
          */
         "error": boolean;
@@ -391,6 +395,14 @@ export namespace Components {
           * Input type
          */
         "inputType": string;
+        /**
+          * Maximum availabla for inputs (dates or ranges)
+         */
+        "max": string;
+        /**
+          * Minimum available for inputs (dates or ranges)
+         */
+        "min": string;
         /**
           * Placeholder
          */
@@ -1559,6 +1571,10 @@ declare namespace LocalJSX {
          */
         "box"?: boolean;
         /**
+          * Input default value
+         */
+        "defaultValue"?: any;
+        /**
           * Style input as an error
          */
         "error"?: boolean;
@@ -1566,6 +1582,14 @@ declare namespace LocalJSX {
           * Input type
          */
         "inputType"?: string;
+        /**
+          * Maximum availabla for inputs (dates or ranges)
+         */
+        "max"?: string;
+        /**
+          * Minimum available for inputs (dates or ranges)
+         */
+        "min"?: string;
         /**
           * Enter key event
          */

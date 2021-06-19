@@ -254,13 +254,13 @@ export class GlyphHeader {
 import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search']
+  inputs: ['autoFocus', 'box', 'defaultValue', 'error', 'inputType', 'max', 'min', 'placeholder', 'search']
 })
 @Component({
   selector: 'glyph-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search'],
+  inputs: ['autoFocus', 'box', 'defaultValue', 'error', 'inputType', 'max', 'min', 'placeholder', 'search'],
   outputs: ['textChange', 'enterKey']
 })
 export class GlyphInput {
