@@ -71,7 +71,7 @@ export class AppMenuComponent {
                         <Flex
                             center
                             middle
-                            className={cls('app', app.active && 'active')}
+                            className={cls('app', { active: app.active })}
                             onClick={this._navigateTo(app)}
                         >
                             <Icon icon={app.icon} />

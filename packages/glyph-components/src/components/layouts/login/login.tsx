@@ -93,7 +93,7 @@ export class LoginComponent {
 
         return (
             <Flex row className="login__container">
-                <Flex spaced className={cls('login-user__container', isClassic && 'login-user__container--full')}>
+                <Flex spaced className={cls('login-user__container', { 'login-user__container--full': isClassic })}>
                     <Flex middle={isClassic} center={isClassic} className="login__form__container">
                         {isClassic && <img class="login__logo" src={getAssetPath('./assets/corporative/logo.png')} />}
                         <h1 class="big" innerHTML={this._i18n['login.welcome']} />

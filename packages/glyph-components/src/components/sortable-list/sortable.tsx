@@ -55,11 +55,11 @@ export class SortableComponent {
                 {this.sortedList.map(item => (
                     <li
                         data-id={`gui-${item.index}`}
-                        class={cls(
-                            haveIcon && !item.icon && 'fill-icon',
-                            this.useHover && 'use-hover',
-                            item.notSortable && 'ignore-element',
-                        )}
+                        class={cls({
+                            'fill-icon': haveIcon && !item.icon,
+                            'use-hover': this.useHover,
+                            'ignore-element': item.notSortable,
+                        })}
                     >
                         <Flex middle row spaced>
                             <Flex middle row>

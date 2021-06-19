@@ -27,7 +27,7 @@ export class TabsComponent {
             <Flex row middle className="tabs__container">
                 {this.tabs.map((tab: Tab, index: number) => (
                     <span
-                        class={cls('tab', tab.active && 'active', this.tabStyle)}
+                        class={cls('tab', { active: tab.active }, this.tabStyle)}
                         onClick={this._selectTab(tab, index)}
                     >
                         {tab.description}

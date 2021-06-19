@@ -243,7 +243,7 @@ export class ArticleComponent {
 
         return (
             <div
-                class={cls('article', this.isClickable && 'article--clickable', this.articleSize)}
+                class={cls('article', { 'article--clickable': this.isClickable }, this.articleSize)}
                 ref={this._setArticleRef}
                 onClick={this._handleClick}
             >

@@ -108,8 +108,10 @@ export class FilterComponent {
                     middle
                     className={cls(
                         'filter-chip',
-                        !!this.selected.length && 'active',
-                        this.expanded && 'expanded',
+                        {
+                            active: !!this.selected.length,
+                            expanded: this.expanded,
+                        },
                         this.interface,
                     )}
                     onClick={this._expandFilter}

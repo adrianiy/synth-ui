@@ -76,7 +76,7 @@ export class SelectorOptionsComponent {
 
     private _renderCheckbox = (option: SelectorOption) => {
         return (
-            <Flex middle center className={cls('checkbox', option.active && 'active')}>
+            <Flex middle center className={cls('checkbox', { active: option.active })}>
                 {option.active && <Icon icon="checkmark" />}
             </Flex>
         );

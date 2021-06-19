@@ -191,13 +191,13 @@ export class ListComponent {
                                 {this._i18n[field] || field}
                                 <Icon
                                     button
-                                    className={cls(!isDesc && isSortField && 'active')}
+                                    className={cls({ active: !isDesc && isSortField })}
                                     icon="arrow_upward"
                                     onClick={this._changeSort('asc', field)}
                                 />
                                 <Icon
                                     button
-                                    className={cls(isDesc && isSortField && 'active')}
+                                    className={cls({ active: isDesc && isSortField })}
                                     icon="arrow_downward"
                                     onClick={this._changeSort('desc', field)}
                                 />

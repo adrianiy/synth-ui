@@ -280,10 +280,6 @@ export namespace Components {
          */
         "middle": boolean;
         /**
-          * On click event
-         */
-        "onClickEvent": (event: any) => any;
-        /**
           * Horizontal align = right
          */
         "right": boolean;
@@ -1454,10 +1450,6 @@ declare namespace LocalJSX {
           * Vertical align = middle
          */
         "middle"?: boolean;
-        /**
-          * On click event
-         */
-        "onClickEvent"?: (event: any) => any;
         /**
           * Horizontal align = right
          */

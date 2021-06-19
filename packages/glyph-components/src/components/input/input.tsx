@@ -83,7 +83,7 @@ export class InputComponent {
                 row
                 spaced
                 middle
-                className={cls('input__container', this.search && 'search', this.box && 'box', this.error && 'error')}
+                className={cls('input__container', { search: this.search, box: this.box, error: this.error })}
             >
                 <Flex row middle className="input__wrapper">
                     {this.search && <Icon icon="search" className="search" />}

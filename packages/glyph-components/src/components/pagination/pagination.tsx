@@ -28,7 +28,7 @@ export class PaginationComponent {
             <Flex
                 row
                 middle
-                className={cls(page === this.activePage && 'active', 'pagination__container__page')}
+                className={cls({ active: page === this.activePage }, 'pagination__container__page')}
                 onClick={this._changePage(page)}
             >
                 {page + 1}
