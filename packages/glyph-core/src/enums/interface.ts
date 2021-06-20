@@ -36,4 +36,5 @@ export const enum ComparableType {
     commercial = 'commercial',
     calendar = 'calendar',
     custom = 'custom',
+    ordinal = 'ordinal',
 }

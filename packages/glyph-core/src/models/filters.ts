@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { ComparableType, UIInterface } from './../enums';
+import { SelectorOption } from './components';
 
 export interface DateRange {
     description: string;
@@ -67,7 +68,10 @@ export interface Search extends FilterConfig {
 export interface DateFilter extends FilterConfig {
     minDate?: Date;
     maxDate?: Date;
-    compType?: string;
+    minComparableDate?: Date;
+    maxComparableDate?: Date;
+    comparableOptions?: SelectorOption[];
+    comparableType?: ComparableType;
     dateRanges?: DateRange[];
     singleSelect?: boolean;
     months?: number;

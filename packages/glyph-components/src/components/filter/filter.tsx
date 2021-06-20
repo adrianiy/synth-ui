@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, h, State, Host, Element, Event, EventEmitter, Listen } from '@stencil/core';
 import { Flex } from '../../utils/layout';
 import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core';
 import { cls } from '../../utils/utils';
@@ -40,6 +40,13 @@ export class FilterComponent {
     @State() expanded: boolean = false;
     /** Filter search value */
     @State() searchValue: string;
+
+    @Listen('click', { target: 'window' })
+    clickOutside(event: any) {
+        if (!event.composedPath().includes(this.element)) {
+            this.expanded = false;
+        }
+    }
 
     private _expandFilter = () => {
         this.expanded = !this.expanded;

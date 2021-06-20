@@ -2,6 +2,7 @@ import { html } from 'lit-html';
 import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
+import dayjs from 'dayjs';
 
 export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='classic' @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
 
@@ -67,7 +68,34 @@ export const filterWithChildren = {
     ],
 }
 
+export const year = dayjs().year();
+export const endOfYear = dayjs(new Date(year + 1, 0, 31));
+export const minDate = dayjs(new Date(year, 1, 1));
+export const maxDate = dayjs().add(1, 'day');
+export const dateRanges = [
+        { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate()  },
+        { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
+        { description: 'Yesterday', startDate: dayjs().subtract(1, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Current fiscal year', startDate: minDate.toDate(), endDate: endOfYear.toDate() },
+        { description: 'Last fiscal year', startDate: minDate.subtract(1, 'year').toDate(), endDate: endOfYear.subtract(1, 'year').toDate() }
+    ];
+export const dateFilter = {
+    minDate,
+    maxDate,
+    dateRanges,
+    comparableType: 'commercial',
+    comparableOptions: [
+        { name: 'Commercial', active: true, value: 'commercial' },
+        { name: 'Calendar', active: false, value: 'calendar' },
+        { name: 'Custom', active: false, value: 'custom' },
+        { name: 'Ordinal', active: false, value: 'ordinal', disabled: true }
+    ],
+    selected: [ dateRanges[1] ]
+};
 export const filtersConfig = {
+    date: dateFilter,
     filter1: {...filter},
     filter2: {...filterWithChildren}
 }

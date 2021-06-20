@@ -6,6 +6,7 @@ import { FilterConfig } from '../../models';
 import { DateFilter, DateRange, FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
 import dayjs from 'dayjs';
 import MinMax from 'dayjs/plugin/minMax';
+import { ComparableType } from 'src/enums';
 
 dayjs.extend(MinMax);
 
@@ -66,7 +67,7 @@ const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: Qu
 
     date = _applyDateFilter(dateRange, date, start, end);
     date = _applySharedCompFilter(comparableFilter, date);
-    date.compType = comparableFilter[0].key;
+    date.comparableType = comparableFilter[0].key as ComparableType;
 
     return {
         ...filtersConfig,

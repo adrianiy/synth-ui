@@ -7,25 +7,25 @@
 
 ## Properties
 
-| Property              | Attribute         | Description                                 | Type                                                                            | Default                     |
-| --------------------- | ----------------- | ------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------- |
-| `active`              | `active`          | Active flag                                 | `boolean`                                                                       | `undefined`                 |
-| `comparableEndDate`   | --                | Selected comparable end date                | `Date`                                                                          | `undefined`                 |
-| `comparableOptions`   | --                | Comparable options                          | `SelectorOption[]`                                                              | `undefined`                 |
-| `comparableStartDate` | --                | Selected comparable start date              | `Date`                                                                          | `undefined`                 |
-| `comparableType`      | `comparable-type` | Comparabel type                             | `ComparableType.calendar \| ComparableType.commercial \| ComparableType.custom` | `ComparableType.commercial` |
-| `dateRanges`          | --                | Optional date ranges                        | `DateRange[]`                                                                   | `undefined`                 |
-| `description`         | `description`     | Filter description                          | `string`                                                                        | `undefined`                 |
-| `endDate`             | --                | Selected end date                           | `Date`                                                                          | `undefined`                 |
-| `i18n`                | --                | Extra i18n translation object               | `{ [key: string]: string; }`                                                    | `{}`                        |
-| `interface`           | `interface`       | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern`                                     | `UIInterface.classic`       |
-| `maxComparableDate`   | --                | Maximum available comp date                 | `Date`                                                                          | `undefined`                 |
-| `maxDate`             | --                | Maximum available date                      | `Date`                                                                          | `undefined`                 |
-| `minComparableDate`   | --                | Minimum available comp date                 | `Date`                                                                          | `undefined`                 |
-| `minDate`             | --                | Minimum available date                      | `Date`                                                                          | `undefined`                 |
-| `months`              | `months`          | Number of months to be shown. 2 by default  | `number`                                                                        | `2`                         |
-| `singleSelect`        | `single-select`   | Allow single day selection                  | `boolean`                                                                       | `undefined`                 |
-| `startDate`           | --                | Selected start date                         | `Date`                                                                          | `undefined`                 |
+| Property              | Attribute         | Description                                 | Type                                                                                                      | Default                     |
+| --------------------- | ----------------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `active`              | `active`          | Active flag                                 | `boolean`                                                                                                 | `undefined`                 |
+| `comparableEndDate`   | --                | Selected comparable end date                | `Date`                                                                                                    | `undefined`                 |
+| `comparableOptions`   | --                | Comparable options                          | `SelectorOption[]`                                                                                        | `undefined`                 |
+| `comparableStartDate` | --                | Selected comparable start date              | `Date`                                                                                                    | `undefined`                 |
+| `comparableType`      | `comparable-type` | Comparabel type                             | `ComparableType.calendar \| ComparableType.commercial \| ComparableType.custom \| ComparableType.ordinal` | `ComparableType.commercial` |
+| `dateRanges`          | --                | Optional date ranges                        | `DateRange[]`                                                                                             | `undefined`                 |
+| `description`         | `description`     | Filter description                          | `string`                                                                                                  | `undefined`                 |
+| `endDate`             | --                | Selected end date                           | `Date`                                                                                                    | `undefined`                 |
+| `i18n`                | --                | Extra i18n translation object               | `{ [key: string]: string; }`                                                                              | `{}`                        |
+| `interface`           | `interface`       | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern`                                                               | `UIInterface.classic`       |
+| `maxComparableDate`   | --                | Maximum available comp date                 | `Date`                                                                                                    | `undefined`                 |
+| `maxDate`             | --                | Maximum available date                      | `Date`                                                                                                    | `undefined`                 |
+| `minComparableDate`   | --                | Minimum available comp date                 | `Date`                                                                                                    | `undefined`                 |
+| `minDate`             | --                | Minimum available date                      | `Date`                                                                                                    | `undefined`                 |
+| `months`              | `months`          | Number of months to be shown. 2 by default  | `number`                                                                                                  | `2`                         |
+| `singleSelect`        | `single-select`   | Allow single day selection                  | `boolean`                                                                                                 | `undefined`                 |
+| `startDate`           | --                | Selected start date                         | `Date`                                                                                                    | `undefined`                 |
 
 
 ## Events
@@ -39,6 +39,10 @@
 
 
 ## Dependencies
+
+### Used by
+
+ - [glyph-chipsbar](../chipsbar)
 
 ### Depends on
 
@@ -58,6 +62,7 @@ graph TD;
   glyph-date-filter --> glyph-button
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-chipsbar --> glyph-date-filter
   style glyph-date-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -90,9 +90,8 @@ export class DateFilterComponent {
         }
     };
 
-    private _expandFilter = (event: any) => {
+    private _expandFilter = () => {
         this.expanded = !this.expanded;
-        event.stopPropagation();
     };
 
     private _changeActiveInput = (value: boolean) => () => {

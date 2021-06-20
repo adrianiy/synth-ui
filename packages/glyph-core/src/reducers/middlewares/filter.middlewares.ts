@@ -1,4 +1,5 @@
-import { FilterConfig, FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models';
+import { ComparableType } from '../../enums';
+import { FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models';
 import {
     checkCleanIfMultiSelectChanges,
     cleanSelected,
@@ -55,7 +56,7 @@ export const resetOrdinalCompType = (state: FiltersState) => {
     const { filtersConfig } = state;
     const compType = getCompType(filtersConfig);
 
-    if (compType === 'ordinal') {
+    if (compType === ComparableType.ordinal) {
         const platformActive = isFilterActive(filtersConfig, 'platform');
         const countryActive = isFilterActive(filtersConfig, 'country');
 

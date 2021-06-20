@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
+import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
@@ -68,21 +68,41 @@ export class ChipsBarComponent {
         this.clearAll.emit();
     };
 
+    private _renderDateChip = (dateFilter: DateFilter) => {
+        const { startDate, endDate, description } = dateFilter.selected[0];
+        const { startDate: compStartDate, endDate: compEndDate } = dateFilter.compDates?.[0] || {};
+
+        return (
+            <glyph-date-filter
+                startDate={startDate}
+                endDate={endDate}
+                comparableStartDate={compStartDate}
+                comparableEndDate={compEndDate}
+                description={description}
+                {...dateFilter}
+            />
+        );
+    };
+
     private _renderChips = () => {
-        const chips = Object.keys(this.filtersConfig || {});
+        const chips = Object.keys(this.filtersConfig || {}).filter(key => key !== 'date');
+        const dateFilter = this.filtersConfig.date;
 
         return (
             <Flex row class="chips__container">
-                {chips.map(chip => (
-                    <glyph-filter
-                        {...this.filtersConfig[chip]}
-                        interface={this.interface}
-                        i18n={this._i18n}
-                        onOptionClickEvent={this._handleOptionClick(chip)}
-                        onClearEvent={this._handleFilterClear(chip)}
-                        onMultiSelectEvent={this._handleMultiSelect(chip)}
-                    />
-                ))}
+                {[
+                    this._renderDateChip(dateFilter),
+                    ...chips.map(chip => (
+                        <glyph-filter
+                            {...this.filtersConfig[chip]}
+                            interface={this.interface}
+                            i18n={this._i18n}
+                            onOptionClickEvent={this._handleOptionClick(chip)}
+                            onClearEvent={this._handleFilterClear(chip)}
+                            onMultiSelectEvent={this._handleMultiSelect(chip)}
+                        />
+                    )),
+                ]}
             </Flex>
         );
     };

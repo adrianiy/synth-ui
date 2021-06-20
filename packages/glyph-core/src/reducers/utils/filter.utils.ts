@@ -68,7 +68,7 @@ export const addNewFilter = (filter: FilterConfig, option: SelectedFilter) => {
 };
 
 export const getCompType = (filters: FiltersConfig) => {
-    return filters.date?.compType || 'commercial';
+    return filters.date?.comparableType || 'commercial';
 };
 
 export const isFilterActive = (filters: FiltersConfig, filterCode: string) => {

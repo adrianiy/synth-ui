@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
+import { Component, Element, Prop, State, h } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
@@ -39,13 +39,6 @@ export class FilterOptionsComponent {
     @State() ps: PerfectScrollbar;
 
     private _i18n: any;
-
-    @Listen('click', { target: 'window' })
-    clickOutside(event: any) {
-        if (!event.composedPath().includes(this.element)) {
-            this.closeEvent();
-        }
-    }
 
     componentDidRender() {
         setTimeout(() => this.ps?.update(), 300);
