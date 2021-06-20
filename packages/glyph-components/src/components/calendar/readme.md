@@ -24,6 +24,19 @@
 | `dateSelect` | Event triggered on date selection | `CustomEvent<{ startDate: Date; endDate: Date; }>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [glyph-date-filter](../date-filter)
+
+### Graph
+```mermaid
+graph TD;
+  glyph-date-filter --> glyph-calendar
+  style glyph-calendar fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 

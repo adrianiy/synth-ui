@@ -111,7 +111,7 @@ export class CalendarComponent {
         const afterDisabled = month.isSame(this.maxDate, 'month');
 
         return (
-            <Flex row spaced middle className="calendar__header">
+            <Flex row spaced middle class="calendar__header">
                 <span
                     class={{ calendar__header__arrow: true, before: true, disabled: beforeDisabled }}
                     onClick={!beforeDisabled ? this._prevMonth : null}
@@ -137,7 +137,7 @@ export class CalendarComponent {
             .map((_, i) => dayjs().weekday(i));
 
         return days.map(day => (
-            <Flex middle center className="calendar__days__container__header">
+            <Flex middle center class="calendar__days__container__header">
                 {day.format('dd')}
             </Flex>
         ));
@@ -161,7 +161,7 @@ export class CalendarComponent {
                 <Flex
                     middle
                     center
-                    className={cls('calendar__days__container__day', {
+                    class={cls('calendar__days__container__day', {
                         selectable,
                         disabled,
                         selected,
@@ -181,7 +181,7 @@ export class CalendarComponent {
         const month = this.currentMonth.subtract(monthDiff, 'month');
 
         return (
-            <Flex middle center className="calendar">
+            <Flex middle center class="calendar">
                 {this._renderHeader(position, month)}
                 <div class="calendar__days__container">
                     {this._renderDaysHeader()}
@@ -197,7 +197,7 @@ export class CalendarComponent {
             .map((_, i) => i + 1);
 
         return (
-            <Flex row center middle className="calendar__container">
+            <Flex row center middle class="calendar__container">
                 {monthTables.map(this._renderCalendar)}
             </Flex>
         );

@@ -1,45 +1,10 @@
 import { Moment } from 'moment';
 import { UIInterface } from './../enums';
 
-export interface CalendarConfig {
-    /** minimun selectable date in calendar */
-    minCalDate: any;
-    /** maximum selectable date in calendar */
-    maxCalDate: any;
-    /** start date */
-    startDate: any;
-    /** end date */
-    endDate: any;
-    /** input start date */
-    inputMin: any;
-    /** input end date */
-    inputMax: any;
-    /** start comparable date */
-    startCompDate: any;
-    /** end comparable date */
-    endCompDate: any;
-    /** input start comparable date */
-    inputMinComp: any;
-    /** input end comparable date */
-    inputMaxComp: any;
-    /** date format */
-    format: string;
-    /** predefined range dates */
-    dateRanges: { [clave: string]: Array<any> };
-    /**
-     * Selected range from [[rangeKeys]]
-     */
-    selectedRange: string;
-    /** comparable type */
-    compType: string;
-    /** disbale custom comparable flag */
-    customDisabled?: boolean;
-    /** ordinal enabled */
-    ordinal?: boolean;
-    /** ordinal entities service */
-    ordinalService?: any;
-    /** current active input */
-    activeInput: string;
+export interface DateRange {
+    description: string;
+    startDate: Date;
+    endDate: Date;
 }
 export interface CommonSearch {
     description: string;
@@ -55,8 +20,8 @@ export interface QueryFilter {
 export interface FilterOption {
     code?: any;
     description: string;
-    startDate?: string;
-    endDate?: string;
+    startDate?: Date;
+    endDate?: Date;
     compType?: string;
     display?: boolean;
     active?: boolean;
@@ -98,9 +63,18 @@ export interface Search extends FilterConfig {
     suggestions: any[];
     commonSearchs: CommonSearch[][];
 }
+export interface DateFilter extends FilterConfig {
+    minDate?: Date;
+    maxDate?: Date;
+    compType?: string;
+    dateRanges?: DateRange;
+    singleSelect?: boolean;
+    months?: number;
+}
 export interface FiltersConfig {
     search?: Search;
-    [key: string]: FilterConfig | Search;
+    date?: DateFilter;
+    [key: string]: FilterConfig | Search | DateFilter;
 }
 export interface InitialFilter {
     type: string;
@@ -113,7 +87,6 @@ export interface FiltersState {
     filtersConfig?: FiltersConfig;
     savedFilters?: FiltersConfig;
     baseFilters?: FiltersConfig;
-    dateConfig?: CalendarConfig;
     screen?: string;
     initialFilters?: InitialFilter[];
     restrictedFilters?: any[];

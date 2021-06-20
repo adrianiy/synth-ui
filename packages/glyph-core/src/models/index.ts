@@ -6,6 +6,8 @@ export type {
     SelectedFilter,
     FilterOption,
     FilterOptionHeader,
+    DateRange,
+    DateFilter,
 } from './filters';
 export type { Cell } from './common';
 export type { Store } from './store';
@@ -23,5 +25,5 @@ export type {
     RankingData,
     RankingViewOptions,
 } from './components';
-export type { ToasterEvent, FilterSelectEvent, FilterUpdateEvent } from './events';
+export type { ToasterEvent, FilterSelectEvent, DateSelectionEvent, FilterUpdateEvent } from './events';
 export type { CalendarEvent, CalendarGroup, TimelineEvent } from './timeline';

@@ -83,10 +83,10 @@ export class InputComponent {
                 row
                 spaced
                 middle
-                className={cls('input__container', { search: this.search, box: this.box, error: this.error })}
+                class={cls('input__container', { search: this.search, box: this.box, error: this.error })}
             >
-                <Flex row middle className="input__wrapper">
-                    {this.search && <Icon icon="search" className="search" />}
+                <Flex row middle class="input__wrapper">
+                    {this.search && <Icon icon="search" class="search" />}
                     <input
                         ref={ref => (this.ref = ref)}
                         type={this._checkInputType()}
@@ -101,7 +101,7 @@ export class InputComponent {
                 {this.inputType === 'password' && (
                     <Icon
                         icon={`visibility${this.passVisible ? '_off' : ''}`}
-                        className="eye"
+                        class="eye"
                         onClick={this._togglePassVisibility}
                     />
                 )}

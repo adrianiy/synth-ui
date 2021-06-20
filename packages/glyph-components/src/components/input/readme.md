@@ -32,6 +32,7 @@
 
 ### Used by
 
+ - [glyph-date-filter](../date-filter)
  - [glyph-filter-options](../filter/components/options)
  - [glyph-login](../layouts/login)
  - [glyph-selector-options](../selector/options)
@@ -39,6 +40,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  glyph-date-filter --> glyph-input
   glyph-filter-options --> glyph-input
   glyph-login --> glyph-input
   glyph-selector-options --> glyph-input

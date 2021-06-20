@@ -24,7 +24,7 @@ export class TabsComponent {
 
     render() {
         return (
-            <Flex row middle className="tabs__container">
+            <Flex row middle class="tabs__container">
                 {this.tabs.map((tab: Tab, index: number) => (
                     <span
                         class={cls('tab', { active: tab.active }, this.tabStyle)}

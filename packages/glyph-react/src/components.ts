@@ -14,6 +14,7 @@ export const GlyphButton = /*@__PURE__*/createReactComponent<JSX.GlyphButton, HT
 export const GlyphButtonGroup = /*@__PURE__*/createReactComponent<JSX.GlyphButtonGroup, HTMLGlyphButtonGroupElement>('glyph-button-group');
 export const GlyphCalendar = /*@__PURE__*/createReactComponent<JSX.GlyphCalendar, HTMLGlyphCalendarElement>('glyph-calendar');
 export const GlyphChipsbar = /*@__PURE__*/createReactComponent<JSX.GlyphChipsbar, HTMLGlyphChipsbarElement>('glyph-chipsbar');
+export const GlyphDateFilter = /*@__PURE__*/createReactComponent<JSX.GlyphDateFilter, HTMLGlyphDateFilterElement>('glyph-date-filter');
 export const GlyphFilter = /*@__PURE__*/createReactComponent<JSX.GlyphFilter, HTMLGlyphFilterElement>('glyph-filter');
 export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFilterOptions, HTMLGlyphFilterOptionsElement>('glyph-filter-options');
 export const GlyphFlex = /*@__PURE__*/createReactComponent<JSX.GlyphFlex, HTMLGlyphFlexElement>('glyph-flex');

@@ -68,12 +68,7 @@ export class AppMenuComponent {
                 {this.apps
                     .filter((app: Screen) => this._inSearch(app))
                     .map((app: Screen) => (
-                        <Flex
-                            center
-                            middle
-                            className={cls('app', { active: app.active })}
-                            onClick={this._navigateTo(app)}
-                        >
+                        <Flex center middle class={cls('app', { active: app.active })} onClick={this._navigateTo(app)}>
                             <Icon icon={app.icon} />
                             <span title={this._i18n[app.name] || app.name}>{this._i18n[app.name] || app.name}</span>
                         </Flex>
@@ -84,8 +79,8 @@ export class AppMenuComponent {
 
     render() {
         return (
-            <Flex className="app-menu__container">
-                <Flex row spaced middle className="menu__header">
+            <Flex class="app-menu__container">
+                <Flex row spaced middle class="menu__header">
                     <Flex row>
                         <Icon icon="search" />
                         <input

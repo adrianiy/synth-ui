@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, DateRange, DateSelectionEvent, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -161,6 +161,44 @@ export namespace Components {
           * Interface type [ 'MODERN', 'CLASSIC' ]
          */
         "interface": UIInterface;
+    }
+    interface GlyphDateFilter {
+        /**
+          * Optional date ranges
+         */
+        "dateRanges": DateRange[];
+        /**
+          * Filter description
+         */
+        "description": string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Maximum available date
+         */
+        "maxDate": Date;
+        /**
+          * Minimum available date
+         */
+        "minDate": Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months": number;
+        /**
+          * Selected array
+         */
+        "selected": SelectedFilter[];
+        /**
+          * Allow single day selection
+         */
+        "singleSelect": boolean;
     }
     interface GlyphFilter {
         /**
@@ -958,6 +996,12 @@ declare global {
         prototype: HTMLGlyphChipsbarElement;
         new (): HTMLGlyphChipsbarElement;
     };
+    interface HTMLGlyphDateFilterElement extends Components.GlyphDateFilter, HTMLStencilElement {
+    }
+    var HTMLGlyphDateFilterElement: {
+        prototype: HTMLGlyphDateFilterElement;
+        new (): HTMLGlyphDateFilterElement;
+    };
     interface HTMLGlyphFilterElement extends Components.GlyphFilter, HTMLStencilElement {
     }
     var HTMLGlyphFilterElement: {
@@ -1122,6 +1166,7 @@ declare global {
         "glyph-button-group": HTMLGlyphButtonGroupElement;
         "glyph-calendar": HTMLGlyphCalendarElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
+        "glyph-date-filter": HTMLGlyphDateFilterElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
         "glyph-flex": HTMLGlyphFlexElement;
@@ -1320,6 +1365,52 @@ declare namespace LocalJSX {
           * Filter multiselect event
          */
         "onUpdateFilter"?: (event: CustomEvent<FilterUpdateEvent>) => void;
+    }
+    interface GlyphDateFilter {
+        /**
+          * Optional date ranges
+         */
+        "dateRanges"?: DateRange[];
+        /**
+          * Filter description
+         */
+        "description"?: string;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Maximum available date
+         */
+        "maxDate"?: Date;
+        /**
+          * Minimum available date
+         */
+        "minDate"?: Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months"?: number;
+        /**
+          * Clear selected filters callback
+         */
+        "onClearEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Date selection event
+         */
+        "onDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
+        /**
+          * Selected array
+         */
+        "selected"?: SelectedFilter[];
+        /**
+          * Allow single day selection
+         */
+        "singleSelect"?: boolean;
     }
     interface GlyphFilter {
         /**
@@ -2017,7 +2108,7 @@ declare namespace LocalJSX {
         /**
           * Option change event
          */
-        "onOptionChange"?: (event: CustomEvent<{ option: any, value: number }>) => void;
+        "onOptionChange"?: (event: CustomEvent<{ option: any; value: number }>) => void;
         /**
           * Slider options
          */
@@ -2165,6 +2256,7 @@ declare namespace LocalJSX {
         "glyph-button-group": GlyphButtonGroup;
         "glyph-calendar": GlyphCalendar;
         "glyph-chipsbar": GlyphChipsbar;
+        "glyph-date-filter": GlyphDateFilter;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
         "glyph-flex": GlyphFlex;
@@ -2204,6 +2296,7 @@ declare module "@stencil/core" {
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
             "glyph-calendar": LocalJSX.GlyphCalendar & JSXBase.HTMLAttributes<HTMLGlyphCalendarElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
+            "glyph-date-filter": LocalJSX.GlyphDateFilter & JSXBase.HTMLAttributes<HTMLGlyphDateFilterElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
             "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;

@@ -54,13 +54,13 @@ export class SelectorComponent {
 
     render() {
         return (
-            <Flex className={cls('selector__container', this.interface)}>
-                <Flex row spaced className="selector__input" onClick={this._toggleContainer()}>
+            <Flex class={cls('selector__container', this.interface)}>
+                <Flex row spaced class="selector__input" onClick={this._toggleContainer()}>
                     <label class={cls({ active: this.selectedOptions?.length })}>{this.label}</label>
                     <span>{this.selectedOptions?.map(option => option.name).join(', ') || ''}</span>
                     <Icon
                         icon={this.interface === UIInterface.classic ? 'arrow_drop_down' : 'expand_more'}
-                        className={cls({ active: this.optionsDrilldown })}
+                        class={cls({ active: this.optionsDrilldown })}
                     />
                 </Flex>
                 {this.optionsDrilldown && (

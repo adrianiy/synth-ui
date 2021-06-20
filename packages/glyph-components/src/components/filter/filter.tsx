@@ -101,15 +101,16 @@ export class FilterComponent {
     }
 
     render() {
+        const active = this.selected.length && !this.selected.every(({ isDefault }) => isDefault);
         return (
             <Host>
                 <Flex
                     row
                     middle
-                    className={cls(
+                    class={cls(
                         'filter-chip',
                         {
-                            active: !!this.selected.length,
+                            active,
                             expanded: this.expanded,
                         },
                         this.interface,
@@ -118,9 +119,9 @@ export class FilterComponent {
                 >
                     <span>{this.chipDescription}</span>
                     <Icon
-                        onClick={this._onClear}
+                        onClick={this.selected.length ? this._onClear : null}
                         icon={
-                            this.selected.length
+                            active
                                 ? 'close'
                                 : this.interface === UIInterface.classic
                                     ? 'arrow_drop_down'

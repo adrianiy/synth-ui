@@ -24,7 +24,7 @@ export class TogglerComponent {
             <Flex
                 row
                 middle
-                className={cls('toggler__wrapper', { active: this.active }, this.interface)}
+                class={cls('toggler__wrapper', { active: this.active }, this.interface)}
                 onClick={this._handleToggle}
             >
                 <div class="toggler" />

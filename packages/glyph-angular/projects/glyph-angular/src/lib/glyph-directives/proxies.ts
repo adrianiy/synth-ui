@@ -159,6 +159,31 @@ export class GlyphChipsbar {
   }
 }
 
+import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
+export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
+@ProxyCmp({
+  inputs: ['dateRanges', 'description', 'i18n', 'interface', 'maxDate', 'minDate', 'months', 'selected', 'singleSelect']
+})
+@Component({
+  selector: 'glyph-date-filter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['dateRanges', 'description', 'i18n', 'interface', 'maxDate', 'minDate', 'months', 'selected', 'singleSelect'],
+  outputs: ['dateSelection', 'clearEvent']
+})
+export class GlyphDateFilter {
+  /** Date selection event */
+  dateSelection!: IDateFilterComponent['dateSelection'];
+  /** Clear selected filters callback */
+  clearEvent!: IDateFilterComponent['clearEvent'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['dateSelection', 'clearEvent']);
+  }
+}
+
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({

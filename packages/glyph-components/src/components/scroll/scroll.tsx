@@ -51,7 +51,7 @@ export class ScrollComponent {
                 vertical={this.vertical}
                 height={this.height}
                 width={this.width}
-                className={cls('scrollbar__wrapper', this.containerClass)}
+                class={cls('scrollbar__wrapper', this.containerClass)}
                 initCallback={this._initScrollbar}
             >
                 <slot></slot>

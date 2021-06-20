@@ -121,7 +121,7 @@ export class FilterOptionsComponent {
 
     private _renderMultiSelect = () => {
         return (
-            <Flex row spaced middle className="operation">
+            <Flex row spaced middle class="operation">
                 {this.interface === UIInterface.classic ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
@@ -149,8 +149,8 @@ export class FilterOptionsComponent {
 
         return (
             childInSearch && (
-                <Flex className="children__container">
-                    <Flex row className={cls('children--header', { expanded })}>
+                <Flex class="children__container">
+                    <Flex row class={cls('children--header', { expanded })}>
                         <span>{expanded ? '- ' : '+ '}</span>
                         <span>{this._renderOptionDescription(option.description)}</span>
                     </Flex>
@@ -172,7 +172,7 @@ export class FilterOptionsComponent {
                             row
                             spaced
                             onClick={this._optionClick(option)}
-                            className={cls('option', { active: option.active })}
+                            class={cls('option', { active: option.active })}
                         >
                             {option.header
                                 ? this._renderOptionHeader(option, renderableOptions.length)
@@ -187,7 +187,7 @@ export class FilterOptionsComponent {
 
     render() {
         return (
-            <Flex className={cls('filter-options__container', this.interface)}>
+            <Flex class={cls('filter-options__container', this.interface)}>
                 {this.interface === UIInterface.modern ? (
                     <Flex row spaced>
                         <h3>{this.description}</h3>

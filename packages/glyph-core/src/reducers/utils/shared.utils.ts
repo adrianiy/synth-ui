@@ -3,8 +3,11 @@ import { checkIn, checkStrictIn } from '../../utils/utils';
 import { FiltersState } from '../../models';
 import { QueryFilter } from '../../models';
 import { FilterConfig } from '../../models';
-import { FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
-import moment from 'moment';
+import { DateFilter, FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
+import dayjs from 'dayjs';
+import MinMax from 'dayjs/plugin/minMax';
+
+dayjs.extend(MinMax);
 
 export const applySharedDates = (sharedFilters: QueryFilter[], comparableFilter: QueryFilter[]) => (
     state: FiltersState,
@@ -53,14 +56,15 @@ const _checkIfSharedDateApply = (sharedFilter: QueryFilter[], filtersConfig: Fil
 };
 
 const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: QueryFilter[], state: FiltersState) => {
-    const { dateRanges, dateConfig, filtersConfig } = state;
+    const { filtersConfig } = state;
+    let { date } = filtersConfig;
+    const { dateRanges } = date;
     const start = sharedFilters.filter(filter => filter.op === 'gte')[0].value;
     const end = sharedFilters.filter(filter => filter.op === 'lte')[0].value;
-    let { date } = filtersConfig;
 
     const dateRange = _getDateRange(dateRanges, start, end);
 
-    date = _applyDateFilter(dateRange, date, start, end, dateConfig);
+    date = _applyDateFilter(dateRange, date, start, end);
     date = _applySharedCompFilter(comparableFilter, date);
 
     return {
@@ -69,28 +73,15 @@ const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: Qu
     };
 };
 
-const _applyDateFilter = (
-    dateRange: any,
-    dateFilter: FilterConfig,
-    startDate: string,
-    endDate: string,
-    dateConfig: any,
-) => {
+const _applyDateFilter = (dateRange: any, dateFilter: DateFilter, startDate: Date, endDate: Date) => {
     if (dateRange) {
         return addNewFilter(dateFilter, { description: dateRange, startDate, endDate });
     } else {
-        if (moment(startDate).diff(dateConfig.minCalDate, 'd') < 0) {
-            startDate = dateConfig.minCalDate;
-        }
-        if (moment(endDate).diff(dateConfig.minCalDate, 'd') < 0) {
-            endDate = dateConfig.minCalDate;
-        }
-        if (moment(startDate).diff(dateConfig.maxCalDate, 'd') > 0) {
-            startDate = dateConfig.maxCalDate;
-        }
-        if (moment(endDate).diff(dateConfig.maxCalDate, 'd') > 0) {
-            endDate = dateConfig.maxCalDate;
-        }
+        const { minDate, maxDate } = dateFilter;
+
+        startDate = dayjs.min(dayjs.max(dayjs(startDate), dayjs(minDate)), dayjs(maxDate)).toDate();
+        endDate = dayjs.min(dayjs.max(dayjs(startDate), dayjs(minDate)), dayjs(maxDate)).toDate();
+
         return addNewFilter(dateFilter, { description: `${startDate} - ${endDate}`, startDate, endDate });
     }
 };

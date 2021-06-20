@@ -78,14 +78,14 @@ export class UserMenuComponent {
 
     render() {
         return (
-            <Flex left className="user-menu__container">
+            <Flex left class="user-menu__container">
                 <Flex>
                     <span class="caption caption--small">{this._i18n['user']}</span>
                     <h2>{this.name}</h2>
                 </Flex>
                 <div class="separator" />
                 {this.languages && (
-                    <Flex className="user-menu__container__row">
+                    <Flex class="user-menu__container__row">
                         <Flex row middle spaced>
                             <span class="caption">{this._i18n['pickLang']}</span>
                             <glyph-selector
@@ -98,7 +98,7 @@ export class UserMenuComponent {
                     </Flex>
                 )}
                 {this.themes && (
-                    <Flex className="user-menu__container__row">
+                    <Flex class="user-menu__container__row">
                         <Flex row middle spaced>
                             <span class="caption">{this._i18n['pickTheme']}</span>
                             <glyph-selector
@@ -111,7 +111,7 @@ export class UserMenuComponent {
                     </Flex>
                 )}
                 {this.decimals && (
-                    <Flex className="user-menu__container__row">
+                    <Flex class="user-menu__container__row">
                         <Flex row middle spaced>
                             <span class="caption">{this._i18n['showDecimals']}</span>
                             <glyph-toggler
@@ -124,15 +124,15 @@ export class UserMenuComponent {
                     </Flex>
                 )}
                 {this.customConfig && (
-                    <Flex className="user-menu__container__row">
-                        <Flex row middle left className="option">
+                    <Flex class="user-menu__container__row">
+                        <Flex row middle left class="option">
                             <Icon icon="settings" />
                             <span class="caption">{this._i18n['settings']}</span>
                         </Flex>
                         <div class="separator" />
                     </Flex>
                 )}
-                <Flex row middle className="option logout" onClick={this._handleLogout}>
+                <Flex row middle class="option logout" onClick={this._handleLogout}>
                     <Icon icon="power_settings_new" />
                     <span>{this._i18n['logout']}</span>
                 </Flex>

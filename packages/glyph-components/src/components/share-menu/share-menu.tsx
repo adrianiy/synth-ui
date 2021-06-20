@@ -77,12 +77,12 @@ export class ShareMenuComponent {
 
     render() {
         return (
-            <Flex className="share-menu__container">
+            <Flex class="share-menu__container">
                 <h3>{this._i18n['share']}</h3>
                 <span class="url">{location.href}</span>
                 <span class="caption">{[ this.appTitle, this.appSubtitle ].filter(chunk => chunk).join(' - ')}</span>
-                <Flex row spaced className="button__container">
-                    <Flex row middle className="link" onClick={this._handleCopy}>
+                <Flex row spaced class="button__container">
+                    <Flex row middle class="link" onClick={this._handleCopy}>
                         <Icon icon="link" />
                         <span>{this._i18n['copy']}</span>
                     </Flex>

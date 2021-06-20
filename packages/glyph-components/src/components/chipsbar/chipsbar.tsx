@@ -72,7 +72,7 @@ export class ChipsBarComponent {
         const chips = Object.keys(this.filtersConfig || {});
 
         return (
-            <Flex row className="chips__container">
+            <Flex row class="chips__container">
                 {chips.map(chip => (
                     <glyph-filter
                         {...this.filtersConfig[chip]}
@@ -89,7 +89,7 @@ export class ChipsBarComponent {
 
     private _renderButtons = () => {
         return (
-            <Flex middle className="buttons__container">
+            <Flex middle class="buttons__container">
                 <glyph-button icon="close" interface={this.interface} onClick={this._handleClearAll} />
                 <glyph-button
                     text={this._i18n['configFilters']}
@@ -102,7 +102,7 @@ export class ChipsBarComponent {
 
     render() {
         return (
-            <Flex row middle spaced className="chipsbar__container">
+            <Flex row middle spaced class="chipsbar__container">
                 {this._renderChips()}
                 {this._renderButtons()}
             </Flex>

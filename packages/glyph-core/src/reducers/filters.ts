@@ -1,6 +1,6 @@
 import { pipe } from './../utils/utils';
-import { defaultConfig, initialState } from '../config/filters';
-import { FilterOptionHeader, FiltersConfig, FiltersState } from '../models/filters';
+import { initialState } from '../config/filters';
+import { FiltersConfig, FiltersState } from '../models/filters';
 import {
     loadSavedFilters,
     saveOriginalDescriptions,
@@ -36,8 +36,6 @@ export const filterActions = {
     clearFilter: 'CLEARFILTER',
     clearAll: 'CLEARALL',
     updateFilter: 'UPDATEFILTER',
-    setDateConfig: 'SETDATECONFIG',
-    setDateRanges: 'SETDATERANGES',
     saveFilters: 'SAVEFILTERS',
 };
 
@@ -54,26 +52,6 @@ const setFilters = (state: FiltersState, filtersConfig: FiltersConfig): FiltersS
 };
 
 /**
- * Saves date configuration used in application
- */
-const setDateConfig = (state: FiltersState, dateConfig: any): FiltersState => {
-    return {
-        ...state,
-        dateConfig: { ...defaultConfig, ...dateConfig },
-    };
-};
-
-/**
- * Saves date ranges configuration used in application
- */
-const setDateRanges = (state: FiltersState, dateRanges: any): FiltersState => {
-    return {
-        ...state,
-        dateRanges,
-    };
-};
-
-/**
  * Saves filters in ***localStorage***
  */
 const saveFilters = (state: FiltersState): FiltersState => {
@@ -85,7 +63,7 @@ const saveFilters = (state: FiltersState): FiltersState => {
 };
 
 /**
- * Select and option and save results in ***localStorage***
+ * Select an option and save results in ***localStorage***
  */
 const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent): FiltersState => {
     try {
@@ -217,10 +195,6 @@ const filterReducer = (state = initialState, action: any) => {
             return clearAll(state);
         case filterActions.updateFilter:
             return updateFilterAndSave(state, action.update);
-        case filterActions.setDateRanges:
-            return setDateRanges(state, action.dateRanges);
-        case filterActions.setDateRanges:
-            return setDateConfig(state, action.dateConfig);
         case filterActions.saveFilters:
             return saveFilters(state);
         default:

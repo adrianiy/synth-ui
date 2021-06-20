@@ -76,7 +76,7 @@ export class SelectorOptionsComponent {
 
     private _renderCheckbox = (option: SelectorOption) => {
         return (
-            <Flex middle center className={cls('checkbox', { active: option.active })}>
+            <Flex middle center class={cls('checkbox', { active: option.active })}>
                 {option.active && <Icon icon="checkmark" />}
             </Flex>
         );
@@ -113,7 +113,7 @@ export class SelectorOptionsComponent {
                 {options
                     .filter(option => this._inSearch(option))
                     .map((option: SelectorOption) => (
-                        <Flex className="option" row middle left onClick={this._selectOption(option)}>
+                        <Flex class="option" row middle left onClick={this._selectOption(option)}>
                             {this.multiSelect && this._renderCheckbox(option)}
                             {this._renderOptionName(option)}
                         </Flex>
@@ -132,7 +132,7 @@ export class SelectorOptionsComponent {
 
     render() {
         return (
-            <Flex className="selector__options__container">
+            <Flex class="selector__options__container">
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.options && this._renderSimpleOptions()}
                 {this.complexOptions && this._renderComplexOptions()}

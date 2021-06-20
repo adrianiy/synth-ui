@@ -23,11 +23,13 @@
 
 ### Used by
 
+ - [glyph-date-filter](../date-filter)
  - [glyph-filter-options](../filter/components/options)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-date-filter --> glyph-scroll
   glyph-filter-options --> glyph-scroll
   style glyph-scroll fill:#f9f,stroke:#333,stroke-width:4px
 ```

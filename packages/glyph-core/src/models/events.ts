@@ -7,6 +7,13 @@ export interface ToasterEvent {
     icon: string;
 }
 
+export interface DateSelectionEvent {
+    startDate: Date;
+    endDate: Date;
+    description?: string;
+    isDefault?: boolean;
+}
+
 export interface FilterSelectEvent {
     option: FilterOptionHeader;
     filterCode?: string;

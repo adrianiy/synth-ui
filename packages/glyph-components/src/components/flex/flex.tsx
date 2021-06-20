@@ -50,7 +50,7 @@ export class FlexComponent {
                 bottom={this.bottom}
                 spaced={this.spaced}
                 around={this.around}
-                className={cls('flex__container', this.flexClass)}
+                class={cls('flex__container', this.flexClass)}
                 style={this.flexStyle}
                 id={this.flexId}
             >

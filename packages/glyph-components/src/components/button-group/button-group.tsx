@@ -40,7 +40,7 @@ export class ButtonGroupComponent {
 
     render() {
         return (
-            <Flex row className={cls('button-group__container', this.size)}>
+            <Flex row class={cls('button-group__container', this.size)}>
                 {this.buttons.map((button, idx) => (
                     <div
                         class={cls('button', { active: button.active }, this.alignment)}

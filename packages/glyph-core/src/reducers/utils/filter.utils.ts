@@ -79,7 +79,6 @@ const _selectDate = (filter: FilterConfig, option: SelectedFilter) => {
     return {
         ...filter,
         selected: [ option ],
-        compDates: undefined,
         compType: 'commercial',
     };
 };

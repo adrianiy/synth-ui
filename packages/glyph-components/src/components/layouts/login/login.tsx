@@ -92,14 +92,14 @@ export class LoginComponent {
         const isClassic = this.interface === UIInterface.classic;
 
         return (
-            <Flex row className="login__container">
-                <Flex spaced className={cls('login-user__container', { 'login-user__container--full': isClassic })}>
-                    <Flex middle={isClassic} center={isClassic} className="login__form__container">
+            <Flex row class="login__container">
+                <Flex spaced class={cls('login-user__container', { 'login-user__container--full': isClassic })}>
+                    <Flex middle={isClassic} center={isClassic} class="login__form__container">
                         {isClassic && <img class="login__logo" src={getAssetPath('./assets/corporative/logo.png')} />}
                         <h1 class="big" innerHTML={this._i18n['login.welcome']} />
                         <h4>{this._i18n['login.subtitle']}</h4>
                         {this.loginError && <div class="login-error">{this._i18n['login.error']}</div>}
-                        <Flex className="login__form">
+                        <Flex class="login__form">
                             <glyph-input
                                 box
                                 error={this.usernameError}
@@ -116,7 +116,7 @@ export class LoginComponent {
                         </Flex>
                         <glyph-button interface={UIInterface.modern} onClick={this._doLogin} text="Login" />
                     </Flex>
-                    <Flex row middle spaced className="login__footer">
+                    <Flex row middle spaced class="login__footer">
                         {this.version}
                     </Flex>
                 </Flex>
