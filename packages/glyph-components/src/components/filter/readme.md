@@ -9,6 +9,7 @@
 
 | Property            | Attribute            | Description                                                 | Type                                        | Default               |
 | ------------------- | -------------------- | ----------------------------------------------------------- | ------------------------------------------- | --------------------- |
+| `active`            | `active`             | Active flag                                                 | `boolean`                                   | `undefined`           |
 | `description`       | `description`        | Filter description                                          | `string`                                    | `undefined`           |
 | `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler | `boolean`                                   | `true`                |
 | `i18n`              | --                   | Extra i18n translation object                               | `{ [key: string]: string; }`                | `{}`                  |
@@ -17,7 +18,6 @@
 | `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`                      | `undefined`           |
 | `plural`            | `plural`             | Filter plural                                               | `string`                                    | `undefined`           |
 | `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                                    | `undefined`           |
-| `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`                          | `undefined`           |
 
 
 ## Events

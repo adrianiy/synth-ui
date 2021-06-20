@@ -11,8 +11,8 @@ import { cls } from '../../utils/utils';
 export class InputComponent {
     /** Placeholder */
     @Prop() placeholder: string;
-    /** Input default value */
-    @Prop() defaultValue: any;
+    /** Input value */
+    @Prop() value: any;
     /** Minimum available for inputs (dates or ranges) */
     @Prop() min: string;
     /** Maximum availabla for inputs (dates or ranges) */
@@ -23,27 +23,22 @@ export class InputComponent {
     @Prop() autoFocus: boolean;
     /** Style input as an error */
     @Prop() error: boolean;
+    /** Flag to disable input */
+    @Prop() disabled: boolean;
     /** Renders input in a box */
     @Prop() box: boolean;
     /** Search flag, renders a search icon if `box` is false */
     @Prop() search: boolean;
     /** Text change event */
-    @Event() textChange: EventEmitter<string>;
+    @Event() inputChange: EventEmitter<string>;
     /** Enter key event */
     @Event() enterKey: EventEmitter<any>;
-
-    /** Input value */
-    @State() inputValue: string;
 
     /** Input reference */
     @State() ref: HTMLInputElement;
 
     /** Password visibility */
     @State() passVisible: boolean = false;
-
-    componentWillLoad() {
-        this.inputValue = this.defaultValue;
-    }
 
     componentWillRender() {
         if (this.ref && this.autoFocus) {
@@ -64,9 +59,8 @@ export class InputComponent {
         return this.inputType;
     };
 
-    private _handleInputChange = (event: any) => {
-        this.inputValue = event.target.value;
-        this.textChange.emit(this.inputValue);
+    private _handleInputChange = ({ target: { value } }: any) => {
+        this.inputChange.emit(value);
     };
 
     private _handleKeyUp = (event: any) => {
@@ -83,7 +77,12 @@ export class InputComponent {
                 row
                 spaced
                 middle
-                class={cls('input__container', { search: this.search, box: this.box, error: this.error })}
+                class={cls('input__container', {
+                    search: this.search,
+                    box: this.box,
+                    error: this.error,
+                    disabled: this.disabled,
+                })}
             >
                 <Flex row middle class="input__wrapper">
                     {this.search && <Icon icon="search" class="search" />}
@@ -91,9 +90,10 @@ export class InputComponent {
                         ref={ref => (this.ref = ref)}
                         type={this._checkInputType()}
                         placeholder={this.placeholder}
-                        value={this.inputValue}
+                        value={this.value}
                         onKeyUp={this._handleKeyUp}
                         onInput={this._handleInputChange}
+                        disabled={this.disabled}
                         min={this.min}
                         max={this.max}
                     />

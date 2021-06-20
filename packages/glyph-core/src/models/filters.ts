@@ -1,10 +1,11 @@
 import { Moment } from 'moment';
-import { UIInterface } from './../enums';
+import { ComparableType, UIInterface } from './../enums';
 
 export interface DateRange {
     description: string;
     startDate: Date;
     endDate: Date;
+    isDefault?: boolean;
 }
 export interface CommonSearch {
     description: string;
@@ -22,7 +23,7 @@ export interface FilterOption {
     description: string;
     startDate?: Date;
     endDate?: Date;
-    compType?: string;
+    compType?: ComparableType;
     display?: boolean;
     active?: boolean;
     hideFilter?: boolean;
@@ -67,9 +68,10 @@ export interface DateFilter extends FilterConfig {
     minDate?: Date;
     maxDate?: Date;
     compType?: string;
-    dateRanges?: DateRange;
+    dateRanges?: DateRange[];
     singleSelect?: boolean;
     months?: number;
+    compDates?: SelectedFilter[];
 }
 export interface FiltersConfig {
     search?: Search;

@@ -1,6 +1,6 @@
 import { Component, Prop, h, State, Host, Element, Event, EventEmitter } from '@stencil/core';
 import { Flex } from '../../utils/layout';
-import { UIInterface, FilterOptionHeader, SelectedFilter, FilterSelectEvent } from 'glyph-core';
+import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core';
 import { cls } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
 
@@ -12,6 +12,8 @@ import { Icon } from '../../utils/icons';
 export class FilterComponent {
     /** Filter description */
     @Prop() description: string;
+    /** Active flag */
+    @Prop() active: boolean;
     /** Filter plural */
     @Prop() plural: string;
     /** Filter options */
@@ -20,8 +22,6 @@ export class FilterComponent {
     @Prop() haveMultiSelect: boolean = true;
     /** This flag is true if multiselect is active */
     @Prop() multiSelect: boolean = false;
-    /** Filter selected */
-    @Prop() selected: SelectedFilter[];
     /** Search placeholder */
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
@@ -36,16 +36,10 @@ export class FilterComponent {
     @Event() multiSelectEvent: EventEmitter<any>;
     /** Element reference */
     @Element() element: HTMLGlyphFilterElement;
-    /** Chip description */
-    @State() chipDescription: string;
     /** Filter expanded flag */
     @State() expanded: boolean = false;
     /** Filter search value */
     @State() searchValue: string;
-
-    componentWillRender() {
-        this._changeDescription();
-    }
 
     private _expandFilter = () => {
         this.expanded = !this.expanded;
@@ -68,20 +62,11 @@ export class FilterComponent {
     };
 
     private _onClear = (event: any) => {
-        if (this.selected.length) {
+        if (this.active) {
             this.clearEvent.emit();
             event.stopPropagation();
         }
     };
-
-    private _changeDescription() {
-        if (this.selected.length > 0) {
-            this.chipDescription =
-                this.selected.length > 1 ? `${this.selected.length} ${this.plural}` : this.selected[0].description;
-        } else {
-            this.chipDescription = this.description;
-        }
-    }
 
     private _renderFilterOptions() {
         return (
@@ -101,7 +86,8 @@ export class FilterComponent {
     }
 
     render() {
-        const active = this.selected.length && !this.selected.every(({ isDefault }) => isDefault);
+        const active = this.active;
+
         return (
             <Host>
                 <Flex
@@ -117,9 +103,9 @@ export class FilterComponent {
                     )}
                     onClick={this._expandFilter}
                 >
-                    <span>{this.chipDescription}</span>
+                    <span>{this.description}</span>
                     <Icon
-                        onClick={this.selected.length ? this._onClear : null}
+                        onClick={active ? this._onClear : null}
                         icon={
                             active
                                 ? 'close'

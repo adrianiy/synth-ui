@@ -25,6 +25,10 @@
         &:hover {
             background: var(--gui-color--background--light);
         }
+        &.disabled {
+            cursor: not-allowed;
+            opacity: .7;
+        }
 
         span {
             text-transform: lowercase;

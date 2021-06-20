@@ -114,7 +114,7 @@ export class FilterOptionsComponent {
                 box
                 placeholder={this.searchPlaceholder}
                 onEnterKey={this._handleKeyUp}
-                onTextChange={this._handleInputChange}
+                onInputChange={this._handleInputChange}
             />
         );
     };
@@ -145,7 +145,8 @@ export class FilterOptionsComponent {
 
     private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
         const childInSearch = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInSearch) || filterQuantity === 1;
+        const anyActive = option.children.some(child => child.active);
+        const expanded = option.expanded || (this.searchValue && childInSearch) || anyActive || filterQuantity === 1;
 
         return (
             childInSearch && (

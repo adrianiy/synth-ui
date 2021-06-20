@@ -24,10 +24,20 @@ export class CalendarComponent {
     @Prop() minDate: Date = dayjs().startOf('year').toDate();
     /** Maximum allowed date */
     @Prop() maxDate: Date = new Date();
+    /** Minimum allowed date */
+    @Prop() minDateAux: Date = dayjs().startOf('year').toDate();
+    /** Maximum allowed date */
+    @Prop() maxDateAux: Date = new Date();
     /** Selected start date */
     @Prop() startDate: Date = new Date();
     /** Selected end date */
     @Prop() endDate: Date = new Date();
+    /** Secondary selected start date */
+    @Prop() startDateAux: Date = new Date();
+    /** Secondary selected end date */
+    @Prop() endDateAux: Date = new Date();
+    /** Secondary selection. Shows selection in orange */
+    @Prop() secondary: boolean;
     /** Allow single day selection */
     @Prop() singleSelect: boolean;
     /** Number of months to be shown. 2 by default */
@@ -36,10 +46,14 @@ export class CalendarComponent {
     @Element() element: HTMLGlyphCalendarElement;
     /** Event triggered on date selection */
     @Event() dateSelect: EventEmitter<{ startDate: Date; endDate: Date }>;
+    /** Event triggered on aux date selection */
+    @Event() dateSelectAux: EventEmitter<{ startDate: Date; endDate: Date }>;
 
     @State() currentMonth: dayjs.Dayjs;
     @State() selectedStartDate: dayjs.Dayjs;
+    @State() selectedStartDateAux: dayjs.Dayjs;
     @State() currentHoveredDate: dayjs.Dayjs;
+    @State() currentHoveredDateAux: dayjs.Dayjs;
 
     componentWillLoad() {
         this.currentMonth = dayjs(this.endDate);
@@ -66,15 +80,48 @@ export class CalendarComponent {
         });
     };
 
-    private _selectMonth = (month: dayjs.Dayjs) => () => {
-        this._selectDate(month.startOf('month').toDate(), month.endOf('month').toDate());
+    private _selectDateAux = (startDate: Date, endDate: Date) => {
+        this.startDateAux = startDate;
+        this.endDateAux = endDate;
+
+        this.dateSelectAux.emit({
+            startDate,
+            endDate,
+        });
     };
 
-    private _handleDayClick = (day: dayjs.Dayjs) => () => {
-        if (!this.selectedStartDate) {
+    private _selectMonth = (month: dayjs.Dayjs) => () => {
+        if (!this.secondary) {
+            this._selectDate(month.startOf('month').toDate(), month.endOf('month').toDate());
+        }
+    };
+
+    private _secondarySelection = (day: dayjs.Dayjs) => {
+        if (this.singleSelect) {
+            this._selectDateAux(day.toDate(), day.toDate());
+        } else if (!this.selectedStartDateAux) {
+            this.selectedStartDateAux = day;
+            [ this.startDateAux, this.endDateAux ] = [ null, null ];
+        } else {
+            const isValidSelection = day.isSameOrAfter(this.selectedStartDateAux, 'day');
+
+            if (isValidSelection) {
+                this._selectDateAux(this.selectedStartDateAux.toDate(), day.toDate());
+                this.selectedStartDateAux = null;
+                this.currentHoveredDateAux = null;
+            } else {
+                this.selectedStartDateAux = null;
+                this._handleDayClick(day)();
+            }
+        }
+    };
+
+    private _primarySelection = (day: dayjs.Dayjs) => {
+        if (this.singleSelect) {
+            this._selectDate(day.toDate(), day.toDate());
+        } else if (!this.selectedStartDate) {
             this.selectedStartDate = day;
-            this.startDate = null;
-            this.endDate = null;
+            [ this.startDate, this.endDate ] = [ null, null ];
         } else {
             const isValidSelection = day.isSameOrAfter(this.selectedStartDate, 'day');
 
@@ -89,26 +136,47 @@ export class CalendarComponent {
         }
     };
 
+    private _handleDayClick = (day: dayjs.Dayjs) => () => {
+        if (this.secondary) {
+            this._secondarySelection(day);
+        } else {
+            this._primarySelection(day);
+        }
+    };
+
     private _handleDayHover = (day: dayjs.Dayjs) => () => {
-        if (this.selectedStartDate) {
+        if (this.secondary && this.selectedStartDateAux) {
+            this.currentHoveredDateAux = day;
+        } else if (!this.secondary && this.selectedStartDate) {
             this.currentHoveredDate = day;
         }
     };
 
     private _checkInRange = (day: dayjs.Dayjs) => {
         return (
-            day.isSameOrAfter(this.selectedStartDate, 'day') &&
             this.selectedStartDate &&
+            day.isSameOrAfter(this.selectedStartDate, 'day') &&
             this.currentHoveredDate &&
             day.isBetween(this.selectedStartDate, this.currentHoveredDate, 'day', '[]')
+        );
+    };
+
+    private _checkInAuxRange = (day: dayjs.Dayjs) => {
+        return (
+            this.selectedStartDateAux &&
+            day.isSameOrAfter(this.selectedStartDateAux, 'day') &&
+            this.currentHoveredDateAux &&
+            day.isBetween(this.selectedStartDateAux, this.currentHoveredDateAux, 'day', '[]')
         );
     };
 
     private _renderHeader = (position: number, month: dayjs.Dayjs) => {
         const isLowerLimit = position === 1;
         const isUpperLimit = position === this.months;
-        const beforeDisabled = month.isSame(this.minDate, 'month');
-        const afterDisabled = month.isSame(this.maxDate, 'month');
+        const minDate = this.secondary ? this.minDateAux : this.minDate;
+        const maxDate = this.secondary ? this.maxDateAux : this.maxDate;
+        const beforeDisabled = month.isSame(minDate, 'month');
+        const afterDisabled = month.isSame(maxDate, 'month');
 
         return (
             <Flex row spaced middle class="calendar__header">
@@ -144,6 +212,8 @@ export class CalendarComponent {
     };
 
     private _renderWeekRows = (month: dayjs.Dayjs) => {
+        const minDate = this.secondary ? this.minDateAux : this.minDate;
+        const maxDate = this.secondary ? this.maxDateAux : this.maxDate;
         const monthStart = month.startOf('month');
         const monthEnd = month.endOf('month');
         const firstDayOfMonth = monthStart.day();
@@ -153,9 +223,12 @@ export class CalendarComponent {
         return days.map((_, i) => {
             const day = startDate.add(i, 'day');
             const selectable = day.isBetween(monthStart, monthEnd, 'day', '[]');
-            const disabled = !day.isBetween(this.minDate, this.maxDate, 'day', '[]');
+            const disabled = !day.isBetween(dayjs(minDate), dayjs(maxDate), 'day', '[]');
             const selected = this.startDate && this.endDate && day.isBetween(this.startDate, this.endDate, 'day', '[]');
+            const secondarySelected =
+                this.startDateAux && this.endDateAux && day.isBetween(this.startDateAux, this.endDateAux, 'day', '[]');
             const inRange = this._checkInRange(day);
+            const inAuxRange = this._checkInAuxRange(day);
 
             return (
                 <Flex
@@ -165,7 +238,10 @@ export class CalendarComponent {
                         selectable,
                         disabled,
                         selected,
+                        'secondary': this.secondary,
+                        'selected--secondary': secondarySelected,
                         'in-range': inRange,
+                        'in-range--secondary': inAuxRange,
                     })}
                     onClick={this._handleDayClick(day)}
                     onMouseEnter={this._handleDayHover(day)}
@@ -181,7 +257,7 @@ export class CalendarComponent {
         const month = this.currentMonth.subtract(monthDiff, 'month');
 
         return (
-            <Flex middle center class="calendar">
+            <Flex top center class="calendar">
                 {this._renderHeader(position, month)}
                 <div class="calendar__days__container">
                     {this._renderDaysHeader()}
@@ -197,7 +273,7 @@ export class CalendarComponent {
             .map((_, i) => i + 1);
 
         return (
-            <Flex row center middle class="calendar__container">
+            <Flex row center top class="calendar__container">
                 {monthTables.map(this._renderCalendar)}
             </Flex>
         );

@@ -50,6 +50,10 @@ export class SelectorComponent {
 
     private _selectOption = (option: SelectorOption) => {
         this.optionSelect.emit(option);
+
+        if (!this.multiSelect) {
+            this.optionsDrilldown = false;
+        }
     };
 
     render() {

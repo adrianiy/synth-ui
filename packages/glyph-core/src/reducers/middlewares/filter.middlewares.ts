@@ -62,7 +62,7 @@ export const resetOrdinalCompType = (state: FiltersState) => {
         if (!platformActive && !countryActive) {
             const date = {
                 ...filtersConfig.date,
-                selected: filtersConfig.date.selected.filter(select => select.type !== 'comp'),
+                selected: filtersConfig.date.selected.slice(0, 1),
             };
             return {
                 ...state,

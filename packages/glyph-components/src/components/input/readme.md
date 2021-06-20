@@ -7,25 +7,26 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                          | Type      | Default     |
-| -------------- | --------------- | ---------------------------------------------------- | --------- | ----------- |
-| `autoFocus`    | `auto-focus`    | Input should auto focus                              | `boolean` | `undefined` |
-| `box`          | `box`           | Renders input in a box                               | `boolean` | `undefined` |
-| `defaultValue` | `default-value` | Input default value                                  | `any`     | `undefined` |
-| `error`        | `error`         | Style input as an error                              | `boolean` | `undefined` |
-| `inputType`    | `input-type`    | Input type                                           | `string`  | `'text'`    |
-| `max`          | `max`           | Maximum availabla for inputs (dates or ranges)       | `string`  | `undefined` |
-| `min`          | `min`           | Minimum available for inputs (dates or ranges)       | `string`  | `undefined` |
-| `placeholder`  | `placeholder`   | Placeholder                                          | `string`  | `undefined` |
-| `search`       | `search`        | Search flag, renders a search icon if `box` is false | `boolean` | `undefined` |
+| Property      | Attribute     | Description                                          | Type      | Default     |
+| ------------- | ------------- | ---------------------------------------------------- | --------- | ----------- |
+| `autoFocus`   | `auto-focus`  | Input should auto focus                              | `boolean` | `undefined` |
+| `box`         | `box`         | Renders input in a box                               | `boolean` | `undefined` |
+| `disabled`    | `disabled`    | Flag to disable input                                | `boolean` | `undefined` |
+| `error`       | `error`       | Style input as an error                              | `boolean` | `undefined` |
+| `inputType`   | `input-type`  | Input type                                           | `string`  | `'text'`    |
+| `max`         | `max`         | Maximum availabla for inputs (dates or ranges)       | `string`  | `undefined` |
+| `min`         | `min`         | Minimum available for inputs (dates or ranges)       | `string`  | `undefined` |
+| `placeholder` | `placeholder` | Placeholder                                          | `string`  | `undefined` |
+| `search`      | `search`      | Search flag, renders a search icon if `box` is false | `boolean` | `undefined` |
+| `value`       | `value`       | Input value                                          | `any`     | `undefined` |
 
 
 ## Events
 
-| Event        | Description       | Type                  |
-| ------------ | ----------------- | --------------------- |
-| `enterKey`   | Enter key event   | `CustomEvent<any>`    |
-| `textChange` | Text change event | `CustomEvent<string>` |
+| Event         | Description       | Type                  |
+| ------------- | ----------------- | --------------------- |
+| `enterKey`    | Enter key event   | `CustomEvent<any>`    |
+| `inputChange` | Text change event | `CustomEvent<string>` |
 
 
 ## Dependencies

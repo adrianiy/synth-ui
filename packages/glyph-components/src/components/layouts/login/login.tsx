@@ -104,14 +104,14 @@ export class LoginComponent {
                                 box
                                 error={this.usernameError}
                                 placeholder={this._i18n['login.user']}
-                                onTextChange={this._handleUserInput}
+                                onInputChange={this._handleUserInput}
                             />
                             <glyph-input
                                 box
                                 error={this.passwordError}
                                 inputType="password"
                                 placeholder={this._i18n['login.pass']}
-                                onTextChange={this._handlePassInput}
+                                onInputChange={this._handlePassInput}
                             />
                         </Flex>
                         <glyph-button interface={UIInterface.modern} onClick={this._doLogin} text="Login" />

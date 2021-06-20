@@ -110,23 +110,25 @@ export class GlyphButtonGroup {
 import { CalendarComponent as ICalendarComponent } from 'glyph-components/dist/types/components/calendar/calendar';
 export declare interface GlyphCalendar extends Components.GlyphCalendar {}
 @ProxyCmp({
-  inputs: ['endDate', 'maxDate', 'minDate', 'months', 'singleSelect', 'startDate']
+  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
 })
 @Component({
   selector: 'glyph-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['endDate', 'maxDate', 'minDate', 'months', 'singleSelect', 'startDate'],
-  outputs: ['dateSelect']
+  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
+  outputs: ['dateSelect', 'dateSelectAux']
 })
 export class GlyphCalendar {
   /** Event triggered on date selection */
   dateSelect!: ICalendarComponent['dateSelect'];
+  /** Event triggered on aux date selection */
+  dateSelectAux!: ICalendarComponent['dateSelectAux'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['dateSelect']);
+    proxyOutputs(this, this.el, ['dateSelect', 'dateSelectAux']);
   }
 }
 
@@ -162,38 +164,42 @@ export class GlyphChipsbar {
 import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
 export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
 @ProxyCmp({
-  inputs: ['dateRanges', 'description', 'i18n', 'interface', 'maxDate', 'minDate', 'months', 'selected', 'singleSelect']
+  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate']
 })
 @Component({
   selector: 'glyph-date-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['dateRanges', 'description', 'i18n', 'interface', 'maxDate', 'minDate', 'months', 'selected', 'singleSelect'],
-  outputs: ['dateSelection', 'clearEvent']
+  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  outputs: ['dateSelection', 'comparableDateSelection', 'comparableChange', 'clearEvent']
 })
 export class GlyphDateFilter {
   /** Date selection event */
   dateSelection!: IDateFilterComponent['dateSelection'];
+  /** Date selection event */
+  comparableDateSelection!: IDateFilterComponent['comparableDateSelection'];
+  /** Comparable type change event */
+  comparableChange!: IDateFilterComponent['comparableChange'];
   /** Clear selected filters callback */
   clearEvent!: IDateFilterComponent['clearEvent'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['dateSelection', 'clearEvent']);
+    proxyOutputs(this, this.el, ['dateSelection', 'comparableDateSelection', 'comparableChange', 'clearEvent']);
   }
 }
 
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']
+  inputs: ['active', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],
+  inputs: ['active', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
   outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
 })
 export class GlyphFilter {
@@ -279,25 +285,25 @@ export class GlyphHeader {
 import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'box', 'defaultValue', 'error', 'inputType', 'max', 'min', 'placeholder', 'search']
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value']
 })
 @Component({
   selector: 'glyph-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'box', 'defaultValue', 'error', 'inputType', 'max', 'min', 'placeholder', 'search'],
-  outputs: ['textChange', 'enterKey']
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value'],
+  outputs: ['inputChange', 'enterKey']
 })
 export class GlyphInput {
   /** Text change event */
-  textChange!: IInputComponent['textChange'];
+  inputChange!: IInputComponent['inputChange'];
   /** Enter key event */
   enterKey!: IInputComponent['enterKey'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['textChange', 'enterKey']);
+    proxyOutputs(this, this.el, ['inputChange', 'enterKey']);
   }
 }
 
