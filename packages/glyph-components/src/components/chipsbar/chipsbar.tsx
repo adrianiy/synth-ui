@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
+import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, DateSelectionEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 
@@ -59,6 +59,10 @@ export class ChipsBarComponent {
         });
     };
 
+    private _handleDateSelect = ({ detail: option }: CustomEvent<DateSelectionEvent>) => {
+        this.filterSelect.emit({ option, filterCode: 'date' });
+    }
+
     private _handleFilterConfig = () => {
         // TODO: configure filters method
         alert('TODO: configure filters');
@@ -80,6 +84,7 @@ export class ChipsBarComponent {
                 comparableEndDate={compEndDate}
                 description={description}
                 {...dateFilter}
+                onDateSelection={this._handleDateSelect}
             />
         );
     };

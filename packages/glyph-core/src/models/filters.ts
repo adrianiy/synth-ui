@@ -1,4 +1,3 @@
-import { Moment } from 'moment';
 import { ComparableType, UIInterface } from './../enums';
 import { SelectorOption } from './components';
 
@@ -21,7 +20,7 @@ export interface QueryFilter {
 }
 export interface FilterOption {
     code?: any;
-    description: string;
+    description?: string;
     startDate?: Date;
     endDate?: Date;
     compType?: ComparableType;
@@ -97,7 +96,6 @@ export interface FiltersState {
     initialFilters?: InitialFilter[];
     restrictedFilters?: any[];
     restrictedParents?: any;
-    dateRanges?: { [key: string]: Moment[] };
     cacheId?: string;
     cacheVersion?: string;
 }
