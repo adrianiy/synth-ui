@@ -9,7 +9,6 @@
 
 | Property            | Attribute            | Description                                                 | Type                                        | Default               |
 | ------------------- | -------------------- | ----------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `active`            | `active`             | Active flag                                                 | `boolean`                                   | `undefined`           |
 | `description`       | `description`        | Filter description                                          | `string`                                    | `undefined`           |
 | `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler | `boolean`                                   | `true`                |
 | `i18n`              | --                   | Extra i18n translation object                               | `{ [key: string]: string; }`                | `{}`                  |
@@ -33,7 +32,7 @@
 
 ### Used by
 
- - [glyph-chipsbar](../chipsbar)
+ - [glyph-chipsbar](../layouts/chipsbar)
 
 ### Depends on
 

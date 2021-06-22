@@ -1,4 +1,4 @@
-import { ToasterTypes } from '../enums';
+import { ComparableType, ToasterTypes } from '../enums';
 import { FilterConfig, FilterOptionHeader } from './filters';
 
 export interface ToasterEvent {
@@ -16,6 +16,7 @@ export interface DateSelectionEvent {
 
 export interface FilterSelectEvent {
     option: FilterOptionHeader;
+    comparableType?: ComparableType;
     filterCode?: string;
     isDefault?: boolean;
 }

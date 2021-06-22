@@ -12,8 +12,6 @@ import { Icon } from '../../utils/icons';
 export class FilterComponent {
     /** Filter description */
     @Prop() description: string;
-    /** Active flag */
-    @Prop() active: boolean;
     /** Filter plural */
     @Prop() plural: string;
     /** Filter options */
@@ -40,6 +38,10 @@ export class FilterComponent {
     @State() expanded: boolean = false;
     /** Filter search value */
     @State() searchValue: string;
+    /** Active status flag */
+    @State() active: boolean;
+    /** Chip description value */
+    @State() chipDescription: string;
 
     @Listen('click', { target: 'window' })
     clickOutside(event: any) {
@@ -47,6 +49,27 @@ export class FilterComponent {
             this.expanded = false;
         }
     }
+
+    componentWillRender() {
+        this.active = this.options?.some(
+            ({ active, children }) => active || children?.some(({ active: chActive }) => chActive),
+        );
+        this.chipDescription = this._getChipDescription();
+    }
+
+    private _getChipDescription = () => {
+        if (!this.active) {
+            return this.description;
+        } else {
+            const appliedChildren = this.options.map(opt => opt.children?.find(({ active }) => active));
+            const appliedOptions = this.options.find(({ active }) => active);
+            const applied = appliedChildren.concat(appliedOptions).filter(Boolean);
+            const total = applied.length;
+            const isPlural = total > 1;
+
+            return isPlural ? `${total} ${this.plural}` : applied[0].description;
+        }
+    };
 
     private _expandFilter = () => {
         this.expanded = !this.expanded;
@@ -110,7 +133,7 @@ export class FilterComponent {
                     )}
                     onClick={this._expandFilter}
                 >
-                    <span>{this.description}</span>
+                    <span>{this.chipDescription}</span>
                     <Icon
                         onClick={active ? this._onClear : null}
                         icon={

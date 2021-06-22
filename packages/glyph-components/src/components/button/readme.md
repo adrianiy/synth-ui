@@ -20,7 +20,7 @@
 
 ### Used by
 
- - [glyph-chipsbar](../chipsbar)
+ - [glyph-chipsbar](../layouts/chipsbar)
  - [glyph-date-filter](../date-filter)
  - [glyph-login](../layouts/login)
  - [glyph-modal](../modal)

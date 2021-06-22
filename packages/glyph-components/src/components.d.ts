@@ -254,10 +254,6 @@ export namespace Components {
     }
     interface GlyphFilter {
         /**
-          * Active flag
-         */
-        "active": boolean;
-        /**
           * Filter description
          */
         "description": string;
@@ -1434,6 +1430,18 @@ declare namespace LocalJSX {
          */
         "onClearAll"?: (event: CustomEvent<any>) => void;
         /**
+          * Comparable type change event
+         */
+        "onComparableChange"?: (event: CustomEvent<ComparableType>) => void;
+        /**
+          * Date selection event
+         */
+        "onComparableDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
+        /**
+          * Date selection event
+         */
+        "onDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
+        /**
           * Filter clear event
          */
         "onFilterClear"?: (event: CustomEvent<string>) => void;
@@ -1514,7 +1522,7 @@ declare namespace LocalJSX {
         /**
           * Comparable type change event
          */
-        "onComparableChange"?: (event: CustomEvent<string>) => void;
+        "onComparableChange"?: (event: CustomEvent<ComparableType>) => void;
         /**
           * Date selection event
          */
@@ -1533,10 +1541,6 @@ declare namespace LocalJSX {
         "startDate"?: Date;
     }
     interface GlyphFilter {
-        /**
-          * Active flag
-         */
-        "active"?: boolean;
         /**
           * Filter description
          */

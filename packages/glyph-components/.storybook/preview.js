@@ -32,7 +32,6 @@ export const parameters = {
                     'Calendar',
                     'Filter',
                     'Date filter',
-                    'Chipsbar',
                     'Header',
                     'Title',
                     'Pagination',

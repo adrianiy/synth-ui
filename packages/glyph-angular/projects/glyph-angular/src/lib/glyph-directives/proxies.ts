@@ -132,7 +132,7 @@ export class GlyphCalendar {
   }
 }
 
-import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';
+import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({
   inputs: ['filtersConfig', 'i18n', 'interface']
@@ -142,11 +142,17 @@ export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['filtersConfig', 'i18n', 'interface'],
-  outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
+  outputs: ['filterSelect', 'dateSelection', 'comparableDateSelection', 'comparableChange', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
   /** Filter select event */
   filterSelect!: IChipsBarComponent['filterSelect'];
+  /** Date selection event */
+  dateSelection!: IChipsBarComponent['dateSelection'];
+  /** Date selection event */
+  comparableDateSelection!: IChipsBarComponent['comparableDateSelection'];
+  /** Comparable type change event */
+  comparableChange!: IChipsBarComponent['comparableChange'];
   /** Filter clear event */
   filterClear!: IChipsBarComponent['filterClear'];
   /** Filter multiselect event */
@@ -157,7 +163,7 @@ export class GlyphChipsbar {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']);
+    proxyOutputs(this, this.el, ['filterSelect', 'dateSelection', 'comparableDateSelection', 'comparableChange', 'filterClear', 'updateFilter', 'clearAll']);
   }
 }
 
@@ -193,13 +199,13 @@ export class GlyphDateFilter {
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
-  inputs: ['active', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
   outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
 })
 export class GlyphFilter {

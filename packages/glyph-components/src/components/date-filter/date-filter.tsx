@@ -56,7 +56,7 @@ export class DateFilterComponent {
     /** Date selection event */
     @Event() comparableDateSelection: EventEmitter<DateSelectionEvent>;
     /** Comparable type change event */
-    @Event() comparableChange: EventEmitter<string>;
+    @Event() comparableChange: EventEmitter<ComparableType>;
     /** Clear selected filters callback */
     @Event() clearEvent: EventEmitter<any>;
     /** Element reference */
@@ -100,6 +100,9 @@ export class DateFilterComponent {
 
     private _onClear = (event: any) => {
         this.clearEvent.emit();
+        this.expanded = false;
+        this.comparableActive = false;
+        this.isCustomComparable = false;
         event.stopPropagation();
     };
 

@@ -23,7 +23,6 @@ export interface FilterOption {
     description?: string;
     startDate?: Date;
     endDate?: Date;
-    compType?: ComparableType;
     display?: boolean;
     active?: boolean;
     hideFilter?: boolean;
