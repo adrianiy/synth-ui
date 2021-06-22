@@ -338,7 +338,6 @@ export class DateFilterComponent {
         const description =
             this.description ||
             `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
-        console.log(description);
 
         return (
             <Host>
