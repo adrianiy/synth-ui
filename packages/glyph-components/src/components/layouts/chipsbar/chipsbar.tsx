@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
-import { Flex } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
+import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
+import { Flex } from '../../../utils/layout';
+import { getLocaleComponentStrings } from '../../../utils/utils';
 
 @Component({
     tag: 'glyph-chipsbar',
@@ -41,8 +41,8 @@ export class ChipsBarComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _handleOptionClick = (key: string) => (ev: CustomEvent<FilterSelectEvent>) => {
-        const event = { ...ev.detail, filterCode: key };
+    private _handleOptionClick = (key: string) => ({ detail }: CustomEvent<FilterSelectEvent>) => {
+        const event = { ...detail, filterCode: key };
         this.filterSelect.emit(event);
     };
 
@@ -68,28 +68,64 @@ export class ChipsBarComponent {
         this.clearAll.emit();
     };
 
-    private _renderChips = () => {
-        const chips = Object.keys(this.filtersConfig || {});
+    private _renderDateChip = (dateFilter: DateFilter) => {
+        if (!dateFilter || !dateFilter.visible) {
+            return null;
+        }
+        const { comparableType, comparableOptions } = dateFilter;
+        const { startDate, endDate, description, isDefault } = dateFilter.selected[0];
+        const { startDate: compStartDate, endDate: compEndDate } = dateFilter.compDates?.[0] || {};
+
+        if (comparableOptions) {
+            comparableOptions.forEach(opt => (opt.active = opt.value === comparableType));
+        }
 
         return (
-            <Flex row className="chips__container">
-                {chips.map(chip => (
-                    <glyph-filter
-                        {...this.filtersConfig[chip]}
-                        interface={this.interface}
-                        i18n={this._i18n}
-                        onOptionClickEvent={this._handleOptionClick(chip)}
-                        onClearEvent={this._handleFilterClear(chip)}
-                        onMultiSelectEvent={this._handleMultiSelect(chip)}
-                    />
-                ))}
+            <glyph-date-filter
+                {...dateFilter}
+                interface={this.interface}
+                startDate={startDate}
+                endDate={endDate}
+                comparableStartDate={compStartDate}
+                comparableEndDate={compEndDate}
+                description={description}
+                active={!isDefault}
+                comparableType={comparableType}
+                comparableOptions={comparableOptions}
+                onDateSelection={this._handleOptionClick('date')}
+                onClearEvent={this._handleFilterClear('date')}
+            />
+        );
+    };
+
+    private _renderChips = () => {
+        const chips = Object.keys(this.filtersConfig || {}).filter(
+            key => key !== 'date' && this.filtersConfig[key].visible,
+        );
+        const dateFilter = this.filtersConfig.date;
+
+        return (
+            <Flex row class="chips__container">
+                {[
+                    this._renderDateChip(dateFilter),
+                    ...chips.map(chip => (
+                        <glyph-filter
+                            {...this.filtersConfig[chip]}
+                            interface={this.interface}
+                            i18n={this._i18n}
+                            onOptionClickEvent={this._handleOptionClick(chip)}
+                            onClearEvent={this._handleFilterClear(chip)}
+                            onMultiSelectEvent={this._handleMultiSelect(chip)}
+                        />
+                    )),
+                ]}
             </Flex>
         );
     };
 
     private _renderButtons = () => {
         return (
-            <Flex middle className="buttons__container">
+            <Flex middle class="buttons__container">
                 <glyph-button icon="close" interface={this.interface} onClick={this._handleClearAll} />
                 <glyph-button
                     text={this._i18n['configFilters']}
@@ -102,7 +138,7 @@ export class ChipsBarComponent {
 
     render() {
         return (
-            <Flex row middle spaced className="chipsbar__container">
+            <Flex row middle spaced class="chipsbar__container">
                 {this._renderChips()}
                 {this._renderButtons()}
             </Flex>

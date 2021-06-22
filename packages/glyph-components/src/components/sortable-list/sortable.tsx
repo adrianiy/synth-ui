@@ -55,11 +55,11 @@ export class SortableComponent {
                 {this.sortedList.map(item => (
                     <li
                         data-id={`gui-${item.index}`}
-                        class={cls(
-                            haveIcon && !item.icon && 'fill-icon',
-                            this.useHover && 'use-hover',
-                            item.notSortable && 'ignore-element',
-                        )}
+                        class={cls({
+                            'fill-icon': haveIcon && !item.icon,
+                            'use-hover': this.useHover,
+                            'ignore-element': item.notSortable,
+                        })}
                     >
                         <Flex middle row spaced>
                             <Flex middle row>
@@ -67,7 +67,7 @@ export class SortableComponent {
                                 {this.valueGetter ? this.valueGetter(item) : item.name}
                             </Flex>
                             {item.action && (
-                                <Icon className="action" icon={item.action.icon} onClick={item.action.action} />
+                                <Icon class="action" icon={item.action.icon} onClick={item.action.action} />
                             )}
                         </Flex>
                     </li>

@@ -3,8 +3,13 @@
     max-height: var(--scrollbar-height);
 
     .scrollbar--tiny {
+        .ps__rail-y {
+            margin-left: calc(100% - 6px);
+            width: 6px !important;
+        }
         .ps__thumb-y {
             width: 1px;
+            right: 0;
         }
         .ps__thumb-x {
             height: 1px;
@@ -21,7 +26,8 @@
                 display: none;
             }
         }
-        .ps__rail-y, .ps__rail-x {
+        .ps__rail-y,
+        .ps__rail-x {
             display: none;
         }
     }

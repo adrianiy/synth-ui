@@ -30,7 +30,7 @@ export class NoDataComponent {
 
     private _simpleRender() {
         return (
-            <Flex row middle className={`no-data ${this.mode}`}>
+            <Flex row middle class={`no-data ${this.mode}`}>
                 <Icon icon="error_outline" />
                 {this._i18n.noData}
             </Flex>
@@ -39,7 +39,7 @@ export class NoDataComponent {
 
     private _advancedRender() {
         return (
-            <Flex center className={`no-data ${this.mode}`}>
+            <Flex center class={`no-data ${this.mode}`}>
                 <Icon outlined icon="report_problem" />
                 <h3>{this.text}</h3>
                 <p>{this.bottomText}</p>

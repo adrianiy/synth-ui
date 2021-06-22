@@ -13,7 +13,7 @@ interface LayoutProps {
     top?: boolean;
     bottom?: boolean;
     testId?: string;
-    className?: string;
+    class?: string;
     style?: any;
     id?: string;
     onClick?: (event: MouseEvent) => any;
@@ -26,7 +26,7 @@ const getDistribution = (props: LayoutProps) => {
     const flexType = props.row ? 'row' : 'column';
     const flexDist = Object.keys(props)
         .filter(key => props[key])
-        .filter(dist => dist)
+        .filter(Boolean)
         .join(' ');
 
     return `${flexType} ${flexDist}`.trim();
@@ -41,7 +41,7 @@ export const Flex: FunctionalComponent<LayoutProps> = (props, children) => {
 };
 
 export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
+    const { testId = '', class: className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
 
     return (
         <div
@@ -60,7 +60,7 @@ export const RowLayout: FunctionalComponent<LayoutProps> = (props, children) => 
 };
 
 export const ColumnLayout: FunctionalComponent<LayoutProps> = (props, children) => {
-    const { testId = '', className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
+    const { testId = '', class: className, style, id, onClick, onMouseEnter, onMouseLeave, ref, ...rest } = props;
 
     return (
         <div

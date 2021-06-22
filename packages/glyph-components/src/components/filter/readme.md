@@ -17,7 +17,6 @@
 | `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`                      | `undefined`           |
 | `plural`            | `plural`             | Filter plural                                               | `string`                                    | `undefined`           |
 | `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                                    | `undefined`           |
-| `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`                          | `undefined`           |
 
 
 ## Events
@@ -33,7 +32,7 @@
 
 ### Used by
 
- - [glyph-chipsbar](../chipsbar)
+ - [glyph-chipsbar](../layouts/chipsbar)
 
 ### Depends on
 

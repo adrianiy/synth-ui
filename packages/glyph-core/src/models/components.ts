@@ -4,6 +4,7 @@ export interface SelectorOption {
     name: string;
     active?: boolean;
     value?: any;
+    disabled?: boolean;
 }
 
 export interface ComplexSelectorOptions {

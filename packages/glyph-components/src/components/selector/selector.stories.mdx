@@ -77,7 +77,6 @@ Selector can be used with a search input to filter options easily.
 <Description>{notes}</Description>
 
 export const changeEvent = (event) => {
-console.log(event);
     event.target.options = event.target.options.map(option => {
         if (option.value === event.detail.value) {
             if (event.target.multiSelect) {
@@ -92,7 +91,6 @@ console.log(event);
     })
 }
 export const changeEventComplex = (event) => {
-    console.log(event);
     event.target.complexOptions = Object.keys(event.target.complexOptions).reduce((prev, curr) => {
         prev[curr] = event.target.complexOptions[curr].map(option => {
             if (option.value === event.detail.value) {

@@ -36,8 +36,6 @@ export class FlexComponent {
     @Prop() flexId: string;
     /** Set an id to attribute data-testid */
     @Prop() testId: string;
-    /** On click event */
-    @Prop() onClickEvent: (event: any) => any;
 
     render() {
         return (
@@ -52,10 +50,9 @@ export class FlexComponent {
                 bottom={this.bottom}
                 spaced={this.spaced}
                 around={this.around}
-                className={cls('flex__container', this.flexClass)}
+                class={cls('flex__container', this.flexClass)}
                 style={this.flexStyle}
                 id={this.flexId}
-                onClick={this.onClickEvent}
             >
                 <slot />
             </Flex>

@@ -32,7 +32,7 @@ export class ModalComponent {
         if (!event.path.some((el: HTMLElement) => el.closest?.('.modal__container')) && this.visible) {
             this.close.emit();
         }
-    }
+    };
 
     private _onClose = () => {
         this.close.emit();
@@ -49,7 +49,7 @@ export class ModalComponent {
     private _renderHeader = () => {
         return (
             <h2>
-                <Flex row middle spaced={!!this.modalTitle} right={!this.modalTitle} className="modal__container__header">
+                <Flex row middle spaced={!!this.modalTitle} right={!this.modalTitle} class="modal__container__header">
                     {this.modalTitle && this.modalTitle}
                     {this.closeButton && <Icon icon="close" onClick={this._onClose} />}
                 </Flex>
@@ -59,7 +59,7 @@ export class ModalComponent {
 
     private _renderButtons = () => {
         return (
-            <Flex row right middle className="modal__container__buttons">
+            <Flex row right middle class="modal__container__buttons">
                 {this.cancelButton && (
                     <glyph-button
                         interface={this.interface}
@@ -79,8 +79,8 @@ export class ModalComponent {
     render() {
         return (
             this.visible && (
-                <Flex middle center className="modal__wrapper animated fadeIn" onClick={this._checkClose}>
-                    <Flex className="modal__container">
+                <Flex middle center class="modal__wrapper animated fadeIn" onClick={this._checkClose}>
+                    <Flex class="modal__container">
                         {(this.modalTitle || this.closeButton) && this._renderHeader()}
                         <slot />
                         {(this.applyButton || this.cancelButton) && this._renderButtons()}

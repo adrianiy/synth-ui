@@ -7,7 +7,7 @@ export function format(first: string, middle: string, last: string): string {
     return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
 }
 
-const _getComponentClosestLanguage = (element: HTMLElement): string => {
+export const getComponentClosestLanguage = (element: HTMLElement): string => {
     const closestElement = element.closest('[lang]') as HTMLElement;
 
     return closestElement != null ? closestElement.lang : 'es';
@@ -23,7 +23,7 @@ const _fetchLocaleStringsForComponent = async (componentName: string, locale: st
 };
 
 export async function getLocaleComponentStrings(requiredI18n: string[], element: HTMLElement): Promise<any> {
-    let componentLanguage = _getComponentClosestLanguage(element);
+    let componentLanguage = getComponentClosestLanguage(element);
 
     try {
         const results = await Promise.all(
@@ -139,8 +139,15 @@ export const getFormatedValues = (cell: Cell) => {
     }
 };
 
-export const cls = (...classNames: string[]) =>
+export const cls = (...classNames: any[]) =>
     classNames
-        .filter(className => className)
-        .map(className => [].concat(className).join(' '))
+        .filter(Boolean)
+        .map(className => {
+            let classNames = className;
+            if (typeof classNames === 'object') {
+                classNames = Object.keys(classNames).filter(key => classNames[key]);
+            }
+
+            return [].concat(classNames).join(' ');
+        })
         .join(' ');

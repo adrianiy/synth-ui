@@ -15,7 +15,7 @@ export class AvatarComponent {
 
     render() {
         return (
-            <Flex row middle center className="avatar">
+            <Flex row middle center class="avatar">
                 {this.image && <img src={this.image} alt={this.name} />}
                 {!this.image && (
                     <h2>

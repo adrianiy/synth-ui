@@ -75,10 +75,10 @@ export class TimelineComponent {
         return events[this.selectedTab].map((group: CalendarGroup) => (
             <Flex>
                 <span class="caption date">{group.date}</span>
-                <Flex className="event__container">
+                <Flex class="event__container">
                     {group.events.map((event: CalendarEvent) => (
-                        <Flex row className="event__wrapper">
-                            <Flex center className="event__wrapper__decoration">
+                        <Flex row class="event__wrapper">
+                            <Flex center class="event__wrapper__decoration">
                                 <div class="line" />
                                 <div class="circle" />
                                 <div class="line" />
@@ -97,9 +97,9 @@ export class TimelineComponent {
 
     render() {
         return (
-            <Flex className="timeline__container">
+            <Flex class="timeline__container">
                 <glyph-title titleText="Timeline" />
-                <Flex row spaced middle className="timeline__options">
+                <Flex row spaced middle class="timeline__options">
                     <glyph-selector
                         options={this.options}
                         interface={this.interface}

@@ -6,6 +6,8 @@ export type {
     SelectedFilter,
     FilterOption,
     FilterOptionHeader,
+    DateRange,
+    DateFilter,
 } from './filters';
 export type { Cell } from './common';
 export type { Store } from './store';

@@ -71,8 +71,8 @@ export class ToasterComponent {
     render() {
         return (
             this.visible && (
-                <Flex row middle center className="toaster__wrapper">
-                    <Flex className={cls('toaster__container', 'animated fadeInDown', this.ttype)}>
+                <Flex row middle center class="toaster__wrapper">
+                    <Flex class={cls('toaster__container', 'animated fadeInDown', this.ttype)}>
                         <Flex row middle>
                             <Icon icon={this.icon} />
                             <span>{this.text}</span>

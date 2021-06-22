@@ -1,9 +1,12 @@
-import { FilterConfig, FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models';
+import { ComparableType } from '../../enums';
+import { FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models';
 import {
     checkCleanIfMultiSelectChanges,
     cleanSelected,
+    cleanSelectedDate,
     getCompType,
     isFilterActive,
+    selectDateAux,
     selectOptionAux,
     translateDescription,
 } from '../utils/filter.utils';
@@ -12,7 +15,10 @@ import { checkRelations, filterRestrictedOptions } from '../utils/related.utils'
 export const selectOption = (selected: FilterSelectEvent) => (state: FiltersState) => {
     const { filterCode, option, isDefault } = selected;
     const { filtersConfig } = state;
-    const { filter } = selectOptionAux(filtersConfig[filterCode], { ...option, isDefault });
+    const { filter } =
+        filterCode === 'date'
+            ? selectDateAux(filtersConfig[filterCode], selected)
+            : selectOptionAux(filtersConfig[filterCode], { ...option, isDefault });
 
     return {
         ...state,
@@ -22,8 +28,11 @@ export const selectOption = (selected: FilterSelectEvent) => (state: FiltersStat
 
 export const clearFilter = (filterCode: string) => (state: FiltersState) => {
     const { filtersConfig } = state;
+    const isDate = filterCode === 'date';
 
-    const filter = cleanSelected([ filtersConfig[filterCode] ])[0];
+    const filter = isDate
+        ? cleanSelectedDate(filtersConfig[filterCode])
+        : cleanSelected([ filtersConfig[filterCode] ])[0];
 
     return {
         ...state,
@@ -55,14 +64,14 @@ export const resetOrdinalCompType = (state: FiltersState) => {
     const { filtersConfig } = state;
     const compType = getCompType(filtersConfig);
 
-    if (compType === 'ordinal') {
+    if (compType === ComparableType.ordinal) {
         const platformActive = isFilterActive(filtersConfig, 'platform');
         const countryActive = isFilterActive(filtersConfig, 'country');
 
         if (!platformActive && !countryActive) {
             const date = {
                 ...filtersConfig.date,
-                selected: filtersConfig.date.selected.filter(select => select.type !== 'comp'),
+                selected: filtersConfig.date.selected.slice(0, 1),
             };
             return {
                 ...state,

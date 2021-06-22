@@ -42,7 +42,7 @@ export class RowComponent {
             <div class="row-action__list">
                 <h4>{this.i18n['actions']}</h4>
                 {actions.map(action => (
-                    <Flex row middle spaced className="row-action" onClick={action.action}>
+                    <Flex row middle spaced class="row-action" onClick={action.action}>
                         <span>{action.title}</span>
                         <Icon icon={action.icon} />
                     </Flex>
@@ -55,9 +55,9 @@ export class RowComponent {
         if (actions?.length) {
             return (
                 <div class="row-action__wrapper">
-                    <Flex row middle center className="row-action__container">
+                    <Flex row middle center class="row-action__container">
                         {actions.length === 1 ? (
-                            <Icon className="row-action" icon={actions[0].icon} onClick={actions[0].action} />
+                            <Icon class="row-action" icon={actions[0].icon} onClick={actions[0].action} />
                         ) : (
                             <Icon icon="more_horiz" />
                         )}

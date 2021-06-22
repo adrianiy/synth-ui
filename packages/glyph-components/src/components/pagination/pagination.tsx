@@ -28,7 +28,7 @@ export class PaginationComponent {
             <Flex
                 row
                 middle
-                className={cls(page === this.activePage && 'active', 'pagination__container__page')}
+                class={cls({ active: page === this.activePage }, 'pagination__container__page')}
                 onClick={this._changePage(page)}
             >
                 {page + 1}
@@ -82,7 +82,7 @@ export class PaginationComponent {
         } = this._getPageGroupConfig();
 
         return (
-            <Flex row middle className="pagination__container">
+            <Flex row middle class="pagination__container">
                 {pageArray.slice(initialStart, initialEnd).map(this._renderPage)}
                 {hasLimit && <em class="material-icons">more_horiz</em>}
                 {hasToRenderGroups && this._renderPageGroups()}

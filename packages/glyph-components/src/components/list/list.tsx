@@ -187,17 +187,17 @@ export class ListComponent {
 
                     return (
                         <th>
-                            <Flex row right className="nowrap">
+                            <Flex row right class="nowrap">
                                 {this._i18n[field] || field}
                                 <Icon
                                     button
-                                    className={cls(!isDesc && isSortField && 'active')}
+                                    class={cls({ active: !isDesc && isSortField })}
                                     icon="arrow_upward"
                                     onClick={this._changeSort('asc', field)}
                                 />
                                 <Icon
                                     button
-                                    className={cls(isDesc && isSortField && 'active')}
+                                    class={cls({ active: isDesc && isSortField })}
                                     icon="arrow_downward"
                                     onClick={this._changeSort('desc', field)}
                                 />
@@ -251,14 +251,14 @@ export class ListComponent {
 
     private _renderPagination() {
         return (
-            <Flex row middle spaced className="pagination__container">
+            <Flex row middle spaced class="pagination__container">
                 <div>{this._renderPages()}</div>
-                <Flex row middle className="actions">
+                <Flex row middle class="actions">
                     <span class="view-all" onClick={this._toggleShowAll()} role="button">
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>
                     {this.enableDownload && (
-                        <Icon className="download" button icon="get_app" onClick={this._downloadExcel} />
+                        <Icon class="download" button icon="get_app" onClick={this._downloadExcel} />
                     )}
                 </Flex>
             </Flex>
@@ -287,7 +287,7 @@ export class ListComponent {
         const showData = !this.loading && this.parsedList.length;
 
         return (
-            <Flex className="country__container">
+            <Flex class="country__container">
                 {showData ? this._renderTable() : this._renderNoData()}
                 {showData ? this._renderPagination() : null}
             </Flex>

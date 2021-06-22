@@ -100,12 +100,12 @@ export class HeaderComponent {
 
     private _renderShare = () => {
         return (
-            <Flex row middle center className="widget__container">
+            <Flex row middle center class="widget__container">
                 <div class="share" onClick={this._toggleShareMenu()}>
                     <div class="square">
                         <div class="square--bite" />
                     </div>
-                    <Icon icon="reply" className="share" />
+                    <Icon icon="reply" class="share" />
                 </div>
                 {this.showShareMenu && (
                     <glyph-share-menu
@@ -127,7 +127,7 @@ export class HeaderComponent {
 
     private _renderMenu = () => {
         return (
-            <Flex row middle center className="widget__container">
+            <Flex row middle center class="widget__container">
                 <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
                 {this.showAppsMenu && (
                     <glyph-app-menu
@@ -147,7 +147,7 @@ export class HeaderComponent {
 
     private _renderAvatar = () => {
         return (
-            <Flex row middle center className="widget__container">
+            <Flex row middle center class="widget__container">
                 <glyph-avatar {...this.userData} onClick={this._toggleShowUserMenu()} />
                 {this.showUserMenu && (
                     <glyph-user-menu
@@ -169,7 +169,7 @@ export class HeaderComponent {
     private _renderTimelineSidebar = () => {
         return (
             <Flex
-                className={cls(
+                class={cls(
                     'widget__menu widget__menu--sidebar animated',
                     this.interface === UIInterface.classic ? 'fadeInRight' : 'fadeIn',
                 )}
@@ -187,10 +187,10 @@ export class HeaderComponent {
 
     render() {
         return (
-            <Flex row spaced middle className={cls('header__container', this.interface)}>
-                <Flex row middle className="header--left">
+            <Flex row spaced middle class={cls('header__container', this.interface)}>
+                <Flex row middle class="header--left">
                     <img
-                        class={cls(this.brand && 'clickable')}
+                        class={cls({ clickable: this.brand })}
                         src={getAssetPath(`./assets/brands/icon_${this.activeBrand}.svg`)}
                     />
                     <Flex left>

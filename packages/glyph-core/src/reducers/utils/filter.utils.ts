@@ -1,7 +1,8 @@
 // check if some code array is strictly included in some other option array.
 
-import { FilterOption } from '../../models';
-import { FilterConfig, FilterOptionHeader, FiltersConfig, SelectedFilter } from '../../models/filters';
+import { ComparableType } from '../../enums';
+import { FilterOption, FilterSelectEvent } from '../../models';
+import { DateFilter, FilterConfig, FilterOptionHeader, FiltersConfig, SelectedFilter } from '../../models/filters';
 import { checkStrictIn } from '../../utils/utils';
 
 export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) => {
@@ -9,6 +10,17 @@ export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) =>
         filter: addNewFilter(filter, option),
         option: { ...option, active: true },
     };
+};
+
+export const selectDateAux = (filter: DateFilter, selected: FilterSelectEvent) => {
+    const { startDate, endDate, isDefault, description } = selected;
+    const { comparableType, comparableStartDate, comparableEndDate } = selected;
+
+    filter.selected = [ { startDate, endDate, isDefault, description } ];
+    filter.compDates = [ { startDate: comparableStartDate, endDate: comparableEndDate } ];
+    filter.comparableType = comparableType;
+
+    return { filter: filter };
 };
 
 /**
@@ -40,6 +52,14 @@ export const cleanSelected = (filters: any) => {
     });
 };
 
+export const cleanSelectedDate = (filter: DateFilter) => {
+    filter.selected = filter.dateRanges?.filter(({ isDefault }) => isDefault) || [];
+    filter.compDates = [];
+    filter.comparableType = ComparableType.commercial;
+
+    return filter;
+};
+
 /**
  * If filter changes to single select and has multiple options active we need to clean selected options
  */
@@ -58,30 +78,16 @@ export const checkCleanIfMultiSelectChanges = (filter: FilterConfig) => {
  */
 export const addNewFilter = (filter: FilterConfig, option: SelectedFilter) => {
     const { key } = filter;
-    const isDate = key === 'date';
 
-    if (isDate) {
-        return _selectDate(filter, option);
-    } else {
-        return _selectFilter(filter, option);
-    }
+    return _selectFilter(filter, option);
 };
 
 export const getCompType = (filters: FiltersConfig) => {
-    return filters.date?.selected[1]?.compType || 'commercial';
+    return filters.date?.comparableType || 'commercial';
 };
 
 export const isFilterActive = (filters: FiltersConfig, filterCode: string) => {
     return filters[filterCode]?.selected?.length > 0;
-};
-
-const _selectDate = (filter: FilterConfig, option: SelectedFilter) => {
-    return {
-        ...filter,
-        selected: [ option ],
-        compDates: undefined,
-        compType: 'commercial',
-    };
 };
 
 const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOptionHeader, multiSelect: boolean) => {

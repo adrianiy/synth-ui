@@ -1,0 +1,71 @@
+import { html } from 'lit-html';
+import dayjs from 'dayjs';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+
+export const Template = ({ minDate, maxDate, minDateAux, maxDateAux, startDate, endDate, startDateAux, endDateAux, months, singleSelect, secondary }) => {
+    return html` <glyph-calendar .minDate=${minDate} .maxDate=${maxDate} .minDateAux=${minDateAux} .maxDateAux=${maxDateAux} .startDate=${startDate} .endDate=${endDate} .startDateAux=${startDateAux} .endDateAux=${endDateAux} months=${months} .singleSelect=${singleSelect} secondary=${secondary} /> `;
+};
+
+<Meta
+    title="Components/Calendar"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+# Calendar
+##### glyph-calendar
+
+This component is used to display selectable dates in calendar form.
+
+It will display as many months as you specify in **months** attribute.
+
+Each month is displayed as table of days.
+
+You can set a minimum and maximum available dates to select, everythin in between will be availble to
+select as range of days or as a **singleSelect**.
+
+### Range selection
+
+By default users can select a date range between availbale dates.
+
+<Canvas>
+    <Story name="Range" args={{ minDate, maxDate, startDate, endDate, startDateAux: null, endDateAux: null, months: 2, secondary: false }}>{Template.bind({})}</Story>
+</Canvas>
+
+### Single day selection
+
+If `singleSelect` flag is true days will be selected with a single click.
+
+<Canvas>
+    <Story name="Single" args={{ minDate, maxDate, startDate, endDate, startDateAux: null, endDateAux: null, months: 2, secondary: false, singleSelect: true }}>{Template.bind({})}</Story>
+</Canvas>
+
+
+### Multiple ranges
+
+If `startDateAux` and `endDateAux` are active two range selections will be displayed. If calendar has secondary flag active the selections will be displayed in orange, this is used in drive applications to display custom comparable selections.
+
+<Canvas>
+    <Story name="Multiple secondary active" args={{ minDate, maxDate, minDateAux, maxDateAux, startDate, endDate, startDateAux, endDateAux, months: 2, secondary: true }}>{Template.bind({})}</Story>
+</Canvas>
+
+If `secondary` flag is false primary dates will be selectable and aux dates will be displayes with more opacity.
+
+<Canvas>
+    <Story name="Multiple primary active" args={{ minDate, maxDate, minDateAux, maxDateAux, startDate, endDate, startDateAux, endDateAux, months: 2, secondary: false }}>{Template.bind({})}</Story>
+</Canvas>
+
+---
+
+<Description>
+    { notes }
+</Description>
+
+export const minDate = dayjs().startOf('year').toDate();
+export const maxDate = dayjs().add(1, 'day').endOf('day').toDate();
+export const minDateAux = dayjs().startOf('year').subtract(1, 'year').toDate();
+export const maxDateAux = dayjs().add(1, 'day').endOf('day').toDate();
+export const startDate = dayjs().toDate();
+export const endDate = dayjs().toDate();
+export const startDateAux = dayjs().subtract(1, 'day').toDate();
+export const endDateAux = dayjs().subtract(1, 'day').toDate();

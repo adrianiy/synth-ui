@@ -25,11 +25,13 @@ export class ButtonComponent {
             <button
                 class={cls(
                     'button__wrapper',
-                    this.text && 'text',
-                    this.icon && 'icon',
+                    {
+                        'text': this.text,
+                        'icon': this.icon,
+                        'cancel': this.cancel,
+                        'only-text': this.onlyText,
+                    },
                     this.interface,
-                    this.cancel && 'cancel',
-                    this.onlyText && 'only-text',
                 )}
             >
                 {this.text && this.text}

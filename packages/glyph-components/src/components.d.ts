@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComplexSelectorOptions, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectedFilter, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -122,6 +122,52 @@ export namespace Components {
          */
         "size": ButtonGroupStyle;
     }
+    interface GlyphCalendar {
+        /**
+          * Selected end date
+         */
+        "endDate": Date;
+        /**
+          * Secondary selected end date
+         */
+        "endDateAux": Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDate": Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDateAux": Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDate": Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDateAux": Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months": number;
+        /**
+          * Secondary selection. Shows selection in orange
+         */
+        "secondary": boolean;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect": boolean;
+        /**
+          * Selected start date
+         */
+        "startDate": Date;
+        /**
+          * Secondary selected start date
+         */
+        "startDateAux": Date;
+    }
     interface GlyphChipsbar {
         /**
           * Filters configuration object
@@ -135,6 +181,76 @@ export namespace Components {
           * Interface type [ 'MODERN', 'CLASSIC' ]
          */
         "interface": UIInterface;
+    }
+    interface GlyphDateFilter {
+        /**
+          * Active flag
+         */
+        "active": boolean;
+        /**
+          * Selected comparable end date
+         */
+        "comparableEndDate": Date;
+        /**
+          * Comparable options
+         */
+        "comparableOptions": SelectorOption[];
+        /**
+          * Selected comparable start date
+         */
+        "comparableStartDate": Date;
+        /**
+          * Comparabel type
+         */
+        "comparableType": ComparableType;
+        /**
+          * Optional date ranges
+         */
+        "dateRanges": DateRange[];
+        /**
+          * Filter description
+         */
+        "description": string;
+        /**
+          * Selected end date
+         */
+        "endDate": Date;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Maximum available comp date
+         */
+        "maxComparableDate": Date;
+        /**
+          * Maximum available date
+         */
+        "maxDate": Date;
+        /**
+          * Minimum available comp date
+         */
+        "minComparableDate": Date;
+        /**
+          * Minimum available date
+         */
+        "minDate": Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months": number;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect": boolean;
+        /**
+          * Selected start date
+         */
+        "startDate": Date;
     }
     interface GlyphFilter {
         /**
@@ -169,10 +285,6 @@ export namespace Components {
           * Search placeholder
          */
         "searchPlaceholder": string;
-        /**
-          * Filter selected
-         */
-        "selected": SelectedFilter[];
     }
     interface GlyphFilterOptions {
         /**
@@ -253,10 +365,6 @@ export namespace Components {
           * Vertical align = middle
          */
         "middle": boolean;
-        /**
-          * On click event
-         */
-        "onClickEvent": (event: any) => any;
         /**
           * Horizontal align = right
          */
@@ -358,6 +466,10 @@ export namespace Components {
          */
         "box": boolean;
         /**
+          * Flag to disable input
+         */
+        "disabled": boolean;
+        /**
           * Style input as an error
          */
         "error": boolean;
@@ -366,6 +478,14 @@ export namespace Components {
          */
         "inputType": string;
         /**
+          * Maximum availabla for inputs (dates or ranges)
+         */
+        "max": string;
+        /**
+          * Minimum available for inputs (dates or ranges)
+         */
+        "min": string;
+        /**
           * Placeholder
          */
         "placeholder": string;
@@ -373,6 +493,10 @@ export namespace Components {
           * Search flag, renders a search icon if `box` is false
          */
         "search": boolean;
+        /**
+          * Input value
+         */
+        "value": any;
     }
     interface GlyphList {
         /**
@@ -912,11 +1036,23 @@ declare global {
         prototype: HTMLGlyphButtonGroupElement;
         new (): HTMLGlyphButtonGroupElement;
     };
+    interface HTMLGlyphCalendarElement extends Components.GlyphCalendar, HTMLStencilElement {
+    }
+    var HTMLGlyphCalendarElement: {
+        prototype: HTMLGlyphCalendarElement;
+        new (): HTMLGlyphCalendarElement;
+    };
     interface HTMLGlyphChipsbarElement extends Components.GlyphChipsbar, HTMLStencilElement {
     }
     var HTMLGlyphChipsbarElement: {
         prototype: HTMLGlyphChipsbarElement;
         new (): HTMLGlyphChipsbarElement;
+    };
+    interface HTMLGlyphDateFilterElement extends Components.GlyphDateFilter, HTMLStencilElement {
+    }
+    var HTMLGlyphDateFilterElement: {
+        prototype: HTMLGlyphDateFilterElement;
+        new (): HTMLGlyphDateFilterElement;
     };
     interface HTMLGlyphFilterElement extends Components.GlyphFilter, HTMLStencilElement {
     }
@@ -1080,7 +1216,9 @@ declare global {
         "glyph-avatar": HTMLGlyphAvatarElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
+        "glyph-calendar": HTMLGlyphCalendarElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
+        "glyph-date-filter": HTMLGlyphDateFilterElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
         "glyph-flex": HTMLGlyphFlexElement;
@@ -1220,6 +1358,60 @@ declare namespace LocalJSX {
          */
         "size"?: ButtonGroupStyle;
     }
+    interface GlyphCalendar {
+        /**
+          * Selected end date
+         */
+        "endDate"?: Date;
+        /**
+          * Secondary selected end date
+         */
+        "endDateAux"?: Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDate"?: Date;
+        /**
+          * Maximum allowed date
+         */
+        "maxDateAux"?: Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDate"?: Date;
+        /**
+          * Minimum allowed date
+         */
+        "minDateAux"?: Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months"?: number;
+        /**
+          * Event triggered on date selection
+         */
+        "onDateSelect"?: (event: CustomEvent<{ startDate: Date; endDate: Date; comparableType?: ComparableType }>) => void;
+        /**
+          * Event triggered on aux date selection
+         */
+        "onDateSelectAux"?: (event: CustomEvent<{ startDate: Date; endDate: Date }>) => void;
+        /**
+          * Secondary selection. Shows selection in orange
+         */
+        "secondary"?: boolean;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect"?: boolean;
+        /**
+          * Selected start date
+         */
+        "startDate"?: Date;
+        /**
+          * Secondary selected start date
+         */
+        "startDateAux"?: Date;
+    }
     interface GlyphChipsbar {
         /**
           * Filters configuration object
@@ -1249,6 +1441,84 @@ declare namespace LocalJSX {
           * Filter multiselect event
          */
         "onUpdateFilter"?: (event: CustomEvent<FilterUpdateEvent>) => void;
+    }
+    interface GlyphDateFilter {
+        /**
+          * Active flag
+         */
+        "active"?: boolean;
+        /**
+          * Selected comparable end date
+         */
+        "comparableEndDate"?: Date;
+        /**
+          * Comparable options
+         */
+        "comparableOptions"?: SelectorOption[];
+        /**
+          * Selected comparable start date
+         */
+        "comparableStartDate"?: Date;
+        /**
+          * Comparabel type
+         */
+        "comparableType"?: ComparableType;
+        /**
+          * Optional date ranges
+         */
+        "dateRanges"?: DateRange[];
+        /**
+          * Filter description
+         */
+        "description"?: string;
+        /**
+          * Selected end date
+         */
+        "endDate"?: Date;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Maximum available comp date
+         */
+        "maxComparableDate"?: Date;
+        /**
+          * Maximum available date
+         */
+        "maxDate"?: Date;
+        /**
+          * Minimum available comp date
+         */
+        "minComparableDate"?: Date;
+        /**
+          * Minimum available date
+         */
+        "minDate"?: Date;
+        /**
+          * Number of months to be shown. 2 by default
+         */
+        "months"?: number;
+        /**
+          * Clear selected filters callback
+         */
+        "onClearEvent"?: (event: CustomEvent<any>) => void;
+        /**
+          * Date selection event
+         */
+        "onDateSelection"?: (event: CustomEvent<FilterSelectEvent>) => void;
+        /**
+          * Allow single day selection
+         */
+        "singleSelect"?: boolean;
+        /**
+          * Selected start date
+         */
+        "startDate"?: Date;
     }
     interface GlyphFilter {
         /**
@@ -1295,10 +1565,6 @@ declare namespace LocalJSX {
           * Search placeholder
          */
         "searchPlaceholder"?: string;
-        /**
-          * Filter selected
-         */
-        "selected"?: SelectedFilter[];
     }
     interface GlyphFilterOptions {
         /**
@@ -1379,10 +1645,6 @@ declare namespace LocalJSX {
           * Vertical align = middle
          */
         "middle"?: boolean;
-        /**
-          * On click event
-         */
-        "onClickEvent"?: (event: any) => any;
         /**
           * Horizontal align = right
          */
@@ -1496,6 +1758,10 @@ declare namespace LocalJSX {
          */
         "box"?: boolean;
         /**
+          * Flag to disable input
+         */
+        "disabled"?: boolean;
+        /**
           * Style input as an error
          */
         "error"?: boolean;
@@ -1504,13 +1770,21 @@ declare namespace LocalJSX {
          */
         "inputType"?: string;
         /**
+          * Maximum availabla for inputs (dates or ranges)
+         */
+        "max"?: string;
+        /**
+          * Minimum available for inputs (dates or ranges)
+         */
+        "min"?: string;
+        /**
           * Enter key event
          */
         "onEnterKey"?: (event: CustomEvent<any>) => void;
         /**
           * Text change event
          */
-        "onTextChange"?: (event: CustomEvent<string>) => void;
+        "onInputChange"?: (event: CustomEvent<string>) => void;
         /**
           * Placeholder
          */
@@ -1519,6 +1793,10 @@ declare namespace LocalJSX {
           * Search flag, renders a search icon if `box` is false
          */
         "search"?: boolean;
+        /**
+          * Input value
+         */
+        "value"?: any;
     }
     interface GlyphList {
         /**
@@ -1938,7 +2216,7 @@ declare namespace LocalJSX {
         /**
           * Option change event
          */
-        "onOptionChange"?: (event: CustomEvent<{ option: any, value: number }>) => void;
+        "onOptionChange"?: (event: CustomEvent<{ option: any; value: number }>) => void;
         /**
           * Slider options
          */
@@ -2084,7 +2362,9 @@ declare namespace LocalJSX {
         "glyph-avatar": GlyphAvatar;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
+        "glyph-calendar": GlyphCalendar;
         "glyph-chipsbar": GlyphChipsbar;
+        "glyph-date-filter": GlyphDateFilter;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
         "glyph-flex": GlyphFlex;
@@ -2122,7 +2402,9 @@ declare module "@stencil/core" {
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
+            "glyph-calendar": LocalJSX.GlyphCalendar & JSXBase.HTMLAttributes<HTMLGlyphCalendarElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
+            "glyph-date-filter": LocalJSX.GlyphDateFilter & JSXBase.HTMLAttributes<HTMLGlyphDateFilterElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
             "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;

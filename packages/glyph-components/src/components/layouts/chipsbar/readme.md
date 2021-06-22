@@ -28,14 +28,23 @@
 
 ### Depends on
 
-- [glyph-filter](../filter)
-- [glyph-button](../button)
+- [glyph-date-filter](../../date-filter)
+- [glyph-filter](../../filter)
+- [glyph-button](../../button)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-chipsbar --> glyph-date-filter
   glyph-chipsbar --> glyph-filter
   glyph-chipsbar --> glyph-button
+  glyph-date-filter --> glyph-scroll
+  glyph-date-filter --> glyph-calendar
+  glyph-date-filter --> glyph-selector
+  glyph-date-filter --> glyph-input
+  glyph-date-filter --> glyph-button
+  glyph-selector --> glyph-selector-options
+  glyph-selector-options --> glyph-input
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler

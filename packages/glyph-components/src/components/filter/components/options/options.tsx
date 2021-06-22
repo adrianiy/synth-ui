@@ -1,4 +1,4 @@
-import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
+import { Component, Element, Prop, State, h } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
@@ -39,13 +39,6 @@ export class FilterOptionsComponent {
     @State() ps: PerfectScrollbar;
 
     private _i18n: any;
-
-    @Listen('click', { target: 'window' })
-    clickOutside(event: any) {
-        if (!event.composedPath().includes(this.element)) {
-            this.closeEvent();
-        }
-    }
 
     componentDidRender() {
         setTimeout(() => this.ps?.update(), 300);
@@ -114,14 +107,14 @@ export class FilterOptionsComponent {
                 box
                 placeholder={this.searchPlaceholder}
                 onEnterKey={this._handleKeyUp}
-                onTextChange={this._handleInputChange}
+                onInputChange={this._handleInputChange}
             />
         );
     };
 
     private _renderMultiSelect = () => {
         return (
-            <Flex row spaced middle className="operation">
+            <Flex row spaced middle class="operation">
                 {this.interface === UIInterface.classic ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
@@ -145,12 +138,13 @@ export class FilterOptionsComponent {
 
     private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
         const childInSearch = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInSearch) || filterQuantity === 1;
+        const anyActive = option.children.some(child => child.active);
+        const expanded = option.expanded || (this.searchValue && childInSearch) || anyActive || filterQuantity === 1;
 
         return (
             childInSearch && (
-                <Flex className="children__container">
-                    <Flex row className={cls('children--header', expanded && 'expanded')}>
+                <Flex class="children__container">
+                    <Flex row class={cls('children--header', { expanded })}>
                         <span>{expanded ? '- ' : '+ '}</span>
                         <span>{this._renderOptionDescription(option.description)}</span>
                     </Flex>
@@ -172,7 +166,7 @@ export class FilterOptionsComponent {
                             row
                             spaced
                             onClick={this._optionClick(option)}
-                            className={cls('option', option.active && 'active')}
+                            class={cls('option', { active: option.active })}
                         >
                             {option.header
                                 ? this._renderOptionHeader(option, renderableOptions.length)
@@ -187,7 +181,7 @@ export class FilterOptionsComponent {
 
     render() {
         return (
-            <Flex className={cls('filter-options__container', this.interface)}>
+            <Flex class={cls('filter-options__container', this.interface)}>
                 {this.interface === UIInterface.modern ? (
                     <Flex row spaced>
                         <h3>{this.description}</h3>
