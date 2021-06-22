@@ -1,5 +1,5 @@
 import { h, Component, Element, Event, EventEmitter, Prop, Host, State, Listen } from '@stencil/core';
-import { DateRange, DateSelectionEvent, ComparableType, UIInterface, SelectorOption } from 'glyph-core';
+import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
@@ -52,11 +52,7 @@ export class DateFilterComponent {
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Date selection event */
-    @Event() dateSelection: EventEmitter<DateSelectionEvent>;
-    /** Date selection event */
-    @Event() comparableDateSelection: EventEmitter<DateSelectionEvent>;
-    /** Comparable type change event */
-    @Event() comparableChange: EventEmitter<ComparableType>;
+    @Event() dateSelection: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */
     @Event() clearEvent: EventEmitter<any>;
     /** Element reference */
@@ -107,16 +103,25 @@ export class DateFilterComponent {
     };
 
     private _selectRange = (dateRange: DateRange) => () => {
-        this.dateSelection.emit(dateRange);
+        this._selectDate({ detail: dateRange } as any);
+    };
+
+    private _selectDate = ({
+        detail: { startDate, endDate, comparableType, ...rest },
+    }: CustomEvent<FilterSelectEvent>) => {
+        const event = {
+            startDate,
+            endDate,
+            comparableStartDate: this.comparableStartDate,
+            comparableEndDate: this.comparableEndDate,
+            comparableType: comparableType || this.comparableType,
+            ...rest,
+        };
+        this.dateSelection.emit(event);
         this.expanded = false;
     };
 
-    private _selectDate = ({ detail: { startDate, endDate } }: CustomEvent<DateSelectionEvent>) => {
-        this.dateSelection.emit({ startDate, endDate });
-        this.expanded = false;
-    };
-
-    private _selectCompDate = ({ detail: { startDate, endDate } }: CustomEvent<DateSelectionEvent>) => {
+    private _selectCompDate = ({ detail: { startDate, endDate } }: CustomEvent<FilterSelectEvent>) => {
         this.comparableStartDate = startDate;
         this.comparableEndDate = endDate;
     };
@@ -175,11 +180,10 @@ export class DateFilterComponent {
                 endDate: this.endDate,
             },
         } as any);
-        this.comparableDateSelection.emit({ startDate: this.comparableStartDate, endDate: this.comparableEndDate });
-        this.comparableChange.emit(this.comparableType);
     };
 
     private _renderDateRanges = () => {
+        console.log(this.description);
         return (
             this.dateRanges && (
                 <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="date-filter__date-ranges">
@@ -335,6 +339,7 @@ export class DateFilterComponent {
         const description =
             this.description ||
             `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
+        console.log(description);
 
         return (
             <Host>
@@ -351,7 +356,7 @@ export class DateFilterComponent {
                     )}
                     onClick={this._expandFilter}
                 >
-                    <span>{description}</span>
+                    <span>{this._i18n[description]}</span>
                     <Icon
                         onClick={active ? this._onClear : null}
                         icon={

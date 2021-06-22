@@ -7,15 +7,13 @@ export interface ToasterEvent {
     icon: string;
 }
 
-export interface DateSelectionEvent {
-    startDate: Date;
-    endDate: Date;
-    description?: string;
-    isDefault?: boolean;
-}
-
 export interface FilterSelectEvent {
-    option: FilterOptionHeader;
+    option?: FilterOptionHeader;
+    startDate?: Date;
+    endDate?: Date;
+    comparableStartDate?: Date;
+    comparableEndDate?: Date;
+    description?: string;
     comparableType?: ComparableType;
     filterCode?: string;
     isDefault?: boolean;

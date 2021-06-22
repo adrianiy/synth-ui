@@ -3,8 +3,10 @@ import { FilterSelectEvent, FiltersState, FilterUpdateEvent } from '../../models
 import {
     checkCleanIfMultiSelectChanges,
     cleanSelected,
+    cleanSelectedDate,
     getCompType,
     isFilterActive,
+    selectDateAux,
     selectOptionAux,
     translateDescription,
 } from '../utils/filter.utils';
@@ -13,7 +15,10 @@ import { checkRelations, filterRestrictedOptions } from '../utils/related.utils'
 export const selectOption = (selected: FilterSelectEvent) => (state: FiltersState) => {
     const { filterCode, option, isDefault } = selected;
     const { filtersConfig } = state;
-    const { filter } = selectOptionAux(filtersConfig[filterCode], { ...option, isDefault });
+    const { filter } =
+        filterCode === 'date'
+            ? selectDateAux(filtersConfig[filterCode], selected)
+            : selectOptionAux(filtersConfig[filterCode], { ...option, isDefault });
 
     return {
         ...state,
@@ -23,8 +28,11 @@ export const selectOption = (selected: FilterSelectEvent) => (state: FiltersStat
 
 export const clearFilter = (filterCode: string) => (state: FiltersState) => {
     const { filtersConfig } = state;
+    const isDate = filterCode === 'date';
 
-    const filter = cleanSelected([ filtersConfig[filterCode] ])[0];
+    const filter = isDate
+        ? cleanSelectedDate(filtersConfig[filterCode])
+        : cleanSelected([ filtersConfig[filterCode] ])[0];
 
     return {
         ...state,

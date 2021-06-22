@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, DateSelectionEvent, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -1390,7 +1390,7 @@ declare namespace LocalJSX {
         /**
           * Event triggered on date selection
          */
-        "onDateSelect"?: (event: CustomEvent<{ startDate: Date; endDate: Date }>) => void;
+        "onDateSelect"?: (event: CustomEvent<{ startDate: Date; endDate: Date; comparableType?: ComparableType }>) => void;
         /**
           * Event triggered on aux date selection
          */
@@ -1429,18 +1429,6 @@ declare namespace LocalJSX {
           * Clear all filters event
          */
         "onClearAll"?: (event: CustomEvent<any>) => void;
-        /**
-          * Comparable type change event
-         */
-        "onComparableChange"?: (event: CustomEvent<ComparableType>) => void;
-        /**
-          * Date selection event
-         */
-        "onComparableDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
-        /**
-          * Date selection event
-         */
-        "onDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
         /**
           * Filter clear event
          */
@@ -1520,17 +1508,9 @@ declare namespace LocalJSX {
          */
         "onClearEvent"?: (event: CustomEvent<any>) => void;
         /**
-          * Comparable type change event
-         */
-        "onComparableChange"?: (event: CustomEvent<ComparableType>) => void;
-        /**
           * Date selection event
          */
-        "onComparableDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
-        /**
-          * Date selection event
-         */
-        "onDateSelection"?: (event: CustomEvent<DateSelectionEvent>) => void;
+        "onDateSelection"?: (event: CustomEvent<FilterSelectEvent>) => void;
         /**
           * Allow single day selection
          */

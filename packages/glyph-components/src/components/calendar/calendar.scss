@@ -74,6 +74,10 @@
                         background-color: var(--gui-color--lighter);
                         opacity: .7;
                     }
+                    &:not(.selectable) {
+                        background-color: transparent;
+                        color: var(--gui-color);
+                    }
                 }
                 &.in-range:not(.disabled) {
                     background-color: var(--active-bg);

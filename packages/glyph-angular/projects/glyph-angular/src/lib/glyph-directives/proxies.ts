@@ -142,17 +142,11 @@ export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['filtersConfig', 'i18n', 'interface'],
-  outputs: ['filterSelect', 'dateSelection', 'comparableDateSelection', 'comparableChange', 'filterClear', 'updateFilter', 'clearAll']
+  outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
   /** Filter select event */
   filterSelect!: IChipsBarComponent['filterSelect'];
-  /** Date selection event */
-  dateSelection!: IChipsBarComponent['dateSelection'];
-  /** Date selection event */
-  comparableDateSelection!: IChipsBarComponent['comparableDateSelection'];
-  /** Comparable type change event */
-  comparableChange!: IChipsBarComponent['comparableChange'];
   /** Filter clear event */
   filterClear!: IChipsBarComponent['filterClear'];
   /** Filter multiselect event */
@@ -163,7 +157,7 @@ export class GlyphChipsbar {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['filterSelect', 'dateSelection', 'comparableDateSelection', 'comparableChange', 'filterClear', 'updateFilter', 'clearAll']);
+    proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']);
   }
 }
 
@@ -177,22 +171,18 @@ export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
-  outputs: ['dateSelection', 'comparableDateSelection', 'comparableChange', 'clearEvent']
+  outputs: ['dateSelection', 'clearEvent']
 })
 export class GlyphDateFilter {
   /** Date selection event */
   dateSelection!: IDateFilterComponent['dateSelection'];
-  /** Date selection event */
-  comparableDateSelection!: IDateFilterComponent['comparableDateSelection'];
-  /** Comparable type change event */
-  comparableChange!: IDateFilterComponent['comparableChange'];
   /** Clear selected filters callback */
   clearEvent!: IDateFilterComponent['clearEvent'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['dateSelection', 'comparableDateSelection', 'comparableChange', 'clearEvent']);
+    proxyOutputs(this, this.el, ['dateSelection', 'clearEvent']);
   }
 }
 

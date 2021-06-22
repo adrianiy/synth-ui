@@ -4,7 +4,7 @@ import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 import dayjs from 'dayjs';
 
-export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='modern' @filterSelect=${optionClickEvent} @dateSelection=${dateSelect} @comparableDateSelection=${compDateSelect} @comparableChange=${comparableChange} @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
+export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='modern' @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
 
 <Meta title="Layout/Chipsbar/Modern" parameters={{ viewMode: 'docs' }} />
 
@@ -35,6 +35,7 @@ export const filter = {
     plural: 'filters',
     haveMultiSelect: false,
     multiSelect: false,
+    visible: true,
     selected: [],
     options: [
         { description: 'option', active: false, display: true, code: 1 },
@@ -50,6 +51,7 @@ export const filterWithChildren = {
     multiSelect: false,
     selected: [],
     searchPlaceholder: 'Search filters...',
+    visible: true,
     options: [
         {
         description: 'header', display: true, header: true, code: 88, children: [
@@ -85,6 +87,7 @@ export const dateFilter = {
     minDate,
     maxDate,
     dateRanges,
+    visible: true,
     comparableType: 'commercial',
     comparableOptions: [
         { name: 'Commercial', value: 'commercial' },
@@ -101,14 +104,16 @@ export const filtersConfig = {
 }
 
 export const optionClickEvent = (event) => {
+    const filterCode = event.detail.filterCode;
+    if (filterCode === 'date') {
+        return dateSelect(event);
+    }
     const code = event.detail.option.code;
     const header = event.detail.option.header;
-    const filterCode = event.detail.filterCode;
     const filtersConfig = event.target.filtersConfig;
     const filter = filtersConfig[filterCode];
     let index = filter.options.findIndex(option => option.code === code);
     let subindex = -1;
-    
     if (index === -1) {
         index = filter.options.findIndex(option => option.children?.some(child => child.code === code));
         subindex = filter.options[index].children.findIndex(child => child.code === code);
@@ -169,37 +174,16 @@ export const optionClickEvent = (event) => {
 }
 
 export const dateSelect = (event) => {
-    const { startDate, endDate, description, isDefault } = event.detail;
+    const { startDate, endDate, description, comparableType, comparableStartDate, comparableEndDate, isDefault } = event.detail;
     const selected = [ { startDate, endDate, isDefault }];
+    const compDates = [ { startDate: comparableStartDate, endDate: comparableEndDate } ];
     const filtersConfig = event.target.filtersConfig;
     const date = filtersConfig.date;
     event.target.filtersConfig = {
         ...filtersConfig,
-        date: { ...date, selected, description }
+        date: { ...date, selected, comparableType, compDates, description }
     }
     return null;
-}
-
-export const compDateSelect = (event) => {
-    const { startDate, endDate } = event.detail;
-    const compDates = [ { startDate, endDate }];
-    const filtersConfig = event.target.filtersConfig;
-    const date = filtersConfig.date;
-    event.target.filtersConfig = {
-        ...filtersConfig,
-        date: { ...date, compDates }
-    }
-    return null;
-}
-
-export const comparableChange = (event) => {
-    const comparableType = event.detail;
-    const filtersConfig = event.target.filtersConfig;
-    const date = filtersConfig.date;
-    event.target.filtersConfig = {
-        ...filtersConfig,
-        date: { ...date, comparableType }
-    }
 }
 
 export const clearEvent = (event) => {

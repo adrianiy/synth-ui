@@ -30,12 +30,10 @@
 
 ## Events
 
-| Event                     | Description                     | Type                                                                                                                   |
-| ------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `clearEvent`              | Clear selected filters callback | `CustomEvent<any>`                                                                                                     |
-| `comparableChange`        | Comparable type change event    | `CustomEvent<ComparableType.calendar \| ComparableType.commercial \| ComparableType.custom \| ComparableType.ordinal>` |
-| `comparableDateSelection` | Date selection event            | `CustomEvent<DateSelectionEvent>`                                                                                      |
-| `dateSelection`           | Date selection event            | `CustomEvent<DateSelectionEvent>`                                                                                      |
+| Event           | Description                     | Type                             |
+| --------------- | ------------------------------- | -------------------------------- |
+| `clearEvent`    | Clear selected filters callback | `CustomEvent<any>`               |
+| `dateSelection` | Date selection event            | `CustomEvent<FilterSelectEvent>` |
 
 
 ## Dependencies

@@ -5,7 +5,7 @@ import notes from './readme.md';
 import dayjs from 'dayjs';
 
 
-export const Template = args => html`<div style="width: 400px; height: 550px"><glyph-date-filter ...=${spread(args)} interface="modern" @dateSelection=${optionClickEvent} @clearEvent=${clearEvent} /></div>`;
+export const Template = args => html`<div style="width: 400px; height: 550px"><glyph-date-filter ...=${spread(args)} @dateSelection=${optionClickEvent} @clearEvent=${clearEvent} interface="modern" /></div>`;
 
 <Meta title="Components/Date filter/Modern" parameters={{ viewMode: 'docs' }} />
 
@@ -64,21 +64,23 @@ export const comparableOptions =[
     { name: 'Ordinal', active: false, value: 'ordinal', disabled: true }
 ];
 export const optionClickEvent = event => {
-    const { detail: { startDate, endDate, description, isDefault } } = event;
+    console.log(event);
+    const { detail: { 
+        startDate, 
+        endDate, 
+        comparableStartDate,
+        comparableEndDate,
+        comparableType, 
+        description, 
+        isDefault 
+    } } = event;
     event.target.active = !isDefault;
     event.target.startDate = startDate;
     event.target.endDate = endDate;
+    event.target.comparableStartDate = comparableStartDate;
+    event.target.comparableEndDate = comparableEndDate;
+    event.target.comparableType = comparableType;
     event.target.description = description;
-}
-export const comparableEvent = event => {
-    const { detail: { startDate, endDate } } = event;
-    console.log(startDate, endDate);
-    event.target.comparableStartDate = startDate;
-    event.target.comparableEndDate = endDate;
-}
-export const comparableChange = event => {
-    const { detail: compType } = event;
-    event.target.comparableType = compType;
 }
 export const clearEvent = event => {
     const { startDate, endDate, description } = dateRanges[1];

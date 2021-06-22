@@ -24,10 +24,10 @@
 
 ## Events
 
-| Event           | Description                           | Type                                               |
-| --------------- | ------------------------------------- | -------------------------------------------------- |
-| `dateSelect`    | Event triggered on date selection     | `CustomEvent<{ startDate: Date; endDate: Date; }>` |
-| `dateSelectAux` | Event triggered on aux date selection | `CustomEvent<{ startDate: Date; endDate: Date; }>` |
+| Event           | Description                           | Type                                                                                |
+| --------------- | ------------------------------------- | ----------------------------------------------------------------------------------- |
+| `dateSelect`    | Event triggered on date selection     | `CustomEvent<{ startDate: Date; endDate: Date; comparableType?: ComparableType; }>` |
+| `dateSelectAux` | Event triggered on aux date selection | `CustomEvent<{ startDate: Date; endDate: Date; }>`                                  |
 
 
 ## Dependencies

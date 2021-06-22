@@ -16,15 +16,12 @@
 
 ## Events
 
-| Event                     | Description                  | Type                                                                                                                   |
-| ------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `clearAll`                | Clear all filters event      | `CustomEvent<any>`                                                                                                     |
-| `comparableChange`        | Comparable type change event | `CustomEvent<ComparableType.calendar \| ComparableType.commercial \| ComparableType.custom \| ComparableType.ordinal>` |
-| `comparableDateSelection` | Date selection event         | `CustomEvent<DateSelectionEvent>`                                                                                      |
-| `dateSelection`           | Date selection event         | `CustomEvent<DateSelectionEvent>`                                                                                      |
-| `filterClear`             | Filter clear event           | `CustomEvent<string>`                                                                                                  |
-| `filterSelect`            | Filter select event          | `CustomEvent<FilterSelectEvent>`                                                                                       |
-| `updateFilter`            | Filter multiselect event     | `CustomEvent<FilterUpdateEvent>`                                                                                       |
+| Event          | Description              | Type                             |
+| -------------- | ------------------------ | -------------------------------- |
+| `clearAll`     | Clear all filters event  | `CustomEvent<any>`               |
+| `filterClear`  | Filter clear event       | `CustomEvent<string>`            |
+| `filterSelect` | Filter select event      | `CustomEvent<FilterSelectEvent>` |
+| `updateFilter` | Filter multiselect event | `CustomEvent<FilterUpdateEvent>` |
 
 
 ## Dependencies

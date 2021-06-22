@@ -1,13 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
-import {
-    DateFilter,
-    FiltersConfig,
-    FilterSelectEvent,
-    FilterUpdateEvent,
-    DateSelectionEvent,
-    UIInterface,
-    ComparableType,
-} from 'glyph-core';
+import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../../utils/layout';
 import { getLocaleComponentStrings } from '../../../utils/utils';
 
@@ -25,12 +17,6 @@ export class ChipsBarComponent {
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
     @Event() filterSelect: EventEmitter<FilterSelectEvent>;
-    /** Date selection event */
-    @Event() dateSelection: EventEmitter<DateSelectionEvent>;
-    /** Date selection event */
-    @Event() comparableDateSelection: EventEmitter<DateSelectionEvent>;
-    /** Comparable type change event */
-    @Event() comparableChange: EventEmitter<ComparableType>;
     /** Filter clear event */
     @Event() filterClear: EventEmitter<string>;
     /** Filter multiselect event */
@@ -55,8 +41,8 @@ export class ChipsBarComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _handleOptionClick = (key: string) => (ev: CustomEvent<FilterSelectEvent>) => {
-        const event = { ...ev.detail, filterCode: key };
+    private _handleOptionClick = (key: string) => ({ detail }: CustomEvent<FilterSelectEvent>) => {
+        const event = { ...detail, filterCode: key };
         this.filterSelect.emit(event);
     };
 
@@ -73,18 +59,6 @@ export class ChipsBarComponent {
         });
     };
 
-    private _handleDateSelect = ({ detail: option }: CustomEvent<DateSelectionEvent>) => {
-        this.dateSelection.emit(option);
-    };
-
-    private _handleComparableDateSelect = ({ detail: option }: CustomEvent<DateSelectionEvent>) => {
-        this.comparableDateSelection.emit(option);
-    };
-
-    private _handleComparableChange = ({ detail: compType }: CustomEvent<ComparableType>) => {
-        this.comparableChange.emit(compType);
-    };
-
     private _handleFilterConfig = () => {
         // TODO: configure filters method
         alert('TODO: configure filters');
@@ -95,14 +69,20 @@ export class ChipsBarComponent {
     };
 
     private _renderDateChip = (dateFilter: DateFilter) => {
+        if (!dateFilter || !dateFilter.visible) {
+            return null;
+        }
         const { comparableType, comparableOptions } = dateFilter;
         const { startDate, endDate, description, isDefault } = dateFilter.selected[0];
         const { startDate: compStartDate, endDate: compEndDate } = dateFilter.compDates?.[0] || {};
 
-        comparableOptions.forEach(opt => (opt.active = opt.value === comparableType));
+        if (comparableOptions) {
+            comparableOptions.forEach(opt => (opt.active = opt.value === comparableType));
+        }
 
         return (
             <glyph-date-filter
+                {...dateFilter}
                 interface={this.interface}
                 startDate={startDate}
                 endDate={endDate}
@@ -112,17 +92,16 @@ export class ChipsBarComponent {
                 active={!isDefault}
                 comparableType={comparableType}
                 comparableOptions={comparableOptions}
-                {...dateFilter}
-                onDateSelection={this._handleDateSelect}
-                onComparableDateSelection={this._handleComparableDateSelect}
-                onComparableChange={this._handleComparableChange}
+                onDateSelection={this._handleOptionClick('date')}
                 onClearEvent={this._handleFilterClear('date')}
             />
         );
     };
 
     private _renderChips = () => {
-        const chips = Object.keys(this.filtersConfig || {}).filter(key => key !== 'date');
+        const chips = Object.keys(this.filtersConfig || {}).filter(
+            key => key !== 'date' && this.filtersConfig[key].visible,
+        );
         const dateFilter = this.filtersConfig.date;
 
         return (

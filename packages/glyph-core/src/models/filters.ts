@@ -5,6 +5,7 @@ export interface DateRange {
     description: string;
     startDate: Date;
     endDate: Date;
+    comparableType?: ComparableType;
     isDefault?: boolean;
 }
 export interface CommonSearch {

@@ -6,13 +6,16 @@ import updateLocale from 'dayjs/plugin/updateLocale';
 import weekDay from 'dayjs/plugin/weekday';
 import isBetween from 'dayjs/plugin/isBetween';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import minMax from 'dayjs/plugin/minMax';
 import 'dayjs/locale/es';
 import 'dayjs/locale/en';
+import { ComparableType } from 'glyph-core';
 
 dayjs.extend(updateLocale);
 dayjs.extend(weekDay);
 dayjs.extend(isBetween);
 dayjs.extend(isSameOrAfter);
+dayjs.extend(minMax);
 
 @Component({
     tag: 'glyph-calendar',
@@ -45,7 +48,7 @@ export class CalendarComponent {
     /** Element reference */
     @Element() element: HTMLGlyphCalendarElement;
     /** Event triggered on date selection */
-    @Event() dateSelect: EventEmitter<{ startDate: Date; endDate: Date }>;
+    @Event() dateSelect: EventEmitter<{ startDate: Date; endDate: Date; comparableType?: ComparableType }>;
     /** Event triggered on aux date selection */
     @Event() dateSelectAux: EventEmitter<{ startDate: Date; endDate: Date }>;
 
@@ -70,13 +73,14 @@ export class CalendarComponent {
         this.currentMonth = this.currentMonth.add(1, 'month');
     };
 
-    private _selectDate = (startDate: Date, endDate: Date) => {
+    private _selectDate = (startDate: Date, endDate: Date, comparableType?: ComparableType) => {
         this.startDate = startDate;
         this.endDate = endDate;
 
         this.dateSelect.emit({
             startDate,
             endDate,
+            comparableType,
         });
     };
 
@@ -92,7 +96,10 @@ export class CalendarComponent {
 
     private _selectMonth = (month: dayjs.Dayjs) => () => {
         if (!this.secondary) {
-            this._selectDate(month.startOf('month').toDate(), month.endOf('month').toDate());
+            const maxDate = dayjs.max(month.endOf('month'), dayjs(this.maxDate));
+            const minDate = dayjs.min(month.startOf('month'), dayjs(this.minDate));
+
+            this._selectDate(minDate.toDate(), maxDate.toDate(), ComparableType.calendar);
         }
     };
 

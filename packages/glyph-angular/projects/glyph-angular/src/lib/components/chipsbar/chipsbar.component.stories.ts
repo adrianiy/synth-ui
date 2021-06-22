@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
 import { FiltersConfig } from '../../helpers/configs';
