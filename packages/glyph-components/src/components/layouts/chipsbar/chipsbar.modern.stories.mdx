@@ -2,8 +2,9 @@ import { html } from 'lit-html';
 import { spread } from '@open-wc/lit-helpers';
 import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
+import dayjs from 'dayjs';
 
-export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='modern' @filterSelect=${optionClickEvent} @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
+export const Template = args => html`<div style="min-height: 200px"><glyph-chipsbar .filtersConfig=${args.filtersConfig} interface='modern' @filterSelect=${optionClickEvent} @dateSelection=${dateSelect} @comparableDateSelection=${compDateSelect} @comparableChange=${comparableChange} @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} /></div>`;
 
 <Meta title="Layout/Chipsbar/Modern" parameters={{ viewMode: 'docs' }} />
 
@@ -67,7 +68,34 @@ export const filterWithChildren = {
     ],
 }
 
+export const year = dayjs().year();
+export const endOfYear = dayjs(new Date(year + 1, 0, 31));
+export const minDate = dayjs(new Date(year, 1, 1));
+export const maxDate = dayjs().add(1, 'day');
+export const dateRanges = [
+        { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate()  },
+        { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
+        { description: 'Yesterday', startDate: dayjs().subtract(1, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+        { description: 'Current fiscal year', startDate: minDate.toDate(), endDate: endOfYear.toDate() },
+        { description: 'Last fiscal year', startDate: minDate.subtract(1, 'year').toDate(), endDate: endOfYear.subtract(1, 'year').toDate() }
+    ];
+export const dateFilter = {
+    minDate,
+    maxDate,
+    dateRanges,
+    comparableType: 'commercial',
+    comparableOptions: [
+        { name: 'Commercial', value: 'commercial' },
+        { name: 'Calendar', value: 'calendar' },
+        { name: 'Custom', value: 'custom' },
+        { name: 'Ordinal', value: 'ordinal', disabled: true }
+    ],
+    selected: [ dateRanges[1] ]
+};
 export const filtersConfig = {
+    date: dateFilter,
     filter1: {...filter},
     filter2: {...filterWithChildren}
 }
@@ -80,6 +108,7 @@ export const optionClickEvent = (event) => {
     const filter = filtersConfig[filterCode];
     let index = filter.options.findIndex(option => option.code === code);
     let subindex = -1;
+    
     if (index === -1) {
         index = filter.options.findIndex(option => option.children?.some(child => child.code === code));
         subindex = filter.options[index].children.findIndex(child => child.code === code);
@@ -139,9 +168,54 @@ export const optionClickEvent = (event) => {
     }
 }
 
+export const dateSelect = (event) => {
+    const { startDate, endDate, description, isDefault } = event.detail;
+    const selected = [ { startDate, endDate, isDefault }];
+    const filtersConfig = event.target.filtersConfig;
+    const date = filtersConfig.date;
+    event.target.filtersConfig = {
+        ...filtersConfig,
+        date: { ...date, selected, description }
+    }
+    return null;
+}
+
+export const compDateSelect = (event) => {
+    const { startDate, endDate } = event.detail;
+    const compDates = [ { startDate, endDate }];
+    const filtersConfig = event.target.filtersConfig;
+    const date = filtersConfig.date;
+    event.target.filtersConfig = {
+        ...filtersConfig,
+        date: { ...date, compDates }
+    }
+    return null;
+}
+
+export const comparableChange = (event) => {
+    const comparableType = event.detail;
+    const filtersConfig = event.target.filtersConfig;
+    const date = filtersConfig.date;
+    event.target.filtersConfig = {
+        ...filtersConfig,
+        date: { ...date, comparableType }
+    }
+}
+
 export const clearEvent = (event) => {
     const filterCode = event.detail;
     const filter = event.target.filtersConfig[filterCode];
+    if (filterCode === 'date') {
+        filter.selected = [filter.dateRanges[1]];
+        filter.compDates = [];
+        filter.description = filter.dateRanges[1].description;
+        filter.comparableType = "commercial";
+        event.target.filtersConfig = {
+            ...event.target.filtersConfig,
+            date: filter
+        }
+        return null;
+    }
     filter.selected = [];
     if (filter.haveMultiSelect) {
         filter.options =[
@@ -167,7 +241,7 @@ export const clearEvent = (event) => {
             { description: 'option 3', active: false, display: true },
         ]
     }
-    event.path[0].filtersConfig = {...event.path[0].filtersConfig, ...filter}
+    event.target.filtersConfig = {...event.target.filtersConfig, ...filter}
 }
 
 export const clearAllEvent = (event) => {
@@ -179,6 +253,7 @@ export const clearAllEvent = (event) => {
         opt.children.forEach(ch => ch.active = false);
     })
     event.target.filtersConfig = { 
+        date: dateFilter,
         filter1: {...filter},
         filter2: {...filterWithChildren}
     };

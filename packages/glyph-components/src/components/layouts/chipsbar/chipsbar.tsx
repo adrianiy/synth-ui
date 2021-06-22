@@ -103,6 +103,7 @@ export class ChipsBarComponent {
 
         return (
             <glyph-date-filter
+                interface={this.interface}
                 startDate={startDate}
                 endDate={endDate}
                 comparableStartDate={compStartDate}

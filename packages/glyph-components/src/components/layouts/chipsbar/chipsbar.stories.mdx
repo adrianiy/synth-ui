@@ -253,6 +253,7 @@ export const clearAllEvent = (event) => {
         opt.children.forEach(ch => ch.active = false);
     })
     event.target.filtersConfig = { 
+        date: dateFilter,
         filter1: {...filter},
         filter2: {...filterWithChildren}
     };
