@@ -183,7 +183,6 @@ export class DateFilterComponent {
     };
 
     private _renderDateRanges = () => {
-        console.log(this.description);
         return (
             this.dateRanges && (
                 <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="date-filter__date-ranges">
