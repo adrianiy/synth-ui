@@ -1,6 +1,8 @@
 .scrollbar__container {
     max-width: var(--scrollbar-width);
     max-height: var(--scrollbar-height);
+    width: 100%;
+    height: 100%;
 
     .scrollbar--tiny {
         .ps__rail-y {

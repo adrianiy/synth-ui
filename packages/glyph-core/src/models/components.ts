@@ -1,3 +1,4 @@
+import { SortableIcon } from '../enums';
 import { Cell } from './common';
 
 export interface SelectorOption {
@@ -32,14 +33,18 @@ export interface UserMenuConfiguration {
 
 export interface SortableAction {
     icon: string;
-    action: () => void;
+    action: (item: SortableOption) => void;
 }
 
 export interface SortableOption {
+    id: string;
     name?: string;
-    icon?: boolean;
+    children?: SortableOption[];
+    expanded?: boolean;
+    icon?: SortableIcon;
     notSortable?: boolean;
     action?: SortableAction;
+    style?: { [key: string]: any };
     [key: string]: any;
 }
 

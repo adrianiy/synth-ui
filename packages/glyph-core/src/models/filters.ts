@@ -30,7 +30,8 @@ export interface FilterOption {
     operationIn?: boolean;
     parents?: string[];
     changeOperationValue?: boolean;
-    brand?: any;
+    brand?: number[];
+    position?: number;
     _originalDescription?: string;
 }
 export interface FilterOptionHeader extends FilterOption {
@@ -45,6 +46,7 @@ export interface SelectedFilter extends FilterOptionHeader {
 }
 export interface FilterConfig {
     version?: string;
+    position?: number;
     description?: string;
     searchPlaceholder?: string;
     plural?: string;

@@ -32,6 +32,11 @@ export const enum ArticleSize {
     large = 'large',
 }
 
+export const enum SortableIcon {
+    always = 'always',
+    hover = 'hover',
+}
+
 export const enum ComparableType {
     commercial = 'commercial',
     calendar = 'calendar',

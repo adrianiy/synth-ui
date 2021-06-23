@@ -25,5 +25,5 @@ export type {
     RankingData,
     RankingViewOptions,
 } from './components';
-export type { ToasterEvent, FilterSelectEvent, FilterUpdateEvent } from './events';
+export type { ToasterEvent, FilterSelectEvent, FilterUpdateEvent, SortableChildrenEvent } from './events';
 export type { CalendarEvent, CalendarGroup, TimelineEvent } from './timeline';

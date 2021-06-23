@@ -155,9 +155,9 @@ export class FilterOptionsComponent {
     };
 
     private _renderOptionsList = (options: FilterOptionHeader[]) => {
-        const renderableOptions = options.filter(
-            option => option.display && this._inSearch(option) && this._checkHide(option),
-        );
+        const renderableOptions = options
+            .filter(option => option.display && !option.hideFilter && this._inSearch(option) && this._checkHide(option))
+            .sort((a, b) => a.position - b.position);
         return (
             <ul>
                 {renderableOptions.map(option => (

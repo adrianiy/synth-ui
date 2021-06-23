@@ -1,0 +1,46 @@
+.sortable-item {
+    padding: var(--gui-padding--s) var(--gui-padding--xs);
+
+    &.header {
+        .name {
+            cursor: pointer;
+        }
+    }
+    &:hover {
+        .name {
+            em {
+                opacity: 1;
+            }
+        }
+        .action {
+            opacity: 0.2;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    em {
+        margin-right: var(--gui-padding--xxs);
+        opacity: 0.6;
+
+        &.hover {
+            opacity: 0;
+        }
+    }
+
+    .action {
+        --size: 20px;
+        width: var(--size);
+        height: var(--size);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+    }
+}
+glyph-sortable {
+    --gui-color--background--light: transparent;
+    --gui-border--lightest: none;
+}
