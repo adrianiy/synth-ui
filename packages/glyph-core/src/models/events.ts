@@ -1,4 +1,5 @@
 import { ComparableType, ToasterTypes } from '../enums';
+import { SortableOption } from './components';
 import { FilterConfig, FilterOptionHeader } from './filters';
 
 export interface ToasterEvent {
@@ -23,4 +24,9 @@ export interface FilterUpdateEvent {
     filterCode?: string;
     filter: FilterConfig;
     checkMultiSelect?: boolean;
+}
+
+export interface SortableChildrenEvent {
+    item: SortableOption;
+    sortedList: string[];
 }

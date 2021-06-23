@@ -8,6 +8,7 @@ import {
     setInitialFilter,
     recoverSharedFilters,
     updateFiltersWithEntities,
+    setDefaultPositions,
 } from './middlewares/initializer.middlewares';
 import {
     cleanCacheIfVersionNotMatch,
@@ -107,7 +108,7 @@ const clearAll = (state: FiltersState): FiltersState => {
  * Update filter configuration for a specified filter and save results in ***localStorage***
  */
 const updateFilterAndSave = (state: FiltersState, update: FilterUpdateEvent) => {
-    return pipe(state)(updateFilter(update));
+    return pipe(state)(updateFilter(update), saveFiltersInStorage);
 };
 
 // INIT METHODS
@@ -130,6 +131,7 @@ const initializeFilters = (
             restrictedFilters: [],
             restrictedParents: {},
         })(
+            setDefaultPositions,
             loadSavedFilters,
             updateFiltersWithEntities(filterEntities),
             selectRestrictedFilters,

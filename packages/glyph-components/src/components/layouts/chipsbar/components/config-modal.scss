@@ -1,0 +1,27 @@
+.configuration-modal {
+    &__container {
+        margin-top: var(--gui-padding--m);
+        font-size: var(--gui-font--xs);
+
+        .toggler__container {
+            margin-top: var(--gui-padding--s);
+        }
+    }
+
+    &__lists {
+        margin-top: var(--gui-padding--m);
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: var(--gui-padding--s);
+    }
+    &__list--options {
+        &__header {
+            width: 100%;
+
+            em {
+                font-weight: var(--gui-font-weight--extra-bold);
+                cursor: pointer;
+            }
+        }
+    }
+}

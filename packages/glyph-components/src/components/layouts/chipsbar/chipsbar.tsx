@@ -11,6 +11,8 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
 export class ChipsBarComponent {
     /** Filters configuration object */
     @Prop() filtersConfig: FiltersConfig;
+    /** Hide zara south filters active */
+    @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** Interface type [ 'MODERN', 'CLASSIC' ] */
@@ -26,6 +28,8 @@ export class ChipsBarComponent {
 
     /** scroll state flag */
     @State() scrolled: boolean = false;
+    /** Modal configuration visibility flag */
+    @State() configModal: boolean = false;
 
     /** Element reference */
     @Element() element: HTMLGlyphChipsbarElement;
@@ -52,6 +56,7 @@ export class ChipsBarComponent {
 
     private _handleMultiSelect = (key: string) => () => {
         const filter = this.filtersConfig[key];
+
         this.updateFilter.emit({
             filterCode: key,
             checkMultiSelect: true,
@@ -59,9 +64,14 @@ export class ChipsBarComponent {
         });
     };
 
-    private _handleFilterConfig = () => {
-        // TODO: configure filters method
-        alert('TODO: configure filters');
+    private _handleFilterConfig = (value: boolean) => () => {
+        this.configModal = value;
+    };
+
+    private _handleConfigChange = (event: CustomEvent<FiltersConfig>) => {
+        Object.keys(event.detail).forEach((key: string) =>
+            this.updateFilter.emit({ filterCode: key, checkMultiSelect: false, filter: event.detail[key] }),
+        );
     };
 
     private _handleClearAll = () => {
@@ -99,16 +109,16 @@ export class ChipsBarComponent {
     };
 
     private _renderChips = () => {
-        const chips = Object.keys(this.filtersConfig || {}).filter(
-            key => key !== 'date' && this.filtersConfig[key].visible,
-        );
-        const dateFilter = this.filtersConfig.date;
+        const chips = Object.keys(this.filtersConfig || {})
+            .filter(key => this.filtersConfig[key].visible)
+            .sort((a, b) => this.filtersConfig[a].position - this.filtersConfig[b].position);
 
         return (
             <Flex row class="chips__container">
-                {[
-                    this._renderDateChip(dateFilter),
-                    ...chips.map(chip => (
+                {chips.map(chip =>
+                    chip === 'date' ? (
+                        this._renderDateChip(this.filtersConfig[chip])
+                    ) : (
                         <glyph-filter
                             {...this.filtersConfig[chip]}
                             interface={this.interface}
@@ -117,8 +127,8 @@ export class ChipsBarComponent {
                             onClearEvent={this._handleFilterClear(chip)}
                             onMultiSelectEvent={this._handleMultiSelect(chip)}
                         />
-                    )),
-                ]}
+                    ),
+                )}
             </Flex>
         );
     };
@@ -130,9 +140,28 @@ export class ChipsBarComponent {
                 <glyph-button
                     text={this._i18n['configFilters']}
                     interface={this.interface}
-                    onClick={this._handleFilterConfig}
+                    onClick={this._handleFilterConfig(true)}
                 />
             </Flex>
+        );
+    };
+
+    private _renderConfigurationModal = () => {
+        return (
+            <glyph-modal
+                visible={true}
+                modalTitle={this._i18n['configFilters']}
+                closeButton
+                onClose={this._handleFilterConfig(false)}
+            >
+                <glyph-config-modal
+                    filtersConfig={this.filtersConfig}
+                    hideZaraSouth={this.hideZaraSouth}
+                    interface={this.interface}
+                    i18n={this._i18n}
+                    onConfigChange={this._handleConfigChange}
+                />
+            </glyph-modal>
         );
     };
 
@@ -141,6 +170,7 @@ export class ChipsBarComponent {
             <Flex row middle spaced class="chipsbar__container">
                 {this._renderChips()}
                 {this._renderButtons()}
+                {this.configModal && this._renderConfigurationModal()}
             </Flex>
         );
     }

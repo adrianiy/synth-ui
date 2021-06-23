@@ -13,6 +13,7 @@ export const Template = args => html`<glyph-sortable ...=${spread(args)} />`;
 
 Modern sortable list to allow users that uses drag&drop.
 
+An unique `id` attribute must be informed in each list element to handle array ordering correctly.
 
 ## Basic sortable
 
@@ -24,7 +25,7 @@ Modern sortable list to allow users that uses drag&drop.
 
 ## Sortable with icon
 
-You can set an attribute `icon` per option to render a drag icon.
+You can set an attribute `icon` per option to render a drag icon, it can be configured to display *always* or on *hover*.
 
 <Canvas>
     <Story name="With icon" args={{ '.list': listWithIcon }}>
@@ -54,31 +55,49 @@ Action button will be visible on hover, try hovering any row!.
     </Story>
 </Canvas>
 
+## Sortable with children
+
+You can configure a `children` attribute in each list element.
+
+If this attribute is configured a expandable row will be displayed with a sortable list in drilldown.
+
+<Canvas>
+    <Story name="With children" args={{ '.list': listWithChildren }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
 ---
 
 <Description>{notes}</Description>
 
 export const list = [
-    { name: 'test1' },
-    { name: 'test2' },
-    { name: 'test3' }
+    { id: '1', name: 'test1' },
+    { id: '2', name: 'test2' },
+    { id: '3', name: 'test3' }
 ];
 
 export const listWithIcon = [
-    { name: 'test1' },
-    { name: 'test2', icon: true },
-    { name: 'test3' }
+    { id: '1', name: 'test1' },
+    { id: '2', name: 'test2', icon: 'always' },
+    { id: '3', name: 'test3', icon: 'hover' }
 ];
 
 export const listWithFixed = [
-    { name: 'test1' },
-    { name: 'test2', notSortable: true },
-    { name: 'test3' }
+    { id: '1', name: 'test1' },
+    { id: '2', name: 'test2', notSortable: true },
+    { id: '3', name: 'test3' }
 ];
 
 export const listWithAction = [
-    { name: 'test1', action: { icon: 'edit', action: () => alert('action') } },
-    { name: 'test2', action: { icon: 'edit', action: () => alert('action') } },
-    { name: 'test3', action: { icon: 'edit', action: () => alert('action') } },
+    { id: '1', name: 'test1', action: { icon: 'edit', action: () => alert('action') } },
+    { id: '2', name: 'test2', action: { icon: 'edit', action: () => alert('action') } },
+    { id: '3', name: 'test3', action: { icon: 'edit', action: () => alert('action') } },
+];
+
+export const listWithChildren = [
+    { id: '1', name: 'test1', children: [ { id: '1', name: 'child1', style: { 'padding-left': '32px' } }, { id: '2', name: 'child2', style: { 'padding-left': '32px' } }, { id: '3', name: 'child3', style: { 'padding-left': '32px' } } ] },
+    { id: '2', name: 'test1', children: [ { id: '1', name: 'child1', style: { 'padding-left': '32px' } }, { id: '2', name: 'child2', style: { 'padding-left': '32px' } }, { id: '3', name: 'child3', style: { 'padding-left': '32px' } } ] },
+    { id: '3', name: 'test1', children: [ { id: '1', name: 'child1', style: { 'padding-left': '32px' } }, { id: '2', name: 'child2', style: { 'padding-left': '32px' } }, { id: '3', name: 'child3', style: { 'padding-left': '32px' } } ] },
 ];
 

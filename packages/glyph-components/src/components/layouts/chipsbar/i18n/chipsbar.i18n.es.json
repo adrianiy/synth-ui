@@ -1,3 +1,7 @@
 {
-    "configFilters": "Configurar filtros"
+    "configFilters": "Configurar filtros",
+    "modal.description": "Arrastra los filtros entre las columnas para modificar su visibilidad o cambiar el orden",
+    "modal.hidden": "Filtros ocultos",
+    "modal.visible": "Filtros visibles",
+    "modal.hideSouthFilters": "Ocultras filtros de Zara Sur"
 }

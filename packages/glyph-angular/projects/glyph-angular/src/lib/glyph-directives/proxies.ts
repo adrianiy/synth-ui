@@ -135,13 +135,13 @@ export class GlyphCalendar {
 import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({
-  inputs: ['filtersConfig', 'i18n', 'interface']
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface']
 })
 @Component({
   selector: 'glyph-chipsbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['filtersConfig', 'i18n', 'interface'],
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface'],
   outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
@@ -158,6 +158,29 @@ export class GlyphChipsbar {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']);
+  }
+}
+
+import { ConfigModalComponent as IConfigModalComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/components/config-modal';
+export declare interface GlyphConfigModal extends Components.GlyphConfigModal {}
+@ProxyCmp({
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface']
+})
+@Component({
+  selector: 'glyph-config-modal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface'],
+  outputs: ['configChange']
+})
+export class GlyphConfigModal {
+  /** Filter configuration change event */
+  configChange!: IConfigModalComponent['configChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['configChange']);
   }
 }
 
@@ -601,23 +624,48 @@ export class GlyphSlider {
 import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
 export declare interface GlyphSortable extends Components.GlyphSortable {}
 @ProxyCmp({
-  inputs: ['config', 'list', 'valueGetter']
+  inputs: ['childSortCallback', 'config', 'height', 'isChildren', 'list', 'valueGetter']
 })
 @Component({
   selector: 'glyph-sortable',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['config', 'list', 'valueGetter'],
-  outputs: ['sortChange']
+  inputs: ['childSortCallback', 'config', 'height', 'isChildren', 'list', 'valueGetter'],
+  outputs: ['sortChange', 'childrenSortChange', 'add', 'remove']
 })
 export class GlyphSortable {
   /** Event emitted on drag end emitting new list configuration */
   sortChange!: ISortableComponent['sortChange'];
+  /** Event emitted on drag end emitting new list configuration */
+  childrenSortChange!: ISortableComponent['childrenSortChange'];
+  /** Event emitted on drag end emitting new list configuration */
+  add!: ISortableComponent['add'];
+  /** Event emitted on drag end emitting new list configuration */
+  remove!: ISortableComponent['remove'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['sortChange']);
+    proxyOutputs(this, this.el, ['sortChange', 'childrenSortChange', 'add', 'remove']);
+  }
+}
+
+
+export declare interface GlyphSortableElement extends Components.GlyphSortableElement {}
+@ProxyCmp({
+  inputs: ['actionClick', 'childrenSort', 'haveIcon', 'item', 'valueGetter']
+})
+@Component({
+  selector: 'glyph-sortable-element',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['actionClick', 'childrenSort', 'haveIcon', 'item', 'valueGetter']
+})
+export class GlyphSortableElement {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 

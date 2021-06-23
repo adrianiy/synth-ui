@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -173,6 +173,28 @@ export namespace Components {
           * Filters configuration object
          */
         "filtersConfig": FiltersConfig;
+        /**
+          * Hide zara south filters active
+         */
+        "hideZaraSouth": boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
+          * Interface type [ 'MODERN', 'CLASSIC' ]
+         */
+        "interface": UIInterface;
+    }
+    interface GlyphConfigModal {
+        /**
+          * Filters configuration
+         */
+        "filtersConfig": FiltersConfig;
+        /**
+          * Hide zara south filters active
+         */
+        "hideZaraSouth": boolean;
         /**
           * Extra i18n translation object
          */
@@ -896,13 +918,47 @@ export namespace Components {
     }
     interface GlyphSortable {
         /**
+          * Child value change
+         */
+        "childSortCallback": (SortedList: string[]) => any;
+        /**
           * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
          */
         "config": SortableOptions;
         /**
+          * height property (makes list scrollable)
+         */
+        "height": number;
+        /**
+          * Children flag
+         */
+        "isChildren": boolean;
+        /**
           * List to sort
          */
         "list": SortableOption[];
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter": (item: any) => string;
+    }
+    interface GlyphSortableElement {
+        /**
+          * Action click callback
+         */
+        "actionClick": () => any;
+        /**
+          * Children sort callback
+         */
+        "childrenSort": (sortedList: string[]) => any;
+        /**
+          * This variable should be truthy if any element in list renders an icon to align items
+         */
+        "haveIcon": boolean;
+        /**
+          * Sortable item configuration
+         */
+        "item": SortableOption;
         /**
           * Value renderer, if not set list will render `name` property
          */
@@ -1048,6 +1104,12 @@ declare global {
         prototype: HTMLGlyphChipsbarElement;
         new (): HTMLGlyphChipsbarElement;
     };
+    interface HTMLGlyphConfigModalElement extends Components.GlyphConfigModal, HTMLStencilElement {
+    }
+    var HTMLGlyphConfigModalElement: {
+        prototype: HTMLGlyphConfigModalElement;
+        new (): HTMLGlyphConfigModalElement;
+    };
     interface HTMLGlyphDateFilterElement extends Components.GlyphDateFilter, HTMLStencilElement {
     }
     var HTMLGlyphDateFilterElement: {
@@ -1174,6 +1236,12 @@ declare global {
         prototype: HTMLGlyphSortableElement;
         new (): HTMLGlyphSortableElement;
     };
+    interface HTMLGlyphSortableElementElement extends Components.GlyphSortableElement, HTMLStencilElement {
+    }
+    var HTMLGlyphSortableElementElement: {
+        prototype: HTMLGlyphSortableElementElement;
+        new (): HTMLGlyphSortableElementElement;
+    };
     interface HTMLGlyphTabsElement extends Components.GlyphTabs, HTMLStencilElement {
     }
     var HTMLGlyphTabsElement: {
@@ -1218,6 +1286,7 @@ declare global {
         "glyph-button-group": HTMLGlyphButtonGroupElement;
         "glyph-calendar": HTMLGlyphCalendarElement;
         "glyph-chipsbar": HTMLGlyphChipsbarElement;
+        "glyph-config-modal": HTMLGlyphConfigModalElement;
         "glyph-date-filter": HTMLGlyphDateFilterElement;
         "glyph-filter": HTMLGlyphFilterElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
@@ -1239,6 +1308,7 @@ declare global {
         "glyph-sk-loader": HTMLGlyphSkLoaderElement;
         "glyph-slider": HTMLGlyphSliderElement;
         "glyph-sortable": HTMLGlyphSortableElement;
+        "glyph-sortable-element": HTMLGlyphSortableElementElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
         "glyph-title": HTMLGlyphTitleElement;
@@ -1418,6 +1488,10 @@ declare namespace LocalJSX {
          */
         "filtersConfig"?: FiltersConfig;
         /**
+          * Hide zara south filters active
+         */
+        "hideZaraSouth"?: boolean;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
@@ -1441,6 +1515,28 @@ declare namespace LocalJSX {
           * Filter multiselect event
          */
         "onUpdateFilter"?: (event: CustomEvent<FilterUpdateEvent>) => void;
+    }
+    interface GlyphConfigModal {
+        /**
+          * Filters configuration
+         */
+        "filtersConfig"?: FiltersConfig;
+        /**
+          * Hide zara south filters active
+         */
+        "hideZaraSouth"?: boolean;
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
+          * Interface type [ 'MODERN', 'CLASSIC' ]
+         */
+        "interface"?: UIInterface;
+        /**
+          * Filter configuration change event
+         */
+        "onConfigChange"?: (event: CustomEvent<FiltersConfig>) => void;
     }
     interface GlyphDateFilter {
         /**
@@ -2224,9 +2320,21 @@ declare namespace LocalJSX {
     }
     interface GlyphSortable {
         /**
+          * Child value change
+         */
+        "childSortCallback"?: (SortedList: string[]) => any;
+        /**
           * [SortableJS](https://github.com/SortableJS/Sortable#options) list configuration
          */
         "config"?: SortableOptions;
+        /**
+          * height property (makes list scrollable)
+         */
+        "height"?: number;
+        /**
+          * Children flag
+         */
+        "isChildren"?: boolean;
         /**
           * List to sort
          */
@@ -2234,7 +2342,41 @@ declare namespace LocalJSX {
         /**
           * Event emitted on drag end emitting new list configuration
          */
-        "onSortChange"?: (event: CustomEvent<SortableOption[]>) => void;
+        "onAdd"?: (event: CustomEvent<string[]>) => void;
+        /**
+          * Event emitted on drag end emitting new list configuration
+         */
+        "onChildrenSortChange"?: (event: CustomEvent<SortableChildrenEvent>) => void;
+        /**
+          * Event emitted on drag end emitting new list configuration
+         */
+        "onRemove"?: (event: CustomEvent<string[]>) => void;
+        /**
+          * Event emitted on drag end emitting new list configuration
+         */
+        "onSortChange"?: (event: CustomEvent<string[]>) => void;
+        /**
+          * Value renderer, if not set list will render `name` property
+         */
+        "valueGetter"?: (item: any) => string;
+    }
+    interface GlyphSortableElement {
+        /**
+          * Action click callback
+         */
+        "actionClick"?: () => any;
+        /**
+          * Children sort callback
+         */
+        "childrenSort"?: (sortedList: string[]) => any;
+        /**
+          * This variable should be truthy if any element in list renders an icon to align items
+         */
+        "haveIcon"?: boolean;
+        /**
+          * Sortable item configuration
+         */
+        "item"?: SortableOption;
         /**
           * Value renderer, if not set list will render `name` property
          */
@@ -2364,6 +2506,7 @@ declare namespace LocalJSX {
         "glyph-button-group": GlyphButtonGroup;
         "glyph-calendar": GlyphCalendar;
         "glyph-chipsbar": GlyphChipsbar;
+        "glyph-config-modal": GlyphConfigModal;
         "glyph-date-filter": GlyphDateFilter;
         "glyph-filter": GlyphFilter;
         "glyph-filter-options": GlyphFilterOptions;
@@ -2385,6 +2528,7 @@ declare namespace LocalJSX {
         "glyph-sk-loader": GlyphSkLoader;
         "glyph-slider": GlyphSlider;
         "glyph-sortable": GlyphSortable;
+        "glyph-sortable-element": GlyphSortableElement;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
         "glyph-title": GlyphTitle;
@@ -2404,6 +2548,7 @@ declare module "@stencil/core" {
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
             "glyph-calendar": LocalJSX.GlyphCalendar & JSXBase.HTMLAttributes<HTMLGlyphCalendarElement>;
             "glyph-chipsbar": LocalJSX.GlyphChipsbar & JSXBase.HTMLAttributes<HTMLGlyphChipsbarElement>;
+            "glyph-config-modal": LocalJSX.GlyphConfigModal & JSXBase.HTMLAttributes<HTMLGlyphConfigModalElement>;
             "glyph-date-filter": LocalJSX.GlyphDateFilter & JSXBase.HTMLAttributes<HTMLGlyphDateFilterElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
@@ -2425,6 +2570,7 @@ declare module "@stencil/core" {
             "glyph-sk-loader": LocalJSX.GlyphSkLoader & JSXBase.HTMLAttributes<HTMLGlyphSkLoaderElement>;
             "glyph-slider": LocalJSX.GlyphSlider & JSXBase.HTMLAttributes<HTMLGlyphSliderElement>;
             "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
+            "glyph-sortable-element": LocalJSX.GlyphSortableElement & JSXBase.HTMLAttributes<HTMLGlyphSortableElementElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;
