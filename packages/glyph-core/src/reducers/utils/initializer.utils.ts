@@ -61,5 +61,5 @@ export const updateSavedFilters = (
         }
     });
 
-    return { ...savedFilters, ...baseFilters };
+    return { ...baseFilters, ...savedFilters };
 };

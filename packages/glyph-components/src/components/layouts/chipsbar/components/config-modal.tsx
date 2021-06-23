@@ -185,6 +185,7 @@ export class ConfigModalComponent {
         const sortableOptions = filter.options.map(option => {
             const { description: name, display, hideFilter, children } = option;
             const id = this._getCode(option);
+            const visible = display && !hideFilter;
             let childrenOptions: SortableOption[];
 
             if (children) {
@@ -193,7 +194,7 @@ export class ConfigModalComponent {
                     id: this._getCode(child),
                     icon: SortableIcon.always,
                     style: {
-                        'opacity': child.display && !child.hideFilter ? 1 : 0.5,
+                        'opacity': child.display && !child.hideFilter && visible ? 1 : 0.5,
                         'padding-left': 'var(--gui-padding--l)',
                     },
                     action: {
@@ -208,7 +209,7 @@ export class ConfigModalComponent {
                 name,
                 icon: SortableIcon.always,
                 children: childrenOptions,
-                style: { opacity: display && !hideFilter ? 1 : 0.5 },
+                style: { opacity: visible ? 1 : 0.5 },
                 action: {
                     icon: `visibility${display && !hideFilter ? '' : '_off'}`,
                     action: this._handleOptionVisibility,

@@ -12,7 +12,7 @@ export class ChipsBarComponent {
     /** Filters configuration object */
     @Prop() filtersConfig: FiltersConfig;
     /** Hide zara south filters active */
-    @Prop() hideZaraSouth: boolean;
+    @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** Interface type [ 'MODERN', 'CLASSIC' ] */

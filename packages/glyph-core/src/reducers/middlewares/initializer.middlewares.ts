@@ -6,6 +6,22 @@ import { selectFilterOptions, updateOptionsWithEntities, updateSavedFilters } fr
 import { FilterOptionHeader } from '../../models/filters';
 
 /**
+ * Set default filter positions
+ */
+export const setDefaultPositions = (state: FiltersState): FiltersState => {
+    const { filtersConfig } = state;
+
+    Object.keys(filtersConfig).forEach((key, index) => {
+        filtersConfig[key].position = filtersConfig[key].position ?? index;
+    });
+
+    return {
+        ...state,
+        filtersConfig,
+    };
+};
+
+/**
  * Recovers saved filters from localstorage
  */
 export const loadSavedFilters = (state: FiltersState): FiltersState => {
