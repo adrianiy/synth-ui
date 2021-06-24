@@ -3,7 +3,7 @@ import { FilterService } from './filters.service.ts'
 
 <Meta
     title="Services/Filters"
-    component={ FitlerService }
+    component={ FilterService }
 />
 
 # Filters Services
@@ -13,6 +13,53 @@ Injectable service that manages the core of Drive applications, **FILTERS**.
 
 This will keep an state of which filters are applied and which are not. Will also apply
 some logic on selection like filter relations management *Section -> Product line*.
+
+### Filter state attributes
+
+Filter service exposes a set of Observables that will send a message each time the value changes.
+
+- **queryFilters**: Array of selected filters in format { key, op, value }.
+- **compDates**: Array of selected dates to use as comparable.
+- **comparableType**: Comparable type of [ commercial | calendar | custom | ordinal ].
+
+You can consume them with a subscribtion:
+
+```typescript
+    import { FilterService } from 'glyph-angular';
+
+    constructor(private _filterServive: FilterService) {
+        _filterService.queryFilters.subscribe(queryFilters => {
+            // do something with filters like update screen data
+        })
+        _filterService.compDates.subscribe(compDates => {
+            // do something with comparable dates
+        })
+        _filterService.comparableType.subscribe(comparableType => {
+            // do something with comparable type
+        })
+    }
+```
+
+Or like a class attribute:
+
+```typescript 
+...
+public filtersConfig: Observable<FiltersConfig>;
+public compDates: Observable<SelectedFilter[]>;
+public comparableType: Observable<string>;
+
+constructor(private _filterService: FilterService) {
+    this.filtersConfig = _filterService.filtersConfig;
+    this.compDates = _filterService.compDates;
+    this.comparableType = _filterService.comparableType;
+}
+
+...
+````
+
+```html
+<glyph-chipsbar [filtersConfig]="filtersConfig | async" ...></glyph-chipsbar>
+```
 
 ### Logic inheritance
 

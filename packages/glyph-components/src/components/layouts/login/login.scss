@@ -1,5 +1,7 @@
 .login__container {
     --login-width: 250px;
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     width: 100vh;
     height: 100vh;
     overflow: hidden;

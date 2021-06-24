@@ -1,6 +1,6 @@
 import React from 'react';
-import { rootReducer } from 'glyph-core';
-import { Provider } from 'react-redux';
+import { actions, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 
 const store = createStore(
@@ -10,5 +10,36 @@ const store = createStore(
 );
 
 const FilterStateProvider = ({ children }: { children: any }) => <Provider store={store}>{children}</Provider>;
+
+export const useFilters = () => {
+    const { queryFilters, filtersConfig } = useSelector((state: Store) => state.filters);
+    const dateFilter = filtersConfig?.date || {};
+    const { compDates, comparableType } = dateFilter;
+
+    return { queryFilters, compDates, comparableType };
+};
+
+export const useFiltersConfig = () => {
+    const dispatch = useDispatch();
+    const { filtersConfig } = useSelector((state: Store) => state.filters);
+
+    const selectFilter = (selection: FilterSelectEvent) => {
+        dispatch(actions.filters.selectOption(selection));
+    };
+
+    const updateFilter = (update: FilterUpdateEvent) => {
+        dispatch(actions.filters.updateFilter(update));
+    };
+
+    const clearFilter = (filterCode: string) => {
+        dispatch(actions.filters.clearFilter(filterCode));
+    };
+
+    const clearAll = () => {
+        dispatch(actions.filters.clearAll());
+    };
+
+    return { filtersConfig, selectFilter, updateFilter, clearFilter, clearAll };
+};
 
 export default FilterStateProvider;

@@ -61,8 +61,8 @@ export class FilterComponent {
         if (!this.active) {
             return this.description;
         } else {
-            const appliedChildren = this.options.map(opt => opt.children?.find(({ active }) => active));
-            const appliedOptions = this.options.find(({ active }) => active);
+            const appliedChildren = this.options.map(opt => opt.children?.filter(({ active }) => active)).flat();
+            const appliedOptions = this.options.filter(({ active }) => active);
             const applied = appliedChildren.concat(appliedOptions).filter(Boolean);
             const total = applied.length;
             const isPlural = total > 1;

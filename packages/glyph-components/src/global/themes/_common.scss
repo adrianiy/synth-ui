@@ -1,5 +1,6 @@
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: var(--gui-font--base);
 }
 
 :root {
@@ -17,16 +18,17 @@ body {
     --gui-padding--huge: 124px;
 
     /* Font sizes */
-    --gui-font--nano: 5px;
-    --gui-font--xxxs: 8px;
-    --gui-font--xxs: 11px;
-    --gui-font--xs: 12px;
-    --gui-font--s: 14px;
-    --gui-font--m: 17px;
-    --gui-font--l: 24px;
-    --gui-font--xl: 32px;
-    --gui-font--xxl: 48px;
-    --gui-font--xxxl: 64px;
+    --gui-font--base: 12px;
+    --gui-font--nano: 0.42em;
+    --gui-font--xxxs: .66em;
+    --gui-font--xxs: .9em;
+    --gui-font--xs: 1em;
+    --gui-font--s: 1.17em;
+    --gui-font--m: 1.42em;
+    --gui-font--l: 2em;
+    --gui-font--xl: 2.66em;
+    --gui-font--xxl: 4em;
+    --gui-font--xxxl: 5.33em;
 
     /* font weights */
     --gui-font-weight--light: 300;

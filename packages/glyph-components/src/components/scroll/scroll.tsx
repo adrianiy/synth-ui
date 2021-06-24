@@ -23,6 +23,8 @@ export class ScrollComponent {
     @Prop() width: number;
     /** class name to be used in scroll container */
     @Prop() containerClass: string;
+    /** scrolling speed */
+    @Prop() scrollSpeed: number = 0.05;
     /** scrollbar initialization callback */
     @Prop() initCallback: (ps: any) => void;
 

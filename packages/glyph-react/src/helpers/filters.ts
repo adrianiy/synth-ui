@@ -3,46 +3,46 @@ export const FilterEntities = {
         {
             description: 'Señora',
             code: 1,
-            display: true
+            display: true,
         },
         {
             description: 'Caballero',
             code: 2,
-            display: true
+            display: true,
         },
         {
             description: 'Niño',
             code: 3,
-            display: true
-        }
+            display: true,
+        },
     ],
     product: [
         {
             description: 'Ropa',
             code: 0,
-            display: true
+            display: true,
         },
         {
             description: 'Calzado',
             code: 1,
-            display: true
+            display: true,
         },
         {
             description: 'Perfumeria',
             code: 2,
-            display: true
+            display: true,
         },
         {
             description: 'Hogar',
             code: 4,
-            display: true
-        }
+            display: true,
+        },
     ],
     product_line: [
         {
             parents: {
                 Sección: 1,
-                Producto: null
+                Producto: null,
             },
             description: 'Señora',
             header: true,
@@ -51,478 +51,478 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0, 0 ],
+                    extraCode: [ 0, 0, 0 ],
                     description: 'Lenceria',
                     code: [ 1637, 8, 8 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:prensa',
                     code: [ 2001027, 2001027 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Perfumeria',
                     code: [ 44, 53 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:woman',
                     code: [ 2001026, 2001026 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:comp.cro',
                     code: [ 2002121 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:col.int.mes_o',
                     code: [ 2001034, 2001034 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Basic',
                     code: [ 2, 24 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:caballero',
                     code: [ 2000121 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Cocina',
                     code: [ 1567 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Circular',
                     code: [ 1133 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Baño',
                     code: [ 1568 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0, 1 ],
+                    extraCode: [ 0, 1 ],
                     description: 'Srpls',
                     code: [ 11000001, 12000001 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0, 1 ]
-                    }
+                        Producto: [ 0, 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Cosmética',
                     code: [ 1559 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:rest calz sra',
                     code: [ 2001091 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Punto',
                     code: [ 5, 27 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:bolsos sra',
                     code: [ 2001202, 2001202 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Zara studio',
                     code: [ 13000001, 1253 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:woman complen',
                     code: [ 2001201, 2001201 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Salón',
                     code: [ 1560 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Woman',
                     code: [ 1, 23 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Cosmetica',
                     code: [ 45, 54 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:basic',
                     code: [ 2001001, 2001001 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Special edition',
                     code: [ 14000001 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Kids',
                     code: [ 1294 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:trf',
                     code: [ 2001022, 2001022 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:niño',
                     code: [ 2000131 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:trf complemen',
                     code: [ 2001203, 2001203 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:comp.señora',
                     code: [ 2002111 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Varios',
                     code: [ 1295 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Complementos',
                     code: [ 4, 26 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Studio tempe',
                     code: [ 15000001 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Interior',
                     code: [ 1577 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'Dormitorio',
                     code: [ 1557 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 4 ]
-                    }
+                        Producto: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:comp.niño',
                     code: [ 2002131 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:señora',
                     code: [ 2000111 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:rest comp sra',
                     code: [ 2001291 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Trf',
                     code: [ 3, 25 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Camisetas w+b',
                     code: [ 1073 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Camisetas trf',
                     code: [ 1074 ],
                     section: 1,
                     display: true,
                     parents: {
                         Sección: 1,
-                        Producto: [ 0 ]
-                    }
-                }
-            ]
+                        Producto: [ 0 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Sección: 2,
-                Producto: null
+                Producto: null,
             },
             description: 'Caballero',
             header: true,
@@ -531,226 +531,226 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Cosmetica',
                     code: [ 48, 57 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:watches',
                     code: [ 2001227, 2001227 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 0, 0, 0, 0, 0, 0 ],
+                    extraCode: [ 1, 0, 0, 0, 0, 0, 0 ],
                     description: 'Srpls',
                     code: [ 12200001, 36000001, 1353, 1354, 1353, 36000016, 1354 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0, 1 ]
-                    }
+                        Producto: [ 0, 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Complementos',
                     code: [ 306, 36 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:moda',
                     code: [ 2001025, 2001025 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Vestir',
                     code: [ 1193, 1195 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Denim',
                     code: [ 486, 546 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Zara studio cro',
                     code: [ 1534, 1535 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Studio tempe',
                     code: [ 15200001 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:rest calz cro',
                     code: [ 2001092 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Punto',
                     code: [ 12, 33 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:caballero',
                     code: [ 2001023, 2001023 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:bags/wallets',
                     code: [ 2001221, 2001221 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Circular',
                     code: [ 14, 35 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Perfumeria',
                     code: [ 47, 56 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:rest comp cro',
                     code: [ 2001292 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Sport',
                     code: [ 1194, 1196 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:jeans wear',
                     code: [ 2001010 ],
                     section: 2,
                     display: true,
                     parents: {
                         Sección: 2,
-                        Producto: [ 1 ]
-                    }
-                }
-            ]
+                        Producto: [ 1 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Sección: 3,
-                Producto: null
+                Producto: null,
             },
             description: 'Niño',
             header: true,
@@ -759,457 +759,457 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:meses niño',
                     code: [ 2001013, 2001013 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:niña',
                     code: [ 2001003, 2001003 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:bolsos meses',
                     code: [ 2001233, 2001233 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Byo colección',
                     code: [ 1910 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niña circular',
                     code: [ 2671 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Accesorios niña',
                     code: [ 3334 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:bolsos niño',
                     code: [ 2001232, 2001232 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niño plana',
                     code: [ 3325 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Punto niño',
                     code: [ 3124 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Bya circular',
                     code: [ 3328 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Byo circular',
                     code: [ 3330 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Punto byo',
                     code: [ 3333 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Bya colección',
                     code: [ 1909 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0, 0 ],
+                    extraCode: [ 0, 0, 0 ],
                     description: 'Mini',
                     code: [ 3062, 1873, 1873 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Accesorios',
                     code: [ 1267, 43 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:niño',
                     code: [ 2001004, 2001004 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Accesorios bb-meses',
                     code: [ 3336 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Studio tempe',
                     code: [ 15300001 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 1, 0 ],
+                    extraCode: [ 0, 1, 0 ],
                     description: 'Srpls',
                     code: [ 35000001, 12300001, 35000016 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0, 1 ]
-                    }
+                        Producto: [ 0, 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0, 0 ],
+                    extraCode: [ 0, 0, 0 ],
                     description: 'Punto',
                     code: [ 41, 1266, 41 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:meses niña',
                     code: [ 2001012, 2001012 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niño circular',
                     code: [ 3326 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Accesorios niño',
                     code: [ 3335 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Punto bya',
                     code: [ 3332 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niña plana',
                     code: [ 2670 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Punto niña',
                     code: [ 3331 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Bya plana',
                     code: [ 3327 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Perfumeria',
                     code: [ 50, 59 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2, 2 ],
+                    extraCode: [ 2, 2 ],
                     description: 'Cosmetica',
                     code: [ 51, 60 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 2 ]
-                    }
+                        Producto: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0, 0 ],
+                    extraCode: [ 0, 0 ],
                     description: 'Zara studio',
                     code: [ 2799, 1657 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Byo plana',
                     code: [ 3329 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niño colección',
                     code: [ 1908 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:rest calz niñ',
                     code: [ 2001093 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1, 1 ],
+                    extraCode: [ 1, 1 ],
                     description: 'Z:bolsos niña',
                     code: [ 2001231, 2001231 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 1 ]
-                    }
+                        Producto: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niño',
                     code: [ 39 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Bb - meses',
                     code: [ 40 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
+                        Producto: [ 0 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Niña',
                     code: [ 38 ],
                     section: 3,
                     display: true,
                     parents: {
                         Sección: 3,
-                        Producto: [ 0 ]
-                    }
-                }
-            ]
-        }
+                        Producto: [ 0 ],
+                    },
+                },
+            ],
+        },
     ],
     family: [
         {
             parents: {
                 Producto: 0,
                 Sección: null,
-                Líneas: null
+                Líneas: null,
             },
             description: 'Ropa',
             header: true,
@@ -1218,7 +1218,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ACCESORIOS MASCOTA',
                     code: [ 95 ],
                     display: true,
@@ -1227,12 +1227,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Líneas: [ 4, 26 ]
-                    }
+                        Líneas: [ 4, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALCETIN',
                     code: [ 13 ],
                     display: true,
@@ -1257,7 +1257,7 @@ export const FilterEntities = {
                         35000001,
                         35000016,
                         2799,
-                        1657
+                        1657,
                     ],
                     parents: {
                         Producto: 0,
@@ -1290,13 +1290,13 @@ export const FilterEntities = {
                             1657,
                             39,
                             1073,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GUANTE BEBE',
                     code: [ 81 ],
                     display: true,
@@ -1305,12 +1305,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ABRIGO BEBE',
                     code: [ 67 ],
                     display: true,
@@ -1319,12 +1319,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3333, 1909, 41, 1266, 3332, 3327, 40 ]
-                    }
+                        Líneas: [ 1910, 3333, 1909, 41, 1266, 3332, 3327, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PETO BEBE',
                     code: [ 84 ],
                     display: true,
@@ -1333,12 +1333,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ]
-                    }
+                        Líneas: [ 1910, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SUJETADOR',
                     code: [ 41 ],
                     display: true,
@@ -1347,12 +1347,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Líneas: [ 1637, 8, 1073 ]
-                    }
+                        Líneas: [ 1637, 8, 1073 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CONJUNTO',
                     code: [ 19 ],
                     display: true,
@@ -1361,12 +1361,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 2671, 3326, 1908, 39, 38 ]
-                    }
+                        Líneas: [ 2671, 3326, 1908, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISON/PIJAMA',
                     code: [ 42 ],
                     display: true,
@@ -1375,12 +1375,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 306, 36, 3334, 1267, 43, 3335, 39, 38 ]
-                    }
+                        Líneas: [ 306, 36, 3334, 1267, 43, 3335, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BUFANDA BEBE',
                     code: [ 78 ],
                     display: true,
@@ -1389,12 +1389,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BAÑADOR BEBE',
                     code: [ 77 ],
                     display: true,
@@ -1403,12 +1403,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'POLO BEBE',
                     code: [ 66 ],
                     display: true,
@@ -1417,12 +1417,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 1909, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 1909, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PRENDA EXT.BEBE',
                     code: [ 65 ],
                     display: true,
@@ -1431,12 +1431,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 1909, 3062, 1873, 3327, 3329, 40 ]
-                    }
+                        Líneas: [ 1910, 1909, 3062, 1873, 3327, 3329, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BOLSAS Y MOCHILAS',
                     code: [ 14 ],
                     display: true,
@@ -1445,12 +1445,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 306, 36, 2799, 1657 ]
-                    }
+                        Líneas: [ 306, 36, 2799, 1657 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISA',
                     code: [ 4 ],
                     display: true,
@@ -1495,7 +1495,7 @@ export const FilterEntities = {
                         2799,
                         1657,
                         35000016,
-                        1133
+                        1133,
                     ],
                     parents: {
                         Producto: 0,
@@ -1542,13 +1542,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAZADORA',
                     code: [ 6 ],
                     display: true,
@@ -1592,7 +1592,7 @@ export const FilterEntities = {
                         1073,
                         36,
                         33,
-                        35000016
+                        35000016,
                     ],
                     parents: {
                         Producto: 0,
@@ -1641,13 +1641,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MONEDERO BILLETERA',
                     code: [ 29 ],
                     display: true,
@@ -1656,12 +1656,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Líneas: [ 4, 26 ]
-                    }
+                        Líneas: [ 4, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BRAGA/CALZONCILLO',
                     code: [ 40 ],
                     display: true,
@@ -1670,12 +1670,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 1637, 8, 12200001, 36000001, 1353, 1354, 36000016, 306, 36, 1073 ]
-                    }
+                        Líneas: [ 1637, 8, 12200001, 36000001, 1353, 1354, 36000016, 306, 36, 1073 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SUDADERA',
                     code: [ 60 ],
                     display: true,
@@ -1703,7 +1703,7 @@ export const FilterEntities = {
                         2799,
                         39,
                         566,
-                        1657
+                        1657,
                     ],
                     parents: {
                         Producto: 0,
@@ -1735,13 +1735,13 @@ export const FilterEntities = {
                             1657,
                             39,
                             1073,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PAJARITA/FAJIN',
                     code: [ 38 ],
                     display: true,
@@ -1750,12 +1750,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2 ],
-                        Líneas: [ 306, 36 ]
-                    }
+                        Líneas: [ 306, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'INTERIORES',
                     code: [ 12 ],
                     display: true,
@@ -1764,12 +1764,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3334, 1267, 43, 3335, 39, 38 ]
-                    }
+                        Líneas: [ 3334, 1267, 43, 3335, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHANDAL BEBE',
                     code: [ 75 ],
                     display: true,
@@ -1778,12 +1778,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 1909, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 1909, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISA BEBE',
                     code: [ 64 ],
                     display: true,
@@ -1792,12 +1792,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 1909, 3062, 1873, 3327, 3329, 40 ]
-                    }
+                        Líneas: [ 1910, 1909, 3062, 1873, 3327, 3329, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PETO',
                     code: [ 34 ],
                     display: true,
@@ -1806,12 +1806,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2671, 35000001, 12300001, 35000016, 1, 23, 2670, 38 ]
-                    }
+                        Líneas: [ 2671, 35000001, 12300001, 35000016, 1, 23, 2670, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALZADO',
                     code: [ 46 ],
                     display: true,
@@ -1820,12 +1820,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Líneas: [ 1637, 8, 1073 ]
-                    }
+                        Líneas: [ 1637, 8, 1073 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALCETIN BEBE',
                     code: [ 73 ],
                     display: true,
@@ -1834,12 +1834,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHAQUETA BEBE',
                     code: [ 69 ],
                     display: true,
@@ -1848,12 +1848,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3328, 3333, 1909, 3062, 1873, 41, 1266, 3332, 40 ]
-                    }
+                        Líneas: [ 3328, 3333, 1909, 3062, 1873, 41, 1266, 3332, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'FALDA',
                     code: [ 3 ],
                     display: true,
@@ -1881,7 +1881,7 @@ export const FilterEntities = {
                         2799,
                         35000001,
                         39,
-                        1266
+                        1266,
                     ],
                     parents: {
                         Producto: 0,
@@ -1913,13 +1913,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BERMUDA BEBE',
                     code: [ 80 ],
                     display: true,
@@ -1928,12 +1928,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'UNIFORMES',
                     code: [ 99 ],
                     display: true,
@@ -1941,12 +1941,12 @@ export const FilterEntities = {
                     product_line: [ 17, 566, 7, 29 ],
                     parents: {
                         Producto: 0,
-                        Sección: [ 1, 2 ]
-                    }
+                        Sección: [ 1, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SOBRECAMISA',
                     code: [ 59 ],
                     display: true,
@@ -1955,12 +1955,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 1193, 1195, 486, 546, 3325, 12, 33, 14, 35, 1194, 1196, 3, 25, 39 ]
-                    }
+                        Líneas: [ 1193, 1195, 486, 546, 3325, 12, 33, 14, 35, 1194, 1196, 3, 25, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CONJUNTO BEBE',
                     code: [ 79 ],
                     display: true,
@@ -1969,12 +1969,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3062, 1873, 40 ]
-                    }
+                        Líneas: [ 3062, 1873, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CORBATAS',
                     code: [ 24 ],
                     display: true,
@@ -1983,12 +1983,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 306, 36, 1267, 43, 3335, 39 ]
-                    }
+                        Líneas: [ 306, 36, 1267, 43, 3335, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'LEGGINGS BEBE',
                     code: [ 93 ],
                     display: true,
@@ -1997,12 +1997,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3328, 1909, 40 ]
-                    }
+                        Líneas: [ 3328, 1909, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'LEOTARDO BEBE',
                     code: [ 90 ],
                     display: true,
@@ -2011,12 +2011,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BAÑO',
                     code: [ 37 ],
                     display: true,
@@ -2025,12 +2025,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 306, 36, 2671, 3334, 1267, 43, 3335, 4, 26, 2799, 1657, 39, 38 ]
-                    }
+                        Líneas: [ 306, 36, 2671, 3334, 1267, 43, 3335, 4, 26, 2799, 1657, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PAÑOLETAS/FOULARD',
                     code: [ 26 ],
                     display: true,
@@ -2056,13 +2056,13 @@ export const FilterEntities = {
                             4,
                             26,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHALECO',
                     code: [ 31 ],
                     display: true,
@@ -2101,7 +2101,7 @@ export const FilterEntities = {
                         1074,
                         36000016,
                         36000001,
-                        7
+                        7,
                     ],
                     parents: {
                         Producto: 0,
@@ -2146,13 +2146,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PELELE BEBE',
                     code: [ 86 ],
                     display: true,
@@ -2161,12 +2161,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3062, 1873, 40 ]
-                    }
+                        Líneas: [ 3062, 1873, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'LEGGINGS',
                     code: [ 58 ],
                     display: true,
@@ -2175,12 +2175,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2671, 2, 24, 1133, 5, 27, 4, 26, 3, 25, 1073, 38, 1074 ]
-                    }
+                        Líneas: [ 2671, 2, 24, 1133, 5, 27, 4, 26, 3, 25, 1073, 38, 1074 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'COMPLEMENTOS',
                     code: [ 16 ],
                     display: true,
@@ -2201,7 +2201,7 @@ export const FilterEntities = {
                         3335,
                         3327,
                         2671,
-                        35000001
+                        35000001,
                     ],
                     parents: {
                         Producto: 0,
@@ -2228,13 +2228,13 @@ export const FilterEntities = {
                             1657,
                             39,
                             1073,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BODY BEBE',
                     code: [ 72 ],
                     display: true,
@@ -2243,12 +2243,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BLASIER',
                     code: [ 5 ],
                     display: true,
@@ -2288,7 +2288,7 @@ export const FilterEntities = {
                         35000001,
                         2671,
                         29,
-                        1657
+                        1657,
                     ],
                     parents: {
                         Producto: 0,
@@ -2331,13 +2331,13 @@ export const FilterEntities = {
                             3,
                             25,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SHORT',
                     code: [ 43 ],
                     display: true,
@@ -2346,12 +2346,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Líneas: [ 1133, 5, 27, 1073, 1074 ]
-                    }
+                        Líneas: [ 1133, 5, 27, 1073, 1074 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'COMPLEMENTOS BEBE',
                     code: [ 76 ],
                     display: true,
@@ -2360,12 +2360,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GORRO BEBE',
                     code: [ 74 ],
                     display: true,
@@ -2374,12 +2374,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 3062, 1873, 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ABRIGO',
                     code: [ 7 ],
                     display: true,
@@ -2424,7 +2424,7 @@ export const FilterEntities = {
                         1908,
                         1657,
                         2671,
-                        35000016
+                        35000016,
                     ],
                     parents: {
                         Producto: 0,
@@ -2476,13 +2476,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BUFANDA',
                     code: [ 18 ],
                     display: true,
@@ -2504,7 +2504,7 @@ export const FilterEntities = {
                         36000016,
                         35000001,
                         1657,
-                        36000001
+                        36000001,
                     ],
                     parents: {
                         Producto: 0,
@@ -2533,13 +2533,13 @@ export const FilterEntities = {
                             2799,
                             1657,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ANORAK',
                     code: [ 56 ],
                     display: true,
@@ -2548,12 +2548,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2, 24, 3325, 2670, 3, 25, 39, 38 ]
-                    }
+                        Líneas: [ 2, 24, 3325, 2670, 3, 25, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BRAGA/CALZONC.BEBE',
                     code: [ 89 ],
                     display: true,
@@ -2562,12 +2562,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHAQUETON',
                     code: [ 55 ],
                     display: true,
@@ -2593,7 +2593,7 @@ export const FilterEntities = {
                         35000016,
                         2799,
                         36,
-                        11000001
+                        11000001,
                     ],
                     parents: {
                         Producto: 0,
@@ -2627,13 +2627,13 @@ export const FilterEntities = {
                             1194,
                             1196,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MEDIAS-PANTYS',
                     code: [ 36 ],
                     display: true,
@@ -2642,12 +2642,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 3334, 1267, 43, 4, 26, 38 ]
-                    }
+                        Líneas: [ 3334, 1267, 43, 4, 26, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'JERSEY BEBE',
                     code: [ 70 ],
                     display: true,
@@ -2656,12 +2656,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAZADORA BEBE',
                     code: [ 83 ],
                     display: true,
@@ -2670,12 +2670,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 1909, 3062, 1873, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 1909, 3062, 1873, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BISUTERIA',
                     code: [ 45 ],
                     display: true,
@@ -2693,7 +2693,7 @@ export const FilterEntities = {
                         11000001,
                         23,
                         3334,
-                        3335
+                        3335,
                     ],
                     parents: {
                         Producto: 0,
@@ -2716,13 +2716,13 @@ export const FilterEntities = {
                             3335,
                             14000001,
                             4,
-                            26
-                        ]
-                    }
+                            26,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CINTURON BEBE',
                     code: [ 82 ],
                     display: true,
@@ -2731,12 +2731,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PARKA',
                     code: [ 57 ],
                     display: true,
@@ -2745,12 +2745,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3325, 35000001, 12300001, 35000016, 2670, 1908, 39, 38 ]
-                    }
+                        Líneas: [ 3325, 35000001, 12300001, 35000016, 2670, 1908, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'TIRANTES',
                     code: [ 23 ],
                     display: true,
@@ -2759,12 +2759,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 306, 36, 1267, 43, 3335, 39 ]
-                    }
+                        Líneas: [ 306, 36, 1267, 43, 3335, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BERMUDA',
                     code: [ 20 ],
                     display: true,
@@ -2806,7 +2806,7 @@ export const FilterEntities = {
                         35000001,
                         2799,
                         1657,
-                        35000016
+                        35000016,
                     ],
                     parents: {
                         Producto: 0,
@@ -2854,13 +2854,13 @@ export const FilterEntities = {
                             25,
                             39,
                             1073,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GABARDINA IMPERMEA',
                     code: [ 8 ],
                     display: true,
@@ -2887,7 +2887,7 @@ export const FilterEntities = {
                         39,
                         1908,
                         36000001,
-                        2799
+                        2799,
                     ],
                     parents: {
                         Producto: 0,
@@ -2920,13 +2920,13 @@ export const FilterEntities = {
                             3,
                             25,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MONO',
                     code: [ 39 ],
                     display: true,
@@ -2949,7 +2949,7 @@ export const FilterEntities = {
                         35000001,
                         38,
                         35000016,
-                        1
+                        1,
                     ],
                     parents: {
                         Producto: 0,
@@ -2977,13 +2977,13 @@ export const FilterEntities = {
                             25,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISETA',
                     code: [ 11 ],
                     display: true,
@@ -3017,7 +3017,7 @@ export const FilterEntities = {
                         2799,
                         1657,
                         1535,
-                        1534
+                        1534,
                     ],
                     parents: {
                         Producto: 0,
@@ -3054,13 +3054,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'VESTIDO BEBE',
                     code: [ 62 ],
                     display: true,
@@ -3069,12 +3069,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3328, 1909, 3062, 1873, 41, 1266, 3332, 3327, 40 ]
-                    }
+                        Líneas: [ 3328, 1909, 3062, 1873, 41, 1266, 3332, 3327, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PANTALON',
                     code: [ 1 ],
                     display: true,
@@ -3128,7 +3128,7 @@ export const FilterEntities = {
                         35000016,
                         2799,
                         3124,
-                        40
+                        40,
                     ],
                     parents: {
                         Producto: 0,
@@ -3186,13 +3186,13 @@ export const FilterEntities = {
                             1073,
                             40,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CINTURONES',
                     code: [ 22 ],
                     display: true,
@@ -3214,7 +3214,7 @@ export const FilterEntities = {
                         2799,
                         35000001,
                         35000016,
-                        1657
+                        1657,
                     ],
                     parents: {
                         Producto: 0,
@@ -3243,13 +3243,13 @@ export const FilterEntities = {
                             2799,
                             1657,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PANTALON BEBE',
                     code: [ 61 ],
                     display: true,
@@ -3258,12 +3258,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 3333, 1909, 3062, 1873, 41, 1266, 3332, 3327, 3329, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHALECO PUNTO',
                     code: [ 30 ],
                     display: true,
@@ -3272,12 +3272,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 12, 33, 2799, 1657 ]
-                    }
+                        Líneas: [ 12, 33, 2799, 1657 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'VESTIDO',
                     code: [ 2 ],
                     display: true,
@@ -3306,7 +3306,7 @@ export const FilterEntities = {
                         3331,
                         1657,
                         1266,
-                        35000016
+                        35000016,
                     ],
                     parents: {
                         Producto: 0,
@@ -3340,13 +3340,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PARAGUAS',
                     code: [ 28 ],
                     display: true,
@@ -3355,12 +3355,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 306, 36, 4, 26 ]
-                    }
+                        Líneas: [ 306, 36, 4, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'TOPS Y OTRAS P.',
                     code: [ 52 ],
                     display: true,
@@ -3369,12 +3369,30 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 1637, 8, 3334, 1133, 11000001, 12000001, 5, 27, 1, 23, 2670, 4, 26, 39, 1073, 38, 1074 ]
-                    }
+                        Líneas: [
+                            1637,
+                            8,
+                            3334,
+                            1133,
+                            11000001,
+                            12000001,
+                            5,
+                            27,
+                            1,
+                            23,
+                            2670,
+                            4,
+                            26,
+                            39,
+                            1073,
+                            38,
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BODY',
                     code: [ 17 ],
                     display: true,
@@ -3383,12 +3401,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 1637, 8, 2671, 1133, 5, 27, 1073, 38, 1074 ]
-                    }
+                        Líneas: [ 1637, 8, 2671, 1133, 5, 27, 1073, 38, 1074 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'POLO',
                     code: [ 27 ],
                     display: true,
@@ -3397,12 +3415,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 3326, 14, 35, 1908, 39 ]
-                    }
+                        Líneas: [ 3326, 14, 35, 1908, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BLUSA',
                     code: [ 54 ],
                     display: true,
@@ -3411,12 +3429,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 1133, 13000001, 1253, 35000001, 12300001, 35000016, 2670, 1073, 38 ]
-                    }
+                        Líneas: [ 1133, 13000001, 1253, 35000001, 12300001, 35000016, 2670, 1073, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISETA BEBE',
                     code: [ 71 ],
                     display: true,
@@ -3425,12 +3443,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3328, 3330, 1909, 3062, 1873, 40 ]
-                    }
+                        Líneas: [ 1910, 3328, 3330, 1909, 3062, 1873, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GORRO',
                     code: [ 35 ],
                     display: true,
@@ -3453,7 +3471,7 @@ export const FilterEntities = {
                         35000016,
                         35000001,
                         1657,
-                        1535
+                        1535,
                     ],
                     parents: {
                         Producto: 0,
@@ -3484,13 +3502,13 @@ export const FilterEntities = {
                             2799,
                             1657,
                             39,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHAQUETA',
                     code: [ 9 ],
                     display: true,
@@ -3522,7 +3540,7 @@ export const FilterEntities = {
                         36000016,
                         2799,
                         35000016,
-                        35000001
+                        35000001,
                     ],
                     parents: {
                         Producto: 0,
@@ -3563,13 +3581,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'TOALLA',
                     code: [ 32 ],
                     display: true,
@@ -3578,12 +3596,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3334, 1267, 43, 3335, 39, 38 ]
-                    }
+                        Líneas: [ 3334, 1267, 43, 3335, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GAFAS DE SOL',
                     code: [ 33 ],
                     display: true,
@@ -3608,13 +3626,13 @@ export const FilterEntities = {
                             26,
                             2799,
                             1657,
-                            38
-                        ]
-                    }
+                            38,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'FALDA BEBE',
                     code: [ 63 ],
                     display: true,
@@ -3623,12 +3641,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 3328, 1909, 3332, 3327, 40 ]
-                    }
+                        Líneas: [ 3328, 1909, 3332, 3327, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PIJAMA BEBE',
                     code: [ 85 ],
                     display: true,
@@ -3637,12 +3655,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1267, 43, 3336, 40 ]
-                    }
+                        Líneas: [ 1267, 43, 3336, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'JERSEY',
                     code: [ 10 ],
                     display: true,
@@ -3671,7 +3689,7 @@ export const FilterEntities = {
                         3124,
                         2799,
                         1657,
-                        35000016
+                        35000016,
                     ],
                     parents: {
                         Producto: 0,
@@ -3706,13 +3724,13 @@ export const FilterEntities = {
                             39,
                             1073,
                             38,
-                            1074
-                        ]
-                    }
+                            1074,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'GUANTE',
                     code: [ 21 ],
                     display: true,
@@ -3721,12 +3739,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 306, 36, 3334, 1267, 43, 3335, 4, 26, 39, 38 ]
-                    }
+                        Líneas: [ 306, 36, 3334, 1267, 43, 3335, 4, 26, 39, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHALECO BEBE',
                     code: [ 68 ],
                     display: true,
@@ -3735,16 +3753,16 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 3 ],
-                        Líneas: [ 1910, 3330, 3333, 1909, 3332, 3327, 3329, 40 ]
-                    }
-                }
-            ]
+                        Líneas: [ 1910, 3330, 3333, 1909, 3332, 3327, 3329, 40 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 1,
                 Sección: null,
-                Líneas: null
+                Líneas: null,
             },
             description: 'Calzado',
             header: true,
@@ -3753,7 +3771,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTIN',
                     code: [ 8 ],
                     display: true,
@@ -3776,13 +3794,13 @@ export const FilterEntities = {
                             12300001,
                             35000016,
                             2001001,
-                            2001023
-                        ]
-                    }
+                            2001023,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BAÑO/CHANCLA',
                     code: [ 3 ],
                     display: true,
@@ -3791,12 +3809,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001003, 2001004, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001003, 2001004, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'GAFAS DE VISTA',
                     code: [ 33 ],
                     display: true,
@@ -3805,12 +3823,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2002121 ]
-                    }
+                        Líneas: [ 2002121 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'MOCASIN',
                     code: [ 41 ],
                     display: true,
@@ -3819,12 +3837,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2 ],
-                        Líneas: [ 15200001, 2001023 ]
-                    }
+                        Líneas: [ 15200001, 2001023 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BISUTERIA',
                     code: [ 37 ],
                     display: true,
@@ -3833,12 +3851,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2002111 ]
-                    }
+                        Líneas: [ 2002111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTA PLANA',
                     code: [ 6 ],
                     display: true,
@@ -3847,12 +3865,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 2001001, 2001022 ]
-                    }
+                        Líneas: [ 2001026, 2001001, 2001022 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ZAPATO PLANO',
                     code: [ 24 ],
                     display: true,
@@ -3861,12 +3879,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 2000121, 11000001, 12000001, 2001001, 2001022, 2000131, 2000111 ]
-                    }
+                        Líneas: [ 2001026, 2000121, 11000001, 12000001, 2001001, 2001022, 2000131, 2000111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'RUNNING',
                     code: [ 48 ],
                     display: true,
@@ -3875,12 +3893,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2 ],
-                        Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001023 ]
-                    }
+                        Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001023 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'GENERICO',
                     code: [ 0 ],
                     display: true,
@@ -3888,12 +3906,12 @@ export const FilterEntities = {
                     product_line: [ 2000000 ],
                     parents: {
                         Producto: 1,
-                        Sección: [ 1, 2, 3 ]
-                    }
+                        Sección: [ 1, 2, 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTA TACON',
                     code: [ 7 ],
                     display: true,
@@ -3902,12 +3920,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ]
-                    }
+                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'SANDALIA TACON',
                     code: [ 57 ],
                     display: true,
@@ -3916,12 +3934,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026 ]
-                    }
+                        Líneas: [ 2001026 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTIN PLANO',
                     code: [ 9 ],
                     display: true,
@@ -3930,12 +3948,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022 ]
-                    }
+                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTA',
                     code: [ 5 ],
                     display: true,
@@ -3944,12 +3962,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2001013, 2001003, 35000001, 12300001, 35000016, 2001012, 2001001 ]
-                    }
+                        Líneas: [ 2001013, 2001003, 35000001, 12300001, 35000016, 2001012, 2001001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'GAFAS DE SOL',
                     code: [ 38 ],
                     display: true,
@@ -3958,12 +3976,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2002121 ]
-                    }
+                        Líneas: [ 2002121 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'PALA/PINKY',
                     code: [ 20 ],
                     display: true,
@@ -3972,12 +3990,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001001, 2001022 ]
-                    }
+                        Líneas: [ 2001001, 2001022 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'DEPORTIVO BOTIN',
                     code: [ 14 ],
                     display: true,
@@ -3986,12 +4004,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2, 3 ],
-                        Líneas: [ 2001013, 2001003, 2001025, 2001004, 35000001, 12300001, 35000016, 2001012, 2001023 ]
-                    }
+                        Líneas: [ 2001013, 2001003, 2001025, 2001004, 35000001, 12300001, 35000016, 2001012, 2001023 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTA PEUCO',
                     code: [ 32 ],
                     display: true,
@@ -4000,12 +4018,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ACCESORIOS',
                     code: [ 79 ],
                     display: true,
@@ -4014,12 +4032,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 2002121, 2001202, 2001221, 2001231 ]
-                    }
+                        Líneas: [ 2002121, 2001202, 2001221, 2001231 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOLSOS',
                     code: [ 50 ],
                     display: true,
@@ -4041,7 +4059,7 @@ export const FilterEntities = {
                         2001232,
                         12300001,
                         15300001,
-                        2001093
+                        2001093,
                     ],
                     parents: {
                         Producto: 1,
@@ -4070,13 +4088,13 @@ export const FilterEntities = {
                             15000001,
                             2001093,
                             2001291,
-                            2001231
-                        ]
-                    }
+                            2001231,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ZAPATO TACON',
                     code: [ 25 ],
                     display: true,
@@ -4085,12 +4103,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ]
-                    }
+                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'GORRO',
                     code: [ 62 ],
                     display: true,
@@ -4099,12 +4117,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2002111 ]
-                    }
+                        Líneas: [ 2002111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'LLUVIA',
                     code: [ 2 ],
                     display: true,
@@ -4113,12 +4131,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001003, 2001004, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001003, 2001004, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'SANDALIA PEUCO',
                     code: [ 30 ],
                     display: true,
@@ -4127,12 +4145,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'DEPORTIVO',
                     code: [ 13 ],
                     display: true,
@@ -4149,7 +4167,7 @@ export const FilterEntities = {
                         2001003,
                         2001012,
                         2001013,
-                        12300001
+                        12300001,
                     ],
                     parents: {
                         Producto: 1,
@@ -4172,13 +4190,13 @@ export const FilterEntities = {
                             2001012,
                             2001001,
                             2001022,
-                            2001023
-                        ]
-                    }
+                            2001023,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ZAPATERIA SPORT',
                     code: [ 17 ],
                     display: true,
@@ -4187,12 +4205,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2 ],
-                        Líneas: [ 2001023 ]
-                    }
+                        Líneas: [ 2001023 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOTIN TACON',
                     code: [ 10 ],
                     display: true,
@@ -4201,12 +4219,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ]
-                    }
+                        Líneas: [ 2001026, 11000001, 12000001, 2001001, 2001022, 15000001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'SANDALIA E',
                     code: [ 19 ],
                     display: true,
@@ -4215,12 +4233,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 11000001, 12000001, 2001022, 15000001 ]
-                    }
+                        Líneas: [ 2001026, 11000001, 12000001, 2001022, 15000001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'RELOJES',
                     code: [ 97 ],
                     display: true,
@@ -4229,12 +4247,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 2001227, 2002121 ]
-                    }
+                        Líneas: [ 2001227, 2002121 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'UNIFORME',
                     code: [ 22 ],
                     display: true,
@@ -4243,12 +4261,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 2001034, 2000121, 2001004, 2000111 ]
-                    }
+                        Líneas: [ 2001034, 2000121, 2001004, 2000111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'SANDALIA PLANA',
                     code: [ 58 ],
                     display: true,
@@ -4257,12 +4275,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2000121, 2000131, 2000111 ]
-                    }
+                        Líneas: [ 2000121, 2000131, 2000111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BASICO',
                     code: [ 4 ],
                     display: true,
@@ -4271,12 +4289,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2000121, 2000131, 2000111 ]
-                    }
+                        Líneas: [ 2000121, 2000131, 2000111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'SANDALIA',
                     code: [ 21 ],
                     display: true,
@@ -4291,7 +4309,7 @@ export const FilterEntities = {
                         2001004,
                         2001013,
                         15300001,
-                        12300001
+                        12300001,
                     ],
                     parents: {
                         Producto: 1,
@@ -4309,13 +4327,13 @@ export const FilterEntities = {
                             35000016,
                             2001012,
                             2001001,
-                            2001022
-                        ]
-                    }
+                            2001022,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'LLAVERO',
                     code: [ 56 ],
                     display: true,
@@ -4324,12 +4342,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2 ],
-                        Líneas: [ 2001221 ]
-                    }
+                        Líneas: [ 2001221 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BILLETERAS',
                     code: [ 51 ],
                     display: true,
@@ -4338,12 +4356,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 2002121, 2001232, 2001221, 2002111, 2001231 ]
-                    }
+                        Líneas: [ 2002121, 2001232, 2001221, 2002111, 2001231 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ABIERTO',
                     code: [ 81 ],
                     display: true,
@@ -4352,12 +4370,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 2 ],
-                        Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001025, 2001023 ]
-                    }
+                        Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001025, 2001023 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BAMBAS',
                     code: [ 42 ],
                     display: true,
@@ -4366,12 +4384,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001003, 2001004, 15300001, 35000001, 12300001, 35000016, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001003, 2001004, 15300001, 35000001, 12300001, 35000016, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ZAPATO',
                     code: [ 23 ],
                     display: true,
@@ -4395,13 +4413,13 @@ export const FilterEntities = {
                             12300001,
                             35000016,
                             2001012,
-                            2001023
-                        ]
-                    }
+                            2001023,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BAMBAS PEUCO',
                     code: [ 43 ],
                     display: true,
@@ -4410,12 +4428,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 3 ],
-                        Líneas: [ 2001013, 2001012 ]
-                    }
+                        Líneas: [ 2001013, 2001012 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'CUÑA',
                     code: [ 12 ],
                     display: true,
@@ -4424,12 +4442,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001026, 2001001, 2001022, 2000111 ]
-                    }
+                        Líneas: [ 2001026, 2001001, 2001022, 2000111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ALARMAS',
                     code: [ 98 ],
                     display: true,
@@ -4438,12 +4456,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001001 ]
-                    }
+                        Líneas: [ 2001001 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'CALZADO',
                     code: [ 1 ],
                     display: true,
@@ -4452,12 +4470,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 2001026, 2001091, 2001092, 2001004, 2001292, 2000111, 2001093, 2001010 ]
-                    }
+                        Líneas: [ 2001026, 2001091, 2001092, 2001004, 2001292, 2000111, 2001093, 2001010 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'CALCETINES',
                     code: [ 40 ],
                     display: true,
@@ -4466,12 +4484,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2000131, 2002111 ]
-                    }
+                        Líneas: [ 2000131, 2002111 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'POLAINA',
                     code: [ 39 ],
                     display: true,
@@ -4480,12 +4498,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1 ],
-                        Líneas: [ 2001203 ]
-                    }
+                        Líneas: [ 2001203 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ZAPATO PEUCO',
                     code: [ 28 ],
                     display: true,
@@ -4494,12 +4512,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2001013, 2001012, 2000131 ]
-                    }
+                        Líneas: [ 2001013, 2001012, 2000131 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'HOME',
                     code: [ 11 ],
                     display: true,
@@ -4508,16 +4526,16 @@ export const FilterEntities = {
                     parents: {
                         Producto: 1,
                         Sección: [ 1, 3 ],
-                        Líneas: [ 2001013, 2001003, 2000121, 2001004, 2001012, 2000131, 2002131, 2000111 ]
-                    }
-                }
-            ]
+                        Líneas: [ 2001013, 2001003, 2000121, 2001004, 2001012, 2000131, 2002131, 2000111 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 2,
                 Sección: null,
-                Líneas: null
+                Líneas: null,
             },
             description: 'Perfumeria',
             header: true,
@@ -4526,7 +4544,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'MAQUILLAJE OJOS',
                     code: [ 57 ],
                     display: true,
@@ -4535,12 +4553,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
+                        Líneas: [ 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'TESTER',
                     code: [ 70 ],
                     display: true,
@@ -4548,12 +4566,12 @@ export const FilterEntities = {
                     product_line: [ 49, 46, 52 ],
                     parents: {
                         Producto: 2,
-                        Sección: [ 1, 2, 3 ]
-                    }
+                        Sección: [ 1, 2, 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'TOALLITA PERFUMADA',
                     code: [ 47 ],
                     display: true,
@@ -4561,12 +4579,12 @@ export const FilterEntities = {
                     product_line: [ 52 ],
                     parents: {
                         Producto: 2,
-                        Sección: [ 3 ]
-                    }
+                        Sección: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PAPEL PERFUMADO',
                     code: [ 45 ],
                     display: true,
@@ -4574,12 +4592,12 @@ export const FilterEntities = {
                     product_line: [ 46 ],
                     parents: {
                         Producto: 2,
-                        Sección: [ 1 ]
-                    }
+                        Sección: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFUME',
                     code: [ 48 ],
                     display: true,
@@ -4588,12 +4606,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 44, 53, 47, 56 ]
-                    }
+                        Líneas: [ 44, 53, 47, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'EAU DE PERFUME',
                     code: [ 75 ],
                     display: true,
@@ -4602,12 +4620,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 44, 53, 50, 59, 47, 56 ]
-                    }
+                        Líneas: [ 44, 53, 50, 59, 47, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'GEL',
                     code: [ 54 ],
                     display: true,
@@ -4616,12 +4634,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 48, 57, 45, 54 ]
-                    }
+                        Líneas: [ 48, 57, 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'EAU DE TOILETTE',
                     code: [ 50 ],
                     display: true,
@@ -4630,12 +4648,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 44, 53, 45, 54, 50, 59, 47, 56 ]
-                    }
+                        Líneas: [ 44, 53, 45, 54, 50, 59, 47, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'CHAMPU',
                     code: [ 15 ],
                     display: true,
@@ -4644,12 +4662,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 48, 57, 45, 54 ]
-                    }
+                        Líneas: [ 48, 57, 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'MAQUILLAJE FACIAL',
                     code: [ 60 ],
                     display: true,
@@ -4658,12 +4676,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
+                        Líneas: [ 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'ESMALTE DE UÑAS',
                     code: [ 61 ],
                     display: true,
@@ -4672,12 +4690,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
+                        Líneas: [ 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'BORLAS Y BROCHAS',
                     code: [ 62 ],
                     display: true,
@@ -4686,12 +4704,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
+                        Líneas: [ 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'VELAS',
                     code: [ 64 ],
                     display: true,
@@ -4700,12 +4718,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 44, 53, 50, 59, 47, 56 ]
-                    }
+                        Líneas: [ 44, 53, 50, 59, 47, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'EAU DE COLOGNE',
                     code: [ 58 ],
                     display: true,
@@ -4714,12 +4732,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 44, 53, 50, 59, 47, 56 ]
-                    }
+                        Líneas: [ 44, 53, 50, 59, 47, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'CREMA MANOS',
                     code: [ 11 ],
                     display: true,
@@ -4728,12 +4746,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2 ],
-                        Líneas: [ 48, 57, 45, 54 ]
-                    }
+                        Líneas: [ 48, 57, 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'LOCION CORPORAL',
                     code: [ 55 ],
                     display: true,
@@ -4742,12 +4760,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 3 ],
-                        Líneas: [ 51, 60 ]
-                    }
+                        Líneas: [ 51, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'GEL COSMÉTICO',
                     code: [ 1 ],
                     display: true,
@@ -4756,12 +4774,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Líneas: [ 48, 57, 45, 54, 51, 60 ]
-                    }
+                        Líneas: [ 48, 57, 45, 54, 51, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'MAQUILL.LABIOS',
                     code: [ 59 ],
                     display: true,
@@ -4770,12 +4788,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
+                        Líneas: [ 45, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PLASTICOS',
                     code: [ 71 ],
                     display: true,
@@ -4783,12 +4801,12 @@ export const FilterEntities = {
                     product_line: [ 55, 46 ],
                     parents: {
                         Producto: 2,
-                        Sección: [ 1 ]
-                    }
+                        Sección: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'CREMA HIDRATANTE',
                     code: [ 9 ],
                     display: true,
@@ -4797,16 +4815,16 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1 ],
-                        Líneas: [ 45, 54 ]
-                    }
-                }
-            ]
+                        Líneas: [ 45, 54 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 4,
                 Sección: null,
-                Líneas: null
+                Líneas: null,
             },
             description: 'Hogar',
             header: true,
@@ -4815,7 +4833,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANAS/FUNDAS',
                     code: [ 1 ],
                     display: true,
@@ -4824,12 +4842,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOMBRAS BAÑO',
                     code: [ 15 ],
                     display: true,
@@ -4838,12 +4856,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1294 ]
-                    }
+                        Líneas: [ 1567, 1568, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'UNIFORMES',
                     code: [ 87 ],
                     display: true,
@@ -4852,12 +4870,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1295 ]
-                    }
+                        Líneas: [ 1559, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOBILIARIO NIÑO',
                     code: [ 80 ],
                     display: true,
@@ -4866,12 +4884,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1294, 1577 ]
-                    }
+                        Líneas: [ 1568, 1294, 1577 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DELANTALES',
                     code: [ 27 ],
                     display: true,
@@ -4880,12 +4898,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISA/BLUSA',
                     code: [ 62 ],
                     display: true,
@@ -4894,12 +4912,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAMPARAS',
                     code: [ 47 ],
                     display: true,
@@ -4908,12 +4926,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CENICEROS/INCIENSA',
                     code: [ 76 ],
                     display: true,
@@ -4922,12 +4940,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1560 ]
-                    }
+                        Líneas: [ 1559, 1560 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIO NIÑO/BEB',
                     code: [ 16 ],
                     display: true,
@@ -4936,12 +4954,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568 ]
-                    }
+                        Líneas: [ 1567, 1568 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUBRE CANAPE',
                     code: [ 93 ],
                     display: true,
@@ -4950,12 +4968,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1559, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'UTENSIL. LIMPIEZA',
                     code: [ 82 ],
                     display: true,
@@ -4964,12 +4982,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567 ]
-                    }
+                        Líneas: [ 1567 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA COJIN',
                     code: [ 8 ],
                     display: true,
@@ -4978,12 +4996,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHAQUETA',
                     code: [ 58 ],
                     display: true,
@@ -4992,12 +5010,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1557 ]
-                    }
+                        Líneas: [ 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ASIENTO',
                     code: [ 73 ],
                     display: true,
@@ -5006,12 +5024,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMINOS DE MESA',
                     code: [ 24 ],
                     display: true,
@@ -5020,12 +5038,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567 ]
-                    }
+                        Líneas: [ 1567 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JUGUETES',
                     code: [ 52 ],
                     display: true,
@@ -5034,12 +5052,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1560, 1294 ]
-                    }
+                        Líneas: [ 1568, 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOP Y OTRAS P.',
                     code: [ 96 ],
                     display: true,
@@ -5048,12 +5066,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1294, 1557 ]
-                    }
+                        Líneas: [ 1567, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS DECORAC',
                     code: [ 43 ],
                     display: true,
@@ -5062,12 +5080,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VELA',
                     code: [ 65 ],
                     display: true,
@@ -5076,12 +5094,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS BAÑO',
                     code: [ 44 ],
                     display: true,
@@ -5090,12 +5108,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VESTIDO',
                     code: [ 63 ],
                     display: true,
@@ -5104,12 +5122,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1294, 1557 ]
-                    }
+                        Líneas: [ 1568, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELLENO',
                     code: [ 10 ],
                     display: true,
@@ -5118,12 +5136,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CERILLAS',
                     code: [ 86 ],
                     display: true,
@@ -5132,12 +5150,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559 ]
-                    }
+                        Líneas: [ 1559 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ROPA',
                     code: [ 7 ],
                     display: true,
@@ -5146,12 +5164,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1295, 1557 ]
-                    }
+                        Líneas: [ 1559, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COJIN',
                     code: [ 9 ],
                     display: true,
@@ -5160,12 +5178,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BANDEJAS',
                     code: [ 40 ],
                     display: true,
@@ -5174,12 +5192,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS MESA*',
                     code: [ 53 ],
                     display: true,
@@ -5188,12 +5206,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1295, 1577 ]
-                    }
+                        Líneas: [ 1567, 1559, 1295, 1577 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLETEROS',
                     code: [ 39 ],
                     display: true,
@@ -5202,12 +5220,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLCHAS',
                     code: [ 6 ],
                     display: true,
@@ -5216,12 +5234,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TIRADORES',
                     code: [ 48 ],
                     display: true,
@@ -5230,12 +5248,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1560, 1294, 1295 ]
-                    }
+                        Líneas: [ 1559, 1560, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAÑOLETA/CHAL',
                     code: [ 59 ],
                     display: true,
@@ -5244,12 +5262,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1557 ]
-                    }
+                        Líneas: [ 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA EDREDON',
                     code: [ 88 ],
                     display: true,
@@ -5258,12 +5276,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PREPARACION LAVADO',
                     code: [ 83 ],
                     display: true,
@@ -5272,12 +5290,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559 ]
-                    }
+                        Líneas: [ 1567, 1559 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TEXTIL COCINA',
                     code: [ 23 ],
                     display: true,
@@ -5286,12 +5304,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1557 ]
-                    }
+                        Líneas: [ 1567, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUBIERTOS',
                     code: [ 36 ],
                     display: true,
@@ -5300,12 +5318,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PERCHAS',
                     code: [ 18 ],
                     display: true,
@@ -5314,12 +5332,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1568, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LIBRERIA',
                     code: [ 54 ],
                     display: true,
@@ -5328,12 +5346,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1560, 1294, 1557 ]
-                    }
+                        Líneas: [ 1567, 1560, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOALLAS',
                     code: [ 92 ],
                     display: true,
@@ -5342,12 +5360,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1559, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1568, 1559, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAJAS Y JOYEROS',
                     code: [ 79 ],
                     display: true,
@@ -5356,12 +5374,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTAS',
                     code: [ 4 ],
                     display: true,
@@ -5370,12 +5388,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ELECTRODOMESTICOS',
                     code: [ 61 ],
                     display: true,
@@ -5384,12 +5402,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1560, 1577 ]
-                    }
+                        Líneas: [ 1567, 1560, 1577 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSAS Y MOCHILAS',
                     code: [ 19 ],
                     display: true,
@@ -5398,12 +5416,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1294, 1557 ]
-                    }
+                        Líneas: [ 1567, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SEMILLAS',
                     code: [ 2 ],
                     display: true,
@@ -5412,12 +5430,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JERSEY',
                     code: [ 78 ],
                     display: true,
@@ -5426,12 +5444,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1557 ]
-                    }
+                        Líneas: [ 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TRAPOS DE COCINA',
                     code: [ 26 ],
                     display: true,
@@ -5440,12 +5458,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JARRONES',
                     code: [ 46 ],
                     display: true,
@@ -5454,12 +5472,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PROTEC COLCH-ALMOH',
                     code: [ 11 ],
                     display: true,
@@ -5468,12 +5486,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC. NO TEXTIL',
                     code: [ 27 ],
                     display: true,
@@ -5482,12 +5500,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PANTALON',
                     code: [ 95 ],
                     display: true,
@@ -5496,12 +5514,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS COCINA',
                     code: [ 41 ],
                     display: true,
@@ -5510,12 +5528,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ROPA NIÑO/BEBE',
                     code: [ 12 ],
                     display: true,
@@ -5524,12 +5542,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1557 ]
-                    }
+                        Líneas: [ 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CD S',
                     code: [ 85 ],
                     display: true,
@@ -5538,12 +5556,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1560 ]
-                    }
+                        Líneas: [ 1560 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTELERIA',
                     code: [ 21 ],
                     display: true,
@@ -5552,12 +5570,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'POSAVASOS/SALVAMAN',
                     code: [ 25 ],
                     display: true,
@@ -5566,12 +5584,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALZAPAÑOS',
                     code: [ 33 ],
                     display: true,
@@ -5580,12 +5598,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568 ]
-                    }
+                        Líneas: [ 1568 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPELERIA',
                     code: [ 55 ],
                     display: true,
@@ -5594,12 +5612,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1560, 1294, 1557 ]
-                    }
+                        Líneas: [ 1567, 1560, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLETAS',
                     code: [ 22 ],
                     display: true,
@@ -5608,12 +5626,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLGADORES',
                     code: [ 74 ],
                     display: true,
@@ -5622,12 +5640,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1560, 1294 ]
-                    }
+                        Líneas: [ 1567, 1568, 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VELA AROMATICA',
                     code: [ 71 ],
                     display: true,
@@ -5636,12 +5654,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559 ]
-                    }
+                        Líneas: [ 1567, 1559 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PRENDAS BAÑO',
                     code: [ 31 ],
                     display: true,
@@ -5650,12 +5668,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1294, 1557 ]
-                    }
+                        Líneas: [ 1568, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOMBRAS',
                     code: [ 29 ],
                     display: true,
@@ -5664,12 +5682,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COSMETICA',
                     code: [ 64 ],
                     display: true,
@@ -5678,12 +5696,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1577 ]
-                    }
+                        Líneas: [ 1567, 1559, 1577 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALARMAS',
                     code: [ 34 ],
                     display: true,
@@ -5692,12 +5710,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1559, 1295 ]
-                    }
+                        Líneas: [ 1559, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS NAVIDAD',
                     code: [ 60 ],
                     display: true,
@@ -5706,12 +5724,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS MESA',
                     code: [ 42 ],
                     display: true,
@@ -5720,12 +5738,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANA BAJERA',
                     code: [ 90 ],
                     display: true,
@@ -5734,12 +5752,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567 ]
-                    }
+                        Líneas: [ 1567 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MESAS',
                     code: [ 72 ],
                     display: true,
@@ -5748,12 +5766,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA ALMOHADA',
                     code: [ 91 ],
                     display: true,
@@ -5762,12 +5780,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE',
                     code: [ 37 ],
                     display: true,
@@ -5776,12 +5794,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MARCOS FOTOS',
                     code: [ 45 ],
                     display: true,
@@ -5790,12 +5808,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PRENDAS BEBE',
                     code: [ 70 ],
                     display: true,
@@ -5804,12 +5822,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1559, 1294 ]
-                    }
+                        Líneas: [ 1568, 1559, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AMBIENTADOR',
                     code: [ 67 ],
                     display: true,
@@ -5818,12 +5836,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559 ]
-                    }
+                        Líneas: [ 1567, 1559 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INCIENSO',
                     code: [ 68 ],
                     display: true,
@@ -5832,12 +5850,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559 ]
-                    }
+                        Líneas: [ 1567, 1559 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BERMUDAS/SHORTS',
                     code: [ 69 ],
                     display: true,
@@ -5846,12 +5864,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1557 ]
-                    }
+                        Líneas: [ 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOBILIARIO',
                     code: [ 77 ],
                     display: true,
@@ -5860,12 +5878,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELOJES',
                     code: [ 84 ],
                     display: true,
@@ -5874,12 +5892,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1560, 1294 ]
-                    }
+                        Líneas: [ 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALBORNOZ/BATA',
                     code: [ 99 ],
                     display: true,
@@ -5888,12 +5906,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1559, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1568, 1559, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS JARDIN',
                     code: [ 3 ],
                     display: true,
@@ -5902,12 +5920,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1557 ]
-                    }
+                        Líneas: [ 1567, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FALDA',
                     code: [ 56 ],
                     display: true,
@@ -5916,12 +5934,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1557 ]
-                    }
+                        Líneas: [ 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISETA',
                     code: [ 94 ],
                     display: true,
@@ -5930,12 +5948,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1557 ]
-                    }
+                        Líneas: [ 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISON/PIJAMA',
                     code: [ 97 ],
                     display: true,
@@ -5944,12 +5962,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1294, 1557 ]
-                    }
+                        Líneas: [ 1568, 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INTERIORES',
                     code: [ 66 ],
                     display: true,
@@ -5958,12 +5976,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1294, 1557 ]
-                    }
+                        Líneas: [ 1294, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC. TEXTIL',
                     code: [ 17 ],
                     display: true,
@@ -5972,12 +5990,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1560, 1294 ]
-                    }
+                        Líneas: [ 1567, 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'EDREDON',
                     code: [ 5 ],
                     display: true,
@@ -5986,12 +6004,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TEXTIL BAÑO',
                     code: [ 13 ],
                     display: true,
@@ -6000,12 +6018,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1577 ]
-                    }
+                        Líneas: [ 1568, 1577 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CESTAS',
                     code: [ 49 ],
                     display: true,
@@ -6014,12 +6032,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS COCINA*',
                     code: [ 50 ],
                     display: true,
@@ -6028,12 +6046,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567 ]
-                    }
+                        Líneas: [ 1567 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CRISTALERIA',
                     code: [ 38 ],
                     display: true,
@@ -6042,12 +6060,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CORTINA',
                     code: [ 32 ],
                     display: true,
@@ -6056,12 +6074,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSA OLOR ARMARIO',
                     code: [ 20 ],
                     display: true,
@@ -6070,12 +6088,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VAJILLAS',
                     code: [ 35 ],
                     display: true,
@@ -6084,12 +6102,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1294, 1295, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCES PARA GUARDAR',
                     code: [ 57 ],
                     display: true,
@@ -6098,12 +6116,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1560, 1294 ]
-                    }
+                        Líneas: [ 1568, 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANOPLAS COCINA',
                     code: [ 28 ],
                     display: true,
@@ -6112,12 +6130,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1294 ]
-                    }
+                        Líneas: [ 1567, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FAROLILLOS',
                     code: [ 75 ],
                     display: true,
@@ -6126,12 +6144,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1560 ]
-                    }
+                        Líneas: [ 1560 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANAS',
                     code: [ 89 ],
                     display: true,
@@ -6140,12 +6158,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1294, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1294, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TEXTIL VARIOS',
                     code: [ 14 ],
                     display: true,
@@ -6154,12 +6172,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1568, 1559, 1294, 1295, 1557 ]
-                    }
+                        Líneas: [ 1567, 1568, 1559, 1294, 1295, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ESPEJOS',
                     code: [ 81 ],
                     display: true,
@@ -6168,12 +6186,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1560, 1294, 1577, 1557 ]
-                    }
+                        Líneas: [ 1567, 1560, 1294, 1577, 1557 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PORTAVELAS',
                     code: [ 98 ],
                     display: true,
@@ -6182,12 +6200,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1567, 1559, 1560, 1295 ]
-                    }
+                        Líneas: [ 1567, 1559, 1560, 1295 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PELUCHE',
                     code: [ 51 ],
                     display: true,
@@ -6196,12 +6214,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1568, 1560, 1294 ]
-                    }
+                        Líneas: [ 1568, 1560, 1294 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLCHON',
                     code: [ 30 ],
                     display: true,
@@ -6210,11 +6228,11 @@ export const FilterEntities = {
                     parents: {
                         Producto: 4,
                         Sección: [ 1 ],
-                        Líneas: [ 1557 ]
-                    }
-                }
-            ]
-        }
+                        Líneas: [ 1557 ],
+                    },
+                },
+            ],
+        },
     ],
     subfamily: [
         {
@@ -6222,7 +6240,7 @@ export const FilterEntities = {
                 Producto: 0,
                 Sección: null,
                 Líneas: null,
-                Familia: null
+                Familia: null,
             },
             description: 'Ropa',
             header: true,
@@ -6231,7 +6249,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*PANTALON',
                     code: [ 201 ],
                     display: true,
@@ -6252,7 +6270,7 @@ export const FilterEntities = {
                         36000001,
                         36,
                         17,
-                        566
+                        566,
                     ],
                     family: [ 1, 99 ],
                     parents: {
@@ -6275,14 +6293,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 1, 99 ]
-                    }
+                        Familia: [ 1, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* PINKY',
                     code: [ 253 ],
                     display: true,
@@ -6293,12 +6311,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*SOBRECAMISA',
                     code: [ 236 ],
                     display: true,
@@ -6309,12 +6327,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CAMISA',
                     code: [ 720 ],
                     display: true,
@@ -6325,12 +6343,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 52, 4, 54, 11 ]
-                    }
+                        Familia: [ 52, 4, 54, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SUJETADOR',
                     code: [ 165 ],
                     display: true,
@@ -6341,12 +6359,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 41 ]
-                    }
+                        Familia: [ 41 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-P.EXTERIOR',
                     code: [ 845 ],
                     display: true,
@@ -6357,12 +6375,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 35000001, 12300001, 35000016, 2799, 1657, 1908, 39 ],
-                        Familia: [ 57, 8, 6, 7, 59, 5, 11, 31, 55, 56 ]
-                    }
+                        Familia: [ 57, 8, 6, 7, 59, 5, 11, 31, 55, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.P-EXTER.CORTA',
                     code: [ 642 ],
                     display: true,
@@ -6373,12 +6391,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 8, 6, 7, 59, 5, 31, 56 ]
-                    }
+                        Familia: [ 8, 6, 7, 59, 5, 31, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F PANTALON',
                     code: [ 301 ],
                     display: true,
@@ -6400,7 +6418,7 @@ export const FilterEntities = {
                         35,
                         14,
                         566,
-                        306
+                        306,
                     ],
                     family: [ 1 ],
                     parents: {
@@ -6425,14 +6443,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PANT.PIJ. CON B',
                     code: [ 164 ],
                     display: true,
@@ -6443,12 +6461,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PANT.DENIM',
                     code: [ 801 ],
                     display: true,
@@ -6459,12 +6477,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 2799, 1657, 1908, 39 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*POLO',
                     code: [ 230 ],
                     display: true,
@@ -6475,12 +6493,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 14, 35 ],
-                        Familia: [ 27, 99 ]
-                    }
+                        Familia: [ 27, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*BERM DENIM',
                     code: [ 208 ],
                     display: true,
@@ -6491,12 +6509,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CTA.C/VTO',
                     code: [ 880 ],
                     display: true,
@@ -6507,12 +6525,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 71 ]
-                    }
+                        Familia: [ 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MINI P.EXTERIOR',
                     code: [ 888 ],
                     display: true,
@@ -6523,12 +6541,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3062, 1873, 40 ],
-                        Familia: [ 76, 65 ]
-                    }
+                        Familia: [ 76, 65 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ST. FALDA',
                     code: [ 489 ],
                     display: true,
@@ -6539,12 +6557,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B BLASIER/CONJ',
                     code: [ 340 ],
                     display: true,
@@ -6555,12 +6573,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.CAMISA',
                     code: [ 550 ],
                     display: true,
@@ -6571,12 +6589,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ACCESORIOS',
                     code: [ 152 ],
                     display: true,
@@ -6587,12 +6605,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 16 ]
-                    }
+                        Familia: [ 16 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAMISETA',
                     code: [ 233 ],
                     display: true,
@@ -6603,12 +6621,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36, 486, 546, 1534, 1535, 14, 35 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BODY CON BOLSA',
                     code: [ 157 ],
                     display: true,
@@ -6619,12 +6637,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 17 ]
-                    }
+                        Familia: [ 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.P-EXT.CORTA',
                     code: [ 510 ],
                     display: true,
@@ -6635,12 +6653,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 8, 6, 7, 9, 5, 31 ]
-                    }
+                        Familia: [ 8, 6, 7, 9, 5, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-BUFANDAS',
                     code: [ 418 ],
                     display: true,
@@ -6651,12 +6669,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PETO RESTO',
                     code: [ 870 ],
                     display: true,
@@ -6667,12 +6685,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 84 ]
-                    }
+                        Familia: [ 84 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-FUNDAS',
                     code: [ 982 ],
                     display: true,
@@ -6683,12 +6701,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2799, 1657 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NÑA-COMPLEMENTO',
                     code: [ 988 ],
                     display: true,
@@ -6699,12 +6717,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 3334, 1267, 43, 35000001, 12300001, 35000016, 2799, 1657, 39, 38 ],
-                        Familia: [ 8, 16, 45, 18, 26, 35 ]
-                    }
+                        Familia: [ 8, 16, 45, 18, 26, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CAZADORA',
                     code: [ 324 ],
                     display: true,
@@ -6715,12 +6733,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 1194, 1196 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A CTA M/C',
                     code: [ 862 ],
                     display: true,
@@ -6731,12 +6749,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3328, 1909, 40 ],
-                        Familia: [ 66, 71 ]
-                    }
+                        Familia: [ 66, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A FALDA REST',
                     code: [ 854 ],
                     display: true,
@@ -6747,12 +6765,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 63 ]
-                    }
+                        Familia: [ 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* BAÑO',
                     code: [ 254 ],
                     display: true,
@@ -6763,12 +6781,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CHAQ/PARKA',
                     code: [ 327 ],
                     display: true,
@@ -6793,14 +6811,14 @@ export const FilterEntities = {
                             12,
                             33,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 8, 6, 55 ]
-                    }
+                        Familia: [ 8, 6, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAMISA DENIM',
                     code: [ 215 ],
                     display: true,
@@ -6811,12 +6829,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546, 12, 33 ],
-                        Familia: [ 10, 4 ]
-                    }
+                        Familia: [ 10, 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CALCETIN',
                     code: [ 972 ],
                     display: true,
@@ -6827,12 +6845,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 3334, 1267, 43, 35000001, 12300001, 35000016, 2799, 1657, 38 ],
-                        Familia: [ 13, 36 ]
-                    }
+                        Familia: [ 13, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.FALDA',
                     code: [ 502 ],
                     display: true,
@@ -6843,12 +6861,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PUNTO',
                     code: [ 825 ],
                     display: true,
@@ -6859,12 +6877,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3124, 35000001, 12300001, 35000016, 2799, 1657, 39 ],
-                        Familia: [ 1, 10, 7, 9, 31 ]
-                    }
+                        Familia: [ 1, 10, 7, 9, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.FALDA',
                     code: [ 634 ],
                     display: true,
@@ -6875,12 +6893,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALZADO',
                     code: [ 161 ],
                     display: true,
@@ -6891,12 +6909,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 46 ]
-                    }
+                        Familia: [ 46 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-INTERIORES',
                     code: [ 944 ],
                     display: true,
@@ -6907,12 +6925,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 72, 89 ]
-                    }
+                        Familia: [ 72, 89 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*BERMUDA',
                     code: [ 207 ],
                     display: true,
@@ -6941,14 +6959,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-BILLETEROS',
                     code: [ 415 ],
                     display: true,
@@ -6959,12 +6977,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 29 ]
-                    }
+                        Familia: [ 29 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.BLASIER',
                     code: [ 640 ],
                     display: true,
@@ -6975,12 +6993,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* GUANTES',
                     code: [ 248 ],
                     display: true,
@@ -6991,12 +7009,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F PANTALON/CONJ',
                     code: [ 343 ],
                     display: true,
@@ -7007,12 +7025,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 1193, 1195, 1534, 1535 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-PIJAMA',
                     code: [ 945 ],
                     display: true,
@@ -7023,12 +7041,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 85 ]
-                    }
+                        Familia: [ 85 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO PANTALON',
                     code: [ 681 ],
                     display: true,
@@ -7039,12 +7057,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PANT PANA',
                     code: [ 867 ],
                     display: true,
@@ -7055,12 +7073,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.SUDADERA FANT',
                     code: [ 598 ],
                     display: true,
@@ -7071,12 +7089,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 10, 60 ]
-                    }
+                        Familia: [ 10, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.CAMISA PAQUET',
                     code: [ 639 ],
                     display: true,
@@ -7087,12 +7105,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 4, 59 ]
-                    }
+                        Familia: [ 4, 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.VESTIDO',
                     code: [ 548 ],
                     display: true,
@@ -7103,12 +7121,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 4, 2 ]
-                    }
+                        Familia: [ 4, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MONO',
                     code: [ 169 ],
                     display: true,
@@ -7119,12 +7137,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 39 ]
-                    }
+                        Familia: [ 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NO-PROMO',
                     code: [ 800 ],
                     display: true,
@@ -7135,12 +7153,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2799, 1657 ],
-                        Familia: [ 30 ]
-                    }
+                        Familia: [ 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO CHAQUETA',
                     code: [ 578, 685 ],
                     display: true,
@@ -7151,12 +7169,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 9 ]
-                    }
+                        Familia: [ 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CINTURON',
                     code: [ 986 ],
                     display: true,
@@ -7167,12 +7185,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 2799, 1657, 39 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CAMISA DENIM',
                     code: [ 314 ],
                     display: true,
@@ -7183,12 +7201,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1, 2 ],
                         Líneas: [ 486, 546, 3, 25 ],
-                        Familia: [ 4, 2 ]
-                    }
+                        Familia: [ 4, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O BERM.DENIM',
                     code: [ 871 ],
                     display: true,
@@ -7199,12 +7217,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SUJ. BASIC',
                     code: [ 156 ],
                     display: true,
@@ -7215,12 +7233,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 41 ]
-                    }
+                        Familia: [ 41 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAZAD. DENIM',
                     code: [ 227 ],
                     display: true,
@@ -7231,12 +7249,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 486, 546 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PANT.PANA',
                     code: [ 802 ],
                     display: true,
@@ -7247,12 +7265,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 2799, 1657, 1908, 39 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CAMISA',
                     code: [ 210 ],
                     display: true,
@@ -7263,12 +7281,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 1194, 1196 ],
-                        Familia: [ 4, 99 ]
-                    }
+                        Familia: [ 4, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MINI CONFECCION',
                     code: [ 885 ],
                     display: true,
@@ -7279,12 +7297,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3062, 1873, 40 ],
-                        Familia: [ 80, 62, 76, 84, 86, 64, 79, 61 ]
-                    }
+                        Familia: [ 80, 62, 76, 84, 86, 64, 79, 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-LEOTARDOS',
                     code: [ 950 ],
                     display: true,
@@ -7295,12 +7313,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 90 ]
-                    }
+                        Familia: [ 90 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-BAÑO-BIKINI',
                     code: [ 436 ],
                     display: true,
@@ -7311,12 +7329,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BRAGA CON BOLSA',
                     code: [ 158 ],
                     display: true,
@@ -7327,12 +7345,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 40 ]
-                    }
+                        Familia: [ 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.BERMUDA',
                     code: [ 530 ],
                     display: true,
@@ -7343,12 +7361,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 34, 20 ]
-                    }
+                        Familia: [ 34, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO CHALECO',
                     code: [ 688 ],
                     display: true,
@@ -7359,12 +7377,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 31 ]
-                    }
+                        Familia: [ 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-INTERIORES',
                     code: [ 966 ],
                     display: true,
@@ -7375,12 +7393,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 39 ],
-                        Familia: [ 12 ]
-                    }
+                        Familia: [ 12 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.BLASIER',
                     code: [ 508 ],
                     display: true,
@@ -7391,12 +7409,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 6, 5 ]
-                    }
+                        Familia: [ 6, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.P-EXT.LARGA',
                     code: [ 511, 3744 ],
                     display: true,
@@ -7407,12 +7425,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 8, 6, 7, 9, 5, 31, 55 ]
-                    }
+                        Familia: [ 8, 6, 7, 9, 5, 31, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PUNTO',
                     code: [ 878 ],
                     display: true,
@@ -7423,12 +7441,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3333, 41, 1266, 40 ],
-                        Familia: [ 80, 67, 84, 70, 61, 69, 68 ]
-                    }
+                        Familia: [ 80, 67, 84, 70, 61, 69, 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTAS.BASICAS',
                     code: [ 584 ],
                     display: true,
@@ -7439,12 +7457,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 1073 ],
-                        Familia: [ 1, 3, 52, 10, 4, 9, 39, 60, 54, 99, 2, 11, 17 ]
-                    }
+                        Familia: [ 1, 3, 52, 10, 4, 9, 39, 60, 54, 99, 2, 11, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A BERM DENIM',
                     code: [ 851 ],
                     display: true,
@@ -7455,12 +7473,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.PANT.PAQUETER',
                     code: [ 501 ],
                     display: true,
@@ -7471,12 +7489,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23 ],
-                        Familia: [ 1, 34, 20 ]
-                    }
+                        Familia: [ 1, 34, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O P.EXTERIOR',
                     code: [ 883 ],
                     display: true,
@@ -7487,12 +7505,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 67, 65, 69, 68 ]
-                    }
+                        Familia: [ 67, 65, 69, 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.FALDA PAQUET.',
                     code: [ 635 ],
                     display: true,
@@ -7503,12 +7521,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 3, 25 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O BERM.RESTO',
                     code: [ 872 ],
                     display: true,
@@ -7519,12 +7537,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'VEST ZARA PAQ',
                     code: [ 582 ],
                     display: true,
@@ -7535,12 +7553,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*JERSEY',
                     code: [ 217 ],
                     display: true,
@@ -7551,12 +7569,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 12, 33 ],
-                        Familia: [ 10, 4 ]
-                    }
+                        Familia: [ 10, 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-BISUTERIA ZA',
                     code: [ 423 ],
                     display: true,
@@ -7567,12 +7585,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23, 14000001, 4, 26 ],
-                        Familia: [ 45 ]
-                    }
+                        Familia: [ 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* BISUTERIA',
                     code: [ 241 ],
                     display: true,
@@ -7583,12 +7601,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 45 ]
-                    }
+                        Familia: [ 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C. BODY',
                     code: [ 607 ],
                     display: true,
@@ -7599,12 +7617,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 17 ]
-                    }
+                        Familia: [ 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PETO DENIM',
                     code: [ 869 ],
                     display: true,
@@ -7615,12 +7633,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 84 ]
-                    }
+                        Familia: [ 84 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-FALD.DENIM',
                     code: [ 710 ],
                     display: true,
@@ -7631,12 +7649,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 38 ],
-                        Familia: [ 3, 34 ]
-                    }
+                        Familia: [ 3, 34 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PANT.RESTO',
                     code: [ 848 ],
                     display: true,
@@ -7647,12 +7665,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO LEGGINGS',
                     code: [ 692 ],
                     display: true,
@@ -7663,12 +7681,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 58 ]
-                    }
+                        Familia: [ 58 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A FALDA DEN.',
                     code: [ 853 ],
                     display: true,
@@ -7679,12 +7697,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 63 ]
-                    }
+                        Familia: [ 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-BAÑO',
                     code: [ 962 ],
                     display: true,
@@ -7695,12 +7713,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 2799, 1657, 39 ],
-                        Familia: [ 37, 32 ]
-                    }
+                        Familia: [ 37, 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B BERMUDA',
                     code: [ 306 ],
                     display: true,
@@ -7711,12 +7729,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 1194, 1196 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A CTA.C/VTO',
                     code: [ 860 ],
                     display: true,
@@ -7727,12 +7745,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3328, 1909, 40 ],
-                        Familia: [ 71 ]
-                    }
+                        Familia: [ 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CAMISA',
                     code: [ 820 ],
                     display: true,
@@ -7743,12 +7761,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 35000001, 12300001, 35000016, 2799, 1657, 1908, 39 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO BASICO',
                     code: [ 579 ],
                     display: true,
@@ -7759,12 +7777,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 1, 52, 10, 9, 31 ]
-                    }
+                        Familia: [ 1, 52, 10, 9, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ST complementos',
                     code: [ 626 ],
                     display: true,
@@ -7775,12 +7793,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 13000001, 1253 ],
-                        Familia: [ 16 ]
-                    }
+                        Familia: [ 16 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.FALDA PAQUET.',
                     code: [ 503 ],
                     display: true,
@@ -7791,12 +7809,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1, 23 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'TOP PIJ.CON B',
                     code: [ 166 ],
                     display: true,
@@ -7807,12 +7825,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PIJAMAS',
                     code: [ 968 ],
                     display: true,
@@ -7823,12 +7841,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CTA.C/VTO',
                     code: [ 840 ],
                     display: true,
@@ -7839,12 +7857,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3326, 1908, 39 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CTA.M/LARG',
                     code: [ 841 ],
                     display: true,
@@ -7855,12 +7873,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 3326, 1908, 39 ],
-                        Familia: [ 27, 52, 11 ]
-                    }
+                        Familia: [ 27, 52, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* SOMBRERO',
                     code: [ 242 ],
                     display: true,
@@ -7871,12 +7889,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36, 1534, 1535 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* CINTURON',
                     code: [ 251 ],
                     display: true,
@@ -7887,12 +7905,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-GAFAS DE SOL',
                     code: [ 422, 432 ],
                     display: true,
@@ -7903,12 +7921,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 33 ]
-                    }
+                        Familia: [ 33 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A VEST.RESTO',
                     code: [ 856 ],
                     display: true,
@@ -7919,12 +7937,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 62, 63 ]
-                    }
+                        Familia: [ 62, 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*SOBRECAMISA',
                     code: [ 237, 347 ],
                     display: true,
@@ -7935,12 +7953,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 12, 33, 14, 35, 1194, 1196 ],
-                        Familia: [ 59, 60 ]
-                    }
+                        Familia: [ 59, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTAS COLGADAS Z',
                     code: [ 507 ],
                     display: true,
@@ -7951,12 +7969,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 11000001, 12000001 ],
-                        Familia: [ 52, 11 ]
-                    }
+                        Familia: [ 52, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-GORROS',
                     code: [ 420 ],
                     display: true,
@@ -7967,12 +7985,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-BUFANDA',
                     code: [ 956 ],
                     display: true,
@@ -7983,12 +8001,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 2799, 1657, 39 ],
-                        Familia: [ 18, 26 ]
-                    }
+                        Familia: [ 18, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CTA.M/CORT',
                     code: [ 842 ],
                     display: true,
@@ -7999,12 +8017,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 3326, 2799, 1657, 1908, 39 ],
-                        Familia: [ 27, 11 ]
-                    }
+                        Familia: [ 27, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*BERM DENIM',
                     code: [ 209 ],
                     display: true,
@@ -8015,12 +8033,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CTA M/C',
                     code: [ 882 ],
                     display: true,
@@ -8031,12 +8049,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 66, 71 ]
-                    }
+                        Familia: [ 66, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* CALZONCILLO',
                     code: [ 245 ],
                     display: true,
@@ -8047,12 +8065,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 40 ]
-                    }
+                        Familia: [ 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ST. VESTIDO',
                     code: [ 486 ],
                     display: true,
@@ -8063,12 +8081,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'TOP PIJAMA',
                     code: [ 154 ],
                     display: true,
@@ -8079,12 +8097,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A VEST.DENIM',
                     code: [ 855 ],
                     display: true,
@@ -8095,12 +8113,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 62, 84, 63 ]
-                    }
+                        Familia: [ 62, 84, 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B BLASIER',
                     code: [ 322 ],
                     display: true,
@@ -8111,12 +8129,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 14, 35, 1194, 1196 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO JERSEY',
                     code: [ 686, 580 ],
                     display: true,
@@ -8127,12 +8145,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 5, 27, 13000001, 1253, 1, 23 ],
-                        Familia: [ 1, 3, 52, 43, 6, 10, 7, 9, 39, 60, 2, 31, 17 ]
-                    }
+                        Familia: [ 1, 3, 52, 43, 6, 10, 7, 9, 39, 60, 2, 31, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CAZAD. DENIM',
                     code: [ 226 ],
                     display: true,
@@ -8143,12 +8161,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*SUDADERA',
                     code: [ 234 ],
                     display: true,
@@ -8159,12 +8177,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 14, 35 ],
-                        Familia: [ 60 ]
-                    }
+                        Familia: [ 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.VESTIDO BASIC',
                     code: [ 591 ],
                     display: true,
@@ -8175,12 +8193,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.VESTIDO FANTA',
                     code: [ 594 ],
                     display: true,
@@ -8191,12 +8209,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*P.DENIM',
                     code: [ 203 ],
                     display: true,
@@ -8207,12 +8225,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 486, 546, 1194, 1196 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PIEL',
                     code: [ 330 ],
                     display: true,
@@ -8235,14 +8253,14 @@ export const FilterEntities = {
                             1534,
                             1535,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 6, 7, 55 ]
-                    }
+                        Familia: [ 6, 7, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CAMISA DENIM',
                     code: [ 315 ],
                     display: true,
@@ -8253,12 +8271,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546, 1194, 1196 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PUNTO',
                     code: [ 725 ],
                     display: true,
@@ -8269,12 +8287,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 41, 1266, 3331, 2799, 1657, 39, 38 ],
-                        Familia: [ 1, 3, 10, 7, 9, 39, 2, 31 ]
-                    }
+                        Familia: [ 1, 3, 10, 7, 9, 39, 2, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MINI PUNTO',
                     code: [ 887 ],
                     display: true,
@@ -8285,12 +8303,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3062, 1873, 40 ],
-                        Familia: [ 84, 70, 86, 79, 61, 69, 74 ]
-                    }
+                        Familia: [ 84, 70, 86, 79, 61, 69, 74 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CAMISA',
                     code: [ 311 ],
                     display: true,
@@ -8317,14 +8335,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 4, 11 ]
-                    }
+                        Familia: [ 4, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-FALD.RESTO',
                     code: [ 712 ],
                     display: true,
@@ -8335,12 +8353,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 3, 34 ]
-                    }
+                        Familia: [ 3, 34 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.P-EXTER.LARGA',
                     code: [ 643 ],
                     display: true,
@@ -8351,12 +8369,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 6, 7, 59, 5, 56 ]
-                    }
+                        Familia: [ 6, 7, 59, 5, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '*CHALECO',
                     code: [ 222 ],
                     display: true,
@@ -8367,12 +8385,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546, 12, 33 ],
-                        Familia: [ 31, 30 ]
-                    }
+                        Familia: [ 31, 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-PARAGUAS',
                     code: [ 421 ],
                     display: true,
@@ -8383,12 +8401,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 28 ]
-                    }
+                        Familia: [ 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.PTON-LEGGING',
                     code: [ 601 ],
                     display: true,
@@ -8399,12 +8417,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 1, 58, 43, 20 ]
-                    }
+                        Familia: [ 1, 58, 43, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NÑO-COMPLEMENTO',
                     code: [ 990 ],
                     display: true,
@@ -8415,12 +8433,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 35000001, 12300001, 35000016, 3335, 3327, 2799, 1657, 39 ],
-                        Familia: [ 16, 24, 45, 23, 35 ]
-                    }
+                        Familia: [ 16, 24, 45, 23, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* PIJAMAS',
                     code: [ 255 ],
                     display: true,
@@ -8431,12 +8449,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-VESTIDO',
                     code: [ 715 ],
                     display: true,
@@ -8447,12 +8465,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 3, 39, 34, 2 ]
-                    }
+                        Familia: [ 3, 39, 34, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NA-LEOTARDO',
                     code: [ 973 ],
                     display: true,
@@ -8463,12 +8481,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO TOPS Y OT',
                     code: [ 691 ],
                     display: true,
@@ -8479,12 +8497,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PANT.PANA',
                     code: [ 847 ],
                     display: true,
@@ -8495,12 +8513,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-CALCETIN',
                     code: [ 946 ],
                     display: true,
@@ -8511,12 +8529,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 73 ]
-                    }
+                        Familia: [ 73 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CHAQ/PARKA',
                     code: [ 326 ],
                     display: true,
@@ -8527,12 +8545,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 1194, 1196 ],
-                        Familia: [ 8, 55 ]
-                    }
+                        Familia: [ 8, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-GUANTES',
                     code: [ 948 ],
                     display: true,
@@ -8543,12 +8561,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 81 ]
-                    }
+                        Familia: [ 81 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A BERM.RESTO',
                     code: [ 852 ],
                     display: true,
@@ -8559,12 +8577,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 80, 63 ]
-                    }
+                        Familia: [ 80, 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B ABRIGO',
                     code: [ 328 ],
                     display: true,
@@ -8575,12 +8593,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195 ],
-                        Familia: [ 7 ]
-                    }
+                        Familia: [ 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CAMISA DENIM',
                     code: [ 214 ],
                     display: true,
@@ -8591,12 +8609,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'COMPL ROPA CONF',
                     code: [ 440 ],
                     display: true,
@@ -8607,12 +8625,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.PANTALON',
                     code: [ 544 ],
                     display: true,
@@ -8623,12 +8641,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1, 3 ],
                         Líneas: [ 2, 24, 1133, 1909, 2670, 1908 ],
-                        Familia: [ 1, 58, 39, 61 ]
-                    }
+                        Familia: [ 1, 58, 39, 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CHAQUETA',
                     code: [ 221 ],
                     display: true,
@@ -8639,12 +8657,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 12, 33, 14, 35 ],
-                        Familia: [ 9, 5 ]
-                    }
+                        Familia: [ 9, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A P.EXTERIOR',
                     code: [ 863 ],
                     display: true,
@@ -8655,12 +8673,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 67, 65, 69, 68 ]
-                    }
+                        Familia: [ 67, 65, 69, 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CHALECO',
                     code: [ 321 ],
                     display: true,
@@ -8671,12 +8689,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 1193, 1195, 486, 546, 12, 33, 1194, 1196 ],
-                        Familia: [ 31, 30 ]
-                    }
+                        Familia: [ 31, 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'A-M*CAZAD/CHALE',
                     code: [ 223 ],
                     display: true,
@@ -8687,12 +8705,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1194, 1196 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PANT.RESTO',
                     code: [ 803 ],
                     display: true,
@@ -8703,12 +8721,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 35000001, 12300001, 35000016, 2799, 1657, 1908, 39 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.BERMUDA',
                     code: [ 662 ],
                     display: true,
@@ -8719,12 +8737,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27, 3, 25 ],
-                        Familia: [ 43, 20 ]
-                    }
+                        Familia: [ 43, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A FELPA',
                     code: [ 859 ],
                     display: true,
@@ -8735,12 +8753,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3328, 1909, 40 ],
-                        Familia: [ 80, 62, 93, 70, 63, 75, 83, 61, 69 ]
-                    }
+                        Familia: [ 80, 62, 93, 70, 63, 75, 83, 61, 69 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-P.EXTERIOR',
                     code: [ 745 ],
                     display: true,
@@ -8751,12 +8769,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 57, 8, 6, 7, 9, 60, 5, 2, 31, 55, 56 ]
-                    }
+                        Familia: [ 57, 8, 6, 7, 9, 60, 5, 2, 31, 55, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-BAÑO',
                     code: [ 943 ],
                     display: true,
@@ -8767,12 +8785,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 77 ]
-                    }
+                        Familia: [ 77 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.SUDADERA BASI',
                     code: [ 596 ],
                     display: true,
@@ -8783,12 +8801,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 10, 60 ]
-                    }
+                        Familia: [ 10, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BATA CON BOLSA',
                     code: [ 159 ],
                     display: true,
@@ -8799,12 +8817,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 40, 2 ]
-                    }
+                        Familia: [ 40, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.VESTID.PAQUET',
                     code: [ 637 ],
                     display: true,
@@ -8815,12 +8833,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 3, 25 ],
-                        Familia: [ 39, 59, 2 ]
-                    }
+                        Familia: [ 39, 59, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CTA. M/L',
                     code: [ 881 ],
                     display: true,
@@ -8831,12 +8849,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 66, 71 ]
-                    }
+                        Familia: [ 66, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-BAÑO',
                     code: [ 960 ],
                     display: true,
@@ -8847,12 +8865,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 3334, 1267, 43, 2799, 1657, 38 ],
-                        Familia: [ 52, 37, 32 ]
-                    }
+                        Familia: [ 52, 37, 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CTA.M/LARG',
                     code: [ 741 ],
                     display: true,
@@ -8863,12 +8881,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 35000001, 12300001, 35000016, 39, 38 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CTA.C/VTO',
                     code: [ 740 ],
                     display: true,
@@ -8879,12 +8897,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 38 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-BERM.DENIM',
                     code: [ 705 ],
                     display: true,
@@ -8895,12 +8913,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 38 ],
-                        Familia: [ 1, 3, 34, 2, 20 ]
-                    }
+                        Familia: [ 1, 3, 34, 2, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.BERMUDA',
                     code: [ 574 ],
                     display: true,
@@ -8911,12 +8929,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAMISA',
                     code: [ 211 ],
                     display: true,
@@ -8927,12 +8945,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 1193, 1195, 486, 546, 1194, 1196 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F BLASIER/CONJ',
                     code: [ 342 ],
                     display: true,
@@ -8943,12 +8961,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 1193, 1195, 1534, 1535 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.CAMISA',
                     code: [ 638, 1935 ],
                     display: true,
@@ -8959,12 +8977,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.VESTIDO',
                     code: [ 504 ],
                     display: true,
@@ -8975,12 +8993,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PANT. PIJAMA',
                     code: [ 155 ],
                     display: true,
@@ -8991,12 +9009,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-GAFAS SOL',
                     code: [ 951 ],
                     display: true,
@@ -9007,12 +9025,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 2799, 1657, 38 ],
-                        Familia: [ 33 ]
-                    }
+                        Familia: [ 33 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*JERSEY M/C',
                     code: [ 218 ],
                     display: true,
@@ -9023,12 +9041,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12, 33 ],
-                        Familia: [ 10 ]
-                    }
+                        Familia: [ 10 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CHAQUETA/SUD',
                     code: [ 153 ],
                     display: true,
@@ -9039,12 +9057,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 9 ]
-                    }
+                        Familia: [ 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'SUJE CON B',
                     code: [ 156 ],
                     display: true,
@@ -9055,12 +9073,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 41 ]
-                    }
+                        Familia: [ 41 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'VEST. CON BOLSA',
                     code: [ 167 ],
                     display: true,
@@ -9071,12 +9089,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'UNIFORMES ZARA',
                     code: [ 999, 199 ],
                     display: true,
@@ -9086,12 +9104,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Familia: [ 1, 8, 6, 4, 5, 99, 11, 31 ]
-                    }
+                        Familia: [ 1, 8, 6, 4, 5, 99, 11, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* CALCETIN',
                     code: [ 252 ],
                     display: true,
@@ -9102,12 +9120,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.PANTALON',
                     code: [ 500 ],
                     display: true,
@@ -9118,12 +9136,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 1, 39, 34, 99 ]
-                    }
+                        Familia: [ 1, 39, 34, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'COMPL ROPA PAQ',
                     code: [ 439 ],
                     display: true,
@@ -9134,12 +9152,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-BUFANDA',
                     code: [ 955 ],
                     display: true,
@@ -9150,12 +9168,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 35000001, 12300001, 35000016, 2799, 1657, 38 ],
-                        Familia: [ 18, 26 ]
-                    }
+                        Familia: [ 18, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*BERMUDA',
                     code: [ 206 ],
                     display: true,
@@ -9166,12 +9184,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 12, 33, 14, 35, 1194, 1196 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CHALECO/CONJ',
                     code: [ 344 ],
                     display: true,
@@ -9182,12 +9200,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195 ],
-                        Familia: [ 31 ]
-                    }
+                        Familia: [ 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* GORRA',
                     code: [ 243 ],
                     display: true,
@@ -9198,12 +9216,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-FALD.PANA',
                     code: [ 711 ],
                     display: true,
@@ -9214,12 +9232,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 2799, 1657, 38 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CTA.M/CORT',
                     code: [ 742 ],
                     display: true,
@@ -9230,12 +9248,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 35000001, 12300001, 35000016, 2799, 1657, 39, 38 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C. ABRIGO',
                     code: [ 605 ],
                     display: true,
@@ -9246,12 +9264,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 6, 7, 9, 31 ]
-                    }
+                        Familia: [ 6, 7, 9, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-PAÑUELOS',
                     code: [ 417 ],
                     display: true,
@@ -9262,12 +9280,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 4, 26 ],
-                        Familia: [ 26 ]
-                    }
+                        Familia: [ 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.VESTIDO',
                     code: [ 314, 636 ],
                     display: true,
@@ -9278,12 +9296,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1, 2 ],
                         Líneas: [ 486, 546, 1133, 3, 25 ],
-                        Familia: [ 4, 39, 2 ]
-                    }
+                        Familia: [ 4, 39, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.CHALECO',
                     code: [ 560 ],
                     display: true,
@@ -9294,12 +9312,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 31 ]
-                    }
+                        Familia: [ 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.FALDA',
                     code: [ 546 ],
                     display: true,
@@ -9310,12 +9328,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-INTERIORES',
                     code: [ 964 ],
                     display: true,
@@ -9326,12 +9344,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 12 ]
-                    }
+                        Familia: [ 12 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PANT.RESTO',
                     code: [ 703 ],
                     display: true,
@@ -9342,12 +9360,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 1, 34, 2 ]
-                    }
+                        Familia: [ 1, 34, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.FALDA PAQUET.',
                     code: [ 547 ],
                     display: true,
@@ -9358,12 +9376,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CAZADORA',
                     code: [ 325 ],
                     display: true,
@@ -9384,7 +9402,7 @@ export const FilterEntities = {
                         306,
                         1534,
                         36,
-                        33
+                        33,
                     ],
                     family: [ 6, 60 ],
                     parents: {
@@ -9409,14 +9427,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 6, 60 ]
-                    }
+                        Familia: [ 6, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MUESTRA CRO',
                     code: [ 102 ],
                     display: true,
@@ -9426,12 +9444,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CAMISETA',
                     code: [ 170 ],
                     display: true,
@@ -9442,12 +9460,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-CINTURON',
                     code: [ 984 ],
                     display: true,
@@ -9458,12 +9476,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 35000001, 12300001, 35000016, 2799, 1657, 38 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CAMISETA',
                     code: [ 232 ],
                     display: true,
@@ -9474,12 +9492,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 14, 35 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTAS TRF',
                     code: [ 672 ],
                     display: true,
@@ -9490,12 +9508,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 1074 ],
-                        Familia: [ 1, 58, 3, 52, 43, 6, 10, 4, 7, 9, 39, 60, 2, 11, 17 ]
-                    }
+                        Familia: [ 1, 58, 3, 52, 43, 6, 10, 4, 7, 9, 39, 60, 2, 11, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CAMISA M/C',
                     code: [ 212 ],
                     display: true,
@@ -9506,12 +9524,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 14, 35 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BBY-COMPLEMENTO',
                     code: [ 949 ],
                     display: true,
@@ -9522,12 +9540,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 76, 82 ]
-                    }
+                        Familia: [ 76, 82 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* GAFAS',
                     code: [ 256 ],
                     display: true,
@@ -9538,12 +9556,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 33 ]
-                    }
+                        Familia: [ 33 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO VESTIDO',
                     code: [ 682 ],
                     display: true,
@@ -9554,12 +9572,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-GUANTES',
                     code: [ 419 ],
                     display: true,
@@ -9570,12 +9588,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B PANTALON/CONJ',
                     code: [ 341 ],
                     display: true,
@@ -9586,12 +9604,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C. MONO',
                     code: [ 602 ],
                     display: true,
@@ -9602,12 +9620,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 39 ]
-                    }
+                        Familia: [ 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-FELPA',
                     code: [ 730 ],
                     display: true,
@@ -9618,12 +9636,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 35000001, 12300001, 35000016, 38 ],
-                        Familia: [ 1, 58, 3, 6, 19, 10, 7, 9, 39, 60, 34, 5, 2, 20, 31, 17 ]
-                    }
+                        Familia: [ 1, 58, 3, 6, 19, 10, 7, 9, 39, 60, 34, 5, 2, 20, 31, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-GORRO',
                     code: [ 953 ],
                     display: true,
@@ -9634,12 +9652,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 2799, 1657, 39, 38 ],
-                        Familia: [ 26, 35 ]
-                    }
+                        Familia: [ 26, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO MONO',
                     code: [ 689 ],
                     display: true,
@@ -9650,12 +9668,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 39 ]
-                    }
+                        Familia: [ 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A CTA M/L',
                     code: [ 861 ],
                     display: true,
@@ -9666,12 +9684,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3328, 1909, 40 ],
-                        Familia: [ 66, 71 ]
-                    }
+                        Familia: [ 66, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'A-*COMPLEMENT',
                     code: [ 288 ],
                     display: true,
@@ -9682,12 +9700,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1, 2 ],
                         Líneas: [ 306, 36, 11000001, 12000001, 4, 26 ],
-                        Familia: [ 95, 16, 33, 45 ]
-                    }
+                        Familia: [ 95, 16, 33, 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.CAMISA',
                     code: [ 506 ],
                     display: true,
@@ -9698,12 +9716,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 5, 27, 13000001, 1253, 1, 23 ],
-                        Familia: [ 52, 4, 54, 2, 11 ]
-                    }
+                        Familia: [ 52, 4, 54, 2, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B PANTALON',
                     code: [ 300 ],
                     display: true,
@@ -9714,12 +9732,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 1534, 1535, 1194, 1196 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'UNIFORME',
                     code: [ 993, 399 ],
                     display: true,
@@ -9729,12 +9747,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1, 2 ],
-                        Familia: [ 1, 27, 4, 5, 99, 11 ]
-                    }
+                        Familia: [ 1, 27, 4, 5, 99, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-MEDIAS',
                     code: [ 435 ],
                     display: true,
@@ -9745,12 +9763,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B SOBRECAMISA',
                     code: [ 346 ],
                     display: true,
@@ -9761,12 +9779,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 1194, 1196 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CAMISA M/C',
                     code: [ 313 ],
                     display: true,
@@ -9791,14 +9809,14 @@ export const FilterEntities = {
                             1534,
                             1535,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-BERM.RESTO',
                     code: [ 807 ],
                     display: true,
@@ -9809,12 +9827,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 35000001, 12300001, 35000016, 2799, 1657, 1908, 39 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'VESTIDO',
                     code: [ 150 ],
                     display: true,
@@ -9825,12 +9843,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-CALCETIN',
                     code: [ 974 ],
                     display: true,
@@ -9841,12 +9859,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 35000001, 12300001, 35000016, 3335, 2799, 1657, 39 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PANT.DENIM',
                     code: [ 866 ],
                     display: true,
@@ -9857,12 +9875,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* COMPLEMENTO',
                     code: [ 240 ],
                     display: true,
@@ -9873,12 +9891,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 14, 38, 23, 18, 28 ]
-                    }
+                        Familia: [ 14, 38, 23, 18, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALCETINES',
                     code: [ 434 ],
                     display: true,
@@ -9889,12 +9907,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O FELPA',
                     code: [ 879 ],
                     display: true,
@@ -9905,12 +9923,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 80, 70, 75, 83, 61, 68 ]
-                    }
+                        Familia: [ 80, 70, 75, 83, 61, 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO FALDA',
                     code: [ 683 ],
                     display: true,
@@ -9921,12 +9939,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O PANT.RESTO',
                     code: [ 868 ],
                     display: true,
@@ -9937,12 +9955,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.CTAS BASICAS',
                     code: [ 589 ],
                     display: true,
@@ -9953,12 +9971,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 52, 11 ]
-                    }
+                        Familia: [ 52, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CALCETIN/MEDIAS',
                     code: [ 151 ],
                     display: true,
@@ -9969,12 +9987,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-FELPA',
                     code: [ 830 ],
                     display: true,
@@ -9985,12 +10003,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 3326, 2799, 1657, 1908, 39 ],
-                        Familia: [ 1, 6, 19, 10, 9, 60, 5, 20, 31 ]
-                    }
+                        Familia: [ 1, 6, 19, 10, 9, 60, 5, 20, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.P-EXTER.CORTA',
                     code: [ 554 ],
                     display: true,
@@ -10001,12 +10019,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 8, 6, 7, 5, 56 ]
-                    }
+                        Familia: [ 8, 6, 7, 5, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PETO DENIM',
                     code: [ 849 ],
                     display: true,
@@ -10017,12 +10035,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 84, 61 ]
-                    }
+                        Familia: [ 84, 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*PANTALON',
                     code: [ 200 ],
                     display: true,
@@ -10033,12 +10051,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36, 1193, 1195, 486, 546, 14, 35, 1194, 1196 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* GORRO PUNTO',
                     code: [ 244 ],
                     display: true,
@@ -10049,12 +10067,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.CHALECO',
                     code: [ 648 ],
                     display: true,
@@ -10065,12 +10083,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 31 ]
-                    }
+                        Familia: [ 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CHALECO',
                     code: [ 320 ],
                     display: true,
@@ -10081,12 +10099,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 12, 33, 1194, 1196 ],
-                        Familia: [ 31, 30 ]
-                    }
+                        Familia: [ 31, 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NO TIENE OFERTA',
                     code: [ 996 ],
                     display: true,
@@ -10096,12 +10114,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Familia: [ 99, 11 ]
-                    }
+                        Familia: [ 99, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*JERSEY M/C',
                     code: [ 219 ],
                     display: true,
@@ -10112,12 +10130,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 12, 33 ],
-                        Familia: [ 10, 4 ]
-                    }
+                        Familia: [ 10, 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-GORRO',
                     code: [ 954 ],
                     display: true,
@@ -10128,12 +10146,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 35000001, 12300001, 35000016, 3335, 2799, 1657, 39 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-CINTURONES',
                     code: [ 416, 429 ],
                     display: true,
@@ -10144,12 +10162,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*CHAQUETA',
                     code: [ 220 ],
                     display: true,
@@ -10160,12 +10178,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12, 33 ],
-                        Familia: [ 9 ]
-                    }
+                        Familia: [ 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F ABRIGO',
                     code: [ 329 ],
                     display: true,
@@ -10192,14 +10210,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 7 ]
-                    }
+                        Familia: [ 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.CHALECO',
                     code: [ 516 ],
                     display: true,
@@ -10210,12 +10228,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23 ],
-                        Familia: [ 6, 31 ]
-                    }
+                        Familia: [ 6, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-BERM.DENIM',
                     code: [ 805 ],
                     display: true,
@@ -10226,12 +10244,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3325, 2799, 1657, 1908, 39 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* FOULARD',
                     code: [ 247 ],
                     display: true,
@@ -10242,12 +10260,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 26 ]
-                    }
+                        Familia: [ 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F CHALECO/CONJ',
                     code: [ 345 ],
                     display: true,
@@ -10258,12 +10276,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195 ],
-                        Familia: [ 31 ]
-                    }
+                        Familia: [ 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO ABRIGO',
                     code: [ 684 ],
                     display: true,
@@ -10274,12 +10292,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 7 ]
-                    }
+                        Familia: [ 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.PANT.PAQUETER',
                     code: [ 545 ],
                     display: true,
@@ -10290,12 +10308,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24, 5, 27 ],
-                        Familia: [ 1, 58 ]
-                    }
+                        Familia: [ 1, 58 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* BUFANDA',
                     code: [ 246 ],
                     display: true,
@@ -10306,12 +10324,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MUESTRAS SEÑORA',
                     code: [ 101 ],
                     display: true,
@@ -10321,12 +10339,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Familia: [ 1, 99 ]
-                    }
+                        Familia: [ 1, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-GUANTES',
                     code: [ 957 ],
                     display: true,
@@ -10337,12 +10355,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PANT.DENIM',
                     code: [ 701 ],
                     display: true,
@@ -10353,12 +10371,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 38 ],
-                        Familia: [ 1, 34 ]
-                    }
+                        Familia: [ 1, 34 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.P-EXTER.LARGA',
                     code: [ 555 ],
                     display: true,
@@ -10369,12 +10387,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 8, 6, 7, 56 ]
-                    }
+                        Familia: [ 8, 6, 7, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTAS ZARA',
                     code: [ 581 ],
                     display: true,
@@ -10385,12 +10403,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 11000001, 12000001, 13000001, 1253, 1, 23, 1073 ],
-                        Familia: [ 1, 13, 16, 58, 3, 52, 43, 41, 6, 10, 4, 7, 9, 40, 39, 60, 54, 46, 2, 20, 11, 31, 17 ]
-                    }
+                        Familia: [ 1, 13, 16, 58, 3, 52, 43, 41, 6, 10, 4, 7, 9, 40, 39, 60, 54, 46, 2, 20, 11, 31, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.BLASIER',
                     code: [ 552 ],
                     display: true,
@@ -10401,12 +10419,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-LEGGING',
                     code: [ 437 ],
                     display: true,
@@ -10417,12 +10435,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 58, 37 ]
-                    }
+                        Familia: [ 58, 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PIJAMAS',
                     code: [ 970 ],
                     display: true,
@@ -10433,12 +10451,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 39 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CAMISA',
                     code: [ 310 ],
                     display: true,
@@ -10449,12 +10467,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 486, 546, 1194, 1196 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BATA',
                     code: [ 168 ],
                     display: true,
@@ -10465,12 +10483,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*P.DENIM',
                     code: [ 202 ],
                     display: true,
@@ -10481,12 +10499,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 486, 546, 1194, 1196 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*SUDADERA',
                     code: [ 235 ],
                     display: true,
@@ -10497,12 +10515,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 306, 36, 486, 546, 14, 35 ],
-                        Familia: [ 60 ]
-                    }
+                        Familia: [ 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO SUDADERA',
                     code: [ 693 ],
                     display: true,
@@ -10513,12 +10531,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 60 ]
-                    }
+                        Familia: [ 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F BLASIER',
                     code: [ 323 ],
                     display: true,
@@ -10539,7 +10557,7 @@ export const FilterEntities = {
                         566,
                         33,
                         1535,
-                        36000016
+                        36000016,
                     ],
                     family: [ 5 ],
                     parents: {
@@ -10562,14 +10580,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.PANT.PAQUETER',
                     code: [ 664 ],
                     display: true,
@@ -10580,12 +10598,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 3, 25 ],
-                        Familia: [ 1, 58, 39 ]
-                    }
+                        Familia: [ 1, 58, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'Z-STUDIO CONFEC',
                     code: [ 537 ],
                     display: true,
@@ -10596,12 +10614,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 1, 3, 52, 6, 10, 4, 7, 9, 39, 60, 5, 2, 11, 55 ]
-                    }
+                        Familia: [ 1, 3, 52, 6, 10, 4, 7, 9, 39, 60, 5, 2, 11, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAZADORA',
                     code: [ 225 ],
                     display: true,
@@ -10628,14 +10646,14 @@ export const FilterEntities = {
                             14,
                             35,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* CORBATAS',
                     code: [ 249 ],
                     display: true,
@@ -10646,12 +10664,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 24 ]
-                    }
+                        Familia: [ 24 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BODY',
                     code: [ 160 ],
                     display: true,
@@ -10662,12 +10680,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 17 ]
-                    }
+                        Familia: [ 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: '* PAJARITAS',
                     code: [ 250 ],
                     display: true,
@@ -10678,12 +10696,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 306, 36 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ST. PANTALON',
                     code: [ 487 ],
                     display: true,
@@ -10694,12 +10712,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001 ],
-                        Familia: [ 1, 39 ]
-                    }
+                        Familia: [ 1, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*POLO',
                     code: [ 231 ],
                     display: true,
@@ -10710,12 +10728,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 14, 35 ],
-                        Familia: [ 27 ]
-                    }
+                        Familia: [ 27 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B CAMISA M/C',
                     code: [ 312 ],
                     display: true,
@@ -10726,12 +10744,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 1193, 1195, 14, 35, 1194, 1196 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.PANTALON',
                     code: [ 632 ],
                     display: true,
@@ -10742,12 +10760,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 3, 25 ],
-                        Familia: [ 1, 58, 39 ]
-                    }
+                        Familia: [ 1, 58, 39 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PETO RESTO',
                     code: [ 850 ],
                     display: true,
@@ -10758,12 +10776,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 62, 84 ]
-                    }
+                        Familia: [ 62, 84 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BRAGA',
                     code: [ 163 ],
                     display: true,
@@ -10774,12 +10792,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 40 ]
-                    }
+                        Familia: [ 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-GAFAS SOL',
                     code: [ 952 ],
                     display: true,
@@ -10790,12 +10808,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335 ],
-                        Familia: [ 33 ]
-                    }
+                        Familia: [ 33 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO BODY',
                     code: [ 687 ],
                     display: true,
@@ -10806,12 +10824,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 17 ]
-                    }
+                        Familia: [ 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PANT.PANA',
                     code: [ 702 ],
                     display: true,
@@ -10822,12 +10840,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 38 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-BERM.RESTO',
                     code: [ 707 ],
                     display: true,
@@ -10838,12 +10856,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 35000001, 12300001, 35000016, 2670, 2799, 1657, 39, 38 ],
-                        Familia: [ 3, 34, 20 ]
-                    }
+                        Familia: [ 3, 34, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MINI CIRCULAR',
                     code: [ 886 ],
                     display: true,
@@ -10854,12 +10872,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3062, 1873, 40 ],
-                        Familia: [ 62, 76, 84, 70, 86, 83, 64, 79, 61, 74, 71, 72 ]
-                    }
+                        Familia: [ 62, 76, 84, 70, 86, 83, 64, 79, 61, 74, 71, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A CAMISA',
                     code: [ 857 ],
                     display: true,
@@ -10870,12 +10888,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.CTAS FANTASI',
                     code: [ 586 ],
                     display: true,
@@ -10886,12 +10904,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 52, 4, 54, 11 ]
-                    }
+                        Familia: [ 52, 4, 54, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C. FALDA',
                     code: [ 604 ],
                     display: true,
@@ -10902,12 +10920,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 3 ]
-                    }
+                        Familia: [ 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-GUANTES',
                     code: [ 958 ],
                     display: true,
@@ -10918,12 +10936,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 39 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F BERMUDA',
                     code: [ 307 ],
                     display: true,
@@ -10934,12 +10952,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 1193, 1195, 1534, 1535, 1194, 1196 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CAMISA',
                     code: [ 877 ],
                     display: true,
@@ -10950,12 +10968,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3329, 40 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-BERM.PANA',
                     code: [ 706 ],
                     display: true,
@@ -10966,12 +10984,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2670, 38 ],
-                        Familia: [ 3, 20 ]
-                    }
+                        Familia: [ 3, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PUNTO SHORT',
                     code: [ 690 ],
                     display: true,
@@ -10982,12 +11000,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27 ],
-                        Familia: [ 43 ]
-                    }
+                        Familia: [ 43 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'ACC. CON BOLSA',
                     code: [ 162 ],
                     display: true,
@@ -10998,12 +11016,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1637, 8 ],
-                        Familia: [ 16 ]
-                    }
+                        Familia: [ 16 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-GORRO',
                     code: [ 942 ],
                     display: true,
@@ -11014,12 +11032,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 74 ]
-                    }
+                        Familia: [ 74 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PUNTO',
                     code: [ 858 ],
                     display: true,
@@ -11030,12 +11048,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 41, 1266, 3332, 40 ],
-                        Familia: [ 80, 62, 67, 84, 70, 63, 61, 69, 68 ]
-                    }
+                        Familia: [ 80, 62, 67, 84, 70, 63, 61, 69, 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'C.CTAS POSICIO',
                     code: [ 587 ],
                     display: true,
@@ -11046,12 +11064,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133 ],
-                        Familia: [ 52, 4, 11 ]
-                    }
+                        Familia: [ 52, 4, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A PANT.DENIM',
                     code: [ 846 ],
                     display: true,
@@ -11062,12 +11080,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 84, 61 ]
-                    }
+                        Familia: [ 84, 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-BUFANDA',
                     code: [ 947 ],
                     display: true,
@@ -11078,12 +11096,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 78 ]
-                    }
+                        Familia: [ 78 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B*JERSEY',
                     code: [ 216 ],
                     display: true,
@@ -11094,12 +11112,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 2 ],
                         Líneas: [ 12, 33 ],
-                        Familia: [ 10 ]
-                    }
+                        Familia: [ 10 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'F*CAMISA M/C',
                     code: [ 213 ],
                     display: true,
@@ -11122,14 +11140,14 @@ export const FilterEntities = {
                             1534,
                             1535,
                             1194,
-                            1196
+                            1196,
                         ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'A-*COMPLEMENTOS',
                     code: [ 288 ],
                     display: true,
@@ -11140,12 +11158,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1, 2 ],
                         Líneas: [ 306, 36, 11000001, 12000001, 4, 26 ],
-                        Familia: [ 95, 16, 33, 45 ]
-                    }
+                        Familia: [ 95, 16, 33, 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-COMPLEMENT',
                     code: [ 988 ],
                     display: true,
@@ -11156,12 +11174,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 2671, 3334, 1267, 43, 35000001, 12300001, 35000016, 2799, 1657, 39, 38 ],
-                        Familia: [ 8, 16, 45, 18, 26, 35 ]
-                    }
+                        Familia: [ 8, 16, 45, 18, 26, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NA-PROMO',
                     code: [ 700 ],
                     display: true,
@@ -11172,12 +11190,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 40 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.PRENDA EXTER.',
                     code: [ 642 ],
                     display: true,
@@ -11188,12 +11206,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 8, 6, 7, 59, 5, 31, 56 ]
-                    }
+                        Familia: [ 8, 6, 7, 59, 5, 31, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-LEOTARDOS',
                     code: [ 973 ],
                     display: true,
@@ -11204,12 +11222,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTA.FANTASI.TRF',
                     code: [ 672 ],
                     display: true,
@@ -11220,12 +11238,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 1074 ],
-                        Familia: [ 1, 58, 3, 52, 43, 6, 10, 4, 7, 9, 39, 60, 2, 11, 17 ]
-                    }
+                        Familia: [ 1, 58, 3, 52, 43, 6, 10, 4, 7, 9, 39, 60, 2, 11, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.CAZADORA',
                     code: [ 644 ],
                     display: true,
@@ -11236,12 +11254,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BAÑO.',
                     code: [ 437 ],
                     display: true,
@@ -11252,12 +11270,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 58, 37 ]
-                    }
+                        Familia: [ 58, 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTA.FANTASI W-B',
                     code: [ 581 ],
                     display: true,
@@ -11268,12 +11286,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 11000001, 12000001, 13000001, 1253, 1, 23, 1073 ],
-                        Familia: [ 1, 13, 16, 58, 3, 52, 43, 41, 6, 10, 4, 7, 9, 40, 39, 60, 54, 46, 2, 20, 11, 31, 17 ]
-                    }
+                        Familia: [ 1, 13, 16, 58, 3, 52, 43, 41, 6, 10, 4, 7, 9, 40, 39, 60, 54, 46, 2, 20, 11, 31, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'MEDIA Y LEGGING',
                     code: [ 425 ],
                     display: true,
@@ -11284,12 +11302,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 4, 26 ],
-                        Familia: [ 58 ]
-                    }
+                        Familia: [ 58 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CTA.C/VUEL',
                     code: [ 880 ],
                     display: true,
@@ -11300,12 +11318,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 71 ]
-                    }
+                        Familia: [ 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'M.ALGODON FANT.',
                     code: [ 951 ],
                     display: true,
@@ -11316,12 +11334,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 2799, 1657, 38 ],
-                        Familia: [ 33 ]
-                    }
+                        Familia: [ 33 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NÑA-GOR.BUF.GUA',
                     code: [ 976 ],
                     display: true,
@@ -11332,12 +11350,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 38 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NÑO-GOR.BUF.GUA',
                     code: [ 978 ],
                     display: true,
@@ -11348,12 +11366,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 39 ],
-                        Familia: [ 26, 35 ]
-                    }
+                        Familia: [ 26, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-A BERM RESTO',
                     code: [ 852 ],
                     display: true,
@@ -11364,12 +11382,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1909, 3327, 40 ],
-                        Familia: [ 80, 63 ]
-                    }
+                        Familia: [ 80, 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-PIJAMA',
                     code: [ 970 ],
                     display: true,
@@ -11380,12 +11398,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3335, 39 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BBA-BERM.DENIM',
                     code: [ 755 ],
                     display: true,
@@ -11396,12 +11414,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 38 ],
-                        Familia: [ 20 ]
-                    }
+                        Familia: [ 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.PRENDA EXTER.',
                     code: [ 510 ],
                     display: true,
@@ -11412,12 +11430,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 13000001, 1253, 1, 23 ],
-                        Familia: [ 8, 6, 7, 9, 5, 31 ]
-                    }
+                        Familia: [ 8, 6, 7, 9, 5, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTA. BASICO TRF',
                     code: [ 674 ],
                     display: true,
@@ -11428,12 +11446,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1074 ],
-                        Familia: [ 1, 10, 39, 60, 2, 11, 17 ]
-                    }
+                        Familia: [ 1, 10, 39, 60, 2, 11, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.CAZADORA',
                     code: [ 512 ],
                     display: true,
@@ -11444,12 +11462,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1, 23 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PANTALON VESTIR',
                     code: [ 101 ],
                     display: true,
@@ -11459,12 +11477,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 0,
                         Sección: [ 1 ],
-                        Familia: [ 1, 99 ]
-                    }
+                        Familia: [ 1, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BY-O CTA.M/L',
                     code: [ 881 ],
                     display: true,
@@ -11475,12 +11493,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1910, 3330, 40 ],
-                        Familia: [ 66, 71 ]
-                    }
+                        Familia: [ 66, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'PTO ZARA',
                     code: [ 580 ],
                     display: true,
@@ -11491,12 +11509,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 5, 27, 1, 23 ],
-                        Familia: [ 1, 3, 52, 43, 10, 7, 9, 39, 60, 2, 31, 17 ]
-                    }
+                        Familia: [ 1, 3, 52, 43, 10, 7, 9, 39, 60, 2, 31, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'COMPLEMENTOS.',
                     code: [ 416 ],
                     display: true,
@@ -11507,12 +11525,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.ABRIGO',
                     code: [ 514 ],
                     display: true,
@@ -11523,12 +11541,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1, 23 ],
-                        Familia: [ 7 ]
-                    }
+                        Familia: [ 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑO-COMPLEMENT',
                     code: [ 990 ],
                     display: true,
@@ -11539,12 +11557,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 35000001, 12300001, 35000016, 3335, 3327, 2799, 1657, 39 ],
-                        Familia: [ 16, 24, 45, 23, 35 ]
-                    }
+                        Familia: [ 16, 24, 45, 23, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'CTA.BASICO W-B',
                     code: [ 584 ],
                     display: true,
@@ -11555,12 +11573,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1133, 1073 ],
-                        Familia: [ 1, 3, 52, 10, 4, 9, 39, 60, 54, 99, 2, 11, 17 ]
-                    }
+                        Familia: [ 1, 3, 52, 10, 4, 9, 39, 60, 54, 99, 2, 11, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BBA-PANT.DENIM',
                     code: [ 751 ],
                     display: true,
@@ -11571,12 +11589,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 40 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'W.PETO',
                     code: [ 135 ],
                     display: true,
@@ -11587,12 +11605,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 1, 23 ],
-                        Familia: [ 34 ]
-                    }
+                        Familia: [ 34 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'B.PRENDA EXTER.',
                     code: [ 554 ],
                     display: true,
@@ -11603,12 +11621,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24 ],
-                        Familia: [ 8, 6, 7, 5, 56 ]
-                    }
+                        Familia: [ 8, 6, 7, 5, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'NIÑA-PIJAMA',
                     code: [ 968 ],
                     display: true,
@@ -11619,12 +11637,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 3334, 1267, 43, 38 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'T.ABRIGO',
                     code: [ 646 ],
                     display: true,
@@ -11635,12 +11653,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 3, 25 ],
-                        Familia: [ 7 ]
-                    }
+                        Familia: [ 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BUFANDA.',
                     code: [ 418 ],
                     display: true,
@@ -11651,12 +11669,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 1, 23, 4, 26 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'E-COMMERCE SRA',
                     code: [ 195 ],
                     display: true,
@@ -11667,12 +11685,12 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 1 ],
                         Líneas: [ 2, 24, 5, 27, 1, 23, 4, 26, 3, 25, 1073, 1074 ],
-                        Familia: [ 1, 8, 3, 52, 43, 33, 37, 6, 10, 7, 9, 39, 60, 34, 5, 2, 20, 11, 31, 55, 22, 17, 35 ]
-                    }
+                        Familia: [ 1, 8, 3, 52, 43, 33, 37, 6, 10, 7, 9, 39, 60, 34, 5, 2, 20, 11, 31, 55, 22, 17, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 0 ],
+                    extraCode: [ 0 ],
                     description: 'BABY-COMPLEMENT',
                     code: [ 949 ],
                     display: true,
@@ -11683,17 +11701,17 @@ export const FilterEntities = {
                         Producto: 0,
                         Sección: [ 3 ],
                         Líneas: [ 1267, 43, 3336, 40 ],
-                        Familia: [ 76, 82 ]
-                    }
-                }
-            ]
+                        Familia: [ 76, 82 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 1,
                 Sección: null,
                 Líneas: null,
-                Familia: null
+                Familia: null,
             },
             description: 'Calzado',
             header: true,
@@ -11702,7 +11720,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:DEPORT',
                     code: [ 345 ],
                     display: true,
@@ -11713,12 +11731,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:NIÑO',
                     code: [ 553 ],
                     display: true,
@@ -11729,12 +11747,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2000131, 2002131 ],
-                        Familia: [ 58, 24, 4, 40, 11, 28 ]
-                    }
+                        Familia: [ 58, 24, 4, 40, 11, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:BOTA',
                     code: [ 323 ],
                     display: true,
@@ -11745,12 +11763,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004, 15300001, 35000001, 12300001, 35000016 ],
-                        Familia: [ 8, 2 ]
-                    }
+                        Familia: [ 8, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:MOCHILA',
                     code: [ 260 ],
                     display: true,
@@ -11761,12 +11779,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BABY:BOLSOS',
                     code: [ 383 ],
                     display: true,
@@ -11777,12 +11795,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001233 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:ZAPATO PLAN',
                     code: [ 101 ],
                     display: true,
@@ -11793,12 +11811,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001091, 2001001 ],
-                        Familia: [ 1, 13, 24, 21 ]
-                    }
+                        Familia: [ 1, 13, 24, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:BOTIN.DEPO',
                     code: [ 336 ],
                     display: true,
@@ -11809,12 +11827,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:BOTIN',
                     code: [ 144 ],
                     display: true,
@@ -11825,12 +11843,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001, 15000001 ],
-                        Familia: [ 10, 9 ]
-                    }
+                        Familia: [ 10, 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:ZAPATO PLAN',
                     code: [ 141 ],
                     display: true,
@@ -11841,12 +11859,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001 ],
-                        Familia: [ 1, 13, 24 ]
-                    }
+                        Familia: [ 1, 13, 24 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:ZAP. SPORT',
                     code: [ 217, 213 ],
                     display: true,
@@ -11857,12 +11875,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001023 ],
-                        Familia: [ 48, 23, 17 ]
-                    }
+                        Familia: [ 48, 23, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z:UNIFORME',
                     code: [ 311, 211 ],
                     display: true,
@@ -11873,12 +11891,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2, 3 ],
                         Líneas: [ 2001004 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:LLUVIA',
                     code: [ 308 ],
                     display: true,
@@ -11889,12 +11907,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BOTIN',
                     code: [ 304 ],
                     display: true,
@@ -11905,12 +11923,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 35000001, 12300001, 35000016 ],
-                        Familia: [ 8 ]
-                    }
+                        Familia: [ 8 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:ABIERTO TAC',
                     code: [ 105 ],
                     display: true,
@@ -11921,12 +11939,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 12, 20, 21 ]
-                    }
+                        Familia: [ 12, 20, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:ZAPATO TACO',
                     code: [ 102 ],
                     display: true,
@@ -11937,12 +11955,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 12, 21, 25 ]
-                    }
+                        Familia: [ 12, 21, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:ABIERTO TAC',
                     code: [ 125 ],
                     display: true,
@@ -11953,12 +11971,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 19, 12, 21 ]
-                    }
+                        Familia: [ 19, 12, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2M:ZAPATO',
                     code: [ 226 ],
                     display: true,
@@ -11969,12 +11987,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001092 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:ABIERTO/YUTE',
                     code: [ 244 ],
                     display: true,
@@ -11985,12 +12003,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001025, 2001023 ],
-                        Familia: [ 81 ]
-                    }
+                        Familia: [ 81 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:ABIERTO TAC',
                     code: [ 145 ],
                     display: true,
@@ -12001,12 +12019,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001 ],
-                        Familia: [ 57, 19, 12, 21 ]
-                    }
+                        Familia: [ 57, 19, 12, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:BAMBA',
                     code: [ 321 ],
                     display: true,
@@ -12017,12 +12035,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004, 15300001, 35000001, 12300001, 35000016 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:BOTA',
                     code: [ 143 ],
                     display: true,
@@ -12033,12 +12051,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001, 15000001 ],
-                        Familia: [ 6, 7 ]
-                    }
+                        Familia: [ 6, 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:SANDALIA',
                     code: [ 337 ],
                     display: true,
@@ -12049,12 +12067,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:TROLLEY',
                     code: [ 253 ],
                     display: true,
@@ -12065,12 +12083,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:BOTA',
                     code: [ 103 ],
                     display: true,
@@ -12081,12 +12099,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 6, 7, 12, 5 ]
-                    }
+                        Familia: [ 6, 7, 12, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:ZAPATO TACO',
                     code: [ 142 ],
                     display: true,
@@ -12097,12 +12115,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001, 15000001 ],
-                        Familia: [ 12, 25 ]
-                    }
+                        Familia: [ 12, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BAMBA',
                     code: [ 301 ],
                     display: true,
@@ -12113,12 +12131,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 15300001 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:BOWLING',
                     code: [ 258 ],
                     display: true,
@@ -12129,12 +12147,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:ZAPATO',
                     code: [ 338 ],
                     display: true,
@@ -12145,12 +12163,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 23 ]
-                    }
+                        Familia: [ 23 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:BAÑO/HOME',
                     code: [ 343 ],
                     display: true,
@@ -12161,12 +12179,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 3, 11 ]
-                    }
+                        Familia: [ 3, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOLSOS BASIC',
                     code: [ 137 ],
                     display: true,
@@ -12177,12 +12195,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001291 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:BANDOLE',
                     code: [ 255 ],
                     display: true,
@@ -12193,12 +12211,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:RUNNING',
                     code: [ 217 ],
                     display: true,
@@ -12209,12 +12227,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001023 ],
-                        Familia: [ 48, 17 ]
-                    }
+                        Familia: [ 48, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:SANDALIA',
                     code: [ 309 ],
                     display: true,
@@ -12225,12 +12243,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 15300001, 35000001, 12300001, 35000016 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:BOLSOS',
                     code: [ 171 ],
                     display: true,
@@ -12241,12 +12259,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001201 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:HOME',
                     code: [ 307 ],
                     display: true,
@@ -12257,12 +12275,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:SOBRE',
                     code: [ 259 ],
                     display: true,
@@ -12273,12 +12291,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:BILLETERAS',
                     code: [ 251 ],
                     display: true,
@@ -12289,12 +12307,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50, 56, 51 ]
-                    }
+                        Familia: [ 50, 56, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:BOTIN',
                     code: [ 124 ],
                     display: true,
@@ -12305,12 +12323,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 10, 9 ]
-                    }
+                        Familia: [ 10, 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z: UNIFORME',
                     code: [ 111, 211 ],
                     display: true,
@@ -12321,12 +12339,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1, 2 ],
                         Líneas: [ 2001034 ],
-                        Familia: [ 22 ]
-                    }
+                        Familia: [ 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:ABIERTO PLA',
                     code: [ 146 ],
                     display: true,
@@ -12337,12 +12355,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026, 11000001, 12000001, 15000001 ],
-                        Familia: [ 19, 21 ]
-                    }
+                        Familia: [ 19, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:BOTA/BOTIN',
                     code: [ 228 ],
                     display: true,
@@ -12353,12 +12371,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001025, 2001023 ],
-                        Familia: [ 8 ]
-                    }
+                        Familia: [ 8 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1COMP:COLGANTE',
                     code: [ 565 ],
                     display: true,
@@ -12369,12 +12387,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002111 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:DEPORTIVO',
                     code: [ 335 ],
                     display: true,
@@ -12385,12 +12403,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:BAÑO/HOME',
                     code: [ 322 ],
                     display: true,
@@ -12401,12 +12419,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004 ],
-                        Familia: [ 3, 11 ]
-                    }
+                        Familia: [ 3, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:ABIERTO PLA',
                     code: [ 126 ],
                     display: true,
@@ -12417,12 +12435,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 24, 19, 20, 21 ]
-                    }
+                        Familia: [ 24, 19, 20, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:RELOJ',
                     code: [ 271 ],
                     display: true,
@@ -12433,12 +12451,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001227 ],
-                        Familia: [ 97 ]
-                    }
+                        Familia: [ 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:ABIERTO PLA',
                     code: [ 106 ],
                     display: true,
@@ -12449,12 +12467,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 24, 20, 21 ]
-                    }
+                        Familia: [ 24, 20, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1C:GAFAS SOL',
                     code: [ 567 ],
                     display: true,
@@ -12465,12 +12483,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:PEUCO',
                     code: [ 342 ],
                     display: true,
@@ -12481,12 +12499,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 43, 32, 30, 28 ]
-                    }
+                        Familia: [ 43, 32, 30, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:CABALLERO',
                     code: [ 552 ],
                     display: true,
@@ -12497,12 +12515,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2000121 ],
-                        Familia: [ 58, 24, 4, 11, 22 ]
-                    }
+                        Familia: [ 58, 24, 4, 11, 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1:PRENSA',
                     code: [ 148 ],
                     display: true,
@@ -12513,12 +12531,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001027 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:SEÑORA',
                     code: [ 551 ],
                     display: true,
@@ -12529,12 +12547,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2000111 ],
-                        Familia: [ 1, 58, 24, 4, 12, 11, 22 ]
-                    }
+                        Familia: [ 1, 58, 24, 4, 12, 11, 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BAÑO',
                     code: [ 302 ],
                     display: true,
@@ -12545,12 +12563,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003 ],
-                        Familia: [ 3, 11 ]
-                    }
+                        Familia: [ 3, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:BOTA',
                     code: [ 344 ],
                     display: true,
@@ -12561,12 +12579,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 5, 2 ]
-                    }
+                        Familia: [ 5, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:MOCASIN',
                     code: [ 218, 11943 ],
                     display: true,
@@ -12577,12 +12595,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 15200001, 2001023 ],
-                        Familia: [ 41 ]
-                    }
+                        Familia: [ 41 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:BAÑO/HOME',
                     code: [ 333 ],
                     display: true,
@@ -12593,12 +12611,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 3, 11 ]
-                    }
+                        Familia: [ 3, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1:ACCESORIOS',
                     code: [ 161 ],
                     display: true,
@@ -12609,12 +12627,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001202, 2001203 ],
-                        Familia: [ 39, 79, 50 ]
-                    }
+                        Familia: [ 39, 79, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:ZAP. VESTIR',
                     code: [ 212 ],
                     display: true,
@@ -12625,12 +12643,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001023 ],
-                        Familia: [ 23 ]
-                    }
+                        Familia: [ 23 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1:BOLSOS',
                     code: [ 151 ],
                     display: true,
@@ -12641,12 +12659,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 11000001, 12000001, 2001202, 15000001 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:ZAPATO TACO',
                     code: [ 122 ],
                     display: true,
@@ -12657,12 +12675,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 12, 25 ]
-                    }
+                        Familia: [ 12, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:MALETIN',
                     code: [ 257 ],
                     display: true,
@@ -12673,12 +12691,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BOLSOS',
                     code: [ 381 ],
                     display: true,
@@ -12689,12 +12707,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 15300001, 35000001, 12300001, 35000016, 2001231 ],
-                        Familia: [ 79, 50, 51 ]
-                    }
+                        Familia: [ 79, 50, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:ZAPATO',
                     code: [ 330 ],
                     display: true,
@@ -12705,12 +12723,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004, 35000001, 12300001, 35000016 ],
-                        Familia: [ 1, 23 ]
-                    }
+                        Familia: [ 1, 23 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:BAMBAS',
                     code: [ 341 ],
                     display: true,
@@ -12721,12 +12739,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1COMP:ELECTRO.',
                     code: [ 561 ],
                     display: true,
@@ -12737,12 +12755,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 79 ]
-                    }
+                        Familia: [ 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2C:ZAPATO',
                     code: [ 206 ],
                     display: true,
@@ -12753,12 +12771,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001092 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:BAMBA',
                     code: [ 331 ],
                     display: true,
@@ -12769,12 +12787,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:DEPORTIVO',
                     code: [ 214 ],
                     display: true,
@@ -12785,12 +12803,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 2001025, 15200001, 2001023 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'ALARMAS',
                     code: [ 999 ],
                     display: true,
@@ -12801,12 +12819,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 98 ]
-                    }
+                        Familia: [ 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:BOTA',
                     code: [ 334 ],
                     display: true,
@@ -12817,12 +12835,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 5, 2 ]
-                    }
+                        Familia: [ 5, 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:MIN.BAN',
                     code: [ 254 ],
                     display: true,
@@ -12833,12 +12851,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 12200001, 36000001, 1353, 1354, 36000016, 15200001, 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:BOLSOS',
                     code: [ 161 ],
                     display: true,
@@ -12849,12 +12867,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001202, 2001203 ],
-                        Familia: [ 39, 79, 50 ]
-                    }
+                        Familia: [ 39, 79, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:BOTA',
                     code: [ 123 ],
                     display: true,
@@ -12865,12 +12883,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 6, 7 ]
-                    }
+                        Familia: [ 6, 7 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:ZAPATO PLAN',
                     code: [ 121 ],
                     display: true,
@@ -12881,12 +12899,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 13, 24, 25 ]
-                    }
+                        Familia: [ 13, 24, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:SHOPPER',
                     code: [ 256 ],
                     display: true,
@@ -12897,12 +12915,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 15200001, 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:ZAPATO',
                     code: [ 348 ],
                     display: true,
@@ -12913,12 +12931,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 23 ]
-                    }
+                        Familia: [ 23 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1COMP:FUNDAS',
                     code: [ 563 ],
                     display: true,
@@ -12929,12 +12947,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 79 ]
-                    }
+                        Familia: [ 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:DEPORTIVO',
                     code: [ 305 ],
                     display: true,
@@ -12945,12 +12963,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 35000001, 12300001, 35000016 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1C:GAFAS LECT',
                     code: [ 566 ],
                     display: true,
@@ -12961,12 +12979,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 33, 38 ]
-                    }
+                        Familia: [ 33, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOLSOS NINO',
                     code: [ 162 ],
                     display: true,
@@ -12977,12 +12995,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001093 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:ZAPATO',
                     code: [ 310 ],
                     display: true,
@@ -12993,12 +13011,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 15300001, 2001093 ],
-                        Familia: [ 1, 23 ]
-                    }
+                        Familia: [ 1, 23 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BA:PEUCO',
                     code: [ 332 ],
                     display: true,
@@ -13009,12 +13027,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001012 ],
-                        Familia: [ 43, 32, 30, 28 ]
-                    }
+                        Familia: [ 43, 32, 30, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1T:DEPORTIVO',
                     code: [ 127 ],
                     display: true,
@@ -13025,12 +13043,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001022 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2C:BOTA/BOTIN',
                     code: [ 202 ],
                     display: true,
@@ -13041,12 +13059,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001092 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:DEPORTIVO',
                     code: [ 107 ],
                     display: true,
@@ -13057,12 +13075,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:BOTIN.DEPOR',
                     code: [ 326 ],
                     display: true,
@@ -13073,12 +13091,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004, 35000001, 12300001, 35000016 ],
-                        Familia: [ 13, 14 ]
-                    }
+                        Familia: [ 13, 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'BOLSOS CLASSIC',
                     code: [ 150 ],
                     display: true,
@@ -13089,12 +13107,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001292 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:BOTIN.DEPO',
                     code: [ 346 ],
                     display: true,
@@ -13105,12 +13123,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:DEPORTIVO',
                     code: [ 325 ],
                     display: true,
@@ -13121,12 +13139,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004, 35000001, 12300001, 35000016 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BOTA',
                     code: [ 303 ],
                     display: true,
@@ -13137,12 +13155,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 35000001, 12300001, 35000016, 2001093 ],
-                        Familia: [ 1, 5 ]
-                    }
+                        Familia: [ 1, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:BOLSOS',
                     code: [ 382 ],
                     display: true,
@@ -13153,12 +13171,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001232, 15300001, 35000001, 12300001, 35000016 ],
-                        Familia: [ 50, 51 ]
-                    }
+                        Familia: [ 50, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H:COMP.SEÑORA',
                     code: [ 554 ],
                     display: true,
@@ -13169,12 +13187,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002111 ],
-                        Familia: [ 62, 40, 50, 51 ]
-                    }
+                        Familia: [ 62, 40, 50, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1C:PEG. MOVIL',
                     code: [ 568 ],
                     display: true,
@@ -13185,12 +13203,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 51 ]
-                    }
+                        Familia: [ 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3A:BOTIN.DEPOR',
                     code: [ 306 ],
                     display: true,
@@ -13201,12 +13219,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001003, 35000001, 12300001, 35000016 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1B:BOTIN',
                     code: [ 104 ],
                     display: true,
@@ -13217,12 +13235,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001001 ],
-                        Familia: [ 8, 10, 9 ]
-                    }
+                        Familia: [ 8, 10, 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z1W:DEPORTIVO',
                     code: [ 147 ],
                     display: true,
@@ -13233,12 +13251,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2001026 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'H1COMP:RELOJ',
                     code: [ 562 ],
                     display: true,
@@ -13249,12 +13267,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 1 ],
                         Líneas: [ 2002121 ],
-                        Familia: [ 97 ]
-                    }
+                        Familia: [ 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:ACCESORIOS',
                     code: [ 262 ],
                     display: true,
@@ -13265,12 +13283,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 79, 56 ]
-                    }
+                        Familia: [ 79, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2:DEP.BOTIN',
                     code: [ 216 ],
                     display: true,
@@ -13281,12 +13299,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001025, 2001023 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3O:SANDALIA',
                     code: [ 329 ],
                     display: true,
@@ -13297,12 +13315,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001004 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:SANDALIA',
                     code: [ 347 ],
                     display: true,
@@ -13313,12 +13331,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'CALZADO',
                     code: [ 119 ],
                     display: true,
@@ -13329,12 +13347,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001010 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:DEPORTIVO',
                     code: [ 345 ],
                     display: true,
@@ -13345,12 +13363,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 13 ]
-                    }
+                        Familia: [ 13 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z2COMP:BOLSOS',
                     code: [ 252 ],
                     display: true,
@@ -13361,12 +13379,12 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 2 ],
                         Líneas: [ 2001221 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 1 ],
+                    extraCode: [ 1 ],
                     description: 'Z3BO:BAMBA',
                     code: [ 341 ],
                     display: true,
@@ -13377,17 +13395,17 @@ export const FilterEntities = {
                         Producto: 1,
                         Sección: [ 3 ],
                         Líneas: [ 2001013 ],
-                        Familia: [ 42 ]
-                    }
-                }
-            ]
+                        Familia: [ 42 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 2,
                 Sección: null,
                 Líneas: null,
-                Familia: null
+                Familia: null,
             },
             description: 'Perfumeria',
             header: true,
@@ -13396,7 +13414,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'COSM-PACK',
                     code: [ 759, 659, 859 ],
                     display: true,
@@ -13407,12 +13425,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 48, 57, 45, 54, 51, 60 ],
-                        Familia: [ 59, 11, 55 ]
-                    }
+                        Familia: [ 59, 11, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFU-REGULAR',
                     code: [ 850, 750, 650, 14003 ],
                     display: true,
@@ -13423,12 +13441,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 44, 53, 50, 59, 47, 56 ],
-                        Familia: [ 58, 48, 75, 50 ]
-                    }
+                        Familia: [ 58, 48, 75, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFU-PACK',
                     code: [ 651, 851, 751 ],
                     display: true,
@@ -13439,12 +13457,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 44, 53, 50, 59, 47, 56 ],
-                        Familia: [ 58, 48, 75, 50 ]
-                    }
+                        Familia: [ 58, 48, 75, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFU-TRAVEL',
                     code: [ 752, 652, 852 ],
                     display: true,
@@ -13455,12 +13473,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 44, 53, 50, 59, 47, 56 ],
-                        Familia: [ 58, 48, 75, 50 ]
-                    }
+                        Familia: [ 58, 48, 75, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'COSM-REGULAR',
                     code: [ 856, 756, 656 ],
                     display: true,
@@ -13471,12 +13489,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 48, 57, 45, 54, 51, 60 ],
-                        Familia: [ 1, 57, 15, 62, 9, 59, 60, 54, 61, 50, 11 ]
-                    }
+                        Familia: [ 1, 57, 15, 62, 9, 59, 60, 54, 61, 50, 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'MUESTRAS',
                     code: [ 853, 653, 753 ],
                     display: true,
@@ -13486,12 +13504,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
-                        Familia: [ 1, 47, 58, 70, 48, 45, 59, 75, 54, 64, 50, 71 ]
-                    }
+                        Familia: [ 1, 47, 58, 70, 48, 45, 59, 75, 54, 64, 50, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'VELAS',
                     code: [ 854, 654, 754 ],
                     display: true,
@@ -13502,12 +13520,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 44, 53, 50, 59, 47, 56 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'COSM-SET',
                     code: [ 658 ],
                     display: true,
@@ -13518,12 +13536,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 1, 59, 54 ]
-                    }
+                        Familia: [ 1, 59, 54 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFU-SET',
                     code: [ 755, 655, 855 ],
                     display: true,
@@ -13534,12 +13552,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1, 2, 3 ],
                         Líneas: [ 44, 53, 45, 54, 50, 59, 47, 56 ],
-                        Familia: [ 1, 48, 75, 50 ]
-                    }
+                        Familia: [ 1, 48, 75, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PERFILAD.LABIOS',
                     code: [ 909 ],
                     display: true,
@@ -13550,12 +13568,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'BALSAMO LABIAL',
                     code: [ 910 ],
                     display: true,
@@ -13566,12 +13584,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'LIPGLOSS/ICEGLO',
                     code: [ 907 ],
                     display: true,
@@ -13582,12 +13600,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: '*PERFUMERIA*',
                     code: [ 997 ],
                     display: true,
@@ -13597,12 +13615,12 @@ export const FilterEntities = {
                     parents: {
                         Producto: 2,
                         Sección: [ 3 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'BARRA DE LABIOS',
                     code: [ 908 ],
                     display: true,
@@ -13613,12 +13631,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 59 ]
-                    }
+                        Familia: [ 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1, 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'COSM-REFILL',
                     code: [ 657 ],
                     display: true,
@@ -13629,12 +13647,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 57, 59, 60 ]
-                    }
+                        Familia: [ 57, 59, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'PROMO NIÑO',
                     code: [ 980 ],
                     display: true,
@@ -13645,12 +13663,12 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 3 ],
                         Líneas: [ 50, 59 ],
-                        Familia: [ 50 ]
-                    }
+                        Familia: [ 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 16 ],
-                    product: [ 2 ],
+                    extraCode: [ 2 ],
                     description: 'NO PERFUMERIA',
                     code: [ 603 ],
                     display: true,
@@ -13661,17 +13679,17 @@ export const FilterEntities = {
                         Producto: 2,
                         Sección: [ 1 ],
                         Líneas: [ 45, 54 ],
-                        Familia: [ 59 ]
-                    }
-                }
-            ]
+                        Familia: [ 59 ],
+                    },
+                },
+            ],
         },
         {
             parents: {
                 Producto: 4,
                 Sección: null,
                 Líneas: null,
-                Familia: null
+                Familia: null,
             },
             description: 'Hogar',
             header: true,
@@ -13680,7 +13698,7 @@ export const FilterEntities = {
             children: [
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR SERVIR',
                     code: [ 313 ],
                     display: true,
@@ -13691,12 +13709,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO HONDO',
                     code: [ 201 ],
                     display: true,
@@ -13707,12 +13725,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 67, 38, 35 ]
-                    }
+                        Familia: [ 67, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'KIDS MOBI/TRANS',
                     code: [ 142 ],
                     display: true,
@@ -13723,12 +13741,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 80, 73, 52, 77 ]
-                    }
+                        Familia: [ 80, 73, 52, 77 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TIJERA',
                     code: [ 479 ],
                     display: true,
@@ -13739,12 +13757,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1560 ],
-                        Familia: [ 42, 53, 36, 55 ]
-                    }
+                        Familia: [ 42, 53, 36, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA VIAL',
                     code: [ 737 ],
                     display: true,
@@ -13755,12 +13773,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BAÑADOR NIÑA',
                     code: [ 586 ],
                     display: true,
@@ -13771,12 +13789,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294 ],
-                        Familia: [ 70, 31 ]
-                    }
+                        Familia: [ 70, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PACK CRISTAL',
                     code: [ 561 ],
                     display: true,
@@ -13787,12 +13805,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'NECESER',
                     code: [ 126 ],
                     display: true,
@@ -13803,12 +13821,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1560, 1557 ],
-                        Familia: [ 70, 14, 92, 99, 55, 17, 97 ]
-                    }
+                        Familia: [ 70, 14, 92, 99, 55, 17, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISA',
                     code: [ 579 ],
                     display: true,
@@ -13819,12 +13837,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 62, 94 ]
-                    }
+                        Familia: [ 62, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISÓN',
                     code: [ 121 ],
                     display: true,
@@ -13835,12 +13853,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295, 1557 ],
-                        Familia: [ 95, 8, 63, 5, 2, 97 ]
-                    }
+                        Familia: [ 95, 8, 63, 5, 2, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO LLANO KDS',
                     code: [ 900 ],
                     display: true,
@@ -13851,12 +13869,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 42 ]
-                    }
+                        Familia: [ 37, 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DISCOS',
                     code: [ 85 ],
                     display: true,
@@ -13867,12 +13885,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 85 ]
-                    }
+                        Familia: [ 85 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SHORT',
                     code: [ 123 ],
                     display: true,
@@ -13883,12 +13901,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1557 ],
-                        Familia: [ 95, 8, 6, 69 ]
-                    }
+                        Familia: [ 95, 8, 6, 69 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS DECO',
                     code: [ 154 ],
                     display: true,
@@ -13899,12 +13917,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568 ],
-                        Familia: [ 52, 43, 40 ]
-                    }
+                        Familia: [ 52, 43, 40 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE COCINA',
                     code: [ 131, 751 ],
                     display: true,
@@ -13915,12 +13933,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1557 ],
-                        Familia: [ 41, 42, 54, 50 ]
-                    }
+                        Familia: [ 41, 42, 54, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'UTEN DE COCINA',
                     code: [ 41 ],
                     display: true,
@@ -13931,12 +13949,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1294 ],
-                        Familia: [ 87, 43, 41, 37, 42, 50, 55, 35 ]
-                    }
+                        Familia: [ 87, 43, 41, 37, 42, 50, 55, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARITA MOKA',
                     code: [ 305 ],
                     display: true,
@@ -13947,12 +13965,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SHORT KDS',
                     code: [ 855 ],
                     display: true,
@@ -13963,12 +13981,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOBI ESCAPARATE',
                     code: [ 173 ],
                     display: true,
@@ -13979,12 +13997,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1295 ],
-                        Familia: [ 43, 77, 14, 7, 60 ]
-                    }
+                        Familia: [ 43, 77, 14, 7, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BODY BEBÉ',
                     code: [ 537 ],
                     display: true,
@@ -13995,12 +14013,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUIDADO DE PIEL',
                     code: [ 798 ],
                     display: true,
@@ -14011,12 +14029,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LIMPIASUELOS',
                     code: [ 929 ],
                     display: true,
@@ -14027,12 +14045,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COL ROPA DORMIR',
                     code: [ 116 ],
                     display: true,
@@ -14043,12 +14061,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577, 1557 ],
-                        Familia: [ 95, 62, 58, 78, 69, 99, 2, 97 ]
-                    }
+                        Familia: [ 95, 62, 58, 78, 69, 99, 2, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CERILLAS',
                     code: [ 795 ],
                     display: true,
@@ -14059,12 +14077,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FCOJIN.EDRE KDS',
                     code: [ 807 ],
                     display: true,
@@ -14075,12 +14093,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 8, 6, 60, 5 ]
-                    }
+                        Familia: [ 8, 6, 60, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET CUBIERTOS',
                     code: [ 311 ],
                     display: true,
@@ -14091,12 +14109,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 36 ]
-                    }
+                        Familia: [ 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PROTECTOR MESA',
                     code: [ 82 ],
                     display: true,
@@ -14107,12 +14125,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAMPARA',
                     code: [ 145 ],
                     display: true,
@@ -14123,12 +14141,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1557 ],
-                        Familia: [ 47 ]
-                    }
+                        Familia: [ 47 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOALLA BEBE',
                     code: [ 423 ],
                     display: true,
@@ -14139,12 +14157,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 92 ]
-                    }
+                        Familia: [ 70, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACONDICIONADOR',
                     code: [ 790 ],
                     display: true,
@@ -14155,12 +14173,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHUPITO LICOR',
                     code: [ 449 ],
                     display: true,
@@ -14171,12 +14189,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'HUCHA',
                     code: [ 710 ],
                     display: true,
@@ -14187,12 +14205,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 43, 46 ]
-                    }
+                        Familia: [ 43, 46 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISETA KDS',
                     code: [ 897 ],
                     display: true,
@@ -14203,12 +14221,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 97, 94 ]
-                    }
+                        Familia: [ 70, 97, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TAZA+PLATO',
                     code: [ 209 ],
                     display: true,
@@ -14219,12 +14237,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'UTENSLIO.LAVADO',
                     code: [ 782 ],
                     display: true,
@@ -14235,12 +14253,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 82, 96 ]
-                    }
+                        Familia: [ 82, 96 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PACK ACEIT+VINA',
                     code: [ 228 ],
                     display: true,
@@ -14251,12 +14269,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38 ]
-                    }
+                        Familia: [ 42, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.DORMITORIO',
                     code: [ 780 ],
                     display: true,
@@ -14267,12 +14285,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 1, 8, 77 ]
-                    }
+                        Familia: [ 1, 8, 77 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'GUANTE.MANOPLA',
                     code: [ 28 ],
                     display: true,
@@ -14283,12 +14301,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1294, 1557 ],
-                        Familia: [ 14, 92, 28 ]
-                    }
+                        Familia: [ 14, 92, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BODY WASH',
                     code: [ 769 ],
                     display: true,
@@ -14299,12 +14317,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAPOTA',
                     code: [ 534 ],
                     display: true,
@@ -14315,12 +14333,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLETAS',
                     code: [ 22 ],
                     display: true,
@@ -14331,12 +14349,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295, 1577 ],
-                        Familia: [ 87, 21, 55, 22 ]
-                    }
+                        Familia: [ 87, 21, 55, 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PERCHAS KDS',
                     code: [ 818 ],
                     display: true,
@@ -14347,12 +14365,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PROTECTORES',
                     code: [ 138 ],
                     display: true,
@@ -14363,12 +14381,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577 ],
-                        Familia: [ 21 ]
-                    }
+                        Familia: [ 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET SÁB. CUNA',
                     code: [ 596 ],
                     display: true,
@@ -14379,12 +14397,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUIDAD CORPORAL',
                     code: [ 489 ],
                     display: true,
@@ -14395,12 +14413,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1559 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.LIMPIEZA',
                     code: [ 762 ],
                     display: true,
@@ -14411,12 +14429,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 82, 3, 43, 50 ]
-                    }
+                        Familia: [ 82, 3, 43, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PALA PESCADO',
                     code: [ 307 ],
                     display: true,
@@ -14427,12 +14445,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MINIPLATO',
                     code: [ 206 ],
                     display: true,
@@ -14443,12 +14461,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1577 ],
-                        Familia: [ 37, 42, 53, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 53, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARA MES KDS',
                     code: [ 904 ],
                     display: true,
@@ -14459,12 +14477,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MESAS',
                     code: [ 72 ],
                     display: true,
@@ -14475,12 +14493,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1577, 1557 ],
-                        Familia: [ 76, 73, 77, 72 ]
-                    }
+                        Familia: [ 76, 73, 77, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CNJTO ROPA KDS',
                     code: [ 864 ],
                     display: true,
@@ -14491,12 +14509,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 97 ]
-                    }
+                        Familia: [ 70, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TAZA+PLAT.CAFÉ',
                     code: [ 207 ],
                     display: true,
@@ -14507,12 +14525,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR PESCADO',
                     code: [ 306, 314 ],
                     display: true,
@@ -14523,12 +14541,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVIDORES',
                     code: [ 320 ],
                     display: true,
@@ -14539,12 +14557,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 37, 42, 36 ]
-                    }
+                        Familia: [ 37, 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PANTALON BEBÉ',
                     code: [ 548 ],
                     display: true,
@@ -14555,12 +14573,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PUF',
                     code: [ 31 ],
                     display: true,
@@ -14571,12 +14589,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 73, 30 ]
-                    }
+                        Familia: [ 73, 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSAS TXT KDS',
                     code: [ 819 ],
                     display: true,
@@ -14587,12 +14605,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 19, 14 ]
-                    }
+                        Familia: [ 19, 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHALECO',
                     code: [ 433 ],
                     display: true,
@@ -14603,12 +14621,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 58 ]
-                    }
+                        Familia: [ 58 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SONAJERO',
                     code: [ 784 ],
                     display: true,
@@ -14619,12 +14637,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 52, 51 ]
-                    }
+                        Familia: [ 52, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MARCOS DE FOTOS',
                     code: [ 45 ],
                     display: true,
@@ -14635,12 +14653,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1295, 1557 ],
-                        Familia: [ 45 ]
-                    }
+                        Familia: [ 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AC.PARA GUARDAR',
                     code: [ 57 ],
                     display: true,
@@ -14651,12 +14669,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 57, 79, 55 ]
-                    }
+                        Familia: [ 57, 79, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSAS TEXTIL',
                     code: [ 19 ],
                     display: true,
@@ -14667,12 +14685,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1294, 1557 ],
-                        Familia: [ 13, 3, 19, 14, 17 ]
-                    }
+                        Familia: [ 13, 3, 19, 14, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MARCO FOTO',
                     code: [ 156 ],
                     display: true,
@@ -14683,12 +14701,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568 ],
-                        Familia: [ 45 ]
-                    }
+                        Familia: [ 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AGARRADERA',
                     code: [ 531 ],
                     display: true,
@@ -14699,12 +14717,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 28 ]
-                    }
+                        Familia: [ 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAVAVAJILLAS',
                     code: [ 772 ],
                     display: true,
@@ -14715,12 +14733,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PORTAVELAS',
                     code: [ 48, 163 ],
                     display: true,
@@ -14731,12 +14749,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560 ],
-                        Familia: [ 44, 38, 98 ]
-                    }
+                        Familia: [ 44, 38, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TAZA + PLATO TÉ',
                     code: [ 208 ],
                     display: true,
@@ -14747,12 +14765,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOTE BAÑO',
                     code: [ 455 ],
                     display: true,
@@ -14763,12 +14781,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TIRADORES KDS',
                     code: [ 922 ],
                     display: true,
@@ -14779,12 +14797,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 48 ]
-                    }
+                        Familia: [ 48 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTA JUEGOS',
                     code: [ 770 ],
                     display: true,
@@ -14795,12 +14813,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOTELLA',
                     code: [ 439 ],
                     display: true,
@@ -14811,12 +14829,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 37, 42, 38 ]
-                    }
+                        Familia: [ 37, 42, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PELELE',
                     code: [ 529 ],
                     display: true,
@@ -14827,12 +14845,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 14, 97 ]
-                    }
+                        Familia: [ 70, 14, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CORTI DUCHA KDS',
                     code: [ 816 ],
                     display: true,
@@ -14843,12 +14861,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 32 ]
-                    }
+                        Familia: [ 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VASO',
                     code: [ 400 ],
                     display: true,
@@ -14859,12 +14877,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BANDEJA BAÑO',
                     code: [ 102 ],
                     display: true,
@@ -14875,12 +14893,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1295 ],
-                        Familia: [ 16, 44 ]
-                    }
+                        Familia: [ 16, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAMPARA PIL KDS',
                     code: [ 928 ],
                     display: true,
@@ -14891,12 +14909,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 47 ]
-                    }
+                        Familia: [ 47 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARA POSTRE',
                     code: [ 308 ],
                     display: true,
@@ -14907,12 +14925,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALBORNOCES',
                     code: [ 14 ],
                     display: true,
@@ -14923,12 +14941,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1295, 1577 ],
-                        Familia: [ 14, 92, 99 ]
-                    }
+                        Familia: [ 14, 92, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANA ENCIMERA',
                     code: [ 89 ],
                     display: true,
@@ -14939,12 +14957,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1577, 1557 ],
-                        Familia: [ 1, 89 ]
-                    }
+                        Familia: [ 1, 89 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SALERO',
                     code: [ 551 ],
                     display: true,
@@ -14955,12 +14973,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS BAÑO',
                     code: [ 155 ],
                     display: true,
@@ -14971,12 +14989,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AZUCARERO',
                     code: [ 217 ],
                     display: true,
@@ -14987,12 +15005,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PILLOW MIST',
                     code: [ 750 ],
                     display: true,
@@ -15003,12 +15021,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE CUBIERTO',
                     code: [ 130 ],
                     display: true,
@@ -15019,12 +15037,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'GORRO KDS',
                     code: [ 857 ],
                     display: true,
@@ -15035,12 +15053,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 17 ]
-                    }
+                        Familia: [ 70, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLGADOR',
                     code: [ 517 ],
                     display: true,
@@ -15051,12 +15069,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1560 ],
-                        Familia: [ 44, 77, 74 ]
-                    }
+                        Familia: [ 44, 77, 74 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FAROLILLO',
                     code: [ 436 ],
                     display: true,
@@ -15067,12 +15085,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1295 ],
-                        Familia: [ 75, 98 ]
-                    }
+                        Familia: [ 75, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABONERA',
                     code: [ 105 ],
                     display: true,
@@ -15083,12 +15101,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294, 1295 ],
-                        Familia: [ 41, 44 ]
-                    }
+                        Familia: [ 41, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JUGUETES KDS',
                     code: [ 852 ],
                     display: true,
@@ -15099,12 +15117,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1560, 1294 ],
-                        Familia: [ 73, 52, 9, 18, 51 ]
-                    }
+                        Familia: [ 73, 52, 9, 18, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIOS MESA',
                     code: [ 153 ],
                     display: true,
@@ -15115,12 +15133,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1557 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOWL',
                     code: [ 211 ],
                     display: true,
@@ -15131,12 +15149,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1577 ],
-                        Familia: [ 43, 41, 37, 42, 38, 36, 35 ]
-                    }
+                        Familia: [ 43, 41, 37, 42, 38, 36, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TAZA',
                     code: [ 463 ],
                     display: true,
@@ -15147,12 +15165,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VESTIDO BEBÉ',
                     code: [ 569 ],
                     display: true,
@@ -15163,12 +15181,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DOSIF.JABÓN KDS',
                     code: [ 917 ],
                     display: true,
@@ -15179,12 +15197,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOWL APERITIVOS',
                     code: [ 467 ],
                     display: true,
@@ -15195,12 +15213,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 36, 35 ]
-                    }
+                        Familia: [ 42, 38, 36, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.ARMARIO',
                     code: [ 83 ],
                     display: true,
@@ -15211,12 +15229,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'GASAS',
                     code: [ 767 ],
                     display: true,
@@ -15227,12 +15245,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 92 ]
-                    }
+                        Familia: [ 70, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VARIOS KDS',
                     code: [ 522 ],
                     display: true,
@@ -15243,12 +15261,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 14, 18, 92 ]
-                    }
+                        Familia: [ 70, 14, 18, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CORTINA DUCHA',
                     code: [ 16 ],
                     display: true,
@@ -15259,12 +15277,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 16, 32 ]
-                    }
+                        Familia: [ 16, 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABON EN ESPUMA',
                     code: [ 741 ],
                     display: true,
@@ -15275,12 +15293,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOMBRAS BAÑO',
                     code: [ 15 ],
                     display: true,
@@ -15291,12 +15309,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 15, 92 ]
-                    }
+                        Familia: [ 15, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JARRONES',
                     code: [ 157, 46 ],
                     display: true,
@@ -15307,12 +15325,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1295 ],
-                        Familia: [ 3, 43, 44, 46, 98 ]
-                    }
+                        Familia: [ 3, 43, 44, 46, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DELANTALES',
                     code: [ 27 ],
                     display: true,
@@ -15323,12 +15341,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1295 ],
-                        Familia: [ 87, 27, 96, 26 ]
-                    }
+                        Familia: [ 87, 27, 96, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO PASTA',
                     code: [ 203 ],
                     display: true,
@@ -15339,12 +15357,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BAJOPLATO',
                     code: [ 205 ],
                     display: true,
@@ -15355,12 +15373,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1577 ],
-                        Familia: [ 37, 42, 53, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 53, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ESCOBILLA',
                     code: [ 723 ],
                     display: true,
@@ -15371,12 +15389,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLET/POSAV',
                     code: [ 151 ],
                     display: true,
@@ -15387,12 +15405,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 39, 25 ]
-                    }
+                        Familia: [ 39, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BODY MIST',
                     code: [ 771 ],
                     display: true,
@@ -15403,12 +15421,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMINOS DE MESA',
                     code: [ 24 ],
                     display: true,
@@ -15419,12 +15437,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 24, 21, 22 ]
-                    }
+                        Familia: [ 24, 21, 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUND.COJIN.EDRE',
                     code: [ 7 ],
                     display: true,
@@ -15435,12 +15453,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1577, 1557 ],
-                        Familia: [ 8, 43, 6, 7, 60, 5 ]
-                    }
+                        Familia: [ 8, 43, 6, 7, 60, 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUNA KDS',
                     code: [ 518 ],
                     display: true,
@@ -15451,12 +15469,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SALES DE BAÑO',
                     code: [ 788 ],
                     display: true,
@@ -15467,12 +15485,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PIJAMA KDS',
                     code: [ 896 ],
                     display: true,
@@ -15483,12 +15501,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 97 ]
-                    }
+                        Familia: [ 70, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TÚNICA',
                     code: [ 532 ],
                     display: true,
@@ -15499,12 +15517,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1557 ],
-                        Familia: [ 62, 58, 63, 99, 97, 94 ]
-                    }
+                        Familia: [ 62, 58, 63, 99, 97, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ARTICULOS PLAYA',
                     code: [ 170 ],
                     display: true,
@@ -15515,12 +15533,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 63 ]
-                    }
+                        Familia: [ 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'HUEVERA',
                     code: [ 715 ],
                     display: true,
@@ -15531,12 +15549,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHILLO CHULET',
                     code: [ 462 ],
                     display: true,
@@ -15547,12 +15565,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABÓN-PASTILLA',
                     code: [ 702 ],
                     display: true,
@@ -15563,12 +15581,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLCHAS',
                     code: [ 6 ],
                     display: true,
@@ -15579,12 +15597,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1295, 1577, 1557 ],
-                        Familia: [ 6, 4, 79 ]
-                    }
+                        Familia: [ 6, 4, 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INDIVIDUALES',
                     code: [ 23 ],
                     display: true,
@@ -15595,12 +15613,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 24, 23, 21 ]
-                    }
+                        Familia: [ 24, 23, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSITA.ARMARIO',
                     code: [ 20 ],
                     display: true,
@@ -15611,12 +15629,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1557 ],
-                        Familia: [ 82, 14, 20 ]
-                    }
+                        Familia: [ 82, 14, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLCHÓN',
                     code: [ 523 ],
                     display: true,
@@ -15627,12 +15645,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 80, 30 ]
-                    }
+                        Familia: [ 80, 30 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'NECESER KDS',
                     code: [ 898 ],
                     display: true,
@@ -15643,12 +15661,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 19, 14 ]
-                    }
+                        Familia: [ 19, 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO POSTR KDS',
                     code: [ 901 ],
                     display: true,
@@ -15659,12 +15677,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 42, 35 ]
-                    }
+                        Familia: [ 37, 42, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLEC ALFOMBRAS',
                     code: [ 115 ],
                     display: true,
@@ -15675,12 +15693,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1577 ],
-                        Familia: [ 29 ]
-                    }
+                        Familia: [ 29 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESOR.TEXTIL',
                     code: [ 149 ],
                     display: true,
@@ -15691,12 +15709,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560 ],
-                        Familia: [ 17 ]
-                    }
+                        Familia: [ 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PANTALÓN KDS',
                     code: [ 854 ],
                     display: true,
@@ -15707,12 +15725,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 95, 70 ]
-                    }
+                        Familia: [ 95, 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PROTEC ALMOHADA',
                     code: [ 87 ],
                     display: true,
@@ -15723,12 +15741,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577, 1557 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SUDADERA',
                     code: [ 542 ],
                     display: true,
@@ -15739,12 +15757,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 58, 78, 94 ]
-                    }
+                        Familia: [ 58, 78, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VELAS',
                     code: [ 65, 135 ],
                     display: true,
@@ -15755,12 +15773,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1295 ],
-                        Familia: [ 65, 44 ]
-                    }
+                        Familia: [ 65, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.JARDIN',
                     code: [ 3 ],
                     display: true,
@@ -15771,12 +15789,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 3, 43, 53, 34, 50 ]
-                    }
+                        Familia: [ 3, 43, 53, 34, 50 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHAQUETA BEBÉ',
                     code: [ 549 ],
                     display: true,
@@ -15787,12 +15805,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VESTIDO',
                     code: [ 538 ],
                     display: true,
@@ -15803,12 +15821,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 63 ]
-                    }
+                        Familia: [ 63 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SCENTED CERAMIC',
                     code: [ 768 ],
                     display: true,
@@ -15819,12 +15837,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOTE',
                     code: [ 428 ],
                     display: true,
@@ -15835,12 +15853,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1294 ],
-                        Familia: [ 43, 41, 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 43, 41, 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHUCHILLOS',
                     code: [ 776 ],
                     display: true,
@@ -15851,12 +15869,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 41, 42, 36 ]
-                    }
+                        Familia: [ 41, 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AGUA DE PLANCHA',
                     code: [ 727 ],
                     display: true,
@@ -15867,12 +15885,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PALA SVR.PESCAD',
                     code: [ 315 ],
                     display: true,
@@ -15883,12 +15901,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPEL PINTADO',
                     code: [ 55 ],
                     display: true,
@@ -15899,12 +15917,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 55 ]
-                    }
+                        Familia: [ 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET BRAGUITAS',
                     code: [ 563 ],
                     display: true,
@@ -15915,12 +15933,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PONCHO',
                     code: [ 446 ],
                     display: true,
@@ -15931,12 +15949,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 70, 78, 92, 99 ]
-                    }
+                        Familia: [ 70, 78, 92, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPEL PERFUMADO',
                     code: [ 778 ],
                     display: true,
@@ -15947,12 +15965,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VARIOS COSMETIC',
                     code: [ 729 ],
                     display: true,
@@ -15963,12 +15981,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 43, 86 ]
-                    }
+                        Familia: [ 43, 86 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPELERA',
                     code: [ 743 ],
                     display: true,
@@ -15979,12 +15997,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568 ],
-                        Familia: [ 43, 44 ]
-                    }
+                        Familia: [ 43, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLEC SABANA',
                     code: [ 107 ],
                     display: true,
@@ -15995,12 +16013,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 1, 88, 89, 91 ]
-                    }
+                        Familia: [ 1, 88, 89, 91 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA ALMOHADA',
                     code: [ 91 ],
                     display: true,
@@ -16011,12 +16029,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1295, 1577, 1557 ],
-                        Familia: [ 1, 91 ]
-                    }
+                        Familia: [ 1, 91 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TIRADORES',
                     code: [ 101 ],
                     display: true,
@@ -16027,12 +16045,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1560, 1557 ],
-                        Familia: [ 1, 44, 48 ]
-                    }
+                        Familia: [ 1, 44, 48 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TEN POSTRE KDS',
                     code: [ 908 ],
                     display: true,
@@ -16043,12 +16061,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUSELINA',
                     code: [ 745 ],
                     display: true,
@@ -16059,12 +16077,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO POSTRE',
                     code: [ 202 ],
                     display: true,
@@ -16075,12 +16093,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SALSERA',
                     code: [ 223 ],
                     display: true,
@@ -16091,12 +16109,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SACO BEBÉS',
                     code: [ 500 ],
                     display: true,
@@ -16107,12 +16125,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LIBRETAS',
                     code: [ 111 ],
                     display: true,
@@ -16123,12 +16141,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1294, 1557 ],
-                        Familia: [ 8, 54, 5, 55 ]
-                    }
+                        Familia: [ 8, 54, 5, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BATA/KIMONO KDS',
                     code: [ 915 ],
                     display: true,
@@ -16139,12 +16157,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 99, 97 ]
-                    }
+                        Familia: [ 70, 99, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHILL MES KDS',
                     code: [ 906 ],
                     display: true,
@@ -16155,12 +16173,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FND.COJIN KDS',
                     code: [ 808 ],
                     display: true,
@@ -16171,12 +16189,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 8 ]
-                    }
+                        Familia: [ 8 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ART.NAVIDAD',
                     code: [ 146 ],
                     display: true,
@@ -16187,12 +16205,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 60 ]
-                    }
+                        Familia: [ 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABON EXF CORPO',
                     code: [ 775 ],
                     display: true,
@@ -16203,12 +16221,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'HUCHA KDS',
                     code: [ 923 ],
                     display: true,
@@ -16219,12 +16237,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 52, 43 ]
-                    }
+                        Familia: [ 52, 43 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAÑUELO',
                     code: [ 593 ],
                     display: true,
@@ -16235,12 +16253,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 59, 92 ]
-                    }
+                        Familia: [ 59, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE CRISTAL',
                     code: [ 128 ],
                     display: true,
@@ -16251,12 +16269,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1557 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TARJETA PERFMDA',
                     code: [ 740 ],
                     display: true,
@@ -16267,12 +16285,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELLENO ALMOH',
                     code: [ 12 ],
                     display: true,
@@ -16283,12 +16301,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1577, 1557 ],
-                        Familia: [ 10, 12 ]
-                    }
+                        Familia: [ 10, 12 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COMPLEMENTOS',
                     code: [ 717 ],
                     display: true,
@@ -16299,12 +16317,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 14, 55 ]
-                    }
+                        Familia: [ 14, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TAZON',
                     code: [ 438 ],
                     display: true,
@@ -16315,12 +16333,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SEMILLAS',
                     code: [ 792 ],
                     display: true,
@@ -16331,12 +16349,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 2 ]
-                    }
+                        Familia: [ 2 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TABLAS',
                     code: [ 754 ],
                     display: true,
@@ -16347,12 +16365,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTELES',
                     code: [ 21 ],
                     display: true,
@@ -16363,12 +16381,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294, 1295, 1577 ],
-                        Familia: [ 87, 23, 21, 22 ]
-                    }
+                        Familia: [ 87, 23, 21, 22 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ANTIFAZ KDS',
                     code: [ 856 ],
                     display: true,
@@ -16379,12 +16397,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JUEGOS',
                     code: [ 52 ],
                     display: true,
@@ -16395,12 +16413,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUG KDS',
                     code: [ 902 ],
                     display: true,
@@ -16411,12 +16429,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 35 ]
-                    }
+                        Familia: [ 37, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CESTAS KDS',
                     code: [ 849 ],
                     display: true,
@@ -16427,12 +16445,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 49 ]
-                    }
+                        Familia: [ 49 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET CUBIERT KDS',
                     code: [ 909 ],
                     display: true,
@@ -16443,12 +16461,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACEITERA',
                     code: [ 226 ],
                     display: true,
@@ -16459,12 +16477,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 41, 42, 38, 35 ]
-                    }
+                        Familia: [ 41, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLCHAS KDS',
                     code: [ 806 ],
                     display: true,
@@ -16475,12 +16493,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 6 ]
-                    }
+                        Familia: [ 6 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BANDEJAS KDS',
                     code: [ 840 ],
                     display: true,
@@ -16491,12 +16509,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOALLAS KDS',
                     code: [ 813 ],
                     display: true,
@@ -16507,12 +16525,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 92, 99 ]
-                    }
+                        Familia: [ 70, 92, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ESPEJOS KDS',
                     code: [ 894 ],
                     display: true,
@@ -16523,12 +16541,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 81 ]
-                    }
+                        Familia: [ 81 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COJIN DECO',
                     code: [ 9 ],
                     display: true,
@@ -16539,12 +16557,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1294, 1577, 1557 ],
-                        Familia: [ 8, 78, 9, 28 ]
-                    }
+                        Familia: [ 8, 78, 9, 28 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHICHONERA',
                     code: [ 421 ],
                     display: true,
@@ -16555,12 +16573,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1, 10 ]
-                    }
+                        Familia: [ 1, 10 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOM BAÑO KDS',
                     code: [ 815 ],
                     display: true,
@@ -16571,12 +16589,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 15 ]
-                    }
+                        Familia: [ 15 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.DECORA',
                     code: [ 43 ],
                     display: true,
@@ -16587,12 +16605,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1559, 1560, 1294, 1295, 1557 ],
-                        Familia: [ 52, 43, 44, 14, 60, 38, 64, 20, 74, 35 ]
-                    }
+                        Familia: [ 52, 43, 44, 14, 60, 38, 64, 20, 74, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARITA KDS',
                     code: [ 907 ],
                     display: true,
@@ -16603,12 +16621,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SOPORTE MACETA',
                     code: [ 748 ],
                     display: true,
@@ -16619,12 +16637,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560 ],
-                        Familia: [ 3, 43 ]
-                    }
+                        Familia: [ 3, 43 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLETERO',
                     code: [ 39 ],
                     display: true,
@@ -16635,12 +16653,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295 ],
-                        Familia: [ 43, 42, 39, 38, 36, 25, 35 ]
-                    }
+                        Familia: [ 43, 42, 39, 38, 36, 25, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE VAJILLA',
                     code: [ 129 ],
                     display: true,
@@ -16651,12 +16669,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1294, 1557 ],
-                        Familia: [ 38, 35 ]
-                    }
+                        Familia: [ 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'KDS SET VAJILLA',
                     code: [ 731 ],
                     display: true,
@@ -16667,12 +16685,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'GORRO',
                     code: [ 514 ],
                     display: true,
@@ -16683,12 +16701,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'EDREDÓN DECO',
                     code: [ 5 ],
                     display: true,
@@ -16699,12 +16717,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1557 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ELECTRODOMESTIC',
                     code: [ 783 ],
                     display: true,
@@ -16715,12 +16733,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1577 ],
-                        Familia: [ 61 ]
-                    }
+                        Familia: [ 61 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SERVILLETAS KDS',
                     code: [ 926 ],
                     display: true,
@@ -16731,12 +16749,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JARRAS',
                     code: [ 213 ],
                     display: true,
@@ -16747,12 +16765,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294, 1557 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABÓN LÍQUIDO',
                     code: [ 700 ],
                     display: true,
@@ -16763,12 +16781,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CINTA METRICA',
                     code: [ 540 ],
                     display: true,
@@ -16779,12 +16797,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 43, 55 ]
-                    }
+                        Familia: [ 43, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIO KDS',
                     code: [ 519 ],
                     display: true,
@@ -16795,12 +16813,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUEBLE AUXILIAR',
                     code: [ 143 ],
                     display: true,
@@ -16811,12 +16829,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1577, 1557 ],
-                        Familia: [ 47, 73, 43, 77, 74, 72 ]
-                    }
+                        Familia: [ 47, 73, 43, 77, 74, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISETA',
                     code: [ 120 ],
                     display: true,
@@ -16827,12 +16845,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295, 1557 ],
-                        Familia: [ 87, 96, 88, 90, 89, 91, 94 ]
-                    }
+                        Familia: [ 87, 96, 88, 90, 89, 91, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BAÑADOR NIÑO',
                     code: [ 587 ],
                     display: true,
@@ -16843,12 +16861,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 31 ]
-                    }
+                        Familia: [ 70, 31 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLEC MANTAS',
                     code: [ 110 ],
                     display: true,
@@ -16859,12 +16877,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1557 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DOSIF. JABÓN',
                     code: [ 466 ],
                     display: true,
@@ -16875,12 +16893,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1294 ],
-                        Familia: [ 82, 44 ]
-                    }
+                        Familia: [ 82, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CENICERO',
                     code: [ 222 ],
                     display: true,
@@ -16891,12 +16909,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 76, 43 ]
-                    }
+                        Familia: [ 76, 43 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PERCHAS',
                     code: [ 18 ],
                     display: true,
@@ -16907,12 +16925,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577, 1557 ],
-                        Familia: [ 18 ]
-                    }
+                        Familia: [ 18 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VACIABOLSILLOS',
                     code: [ 53 ],
                     display: true,
@@ -16923,12 +16941,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1557 ],
-                        Familia: [ 87, 14 ]
-                    }
+                        Familia: [ 87, 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDAS COJIN',
                     code: [ 8 ],
                     display: true,
@@ -16939,12 +16957,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1559, 1560, 1294, 1295, 1557 ],
-                        Familia: [ 8, 9, 60 ]
-                    }
+                        Familia: [ 8, 9, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JERSEY BEBÉ',
                     code: [ 559 ],
                     display: true,
@@ -16955,12 +16973,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOISES KDS',
                     code: [ 503 ],
                     display: true,
@@ -16971,12 +16989,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ESPEJOS',
                     code: [ 161, 106 ],
                     display: true,
@@ -16987,12 +17005,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1577, 1557 ],
-                        Familia: [ 81, 44 ]
-                    }
+                        Familia: [ 81, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VELA AROMÁTICA',
                     code: [ 705 ],
                     display: true,
@@ -17003,12 +17021,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 71, 98 ]
-                    }
+                        Familia: [ 71, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TÚNICA KDS',
                     code: [ 858 ],
                     display: true,
@@ -17019,12 +17037,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294 ],
-                        Familia: [ 63, 99 ]
-                    }
+                        Familia: [ 63, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MIKADO/DIFUSOR',
                     code: [ 703 ],
                     display: true,
@@ -17035,12 +17053,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 67, 64, 71 ]
-                    }
+                        Familia: [ 67, 64, 71 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MALETIN',
                     code: [ 447 ],
                     display: true,
@@ -17051,12 +17069,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 57, 79, 55 ]
-                    }
+                        Familia: [ 57, 79, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABONERA KDS',
                     code: [ 893 ],
                     display: true,
@@ -17067,12 +17085,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOWL KDS',
                     code: [ 903 ],
                     display: true,
@@ -17083,12 +17101,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 35 ]
-                    }
+                        Familia: [ 37, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PALILLOS',
                     code: [ 319 ],
                     display: true,
@@ -17099,12 +17117,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MESAS KDS',
                     code: [ 872 ],
                     display: true,
@@ -17115,12 +17133,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80, 73, 72 ]
-                    }
+                        Familia: [ 80, 73, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FNDA NORDIC KDS',
                     code: [ 888 ],
                     display: true,
@@ -17131,12 +17149,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUG',
                     code: [ 210 ],
                     display: true,
@@ -17147,12 +17165,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COPA',
                     code: [ 401 ],
                     display: true,
@@ -17163,12 +17181,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 37, 38 ]
-                    }
+                        Familia: [ 37, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARA MESA',
                     code: [ 300 ],
                     display: true,
@@ -17179,12 +17197,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295 ],
-                        Familia: [ 36, 35 ]
-                    }
+                        Familia: [ 36, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHILLO POSTRE',
                     code: [ 310 ],
                     display: true,
@@ -17195,12 +17213,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR MESA',
                     code: [ 301 ],
                     display: true,
@@ -17211,12 +17229,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'NEVERA',
                     code: [ 602 ],
                     display: true,
@@ -17227,12 +17245,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 70, 19, 14, 21 ]
-                    }
+                        Familia: [ 70, 19, 14, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'EXCL.INTERNET',
                     code: [ 999 ],
                     display: true,
@@ -17243,12 +17261,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1295, 1557 ],
-                        Familia: [ 43, 65, 37, 48, 14, 38, 36, 79, 34, 35, 98 ]
-                    }
+                        Familia: [ 43, 65, 37, 48, 14, 38, 36, 79, 34, 35, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLGADOR KDS',
                     code: [ 919 ],
                     display: true,
@@ -17259,12 +17277,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80, 74 ]
-                    }
+                        Familia: [ 80, 74 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'HOME SPRAY',
                     code: [ 706 ],
                     display: true,
@@ -17275,12 +17293,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOMBRAS',
                     code: [ 29 ],
                     display: true,
@@ -17291,12 +17309,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1295, 1577, 1557 ],
-                        Familia: [ 87, 29 ]
-                    }
+                        Familia: [ 87, 29 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMBIADOR',
                     code: [ 742 ],
                     display: true,
@@ -17307,12 +17325,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CANDELABRO',
                     code: [ 468 ],
                     display: true,
@@ -17323,12 +17341,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560 ],
-                        Familia: [ 43, 98 ]
-                    }
+                        Familia: [ 43, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PASTA.D.DIENTES',
                     code: [ 785 ],
                     display: true,
@@ -17339,12 +17357,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANA BAJERA',
                     code: [ 90 ],
                     display: true,
@@ -17355,12 +17373,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1577, 1557 ],
-                        Familia: [ 1, 89 ]
-                    }
+                        Familia: [ 1, 89 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUBRECANAPE',
                     code: [ 93 ],
                     display: true,
@@ -17371,12 +17389,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1577, 1557 ],
-                        Familia: [ 93 ]
-                    }
+                        Familia: [ 93 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUEBLES KIDS',
                     code: [ 140 ],
                     display: true,
@@ -17387,12 +17405,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577 ],
-                        Familia: [ 80 ]
-                    }
+                        Familia: [ 80 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOBILIARIO KDS',
                     code: [ 80 ],
                     display: true,
@@ -17403,12 +17421,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80, 73, 77, 74 ]
-                    }
+                        Familia: [ 80, 73, 77, 74 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PORTAINCIENSO',
                     code: [ 509 ],
                     display: true,
@@ -17419,12 +17437,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 76 ]
-                    }
+                        Familia: [ 76 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET FRAG+DIFUSO',
                     code: [ 736 ],
                     display: true,
@@ -17435,12 +17453,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ENSALADERA',
                     code: [ 216 ],
                     display: true,
@@ -17451,12 +17469,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MOBILIARIO',
                     code: [ 77 ],
                     display: true,
@@ -17467,12 +17485,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1577, 1557 ],
-                        Familia: [ 73, 43, 44, 77, 72 ]
-                    }
+                        Familia: [ 73, 43, 44, 77, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELOJES',
                     code: [ 84 ],
                     display: true,
@@ -17483,12 +17501,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1294 ],
-                        Familia: [ 43, 84 ]
-                    }
+                        Familia: [ 43, 84 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LIBROS',
                     code: [ 54 ],
                     display: true,
@@ -17499,12 +17517,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1294 ],
-                        Familia: [ 54, 55 ]
-                    }
+                        Familia: [ 54, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOPE PUERTA',
                     code: [ 108 ],
                     display: true,
@@ -17515,12 +17533,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1294, 1557 ],
-                        Familia: [ 43, 23, 21, 22, 51 ]
-                    }
+                        Familia: [ 43, 23, 21, 22, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JOYERO',
                     code: [ 604 ],
                     display: true,
@@ -17531,12 +17549,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 79 ]
-                    }
+                        Familia: [ 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAJAS Y JOYEROS',
                     code: [ 160 ],
                     display: true,
@@ -17547,12 +17565,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 79 ]
-                    }
+                        Familia: [ 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INDIVIDUAL. KDS',
                     code: [ 823 ],
                     display: true,
@@ -17563,12 +17581,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 21 ]
-                    }
+                        Familia: [ 37, 21 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JABÓN CORPORAL',
                     code: [ 781 ],
                     display: true,
@@ -17579,12 +17597,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BANDEJ PLAT KDS',
                     code: [ 739 ],
                     display: true,
@@ -17595,12 +17613,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARA SALSA',
                     code: [ 317 ],
                     display: true,
@@ -17611,12 +17629,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VASO BAÑO KDS',
                     code: [ 892 ],
                     display: true,
@@ -17627,12 +17645,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARITA CAFÉ',
                     code: [ 304 ],
                     display: true,
@@ -17643,12 +17661,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TRAJES DE BAÑO',
                     code: [ 606 ],
                     display: true,
@@ -17659,12 +17677,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1557 ],
-                        Familia: [ 31, 56 ]
-                    }
+                        Familia: [ 31, 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PLATO LLANO',
                     code: [ 200 ],
                     display: true,
@@ -17675,12 +17693,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294, 1295 ],
-                        Familia: [ 87, 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 87, 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET BEBE',
                     code: [ 547 ],
                     display: true,
@@ -17691,12 +17709,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VESTIDO KDS',
                     code: [ 920 ],
                     display: true,
@@ -17707,12 +17725,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294 ],
-                        Familia: [ 70, 63, 97 ]
-                    }
+                        Familia: [ 70, 63, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BABERO',
                     code: [ 437 ],
                     display: true,
@@ -17723,12 +17741,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 14, 99, 17 ]
-                    }
+                        Familia: [ 70, 14, 99, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALFOMBRAS KDS',
                     code: [ 829 ],
                     display: true,
@@ -17739,12 +17757,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1294, 1577 ],
-                        Familia: [ 29 ]
-                    }
+                        Familia: [ 29 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHUPETE',
                     code: [ 796 ],
                     display: true,
@@ -17755,12 +17773,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LIMPIACRISTALES',
                     code: [ 930 ],
                     display: true,
@@ -17771,12 +17789,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'OVERALL',
                     code: [ 536 ],
                     display: true,
@@ -17787,12 +17805,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PETO',
                     code: [ 572 ],
                     display: true,
@@ -17803,12 +17821,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 97 ]
-                    }
+                        Familia: [ 70, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PALILLOS KDS',
                     code: [ 911 ],
                     display: true,
@@ -17819,12 +17837,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37 ]
-                    }
+                        Familia: [ 37 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VASO BAÑO',
                     code: [ 104 ],
                     display: true,
@@ -17835,12 +17853,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294, 1557 ],
-                        Familia: [ 44, 10 ]
-                    }
+                        Familia: [ 44, 10 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MUÑECOS',
                     code: [ 51 ],
                     display: true,
@@ -17851,12 +17869,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 52, 51 ]
-                    }
+                        Familia: [ 52, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VASO KDS',
                     code: [ 910 ],
                     display: true,
@@ -17867,12 +17885,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 42 ]
-                    }
+                        Familia: [ 37, 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.NAVIDAD',
                     code: [ 60 ],
                     display: true,
@@ -17883,12 +17901,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 60, 72 ]
-                    }
+                        Familia: [ 60, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TOALLAS',
                     code: [ 13 ],
                     display: true,
@@ -17899,12 +17917,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294, 1295, 1577 ],
-                        Familia: [ 77, 92 ]
-                    }
+                        Familia: [ 77, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHILLO MESA',
                     code: [ 302 ],
                     display: true,
@@ -17915,12 +17933,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 36 ]
-                    }
+                        Familia: [ 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AGENDAS',
                     code: [ 112 ],
                     display: true,
@@ -17931,12 +17949,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1295, 1557 ],
-                        Familia: [ 8, 6, 53, 54, 55 ]
-                    }
+                        Familia: [ 8, 6, 53, 54, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET SAB.MOISES',
                     code: [ 499 ],
                     display: true,
@@ -17947,12 +17965,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAMPARAS',
                     code: [ 47 ],
                     display: true,
@@ -17963,12 +17981,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1577, 1557 ],
-                        Familia: [ 47, 65, 60 ]
-                    }
+                        Familia: [ 47, 65, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'EDREDÓN DEC KDS',
                     code: [ 805 ],
                     display: true,
@@ -17979,12 +17997,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 5 ]
-                    }
+                        Familia: [ 5 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'NIÑO ACCESORIOS',
                     code: [ 127 ],
                     display: true,
@@ -17995,12 +18013,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294 ],
-                        Familia: [ 57, 27, 43, 51 ]
-                    }
+                        Familia: [ 57, 27, 43, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SALVAMANTELES',
                     code: [ 494 ],
                     display: true,
@@ -18011,12 +18029,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 53, 50, 25 ]
-                    }
+                        Familia: [ 42, 53, 50, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PIJAMA',
                     code: [ 117 ],
                     display: true,
@@ -18027,12 +18045,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1295, 1557 ],
-                        Familia: [ 95, 8, 2, 97, 94 ]
-                    }
+                        Familia: [ 95, 8, 2, 97, 94 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET SAL/PMNTA',
                     code: [ 541 ],
                     display: true,
@@ -18043,12 +18061,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SUAVIZANTE',
                     code: [ 726 ],
                     display: true,
@@ -18059,12 +18077,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTAS KDS',
                     code: [ 804 ],
                     display: true,
@@ -18075,12 +18093,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 4 ]
-                    }
+                        Familia: [ 4 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLEC CORTINAS',
                     code: [ 114 ],
                     display: true,
@@ -18091,12 +18109,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1577 ],
-                        Familia: [ 32 ]
-                    }
+                        Familia: [ 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPELERÍA',
                     code: [ 728 ],
                     display: true,
@@ -18107,12 +18125,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560 ],
-                        Familia: [ 82, 54, 55 ]
-                    }
+                        Familia: [ 82, 54, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELLENOS COJIN',
                     code: [ 11 ],
                     display: true,
@@ -18123,12 +18141,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1560 ],
-                        Familia: [ 10, 34 ]
-                    }
+                        Familia: [ 10, 34 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CINTA PELO KDS',
                     code: [ 863 ],
                     display: true,
@@ -18139,12 +18157,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 52 ]
-                    }
+                        Familia: [ 52 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FALDA',
                     code: [ 720 ],
                     display: true,
@@ -18155,12 +18173,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 56 ]
-                    }
+                        Familia: [ 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SOPERA',
                     code: [ 465 ],
                     display: true,
@@ -18171,12 +18189,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 35 ]
-                    }
+                        Familia: [ 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LÁMPARA PILA',
                     code: [ 763 ],
                     display: true,
@@ -18187,12 +18205,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1560, 1557 ],
-                        Familia: [ 47, 60 ]
-                    }
+                        Familia: [ 47, 60 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COJIN RELLENO',
                     code: [ 431 ],
                     display: true,
@@ -18203,12 +18221,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294 ],
-                        Familia: [ 9 ]
-                    }
+                        Familia: [ 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PACK SABANAS',
                     code: [ 565 ],
                     display: true,
@@ -18219,12 +18237,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BUFANDA/FOULARD',
                     code: [ 566 ],
                     display: true,
@@ -18235,12 +18253,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 14, 59 ]
-                    }
+                        Familia: [ 14, 59 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SACO DORMIR BEB',
                     code: [ 501 ],
                     display: true,
@@ -18251,12 +18269,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PANT LÁMPARA',
                     code: [ 592 ],
                     display: true,
@@ -18267,12 +18285,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 47 ]
-                    }
+                        Familia: [ 47 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BANDEJAS',
                     code: [ 40 ],
                     display: true,
@@ -18283,12 +18301,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1560, 1295, 1557 ],
-                        Familia: [ 43, 41, 37, 42, 40, 38 ]
-                    }
+                        Familia: [ 43, 41, 37, 42, 40, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INTERNET VARIOS',
                     code: [ 169 ],
                     display: true,
@@ -18299,12 +18317,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1295, 1557 ],
-                        Familia: [ 8, 43, 65, 37, 42, 48, 14, 60, 38, 36, 64, 79, 46, 2, 25, 35, 98 ]
-                    }
+                        Familia: [ 8, 43, 65, 37, 42, 48, 14, 60, 38, 36, 64, 79, 46, 2, 25, 35, 98 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MENAJE KIDS',
                     code: [ 139 ],
                     display: true,
@@ -18315,12 +18333,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISA KDS',
                     code: [ 861 ],
                     display: true,
@@ -18331,12 +18349,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 62, 70 ]
-                    }
+                        Familia: [ 62, 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BATA/KIMONO',
                     code: [ 434 ],
                     display: true,
@@ -18347,12 +18365,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1295, 1557 ],
-                        Familia: [ 58, 70, 99, 2, 97 ]
-                    }
+                        Familia: [ 58, 70, 99, 2, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPELERÍA KDS',
                     code: [ 925 ],
                     display: true,
@@ -18363,12 +18381,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 57, 79, 55 ]
-                    }
+                        Familia: [ 57, 79, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DECANTADOR',
                     code: [ 415 ],
                     display: true,
@@ -18379,12 +18397,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 38 ]
-                    }
+                        Familia: [ 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUIDADO DE CALZ',
                     code: [ 797 ],
                     display: true,
@@ -18395,12 +18413,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JARRA.BOTELLA',
                     code: [ 927 ],
                     display: true,
@@ -18411,12 +18429,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 42 ]
-                    }
+                        Familia: [ 37, 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHAQUETA',
                     code: [ 124 ],
                     display: true,
@@ -18427,12 +18445,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1559, 1294, 1557 ],
-                        Familia: [ 58, 70, 92, 99, 97 ]
-                    }
+                        Familia: [ 58, 70, 92, 99, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MANTAS',
                     code: [ 4 ],
                     display: true,
@@ -18443,12 +18461,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1294, 1295, 1577, 1557 ],
-                        Familia: [ 14, 4, 35 ]
-                    }
+                        Familia: [ 14, 4, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LAMPARAS KDS',
                     code: [ 847 ],
                     display: true,
@@ -18459,12 +18477,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 47 ]
-                    }
+                        Familia: [ 47 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COJIN DECO KDS',
                     code: [ 809 ],
                     display: true,
@@ -18475,12 +18493,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 8, 14, 9, 51 ]
-                    }
+                        Familia: [ 8, 14, 9, 51 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SUDADERA KDS',
                     code: [ 860 ],
                     display: true,
@@ -18491,12 +18509,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 96, 70 ]
-                    }
+                        Familia: [ 96, 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACCESORIO BAÑO',
                     code: [ 744 ],
                     display: true,
@@ -18507,12 +18525,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294, 1295, 1577 ],
-                        Familia: [ 87, 13, 33, 44 ]
-                    }
+                        Familia: [ 87, 13, 33, 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAZO',
                     code: [ 316 ],
                     display: true,
@@ -18523,12 +18541,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUENTE',
                     code: [ 220 ],
                     display: true,
@@ -18539,12 +18557,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294 ],
-                        Familia: [ 37, 42, 38, 35 ]
-                    }
+                        Familia: [ 37, 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET TOALLAS',
                     code: [ 724 ],
                     display: true,
@@ -18555,12 +18573,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1577 ],
-                        Familia: [ 92 ]
-                    }
+                        Familia: [ 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FALDA KDS',
                     code: [ 862 ],
                     display: true,
@@ -18571,12 +18589,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 56 ]
-                    }
+                        Familia: [ 56 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MARCOS KDS',
                     code: [ 845 ],
                     display: true,
@@ -18587,12 +18605,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 45 ]
-                    }
+                        Familia: [ 45 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'POSAVASOS',
                     code: [ 25 ],
                     display: true,
@@ -18603,12 +18621,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 25 ]
-                    }
+                        Familia: [ 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'MONO',
                     code: [ 600 ],
                     display: true,
@@ -18619,12 +18637,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 99 ]
-                    }
+                        Familia: [ 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISA BEBÉ',
                     code: [ 580 ],
                     display: true,
@@ -18635,12 +18653,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHARA SERVIR',
                     code: [ 312 ],
                     display: true,
@@ -18651,12 +18669,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAJAS',
                     code: [ 99 ],
                     display: true,
@@ -18667,12 +18685,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1294, 1557 ],
-                        Familia: [ 57, 82, 3, 41, 44, 79 ]
-                    }
+                        Familia: [ 57, 82, 3, 41, 44, 79 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUCHILLO MANTEQ',
                     code: [ 526 ],
                     display: true,
@@ -18683,12 +18701,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 36 ]
-                    }
+                        Familia: [ 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CHAMPÚ',
                     code: [ 789 ],
                     display: true,
@@ -18699,12 +18717,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COSMETICA',
                     code: [ 134 ],
                     display: true,
@@ -18715,12 +18733,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1577 ],
-                        Familia: [ 67, 64, 68, 35 ]
-                    }
+                        Familia: [ 67, 64, 68, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISON KDS',
                     code: [ 853 ],
                     display: true,
@@ -18731,12 +18749,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 99 ]
-                    }
+                        Familia: [ 70, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SILLAS.TABURETE',
                     code: [ 73 ],
                     display: true,
@@ -18747,12 +18765,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1560, 1294, 1295, 1577, 1557 ],
-                        Familia: [ 80, 73, 77, 72 ]
-                    }
+                        Familia: [ 80, 73, 77, 72 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COFRE AROMATICO',
                     code: [ 747 ],
                     display: true,
@@ -18763,12 +18781,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67, 64 ]
-                    }
+                        Familia: [ 67, 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.MESA KDS',
                     code: [ 842 ],
                     display: true,
@@ -18779,12 +18797,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 42 ]
-                    }
+                        Familia: [ 42 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ART "OUTLET"',
                     code: [ 167 ],
                     display: true,
@@ -18827,7 +18845,7 @@ export const FilterEntities = {
                         4,
                         99,
                         46,
-                        14
+                        14,
                     ],
                     parents: {
                         Producto: 4,
@@ -18870,13 +18888,13 @@ export const FilterEntities = {
                             91,
                             49,
                             35,
-                            98
-                        ]
-                    }
+                            98,
+                        ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FLOR ARTIFICIAL',
                     code: [ 746 ],
                     display: true,
@@ -18887,12 +18905,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560 ],
-                        Familia: [ 43 ]
-                    }
+                        Familia: [ 43 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUENTE HORNO',
                     code: [ 757 ],
                     display: true,
@@ -18903,12 +18921,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 41, 35 ]
-                    }
+                        Familia: [ 41, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANA ENCI KDS',
                     code: [ 889 ],
                     display: true,
@@ -18919,12 +18937,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SPRAY TEJIDO',
                     code: [ 721 ],
                     display: true,
@@ -18935,12 +18953,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TETERA',
                     code: [ 545 ],
                     display: true,
@@ -18951,12 +18969,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38, 35 ]
-                    }
+                        Familia: [ 42, 38, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CORTINAS DECO',
                     code: [ 32 ],
                     display: true,
@@ -18967,12 +18985,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1560, 1295, 1557 ],
-                        Familia: [ 32 ]
-                    }
+                        Familia: [ 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR POSTRE',
                     code: [ 309 ],
                     display: true,
@@ -18983,12 +19001,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PANTALÓN',
                     code: [ 122 ],
                     display: true,
@@ -18999,12 +19017,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294, 1295, 1557 ],
-                        Familia: [ 87, 95, 66, 4, 69, 97 ]
-                    }
+                        Familia: [ 87, 95, 66, 4, 69, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA NORDICA',
                     code: [ 88 ],
                     display: true,
@@ -19015,12 +19033,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1295, 1577, 1557 ],
-                        Familia: [ 1, 88 ]
-                    }
+                        Familia: [ 1, 88 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CINTA DE PELO',
                     code: [ 722 ],
                     display: true,
@@ -19031,12 +19049,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1557 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOLSA DE AGUA',
                     code: [ 461 ],
                     display: true,
@@ -19047,12 +19065,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'BOTE BAÑO KDS',
                     code: [ 916 ],
                     display: true,
@@ -19063,12 +19081,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 44 ]
-                    }
+                        Familia: [ 44 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAÑO DE COCINA',
                     code: [ 26 ],
                     display: true,
@@ -19079,12 +19097,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1294, 1295 ],
-                        Familia: [ 87, 27, 26 ]
-                    }
+                        Familia: [ 87, 27, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'AMBIENTADOR',
                     code: [ 707 ],
                     display: true,
@@ -19095,12 +19113,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 67 ]
-                    }
+                        Familia: [ 67 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'UNIFORMES',
                     code: [ 136 ],
                     display: true,
@@ -19111,12 +19129,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1295 ],
-                        Familia: [ 87, 27, 96 ]
-                    }
+                        Familia: [ 87, 27, 96 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SABANA BAJ KDS',
                     code: [ 890 ],
                     display: true,
@@ -19127,12 +19145,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUBITERA',
                     code: [ 473 ],
                     display: true,
@@ -19143,12 +19161,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 38 ]
-                    }
+                        Familia: [ 42, 38 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'KIDS.ACC.TEXTIL',
                     code: [ 141 ],
                     display: true,
@@ -19159,12 +19177,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 14 ]
-                    }
+                        Familia: [ 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SET CUCHARITAS',
                     code: [ 567 ],
                     display: true,
@@ -19175,12 +19193,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'VARIOS',
                     code: [ 1 ],
                     display: true,
@@ -19191,12 +19209,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 1, 3 ]
-                    }
+                        Familia: [ 1, 3 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'GEL LIMPIAMANOS',
                     code: [ 793 ],
                     display: true,
@@ -19207,12 +19225,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.DECORA KDS',
                     code: [ 843 ],
                     display: true,
@@ -19223,12 +19241,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1294 ],
-                        Familia: [ 52, 43, 42, 20 ]
-                    }
+                        Familia: [ 52, 43, 42, 20 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CREMA',
                     code: [ 701 ],
                     display: true,
@@ -19239,12 +19257,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PALA TARTA',
                     code: [ 318 ],
                     display: true,
@@ -19255,12 +19273,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 36 ]
-                    }
+                        Familia: [ 42, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'JERSEY',
                     code: [ 544 ],
                     display: true,
@@ -19271,12 +19289,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 70, 78 ]
-                    }
+                        Familia: [ 70, 78 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CESTAS',
                     code: [ 49, 144 ],
                     display: true,
@@ -19287,12 +19305,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568, 1559, 1560, 1295, 1557 ],
-                        Familia: [ 3, 43, 42, 77, 53, 60, 49 ]
-                    }
+                        Familia: [ 3, 43, 42, 77, 53, 60, 49 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SOMBREROS',
                     code: [ 585 ],
                     display: true,
@@ -19303,12 +19321,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1568, 1294, 1557 ],
-                        Familia: [ 14, 92 ]
-                    }
+                        Familia: [ 14, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CALCETINES',
                     code: [ 539 ],
                     display: true,
@@ -19319,12 +19337,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1557 ],
-                        Familia: [ 66 ]
-                    }
+                        Familia: [ 66 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FRAGANCIAS',
                     code: [ 66 ],
                     display: true,
@@ -19335,12 +19353,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CALCETINES KDS',
                     code: [ 859 ],
                     display: true,
@@ -19351,12 +19369,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 66, 97 ]
-                    }
+                        Familia: [ 70, 66, 97 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUIDADO DE MARM',
                     code: [ 800 ],
                     display: true,
@@ -19367,12 +19385,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUIDADO DE MADE',
                     code: [ 799 ],
                     display: true,
@@ -19383,12 +19401,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ACC.MESA',
                     code: [ 42 ],
                     display: true,
@@ -19399,12 +19417,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559 ],
-                        Familia: [ 43, 41, 37, 42, 53, 38, 36, 35 ]
-                    }
+                        Familia: [ 43, 41, 37, 42, 53, 38, 36, 35 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DETERGENTE',
                     code: [ 725 ],
                     display: true,
@@ -19415,12 +19433,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
+                        Familia: [ 83 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PROTEC.COLCHÓN',
                     code: [ 86 ],
                     display: true,
@@ -19431,12 +19449,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1577, 1557 ],
-                        Familia: [ 11 ]
-                    }
+                        Familia: [ 11 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMBIADOR VIAJE',
                     code: [ 515 ],
                     display: true,
@@ -19447,12 +19465,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 14, 92 ]
-                    }
+                        Familia: [ 70, 14, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CORTINAS KDS',
                     code: [ 832 ],
                     display: true,
@@ -19463,12 +19481,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 32 ]
-                    }
+                        Familia: [ 32 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SETS POSAVASOS',
                     code: [ 550 ],
                     display: true,
@@ -19479,12 +19497,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 42, 39, 25 ]
-                    }
+                        Familia: [ 42, 39, 25 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR BRUNCH',
                     code: [ 730 ],
                     display: true,
@@ -19495,12 +19513,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567 ],
-                        Familia: [ 36 ]
-                    }
+                        Familia: [ 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CAMISETA BEBÉ',
                     code: [ 118 ],
                     display: true,
@@ -19511,12 +19529,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294, 1557 ],
-                        Familia: [ 70, 26 ]
-                    }
+                        Familia: [ 70, 26 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'FUNDA ALMOH KDS',
                     code: [ 891 ],
                     display: true,
@@ -19527,12 +19545,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 1 ]
-                    }
+                        Familia: [ 1 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'INCIENSO',
                     code: [ 704 ],
                     display: true,
@@ -19543,12 +19561,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 68 ]
-                    }
+                        Familia: [ 68 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'RELLENO NÓRDICO',
                     code: [ 10 ],
                     display: true,
@@ -19559,12 +19577,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559, 1577, 1557 ],
-                        Familia: [ 10, 14 ]
-                    }
+                        Familia: [ 10, 14 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ANTIFAZ',
                     code: [ 125 ],
                     display: true,
@@ -19575,12 +19593,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1557 ],
-                        Familia: [ 8, 14, 9 ]
-                    }
+                        Familia: [ 8, 14, 9 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'SILLAS.TABU KDS',
                     code: [ 873 ],
                     display: true,
@@ -19591,12 +19609,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 80, 73 ]
-                    }
+                        Familia: [ 80, 73 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'DELANTALES KDS',
                     code: [ 827 ],
                     display: true,
@@ -19607,12 +19625,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 27, 96, 17 ]
-                    }
+                        Familia: [ 27, 96, 17 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'COLEC TOALLAS',
                     code: [ 109 ],
                     display: true,
@@ -19623,12 +19641,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1559, 1295, 1577, 1557 ],
-                        Familia: [ 15, 38, 92 ]
-                    }
+                        Familia: [ 15, 38, 92 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'ALBORNOCES KDS',
                     code: [ 814 ],
                     display: true,
@@ -19639,12 +19657,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70, 92, 99 ]
-                    }
+                        Familia: [ 70, 92, 99 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'TENEDOR MES KDS',
                     code: [ 905 ],
                     display: true,
@@ -19655,12 +19673,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 37, 36 ]
-                    }
+                        Familia: [ 37, 36 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CREMA DE MANOS',
                     code: [ 738 ],
                     display: true,
@@ -19671,12 +19689,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 64 ]
-                    }
+                        Familia: [ 64 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'PAPELERIA',
                     code: [ 147 ],
                     display: true,
@@ -19687,12 +19705,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1567, 1568 ],
-                        Familia: [ 18, 55 ]
-                    }
+                        Familia: [ 18, 55 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'CUBREPAÑAL',
                     code: [ 584 ],
                     display: true,
@@ -19703,12 +19721,12 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1294 ],
-                        Familia: [ 70 ]
-                    }
+                        Familia: [ 70 ],
+                    },
                 },
                 {
                     cod_brand: [ 1 ],
-                    product: [ 4 ],
+                    extraCode: [ 4 ],
                     description: 'LMPIADOR M-USOS',
                     code: [ 774 ],
                     display: true,
@@ -19719,11 +19737,11 @@ export const FilterEntities = {
                         Producto: 4,
                         Sección: [ 1 ],
                         Líneas: [ 1559 ],
-                        Familia: [ 83 ]
-                    }
-                }
-            ]
-        }
+                        Familia: [ 83 ],
+                    },
+                },
+            ],
+        },
     ],
     campaign: [
         {
@@ -19731,14 +19749,14 @@ export const FilterEntities = {
             season: 'I',
             code: 'I2019',
             description: 'I2019',
-            display: true
+            display: true,
         },
         {
             year: 2019,
             season: 'V',
             code: 'V2019',
             description: 'V2019',
-            display: true
+            display: true,
         },
         {
             cod_brand: 1,
@@ -19747,7 +19765,7 @@ export const FilterEntities = {
             state: 'ACTIVA',
             code: 'I2020',
             description: 'I2020',
-            display: true
+            display: true,
         },
         {
             cod_brand: 16,
@@ -19756,7 +19774,7 @@ export const FilterEntities = {
             state: 'ACTIVA',
             code: 'V2020',
             description: 'V2020',
-            display: true
+            display: true,
         },
         {
             cod_brand: 16,
@@ -19765,7 +19783,7 @@ export const FilterEntities = {
             state: 'ACTIVA',
             code: 'I2021',
             description: 'I2021',
-            display: true
+            display: true,
         },
         {
             cod_brand: 1,
@@ -19774,13 +19792,13 @@ export const FilterEntities = {
             state: 'ACTIVA',
             code: 'V2021',
             description: 'V2021',
-            display: true
-        }
+            display: true,
+        },
     ],
     platform: [
         {
             parents: {
-                market: 1
+                market: 1,
             },
             description: 'Alovera',
             header: true,
@@ -19796,18 +19814,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
+                            weight: 1,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
-                        }
+                            weight: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.065Z',
@@ -19817,8 +19835,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef77875150e77b8875db',
@@ -19829,18 +19847,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
+                            weight: 1,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
-                        }
+                            weight: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.967Z',
@@ -19850,8 +19868,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef77875150b9398875d6',
@@ -19862,8 +19880,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.804Z',
@@ -19873,8 +19891,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc4f33d9dd40',
@@ -19885,18 +19903,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
+                            weight: 1,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
-                        }
+                            weight: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.955Z',
@@ -19906,8 +19924,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc7615d9dd41',
@@ -19918,18 +19936,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
+                            weight: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.957Z',
@@ -19939,8 +19957,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc7f94d9dd44',
@@ -19951,18 +19969,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
+                            weight: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.021Z',
@@ -19972,8 +19990,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7787515069d18875d5',
@@ -19984,18 +20002,18 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESCAB',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
+                            weight: 1,
                         },
                         {
                             code: 'ZARAESMAR',
                             main: 0,
-                            weight: 0
-                        }
+                            weight: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.734Z',
@@ -20005,8 +20023,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f463d325ed91965693b37c0',
@@ -20017,13 +20035,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAESMAR',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-26T10:45:06.380Z',
@@ -20033,8 +20051,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc99ead9dd48',
@@ -20045,8 +20063,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.074Z',
@@ -20056,8 +20074,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e3840440c8ec88f18000a46',
@@ -20068,8 +20086,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-03T15:46:12.326Z',
@@ -20079,8 +20097,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f993e002dba17572d489b00',
@@ -20091,8 +20109,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-10-28T09:46:40.886Z',
@@ -20102,8 +20120,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5fa95c3d0030e0de8a99dbc9',
@@ -20114,8 +20132,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-11-09T15:11:57.151Z',
@@ -20125,8 +20143,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e8c6398723c00d72ab0308f',
@@ -20137,8 +20155,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-04-07T11:27:20.762Z',
@@ -20148,8 +20166,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ee8fe7ae0d6',
@@ -20160,8 +20178,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.162Z',
@@ -20171,8 +20189,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef778751509a968875e0',
@@ -20183,8 +20201,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.144Z',
@@ -20194,8 +20212,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f4fb0ff6dba943ebb7da23f',
@@ -20206,8 +20224,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-02T14:49:35.780Z',
@@ -20217,8 +20235,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f8ef800552a5266e72d1beb',
@@ -20229,8 +20247,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-10-20T14:45:20.499Z',
@@ -20240,8 +20258,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f57a9dc45661f5c00fe7ccc',
@@ -20252,8 +20270,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-08T15:57:16.243Z',
@@ -20263,8 +20281,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef77875150ba0e8875e3',
@@ -20275,8 +20293,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.263Z',
@@ -20286,8 +20304,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5fabcbfa0030e0097799dbd0',
@@ -20298,8 +20316,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-11-11T11:33:14.021Z',
@@ -20309,8 +20327,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f4fb0b86dba94c63e7da23e',
@@ -20321,8 +20339,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-02T14:48:24.576Z',
@@ -20332,8 +20350,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f4fb1646dba942d4c7da241',
@@ -20344,8 +20362,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-02T14:51:16.788Z',
@@ -20355,8 +20373,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7787515065ec8875f2',
@@ -20367,8 +20385,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.618Z',
@@ -20378,8 +20396,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7787515004458875df',
@@ -20390,8 +20408,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.063Z',
@@ -20401,8 +20419,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f993e012dba174a4c489b01',
@@ -20413,8 +20431,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-10-28T09:46:41.489Z',
@@ -20424,8 +20442,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc1473d9dd4c',
@@ -20441,8 +20459,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7787515079648875e5',
@@ -20458,8 +20476,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f57aaee45661f428bfe7ccd',
@@ -20470,8 +20488,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-08T16:01:50.017Z',
@@ -20481,8 +20499,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc2ec8d9dd49',
@@ -20493,8 +20511,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.175Z',
@@ -20504,8 +20522,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58efa687515013ed88760e',
@@ -20516,8 +20534,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:47:02.296Z',
@@ -20527,8 +20545,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f21321bccca311d74c477a4',
@@ -20539,8 +20557,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-29T08:23:55.536Z',
@@ -20550,8 +20568,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f2131ffccca3128f9c477a3',
@@ -20562,8 +20580,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-29T08:23:27.614Z',
@@ -20573,8 +20591,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f4fb1266dba9449a17da240',
@@ -20585,8 +20603,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-02T14:50:14.031Z',
@@ -20596,8 +20614,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58efa64788cc6e9cd9dd77',
@@ -20608,8 +20626,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:47:02.462Z',
@@ -20619,8 +20637,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5fa1751d2dba17302e489b02',
@@ -20631,8 +20649,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-11-03T15:19:57.212Z',
@@ -20642,8 +20660,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc3921d9dd6a',
@@ -20654,8 +20672,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.729Z',
@@ -20665,8 +20683,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5fa1751e2dba171e81489b03',
@@ -20677,8 +20695,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMAR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-11-03T15:19:58.322Z',
@@ -20688,8 +20706,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0efdcc7ae0d2',
@@ -20705,8 +20723,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef77875150e1258875e1',
@@ -20717,8 +20735,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.168Z',
@@ -20728,8 +20746,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e58ef774788cca792d9dd50',
@@ -20740,8 +20758,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.407Z',
@@ -20751,8 +20769,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f6a2b66767a79402c6a71cd',
@@ -20763,8 +20781,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-22T16:50:46.546Z',
@@ -20774,8 +20792,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f43cd118e9ad74b6b534a18',
@@ -20786,8 +20804,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:22:09.127Z',
@@ -20797,8 +20815,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f463d675ed919503b3b37c1',
@@ -20814,8 +20832,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5e38403a0c8ec82230000a45',
@@ -20826,8 +20844,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-03T15:46:02.936Z',
@@ -20837,8 +20855,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f43ccde8e9ad7b4b1534a15',
@@ -20849,8 +20867,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:21:17.991Z',
@@ -20860,8 +20878,8 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
+                        market: 1,
+                    },
                 },
                 {
                     _id: '5f43cd058e9ad71fb1534a17',
@@ -20872,8 +20890,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:21:56.872Z',
@@ -20883,14 +20901,14 @@ export const FilterEntities = {
                     display: true,
                     market: 1,
                     parents: {
-                        market: 1
-                    }
-                }
-            ]
+                        market: 1,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 2
+                market: 2,
             },
             description: 'Mainland china',
             header: true,
@@ -20906,8 +20924,8 @@ export const FilterEntities = {
                         {
                             code: 'ZHBYZARACNBAO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-10-01T16:06:41.851Z',
@@ -20917,8 +20935,8 @@ export const FilterEntities = {
                     display: true,
                     market: 2,
                     parents: {
-                        market: 2
-                    }
+                        market: 2,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e1f557ae0cc',
@@ -20929,33 +20947,33 @@ export const FilterEntities = {
                         {
                             code: 'ZARACNSON2',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNSON',
                             main: 1,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNDNG',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNJIN',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNBEI',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'FFMZARAXT',
                             main: 0,
-                            weight: 0.2
-                        }
+                            weight: 0.2,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.864Z',
@@ -20965,8 +20983,8 @@ export const FilterEntities = {
                     display: true,
                     market: 2,
                     parents: {
-                        market: 2
-                    }
+                        market: 2,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ec3ff7ae0ec',
@@ -20977,28 +20995,28 @@ export const FilterEntities = {
                         {
                             code: 'ZARACNSON2',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNSON',
                             main: 1,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNDNG',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNJIN',
                             main: 0,
-                            weight: 0.2
+                            weight: 0.2,
                         },
                         {
                             code: 'ZARACNBEI',
                             main: 0,
-                            weight: 0.2
-                        }
+                            weight: 0.2,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.608Z',
@@ -21008,14 +21026,14 @@ export const FilterEntities = {
                     display: true,
                     market: 2,
                     parents: {
-                        market: 2
-                    }
-                }
-            ]
+                        market: 2,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 3
+                market: 3,
             },
             description: 'Polonia 2',
             header: true,
@@ -21031,8 +21049,8 @@ export const FilterEntities = {
                         {
                             code: 'ZH-EWMS-PLPL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-10T09:23:11.053Z',
@@ -21042,8 +21060,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e7d3c7ae0cd',
@@ -21054,13 +21072,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.862Z',
@@ -21070,8 +21088,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5f08335cfc1c519d68c03ece',
@@ -21082,8 +21100,8 @@ export const FilterEntities = {
                         {
                             code: 'ZH-EWMS-PLPL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-10T09:22:36.774Z',
@@ -21093,8 +21111,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7787515054058875d8',
@@ -21105,13 +21123,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.861Z',
@@ -21121,8 +21139,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef778751500b3d8875d9',
@@ -21133,13 +21151,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.897Z',
@@ -21149,8 +21167,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccdb3ad9dd43',
@@ -21161,13 +21179,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.021Z',
@@ -21177,8 +21195,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5f083334fc1c5150cfc03ecd',
@@ -21189,8 +21207,8 @@ export const FilterEntities = {
                         {
                             code: 'ZH-EWMS-PLPL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-10T09:21:56.373Z',
@@ -21200,8 +21218,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef77875150c9468875dc',
@@ -21212,13 +21230,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.016Z',
@@ -21228,8 +21246,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccc7b9d9dd3d',
@@ -21240,13 +21258,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.806Z',
@@ -21256,8 +21274,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef77875150f68f8875f5',
@@ -21268,8 +21286,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.619Z',
@@ -21279,8 +21297,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e1bef7ae0d3',
@@ -21291,8 +21309,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.124Z',
@@ -21302,8 +21320,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ebfd57ae0dc',
@@ -21314,8 +21332,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.296Z',
@@ -21325,8 +21343,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e4a817ae0ce',
@@ -21337,8 +21355,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.882Z',
@@ -21348,8 +21366,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef778751507d658875d7',
@@ -21360,8 +21378,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.830Z',
@@ -21371,8 +21389,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e36b47ae0db',
@@ -21383,13 +21401,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 0,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.222Z',
@@ -21399,8 +21417,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e58ef778751505b958875e4',
@@ -21411,8 +21429,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.302Z',
@@ -21422,8 +21440,8 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
+                        market: 3,
+                    },
                 },
                 {
                     _id: '5e4eab2887515063d58875c9',
@@ -21434,8 +21452,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-20T15:52:08.941Z',
@@ -21445,14 +21463,14 @@ export const FilterEntities = {
                     display: true,
                     market: 3,
                     parents: {
-                        market: 3
-                    }
-                }
-            ]
+                        market: 3,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 5
+                market: 5,
             },
             description: 'Corea',
             header: true,
@@ -21468,8 +21486,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAKOR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.772Z',
@@ -21479,14 +21497,14 @@ export const FilterEntities = {
                     display: true,
                     market: 5,
                     parents: {
-                        market: 5
-                    }
-                }
-            ]
+                        market: 5,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 6
+                market: 6,
             },
             description: 'Japon',
             header: true,
@@ -21502,8 +21520,8 @@ export const FilterEntities = {
                         {
                             code: 'ZHBYZARAJPICHI',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-10-08T14:03:19.317Z',
@@ -21513,8 +21531,8 @@ export const FilterEntities = {
                     display: true,
                     market: 6,
                     parents: {
-                        market: 6
-                    }
+                        market: 6,
+                    },
                 },
                 {
                     _id: '5e58ef778751507cc78875e6',
@@ -21525,8 +21543,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAJPTYO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.325Z',
@@ -21536,14 +21554,14 @@ export const FilterEntities = {
                     display: true,
                     market: 6,
                     parents: {
-                        market: 6
-                    }
-                }
-            ]
+                        market: 6,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 7
+                market: 7,
             },
             description: 'México',
             header: true,
@@ -21559,8 +21577,8 @@ export const FilterEntities = {
                         {
                             code: 'ZHBYZARAMXTUL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2021-03-16T14:40:37.690Z',
@@ -21570,8 +21588,8 @@ export const FilterEntities = {
                     display: true,
                     market: 7,
                     parents: {
-                        market: 7
-                    }
+                        market: 7,
+                    },
                 },
                 {
                     _id: '5e58efa64788ccc207d9dd76',
@@ -21582,8 +21600,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAMEX',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:47:02.282Z',
@@ -21593,14 +21611,14 @@ export const FilterEntities = {
                     display: true,
                     market: 7,
                     parents: {
-                        market: 7
-                    }
-                }
-            ]
+                        market: 7,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 8
+                market: 8,
             },
             description: 'Polonia',
             header: true,
@@ -21616,8 +21634,8 @@ export const FilterEntities = {
                         {
                             code: 'ZH-EWMS-PLPL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-09-03T08:55:56.924Z',
@@ -21627,8 +21645,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc1fb4d9dd45',
@@ -21639,13 +21657,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.048Z',
@@ -21655,8 +21673,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef774788cce264d9dd56',
@@ -21667,13 +21685,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.472Z',
@@ -21683,8 +21701,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef77875150c75f8875f0',
@@ -21695,13 +21713,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.617Z',
@@ -21711,8 +21729,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef778751501c9d8875ef',
@@ -21723,13 +21741,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.615Z',
@@ -21739,8 +21757,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc2f10d9dd3e',
@@ -21751,13 +21769,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.841Z',
@@ -21767,8 +21785,8 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
+                        market: 8,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc4cc8d9dd4b',
@@ -21779,13 +21797,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAPLSTR',
                             weight: 0,
-                            main: 0
+                            main: 0,
                         },
                         {
                             code: 'ZARAPOL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.176Z',
@@ -21795,14 +21813,14 @@ export const FilterEntities = {
                     display: true,
                     market: 8,
                     parents: {
-                        market: 8
-                    }
-                }
-            ]
+                        market: 8,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 9
+                market: 9,
             },
             description: 'Rusia',
             header: true,
@@ -21818,8 +21836,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARARUS',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.956Z',
@@ -21829,14 +21847,14 @@ export const FilterEntities = {
                     display: true,
                     market: 9,
                     parents: {
-                        market: 9
-                    }
-                }
-            ]
+                        market: 9,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 10
+                market: 10,
             },
             description: 'Usa',
             header: true,
@@ -21852,13 +21870,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAUSEAS',
                             weight: 0.7,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAUSRIA',
                             weight: 0.3,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.940Z',
@@ -21868,8 +21886,8 @@ export const FilterEntities = {
                     display: true,
                     market: 10,
                     parents: {
-                        market: 10
-                    }
+                        market: 10,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc583ad9dd53',
@@ -21880,13 +21898,13 @@ export const FilterEntities = {
                         {
                             code: 'ZARAUSEAS',
                             weight: 0.7,
-                            main: 1
+                            main: 1,
                         },
                         {
                             code: 'ZARAUSRIA',
                             weight: 0.3,
-                            main: 0
-                        }
+                            main: 0,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.471Z',
@@ -21896,14 +21914,14 @@ export const FilterEntities = {
                     display: true,
                     market: 10,
                     parents: {
-                        market: 10
-                    }
-                }
-            ]
+                        market: 10,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 11
+                market: 11,
             },
             description: 'Taiwan, china',
             header: true,
@@ -21919,8 +21937,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARATWTAO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:47:02.220Z',
@@ -21930,14 +21948,14 @@ export const FilterEntities = {
                     display: true,
                     market: 11,
                     parents: {
-                        market: 11
-                    }
-                }
-            ]
+                        market: 11,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 12
+                market: 12,
             },
             description: 'Francia',
             header: true,
@@ -21953,8 +21971,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAFRBRE',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-09T14:20:01.148Z',
@@ -21964,8 +21982,8 @@ export const FilterEntities = {
                     display: true,
                     market: 12,
                     parents: {
-                        market: 12
-                    }
+                        market: 12,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e75aa7ae0e6',
@@ -21976,8 +21994,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAFRBRE',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.560Z',
@@ -21987,14 +22005,14 @@ export const FilterEntities = {
                     display: true,
                     market: 12,
                     parents: {
-                        market: 12
-                    }
-                }
-            ]
+                        market: 12,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 13
+                market: 13,
             },
             description: 'Marchamalo sur',
             header: true,
@@ -22010,8 +22028,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMARSUR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-03-02T14:51:44.218Z',
@@ -22021,8 +22039,8 @@ export const FilterEntities = {
                     display: true,
                     market: 13,
                     parents: {
-                        market: 13
-                    }
+                        market: 13,
+                    },
                 },
                 {
                     _id: '5e5d1d4e8c3cfc434cdbce9c',
@@ -22033,8 +22051,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMARSUR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-03-02T14:50:54.400Z',
@@ -22044,8 +22062,8 @@ export const FilterEntities = {
                     display: true,
                     market: 13,
                     parents: {
-                        market: 13
-                    }
+                        market: 13,
+                    },
                 },
                 {
                     _id: '5e5d1d628c3cfc557bdbce9d',
@@ -22056,8 +22074,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMARSUR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-03-02T14:51:14.773Z',
@@ -22067,8 +22085,8 @@ export const FilterEntities = {
                     display: true,
                     market: 13,
                     parents: {
-                        market: 13
-                    }
+                        market: 13,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e326a7ae0d8',
@@ -22079,8 +22097,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESMARSUR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.161Z',
@@ -22090,14 +22108,14 @@ export const FilterEntities = {
                     display: true,
                     market: 13,
                     parents: {
-                        market: 13
-                    }
-                }
-            ]
+                        market: 13,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 100
+                market: 100,
             },
             description: 'Canada',
             header: true,
@@ -22113,8 +22131,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARACATOR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.611Z',
@@ -22124,14 +22142,14 @@ export const FilterEntities = {
                     display: true,
                     market: 100,
                     parents: {
-                        market: 100
-                    }
-                }
-            ]
+                        market: 100,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 110
+                market: 110,
             },
             description: 'Turquia',
             header: true,
@@ -22147,8 +22165,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARATRIST',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.770Z',
@@ -22158,14 +22176,14 @@ export const FilterEntities = {
                     display: true,
                     market: 110,
                     parents: {
-                        market: 110
-                    }
-                }
-            ]
+                        market: 110,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 114
+                market: 114,
             },
             description: 'Northampton',
             header: true,
@@ -22181,8 +22199,8 @@ export const FilterEntities = {
                         {
                             code: 'ZH-EWMS-GBNO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2019-12-18T09:54:13.325Z',
@@ -22192,8 +22210,8 @@ export const FilterEntities = {
                     display: true,
                     market: 114,
                     parents: {
-                        market: 114
-                    }
+                        market: 114,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e25137ae0cf',
@@ -22204,8 +22222,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAGBNOR',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.941Z',
@@ -22215,14 +22233,14 @@ export const FilterEntities = {
                     display: true,
                     market: 114,
                     parents: {
-                        market: 114
-                    }
-                }
-            ]
+                        market: 114,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 119
+                market: 119,
             },
             description: 'Hong kong sar',
             header: true,
@@ -22238,8 +22256,8 @@ export const FilterEntities = {
                         {
                             code: 'ZHBYZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2021-03-16T14:40:37.269Z',
@@ -22249,8 +22267,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e840e7ae0da',
@@ -22261,8 +22279,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.218Z',
@@ -22272,8 +22290,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef778751509b2a8875de',
@@ -22284,8 +22302,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.063Z',
@@ -22295,8 +22313,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e9ffc7ae0d5',
@@ -22307,8 +22325,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.163Z',
@@ -22318,8 +22336,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccf65cd9dd4a',
@@ -22330,8 +22348,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.177Z',
@@ -22341,8 +22359,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e06117ae0d4',
@@ -22353,8 +22371,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.123Z',
@@ -22364,8 +22382,8 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
+                        market: 119,
+                    },
                 },
                 {
                     _id: '5e58ef7787515066828875fa',
@@ -22376,8 +22394,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAHKSHA',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.652Z',
@@ -22387,14 +22405,14 @@ export const FilterEntities = {
                     display: true,
                     market: 119,
                     parents: {
-                        market: 119
-                    }
-                }
-            ]
+                        market: 119,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 130
+                market: 130,
             },
             description: 'India',
             header: true,
@@ -22410,8 +22428,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAINLUH',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.243Z',
@@ -22421,14 +22439,14 @@ export const FilterEntities = {
                     display: true,
                     market: 130,
                     parents: {
-                        market: 130
-                    }
-                }
-            ]
+                        market: 130,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 141
+                market: 141,
             },
             description: 'Australia',
             header: true,
@@ -22444,8 +22462,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAAUSYD',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.767Z',
@@ -22455,8 +22473,8 @@ export const FilterEntities = {
                     display: true,
                     market: 141,
                     parents: {
-                        market: 141
-                    }
+                        market: 141,
+                    },
                 },
                 {
                     _id: '5e58ef77875150771e8875da',
@@ -22467,8 +22485,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAAUSYD',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:14.942Z',
@@ -22478,14 +22496,14 @@ export const FilterEntities = {
                     display: true,
                     market: 141,
                     parents: {
-                        market: 141
-                    }
-                }
-            ]
+                        market: 141,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 145
+                market: 145,
             },
             description: 'Italia',
             header: true,
@@ -22501,8 +22519,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAITMIL',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:47:02.471Z',
@@ -22512,14 +22530,14 @@ export const FilterEntities = {
                     display: true,
                     market: 145,
                     parents: {
-                        market: 145
-                    }
-                }
-            ]
+                        market: 145,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 146
+                market: 146,
             },
             description: 'Worldwide',
             header: true,
@@ -22535,8 +22553,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-03-10T10:34:22.888Z',
@@ -22546,8 +22564,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e45297ae0d1',
@@ -22558,8 +22576,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.042Z',
@@ -22569,8 +22587,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc58ead9dd5b',
@@ -22581,8 +22599,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.540Z',
@@ -22592,8 +22610,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515099fd8875dd',
@@ -22604,8 +22622,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.031Z',
@@ -22615,8 +22633,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef778751503b918875f9',
@@ -22627,8 +22645,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.649Z',
@@ -22638,8 +22656,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e2d927ae0de',
@@ -22650,8 +22668,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.297Z',
@@ -22661,8 +22679,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc1a05d9dd67',
@@ -22673,8 +22691,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.683Z',
@@ -22684,8 +22702,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e57237ae0e9',
@@ -22696,8 +22714,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.608Z',
@@ -22707,8 +22725,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc4f67d9dd52',
@@ -22719,8 +22737,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.406Z',
@@ -22730,8 +22748,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43cc6d8e9ad73f79534a0e',
@@ -22742,8 +22760,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:19:25.132Z',
@@ -22753,8 +22771,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0eb4847ae0eb',
@@ -22765,8 +22783,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.613Z',
@@ -22776,8 +22794,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751507eb5887600',
@@ -22788,8 +22806,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.771Z',
@@ -22799,8 +22817,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e667a7ae0dd',
@@ -22811,8 +22829,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.296Z',
@@ -22822,8 +22840,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150caf8887603',
@@ -22834,8 +22852,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.770Z',
@@ -22845,8 +22863,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751502e50887602',
@@ -22857,8 +22875,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.771Z',
@@ -22868,8 +22886,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc50eed9dd66',
@@ -22880,8 +22898,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.687Z',
@@ -22891,8 +22909,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef778751502ee98875ec',
@@ -22903,8 +22921,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.618Z',
@@ -22914,8 +22932,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150f1ed8875f4',
@@ -22926,8 +22944,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.650Z',
@@ -22937,8 +22955,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e6ab87ae0f0',
@@ -22949,8 +22967,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.609Z',
@@ -22960,8 +22978,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc7d1cd9dd6d',
@@ -22972,8 +22990,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.821Z',
@@ -22983,8 +23001,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e69bd7ae0f7',
@@ -22995,8 +23013,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.716Z',
@@ -23006,8 +23024,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43cca38e9ad74770534a11',
@@ -23018,8 +23036,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:20:19.252Z',
@@ -23029,8 +23047,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515032f08875e9',
@@ -23041,8 +23059,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.615Z',
@@ -23052,8 +23070,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc227dd9dd5f',
@@ -23064,8 +23082,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.577Z',
@@ -23075,8 +23093,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0eb53d7ae0f6',
@@ -23087,8 +23105,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.720Z',
@@ -23098,8 +23116,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150e4018875ea',
@@ -23110,8 +23128,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.616Z',
@@ -23121,8 +23139,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ece7e7ae0e3',
@@ -23133,8 +23151,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.560Z',
@@ -23144,8 +23162,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc141dd9dd70',
@@ -23156,8 +23174,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.850Z',
@@ -23167,8 +23185,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751506a7c8875fe',
@@ -23179,8 +23197,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.712Z',
@@ -23190,8 +23208,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e12ca7ae0f5',
@@ -23202,8 +23220,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.716Z',
@@ -23213,8 +23231,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc6756d9dd72',
@@ -23225,8 +23243,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.854Z',
@@ -23236,8 +23254,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccbb66d9dd5c',
@@ -23248,8 +23266,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.541Z',
@@ -23259,8 +23277,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc829ad9dd62',
@@ -23271,8 +23289,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.577Z',
@@ -23282,8 +23300,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc275ed9dd51',
@@ -23294,8 +23312,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.407Z',
@@ -23305,8 +23323,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e2c447ae0e4',
@@ -23317,8 +23335,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.559Z',
@@ -23328,8 +23346,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccd8c0d9dd64',
@@ -23340,8 +23358,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.579Z',
@@ -23351,8 +23369,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43c99b8e9ad74563534a09',
@@ -23363,8 +23381,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:07:23.542Z',
@@ -23374,8 +23392,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccceb4d9dd59',
@@ -23386,8 +23404,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.474Z',
@@ -23397,8 +23415,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cce5b8d9dd5e',
@@ -23409,8 +23427,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.541Z',
@@ -23420,8 +23438,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef778751504f5d8875f1',
@@ -23432,8 +23450,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.619Z',
@@ -23443,8 +23461,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e3a8c7ae0ee',
@@ -23455,8 +23473,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.611Z',
@@ -23466,8 +23484,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43cc808e9ad707a5534a0f',
@@ -23478,8 +23496,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:19:44.164Z',
@@ -23489,8 +23507,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150d72f8875ed',
@@ -23501,8 +23519,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.622Z',
@@ -23512,8 +23530,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150bd948875ee',
@@ -23524,8 +23542,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.620Z',
@@ -23535,8 +23553,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc1539d9dd57',
@@ -23547,8 +23565,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.472Z',
@@ -23558,8 +23576,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc29b1d9dd63',
@@ -23570,8 +23588,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.578Z',
@@ -23581,8 +23599,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e0a297ae0e2',
@@ -23593,8 +23611,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.560Z',
@@ -23604,8 +23622,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751506ad488760a',
@@ -23616,8 +23634,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.883Z',
@@ -23627,8 +23645,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc9911d9dd71',
@@ -23639,8 +23657,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.850Z',
@@ -23650,8 +23668,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43c9b68e9ad72996534a0b',
@@ -23662,8 +23680,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:07:50.676Z',
@@ -23673,8 +23691,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e3e347ae104',
@@ -23685,8 +23703,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.904Z',
@@ -23696,8 +23714,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc3136d9dd6c',
@@ -23708,8 +23726,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.730Z',
@@ -23719,8 +23737,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751502f0c887604',
@@ -23731,8 +23749,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.808Z',
@@ -23742,8 +23760,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc41d6d9dd73',
@@ -23754,8 +23772,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.851Z',
@@ -23765,8 +23783,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc4eb8d9dd61',
@@ -23777,8 +23795,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.579Z',
@@ -23788,8 +23806,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e3b8f7ae0e5',
@@ -23800,8 +23818,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.559Z',
@@ -23811,8 +23829,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150348a88760b',
@@ -23823,8 +23841,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.950Z',
@@ -23834,8 +23852,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc4d42d9dd55',
@@ -23846,8 +23864,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.473Z',
@@ -23857,8 +23875,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43c9a48e9ad7fa56534a0a',
@@ -23869,8 +23887,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:07:32.861Z',
@@ -23880,8 +23898,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cca75fd9dd65',
@@ -23892,8 +23910,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.684Z',
@@ -23903,8 +23921,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e06197ae0ff',
@@ -23915,8 +23933,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.823Z',
@@ -23926,8 +23944,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43c9d18e9ad76a0e534a0c',
@@ -23938,8 +23956,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:08:17.810Z',
@@ -23949,8 +23967,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150009b8875e2',
@@ -23961,8 +23979,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.145Z',
@@ -23972,8 +23990,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e67c87ae0df',
@@ -23984,8 +24002,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.298Z',
@@ -23995,8 +24013,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150e12e8875ff',
@@ -24007,8 +24025,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.772Z',
@@ -24018,8 +24036,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0ee7097ae101',
@@ -24030,8 +24048,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.855Z',
@@ -24041,8 +24059,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc2c56d9dd47',
@@ -24053,8 +24071,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.158Z',
@@ -24064,8 +24082,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc8e2ed9dd4d',
@@ -24076,8 +24094,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.243Z',
@@ -24087,8 +24105,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ea5c57ae0f2',
@@ -24099,8 +24117,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.660Z',
@@ -24110,8 +24128,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150b2ec8875e7',
@@ -24122,8 +24140,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.368Z',
@@ -24133,8 +24151,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e4d2d7ae0fb',
@@ -24145,8 +24163,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.768Z',
@@ -24156,8 +24174,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc77c0d9dd4e',
@@ -24168,8 +24186,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.244Z',
@@ -24179,8 +24197,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e75327ae0ed',
@@ -24191,8 +24209,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.610Z',
@@ -24202,8 +24220,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751502cb5887605',
@@ -24214,8 +24232,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.808Z',
@@ -24225,8 +24243,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc8e7bd9dd58',
@@ -24237,8 +24255,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.471Z',
@@ -24248,8 +24266,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e6c0a7ae0f9',
@@ -24260,8 +24278,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.767Z',
@@ -24271,8 +24289,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515062b28875f3',
@@ -24283,8 +24301,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.621Z',
@@ -24294,8 +24312,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0eeaa27ae102',
@@ -24306,8 +24324,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.855Z',
@@ -24317,8 +24335,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788ccb113d9dd69',
@@ -24329,8 +24347,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.729Z',
@@ -24340,8 +24358,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515064b48875fd',
@@ -24352,8 +24370,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.650Z',
@@ -24363,8 +24381,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751503cb2887608',
@@ -24375,8 +24393,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.828Z',
@@ -24386,8 +24404,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5f43cc948e9ad718b6534a10',
@@ -24398,8 +24416,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-08-24T14:20:04.092Z',
@@ -24409,8 +24427,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e55d57ae103',
@@ -24421,8 +24439,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.854Z',
@@ -24432,8 +24450,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ec9757ae0f1',
@@ -24444,8 +24462,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.660Z',
@@ -24455,8 +24473,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc71b6d9dd6f',
@@ -24467,8 +24485,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.820Z',
@@ -24478,8 +24496,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc17f7d9dd60',
@@ -24490,8 +24508,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.578Z',
@@ -24501,8 +24519,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc2bbfd9dd6b',
@@ -24513,8 +24531,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.730Z',
@@ -24524,8 +24542,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e8d1e7ae0ea',
@@ -24536,8 +24554,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.609Z',
@@ -24547,8 +24565,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150073c8875f7',
@@ -24559,8 +24577,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.651Z',
@@ -24570,8 +24588,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515028d08875e8',
@@ -24582,8 +24600,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.502Z',
@@ -24593,8 +24611,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e35917ae0fa',
@@ -24605,8 +24623,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.768Z',
@@ -24616,8 +24634,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150073e8875fc',
@@ -24628,8 +24646,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.648Z',
@@ -24639,8 +24657,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0eec5f7ae0ef',
@@ -24651,8 +24669,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.614Z',
@@ -24662,8 +24680,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ec38f7ae0f3',
@@ -24674,8 +24692,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.661Z',
@@ -24685,8 +24703,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e93d07ae0fd',
@@ -24697,8 +24715,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.823Z',
@@ -24708,8 +24726,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150223c887606',
@@ -24720,8 +24738,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.810Z',
@@ -24731,8 +24749,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ee8747ae0e7',
@@ -24743,8 +24761,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.609Z',
@@ -24754,8 +24772,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc3f4bd9dd54',
@@ -24766,8 +24784,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.470Z',
@@ -24777,8 +24795,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0ec7607ae0e0',
@@ -24789,8 +24807,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.561Z',
@@ -24800,8 +24818,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150846a887609',
@@ -24812,8 +24830,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.828Z',
@@ -24823,8 +24841,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc0779d9dd6e',
@@ -24835,8 +24853,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.820Z',
@@ -24846,8 +24864,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e1a667ae0fe',
@@ -24858,8 +24876,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.822Z',
@@ -24869,8 +24887,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515017158875eb',
@@ -24881,8 +24899,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.617Z',
@@ -24892,8 +24910,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e32fc7ae0e1',
@@ -24904,8 +24922,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.558Z',
@@ -24915,8 +24933,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7811db0e68eb7ae100',
@@ -24927,8 +24945,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.855Z',
@@ -24938,8 +24956,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef77875150c1128875f8',
@@ -24950,8 +24968,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.651Z',
@@ -24961,8 +24979,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef788751501fe188760c',
@@ -24973,8 +24991,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.950Z',
@@ -24984,8 +25002,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0eb0bd7ae0d9',
@@ -24996,8 +25014,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.180Z',
@@ -25007,8 +25025,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef78875150ebb688760d',
@@ -25019,8 +25037,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.951Z',
@@ -25030,8 +25048,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef784788cc326ed9dd74',
@@ -25042,8 +25060,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.853Z',
@@ -25053,8 +25071,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7787515098db8875fb',
@@ -25065,8 +25083,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.653Z',
@@ -25076,8 +25094,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef7711db0e54817ae0f4',
@@ -25088,8 +25106,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.612Z',
@@ -25099,8 +25117,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef778751503e368875f6',
@@ -25111,8 +25129,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.652Z',
@@ -25122,8 +25140,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788ccd4c6d9dd5a',
@@ -25134,8 +25152,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.473Z',
@@ -25145,8 +25163,8 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
+                        market: 146,
+                    },
                 },
                 {
                     _id: '5e58ef774788cc9569d9dd68',
@@ -25157,8 +25175,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAESALO',
                             main: 1,
-                            weight: 1
-                        }
+                            weight: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.683Z',
@@ -25168,14 +25186,14 @@ export const FilterEntities = {
                     display: true,
                     market: 146,
                     parents: {
-                        market: 146
-                    }
-                }
-            ]
+                        market: 146,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 147
+                market: 147,
             },
             description: 'Brasil',
             header: true,
@@ -25191,8 +25209,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARABRSAO',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-02-28T10:46:15.162Z',
@@ -25202,14 +25220,14 @@ export const FilterEntities = {
                     display: true,
                     market: 147,
                     parents: {
-                        market: 147
-                    }
-                }
-            ]
+                        market: 147,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 155
+                market: 155,
             },
             description: 'Argentina',
             header: true,
@@ -25225,8 +25243,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARAARBUE',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-05-19T17:21:08.321Z',
@@ -25236,14 +25254,14 @@ export const FilterEntities = {
                     display: true,
                     market: 155,
                     parents: {
-                        market: 155
-                    }
-                }
-            ]
+                        market: 155,
+                    },
+                },
+            ],
         },
         {
             parents: {
-                market: 183
+                market: 183,
             },
             description: 'Chile',
             header: true,
@@ -25259,8 +25277,8 @@ export const FilterEntities = {
                         {
                             code: 'ZARACLCON',
                             weight: 1,
-                            main: 1
-                        }
+                            main: 1,
+                        },
                     ],
                     deleted: false,
                     created_at: '2020-07-22T10:41:11.708Z',
@@ -25270,11 +25288,11 @@ export const FilterEntities = {
                     display: true,
                     market: 183,
                     parents: {
-                        market: 183
-                    }
-                }
-            ]
-        }
+                        market: 183,
+                    },
+                },
+            ],
+        },
     ],
     country: [],
     market: [
@@ -25331,14 +25349,14 @@ export const FilterEntities = {
                 'PA',
                 'PR',
                 'AZ',
-                'IE'
+                'IE',
             ],
             deleted: false,
             created_at: '2020-02-28T10:47:22.805Z',
             updated_at: '2021-01-13T12:56:49.181Z',
             description: 'Alovera',
             code: 1,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba87515005c5887614',
@@ -25349,7 +25367,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.805Z',
             description: 'Mainland china',
             code: 2,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0ed0de7ae108',
@@ -25360,7 +25378,7 @@ export const FilterEntities = {
             updated_at: '2021-01-13T12:56:49.527Z',
             description: 'Polonia 2',
             code: 3,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba875150905a887611',
@@ -25371,7 +25389,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.773Z',
             description: 'Corea',
             code: 5,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0e0d9c7ae109',
@@ -25382,7 +25400,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.800Z',
             description: 'Japon',
             code: 6,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba8751504dd7887610',
@@ -25393,7 +25411,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.740Z',
             description: 'México',
             code: 7,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788cca602d9dd79',
@@ -25404,7 +25422,7 @@ export const FilterEntities = {
             updated_at: '2021-01-13T10:43:45.014Z',
             description: 'Polonia',
             code: 8,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788ccb757d9dd78',
@@ -25415,7 +25433,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.755Z',
             description: 'Rusia',
             code: 9,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0efdab7ae10b',
@@ -25426,7 +25444,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.877Z',
             description: 'Usa',
             code: 10,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788cc981bd9dd7e',
@@ -25437,7 +25455,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.885Z',
             description: 'Taiwan, china',
             code: 11,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788cc2f74d9dd7a',
@@ -25448,7 +25466,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.806Z',
             description: 'Francia',
             code: 12,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba8751504c05887616',
@@ -25459,7 +25477,7 @@ export const FilterEntities = {
             updated_at: '2020-12-10T12:50:12.615Z',
             description: 'Marchamalo sur',
             code: 13,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0e931b7ae105',
@@ -25470,7 +25488,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.739Z',
             description: 'Canada',
             code: 100,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0e44837ae106',
@@ -25481,7 +25499,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.759Z',
             description: 'Turquia',
             code: 110,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0e37357ae10a',
@@ -25492,7 +25510,7 @@ export const FilterEntities = {
             updated_at: '2021-01-13T10:43:44.718Z',
             description: 'Northampton',
             code: 114,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788cc945ed9dd7c',
@@ -25503,7 +25521,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.851Z',
             description: 'Hong kong sar',
             code: 119,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba8751500920887615',
@@ -25514,7 +25532,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.807Z',
             description: 'India',
             code: 130,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba875150ac9e887612',
@@ -25525,7 +25543,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.770Z',
             description: 'Australia',
             code: 141,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba11db0e54d07ae107',
@@ -25536,7 +25554,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.800Z',
             description: 'Italia',
             code: 145,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788ccec06d9dd7b',
@@ -25657,14 +25675,14 @@ export const FilterEntities = {
                 'NG',
                 'PK',
                 'LA',
-                'UZ'
+                'UZ',
             ],
             deleted: false,
             created_at: '2020-02-28T10:47:22.806Z',
             updated_at: '2020-10-28T14:40:13.469Z',
             description: 'Worldwide',
             code: 146,
-            display: true
+            display: true,
         },
         {
             _id: '5e58efba4788cc270ad9dd7d',
@@ -25675,7 +25693,7 @@ export const FilterEntities = {
             updated_at: '2020-02-28T10:47:22.860Z',
             description: 'Brasil',
             code: 147,
-            display: true
+            display: true,
         },
         {
             _id: '5ec4177fd12f680895489eda',
@@ -25686,7 +25704,7 @@ export const FilterEntities = {
             updated_at: '2020-05-19T17:29:35.236Z',
             description: 'Argentina',
             code: 155,
-            display: true
+            display: true,
         },
         {
             _id: '5fd2198547eb0b86e5a8e30f',
@@ -25697,8 +25715,8 @@ export const FilterEntities = {
             updated_at: '2020-12-10T12:50:13.158Z',
             description: 'Chile',
             code: 183,
-            display: true
-        }
+            display: true,
+        },
     ],
     tag: [
         {
@@ -25706,62 +25724,62 @@ export const FilterEntities = {
             description: 'pvp.filter',
             key: 'commercial_tag',
             fav: true,
-            display: true
+            display: true,
         },
         {
             code: 'NEW',
             description: 'NEW',
             key: 'commercial_tag',
             fav: true,
-            display: true
+            display: true,
         },
         {
             code: 'JO MALONE',
             description: 'JO MALONE',
             display: true,
-            fav: true
-        }
+            fav: true,
+        },
     ],
     device: [
         {
             code: 'web',
             description: 'Desktop',
-            display: true
+            display: true,
         },
         {
             code: 'app_i',
             description: 'iOS',
-            display: true
+            display: true,
         },
         {
             code: 'app_a',
             description: 'Android',
-            display: true
+            display: true,
         },
         {
             code: 'web_m',
             description: 'Mobile',
-            display: true
+            display: true,
         },
         {
             code: 'app_t',
             description: 'iPod',
-            display: true
+            display: true,
         },
         {
             code: 'mp',
             description: 'MiniProgram',
-            display: true
+            display: true,
         },
         {
             code: 'app_m',
             description: 'App',
-            hide: true
+            hide: true,
         },
         {
             code: 'tm',
             description: 'Tmall',
-            hide: true
-        }
-    ]
+            hide: true,
+        },
+    ],
 };

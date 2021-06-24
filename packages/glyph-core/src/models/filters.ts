@@ -29,6 +29,7 @@ export interface FilterOption {
     hideFilter?: boolean;
     operationIn?: boolean;
     parents?: string[];
+    extraCode?: any;
     changeOperationValue?: boolean;
     brand?: number[];
     position?: number;
@@ -54,6 +55,7 @@ export interface FilterConfig {
     visible?: boolean;
     multiSelect?: boolean;
     related?: string[];
+    extraFilter?: string;
     relatedByBrand?: boolean;
     relatedByProduct?: boolean;
     interface?: UIInterface;
@@ -92,6 +94,7 @@ export interface InitialFilter {
 export interface FiltersState {
     filterVersion?: string;
     filtersConfig?: FiltersConfig;
+    queryFilters?: QueryFilter[];
     savedFilters?: FiltersConfig;
     baseFilters?: FiltersConfig;
     screen?: string;

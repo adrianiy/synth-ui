@@ -1,0 +1,34 @@
+ul {
+    color: var(--gui-color);
+    padding-right: var(--gui-padding--s);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        font-size: var(--gui-font--xs);
+        margin: 0;
+        cursor: pointer;
+    }
+    .option {
+        padding: var(--gui-padding--s) 0;
+        width: 100%;
+
+        span {
+            text-transform: lowercase;
+            margin-right: var(--gui-padding--xxxs);
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        em {
+            width: 13px;
+        }
+
+        &.active {
+            font-weight: var(--gui-font-weight--extra-bold);
+        }
+    }
+}

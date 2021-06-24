@@ -1,4 +1,6 @@
 .header__container {
+    font-size: var(--gui-font--base);
+    color: var(--gui-color);
     height: var(--gui-header-size);
     border-bottom: var(--gui-border--lightest);
     background: var(--gui-color--background--lighter);

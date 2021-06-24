@@ -40,6 +40,7 @@ export class ListComponent implements OnChanges {
     }
 
     /**
+     * @ignore
      * If data exists and has length we will parse data
      *
      * @return A list with a format acepted by glyph-list

@@ -1,7 +1,8 @@
 .tab {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     padding-bottom: var(--gui-padding--xxs);
     margin-left: var(--gui-padding--s);
-    font-size: var(--gui-font--xs);
     transition: var(--gui-transition--300);
     text-transform: uppercase;
     cursor: pointer;

@@ -1,4 +1,6 @@
 .pagination__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     user-select: none;
 
     &__page {

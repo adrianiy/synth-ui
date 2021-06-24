@@ -1,5 +1,6 @@
 .no-data {
-    font-size: var(--gui-font--s);
+    font-size: var(--gui-font--base);
+    color: var(--gui-color);
     line-height: var(--gui-font--m);
 
     em {
@@ -17,14 +18,12 @@
     &.complex {
         h3 {
             font-weight: var(--gui-font-weight--normal);
-            font-size: var(--gui-font--m);
             line-height: var(--gui-font--l);
             margin: 0;
         }
 
         p {
             font-weight: var(--gui-font-weight--light);
-            font-size: var(--gui-font--m);
             line-height: var(--gui-font--l);
             color: var(--gui-color--light);
             margin: 0;

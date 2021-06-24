@@ -186,7 +186,7 @@ export class GlyphRankingLayout {
         const { columns, innerColumns, rows, gap, rowGap, innerGap } = this.activeView;
 
         return (
-            <Flex>
+            <Flex class="ranking">
                 <Flex row spaced top class="ranking__header">
                     <glyph-title titleText="Ranking" />
                     {this._renderHeaderOptions()}

@@ -5,6 +5,9 @@ import {
     cleanSelected,
     cleanSelectedDate,
     getCompType,
+    getSelectedDatesQuery,
+    getSelectedOptionsQuery,
+    getSelectedPartnumber,
     isFilterActive,
     selectDateAux,
     selectOptionAux,
@@ -57,6 +60,21 @@ export const updateFilter = (update: FilterUpdateEvent) => (state: FiltersState)
     return {
         ...state,
         filtersConfig: { ...filtersConfig, [filterCode]: filter },
+    };
+};
+
+export const setQueryFilters = (state: FiltersState) => {
+    const { filtersConfig } = state;
+
+    const { date, partnumber, search: _, ...rest } = filtersConfig;
+
+    return {
+        ...state,
+        queryFilters: [
+            ...getSelectedDatesQuery(date),
+            ...getSelectedOptionsQuery(rest),
+            ...getSelectedPartnumber(partnumber),
+        ].filter(Boolean),
     };
 };
 
