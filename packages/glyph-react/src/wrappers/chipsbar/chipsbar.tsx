@@ -2,11 +2,10 @@ import { FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 
 import React from 'react';
 import { GlyphChipsbar } from '../../components';
-import { useFilters, useFiltersConfig } from '../../providers/filter-state';
+import { useFiltersConfig } from '../../providers/filter-state';
 
 function GlyphReactChipsbar({ uiInterface }: GlyphReactChipsbarProps) {
     const { filtersConfig, selectFilter, updateFilter, clearFilter, clearAll } = useFiltersConfig();
-    const { filters } = useFilters();
 
     const handleSelectFilter = (event: CustomEvent<FilterSelectEvent>) => {
         selectFilter(event.detail);
