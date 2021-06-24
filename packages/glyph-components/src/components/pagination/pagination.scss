@@ -15,7 +15,7 @@
         display: inline-block;
 
         &.active {
-            color: var(--gui-color--light);
+            color: var(--gui-color);
             border-bottom-color: var(--gui-border--light);
         }
     }

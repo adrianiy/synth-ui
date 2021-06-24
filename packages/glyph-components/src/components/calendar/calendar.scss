@@ -31,7 +31,7 @@
                 cursor: pointer;
 
                 &.disabled {
-                    opacity: 0.5;
+                    color: var(--gui-color--lighter);
                     cursor: default;
                 }
                 &.before {
@@ -55,7 +55,7 @@
                 padding: var(--gui-padding--xxs) var(--gui-padding--xs);
 
                 &:not(.selectable) {
-                    opacity: .5;
+                    color: var(--gui-color--lighter);
                 }
                 &.selected--secondary {
                     background-color: var(--active-bg--secondary);
@@ -90,7 +90,7 @@
                 &.disabled {
                     cursor: not-allowed;
                     text-decoration: line-through;
-                    opacity: .5;
+                    color: var(--gui-color--lighter);
                 }
                 &:hover:not(.disabled) {
                     color: var(--gui-color--light);

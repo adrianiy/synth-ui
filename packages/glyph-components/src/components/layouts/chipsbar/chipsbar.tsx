@@ -15,7 +15,7 @@ export class ChipsBarComponent {
     @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
-    /** Interface type [ 'MODERN', 'CLASSIC' ] */
+    /** Interface type */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
     @Event() filterSelect: EventEmitter<FilterSelectEvent>;

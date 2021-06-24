@@ -4,15 +4,15 @@ import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
 import notes from './readme.md';
 export const limit = 3;
 
-export const Template = ({ pages, activePage, limit, pageGroups, onSetPage }) => html`<glyph-pagination pages=${pages} active-page=${activePage} limit=${limit} pageGroups=${pageGroups} @setPage=${onSetPage} />`;
+export const Template = ({ pages, activePage, limit, pageGroups, onSetPage }) => html`<glyph-pagination pages=${pages} active-page=${activePage} limit=${limit} pageGroups=${pageGroups} @setPage=${changePage} />`;
 
 <Meta
     title="Components/Pagination"
     parameters={{ viewMode: 'docs' }}
 />
 
+###### glyph-pagination
 # Pagination
-##### glyph-pagination
 
 Pagination handler component.
 
@@ -35,6 +35,7 @@ You can configure component to group pages in smaller groups if number of pages 
 </Canvas>
 
 export const changePage = ({ target, detail: page }) => {
+console.log(target, page);
     target.activePage = page;
 }
 

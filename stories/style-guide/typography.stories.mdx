@@ -1,0 +1,121 @@
+import { Meta, Typeset, Story } from '@storybook/addon-docs';
+
+<Meta title="Style guide/Typography" />
+
+###### Typography
+
+<Story name="Fonts" />
+
+# Fonts
+
+**Font**: Roboto
+
+<Story name="Sizes" />
+
+## Sizes
+
+Font sizes are designed to be related to `base` font size.
+
+> If `--gui-font--base` is modified globally or at component scope level all other fonts will be scaled related to the new size
+
+<br/>
+
+<table width="100%" style={{ fontFamily: '"Roboto", sans-serif' }}>
+  <thead>
+    <th>Size</th>
+    <th>Text</th>
+    <th>Var. name</th>
+  </thead>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>12px</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>Base font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--base</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>0.42em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '.42em' }}>Nano font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--nano</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>0.66em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '.66em' }}>XXXS font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xxxs</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>0.9em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '.9em' }}>XXS font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xxs</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>1em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>XS font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xs</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>1.17em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1.17em' }}>S font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--s</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>1.42em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1.42em' }}>M font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--m</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>2em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '2em' }}>L font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--l</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>2.66em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '2.66em' }}>XL font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xl</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>4em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '4em' }}>XXL font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xxl</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>5.33em</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '4em' }}>XXXL font size</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font--xxxl</span></td>
+  </tr>
+</table>
+
+<br/>
+
+<Story name="Weights" />
+
+## Weights
+
+<br/>
+
+<table width="100%" style={{ fontFamily: '"Roboto", sans-serif' }}>
+  <thead>
+    <th>Weight</th>
+    <th>Text</th>
+    <th>Var. name</th>
+  </thead>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>300</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em', fontWeight: 300 }}>Light weight</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font-weight--light</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>400</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em', fontWeight: 400 }}>Normal weight</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font-weight--normal</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>500</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em', fontWeight: 500 }}>Bold weight</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font-weight--bold</span></td>
+  </tr>
+  <tr>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>600</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em', fontWeight: 600 }}>Extra bold weight</span></td>
+    <td style={{ fontSize: 12 }}><span class="font-size" style={{ fontSize: '1em' }}>--gui-font-weight--extra-bold</span></td>
+  </tr>
+</table>
+

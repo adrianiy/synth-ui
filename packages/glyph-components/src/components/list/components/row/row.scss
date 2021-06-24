@@ -141,7 +141,6 @@
             height: var(--row-action--size);
             background: var(--gui-color--light);
             color: var(--gui-color--contrast);
-            font-size: var(--gui-font--m);
             position: relative;
 
             * {
@@ -164,7 +163,6 @@
             padding: var(--gui-padding--s);
             padding-bottom: var(--gui-padding--m);
             width: 150px;
-            font-size: var(--gui-font--m);
 
             * {
                 color: var(--gui-color);
@@ -172,7 +170,6 @@
 
             .row-action {
                 margin-top: var(--gui-padding--l);
-                font-size: var(--gui-font--xs);
                 opacity: 0.7;
             }
         }

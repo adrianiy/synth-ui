@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Style guide/Namming convention" />
+
+###### NAMING CONVENTION
+# Naming convention
+
+## CSS Variables
+
+Glyph-ui library components are designed to use their own css variables. These variables are implemented to
+avoid overwriting your global variables using prefix `--gui` like `--gui-color` or `--gui-font--xs`.
+
+## CSS Class naming
+
+Naming things correctly is important!!
+
+We recommend the use of a [BEM](http://getbem.com/naming/) naming methodology to improve code readability.
+
+##### html
+```html
+<div class="toaster toaster--success"></div>
+```
+
+##### scss
+```css
+.toaster {
+    position: absolute;
+
+  &--success {
+        background: var(--gui-color--success);
+    }
+    &--ko {
+        background: var(--gui-color--alert)
+    }
+}
+```
