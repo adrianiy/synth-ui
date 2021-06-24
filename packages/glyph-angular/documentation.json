@@ -5044,7 +5044,7 @@
                 "subtype": "variable",
                 "file": "projects/glyph-angular/src/lib/components/chipsbar/chipsbar.component.stories.ts",
                 "type": "Story<ChipsbarComponent>",
-                "defaultValue": "(args, { globals: { locale, theme } }) => ({\r\n    props: args,\r\n    template: `\r\n        <div lang=\"${locale}\" class=\"${theme}\" style=\"height: 350px; padding: 12px\">\r\n            <glyph-ng-chipsbar [interface]=\"interface\"></glyph-ng-chipsbar>\r\n        </div>\r\n    `,\r\n})"
+                "defaultValue": "(args, ctx) =>\r\n    WithGlobalDecorator({\r\n        props: args,\r\n        ctx,\r\n        style: 'height: 350px',\r\n        template: '<glyph-ng-chipsbar [interface]=\"interface\"></glyph-ng-chipsbar>',\r\n    })"
             },
             {
                 "name": "comparableOptions",
@@ -5148,7 +5148,7 @@
                 "subtype": "variable",
                 "file": "projects/glyph-angular/src/lib/components/list/list.component.stories.ts",
                 "type": "Story<ListComponent>",
-                "defaultValue": "(args, { globals: { locale, theme } }) => ({\r\n    props: args,\r\n    template: `<div lang=${locale} class=${theme}><glyph-ng-list [data]=\"data\" [fieldsConfig]=\"fieldsConfig\" [loading]=\"loading\" [expandable]=\"expandable\" [limit]=\"limit\" [title]=\"title\" [enableDownload]=\"enableDownload\"></glyph-ng-list></div>`,\r\n})"
+                "defaultValue": "(args, ctx) =>\r\n    WithGlobalDecorator({\r\n        props: args,\r\n        ctx,\r\n        template:\r\n            '<glyph-ng-list [data]=\"data\" [fieldsConfig]=\"fieldsConfig\" [loading]=\"loading\" [expandable]=\"expandable\" [limit]=\"limit\" [title]=\"title\" [enableDownload]=\"enableDownload\"></glyph-ng-list>',\r\n    })"
             },
             {
                 "name": "tomorrow",
@@ -5165,6 +5165,14 @@
                 "file": "projects/glyph-angular/src/lib/components/list/list.component.stories.ts",
                 "type": "Story<ListComponent>",
                 "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithGlobalDecorator",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/glyph-angular/src/lib/helpers/decorators.ts",
+                "type": "",
+                "defaultValue": "({ template, props, ctx, style = '' }) => {\r\n    const {\r\n        globals: { locale, theme, fontSize },\r\n    } = ctx;\r\n    const bodyElement = document.getElementsByTagName('body')[0];\r\n    bodyElement.className = theme;\r\n\r\n    if (fontSize !== 'base') {\r\n        style = `${style}; --gui-font--base: ${fontSize}`;\r\n    }\r\n\r\n    template = `<div lang=\"${locale}\" style=\"${style}\">${template}</div>`;\r\n\r\n    return {\r\n        props,\r\n        template,\r\n    };\r\n}"
             },
             {
                 "name": "year",
@@ -5283,7 +5291,7 @@
                     "subtype": "variable",
                     "file": "projects/glyph-angular/src/lib/components/list/list.component.stories.ts",
                     "type": "Story<ListComponent>",
-                    "defaultValue": "(args, { globals: { locale, theme } }) => ({\r\n    props: args,\r\n    template: `<div lang=${locale} class=${theme}><glyph-ng-list [data]=\"data\" [fieldsConfig]=\"fieldsConfig\" [loading]=\"loading\" [expandable]=\"expandable\" [limit]=\"limit\" [title]=\"title\" [enableDownload]=\"enableDownload\"></glyph-ng-list></div>`,\r\n})"
+                    "defaultValue": "(args, ctx) =>\r\n    WithGlobalDecorator({\r\n        props: args,\r\n        ctx,\r\n        template:\r\n            '<glyph-ng-list [data]=\"data\" [fieldsConfig]=\"fieldsConfig\" [loading]=\"loading\" [expandable]=\"expandable\" [limit]=\"limit\" [title]=\"title\" [enableDownload]=\"enableDownload\"></glyph-ng-list>',\r\n    })"
                 },
                 {
                     "name": "WithChildren",
@@ -5301,7 +5309,7 @@
                     "subtype": "variable",
                     "file": "projects/glyph-angular/src/lib/components/chipsbar/chipsbar.component.stories.ts",
                     "type": "Story<ChipsbarComponent>",
-                    "defaultValue": "(args, { globals: { locale, theme } }) => ({\r\n    props: args,\r\n    template: `\r\n        <div lang=\"${locale}\" class=\"${theme}\" style=\"height: 350px; padding: 12px\">\r\n            <glyph-ng-chipsbar [interface]=\"interface\"></glyph-ng-chipsbar>\r\n        </div>\r\n    `,\r\n})"
+                    "defaultValue": "(args, ctx) =>\r\n    WithGlobalDecorator({\r\n        props: args,\r\n        ctx,\r\n        style: 'height: 350px',\r\n        template: '<glyph-ng-chipsbar [interface]=\"interface\"></glyph-ng-chipsbar>',\r\n    })"
                 }
             ],
             "projects/glyph-angular/src/lib/helpers/configs.ts": [
@@ -5398,6 +5406,16 @@
                     "file": "projects/glyph-angular/src/lib/glyph-directives/angular-component-lib/utils.ts",
                     "type": "",
                     "defaultValue": "(instance: any, el: any, events: string[]) => {\n  events.forEach((eventName) => (instance[eventName] = new EventEmitter()));\n}"
+                }
+            ],
+            "projects/glyph-angular/src/lib/helpers/decorators.ts": [
+                {
+                    "name": "WithGlobalDecorator",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/glyph-angular/src/lib/helpers/decorators.ts",
+                    "type": "",
+                    "defaultValue": "({ template, props, ctx, style = '' }) => {\r\n    const {\r\n        globals: { locale, theme, fontSize },\r\n    } = ctx;\r\n    const bodyElement = document.getElementsByTagName('body')[0];\r\n    bodyElement.className = theme;\r\n\r\n    if (fontSize !== 'base') {\r\n        style = `${style}; --gui-font--base: ${fontSize}`;\r\n    }\r\n\r\n    template = `<div lang=\"${locale}\" style=\"${style}\">${template}</div>`;\r\n\r\n    return {\r\n        props,\r\n        template,\r\n    };\r\n}"
                 }
             ]
         },
@@ -6073,6 +6091,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "yesterday",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/glyph-angular/src/lib/helpers/decorators.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithGlobalDecorator",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

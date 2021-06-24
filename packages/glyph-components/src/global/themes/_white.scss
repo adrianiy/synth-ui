@@ -1,12 +1,12 @@
 :root {
     /* colors */
     --gui-color--background: white;
-    --gui-color--background--light: rgb(245, 245, 245);
+    --gui-color--background--secondary: #222;
+    --gui-color--background--light: #f5f5f5;
     --gui-color--background--lighter: white;
     --gui-color--background--modern: #e2e7e8;
 
     --gui-color: #222;
-    --gui-color--dark: #383838;
     --gui-color--light: #767676;
     --gui-color--lighter: #bebebe;
     --gui-color--lightest: #eaeaea;
@@ -16,7 +16,6 @@
     --gui-color--background--contrast: var(--gui-color);
     --gui-color--contrast: var(--gui-color--background);
 
-    --gui-color--highlight: #00a699;
     --gui-color--success: #27ae60;
     --gui-color--alert: #cf4433;
     --gui-color--attention: #ff904c;
@@ -26,7 +25,6 @@
 
     /* borders */
     --gui-border: 1px solid var(--gui-color);
-    --gui-border--dark: 1px solid var(--gui-color--dark);
     --gui-border--light: 1px solid var(--gui-color--light);
     --gui-border--lighter: 1px solid var(--gui-color--lighter);
     --gui-border--lightest: 1px solid var(--gui-color--lightest);

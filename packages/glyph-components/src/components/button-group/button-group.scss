@@ -38,7 +38,7 @@
         }
 
         &.active {
-            background-color: var(--gui-color--dark);
+            background-color: var(--gui-color--background--secondary);
 
             h3 {
                 * {
@@ -46,7 +46,7 @@
                 }
             }
             * {
-                color: var(--gui-color--lightest);
+                color: var(--gui-color--contrast);
             }
         }
     }
