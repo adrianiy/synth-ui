@@ -1,8 +1,9 @@
 .calendar__container {
-    font-size: var(--gui-font--xs);
-    height: 100%;
     --active-bg: var(--gui-color);
     --active-bg--secondary: var(--gui-color--attention);
+    font-size: var(--gui-font--base);
+    color: var(--gui-color);
+    height: 100%;
 
     .calendar {
         border-right: var(--gui-border--lightest);
@@ -52,7 +53,6 @@
             &__day {
                 cursor: pointer;
                 padding: var(--gui-padding--xxs) var(--gui-padding--xs);
-                font-size: var(--gui-font--xxs);
 
                 &:not(.selectable) {
                     opacity: .5;
@@ -93,7 +93,7 @@
                     opacity: .5;
                 }
                 &:hover:not(.disabled) {
-                    color: var(--gui-color);
+                    color: var(--gui-color--light);
                     background-color: var(--gui-color--lightest);
 
                     &.secondary {

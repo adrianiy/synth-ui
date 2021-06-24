@@ -16,6 +16,8 @@ export class ChipsbarComponent {
 
     constructor(private _filterService: FilterService) {
         this.filtersConfig = _filterService.filtersConfig;
+        /* eslint-disable no-console */
+        _filterService.comparableType.subscribe(res => console.log(res));
     }
 
     /** @ignore Filter selection event */

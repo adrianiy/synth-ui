@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import GlyphReactList, { GlyphReactListProps } from './list';
+import { WithCustomGlobals } from '../../helpers/decorators';
 
 const fieldsConfig = [
     {
@@ -71,6 +72,7 @@ const childrenData = [
 export default {
     title: 'Components/List Component',
     component: GlyphReactList,
+    decorators: [ WithCustomGlobals ],
     parameters: {
         docs: {
             description: {

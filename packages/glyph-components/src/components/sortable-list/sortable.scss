@@ -3,6 +3,8 @@
     width: 100%;
 }
 .sortable-list__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     background: var(--gui-color--background--light);
     border-radius: var(--gui-border-radius);
     border: var(--gui-border--lightest);
@@ -17,7 +19,7 @@
         font-size: var(--gui-font--xs);
 
         &.fill-icon {
-            padding-left: calc(var(--gui-padding--l) + var(--gui-padding--nano));
+            padding-left: calc(var(--gui-padding--m) + var(--gui-padding--nano));
         }
 
         &.use-hover {

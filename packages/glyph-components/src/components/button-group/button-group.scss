@@ -1,4 +1,6 @@
 .button-group__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     border: var(--gui-border--lightest);
     border-radius: var(--gui-border-radius);
     overflow: hidden;

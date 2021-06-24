@@ -1,5 +1,7 @@
 .slider__container {
     --knob-size: 9px;
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     height: var(--knob-size);
 
     .slider {

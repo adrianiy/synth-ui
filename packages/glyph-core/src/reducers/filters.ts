@@ -23,6 +23,7 @@ import {
     translateDescriptions,
     updateFilter,
     resetOrdinalCompType,
+    setQueryFilters,
 } from './middlewares/filter.middlewares';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { FilterSelectEvent, FilterUpdateEvent } from 'src/models';
@@ -72,6 +73,7 @@ const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent):
             selectOption(selection),
             checkFilterRelations(selection),
             resetOrdinalCompType,
+            setQueryFilters,
             saveFiltersInStorage,
         );
     } catch (err) {
@@ -85,7 +87,7 @@ const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent):
  */
 const clearOptionsAndSave = (state: FiltersState, filterCode: string): FiltersState => {
     try {
-        return pipe(state)(clearFilter(filterCode), checkFilterRelations(), saveFiltersInStorage);
+        return pipe(state)(clearFilter(filterCode), checkFilterRelations(), setQueryFilters, saveFiltersInStorage);
     } catch (err) {
         console.error(err);
         return state;
@@ -97,7 +99,7 @@ const clearOptionsAndSave = (state: FiltersState, filterCode: string): FiltersSt
  */
 const clearAll = (state: FiltersState): FiltersState => {
     try {
-        return pipe(state)(clearAllFilters, checkFilterRelations(), saveFiltersInStorage);
+        return pipe(state)(clearAllFilters, checkFilterRelations(), setQueryFilters, saveFiltersInStorage);
     } catch (err) {
         console.error(err);
         return state;
@@ -141,6 +143,7 @@ const initializeFilters = (
             setInitialFilter(),
             translateDescriptions(translateFn),
             recoverSharedFilters,
+            setQueryFilters,
             saveFiltersInStorage,
         );
     } catch (err) {
@@ -170,7 +173,7 @@ const loadCacheKeys = (state: FiltersState, { user, filterVersion }) => {
 /*
  * set current screen filters
  */
-const setScreen = (state: FiltersState, screen: string) => {
+const setScreen = (state: FiltersState, screen: string): FiltersState => {
     return {
         ...state,
         screen,

@@ -2,6 +2,8 @@
     --max-height: 300px;
     --min-width: 150px;
 
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     position: absolute;
     margin-top: var(--gui-padding--xs);
     background: var(--gui-color--background--lighter);
@@ -15,7 +17,6 @@
 
     .operation {
         --side-margin: calc(var(--gui-padding--s) * -1);
-        font-size: var(--gui-font--xs);
         border: var(--gui-border--lightest);
         padding: var(--gui-padding--xs) 0;
         padding-left: var(--gui-padding--s);
@@ -42,7 +43,7 @@
             outline: 0;
             border: none;
             background: var(--gui-color--background--lighter);
-            font-size: var(--gui-font--xxs);
+            font-size: .9em;
             margin: var(--gui-padding--xxs) 0;
             margin-left: var(--gui-padding--xxxs);
             color: var(--gui-color--font);
@@ -55,59 +56,11 @@
         }
     }
 
-    .children__container {
-        width: 100%;
-
-        .children--header {
-            &.expanded {
-                margin-bottom: var(--gui-padding--s);
-            }
-        }
-        ul {
-            padding-left: var(--gui-padding--s);
-        }
-    }
-
     .scroll__container {
         --scrollbar-height: var(--max-height);
         position: relative;
         max-height: var(--max-height);
         width: 100%;
         padding-right: var(--gui-padding--s);
-    }
-
-    ul {
-        padding-right: var(--gui-padding--s);
-        list-style: none;
-        padding: 0;
-        margin: 0;
-
-        li,
-        .option {
-            font-size: var(--gui-font--xs);
-            padding: var(--gui-padding--xxs) 0;
-            margin: 0;
-        }
-        .option {
-            width: 100%;
-            cursor: pointer;
-
-            span {
-                text-transform: lowercase;
-                margin-right: var(--gui-padding--xxxs);
-
-                &::first-letter {
-                    text-transform: uppercase;
-                }
-            }
-
-            em {
-                width: 13px;
-            }
-
-            &.active {
-                font-weight: var(--gui-font-weight--extra-bold);
-            }
-        }
     }
 }

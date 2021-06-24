@@ -10,7 +10,7 @@
 | Property        | Attribute         | Description                            | Type                                        | Default               |
 | --------------- | ----------------- | -------------------------------------- | ------------------------------------------- | --------------------- |
 | `filtersConfig` | --                | Filters configuration object           | `FiltersConfig`                             | `undefined`           |
-| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active         | `boolean`                                   | `undefined`           |
+| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active         | `boolean`                                   | `true`                |
 | `i18n`          | --                | Extra i18n translation object          | `{ [key: string]: string; }`                | `{}`                  |
 | `interface`     | `interface`       | Interface type [ 'MODERN', 'CLASSIC' ] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 
@@ -53,7 +53,10 @@ graph TD;
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
+  glyph-filter-options --> glyph-filter-options-list
   glyph-filter-options --> glyph-scroll
+  glyph-filter-options-list --> glyph-filter-drilldown-options
+  glyph-filter-drilldown-options --> glyph-filter-options-list
   glyph-modal --> glyph-button
   glyph-config-modal --> glyph-sortable
   glyph-config-modal --> glyph-toggler

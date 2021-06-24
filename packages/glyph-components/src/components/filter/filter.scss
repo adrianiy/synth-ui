@@ -1,9 +1,10 @@
 .filter-chip {
+    font-size: var(--gui-font--base);
     cursor: pointer;
     border-radius: var(--gui-border-radius--chip);
     user-select: none;
     position: relative;
-    font-size: var(--gui-font--xs);
+    color: var(--gui-color);
     margin: 0 var(--gui-padding--m) 0 0;
     padding: var(--gui-padding--xs);
     padding-left: 0;
@@ -32,7 +33,7 @@
         padding-left: var(--gui-padding--xs);
 
         em {
-            margin-left: var(--gui-padding--s);
+            margin-left: var(--gui-padding--xxs);
             margin-top: var(--gui-padding--nano);
             font-size: var(--gui-font--xs);
         }
@@ -62,6 +63,7 @@
 
             em {
                 color: var(--gui-color--modern);
+                margin-top: 0;
                 font-weight: bold;
             }
         }

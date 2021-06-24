@@ -237,6 +237,25 @@ export class GlyphFilter {
 }
 
 
+export declare interface GlyphFilterDrilldownOptions extends Components.GlyphFilterDrilldownOptions {}
+@ProxyCmp({
+  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+})
+@Component({
+  selector: 'glyph-filter-drilldown-options',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+})
+export class GlyphFilterDrilldownOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}
 @ProxyCmp({
   inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
@@ -248,6 +267,25 @@ export declare interface GlyphFilterOptions extends Components.GlyphFilterOption
   inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 export class GlyphFilterOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface GlyphFilterOptionsList extends Components.GlyphFilterOptionsList {}
+@ProxyCmp({
+  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+})
+@Component({
+  selector: 'glyph-filter-options-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+})
+export class GlyphFilterOptionsList {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -502,13 +540,13 @@ export class GlyphRankingLayout {
 
 export declare interface GlyphScroll extends Components.GlyphScroll {}
 @ProxyCmp({
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'scrollSpeed', 'tiny', 'vertical', 'width']
 })
 @Component({
   selector: 'glyph-scroll',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'scrollSpeed', 'tiny', 'vertical', 'width']
 })
 export class GlyphScroll {
   protected el: HTMLElement;

@@ -2,8 +2,16 @@
 
 import { ComparableType } from '../../enums';
 import { FilterOption, FilterSelectEvent } from '../../models';
-import { DateFilter, FilterConfig, FilterOptionHeader, FiltersConfig, SelectedFilter } from '../../models/filters';
-import { checkStrictIn } from '../../utils/utils';
+import {
+    DateFilter,
+    FilterConfig,
+    FilterOptionHeader,
+    FiltersConfig,
+    QueryFilter,
+    SelectedFilter,
+} from '../../models/filters';
+import { checkStrictIn, pipe, unique } from '../../utils/utils';
+import dayjs from 'dayjs';
 
 export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) => {
     return {
@@ -77,8 +85,6 @@ export const checkCleanIfMultiSelectChanges = (filter: FilterConfig) => {
  * Adds new filter to selected *** filter attribute ***.
  */
 export const addNewFilter = (filter: FilterConfig, option: SelectedFilter) => {
-    const { key } = filter;
-
     return _selectFilter(filter, option);
 };
 
@@ -92,8 +98,12 @@ export const isFilterActive = (filters: FiltersConfig, filterCode: string) => {
 
 const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOptionHeader, multiSelect: boolean) => {
     return options.map((option: FilterOptionHeader) => {
-        const { header, children } = option;
-        const match = checkStrictIn(selected.code, option.code) && selected.header === option.header;
+        const { code, header, parents, children } = option;
+        const { code: selectedCode, header: selectedHeader, parents: selectedParents } = selected;
+        const sameCode = checkStrictIn(selectedCode, code);
+        const sameParents = !parents || checkStrictIn(Object.values(parents), Object.values(selectedParents));
+        const sameHeader = selectedHeader === header;
+        const match = sameCode && sameParents && sameHeader;
 
         if (match) {
             if (header) {
@@ -117,7 +127,7 @@ const _getSelectedOptions = (options: FilterOptionHeader[]) => {
             (acc, curr) => acc.concat(curr.header ? _getSelectedOptions(curr.children) : curr.active ? curr : null),
             [],
         )
-        .filter(option => option);
+        .filter(Boolean);
 };
 
 const _selectFilter = (filter: FilterConfig, selectedOption: SelectedFilter) => {
@@ -175,5 +185,94 @@ export const translateDescription = (option: FilterOption, translateFn: (arg0: s
         }
     } catch (err) {
         return option.description;
+    }
+};
+
+export const getSelectedDatesQuery = (filter: DateFilter): QueryFilter[] => {
+    const {
+        selected: [ { startDate, endDate } ],
+    } = filter;
+    const key = 'local_date';
+    const format = 'YYYY-MM-DD';
+
+    return [
+        { key, op: 'gte', value: dayjs(startDate).format(format) },
+        { key, op: 'lte', value: dayjs(endDate).format(format) },
+    ];
+};
+
+export const getSelectedPartnumber = (filter: FilterConfig): QueryFilter[] => {
+    const value = filter?.selected.map(({ code }) => code).flat();
+
+    return value && filter.visible ? [ { key: 'partnumber', op: 'like', value } ] : [];
+};
+
+export const getSelectedOptionsQuery = (filters: FiltersConfig): QueryFilter[] => {
+    const parsedFilters = pipe(filters)(_parseFilters, _parseExtraFilters(filters));
+
+    return Object.keys(parsedFilters)
+        .map((key: string) => {
+            const { inValues, ninValues } = parsedFilters[key];
+
+            return [
+                inValues?.length && { key, op: 'in', value: inValues },
+                ninValues?.length && { key, op: 'nin', value: ninValues },
+            ].filter(Boolean);
+        })
+        .flat();
+};
+
+const _parseFilters = (filters: FiltersConfig): any => {
+    return Object.values(filters)
+        .filter(({ visible }) => visible)
+        .reduce((acc, filter) => {
+            const { selected, key } = filter;
+            const inValues = _getFiltersWithOperation(selected, [ true, undefined ]);
+            const ninValues = _getFiltersWithOperation(selected, [ false ]);
+
+            return {
+                ...acc,
+                [key]: {
+                    inValues,
+                    ninValues,
+                },
+            };
+        }, {});
+};
+
+const _parseExtraFilters = (filters: FiltersConfig) => (parsedFilters: any) => {
+    Object.values(filters)
+        .filter(({ extraFilter, selected }) => extraFilter && selected.length)
+        .forEach(filter => {
+            const { selected, extraFilter } = filter;
+            parsedFilters[extraFilter] = _getExtraFilters(selected, parsedFilters[extraFilter]);
+        });
+
+    return parsedFilters;
+};
+
+const _getFiltersWithOperation = (options: SelectedFilter[], op: any[]): any[] => {
+    const value = options
+        .filter(({ operationIn }) => op.includes(operationIn))
+        .map(({ code }) => code)
+        .flat();
+
+    return value;
+};
+
+const _getExtraFilters = (options: SelectedFilter[], appliedFilters: { inValues: any[]; ninValues: [] }) => {
+    const extraCodes = options
+        .filter(({ operationIn }) => [ true, undefined ].includes(operationIn))
+        .map(({ extraCode }) => extraCode)
+        .flat();
+
+    if (appliedFilters?.inValues) {
+        const { inValues } = appliedFilters;
+
+        return { ...appliedFilters, inValues: [ ...inValues, extraCodes ].filter(unique) };
+    } else if (extraCodes?.length) {
+        return { inValues: extraCodes };
+    } else {
+        return {};
     }
 };

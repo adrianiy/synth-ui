@@ -354,7 +354,7 @@ export class DateFilterComponent {
                     )}
                     onClick={this._expandFilter}
                 >
-                    <span>{this._i18n[description]}</span>
+                    <span>{this._i18n[description] || description}</span>
                     <Icon
                         onClick={active ? this._onClear : null}
                         icon={

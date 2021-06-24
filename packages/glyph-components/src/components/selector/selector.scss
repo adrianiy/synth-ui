@@ -1,5 +1,6 @@
 .selector__container {
-    font-size: var(--gui-font--xxs);
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
 
     .selector__input {
         border-bottom: var(--gui-border);

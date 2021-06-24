@@ -14,6 +14,7 @@
 | `hideScrollBar`  | `hide-scroll-bar` | hide scrollbar                            | `boolean`           | `undefined` |
 | `horizontal`     | `horizontal`      | show horizontal bar                       | `boolean`           | `undefined` |
 | `initCallback`   | --                | scrollbar initialization callback         | `(ps: any) => void` | `undefined` |
+| `scrollSpeed`    | `scroll-speed`    | scrolling speed                           | `number`            | `0.05`      |
 | `tiny`           | `tiny`            | tinyh scrollbar                           | `boolean`           | `undefined` |
 | `vertical`       | `vertical`        | show vertical bar                         | `boolean`           | `true`      |
 | `width`          | `width`           | width property                            | `number`            | `undefined` |

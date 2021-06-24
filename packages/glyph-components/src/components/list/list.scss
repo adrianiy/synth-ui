@@ -1,3 +1,7 @@
+:host {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+}
 glyph-sk-loader {
     margin-bottom: var(--gui-padding--xs);
     display: flex;

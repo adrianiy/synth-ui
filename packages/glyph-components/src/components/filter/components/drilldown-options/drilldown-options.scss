@@ -1,0 +1,16 @@
+:host {
+    width: 100%;
+}
+.children__container {
+    color: var(--gui-color);
+    width: 100%;
+
+    .children--header {
+        padding: var(--gui-padding--s) 0;
+        font-size: var(--gui-font--xs);
+
+        .expand-icon {
+            margin-right: var(--gui-padding--xxxs);
+        }
+    }
+}

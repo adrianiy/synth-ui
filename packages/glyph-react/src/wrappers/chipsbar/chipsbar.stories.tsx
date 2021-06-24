@@ -1,13 +1,13 @@
 import { Story, Meta } from '@storybook/react';
 import { UIInterface } from 'glyph-core';
 import React from 'react';
-import { WithFilters, InitializeFilters, CustomHeight } from '../../helpers/decorators';
+import { WithFilters, WithCustomHeight, WithCustomGlobals, InitializeFilters } from '../../helpers/decorators';
 import GlyphReactChipsbar, { GlyphReactChipsbarProps } from './chipsbar';
 
 export default {
     title: 'Components/Chipsbar Component',
     component: GlyphReactChipsbar,
-    decorators: [ CustomHeight(350), InitializeFilters, WithFilters ],
+    decorators: [ WithCustomGlobals, WithCustomHeight(350), InitializeFilters, WithFilters ],
     parameters: {
         docs: {
             description: {

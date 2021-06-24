@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta
+    title="Providers/Filters"
+/>
+
+# Filters Prvider
+##### FilterProvider
+
+A provider to allow use of filters state across your application.
+
+This will keep an state of which filters are applied and which are not. Will also apply
+some logic on selection like filter relations management *Section -> Product line*.
+
+# Custom hooks
+
+We provide you with a set of custom hooks to use and modify filters state.
+
+#### useFiltersConfig
+
+This hook will return an object with these properties:
+
+- **filtersConfig**: Object with latest filters configuration.
+- **selectFilter**: Method to apply filter selection.
+- **udpateFilter**: Method to apply filter update.
+- **clearFitler**: Method to clear a filter by code.
+- **clearAll**: Method to clear all filters.
+
+```typescript
+    import { useFiltersConfig } from 'glyph-react';
+
+    ....
+    const { filtersConfig, selectFilter } = useFiltersConfig();
+    ....
+```
+
+#### useFilters 
+
+This hook will return an object with these properties:
+
+- **queryFilters**: Array with latest selected filters in format [ { key, op, value },... ]
+- **compDates**: Array of comparable dates
+- **comparableType**: comparable type of [ commercial, calendar, custom, ordinal ];
+
+```typescript
+    import { useFilters } from 'glyph-react';
+
+    ....
+    const { queryFilters, comparableType } = useFilters();
+    ....
+```
+
+### Logic inheritance
+
+All logic implementation will lay on *glyph-core* vanilla javascript functions.
+
+For this particular case we'll use a ***redux-like*** implementation, so this is a wrapper to
+adapt Redux to Angular injectable services.
+

@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ComparableType, DateRange, SelectorOption } from 'glyph-core';
+import { ComparableType, DateRange, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core';
 
 const tomorrow = dayjs().add(1, 'day').toDate();
 const yesterday = dayjs().subtract(1, 'day').toDate();
@@ -32,7 +32,7 @@ export const comparableOptions: SelectorOption[] = [
     { name: 'Ordinal', value: ComparableType.ordinal, disabled: true },
 ];
 
-export const FiltersConfig = {
+export const FiltersConfig: IFiltersConfig = {
     date: {
         description: 'Fecha',
         minDate: new Date(year - 1, 1, 1),
@@ -50,6 +50,23 @@ export const FiltersConfig = {
         plural: 'Productos',
         key: 'cod_product',
         visible: true,
+        selected: [],
+        options: [],
+    },
+    product_line: {
+        description: 'Línea de producto',
+        plural: 'Líneas',
+        key: 'cod_product_line',
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    family: {
+        description: 'Familia',
+        plural: 'Familias',
+        key: 'cod_family',
+        visible: false,
+        extraFilter: 'cod_product',
         selected: [],
         options: [],
     },

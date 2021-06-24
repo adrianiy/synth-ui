@@ -31,6 +31,7 @@
 
 - [glyph-input](../../../input)
 - [glyph-toggler](../../../toggler)
+- [glyph-filter-options-list](../options-list)
 - [glyph-scroll](../../../scroll)
 
 ### Graph
@@ -38,7 +39,10 @@
 graph TD;
   glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
+  glyph-filter-options --> glyph-filter-options-list
   glyph-filter-options --> glyph-scroll
+  glyph-filter-options-list --> glyph-filter-drilldown-options
+  glyph-filter-drilldown-options --> glyph-filter-options-list
   glyph-filter --> glyph-filter-options
   style glyph-filter-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -1,9 +1,10 @@
 .filter-chip {
+    font-size: var(--gui-font--base);
     cursor: pointer;
     border-radius: var(--gui-border-radius--chip);
     user-select: none;
     position: relative;
-    font-size: var(--gui-font--xs);
+    color: var(--gui-color);
     margin: 0 var(--gui-padding--m) 0 0;
     padding: var(--gui-padding--xs);
     padding-left: 0;
@@ -48,6 +49,7 @@
         }
 
         em {
+            margin-top: 0;
             font-size: var(--gui-font--xs);
             margin-left: var(--gui-padding--xxs);
         }
@@ -70,6 +72,7 @@
 
 .date-filter {
     &__container {
+        color: var(--gui-color);
         --max-height: 225px;
         --max-width: 160px;
         --scrollbar-height: var(--max-height);
@@ -102,7 +105,6 @@
             padding: 0;
 
             li {
-                font-size: var(--gui-font--xxs);
                 padding: var(--gui-padding--s) var(--gui-padding--l);
                 cursor: pointer;
                 opacity: 0.85;

@@ -9,3 +9,6 @@ export const checkStrictIn = (codeToCompare: any, initialCode: any) =>
 export const checkIn = (val: any, container: any) => codeToArray(container).includes(val);
 // ensures code is an array. Some options have codes like '1' and others have multiple codes (one per brand) like [1, 32]
 export const codeToArray = (code: any) => [].concat(code);
+export const unique = (value: any, index: number, self: any) => {
+    return self.indexOf(value) === index;
+};

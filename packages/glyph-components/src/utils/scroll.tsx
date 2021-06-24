@@ -9,15 +9,26 @@ interface ScrollProps {
     vertical?: boolean;
     height?: number;
     width?: number;
+    scrollSpeed?: number;
     class?: string;
     initCallback?: (ps: PerfectScrollbar) => void;
 }
 
 export const Scroll: FunctionalComponent<ScrollProps> = (props, children) => {
-    const { hideScrollBar, tiny, horizontal, vertical = true, class: className, width, height, initCallback } = props;
+    const {
+        hideScrollBar,
+        tiny,
+        scrollSpeed = 0.05,
+        horizontal,
+        vertical = true,
+        class: className,
+        width,
+        height,
+        initCallback,
+    } = props;
 
     const config = {
-        wheelSpeed: 0.05,
+        wheelSpeed: scrollSpeed,
         wheelPropagation: false,
         supressScrollX: !horizontal,
         supressScrollY: !vertical,

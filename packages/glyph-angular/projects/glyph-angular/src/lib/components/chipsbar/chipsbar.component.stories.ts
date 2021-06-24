@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { moduleMetadata, Story, Meta, componentWrapperDecorator } from '@storybook/angular';
+import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
 import { FiltersConfig } from '../../helpers/configs';
 import { TranslateServiceStub } from '../../helpers/fakers';
@@ -11,6 +11,7 @@ import { FilterService } from '../../services';
 import { GlyphAngularComponents } from '../../glyph-angular.module';
 import { GlyphStoreModule } from '../../glyph-store.module';
 import { GlyphAngularServices } from '../../glyph-services.module';
+import { WithGlobalDecorator } from '../../helpers/decorators';
 
 function initFilterService(filtersService: FilterService) {
     return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, {});
@@ -41,7 +42,6 @@ export default {
                 }),
             ],
         }),
-        componentWrapperDecorator(story => `<div style="height: 350px">${story}</div>`),
     ],
     parameters: {
         docs: {
@@ -63,11 +63,13 @@ You can check navigator console to see how component interacts with state.
         interface: { options: [ 'modern', 'classic' ] },
     },
 } as Meta;
-
-export const Chipsbar: Story<ChipsbarComponent> = args => ({
-    props: args,
-    template: '<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>',
-});
+export const Chipsbar: Story<ChipsbarComponent> = (args, ctx) =>
+    WithGlobalDecorator({
+        props: args,
+        ctx,
+        style: 'height: 350px',
+        template: '<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>',
+    });
 
 Chipsbar.args = { interface: UIInterface.classic };
 Chipsbar.parameters = {

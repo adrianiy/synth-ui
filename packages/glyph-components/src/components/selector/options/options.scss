@@ -44,6 +44,7 @@
             height: var(--size);
             border: var(--gui-border);
             margin-right: var(--gui-padding--xs);
+            margin-top: -1px;
 
             &.active {
                 background: var(--gui-color--background--contrast);

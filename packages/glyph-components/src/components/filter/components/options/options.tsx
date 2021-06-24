@@ -4,6 +4,7 @@ import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
+import { inSearch } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-filter-options',
@@ -69,31 +70,12 @@ export class FilterOptionsComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _inSearch(option: FilterOptionHeader) {
-        if (this.searchValue) {
-            if (option.header) {
-                return option.children.some(child => this._inSearch(child));
-            }
-            return option.description.toLowerCase().includes(this.searchValue.toLowerCase());
-        }
-        return true;
-    }
-
-    private _checkHide(option: FilterOptionHeader) {
-        const { parents } = option;
-        const hideKeys = Object.keys(parents || {})
-            .map(key => `${key}Hide`)
-            .concat('hide');
-
-        return !hideKeys.some(key => option[key]);
-    }
-
     private _handleInputChange = (event: any) => {
         this.searchValue = event.detail;
     };
 
     private _handleKeyUp = () => {
-        const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
+        const visibleOptions = this.options.filter(option => option.display && inSearch(option, this.searchValue));
 
         if (visibleOptions.length === 1) {
             this._optionClick(visibleOptions[0])();
@@ -125,57 +107,14 @@ export class FilterOptionsComponent {
         );
     };
 
-    private _renderOptionDescription = (description: string) => {
-        if (this.searchValue) {
-            description = description
-                .toLowerCase()
-                .split(this.searchValue.toLowerCase())
-                .join(`<b>${this.searchValue}</b>`);
-        }
-
-        return <span innerHTML={description} />;
-    };
-
-    private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
-        const childInSearch = option.children.some(child => this._inSearch(child));
-        const anyActive = option.children.some(child => child.active);
-        const expanded = option.expanded || (this.searchValue && childInSearch) || anyActive || filterQuantity === 1;
-
-        return (
-            childInSearch && (
-                <Flex class="children__container">
-                    <Flex row class={cls('children--header', { expanded })}>
-                        <span>{expanded ? '- ' : '+ '}</span>
-                        <span>{this._renderOptionDescription(option.description)}</span>
-                    </Flex>
-                    {expanded && this._renderOptionsList(option.children)}
-                </Flex>
-            )
-        );
-    };
-
     private _renderOptionsList = (options: FilterOptionHeader[]) => {
-        const renderableOptions = options
-            .filter(option => option.display && !option.hideFilter && this._inSearch(option) && this._checkHide(option))
-            .sort((a, b) => a.position - b.position);
         return (
-            <ul>
-                {renderableOptions.map(option => (
-                    <li>
-                        <Flex
-                            row
-                            spaced
-                            onClick={this._optionClick(option)}
-                            class={cls('option', { active: option.active })}
-                        >
-                            {option.header
-                                ? this._renderOptionHeader(option, renderableOptions.length)
-                                : this._renderOptionDescription(option.description)}
-                            {option.active && <Icon icon="checkmark" />}
-                        </Flex>
-                    </li>
-                ))}
-            </ul>
+            <glyph-filter-options-list
+                options={options}
+                interface={this.interface}
+                searchValue={this.searchValue}
+                optionClick={this._optionClick}
+            />
         );
     };
 
@@ -192,7 +131,12 @@ export class FilterOptionsComponent {
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
-                <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="scroll__container">
+                <glyph-scroll
+                    tiny
+                    scrollSpeed={0.09}
+                    initCallback={this._scrollbarInit}
+                    containerClass="scroll__container"
+                >
                     {this._renderOptionsList(this.options)}
                 </glyph-scroll>
             </Flex>

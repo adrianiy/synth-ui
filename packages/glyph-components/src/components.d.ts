@@ -308,6 +308,28 @@ export namespace Components {
          */
         "searchPlaceholder": string;
     }
+    interface GlyphFilterDrilldownOptions {
+        /**
+          * Expanded flag
+         */
+        "expanded": boolean;
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Filter options
+         */
+        "option": FilterOptionHeader;
+        /**
+          * Option click event
+         */
+        "optionClick": (option: FilterOptionHeader) => (event: any) => void;
+        /**
+          * Search value
+         */
+        "searchValue": string;
+    }
     interface GlyphFilterOptions {
         /**
           * Close callback
@@ -349,6 +371,28 @@ export namespace Components {
           * Search placeholder
          */
         "searchPlaceholder": string;
+    }
+    interface GlyphFilterOptionsList {
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Style applied in list
+         */
+        "listStyle": { [key: string]: string };
+        /**
+          * Option click event
+         */
+        "optionClick": (option: FilterOptionHeader) => (event: any) => void;
+        /**
+          * Filter options
+         */
+        "options": FilterOptionHeader[];
+        /**
+          * Search value
+         */
+        "searchValue": string;
     }
     interface GlyphFlex {
         /**
@@ -810,6 +854,10 @@ export namespace Components {
          */
         "initCallback": (ps: any) => void;
         /**
+          * scrolling speed
+         */
+        "scrollSpeed": number;
+        /**
           * tinyh scrollbar
          */
         "tiny": boolean;
@@ -1122,11 +1170,23 @@ declare global {
         prototype: HTMLGlyphFilterElement;
         new (): HTMLGlyphFilterElement;
     };
+    interface HTMLGlyphFilterDrilldownOptionsElement extends Components.GlyphFilterDrilldownOptions, HTMLStencilElement {
+    }
+    var HTMLGlyphFilterDrilldownOptionsElement: {
+        prototype: HTMLGlyphFilterDrilldownOptionsElement;
+        new (): HTMLGlyphFilterDrilldownOptionsElement;
+    };
     interface HTMLGlyphFilterOptionsElement extends Components.GlyphFilterOptions, HTMLStencilElement {
     }
     var HTMLGlyphFilterOptionsElement: {
         prototype: HTMLGlyphFilterOptionsElement;
         new (): HTMLGlyphFilterOptionsElement;
+    };
+    interface HTMLGlyphFilterOptionsListElement extends Components.GlyphFilterOptionsList, HTMLStencilElement {
+    }
+    var HTMLGlyphFilterOptionsListElement: {
+        prototype: HTMLGlyphFilterOptionsListElement;
+        new (): HTMLGlyphFilterOptionsListElement;
     };
     interface HTMLGlyphFlexElement extends Components.GlyphFlex, HTMLStencilElement {
     }
@@ -1289,7 +1349,9 @@ declare global {
         "glyph-config-modal": HTMLGlyphConfigModalElement;
         "glyph-date-filter": HTMLGlyphDateFilterElement;
         "glyph-filter": HTMLGlyphFilterElement;
+        "glyph-filter-drilldown-options": HTMLGlyphFilterDrilldownOptionsElement;
         "glyph-filter-options": HTMLGlyphFilterOptionsElement;
+        "glyph-filter-options-list": HTMLGlyphFilterOptionsListElement;
         "glyph-flex": HTMLGlyphFlexElement;
         "glyph-header": HTMLGlyphHeaderElement;
         "glyph-input": HTMLGlyphInputElement;
@@ -1662,6 +1724,28 @@ declare namespace LocalJSX {
          */
         "searchPlaceholder"?: string;
     }
+    interface GlyphFilterDrilldownOptions {
+        /**
+          * Expanded flag
+         */
+        "expanded"?: boolean;
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Filter options
+         */
+        "option"?: FilterOptionHeader;
+        /**
+          * Option click event
+         */
+        "optionClick"?: (option: FilterOptionHeader) => (event: any) => void;
+        /**
+          * Search value
+         */
+        "searchValue"?: string;
+    }
     interface GlyphFilterOptions {
         /**
           * Close callback
@@ -1703,6 +1787,28 @@ declare namespace LocalJSX {
           * Search placeholder
          */
         "searchPlaceholder"?: string;
+    }
+    interface GlyphFilterOptionsList {
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Style applied in list
+         */
+        "listStyle"?: { [key: string]: string };
+        /**
+          * Option click event
+         */
+        "optionClick"?: (option: FilterOptionHeader) => (event: any) => void;
+        /**
+          * Filter options
+         */
+        "options"?: FilterOptionHeader[];
+        /**
+          * Search value
+         */
+        "searchValue"?: string;
     }
     interface GlyphFlex {
         /**
@@ -2204,6 +2310,10 @@ declare namespace LocalJSX {
          */
         "initCallback"?: (ps: any) => void;
         /**
+          * scrolling speed
+         */
+        "scrollSpeed"?: number;
+        /**
           * tinyh scrollbar
          */
         "tiny"?: boolean;
@@ -2509,7 +2619,9 @@ declare namespace LocalJSX {
         "glyph-config-modal": GlyphConfigModal;
         "glyph-date-filter": GlyphDateFilter;
         "glyph-filter": GlyphFilter;
+        "glyph-filter-drilldown-options": GlyphFilterDrilldownOptions;
         "glyph-filter-options": GlyphFilterOptions;
+        "glyph-filter-options-list": GlyphFilterOptionsList;
         "glyph-flex": GlyphFlex;
         "glyph-header": GlyphHeader;
         "glyph-input": GlyphInput;
@@ -2551,7 +2663,9 @@ declare module "@stencil/core" {
             "glyph-config-modal": LocalJSX.GlyphConfigModal & JSXBase.HTMLAttributes<HTMLGlyphConfigModalElement>;
             "glyph-date-filter": LocalJSX.GlyphDateFilter & JSXBase.HTMLAttributes<HTMLGlyphDateFilterElement>;
             "glyph-filter": LocalJSX.GlyphFilter & JSXBase.HTMLAttributes<HTMLGlyphFilterElement>;
+            "glyph-filter-drilldown-options": LocalJSX.GlyphFilterDrilldownOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterDrilldownOptionsElement>;
             "glyph-filter-options": LocalJSX.GlyphFilterOptions & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsElement>;
+            "glyph-filter-options-list": LocalJSX.GlyphFilterOptionsList & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsListElement>;
             "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
