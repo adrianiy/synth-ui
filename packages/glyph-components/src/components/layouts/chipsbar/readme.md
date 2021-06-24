@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property        | Attribute         | Description                            | Type                                        | Default               |
-| --------------- | ----------------- | -------------------------------------- | ------------------------------------------- | --------------------- |
-| `filtersConfig` | --                | Filters configuration object           | `FiltersConfig`                             | `undefined`           |
-| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active         | `boolean`                                   | `true`                |
-| `i18n`          | --                | Extra i18n translation object          | `{ [key: string]: string; }`                | `{}`                  |
-| `interface`     | `interface`       | Interface type [ 'MODERN', 'CLASSIC' ] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
+| Property        | Attribute         | Description                    | Type                                        | Default               |
+| --------------- | ----------------- | ------------------------------ | ------------------------------------------- | --------------------- |
+| `filtersConfig` | --                | Filters configuration object   | `FiltersConfig`                             | `undefined`           |
+| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active | `boolean`                                   | `true`                |
+| `i18n`          | --                | Extra i18n translation object  | `{ [key: string]: string; }`                | `{}`                  |
+| `interface`     | `interface`       | Interface type                 | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 
 
 ## Events

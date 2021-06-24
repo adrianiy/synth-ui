@@ -182,7 +182,7 @@ export namespace Components {
          */
         "i18n": { [key: string]: string };
         /**
-          * Interface type [ 'MODERN', 'CLASSIC' ]
+          * Interface type
          */
         "interface": UIInterface;
     }
@@ -1558,7 +1558,7 @@ declare namespace LocalJSX {
          */
         "i18n"?: { [key: string]: string };
         /**
-          * Interface type [ 'MODERN', 'CLASSIC' ]
+          * Interface type
          */
         "interface"?: UIInterface;
         /**

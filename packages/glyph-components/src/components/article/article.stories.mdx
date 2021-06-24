@@ -8,13 +8,16 @@ export const Template = args => html`<glyph-article style="margin-left: 200px; w
 <Meta title="Components/Article" parameters={{ viewMode: 'docs' }} />
 
 # Article
-
 ##### glyph-article
 
 Component to render a articles, can render article tags like `new` and `pvp`.
 
-The **articles** can have a propert `image` or `plain_image` with a full url, or be configured using `parseImageUrl` callback, wich
-should receive `image` or `plain_image` property and return an url string.
+> ## Image configuration
+>
+> Article images can be configured in two ways:
+>
+> - `Image` ad `plain_image` with a full url to the image.
+> - If `parseImageUrl` method is passed it will be used to pre-process url.
 
 ## Simple article
 
@@ -66,7 +69,12 @@ export const articleData = {
 export const newArticle = { 
     image: 'https://static.zara.net/photos/rw-center/2020/I/0/1/p/4424/154/250/2/w/400/4424154250_1_1_1.jpg?ts=1603883234354', 
     units: 1000,
-    new: true,
+    new: Array(5).fill(0).map(() => (
+        { 
+            inicio: "2021-04-01",
+            name: "REINO UNIDO",
+        }
+    )),
     description: 'Test article',
     partnumber: '07385096800-I2021'
 };
