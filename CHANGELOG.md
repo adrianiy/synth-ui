@@ -1,3 +1,8 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [1.15.0](https://github.com/adrianiy/glyph-ui/compare/v1.14.2...v1.15.0) (2021-06-17)
 
 

@@ -3,7 +3,8 @@ name: Publish pre-release version
 on:
     push:
         branches:
-            - main
+            - develop
+            - '.*-autodeploy'
 
 jobs:
     build:
@@ -29,7 +30,7 @@ jobs:
                   yarn
                   yarn build
             - name: Create pre-release version
-              run: lerna version --conventional-commits --conventional-prerelease --yes 
+              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes --amend
             - name: Publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
