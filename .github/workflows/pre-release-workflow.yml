@@ -4,15 +4,11 @@ on:
     push:
         branches:
             - develop
-            - feat/#114
+            - '.*-autodeploy'
 
 jobs:
     build:
         runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [14.x]
 
         steps:
             - name: Checkout
@@ -20,10 +16,10 @@ jobs:
               with:
                   submodules: recursive
                   token: ${{ secrets.GH_TOKEN }}
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Use Node.js 14.x
               uses: actions/setup-node@v2
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: 14.x
                   registry-url: 'https://registry.npmjs.org'
             - name: Configure Git User
               run: |
@@ -34,7 +30,7 @@ jobs:
                   yarn
                   yarn build
             - name: Create pre-release version
-              run: lerna version --conventional-commits --conventional-prerelease --yes --amend
+              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes --amend
             - name: Publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
