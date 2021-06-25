@@ -32,7 +32,7 @@ jobs:
             - name: Create release version
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: lerna version --conventional-commits --conventional-graduate --no-private --create-release --yes 
+              run: lerna version --conventional-commits --conventional-graduate --no-private --create-release github --yes 
             - name: Publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
