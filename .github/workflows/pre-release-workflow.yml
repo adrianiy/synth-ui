@@ -35,6 +35,8 @@ jobs:
                   yarn build
 
             - name: Create pre-release version
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
               run: lerna version --conventional-commits --conventional-prerelease --yes
 
             - name: Publish to npm
