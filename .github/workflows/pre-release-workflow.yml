@@ -8,6 +8,7 @@ on:
 
 jobs:
     build:
+        if: "!contains(github.event.head_commit.message, 'skip ci')"
         runs-on: ubuntu-latest
 
         steps:
@@ -16,24 +17,30 @@ jobs:
               with:
                   submodules: recursive
                   token: ${{ secrets.GH_TOKEN }}
+
             - name: Use Node.js 14.x
               uses: actions/setup-node@v2
               with:
                   node-version: 14.x
                   registry-url: 'https://registry.npmjs.org'
+
             - name: Configure Git User
               run: |
                   git config --global user.email "ci@glyph.com"
                   git config --global user.name "ci@$GITHUB_ACTOR"
+
+            - name: Configure NPM
+              run: npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+
             - name: yarn install, build
               run: |
                   yarn
                   yarn build
+
             - name: Create pre-release version
-              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes --amend
+              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes
+
             - name: Publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: |
-                npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                lerna publish from-git --yes --no-verify-access
+              run: lerna publish from-git --yes --no-verify-access
