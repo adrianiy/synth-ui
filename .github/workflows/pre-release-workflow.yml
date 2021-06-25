@@ -31,14 +31,16 @@ jobs:
 
             - name: yarn install, build
               run: |
-                  yarn
+                  yarn --frozen-lockfile
                   yarn build
 
             - name: Create pre-release version
               env:
                   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: yarn semantic-release
+              run: |
+                yarn semantic-release
+                npx semantic-release
 
             - name: Publish pre-release packages
               run: |
