@@ -1,0 +1,25 @@
+.pagination__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+    user-select: none;
+
+    &__page {
+        transition: var(--gui-transition--300);
+        font-size: var(--gui-font--xs);
+        font-weight: var(--gui-font-weight--bold);
+        padding: var(--gui-padding--xxs) var(--gui-padding--s);
+        color: var(--gui-color--lighter);
+        border-bottom: var(--gui-border--lighter);
+        border-bottom-width: 2px;
+        cursor: pointer;
+        display: inline-block;
+
+        &.active {
+            color: var(--gui-color);
+            border-bottom-color: var(--gui-border--light);
+        }
+    }
+    em {
+        opacity: .4;
+    }
+}

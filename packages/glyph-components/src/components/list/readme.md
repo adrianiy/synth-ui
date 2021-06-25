@@ -18,6 +18,8 @@
 | `i18n`             | --                   | Extra i18n translation object                                                   | `{ [key: string]: string; }` | `{}`        |
 | `limit`            | `limit`              | Rows limit. If not set will take `16` as default value or `10` in small screens | `number`                     | `undefined` |
 | `loading`          | `loading`            | Loading state. If true will render skeleton loader                              | `boolean`                    | `undefined` |
+| `pageGroups`       | `page-groups`        | Number of pages to be grouped if list is larger than limit                      | `number`                     | `3`         |
+| `paginationLimit`  | `pagination-limit`   | Pagination limit                                                                | `number`                     | `5`         |
 | `update`           | `update`             | Force component update if flag is true                                          | `boolean`                    | `false`     |
 
 
@@ -35,6 +37,7 @@
 - [glyph-list-row](./components/row)
 - [glyph-sk-loader](../skeleton-loader)
 - [glyph-no-data](../no-data)
+- [glyph-pagination](../pagination)
 
 ### Graph
 ```mermaid
@@ -42,6 +45,7 @@ graph TD;
   glyph-list --> glyph-list-row
   glyph-list --> glyph-sk-loader
   glyph-list --> glyph-no-data
+  glyph-list --> glyph-pagination
   glyph-list-row --> glyph-sk-loader
   style glyph-list fill:#f9f,stroke:#333,stroke-width:4px
 ```

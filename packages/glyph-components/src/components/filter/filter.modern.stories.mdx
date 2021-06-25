@@ -7,9 +7,8 @@ export const Template = args => html`<div style="width: 300px; height: 250px"><g
 
 <Meta title="Components/Filter/Modern" parameters={{ viewMode: 'docs' }} />
 
+###### glyph-filter
 # Filter
-
-##### glyph-filter
 
 Filter component. This component will render a chip when some option is selected and also an
 options list on drilldown.
@@ -72,6 +71,30 @@ export const filter = {
         { description: 'option', active: false, display: true, code: 1 },
         { description: 'option 2', active: false, display: true, code: 2 },
         { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
+        { description: 'option 3', active: false, display: true, code: 3 },
     ],
 }
 
@@ -100,8 +123,8 @@ export const filterWithChildren = {
 }
 
 export const optionClickEvent = (event) => {
-    const code = event.detail.detail.code;
-    const header = event.detail.detail.header;
+    const code = event.detail.option.code;
+    const header = event.detail.option.header;
     let index = event.target.options.findIndex(option => option.code === code);
     let subindex = -1;
     if (index === -1) {
@@ -125,6 +148,7 @@ export const optionClickEvent = (event) => {
             opt.active = false;
             opt.children?.forEach(child => child.active = false);
         });
+        event.target.description = event.detail.option.description;
     }
     if (subindex === -1) {
         event.target.options = [
@@ -134,9 +158,7 @@ export const optionClickEvent = (event) => {
             },
             ...event.target.options.slice(index + 1)
         ];
-        event.target.selected = event.target.options.filter(opt => opt.active).map(opt => ({
-            default: false, description: option.description, option: opt
-        }))
+        event.target.active = true;
     } else {
         const child = option.children[subindex];
         const children = [
@@ -153,15 +175,21 @@ export const optionClickEvent = (event) => {
             },
             ...event.target.options.slice(index + 1)
         ];
-        event.target.selected = event.target.options.filter(opt => opt.children.some(child => child.active)).reduce((acc, curr) =>
-            acc.concat(curr.children.filter(child => child.active).map(child => ({ default: false, description: child.description, option: child })))
-        , []);
-        return null;
+        event.target.active = true;
+    }
+    if (multiSelect) {
+        const selected = event.target.options.reduce((acc, curr) => {
+            if (subindex === -1) {
+                return acc + (curr.active ? 1 : 0);
+            } else {
+                return acc + curr.children?.filter(child => child.active).length
+            }
+        }, 0);
+        event.target.description = `${selected} ${ event.target.plural }`;
     }
 }
 
 export const clearEvent = (event) => {
-    event.target.selected = [];
     if (event.target.haveMultiSelect) {
         event.target.options =[
             {
@@ -186,14 +214,18 @@ export const clearEvent = (event) => {
             { description: 'option 3', active: false, display: true },
         ]
     }
+    event.target.active = false;
+    event.target.description = filter.description;
 }
 
 export const multiSelectEvent = (event) => {
     event.target.multiSelect = !event.target.multiSelect;
     if (!event.target.multiSelect) {
-        event.target.options.forEach(opt => opt.active = false);
-        event.target.selected = event.target.options.filter(opt => opt.active).map(opt => ({
-            default: false, description: option.description, option: opt
-        }));
+        event.target.options.forEach(opt => {
+            opt.active = false;
+            opt.children?.forEach(child => child.active = false);
+        });
+        event.target.description = filter.description;
+        event.target.active = false;
     }
 }

@@ -5,14 +5,14 @@ interface IconProps {
     icon?: string;
     outlined?: boolean;
     button?: boolean;
-    className?: string;
+    class?: string;
     onClick?: (event: MouseEvent) => any;
 }
 
 export const Icon: FunctionalComponent<IconProps> = (props, children) => {
     return (
         <em
-            class={cls(props.outlined ? 'material-icons-outlined' : 'material-icons', props.className)}
+            class={cls(props.outlined ? 'material-icons-outlined' : 'material-icons', props.class)}
             role={props.button && 'button'}
             onClick={props.onClick}
         >

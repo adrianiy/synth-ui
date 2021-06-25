@@ -17,6 +17,7 @@
 
 ### Used by
 
+ - [glyph-config-modal](../layouts/chipsbar/components)
  - [glyph-filter-options](../filter/components/options)
  - [glyph-share-menu](../share-menu)
  - [glyph-user-menu](../user-menu)
@@ -24,6 +25,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  glyph-config-modal --> glyph-toggler
   glyph-filter-options --> glyph-toggler
   glyph-share-menu --> glyph-toggler
   glyph-user-menu --> glyph-toggler

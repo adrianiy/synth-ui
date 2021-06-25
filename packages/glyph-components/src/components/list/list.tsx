@@ -32,6 +32,10 @@ export class ListComponent {
     @Prop() expandable: boolean = false;
     /** Rows limit. If not set will take `16` as default value or `10` in small screens */
     @Prop({ mutable: true }) limit: number;
+    /** Pagination limit */
+    @Prop() paginationLimit: number = 5;
+    /** Number of pages to be grouped if list is larger than limit */
+    @Prop() pageGroups: number = 3;
     /** Enable download xlsx file */
     @Prop() enableDownload: boolean = false;
     /** Force component update if flag is true  */
@@ -53,7 +57,7 @@ export class ListComponent {
 
     private _fields = [];
     private _isMobile = false;
-    private _pages = [];
+    private _pages: number;
     private _i18n: { [key: string]: string } = {};
 
     @Watch('data')
@@ -80,7 +84,7 @@ export class ListComponent {
         this.showAll = !this.showAll;
     };
 
-    private _changePage = (page: number) => () => {
+    private _changePage = ({ detail: page }) => {
         this.currentPage = page;
     };
 
@@ -134,7 +138,7 @@ export class ListComponent {
                 .map(key => key);
 
             this.parsedList = this._setListConfig();
-            this._pages = Array(Math.round(this.parsedList.length / this.limit)).fill(0);
+            this._pages = Math.round(this.parsedList.length / this.limit);
         }
     }
 
@@ -183,17 +187,17 @@ export class ListComponent {
 
                     return (
                         <th>
-                            <Flex row right className="nowrap">
+                            <Flex row right class="nowrap">
                                 {this._i18n[field] || field}
                                 <Icon
                                     button
-                                    className={cls(!isDesc && isSortField && 'active')}
+                                    class={cls({ active: !isDesc && isSortField })}
                                     icon="arrow_upward"
                                     onClick={this._changeSort('asc', field)}
                                 />
                                 <Icon
                                     button
-                                    className={cls(isDesc && isSortField && 'active')}
+                                    class={cls({ active: isDesc && isSortField })}
                                     icon="arrow_downward"
                                     onClick={this._changeSort('desc', field)}
                                 />
@@ -233,31 +237,28 @@ export class ListComponent {
 
     private _renderPages() {
         return (
-            !this.showAll &&
-            this._pages.map((_, index) => (
-                <span
-                    role="button"
-                    class={cls('pagination__page', this.currentPage === index && 'active')}
-                    onClick={this._changePage(index)}
-                >
-                    {index + 1}
-                </span>
-            ))
+            !this.showAll && (
+                <glyph-pagination
+                    pages={this._pages}
+                    activePage={this.currentPage}
+                    limit={this.paginationLimit}
+                    pageGroups={this.pageGroups}
+                    onSetPage={this._changePage}
+                />
+            )
         );
     }
 
     private _renderPagination() {
         return (
-            <Flex row middle spaced className="pagination__container">
-                <Flex row className="pagination">
-                    {this._renderPages()}
-                </Flex>
-                <Flex row middle className="actions">
+            <Flex row middle spaced class="pagination__container">
+                <div>{this._renderPages()}</div>
+                <Flex row middle class="actions">
                     <span class="view-all" onClick={this._toggleShowAll()} role="button">
                         {this._i18n[this.showAll ? 'viewless' : 'viewmore']}
                     </span>
                     {this.enableDownload && (
-                        <Icon className="download" button icon="get_app" onClick={this._downloadExcel} />
+                        <Icon class="download" button icon="get_app" onClick={this._downloadExcel} />
                     )}
                 </Flex>
             </Flex>
@@ -286,7 +287,7 @@ export class ListComponent {
         const showData = !this.loading && this.parsedList.length;
 
         return (
-            <Flex className="country__container">
+            <Flex class="country__container">
                 {showData ? this._renderTable() : this._renderNoData()}
                 {showData ? this._renderPagination() : null}
             </Flex>

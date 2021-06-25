@@ -1,59 +1,41 @@
+:host {
+    height: 100%;
+    width: 100%;
+}
 .sortable-list__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     background: var(--gui-color--background--light);
     border-radius: var(--gui-border-radius);
     border: var(--gui-border--lightest);
     margin: 0;
     padding: 0;
+    overflow: scroll;
 
     li {
         cursor: grab;
+        user-select: none;
         list-style: none;
-        padding: var(--gui-padding--s) var(--gui-padding--xs);
         font-size: var(--gui-font--xs);
 
-        em {
-            margin-right: var(--gui-padding--xxs);
-        }
-
-        .action {
-            --size: 20px;
-            width: var(--size);
-            height: var(--size);
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            opacity: 0;
-        }
-
-        &:hover {
-            .action {
-                opacity: 0.2;
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
-
         &.fill-icon {
-            padding-left: calc(var(--gui-padding--l) + var(--gui-padding--nano));
+            padding-left: calc(var(--gui-padding--m) + var(--gui-padding--nano));
         }
 
         &.use-hover {
             &.ignore-element {
                 cursor: default;
 
-                &:hover {
+                &:hover:not(.header) {
                     background: var(--gui-color--alert);
                 }
             }
-            &:hover {
+            &:hover:not(.header) {
                 backdrop-filter: var(--gui-highlight-filter);
             }
         }
 
-        &.sortable-chosen {
+        &.sortable-chosen:not(.header) {
             backdrop-filter: var(--gui-highlight-filter);
         }
     }

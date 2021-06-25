@@ -7,9 +7,8 @@ export const Template = args => html`<glyph-input ...=${spread(args)} />`;
 
 <Meta title="Components/Input" parameters={{ viewMode: 'docs' }} />
 
+###### glyph-input
 # Input
-
-##### glyph-input
 
 Handles input rendering.
 
@@ -51,6 +50,18 @@ If autoFocus is `true` the input will be focused on rendering.
 
 <Canvas>
     <Story name="Error" args={{ placeholder: "Error input", error: true }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Calendar input
+
+You can configura a minimum and maximum date availables to select with this type of inputs.
+
+In this them we've configured `min` as *2021-01-01* and `max` as *2021-12-31*.
+
+<Canvas>
+    <Story name="Calendar" args={{ '.inputType': 'date', '.defaultValue': '2021-02-01', min: '2021-01-01', max: '2021-12-31' }}>
         {Template.bind({})}
     </Story>
 </Canvas>

@@ -60,16 +60,6 @@ const updateFilter = (update: FilterUpdateEvent) => ({
     update,
 });
 
-const setDateRanges = (dateRanges: any) => ({
-    type: filterActions.setDateRanges,
-    dateRanges,
-});
-
-const setDateConfig = (dateConfig: any) => ({
-    type: filterActions.setDateConfig,
-    dateConfig,
-});
-
 const saveFilters = () => ({
     type: filterActions.saveFilters,
 });
@@ -84,8 +74,6 @@ const actions = {
     clearAll,
     updateFilter,
     setFilters,
-    setDateRanges,
-    setDateConfig,
     saveFilters,
 };
 

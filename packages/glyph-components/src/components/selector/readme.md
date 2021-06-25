@@ -28,6 +28,7 @@
 
 ### Used by
 
+ - [glyph-date-filter](../date-filter)
  - [glyph-timeline](../timeline)
  - [glyph-user-menu](../user-menu)
 
@@ -40,6 +41,7 @@
 graph TD;
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-date-filter --> glyph-selector
   glyph-timeline --> glyph-selector
   glyph-user-menu --> glyph-selector
   style glyph-selector fill:#f9f,stroke:#333,stroke-width:4px

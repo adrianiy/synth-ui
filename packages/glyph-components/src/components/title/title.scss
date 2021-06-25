@@ -1,3 +1,7 @@
+:host {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+}
 h2 {
     user-select: none;
     margin-bottom: var(--gui-padding--xl);

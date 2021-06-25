@@ -1,4 +1,7 @@
 .user-menu__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+
     .caption {
         text-transform: uppercase;
     }

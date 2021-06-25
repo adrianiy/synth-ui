@@ -1,4 +1,7 @@
 .timeline__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+
     .timeline__options {
         margin: var(--gui-padding--m) 0;
     }

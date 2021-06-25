@@ -9,10 +9,10 @@ import { Flex } from '../../utils/layout';
 export class SliderComponent {
     /** Slider options */
     @Prop() options: any[];
-    /** Current slider value between 0 and 100 */ 
+    /** Current slider value between 0 and 100 */
     @Prop({ mutable: true }) currentValue: number = 0;
     /** Option change event */
-    @Event() optionChange: EventEmitter<{ option: any, value: number }>;
+    @Event() optionChange: EventEmitter<{ option: any; value: number }>;
 
     private _handleInputChange = (event: any) => {
         const value = +event.target.value;
@@ -31,7 +31,7 @@ export class SliderComponent {
 
     render() {
         return (
-            <Flex middle className="slider__container">
+            <Flex middle class="slider__container">
                 <input
                     type="range"
                     class="slider"

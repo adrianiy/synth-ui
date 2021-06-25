@@ -1,6 +1,3 @@
-body {
-    color: var(--gui-color);
-}
 ::-webkit-scrollbar {
     display: none;
 }
@@ -16,7 +13,7 @@ h1 {
 }
 h2 {
     font-size: var(--gui-font--l);
-    line-height: calc(var(--gui-font--l) + 1px);
+    line-height: var(--gui-font--xs);
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
 }

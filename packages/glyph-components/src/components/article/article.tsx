@@ -136,7 +136,7 @@ export class ArticleComponent {
         const quantity = { value: this.article[this.quantityField], format: '0,0' };
 
         return (
-            <Flex left className={`quantity ${this.useBackdropDecoration && 'quantity--backdrop'}`}>
+            <Flex left class={`quantity ${this.useBackdropDecoration && 'quantity--backdrop'}`}>
                 <Format config={quantity} />
                 <span class="caption">{this._i18n[this.quantityField]}</span>
             </Flex>
@@ -161,7 +161,7 @@ export class ArticleComponent {
         const isResume = tags.length > 7;
 
         return (
-            <Flex left className="tag-tooltip" style={{ top, left }}>
+            <Flex left class="tag-tooltip" style={{ top, left }}>
                 <h3>{title}</h3>
                 {isResume && (
                     <span class="caption">
@@ -170,7 +170,7 @@ export class ArticleComponent {
                 )}
                 {!isResume &&
                     tags.map(tag => (
-                        <Flex row spaced className="tag-row">
+                        <Flex row spaced class="tag-row">
                             <span class="country">{tag.name}</span>
                             <span class="start">{tag.inicio}</span>
                         </Flex>
@@ -184,9 +184,9 @@ export class ArticleComponent {
 
         if (hasTags) {
             return (
-                <Flex center className="tags" onMouseLeave={this._hideTooltip}>
+                <Flex center class="tags" onMouseLeave={this._hideTooltip}>
                     {this.article.new?.length && (
-                        <Flex row middle className="new" onMouseEnter={this._showTooltip('new')}>
+                        <Flex row middle class="new" onMouseEnter={this._showTooltip('new')}>
                             NEW
                         </Flex>
                     )}
@@ -194,7 +194,7 @@ export class ArticleComponent {
                         <Flex
                             row
                             middle
-                            className={cls('pvp', this.article.pvpType || 'normal')}
+                            class={cls('pvp', this.article.pvpType || 'normal')}
                             onMouseEnter={this._showTooltip('pvps')}
                         >
                             PVP
@@ -208,7 +208,7 @@ export class ArticleComponent {
 
     private _renderHeader = () => {
         return (
-            <Flex row spaced top className="header">
+            <Flex row spaced top class="header">
                 {this._renderQuantity()}
                 {this._renderTags()}
             </Flex>
@@ -217,7 +217,7 @@ export class ArticleComponent {
 
     private _renderFooter = () => {
         return (
-            <Flex left className={`footer ${this.useBackdropDecoration && 'footer--backdrop'}`}>
+            <Flex left class={`footer ${this.useBackdropDecoration && 'footer--backdrop'}`}>
                 <span class="description">{this.article.description}</span>
                 <span class="reference" onClick={this._handleCopy}>
                     {this.article.partnumber}
@@ -243,7 +243,7 @@ export class ArticleComponent {
 
         return (
             <div
-                class={cls('article', this.isClickable && 'article--clickable', this.articleSize)}
+                class={cls('article', { 'article--clickable': this.isClickable }, this.articleSize)}
                 ref={this._setArticleRef}
                 onClick={this._handleClick}
             >

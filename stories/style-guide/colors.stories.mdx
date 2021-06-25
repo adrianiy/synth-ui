@@ -1,0 +1,144 @@
+import { Meta, Story, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+<Meta title="Style guide/Colors" />
+
+###### COLOR PALETTE
+# Brand & UX Colors
+
+Applications inside Drive ecosystem must match a visual identity, so we include a palette of 19 
+minimalistic colors (+ themed variables) that can be used to style your applications.
+
+This palette can be extended and used as you want but we recommend to keep in mind Drive design approach, less is more.
+
+> **Black&White** is our identity!
+>
+> Keep everything **minimalistic** and **not too colorful**
+
+<br/><br/>
+
+<Story name="Light - Colors" />
+
+## Light
+
+Base theme for applications.
+
+<br/>
+
+### Colors
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="Main texts" colors={['#222']} />
+  <span class="color-palette--third">--gui-color</span>
+
+  <ColorItem title="Light" subtitle="Secondary texts" colors={['#767676']} />
+  <span class="color-palette--third">--gui-color--light</span>
+
+  <ColorItem title="Lighter" subtitle="Third texts; Dimished and disabled options" colors={['#bebebe']} />
+  <span class="color-palette--third">--gui-color--lighter</span>
+
+  <ColorItem title="Lightest" subtitle="Border decorations" colors={['#eaeaea']} />
+  <span class="color-palette--third">--gui-color--lightest</span>
+
+  <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={['#fff']} />
+  <span class="color-palette--third">--gui-color--contrast</span>
+
+  <ColorItem title="Modern" subtitle="Special text color for moder interfaces" colors={['#3c585f']} />
+  <span class="color-palette--third">--gui-color--modern</span>
+
+  <ColorItem title="Modern Contrast" subtitle="Contrast color for modern interfaces" colors={['#222']} />
+  <span class="color-palette--third">--gui-color--modern--contrast</span>
+</ColorPalette>
+
+<Story name="Light - Backgrounds" />
+
+### Backgrounds
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="Main background" colors={['#fff']} />
+  <span class="color-palette--third">--gui-color--background</span>
+
+  <ColorItem title="Secondary" subtitle="Secondary background; Selections" colors={['#222']} />
+  <span class="color-palette--third">--gui-color--background--secondary</span>
+
+  <ColorItem title="Light" subtitle="Light backgrounds; Menus; Filters" colors={['#f5f5f5']} />
+  <span class="color-palette--third">--gui-color--background--light</span>
+
+  <ColorItem title="Lighter" subtitle="Lighter backgrounds; Header" colors={['#fff']} />
+  <span class="color-palette--third">--gui-color--background--lighter</span>
+
+  <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={['#222']} />
+  <span class="color-palette--third">--gui-color--background--contrast</span>
+
+  <ColorItem title="Modern" subtitle="Special background color for moder interfaces" colors={['#e2e7e8']} />
+  <span class="color-palette--third">--gui-color--background--modern</span>
+</ColorPalette>
+
+<Story name="Dark - Colors" />
+
+<br/>
+
+## Dark
+
+Dark theme is based on Light color variables with some modifications.
+
+<br/>
+
+### Colors
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="Main texts" colors={['#eee']} />
+  <span class="color-palette--third">--gui-color</span>
+
+  <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={["rgb(49,49,49)"]} />
+  <span class="color-palette--third">--gui-color--contrast</span>
+
+  <ColorItem title="Modern" subtitle="Special text color for moder interfaces" colors={['#2d2d2d']} />
+  <span class="color-palette--third">--gui-color--modern</span>
+
+  <ColorItem title="Modern Contrast" subtitle="Contrast color for modern interfaces" colors={["rgba(0,0,0,.9)"]} />
+  <span class="color-palette--third">--gui-color--modern--contrast</span>
+</ColorPalette>
+
+<Story name="Dark - Backgrounds" />
+
+### Backgrounds
+
+<ColorPalette>
+  <ColorItem title="Primary" subtitle="Main background" colors={['#181818']} />
+  <span class="color-palette--third">--gui-color--background</span>
+
+  <ColorItem title="Light" subtitle="Light backgrounds; Menus; Filters" colors={["rgb(49,49,49)"]} />
+  <span class="color-palette--third">--gui-color--background--light</span>
+
+  <ColorItem title="Lighter" subtitle="Lighter backgrounds; Header" colors={['#202020']} />
+  <span class="color-palette--third">--gui-color--background--lighter</span>
+</ColorPalette>
+
+<Story name="Special" />
+
+<br/>
+
+## Special 
+
+<br/>
+
+<ColorPalette>
+  <ColorItem title="Success" subtitle="Success message" colors={['#27ae60']}/>
+  <span class="color-palette--third">--gui-color--success</span>
+
+  <ColorItem title="Alert" subtitle="Alert message" colors={['#cf4433']}/>
+  <span class="color-palette--third">--gui-color--alert</span>
+  
+  <ColorItem title="Attention" subtitle="Attention message" colors={['#ff904c']}/>
+  <span class="color-palette--third">--gui-color--attention</span>
+
+  <ColorItem title="Overlay" subtitle="Overlay background color" colors={["rgba(0,0,0,.25)"]}/>
+  <span class="color-palette--third">--gui-color--overlay</span>
+
+  <ColorItem title="Link" subtitle="Link colors" colors={["#2a8bce"]}/>
+  <span class="color-palette--third">--gui-color--link</span>
+
+  <ColorItem title="Danger" subtitle="Danger color; No data" colors={["#ff5a5f"]}/>
+  <span class="color-palette--third">--gui-color--danger</span>
+
+</ColorPalette>

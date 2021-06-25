@@ -1,0 +1,167 @@
+.filter-chip {
+    font-size: var(--gui-font--base);
+    cursor: pointer;
+    border-radius: var(--gui-border-radius--chip);
+    user-select: none;
+    position: relative;
+    color: var(--gui-color);
+    margin: 0 var(--gui-padding--m) 0 0;
+    padding: var(--gui-padding--xs);
+    padding-left: 0;
+    white-space: nowrap;
+    width: max-content;
+
+    span {
+        line-height: var(--gui-font--s);
+        margin: var(--gui-padding--xxs) 0;
+    }
+
+    em {
+        font-size: var(--gui-font--m);
+        transition: all ease-in 300ms;
+    }
+
+    &.expanded:not(.active) {
+        em {
+            transform: rotate(180deg);
+        }
+    }
+
+    &.active {
+        background: var(--gui-color--background--light);
+        margin-right: var(--gui-padding--l);
+        padding-left: var(--gui-padding--xs);
+
+        em {
+            margin-left: var(--gui-padding--xxs);
+            margin-top: var(--gui-padding--nano);
+            font-size: var(--gui-font--xs);
+        }
+    }
+
+    &.modern {
+        padding: var(--gui-padding--xxs) var(--gui-padding--xs);
+        border-radius: var(--gui-border-radius--chip--modern);
+
+        span {
+            text-transform: capitalize;
+            margin: 0;
+        }
+
+        em {
+            margin-top: 0;
+            font-size: var(--gui-font--xs);
+            margin-left: var(--gui-padding--xxs);
+        }
+
+        &.active {
+            background: var(--gui-color--background--modern);
+
+            span {
+                color: var(--gui-color--modern--contrast);
+                margin-left: var(--gui-padding--nano);
+            }
+
+            em {
+                color: var(--gui-color--modern);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.date-filter {
+    &__container {
+        color: var(--gui-color);
+        --max-height: 225px;
+        --max-width: 160px;
+        --scrollbar-height: var(--max-height);
+        --scrollbar-width: var(--max-width);
+        position: absolute;
+        display: grid;
+        grid-template-columns: repeat(3, min-content);
+        margin-top: var(--gui-padding--xs);
+        background: var(--gui-color--background--lighter);
+        border: var(--gui-border--lightest);
+        padding: var(--gui-padding--s);
+        box-shadow: var(--gui-shadow);
+        user-select: none;
+        z-index: 2;
+
+        glyph-calendar {
+            margin: 0 var(--gui-padding--m);
+        }
+    }
+    &__date-ranges {
+        position: relative;
+        max-height: var(--max-height);
+        border-right: var(--gui-border--lightest);
+        width: 100%;
+
+        ul {
+            width: var(--max-width);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding: var(--gui-padding--s) var(--gui-padding--l);
+                cursor: pointer;
+                opacity: 0.85;
+
+                span {
+                    margin-right: var(--gui-padding--xxs);
+                }
+                div {
+                    width: 100%;
+                }
+                em {
+                    width: 11px;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+
+                &.active {
+                    font-weight: var(--gui-font-weight--extra-bold);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__inputs {
+        padding: var(--gui-padding--s) var(--gui-padding--xl);
+        max-height: var(--max-height);
+        border-left: var(--gui-border--lightest);
+
+        .input__header {
+            width: 100%;
+        }
+        h5 {
+            margin-bottom: var(--gui-padding--m);
+        }
+
+        glyph-selector {
+            z-index: 2;
+        }
+        glyph-input {
+            &:first-of-type {
+                margin-right: var(--gui-padding--s);
+            }
+        }
+
+        &__current, &__comparable {
+            margin-bottom: var(--gui-padding--s);
+            opacity: .5;
+
+            &.active {
+                opacity: 1;
+            }
+        }
+
+        &__buttons {
+            width: 100%;
+        }
+    }
+}

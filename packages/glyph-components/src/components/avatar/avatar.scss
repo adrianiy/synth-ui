@@ -1,4 +1,6 @@
 .avatar {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     border-radius: 100%;
     overflow: hidden;
     width: var(--gui-avatar-size);

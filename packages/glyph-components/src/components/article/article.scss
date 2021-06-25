@@ -1,4 +1,6 @@
 .article {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     width: 100%;
     position: relative;
     display: flex;
@@ -86,7 +88,7 @@
             }
 
             .new {
-                border: var(--gui-border--dark);
+                border: var(--gui-border--light);
                 border-style: dashed;
                 color: var(--gui-color--light);
             }

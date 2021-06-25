@@ -107,16 +107,41 @@ export class GlyphButtonGroup {
   }
 }
 
-import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/chipsbar/chipsbar';
+import { CalendarComponent as ICalendarComponent } from 'glyph-components/dist/types/components/calendar/calendar';
+export declare interface GlyphCalendar extends Components.GlyphCalendar {}
+@ProxyCmp({
+  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
+})
+@Component({
+  selector: 'glyph-calendar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
+  outputs: ['dateSelect', 'dateSelectAux']
+})
+export class GlyphCalendar {
+  /** Event triggered on date selection */
+  dateSelect!: ICalendarComponent['dateSelect'];
+  /** Event triggered on aux date selection */
+  dateSelectAux!: ICalendarComponent['dateSelectAux'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['dateSelect', 'dateSelectAux']);
+  }
+}
+
+import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({
-  inputs: ['filtersConfig', 'i18n', 'interface']
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface']
 })
 @Component({
   selector: 'glyph-chipsbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['filtersConfig', 'i18n', 'interface'],
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface'],
   outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
@@ -136,16 +161,64 @@ export class GlyphChipsbar {
   }
 }
 
+import { ConfigModalComponent as IConfigModalComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/components/config-modal';
+export declare interface GlyphConfigModal extends Components.GlyphConfigModal {}
+@ProxyCmp({
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface']
+})
+@Component({
+  selector: 'glyph-config-modal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface'],
+  outputs: ['configChange']
+})
+export class GlyphConfigModal {
+  /** Filter configuration change event */
+  configChange!: IConfigModalComponent['configChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['configChange']);
+  }
+}
+
+import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
+export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
+@ProxyCmp({
+  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate']
+})
+@Component({
+  selector: 'glyph-date-filter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  outputs: ['dateSelection', 'clearEvent']
+})
+export class GlyphDateFilter {
+  /** Date selection event */
+  dateSelection!: IDateFilterComponent['dateSelection'];
+  /** Clear selected filters callback */
+  clearEvent!: IDateFilterComponent['clearEvent'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['dateSelection', 'clearEvent']);
+  }
+}
+
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected']
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder', 'selected'],
+  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
   outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
 })
 export class GlyphFilter {
@@ -160,6 +233,25 @@ export class GlyphFilter {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);
+  }
+}
+
+
+export declare interface GlyphFilterDrilldownOptions extends Components.GlyphFilterDrilldownOptions {}
+@ProxyCmp({
+  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+})
+@Component({
+  selector: 'glyph-filter-drilldown-options',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+})
+export class GlyphFilterDrilldownOptions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 
@@ -183,15 +275,34 @@ export class GlyphFilterOptions {
 }
 
 
+export declare interface GlyphFilterOptionsList extends Components.GlyphFilterOptionsList {}
+@ProxyCmp({
+  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+})
+@Component({
+  selector: 'glyph-filter-options-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+})
+export class GlyphFilterOptionsList {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphFlex extends Components.GlyphFlex {}
 @ProxyCmp({
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 @Component({
   selector: 'glyph-flex',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'onClickEvent', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 export class GlyphFlex {
   protected el: HTMLElement;
@@ -231,38 +342,38 @@ export class GlyphHeader {
 import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search']
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value']
 })
 @Component({
   selector: 'glyph-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'box', 'error', 'inputType', 'placeholder', 'search'],
-  outputs: ['textChange', 'enterKey']
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value'],
+  outputs: ['inputChange', 'enterKey']
 })
 export class GlyphInput {
   /** Text change event */
-  textChange!: IInputComponent['textChange'];
+  inputChange!: IInputComponent['inputChange'];
   /** Enter key event */
   enterKey!: IInputComponent['enterKey'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['textChange', 'enterKey']);
+    proxyOutputs(this, this.el, ['inputChange', 'enterKey']);
   }
 }
 
 import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update']
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update']
 })
 @Component({
   selector: 'glyph-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'update'],
+  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update'],
   outputs: ['expandRow']
 })
 export class GlyphList {
@@ -360,6 +471,29 @@ export class GlyphNoData {
   }
 }
 
+import { PaginationComponent as IPaginationComponent } from 'glyph-components/dist/types/components/pagination/pagination';
+export declare interface GlyphPagination extends Components.GlyphPagination {}
+@ProxyCmp({
+  inputs: ['activePage', 'limit', 'pageGroups', 'pages']
+})
+@Component({
+  selector: 'glyph-pagination',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['activePage', 'limit', 'pageGroups', 'pages'],
+  outputs: ['setPage']
+})
+export class GlyphPagination {
+  /** Event emitted on page click */
+  setPage!: IPaginationComponent['setPage'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['setPage']);
+  }
+}
+
 import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
@@ -406,13 +540,13 @@ export class GlyphRankingLayout {
 
 export declare interface GlyphScroll extends Components.GlyphScroll {}
 @ProxyCmp({
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'scrollSpeed', 'tiny', 'vertical', 'width']
 })
 @Component({
   selector: 'glyph-scroll',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'tiny', 'vertical', 'width']
+  inputs: ['containerClass', 'height', 'hideScrollBar', 'horizontal', 'initCallback', 'scrollSpeed', 'tiny', 'vertical', 'width']
 })
 export class GlyphScroll {
   protected el: HTMLElement;
@@ -528,23 +662,48 @@ export class GlyphSlider {
 import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
 export declare interface GlyphSortable extends Components.GlyphSortable {}
 @ProxyCmp({
-  inputs: ['config', 'list', 'valueGetter']
+  inputs: ['childSortCallback', 'config', 'height', 'isChildren', 'list', 'valueGetter']
 })
 @Component({
   selector: 'glyph-sortable',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['config', 'list', 'valueGetter'],
-  outputs: ['sortChange']
+  inputs: ['childSortCallback', 'config', 'height', 'isChildren', 'list', 'valueGetter'],
+  outputs: ['sortChange', 'childrenSortChange', 'add', 'remove']
 })
 export class GlyphSortable {
   /** Event emitted on drag end emitting new list configuration */
   sortChange!: ISortableComponent['sortChange'];
+  /** Event emitted on drag end emitting new list configuration */
+  childrenSortChange!: ISortableComponent['childrenSortChange'];
+  /** Event emitted on drag end emitting new list configuration */
+  add!: ISortableComponent['add'];
+  /** Event emitted on drag end emitting new list configuration */
+  remove!: ISortableComponent['remove'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['sortChange']);
+    proxyOutputs(this, this.el, ['sortChange', 'childrenSortChange', 'add', 'remove']);
+  }
+}
+
+
+export declare interface GlyphSortableElement extends Components.GlyphSortableElement {}
+@ProxyCmp({
+  inputs: ['actionClick', 'childrenSort', 'haveIcon', 'item', 'valueGetter']
+})
+@Component({
+  selector: 'glyph-sortable-element',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['actionClick', 'childrenSort', 'haveIcon', 'item', 'valueGetter']
+})
+export class GlyphSortableElement {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 

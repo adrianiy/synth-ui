@@ -10,8 +10,8 @@ export const Template = (args) => html`<div style="width: 300px;"><glyph-list .d
     parameters={{ viewMode: 'docs' }}
 />
 
+###### glyph-list
 # List
-##### glyph-list
 
 Paginated list component.
 
@@ -23,17 +23,19 @@ Paginated list component.
     args={{ data, limit, loading: false, enableDownload: true, expandable: false }}>{Template.bind({})}</Story>
 </Canvas>
 
-### Keep in mind
+> ### Keep in mind
+>
+> -   Row fields preffixed with `_` are private properties used internally but never rendered.
+> -   First row will always be visible
+> -   When `view more` is active, pagination is hidden
+> -   Rows are sortable `asc` or `desc` style.
+>     -   **Total** will always be the first row.
+>     -   The default sort value is conserved on first load
+> - You can allow users to download data setting `enableDownload` to `true`.
 
--   Row fields preffixed with `_` are private properties used internally but never rendered.
--   First row will always be visible
--   When `view more` is active, pagination is hidden
--   Rows are sortable `asc` or `desc` style.
-    -   **Total** will always be the first row.
-    -   The default sort value is conserved on first load
-- You can allow users to download data setting `enableDownload` to `true`.
+<br/>
 
-## List with actions
+## With actions
 
 Rows accept `_actions` attribute that will render a floating button on the right side of the list.
 
@@ -45,7 +47,7 @@ This button trigger `action.action` on click.
     args={{ data: actionData, limit, loading: false, expandable: false }}>{Template.bind({})}</Story>
 </Canvas>
 
-## List with children
+## With children
 
 Rows can have children data that will be displayed on row expand.
 

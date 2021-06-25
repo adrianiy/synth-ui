@@ -122,14 +122,14 @@ export class GlyphRankingLayout {
         const hasComparable = isSingleSection && this.activeView.columns > 3;
 
         return (
-            <Flex row middle className="ranking__header__options">
+            <Flex row middle class="ranking__header__options">
                 {hasComparable && (
-                    <Flex row middle className="ranking__header__options__comparable">
+                    <Flex row middle class="ranking__header__options__comparable">
                         <span>{this._i18n['ranking-layout.comparable']}</span>
                         <input type="checkbox" checked={this.comparable} onInput={this._handleCompChange} />
                     </Flex>
                 )}
-                <Flex row middle className="ranking__header__options__slider">
+                <Flex row middle class="ranking__header__options__slider">
                     <span>{this._i18n['ranking-layout.view']}</span>
                     <glyph-slider
                         options={sliderOptions}
@@ -137,7 +137,7 @@ export class GlyphRankingLayout {
                         onOptionChange={this._handleSliderChange}
                     />
                 </Flex>
-                <Flex row middle className="ranking__header__options__image-type">
+                <Flex row middle class="ranking__header__options__image-type">
                     <span onClick={this._handleImageTypeChange('model')} class={{ active: this.imageType === 'model' }}>
                         {this._i18n['ranking-layout.model']}
                     </span>
@@ -146,7 +146,7 @@ export class GlyphRankingLayout {
                     </span>
                 </Flex>
                 {this.scrolled && (
-                    <Flex row middle className="ranking__header__options__back">
+                    <Flex row middle class="ranking__header__options__back">
                         <span onClick={this._backToTop}>{this._i18n['ranking-layout.backToTop']}</span>
                     </Flex>
                 )}
@@ -186,8 +186,8 @@ export class GlyphRankingLayout {
         const { columns, innerColumns, rows, gap, rowGap, innerGap } = this.activeView;
 
         return (
-            <Flex>
-                <Flex row spaced top className="ranking__header">
+            <Flex class="ranking">
+                <Flex row spaced top class="ranking__header">
                     <glyph-title titleText="Ranking" />
                     {this._renderHeaderOptions()}
                 </Flex>

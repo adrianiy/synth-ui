@@ -1,3 +1,11 @@
+:host {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+}
+glyph-sk-loader {
+    margin-bottom: var(--gui-padding--xs);
+    display: flex;
+}
 table {
     user-select: none;
     border-collapse: collapse;
@@ -44,25 +52,6 @@ table {
 
 .pagination__container {
     margin-top: var(--gui-padding--s);
-
-    .pagination {
-        .pagination__page {
-            transition: var(--gui-transition--300);
-            font-size: var(--gui-font--xs);
-            font-weight: var(--gui-font-weight--bold);
-            padding: var(--gui-padding--xxs) var(--gui-padding--s);
-            color: var(--gui-color--lighter);
-            border-bottom: var(--gui-border--lighter);
-            border-bottom-width: 2px;
-            cursor: pointer;
-            display: inline-block;
-
-            &.active {
-                color: var(--gui-color--light);
-                border-bottom-color: var(--gui-border--light);
-            }
-        }
-    }
 
     .actions {
         .view-all {

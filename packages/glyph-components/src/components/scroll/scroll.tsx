@@ -23,6 +23,8 @@ export class ScrollComponent {
     @Prop() width: number;
     /** class name to be used in scroll container */
     @Prop() containerClass: string;
+    /** scrolling speed */
+    @Prop() scrollSpeed: number = 0.05;
     /** scrollbar initialization callback */
     @Prop() initCallback: (ps: any) => void;
 
@@ -51,7 +53,7 @@ export class ScrollComponent {
                 vertical={this.vertical}
                 height={this.height}
                 width={this.width}
-                className={cls('scrollbar__wrapper', this.containerClass)}
+                class={cls('scrollbar__wrapper', this.containerClass)}
                 initCallback={this._initScrollbar}
             >
                 <slot></slot>

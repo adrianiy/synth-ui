@@ -17,7 +17,6 @@
 | `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`                      | `undefined`           |
 | `plural`            | `plural`             | Filter plural                                               | `string`                                    | `undefined`           |
 | `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                                    | `undefined`           |
-| `selected`          | --                   | Filter selected                                             | `SelectedFilter[]`                          | `undefined`           |
 
 
 ## Events
@@ -33,7 +32,7 @@
 
 ### Used by
 
- - [glyph-chipsbar](../chipsbar)
+ - [glyph-chipsbar](../layouts/chipsbar)
 
 ### Depends on
 
@@ -45,7 +44,10 @@ graph TD;
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler
+  glyph-filter-options --> glyph-filter-options-list
   glyph-filter-options --> glyph-scroll
+  glyph-filter-options-list --> glyph-filter-drilldown-options
+  glyph-filter-drilldown-options --> glyph-filter-options-list
   glyph-chipsbar --> glyph-filter
   style glyph-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -28,6 +28,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [glyph-chipsbar](../layouts/chipsbar)
+
 ### Depends on
 
 - [glyph-button](../button)
@@ -36,6 +40,7 @@
 ```mermaid
 graph TD;
   glyph-modal --> glyph-button
+  glyph-chipsbar --> glyph-modal
   style glyph-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,5 +1,7 @@
 .toggler__wrapper {
     --size: 11px;
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     background: var(--gui-color--light);
     padding: 2px;
     width: 26px;

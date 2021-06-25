@@ -20,7 +20,8 @@
 
 ### Used by
 
- - [glyph-chipsbar](../chipsbar)
+ - [glyph-chipsbar](../layouts/chipsbar)
+ - [glyph-date-filter](../date-filter)
  - [glyph-login](../layouts/login)
  - [glyph-modal](../modal)
 
@@ -28,6 +29,7 @@
 ```mermaid
 graph TD;
   glyph-chipsbar --> glyph-button
+  glyph-date-filter --> glyph-button
   glyph-login --> glyph-button
   glyph-modal --> glyph-button
   style glyph-button fill:#f9f,stroke:#333,stroke-width:4px

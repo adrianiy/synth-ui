@@ -37,9 +37,11 @@ export class SelectorOptionsComponent {
     }
 
     private _selectOption = (option: SelectorOption) => (event?: any) => {
-        this.optionClickEvent(option);
-        event?.stopPropagation();
-        event?.preventDefault();
+        if (!option.disabled) {
+            this.optionClickEvent(option);
+            event?.stopPropagation();
+            event?.preventDefault();
+        }
     };
 
     private _handleInputChange = (event: any) => {
@@ -69,14 +71,14 @@ export class SelectorOptionsComponent {
                 box
                 placeholder={this.searchPlaceholder}
                 onEnterKey={this._handleEnter}
-                onTextChange={this._handleInputChange}
+                onInputChange={this._handleInputChange}
             />
         );
     };
 
     private _renderCheckbox = (option: SelectorOption) => {
         return (
-            <Flex middle center className={cls('checkbox', option.active && 'active')}>
+            <Flex middle center class={cls('checkbox', { active: option.active })}>
                 {option.active && <Icon icon="checkmark" />}
             </Flex>
         );
@@ -113,7 +115,13 @@ export class SelectorOptionsComponent {
                 {options
                     .filter(option => this._inSearch(option))
                     .map((option: SelectorOption) => (
-                        <Flex className="option" row middle left onClick={this._selectOption(option)}>
+                        <Flex
+                            class={cls('option', { disabled: option.disabled })}
+                            row
+                            middle
+                            left
+                            onClick={this._selectOption(option)}
+                        >
                             {this.multiSelect && this._renderCheckbox(option)}
                             {this._renderOptionName(option)}
                         </Flex>
@@ -132,7 +140,7 @@ export class SelectorOptionsComponent {
 
     render() {
         return (
-            <Flex className="selector__options__container">
+            <Flex class="selector__options__container">
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.options && this._renderSimpleOptions()}
                 {this.complexOptions && this._renderComplexOptions()}

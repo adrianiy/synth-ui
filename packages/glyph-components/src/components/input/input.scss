@@ -1,5 +1,15 @@
 .input__container {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
     border-bottom: var(--gui-border);
+
+    .input__wrapper {
+        flex: 1;
+
+        input {
+            flex: 1;
+        }
+    }
 
     em {
         font-size: var(--gui-font--s);
@@ -9,6 +19,7 @@
         &.eye {
             cursor: pointer;
             margin-right: var(--gui-padding--xxxs);
+
             &:hover {
                 color: var(--gui-color);
             }
@@ -21,19 +32,21 @@
         padding: 0 var(--gui-padding--xxs);
         height: calc(100% - var(--gui-padding--s));
         margin-bottom: var(--gui-padding--s);
-
-        .input__wrapper { 
-            flex: 1;
-
-            input {
-                flex: 1;
-            }
-        }
     }
     &.error {
         border-color: var(--gui-color--alert);
-        input, input::placeholder {
+        input,
+        input::placeholder {
             color: var(--gui-color--alert);
+        }
+    }
+    &.disabled {
+        opacity: .7;
+        background-color: rgb(250 250 250);
+
+        input {
+            background: transparent;
+            color: var(--gui-color--light);
         }
     }
     input {
@@ -44,5 +57,9 @@
         margin: var(--gui-padding--xxs) 0;
         margin-left: var(--gui-padding--xxxs);
         color: var(--gui-color--font);
+
+        &:disabled {
+            opacity: .7;
+        }
     }
 }

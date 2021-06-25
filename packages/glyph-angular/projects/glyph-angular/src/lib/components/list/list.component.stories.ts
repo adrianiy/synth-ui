@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
+import { WithGlobalDecorator } from '../../helpers/decorators';
 import { ListComponent } from './list.component';
 
 const fieldsConfig = [
@@ -91,13 +92,17 @@ It is a wrapper of [**glyph-list**](https://adrianiy.github.io/glyph-ui/?path=/d
     },
 } as Meta;
 
-const Template: Story<ListComponent> = args => ({
-    props: args,
-    template: '<glyph-ng-list [data]="data" [fieldsConfig]="fieldsConfig" [loading]="loading" [expandable]="expandable" [limit]="limit" [title]="title" [enableDownload]="enableDownload"></glyph-ng-list>',
-});
+const Template: Story<ListComponent> = (args, ctx) =>
+    WithGlobalDecorator({
+        props: args,
+        ctx,
+        template:
+            '<glyph-ng-list [data]="data" [fieldsConfig]="fieldsConfig" [loading]="loading" [expandable]="expandable" [limit]="limit" [title]="title" [enableDownload]="enableDownload"></glyph-ng-list>',
+    });
 
 export const Basic: Story<ListComponent> = Template.bind({});
 Basic.args = { ...defaultProps, data };
+
 export const WithChildren: Story<ListComponent> = Template.bind({});
 WithChildren.args = { ...defaultProps, expandable: true, data: childrenData };
 WithChildren.parameters = {
@@ -107,6 +112,7 @@ WithChildren.parameters = {
         },
     },
 };
+
 export const NoData: Story<ListComponent> = Template.bind({});
 NoData.args = { ...defaultProps, data: [] };
 NoData.parameters = {

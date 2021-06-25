@@ -1,3 +1,7 @@
+:host {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+}
 .menu__header {
     flex: 1;
     border-bottom: var(--gui-border--lightest);

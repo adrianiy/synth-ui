@@ -1,8 +1,28 @@
 <style>
     * {
-        font-family: "Roboto", sans-serif;
+        font-family: 'Roboto', sans-serif;
+    }
+    .dark .sbdocs {
+        background: #181818 !important;
+        color: white;
+    }
+    .dark .sbdocs-pre > div {
+        background: #000 !important;
+        color: white;
+    }
+    .dark tr:not(.inputs) td {
+        color: white!important;
+    }
+    .dark tr:nth-of-type(2n) {
+        background-color: #3a3a3a!important;
+    }
+    .dark .docblock-argstable tbody td {
+        background-color: #181818!important;
+    }
+    .dark {
+        background-color: var(--gui-color--background)!important;
     }
     .sbdocs-h2 {
-        border-bottom: none!important;
+        border-bottom: none !important;
     }
 </style>

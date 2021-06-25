@@ -14,6 +14,7 @@
 | `hideScrollBar`  | `hide-scroll-bar` | hide scrollbar                            | `boolean`           | `undefined` |
 | `horizontal`     | `horizontal`      | show horizontal bar                       | `boolean`           | `undefined` |
 | `initCallback`   | --                | scrollbar initialization callback         | `(ps: any) => void` | `undefined` |
+| `scrollSpeed`    | `scroll-speed`    | scrolling speed                           | `number`            | `0.05`      |
 | `tiny`           | `tiny`            | tinyh scrollbar                           | `boolean`           | `undefined` |
 | `vertical`       | `vertical`        | show vertical bar                         | `boolean`           | `true`      |
 | `width`          | `width`           | width property                            | `number`            | `undefined` |
@@ -23,11 +24,13 @@
 
 ### Used by
 
+ - [glyph-date-filter](../date-filter)
  - [glyph-filter-options](../filter/components/options)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-date-filter --> glyph-scroll
   glyph-filter-options --> glyph-scroll
   style glyph-scroll fill:#f9f,stroke:#333,stroke-width:4px
 ```

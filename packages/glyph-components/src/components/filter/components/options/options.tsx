@@ -1,9 +1,10 @@
-import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
+import { Component, Element, Prop, State, h } from '@stencil/core';
 import { UIInterface, FilterOptionHeader } from 'glyph-core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
+import { inSearch } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-filter-options',
@@ -40,13 +41,6 @@ export class FilterOptionsComponent {
 
     private _i18n: any;
 
-    @Listen('click', { target: 'window' })
-    clickOutside(event: any) {
-        if (!event.composedPath().includes(this.element)) {
-            this.closeEvent();
-        }
-    }
-
     componentDidRender() {
         setTimeout(() => this.ps?.update(), 300);
     }
@@ -76,31 +70,12 @@ export class FilterOptionsComponent {
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
-    private _inSearch(option: FilterOptionHeader) {
-        if (this.searchValue) {
-            if (option.header) {
-                return option.children.some(child => this._inSearch(child));
-            }
-            return option.description.toLowerCase().includes(this.searchValue.toLowerCase());
-        }
-        return true;
-    }
-
-    private _checkHide(option: FilterOptionHeader) {
-        const { parents } = option;
-        const hideKeys = Object.keys(parents || {})
-            .map(key => `${key}Hide`)
-            .concat('hide');
-
-        return !hideKeys.some(key => option[key]);
-    }
-
     private _handleInputChange = (event: any) => {
         this.searchValue = event.detail;
     };
 
     private _handleKeyUp = () => {
-        const visibleOptions = this.options.filter(option => option.display && this._inSearch(option));
+        const visibleOptions = this.options.filter(option => option.display && inSearch(option, this.searchValue));
 
         if (visibleOptions.length === 1) {
             this._optionClick(visibleOptions[0])();
@@ -114,14 +89,14 @@ export class FilterOptionsComponent {
                 box
                 placeholder={this.searchPlaceholder}
                 onEnterKey={this._handleKeyUp}
-                onTextChange={this._handleInputChange}
+                onInputChange={this._handleInputChange}
             />
         );
     };
 
     private _renderMultiSelect = () => {
         return (
-            <Flex row spaced middle className="operation">
+            <Flex row spaced middle class="operation">
                 {this.interface === UIInterface.classic ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
@@ -132,62 +107,20 @@ export class FilterOptionsComponent {
         );
     };
 
-    private _renderOptionDescription = (description: string) => {
-        if (this.searchValue) {
-            description = description
-                .toLowerCase()
-                .split(this.searchValue.toLowerCase())
-                .join(`<b>${this.searchValue}</b>`);
-        }
-
-        return <span innerHTML={description} />;
-    };
-
-    private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
-        const childInSearch = option.children.some(child => this._inSearch(child));
-        const expanded = option.expanded || (this.searchValue && childInSearch) || filterQuantity === 1;
-
-        return (
-            childInSearch && (
-                <Flex className="children__container">
-                    <Flex row className={cls('children--header', expanded && 'expanded')}>
-                        <span>{expanded ? '- ' : '+ '}</span>
-                        <span>{this._renderOptionDescription(option.description)}</span>
-                    </Flex>
-                    {expanded && this._renderOptionsList(option.children)}
-                </Flex>
-            )
-        );
-    };
-
     private _renderOptionsList = (options: FilterOptionHeader[]) => {
-        const renderableOptions = options.filter(
-            option => option.display && this._inSearch(option) && this._checkHide(option),
-        );
         return (
-            <ul>
-                {renderableOptions.map(option => (
-                    <li>
-                        <Flex
-                            row
-                            spaced
-                            onClick={this._optionClick(option)}
-                            className={cls('option', option.active && 'active')}
-                        >
-                            {option.header
-                                ? this._renderOptionHeader(option, renderableOptions.length)
-                                : this._renderOptionDescription(option.description)}
-                            {option.active && <Icon icon="checkmark" />}
-                        </Flex>
-                    </li>
-                ))}
-            </ul>
+            <glyph-filter-options-list
+                options={options}
+                interface={this.interface}
+                searchValue={this.searchValue}
+                optionClick={this._optionClick}
+            />
         );
     };
 
     render() {
         return (
-            <Flex className={cls('filter-options__container', this.interface)}>
+            <Flex class={cls('filter-options__container', this.interface)}>
                 {this.interface === UIInterface.modern ? (
                     <Flex row spaced>
                         <h3>{this.description}</h3>
@@ -198,7 +131,12 @@ export class FilterOptionsComponent {
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
-                <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="scroll__container">
+                <glyph-scroll
+                    tiny
+                    scrollSpeed={0.09}
+                    initCallback={this._scrollbarInit}
+                    containerClass="scroll__container"
+                >
                     {this._renderOptionsList(this.options)}
                 </glyph-scroll>
             </Flex>

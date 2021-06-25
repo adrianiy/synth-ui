@@ -1,6 +1,6 @@
 import { pipe } from './../utils/utils';
-import { defaultConfig, initialState } from '../config/filters';
-import { FilterOptionHeader, FiltersConfig, FiltersState } from '../models/filters';
+import { initialState } from '../config/filters';
+import { FiltersConfig, FiltersState } from '../models/filters';
 import {
     loadSavedFilters,
     saveOriginalDescriptions,
@@ -8,6 +8,7 @@ import {
     setInitialFilter,
     recoverSharedFilters,
     updateFiltersWithEntities,
+    setDefaultPositions,
 } from './middlewares/initializer.middlewares';
 import {
     cleanCacheIfVersionNotMatch,
@@ -22,6 +23,7 @@ import {
     translateDescriptions,
     updateFilter,
     resetOrdinalCompType,
+    setQueryFilters,
 } from './middlewares/filter.middlewares';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { FilterSelectEvent, FilterUpdateEvent } from 'src/models';
@@ -36,8 +38,6 @@ export const filterActions = {
     clearFilter: 'CLEARFILTER',
     clearAll: 'CLEARALL',
     updateFilter: 'UPDATEFILTER',
-    setDateConfig: 'SETDATECONFIG',
-    setDateRanges: 'SETDATERANGES',
     saveFilters: 'SAVEFILTERS',
 };
 
@@ -54,26 +54,6 @@ const setFilters = (state: FiltersState, filtersConfig: FiltersConfig): FiltersS
 };
 
 /**
- * Saves date configuration used in application
- */
-const setDateConfig = (state: FiltersState, dateConfig: any): FiltersState => {
-    return {
-        ...state,
-        dateConfig: { ...defaultConfig, ...dateConfig },
-    };
-};
-
-/**
- * Saves date ranges configuration used in application
- */
-const setDateRanges = (state: FiltersState, dateRanges: any): FiltersState => {
-    return {
-        ...state,
-        dateRanges,
-    };
-};
-
-/**
  * Saves filters in ***localStorage***
  */
 const saveFilters = (state: FiltersState): FiltersState => {
@@ -85,7 +65,7 @@ const saveFilters = (state: FiltersState): FiltersState => {
 };
 
 /**
- * Select and option and save results in ***localStorage***
+ * Select an option and save results in ***localStorage***
  */
 const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent): FiltersState => {
     try {
@@ -93,6 +73,7 @@ const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent):
             selectOption(selection),
             checkFilterRelations(selection),
             resetOrdinalCompType,
+            setQueryFilters,
             saveFiltersInStorage,
         );
     } catch (err) {
@@ -106,7 +87,7 @@ const selectOptionAndSave = (state: FiltersState, selection: FilterSelectEvent):
  */
 const clearOptionsAndSave = (state: FiltersState, filterCode: string): FiltersState => {
     try {
-        return pipe(state)(clearFilter(filterCode), checkFilterRelations(), saveFiltersInStorage);
+        return pipe(state)(clearFilter(filterCode), checkFilterRelations(), setQueryFilters, saveFiltersInStorage);
     } catch (err) {
         console.error(err);
         return state;
@@ -118,7 +99,7 @@ const clearOptionsAndSave = (state: FiltersState, filterCode: string): FiltersSt
  */
 const clearAll = (state: FiltersState): FiltersState => {
     try {
-        return pipe(state)(clearAllFilters, checkFilterRelations(), saveFiltersInStorage);
+        return pipe(state)(clearAllFilters, checkFilterRelations(), setQueryFilters, saveFiltersInStorage);
     } catch (err) {
         console.error(err);
         return state;
@@ -129,7 +110,7 @@ const clearAll = (state: FiltersState): FiltersState => {
  * Update filter configuration for a specified filter and save results in ***localStorage***
  */
 const updateFilterAndSave = (state: FiltersState, update: FilterUpdateEvent) => {
-    return pipe(state)(updateFilter(update));
+    return pipe(state)(updateFilter(update), saveFiltersInStorage);
 };
 
 // INIT METHODS
@@ -152,6 +133,7 @@ const initializeFilters = (
             restrictedFilters: [],
             restrictedParents: {},
         })(
+            setDefaultPositions,
             loadSavedFilters,
             updateFiltersWithEntities(filterEntities),
             selectRestrictedFilters,
@@ -161,6 +143,7 @@ const initializeFilters = (
             setInitialFilter(),
             translateDescriptions(translateFn),
             recoverSharedFilters,
+            setQueryFilters,
             saveFiltersInStorage,
         );
     } catch (err) {
@@ -190,7 +173,7 @@ const loadCacheKeys = (state: FiltersState, { user, filterVersion }) => {
 /*
  * set current screen filters
  */
-const setScreen = (state: FiltersState, screen: string) => {
+const setScreen = (state: FiltersState, screen: string): FiltersState => {
     return {
         ...state,
         screen,
@@ -217,10 +200,6 @@ const filterReducer = (state = initialState, action: any) => {
             return clearAll(state);
         case filterActions.updateFilter:
             return updateFilterAndSave(state, action.update);
-        case filterActions.setDateRanges:
-            return setDateRanges(state, action.dateRanges);
-        case filterActions.setDateRanges:
-            return setDateConfig(state, action.dateConfig);
         case filterActions.saveFilters:
             return saveFilters(state);
         default:

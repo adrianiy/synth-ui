@@ -8,9 +8,8 @@ export const ComplexTemplate = args => html`<div style="height: 200px"><glyph-se
 
 <Meta title="Components/Selector/Classic" parameters={{ viewMode: 'docs' }} />
 
+###### glyph-selctor
 # Selector
-
-##### glyph-selctor
 
 Selector component. receive an array of options that can be single or multiselct.
 
@@ -77,7 +76,6 @@ Selector can be used with a search input to filter options easily.
 <Description>{notes}</Description>
 
 export const changeEvent = (event) => {
-console.log(event);
     event.target.options = event.target.options.map(option => {
         if (option.value === event.detail.value) {
             if (event.target.multiSelect) {
@@ -92,7 +90,6 @@ console.log(event);
     })
 }
 export const changeEventComplex = (event) => {
-    console.log(event);
     event.target.complexOptions = Object.keys(event.target.complexOptions).reduce((prev, curr) => {
         prev[curr] = event.target.complexOptions[curr].map(option => {
             if (option.value === event.detail.value) {

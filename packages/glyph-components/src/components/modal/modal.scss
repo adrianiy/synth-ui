@@ -1,4 +1,9 @@
+:host {
+    position: absolute;
+}
 .modal__wrapper {
+    font-size: var(--gui-font--base);
+    color: var(--gui-color);
     background-color: rgba(0,0,0,.4);
     position: fixed;
     top:0;

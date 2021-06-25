@@ -1,6 +1,7 @@
 {
     "name": "glyph-core",
-    "version": "1.1.0",
+    "version": "1.1.1-alpha.2",
+    "license": "MIT",
     "scripts": {
         "start": "nodemon --exec npm run build",
         "build": "npm run tsc && babel src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps inline",
@@ -12,13 +13,13 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "peerDependencies": {
-        "moment": "^2.29.1"
+        "dayjs": "^1.10.5"
     },
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
         "@storybook/addon-postcss": "^2.0.0",
+        "dayjs": "^1.10.5",
         "lodash-es": "^4.17.21",
-        "moment": "^2.29.1",
         "npm-run-all": "^4.1.5",
         "redux": "^4.0.5",
         "typescript": "^4.2.3"

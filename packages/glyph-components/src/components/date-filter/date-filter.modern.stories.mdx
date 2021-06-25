@@ -1,0 +1,92 @@
+import { html } from 'lit-html';
+import { spread } from '@open-wc/lit-helpers';
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './readme.md';
+import dayjs from 'dayjs';
+
+
+export const Template = args => html`<div style="width: 400px; height: 550px"><glyph-date-filter ...=${spread(args)} @dateSelection=${optionClickEvent} @clearEvent=${clearEvent} interface="modern" /></div>`;
+
+<Meta title="Components/Date filter/Modern" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-date-filter
+# Date Filter
+
+Date filter component. This component will render a chip when some option is selected and is not default.
+
+On click a date selector will be displayed, this component is able to render a list of predefined dates, 1 ... N calendar tables,
+and a section of inputs
+
+## Basic filter
+
+<Canvas>
+    <Story name="Basic" args={{ 
+        '.minDate': minDate.toDate(), 
+        '.maxDate': maxDate.toDate(), 
+        '.minComparableDate': minDate.subtract(1, 'year').toDate(), 
+        '.maxDate': maxDate.toDate(), 
+        '.startDate': dateRanges[1].startDate,
+        '.endDate': dateRanges[1].endDate,
+        '.comparableStartDate': undefined,
+        '.comparableEndDate': undefined,
+        '.comparableType': 'commercial'  ,
+        '.dateRanges': dateRanges,
+        description: 'Real time',
+        active: false,
+        '.comparableOptions': comparableOptions  
+    }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+---
+
+<Description>{notes}</Description>
+
+export const year = dayjs().year();
+export const endOfYear = dayjs(new Date(year + 1, 0, 31));
+export const minDate = dayjs(new Date(year, 1, 1));
+export const maxDate = dayjs().add(1, 'day');
+export const dateRanges = [
+    { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate()  },
+    { description: 'Real time', startDate: new Date(), endDate: new Date() },
+    { description: 'Yesterday', startDate: dayjs().subtract(1, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+    { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+    { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').toDate(), endDate: dayjs().subtract(1, 'day').toDate() },
+    { description: 'Current fiscal year', startDate: minDate.toDate(), endDate: endOfYear.toDate() },
+    { description: 'Last fiscal year', startDate: minDate.subtract(1, 'year').toDate(), endDate: endOfYear.subtract(1, 'year').toDate() }
+];
+export const comparableOptions =[
+    { name: 'Commercial', active: true, value: 'commercial' },
+    { name: 'Calendar', active: false, value: 'calendar' },
+    { name: 'Custom', active: false, value: 'custom' },
+    { name: 'Ordinal', active: false, value: 'ordinal', disabled: true }
+];
+export const optionClickEvent = event => {
+    console.log(event);
+    const { detail: { 
+        startDate, 
+        endDate, 
+        comparableStartDate,
+        comparableEndDate,
+        comparableType, 
+        description, 
+        isDefault 
+    } } = event;
+    event.target.active = !isDefault;
+    event.target.startDate = startDate;
+    event.target.endDate = endDate;
+    event.target.comparableStartDate = comparableStartDate;
+    event.target.comparableEndDate = comparableEndDate;
+    event.target.comparableType = comparableType;
+    event.target.description = description;
+}
+export const clearEvent = event => {
+    const { startDate, endDate, description } = dateRanges[1];
+    event.target.comparableType = 'commercial';
+    event.target.startDate = startDate;
+    event.target.endDate = endDate;
+    event.target.description = description;
+    event.target.active = false;
+}
+
