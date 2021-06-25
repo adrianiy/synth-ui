@@ -1,6 +1,6 @@
 {
   "name": "glyph-angular",
-  "version": "1.16.1-alpha.1",
+  "version": "1.16.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -39,8 +39,8 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@webcomponents/custom-elements": "^1.4.3",
     "dayjs": "^1.10.5",
-    "glyph-components": "^1.16.1-alpha.1",
-    "glyph-core": "^1.16.1-alpha.1",
+    "glyph-components": "^1.16.1",
+    "glyph-core": "^1.16.1",
     "redux": "4.0.1",
     "redux-logger": "^3.0.6",
     "redux-observable": "^1.2.0",
