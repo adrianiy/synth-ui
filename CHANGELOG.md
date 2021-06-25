@@ -1,3 +1,19 @@
+# [1.16.0](https://github.com/adrianiy/glyph-ui/compare/v1.15.0...v1.16.0) (2021-06-25)
+
+
+### Features
+
+* **components:** add calendar component ([5743989](https://github.com/adrianiy/glyph-ui/commit/5743989d4380b44845d3477e1872c6e35b514031))
+* **components:** add date filter ([1887e88](https://github.com/adrianiy/glyph-ui/commit/1887e88a4d999c66a5b51a8d9f62b91ae7d82f9e))
+* **components:** add date filter demo in chipsbar ([6c4138a](https://github.com/adrianiy/glyph-ui/commit/6c4138a6311b9271a4f068c0638af924c4dfb01d))
+* **components:** add date options in input component ([15570eb](https://github.com/adrianiy/glyph-ui/commit/15570ebba8155507e8d5ae04f863f7c0a853689b))
+* **components:** add filter configuration modal ([#110](https://github.com/adrianiy/glyph-ui/issues/110)) ([be228f9](https://github.com/adrianiy/glyph-ui/commit/be228f9804b79b11cba4b0d0ca4335b5ccdcc34a))
+* **components:** add pagination component ([#107](https://github.com/adrianiy/glyph-ui/issues/107)) ([878209f](https://github.com/adrianiy/glyph-ui/commit/878209f36ac201ca2f195180c5c2e4e55d0b833f))
+* **core:** add  release and prerelease workflow ([c5a3339](https://github.com/adrianiy/glyph-ui/commit/c5a333958d91d4b659cbb9aca974817f463fa079))
+* **core:** add angular and react date filter doc ([f571cde](https://github.com/adrianiy/glyph-ui/commit/f571cde2ac2dccd9920fae0c59be6fa567b4946c))
+* **core:** add queryFilters management ([#112](https://github.com/adrianiy/glyph-ui/issues/112)) ([c7b1728](https://github.com/adrianiy/glyph-ui/commit/c7b172820d7619913f3f558f0e2b6a8889209bbb))
+* **core:** add style guide ([9afd506](https://github.com/adrianiy/glyph-ui/commit/9afd506023498aa8c4eb0278c53148887458dce1))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
