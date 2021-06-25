@@ -40,7 +40,7 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
                 yarn semantic-release
-                npx semantic-release
+                npx --no-install semantic-release
 
             - name: Publish pre-release packages
               run: |
