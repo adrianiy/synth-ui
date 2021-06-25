@@ -1,3 +1,19 @@
+# angular-demo-v1.0.0-develop.1 (2021-06-25)
+
+
+### Bug Fixes
+
+* **core:** simplify run scripts using multiscoped runs ([3d3b1c7](https://github.com/adrianiy/glyph-ui/commit/3d3b1c7b5d32b33faa7ed1a2228ce519ace9ec22))
+
+
+### Features
+
+* **angular:** add chipsbar component ([313d7a3](https://github.com/adrianiy/glyph-ui/commit/313d7a38a83ec0638250b4835625aeedcfff0616))
+* **angular:** update demo with expandable list ([ebe207c](https://github.com/adrianiy/glyph-ui/commit/ebe207c762bd13dea23ea24eeee8e5168b88847e))
+* **core:** add  release and prerelease workflow ([c5a3339](https://github.com/adrianiy/glyph-ui/commit/c5a333958d91d4b659cbb9aca974817f463fa079))
+* **core:** add angular and react date filter doc ([f571cde](https://github.com/adrianiy/glyph-ui/commit/f571cde2ac2dccd9920fae0c59be6fa567b4946c))
+* **docs:** Publish docs on gh-pages branch on CI ([7f92ed9](https://github.com/adrianiy/glyph-ui/commit/7f92ed91fe4296e7ea73523e47e896554b9a3cf8))
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
