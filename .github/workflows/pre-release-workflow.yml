@@ -37,11 +37,5 @@ jobs:
             - name: Create pre-release version
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: lerna version --conventional-commits --conventional-prerelease --yes
-
-            - name: Publish to npm
-              env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: |
-                npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                lerna publish from-git --yes --no-verify-access
+              run: yarn semantic-release

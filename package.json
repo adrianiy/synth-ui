@@ -20,7 +20,8 @@
         "bootstrap": "lerna bootstrap",
         "lint": "lerna run lint --parallel",
         "link": "lerna link",
-        "creevey": "creevey --extract && move-file stories.json docs/stories.json"
+        "creevey": "creevey --extract && move-file stories.json docs/stories.json",
+        "semantic-release": "lerna exec --concurrency 1 -- semantic-release"
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
@@ -52,6 +53,7 @@
         "move-file-cli": "^2.0.0",
         "progress-bar-webpack-plugin": "^2.1.0",
         "semantic-release": "^17.0.6",
+        "semantic-release-monorepo": "^7.0.5",
         "storybook-addon-themes": "^6.1.0",
         "storybook-dark-mode": "^1.0.8"
     },
@@ -76,18 +78,24 @@
         "plugins": [
             "@semantic-release/commit-analyzer",
             "@semantic-release/release-notes-generator",
-            [
-                "@semantic-release/npm",
-                {
-                    "npmPublish": false
-                }
-            ],
+            "@semantic-release/npm",
             "@semantic-release/changelog",
             "@semantic-release/git",
             "@semantic-release/github"
         ],
+        "extends": [
+            "semantic-release-monorepo"
+        ],
         "branches": [
-            "main"
+            "main",
+            {
+                "name": "develop",
+                "prerelease": true
+            },
+            {
+                "name": ".*-autodeploy",
+                "prerelease": true
+            }
         ]
     },
     "storybook-deployer": {
