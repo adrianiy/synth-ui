@@ -1,6 +1,6 @@
 {
   "name": "glyph-angular",
-  "version": "1.16.2-alpha.0",
+  "version": "1.0.0-develop.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
