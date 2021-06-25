@@ -28,10 +28,8 @@ jobs:
               run: |
                   yarn
                   yarn build
-            - name: Release
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-              run: npx semantic-release
+            - name: Create pre-release version
+              run: lerna version --conventional-commits --conventional-graduate --yes 
             - name: Publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
