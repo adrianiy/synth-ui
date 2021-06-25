@@ -13,7 +13,7 @@
     "creevey": "creevey --extract && move-file stories.json ./../../docs/angular/stories.json",
     "lint": "eslint --ext ts,html --fix"
   },
-  "private": true,
+  "private": false,
   "main": "dist/glyph-angular/bundles/glyph-angular.umd.js",
   "module": "dist/glyph-angular/fesm2015/glyph-angular.js",
   "es2015": "dist/glyph-angular/fesm2015/glyph-angular.js",
