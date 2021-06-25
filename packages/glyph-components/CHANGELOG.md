@@ -69,11 +69,3 @@
 * **ranking:** add ranking loader ([3309c4a](https://github.com/adrianiy/glyph-ui/commit/3309c4abe7f810b886616851e62bdf404483cec5))
 * **ranking:** add ranking loading layout ([4c3f47b](https://github.com/adrianiy/glyph-ui/commit/4c3f47b634da25d4e9c06a2c44079b3b6d499550))
 
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-## 1.16.2-alpha.0 (2021-06-25)
-
-**Note:** Version bump only for package glyph-components

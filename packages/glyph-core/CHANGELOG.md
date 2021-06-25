@@ -33,11 +33,3 @@
 * **core:** add queryFilters management ([#112](https://github.com/adrianiy/glyph-ui/issues/112)) ([c7b1728](https://github.com/adrianiy/glyph-ui/commit/c7b172820d7619913f3f558f0e2b6a8889209bbb))
 * **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
 
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
-## 1.16.2-alpha.0 (2021-06-25)
-
-**Note:** Version bump only for package glyph-core
