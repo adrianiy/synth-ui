@@ -35,7 +35,7 @@ jobs:
                   yarn build
 
             - name: Create pre-release version
-              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes
+              run: lerna version --conventional-commits --conventional-prerelease --yes
 
             - name: Publish to npm
               env:
