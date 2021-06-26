@@ -1,3 +1,20 @@
+# [1.17.0](https://github.com/adrianiy/glyph-ui/compare/v1.16.1...v1.17.0) (2021-06-26)
+
+
+### Bug Fixes
+
+* use monorepo script only in packages ([74794d5](https://github.com/adrianiy/glyph-ui/commit/74794d5fd3ceeedef4ce56217489c62f440bcb97))
+* **core:** add no install in workflow ([ec2ebc3](https://github.com/adrianiy/glyph-ui/commit/ec2ebc3e58fcd2e7f2ffcbc6b97c9a1c456e30b1))
+* **core:** create release on main workflow ([9a28d26](https://github.com/adrianiy/glyph-ui/commit/9a28d265a8eae5f22d6bec688fbc7a100418a8ef))
+* **core:** fix release workflow ([7f87059](https://github.com/adrianiy/glyph-ui/commit/7f87059a989a8266e55d321da2f223d9cc75ff2d))
+* **core:** publish packages with semantic-release ([04352a6](https://github.com/adrianiy/glyph-ui/commit/04352a63817682e28105eaca88fcb2cc729d499c))
+* add skip ci to commit messages ([de8a231](https://github.com/adrianiy/glyph-ui/commit/de8a2311258ff96d5788418b55a24d98c578a7af))
+
+
+### Features
+
+* **core:** test release with semantic release monorepo ([f2a0a29](https://github.com/adrianiy/glyph-ui/commit/f2a0a29d299affb4a1676cdac8b6f38dfa8a46da))
+
 # [1.17.0-develop.1](https://github.com/adrianiy/glyph-ui/compare/v1.16.1...v1.17.0-develop.1) (2021-06-26)
 
 
