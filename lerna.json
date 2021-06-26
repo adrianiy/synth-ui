@@ -5,7 +5,9 @@
     "packages/glyph-core",
     "packages/glyph-angular",
     "packages/glyph-react",
-    "packages/glyph-docs"
+    "packages/glyph-docs",
+    "packages/angular-demo",
+    "packages/react-demo"
   ],
   "version": "1.16.2-alpha.0",
   "command": {
