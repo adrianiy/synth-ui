@@ -1,6 +1,6 @@
 {
     "name": "glyph-core",
-    "version": "1.0.0-develop.1",
+    "version": "1.0.0",
     "license": "MIT",
     "scripts": {
         "start": "nodemon --exec npm run build",
