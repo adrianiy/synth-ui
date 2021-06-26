@@ -1,6 +1,6 @@
 {
     "name": "glyph-react",
-    "version": "1.16.1",
+    "version": "1.0.0-develop.1",
     "private": false,
     "license": "MIT",
     "main": "dist/index.cjs.js",
@@ -18,8 +18,8 @@
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
         "dayjs": "^1.10.5",
-        "glyph-components": "^1.16.1",
-        "glyph-core": "^1.16.1",
+        "glyph-components": "^1.16.2-alpha.0",
+        "glyph-core": "^1.16.2-alpha.0",
         "npm-run-all": "^4.1.5",
         "progress-bar-webpack-plugin": "^2.1.0",
         "prop-types": "^15.7.2",
