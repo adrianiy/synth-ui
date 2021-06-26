@@ -4,6 +4,7 @@ on:
     types: published
 jobs:
   publish:
+    if: "!contains(github.ref, 'beta')"
     name: publish
     runs-on: ubuntu-latest
     steps:
