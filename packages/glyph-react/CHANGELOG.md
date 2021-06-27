@@ -30,34 +30,3 @@
 * **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
 * **react:** add chipsbar demo ([0f4475b](https://github.com/adrianiy/glyph-ui/commit/0f4475bee25399b48a84f5e14035912edd0c72bf))
 
-# glyph-react-v1.0.0-develop.1 (2021-06-25)
-
-
-### Bug Fixes
-
-* **react:** add filter update event handler in chipsbar ([ff35da8](https://github.com/adrianiy/glyph-ui/commit/ff35da8d6e49d4660c0078d1d016e613701ba28d))
-
-
-### Features
-
-* **components:** add article component ([4d43a56](https://github.com/adrianiy/glyph-ui/commit/4d43a56e122e7d94fd136ca36278365456c5bc12))
-* **components:** add button group ([1eeba73](https://github.com/adrianiy/glyph-ui/commit/1eeba73d6cfad021d2756501f53ba7a8492e2553))
-* **components:** add calendar component ([5743989](https://github.com/adrianiy/glyph-ui/commit/5743989d4380b44845d3477e1872c6e35b514031))
-* **components:** add Color decorator component ([ebbfe3f](https://github.com/adrianiy/glyph-ui/commit/ebbfe3f5639c97b8873adc81edcfaac21abc4b23))
-* **components:** add filter configuration modal ([#110](https://github.com/adrianiy/glyph-ui/issues/110)) ([be228f9](https://github.com/adrianiy/glyph-ui/commit/be228f9804b79b11cba4b0d0ca4335b5ccdcc34a))
-* **components:** add input component ([22047e9](https://github.com/adrianiy/glyph-ui/commit/22047e91d4f5b33c8183270435227cf476a56d40))
-* **components:** add login layout ([beb16cb](https://github.com/adrianiy/glyph-ui/commit/beb16cb22cfcaa2ae4987cee65c17dc38eef665a))
-* **components:** add modal component ([193142a](https://github.com/adrianiy/glyph-ui/commit/193142af1a33b5525212a86df597d46f57a9d169))
-* **components:** add modern interface ([0ca040b](https://github.com/adrianiy/glyph-ui/commit/0ca040b849b6caeaf4a5c185a77e49a55d5a0a25))
-* **components:** add pagination component ([#107](https://github.com/adrianiy/glyph-ui/issues/107)) ([878209f](https://github.com/adrianiy/glyph-ui/commit/878209f36ac201ca2f195180c5c2e4e55d0b833f))
-* **components:** add ranking component ([76ef3cb](https://github.com/adrianiy/glyph-ui/commit/76ef3cbadf7a77d0c3b2fcbc456b057057ec9256))
-* **components:** add share menu component ([393c419](https://github.com/adrianiy/glyph-ui/commit/393c41953edd6fcb3e2bdc3703c04d11bda5f970))
-* **components:** add slider component ([1542ad0](https://github.com/adrianiy/glyph-ui/commit/1542ad04b140ad80138b552a3099bf650b79a843))
-* **components:** add sortable list ([40c61c3](https://github.com/adrianiy/glyph-ui/commit/40c61c331b3a12a43084bb244aa71a0d0d356cff))
-* **components:** add tabs selector component ([c094dd5](https://github.com/adrianiy/glyph-ui/commit/c094dd574ff109759c09303d6ae31d1fec69cb41))
-* **components:** expose flex component ([4a9997b](https://github.com/adrianiy/glyph-ui/commit/4a9997b4634861715d0d3cccf1436ffa9f954084))
-* **core:** add  release and prerelease workflow ([c5a3339](https://github.com/adrianiy/glyph-ui/commit/c5a333958d91d4b659cbb9aca974817f463fa079))
-* **core:** add angular and react date filter doc ([f571cde](https://github.com/adrianiy/glyph-ui/commit/f571cde2ac2dccd9920fae0c59be6fa567b4946c))
-* **core:** add queryFilters management ([#112](https://github.com/adrianiy/glyph-ui/issues/112)) ([c7b1728](https://github.com/adrianiy/glyph-ui/commit/c7b172820d7619913f3f558f0e2b6a8889209bbb))
-* **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
-* **react:** add chipsbar demo ([0f4475b](https://github.com/adrianiy/glyph-ui/commit/0f4475bee25399b48a84f5e14035912edd0c72bf))
