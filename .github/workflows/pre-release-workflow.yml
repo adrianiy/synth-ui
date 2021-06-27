@@ -1,7 +1,7 @@
 name: Publish pre-release version
 
 on:
-    push:
+    pull-request:
         branches:
             - release-candidate
 
@@ -30,7 +30,7 @@ jobs:
 
             - name: yarn install, build
               run: |
-                  yarn --frozen-lockfile
+                  yarn --no-lockfile
                   yarn build
 
             - name: Update version
