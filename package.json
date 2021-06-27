@@ -22,6 +22,7 @@
         "link": "lerna link",
         "creevey": "creevey --extract && move-file stories.json docs/stories.json",
         "semantic-release": "lerna exec --concurrency 1 --scope=\"glyph-*\" -- npx semantic-release -e semantic-release-monorepo"
+
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
@@ -72,37 +73,6 @@
     "lint-staged": {
         "*.{js, ts, tsx}": [
             "eslint --fix"
-        ]
-    },
-    "release": {
-        "plugins": [
-            "@semantic-release/commit-analyzer",
-            "@semantic-release/release-notes-generator",
-            [
-                "@semantic-release/npm",
-                {
-                    "npmPublish": true
-                }
-            ],
-            "@semantic-release/changelog",
-            [
-                "@semantic-release/git",
-                {
-                    "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-                }
-            ],
-            "@semantic-release/github"
-        ],
-        "branches": [
-            "main",
-            {
-                "name": "develop",
-                "prerelease": true
-            },
-            {
-                "name": ".*-autodeploy",
-                "prerelease": true
-            }
         ]
     },
     "storybook-deployer": {

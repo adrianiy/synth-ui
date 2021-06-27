@@ -3,7 +3,7 @@ name: Publish pre-release version
 on:
     push:
         branches:
-            - main
+            - release-candidate
 
 jobs:
     build:
@@ -33,12 +33,13 @@ jobs:
                   yarn --frozen-lockfile
                   yarn build
 
-            - name: Create release version
+            - name: Update version
+              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes 
+
+            - name: Publish to npm
               env:
-                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
                 npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                yarn semantic-release
-                npx semantic-release
+                lerna publish from-git --yes --no-verify-access
 
