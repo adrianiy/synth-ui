@@ -30,16 +30,15 @@ jobs:
 
             - name: yarn install, build
               run: |
-                  yarn --frozen-lockfile
+                  yarn --no-lockfile
                   yarn build
 
-            - name: Update version
-              run: lerna version --conventional-commits --conventional-prerelease --no-changelog --yes 
-
-            - name: Publish to npm
+            - name: Create release version
               env:
+                  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
                 npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                lerna publish from-git --yes --no-verify-access
+                yarn semantic-release
+                npx semantic-release
 
