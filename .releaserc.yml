@@ -14,6 +14,8 @@ plugins:
 
 branches:
   - "main"
+  - name: 'release-candidate' 
+    prerelease: true 
 
 generateNotes:
   - path: '@semantic-release/release-notes-generator'
