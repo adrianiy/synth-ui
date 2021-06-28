@@ -1,0 +1,18 @@
+.breadcrumbs__container {
+    font-size: var(--gui-font--base);
+    color: var(--gui-color);
+    user-select: none;
+
+    .crumb__container {
+        color: var(--gui-color--lighter);
+        cursor: default;
+
+        &.clickable {
+            cursor: pointer;
+        }
+
+        &.active {
+            color: var(--gui-color);
+        }
+    }
+}
