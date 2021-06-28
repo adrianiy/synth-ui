@@ -564,11 +564,11 @@ export namespace Components {
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
-        "max": string;
+        "max": any;
         /**
           * Minimum available for inputs (dates or ranges)
          */
-        "min": string;
+        "min": any;
         /**
           * Placeholder
          */
@@ -2017,11 +2017,11 @@ declare namespace LocalJSX {
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
-        "max"?: string;
+        "max"?: any;
         /**
           * Minimum available for inputs (dates or ranges)
          */
-        "min"?: string;
+        "min"?: any;
         /**
           * Enter key event
          */

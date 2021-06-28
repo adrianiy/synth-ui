@@ -1,9 +1,15 @@
-import { Meta, Source } from '@storybook/addon-docs';
+import { html } from 'lit-html';
+import { Meta, Source, Story } from '@storybook/addon-docs';
+import { WithGlobalDecorator } from './helpers/decorators';
+
+export const Template = (_, ctx) => WithGlobalDecorator({ template: html`</>`, ctx });
 
 <Meta title="Introduction" />
 
 ###### INTRODUCTION
 # GlyphUI-Components
+
+<Story name="Introduction">{ Template.bind({}) }</Story>
 
 #### WebComponents library implemented with [StencilJS](https://stenciljs.com)
 

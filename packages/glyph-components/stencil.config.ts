@@ -56,10 +56,6 @@ export const config: Config = {
             type: 'dist-custom-elements-bundle',
         },
         {
-            type: 'docs-json',
-            file: 'docs/docs.json',
-        },
-        {
             type: 'docs-readme',
             footer: '',
         },

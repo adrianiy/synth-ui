@@ -9,7 +9,7 @@ import { cls } from '../../utils/utils';
     styleUrl: './breadcrumbs.scss',
     shadow: true,
 })
-export class BreadCrumbsComponent {
+export class BreadcrumbsComponent {
     /** Crumb property. Last one is displayed as active. Each crumb triggers a callback on click */
     @Prop() crumbs: Crumb[] = [];
     /** Extra i18n translation object */

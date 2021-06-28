@@ -26,6 +26,7 @@ import {
     GlyphTimeline,
     GlyphModal,
     GlyphButtonGroup,
+    GlyphBreadcrumbs
 } from './glyph-directives/proxies';
 
 const DECLARATIONS = [
@@ -50,6 +51,7 @@ const DECLARATIONS = [
     GlyphTimeline,
     GlyphModal,
     GlyphButtonGroup,
+    GlyphBreadcrumbs,
     ListComponent,
     ChipsbarComponent,
 ];

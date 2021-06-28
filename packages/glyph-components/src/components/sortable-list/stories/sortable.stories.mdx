@@ -1,0 +1,32 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs/blocks';
+import notes from './../readme.md';
+
+<Meta title="Components/Sortable list/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-sortable
+# Sortable list
+
+Modern sortable list to allow users that uses drag&drop.
+
+> An unique `id` attribute must be informed in each list element to handle array ordering correctly.
+
+
+> You can set an attribute `action` per row to trigger some action, like edit row for example.
+>
+> Action button will be visible on hover, try hovering any row!.
+
+<Canvas>
+    <Story id="components-sortable-list-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-sortable-list-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

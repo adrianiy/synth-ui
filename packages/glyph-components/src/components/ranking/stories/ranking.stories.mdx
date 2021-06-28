@@ -1,0 +1,38 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta title="Components/Ranking/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-ranking
+# Ranking
+
+This component can be rendered as a single ranking (grid) or a ranking with three columns (woman, man, kid).
+
+The **articles** can have a propert `image` or `plain_image` with a full url, or be configured using `parseImageUrl` callback, wich
+should receive `image` or `plain_image` property and return an url string.
+
+> Single section header is customizable with `rankingHeader` prop
+
+<div class="warning">
+
+> ## Warning!
+>
+> We've set `useBackdropDecoration` to false in demo page due to a performance leak in storybook
+
+</div>
+
+<Canvas>
+    <Story id="components-ranking-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-ranking-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

@@ -1,0 +1,37 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta title="Components/Input/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-input
+# Input
+
+Handles input rendering.
+
+> If autoFocus is `true` the input will be focused on rendering.
+
+<Canvas>
+    <Story id="components-input-examples--playground" />
+</Canvas>
+
+### Types
+
+Input can be displayed multiple ways:
+
+- Decorated as bordered box
+- As password input
+- Decorated as error
+- As Date input
+- As Search box
+
+## Examples
+
+Check more [Examples](?path=/docs/components-input-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

@@ -1,0 +1,41 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta
+    title="Layout/Ranking/Description"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+###### glyph-ranking
+# Ranking
+
+Ranking screen layout, this layout will help to implement Drive options for ranking visualization:
+
+- Model | Plain image selector
+- Number of items in view
+- Scroll to 0
+- Comparable ranking check
+
+<div class="warning">
+
+> ## Warning!
+>
+> We've set `useBackdropDecoration` to false in demo page due to a performance leak in storybook
+
+</div>
+
+<Canvas>
+    <Story id="layout-ranking-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/layout-ranking-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

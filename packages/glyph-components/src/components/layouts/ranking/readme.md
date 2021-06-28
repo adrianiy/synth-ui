@@ -35,6 +35,7 @@ graph TD;
   glyph-ranking-layout --> glyph-slider
   glyph-ranking-layout --> glyph-ranking
   glyph-ranking-layout --> glyph-title
+  glyph-slider --> glyph-input
   glyph-ranking --> glyph-article
   glyph-article --> glyph-sk-loader
   glyph-article --> glyph-toaster
