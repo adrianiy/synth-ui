@@ -8,13 +8,13 @@ import { Components } from 'glyph-components';
 
 export declare interface GlyphAppMenu extends Components.GlyphAppMenu {}
 @ProxyCmp({
-  inputs: ['apps', 'i18n', 'outsideCallback']
+  inputs: ['apps', 'hasSearch', 'i18n', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-app-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['apps', 'i18n', 'outsideCallback']
+  inputs: ['apps', 'hasSearch', 'i18n', 'outsideCallback']
 })
 export class GlyphAppMenu {
   protected el: HTMLElement;
@@ -70,6 +70,25 @@ export class GlyphAvatar {
 }
 
 
+export declare interface GlyphBreadcrumbs extends Components.GlyphBreadcrumbs {}
+@ProxyCmp({
+  inputs: ['crumbs', 'i18n']
+})
+@Component({
+  selector: 'glyph-breadcrumbs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['crumbs', 'i18n']
+})
+export class GlyphBreadcrumbs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
   inputs: ['cancel', 'icon', 'interface', 'onlyText', 'text']
@@ -110,13 +129,13 @@ export class GlyphButtonGroup {
 import { CalendarComponent as ICalendarComponent } from 'glyph-components/dist/types/components/calendar/calendar';
 export declare interface GlyphCalendar extends Components.GlyphCalendar {}
 @ProxyCmp({
-  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
+  inputs: ['auxActive', 'endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
 })
 @Component({
   selector: 'glyph-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
+  inputs: ['auxActive', 'endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
   outputs: ['dateSelect', 'dateSelectAux']
 })
 export class GlyphCalendar {

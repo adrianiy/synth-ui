@@ -2,71 +2,78 @@
     color: var(--gui-color);
     font-size: var(--gui-font--base);
 }
-.menu__header {
-    flex: 1;
-    border-bottom: var(--gui-border--lightest);
-    padding: var(--gui-padding--xs) 0;
-    margin: 0 var(--gui-padding--xxs);
-    margin-bottom: var(--gui-padding--l);
+.app-menu {
+    &__header {
+        flex: 1;
+        margin: 0 var(--gui-padding--xxs);
+        margin-bottom: var(--gui-padding--l);
 
-    em {
-        font-size: var(--gui-font--s);
+        &__search {
+            padding: var(--gui-padding--xs) 0;
+            width: 100%;
+            border-bottom: var(--gui-border--lightest);
+        }
+
+        em {
+            font-size: var(--gui-font--s);
+        }
+        input {
+            background: transparent;
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: var(--gui-font--xs);
+            margin-left: var(--gui-padding--xs);
+        }
     }
-    input {
-        background: transparent;
-        border: none;
-        outline: none;
-        font-size: var(--gui-font--xs);
-        margin-left: var(--gui-padding--xs);
+
+    &__apps {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: var(--gui-padding--xs);
+
+        .app {
+            --size: 45px;
+            height: var(--size);
+            width: var(--size);
+            padding: var(--gui-padding--xxs);
+            user-select: none;
+            cursor: pointer;
+            justify-self: center;
+            border-radius: var(--gui-border-radius);
+
+            * {
+                color: var(--gui-color--light);
+            }
+            &:hover,
+            &.active {
+                * {
+                    opacity: 1;
+                    color: var(--gui-color--contrast);
+                }
+            }
+            &.active {
+                background: var(--gui-color);
+            }
+            &:hover {
+                background: var(--gui-color--lighter);
+            }
+
+            span {
+                font-size: var(--gui-font--xs);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                text-transform: uppercase;
+            }
+            em {
+                font-size: var(--gui-font--l);
+                margin-bottom: var(--gui-padding--xs);
+                opacity: 0.7;
+            }
+        }
     }
 }
 h3 {
     text-transform: capitalize;
-}
-.app__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: var(--gui-padding--xs);
-
-    .app {
-        --size: 45px;
-        height: var(--size);
-        width: var(--size);
-        padding: var(--gui-padding--xxs);
-        user-select: none;
-        cursor: pointer;
-        justify-self: center;
-        border-radius: var(--gui-border-radius);
-
-        * {
-            color: var(--gui-color--light);
-        }
-        &:hover,
-        &.active {
-            * {
-                opacity: 1;
-                color: var(--gui-color--contrast);
-            }
-        }
-        &.active {
-            background: var(--gui-color);
-        }
-        &:hover {
-            background: var(--gui-color--lighter);
-        }
-
-
-        span {
-            font-size: var(--gui-font--xs);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
-            text-transform: uppercase;
-        }
-        em {
-            font-size: var(--gui-font--l);
-            margin-bottom: var(--gui-padding--xs);
-            opacity: 0.7;
-        }
-    }
 }

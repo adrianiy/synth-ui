@@ -217,6 +217,7 @@ export class DateFilterComponent {
                 startDateAux={this.isCustomComparable && this.comparableStartDate}
                 endDateAux={this.isCustomComparable && this.comparableEndDate}
                 months={this.months}
+                auxActive={this.isCustomComparable}
                 secondary={this.isCustomComparable && this.comparableActive}
                 onDateSelect={this._selectDate}
                 onDateSelectAux={this._selectCompDate}

@@ -73,3 +73,8 @@ export interface RankingViewOptions {
     rowGap?: string;
     innerGap?: string;
 }
+
+export interface Crumb {
+    name: string;
+    callback?: (name: string) => void;
+}

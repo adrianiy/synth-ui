@@ -5,7 +5,7 @@ export const config: Config = {
     namespace: 'glyph-components',
     plugins: [
         sass({
-            injectGlobalPaths: ['src/global/global.scss'],
+            injectGlobalPaths: [ 'src/global/global.scss' ],
         }),
     ],
     globalStyle: 'src/global/global.scss',
@@ -29,6 +29,10 @@ export const config: Config = {
         },
         {
             type: 'dist-custom-elements-bundle',
+        },
+        {
+            type: 'docs-json',
+            file: 'docs/docs.json',
         },
         {
             type: 'docs-readme',
