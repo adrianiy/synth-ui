@@ -1,4 +1,4 @@
-name: Publish pre-release version
+name: Publish release version
 
 on:
     push:
