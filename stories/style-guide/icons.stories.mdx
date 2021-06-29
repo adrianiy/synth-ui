@@ -1,6 +1,9 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
 
-<Meta title="Style guide/Icons" />
+<Story name="Icons" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Style guide/Icons" parameters={{ viewMode: 'docs' }}/>
 
 ###### Icons
 # Material Icons
@@ -8,3 +11,4 @@ import { Meta } from '@storybook/addon-docs';
 Glyph-UI is using **Material Icons** please take a look to their [docs](https://fonts.google.com/icons?selected=Material+Icons).
 
 We recommend to keep using this icon font.
+

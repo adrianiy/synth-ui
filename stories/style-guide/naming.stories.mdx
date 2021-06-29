@@ -1,6 +1,9 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
 
-<Meta title="Style guide/Namming convention" />
+<Story name="Naming convention" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Style guide/Naming convention" parameters={{ viewMode: 'docs' }}/>
 
 ###### NAMING CONVENTION
 # Naming convention

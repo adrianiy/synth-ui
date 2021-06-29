@@ -1,10 +1,13 @@
-import { Meta, Description } from '@storybook/addon-docs/blocks';
-import  changelog from '../CHANGELOG.md';
+import { Meta, Description, Story } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from './helpers/decorators';
+import  doc from '../CHANGELOG.md';
 
-<Meta title="glyph-UI/Changelog" />
+<Story name="Changelog" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Changelog" parameters={{ viewMode: 'docs' }}/>
 
 # Changelog
 
 Here we keep a log of changes introduces in the library.
 
-<Description markdown={changelog}/>
+<Description markdown={doc}/>
