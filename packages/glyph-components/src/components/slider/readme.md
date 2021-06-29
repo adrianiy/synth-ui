@@ -26,9 +26,14 @@
 
  - [glyph-ranking-layout](../layouts/ranking)
 
+### Depends on
+
+- [glyph-input](../input)
+
 ### Graph
 ```mermaid
 graph TD;
+  glyph-slider --> glyph-input
   glyph-ranking-layout --> glyph-slider
   style glyph-slider fill:#f9f,stroke:#333,stroke-width:4px
 ```

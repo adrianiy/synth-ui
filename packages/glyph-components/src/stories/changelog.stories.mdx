@@ -1,0 +1,16 @@
+import { html } from 'lit-html';
+import { Meta, Story, Description } from '@storybook/addon-docs/blocks';
+import { WithGlobalDecorator } from './helpers/decorators';
+import  docs from '../../CHANGELOG.md';
+
+export const Template = (_, ctx) => WithGlobalDecorator({ template: html`</>`, ctx });
+
+<Meta title="Changelog" />
+
+# Changelog
+
+<Story name="Changelog">{ Template.bind({}) }</Story>
+
+Here we keep a log of changes introduces in the library.
+
+<Description markdown={docs}/>

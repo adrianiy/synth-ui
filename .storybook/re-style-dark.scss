@@ -1,0 +1,122 @@
+.dark {
+    background: #181818 !important;
+    color: #b3b3b3 !important;
+
+    .sbdocs {
+        background: #181818 !important;
+        color: #b3b3b3 !important;
+    }
+    .sidebar-item {
+        color: #bbbbbb !important;
+    }
+    .os-host {
+        background: #181818 !important;
+        color: #b3b3b3 !important;
+    }
+    .sbdocs-pre > div {
+        background: #000 !important;
+        color: #b3b3b3;
+    }
+    .docblock-code-toggle {
+        background: #0e0e0e !important;
+        border: none !important;
+        color: #b3b3b3;
+    }
+    .docblock-argstable-body {
+        tbody tr td {
+            background: #181818 !important;
+        }
+        tr:first-of-type td {
+            background: none !important;
+        }
+    }
+    .sbdocs-blockquote {
+        background: #313131 !important;
+        padding: 16px !important;
+        border-left: 4px solid #6b6969 !important;
+
+        .sbdocs {
+            background: transparent !important;
+        }
+    }
+    table {
+        tbody {
+            tr {
+                &:nth-of-type(2n) {
+                    background-color: #3a3a3a !important;
+                }
+                &:not(:first-child) {
+                    border-top-color: #525252 !important;
+                }
+
+                td {
+                    background-color: #333333 !important;
+                    color: white !important;
+                }
+            }
+        }
+        thead {
+            th {
+                background: #181818 !important;
+                color: #a2a2a2 !important;
+            }
+        }
+    }
+
+    .docblock-source {
+        .token {
+            &.module {
+                color: #c37602 !important;
+            }
+            &.string {
+                color: #7d9450 !important;
+            }
+            &.clas-name {
+                color: #adadad !important;
+            }
+            &.maybe-class-name {
+                color: #51748a !important;
+            }
+            &.builtin {
+                color: #927892 !important ;
+            }
+            &operator {
+                color: #adadad !important;
+            }
+            &.keyword {
+                color: #ca4545 !important;
+            }
+            &.tag {
+                color: #003f80 !important;
+            }
+            &.function {
+                color: #007ece !important;
+            }
+            &.function {
+                color: #c37602 !important;
+            }
+            &.punctuation {
+                color: #6f6f6f !important;
+            }
+            &.spread {
+                color: #6f6f6f !important;
+            }
+        }
+        .language-html {
+            .token {
+                &.tag {
+                    color: #4a7fb5 !important;
+                }
+                &.attr-name {
+                    color: #bd953c !important;
+                }
+                &.attr-value {
+                    color: #7d9450 !important;
+                }
+            }
+        }
+        .os-host {
+            background: #313131 !important;
+        }
+    }
+}

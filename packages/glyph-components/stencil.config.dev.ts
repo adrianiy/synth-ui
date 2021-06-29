@@ -5,7 +5,7 @@ export const config: Config = {
     namespace: 'glyph-components',
     plugins: [
         sass({
-            injectGlobalPaths: ['src/global/global.scss'],
+            injectGlobalPaths: [ 'src/global/global.scss' ],
         }),
     ],
     globalStyle: 'src/global/global.scss',

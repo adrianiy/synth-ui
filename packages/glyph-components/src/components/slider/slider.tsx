@@ -14,9 +14,8 @@ export class SliderComponent {
     /** Option change event */
     @Event() optionChange: EventEmitter<{ option: any; value: number }>;
 
-    private _handleInputChange = (event: any) => {
-        const value = +event.target.value;
-        this.currentValue = value;
+    private _handleInputChange = ({ detail: value }: CustomEvent<any>) => {
+        this.currentValue = +value;
 
         setTimeout(() => {
             const step = 1 / (this.options.length - 1);
@@ -32,13 +31,12 @@ export class SliderComponent {
     render() {
         return (
             <Flex middle class="slider__container">
-                <input
-                    type="range"
-                    class="slider"
+                <glyph-input
+                    inputType="range"
                     value={this.currentValue}
                     min="0"
                     max="100"
-                    onChange={this._handleInputChange}
+                    onInputChange={this._handleInputChange}
                 />
             </Flex>
         );

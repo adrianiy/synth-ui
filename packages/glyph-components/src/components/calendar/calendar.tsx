@@ -39,7 +39,9 @@ export class CalendarComponent {
     @Prop() startDateAux: Date = new Date();
     /** Secondary selected end date */
     @Prop() endDateAux: Date = new Date();
-    /** Secondary selection. Shows selection in orange */
+    /** Activate seconday selection display */
+    @Prop() auxActive: boolean;
+    /** Secondary selection. Shows selection in orange. **requires auxActive** */
     @Prop() secondary: boolean;
     /** Allow single day selection */
     @Prop() singleSelect: boolean;
@@ -170,6 +172,7 @@ export class CalendarComponent {
 
     private _checkInAuxRange = (day: dayjs.Dayjs) => {
         return (
+            this.auxActive &&
             this.selectedStartDateAux &&
             day.isSameOrAfter(this.selectedStartDateAux, 'day') &&
             this.currentHoveredDateAux &&
@@ -233,7 +236,10 @@ export class CalendarComponent {
             const disabled = !day.isBetween(dayjs(minDate), dayjs(maxDate), 'day', '[]');
             const selected = this.startDate && this.endDate && day.isBetween(this.startDate, this.endDate, 'day', '[]');
             const secondarySelected =
-                this.startDateAux && this.endDateAux && day.isBetween(this.startDateAux, this.endDateAux, 'day', '[]');
+                this.auxActive &&
+                this.startDateAux &&
+                this.endDateAux &&
+                day.isBetween(this.startDateAux, this.endDateAux, 'day', '[]');
             const inRange = this._checkInRange(day);
             const inAuxRange = this._checkInAuxRange(day);
 
@@ -245,7 +251,7 @@ export class CalendarComponent {
                         selectable,
                         disabled,
                         selected,
-                        'secondary': this.secondary,
+                        'secondary': this.auxActive && this.secondary,
                         'selected--secondary': secondarySelected,
                         'in-range': inRange,
                         'in-range--secondary': inAuxRange,

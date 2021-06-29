@@ -1,4 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from '../helpers/decorators';
+
+<Story name="Filters" decorators={[ WithGlobalTheme ]} />
 
 <Meta
     title="Providers/Filters"
@@ -54,6 +57,4 @@ This hook will return an object with these properties:
 
 All logic implementation will lay on *glyph-core* vanilla javascript functions.
 
-For this particular case we'll use a ***redux-like*** implementation, so this is a wrapper to
-adapt Redux to Angular injectable services.
 

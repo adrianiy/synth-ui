@@ -1,3 +1,10 @@
+## [1.17.1](https://github.com/adrianiy/glyph-ui/compare/v1.17.0...v1.17.1) (2021-06-27)
+
+
+### Bug Fixes
+
+* **core:** publish docs on push ([ec4a7b1](https://github.com/adrianiy/glyph-ui/commit/ec4a7b1984354406a34351bca8e42edcdf8d9d5c))
+
 # [1.17.0](https://github.com/adrianiy/glyph-ui/compare/v1.16.1...v1.17.0) (2021-06-26)
 
 

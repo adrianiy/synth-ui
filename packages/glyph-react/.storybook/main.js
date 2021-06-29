@@ -8,9 +8,14 @@ module.exports = {
         // 'PRODUCTION' is used when building the static version of storybook.
 
         config.plugins.push(new ProgressBarPlugin());
+        config.module.rules.push({
+            test: /\.scss$/,
+            use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+            include: path.resolve(__dirname, '../'),
+        });
         // Return the altered config
         return config;
     },
-    stories: ['../src/**/*.stories.@(mdx|jsx|ts|tsx)'],
-    addons: ['@storybook/preset-create-react-app', '@storybook/addon-links', '@storybook/addon-essentials'],
+    stories: [ '../**/*.stories.@(mdx|jsx|ts|tsx)' ],
+    addons: [ '@storybook/preset-create-react-app', '@storybook/addon-links', '@storybook/addon-essentials' ],
 };
