@@ -1,6 +1,9 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story  } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from './helpers/decorators';
 
-<Meta title="glyph-UI/Introduction" />
+<Story name="Introduction" decorators={[ WithGlobalTheme ]}  />
+
+<Meta title="Introduction" parameters={{ viewMode: 'docs' }}/>
 
 ###### GLYPH-UI
 # Introduction to GlyphUI

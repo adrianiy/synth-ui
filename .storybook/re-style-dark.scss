@@ -6,6 +6,19 @@
         background: #181818 !important;
         color: #b3b3b3 !important;
     }
+    .sbdocs-table {
+        tr {
+            &:nth-of-type(2n) {
+            background: transparent !important;
+        }
+        td {
+        color: #b3b3b3 !important;
+        }
+        }
+    }
+    .sbdocs-a {
+        color: #1ea7fd !important;
+    }
     .sidebar-item {
         color: #bbbbbb !important;
     }
@@ -22,9 +35,18 @@
         border: none !important;
         color: #b3b3b3;
     }
+    .docblock-colorpalette div {
+        color: #aeaeae !important;
+    }
+    .color-palette--third {
+        background: transparent !important;
+    }
     .docblock-argstable-body {
         tbody tr td {
             background: #181818 !important;
+        }
+        tr:nth-of-type(2n) {
+            background-color: #2d2d2d !important;
         }
         tr:first-of-type td {
             background: none !important;
@@ -52,6 +74,10 @@
                 td {
                     background-color: #333333 !important;
                     color: white !important;
+
+                    .sbdocs {
+                        background: transparent !important;
+                    }
                 }
             }
         }
@@ -71,7 +97,7 @@
             &.string {
                 color: #7d9450 !important;
             }
-            &.clas-name {
+            &.class-name {
                 color: #adadad !important;
             }
             &.maybe-class-name {
@@ -100,19 +126,6 @@
             }
             &.spread {
                 color: #6f6f6f !important;
-            }
-        }
-        .language-html {
-            .token {
-                &.tag {
-                    color: #4a7fb5 !important;
-                }
-                &.attr-name {
-                    color: #bd953c !important;
-                }
-                &.attr-value {
-                    color: #7d9450 !important;
-                }
             }
         }
         .os-host {

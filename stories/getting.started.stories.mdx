@@ -1,6 +1,9 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from './helpers/decorators';
 
-<Meta title="glyph-UI/Getting Started" />
+<Story name="Getting Started" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Getting Started" parameters={{ viewMode: 'docs' }}/>
 
 # Getting Started
 
@@ -8,7 +11,16 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ### Install
 
-🚧not published yet
+```bash
+# web components
+yarn add glyph-components
+
+# react wrapper
+yarn add glyph-react 
+
+# angular wrapper 
+yarn add glyph-angular
+```
 
 ### Use it
 
@@ -16,15 +28,28 @@ Choose a implementations that matches your favourite framework!
 
 #### As Web Components
 
-🚧 under construction
+Take a look at [STENCILJS](https://stenciljs.com/docs/overview) use guide.
+
+```javascript
+import { defineCustomElements } from 'glyph-components/dist/esm/loader';
+defineCustomElements();
+```
+
+```html
+<glyph-toggler></glyph-toggler>
+```
 
 #### As Angular Components
 
-🚧 under construction
+Angular exports two modules GlyphAngularComponents and GlyphAngularServices.
+
+> Take a look at [Glyph Angular DOCS](https://adrianiy.github.io/glyph-ui/?path=/story/angular_introduction--page).
 
 #### As React Components
 
-🚧 under construction
+React exports a wrapper for each `glyph-components` component [DOCS](https://adrianiy.github.io/glyph-ui/?path=/story/react_introduction--page)
+
+A set of hooks to manage filters state are exported too [DOCS](https://adrianiy.github.io/glyph-ui/?path=/story/react_providers-filters--page)
 
 #### As AmigaJS Middlewares
 

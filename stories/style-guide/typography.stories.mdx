@@ -1,6 +1,10 @@
-import { Meta, Typeset, Story } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/addon-docs';
+import { Figma } from 'storybook-addon-designs/blocks'
+import { WithGlobalTheme } from './../helpers/decorators';
 
-<Meta title="Style guide/Typography" />
+<Story name="Typography" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Style guide/Typography" parameters={{ viewMode: 'docs' }}/>
 
 ###### Typography
 
@@ -9,6 +13,13 @@ import { Meta, Typeset, Story } from '@storybook/addon-docs';
 # Fonts
 
 **Font**: Roboto
+
+
+
+<Figma
+  collapsable
+  url="https://www.figma.com/file/kCiFb0AjDaxBqt0h57ebQB/Glyph-ui?node-id=16%3A12"
+/>
 
 <Story name="Sizes" />
 

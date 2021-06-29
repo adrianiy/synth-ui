@@ -1,3 +1,7 @@
 {
-    "configFilters": "Configure filters"
+    "configFilters": "Configure filters",
+    "modal.description": "Drag the filters between the columns to change their visibility or change the order",
+    "modal.hidden": "Hidden filters",
+    "modal.visible": "Visible filters",
+    "modal.hideSouthFilters": "Hide Zara South filters"
 }

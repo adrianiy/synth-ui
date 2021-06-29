@@ -1,6 +1,9 @@
 import { Meta, Story, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
 
-<Meta title="Style guide/Colors" />
+<Story name="Colors" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Style guide/Colors" parameters={{ viewMode: 'docs' }}/>
 
 ###### COLOR PALETTE
 # Brand & UX Colors
@@ -42,7 +45,7 @@ Base theme for applications.
   <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={['#fff']} />
   <span class="color-palette--third">--gui-color--contrast</span>
 
-  <ColorItem title="Modern" subtitle="Special text color for moder interfaces" colors={['#3c585f']} />
+  <ColorItem title="Modern" subtitle="Special text color for modern interfaces" colors={['#3c585f']} />
   <span class="color-palette--third">--gui-color--modern</span>
 
   <ColorItem title="Modern Contrast" subtitle="Contrast color for modern interfaces" colors={['#222']} />
@@ -69,7 +72,7 @@ Base theme for applications.
   <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={['#222']} />
   <span class="color-palette--third">--gui-color--background--contrast</span>
 
-  <ColorItem title="Modern" subtitle="Special background color for moder interfaces" colors={['#e2e7e8']} />
+  <ColorItem title="Modern" subtitle="Special background color for modern interfaces" colors={['#e2e7e8']} />
   <span class="color-palette--third">--gui-color--background--modern</span>
 </ColorPalette>
 
@@ -89,13 +92,13 @@ Dark theme is based on Light color variables with some modifications.
   <ColorItem title="Primary" subtitle="Main texts" colors={['#eee']} />
   <span class="color-palette--third">--gui-color</span>
 
-  <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={["rgb(49,49,49)"]} />
-  <span class="color-palette--third">--gui-color--contrast</span>
-
   <ColorItem title="Lighter" subtitle="Third texts; Dimished and disabled options" colors={["#505050"]} />
   <span class="color-palette--third">--gui-color--lighter</span>
 
-  <ColorItem title="Modern" subtitle="Special text color for moder interfaces" colors={['#2d2d2d']} />
+  <ColorItem title="Contrast" subtitle="Contrast color over dark backgrounds" colors={["rgb(49,49,49)"]} />
+  <span class="color-palette--third">--gui-color--contrast</span>
+
+  <ColorItem title="Modern" subtitle="Special text color for modern interfaces" colors={['#2d2d2d']} />
   <span class="color-palette--third">--gui-color--modern</span>
 
   <ColorItem title="Modern Contrast" subtitle="Contrast color for modern interfaces" colors={["rgba(0,0,0,.9)"]} />
