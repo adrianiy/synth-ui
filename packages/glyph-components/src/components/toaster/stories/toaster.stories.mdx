@@ -1,0 +1,29 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta title="Components/Toaster/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-toaster
+# Toaster
+
+Toaster component rendered on the top side of application on `eventId` trigger.
+
+The toaster can be of **success** or **fail** types.
+
+It can be configured with a `ttl` to remove it automatically or be closed on user click. 
+
+<Canvas>
+    <Story id="components-toaster-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-toaster-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

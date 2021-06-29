@@ -1,0 +1,36 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta
+    title="Components/Calendar/Description"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+###### glyph-calendar
+# Calendar
+
+This component is used to display selectable dates in calendar form.
+
+It will display as many months as you specify in **months** attribute.
+
+Each month is displayed as table of days.
+
+You can set a minimum and maximum available dates to select, everythin in between will be availble to
+select as range of days or as a **singleSelect**.
+
+<Canvas>
+    <Story id="components-calendar-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-calendar-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>
+

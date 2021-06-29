@@ -1,0 +1,30 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+
+<Meta title="Components/Scroll/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-scroll
+# Scroll
+
+Scrollable component.
+
+Renders minimalistic scrollbar either for y-scroll or x-scroll.
+
+You can use `width` and `height` element properties or pass a `containerClass` which sets `--scrollbar-height` and `--scrollbar-width`
+
+<Canvas>
+    <Story id="components-scroll-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-scroll-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

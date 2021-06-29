@@ -2,7 +2,9 @@ export const WithGlobalDecorator = ({ template, props, ctx, style = '' }) => {
     const {
         globals: { locale, theme, fontSize },
     } = ctx;
-    const bodyElement = document.getElementsByTagName('body')[0];
+    const bodyElementFirst = document.getElementsByTagName('body')[0];
+    const bodyElement = parent.document.getElementsByTagName('body')[0];
+    bodyElementFirst.className = theme;
     bodyElement.className = theme;
 
     if (fontSize !== 'base') {

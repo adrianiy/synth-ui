@@ -1,11 +1,13 @@
 import { defineCustomElements } from '../dist/esm/loader';
 
 import '!style-loader!css-loader!sass-loader!../dist/glyph-components/glyph-components.css';
+import '!style-loader!css-loader!sass-loader!./../../../.storybook/re-style.scss';
 
 defineCustomElements();
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: { hideNoControlsWarning: true },
     options: {
         storySort: {
             order: [
@@ -20,6 +22,7 @@ export const parameters = {
                     'User menu',
                     'App menu',
                     'Share menu',
+                    'Breadcrumbs',
                     'Button',
                     'Button group',
                     'Input',
@@ -45,11 +48,7 @@ export const parameters = {
             ],
         },
     },
-    themes: {
-        default: 'light',
-        list: [
-            { name: 'light', class: [ 'light', 'light-mode' ] },
-            { name: 'dark', class: [ 'dark', 'dark-mode' ] },
-        ],
-    },
 };
+
+import { globalTypes } from './../../../.storybook/globals';
+export { globalTypes };

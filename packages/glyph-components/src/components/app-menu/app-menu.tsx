@@ -12,6 +12,8 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 export class AppMenuComponent {
     /** List of apps */
     @Prop() apps: Screen[];
+    /** Flag to activate search input */
+    @Prop() hasSearch: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** Event triggered when user clicks outside component container */
@@ -64,7 +66,7 @@ export class AppMenuComponent {
 
     private _renderApps = () => {
         return (
-            <div class="app__container">
+            <div class="app-menu__apps">
                 {this.apps
                     .filter((app: Screen) => this._inSearch(app))
                     .map((app: Screen) => (
@@ -77,19 +79,27 @@ export class AppMenuComponent {
         );
     };
 
+    private _renderSearch = () => {
+        return (
+            this.hasSearch && (
+                <Flex row class="app-menu__header__search">
+                    <Icon icon="search" />
+                    <input
+                        placeholder={this._i18n['searchPlaceholder']}
+                        type="text"
+                        onKeyUp={this._handleKeyUp}
+                        onInput={this._handleInputChange}
+                    />
+                </Flex>
+            )
+        );
+    };
+
     render() {
         return (
-            <Flex class="app-menu__container">
-                <Flex row spaced middle class="menu__header">
-                    <Flex row>
-                        <Icon icon="search" />
-                        <input
-                            placeholder={this._i18n['searchPlaceholder']}
-                            type="text"
-                            onKeyUp={this._handleKeyUp}
-                            onInput={this._handleInputChange}
-                        />
-                    </Flex>
+            <Flex class="app-menu app-menu__container">
+                <Flex row spaced middle class="app-menu__header">
+                    {this._renderSearch()}
                 </Flex>
                 {this._renderApps()}
             </Flex>

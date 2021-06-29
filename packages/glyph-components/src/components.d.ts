@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -13,6 +13,10 @@ export namespace Components {
           * List of apps
          */
         "apps": Screen[];
+        /**
+          * Flag to activate search input
+         */
+        "hasSearch": boolean;
         /**
           * Extra i18n translation object
          */
@@ -86,6 +90,16 @@ export namespace Components {
          */
         "name": UserData['name'];
     }
+    interface GlyphBreadcrumbs {
+        /**
+          * Crumb property. Last one is displayed as active. Each crumb triggers a callback on click
+         */
+        "crumbs": Crumb[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+    }
     interface GlyphButton {
         /**
           * Cancel type button. Renders in red
@@ -124,6 +138,10 @@ export namespace Components {
     }
     interface GlyphCalendar {
         /**
+          * Activate seconday selection display
+         */
+        "auxActive": boolean;
+        /**
           * Selected end date
          */
         "endDate": Date;
@@ -152,7 +170,7 @@ export namespace Components {
          */
         "months": number;
         /**
-          * Secondary selection. Shows selection in orange
+          * Secondary selection. Shows selection in orange. **requires auxActive**
          */
         "secondary": boolean;
         /**
@@ -546,11 +564,11 @@ export namespace Components {
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
-        "max": string;
+        "max": any;
         /**
           * Minimum available for inputs (dates or ranges)
          */
-        "min": string;
+        "min": any;
         /**
           * Placeholder
          */
@@ -1128,6 +1146,12 @@ declare global {
         prototype: HTMLGlyphAvatarElement;
         new (): HTMLGlyphAvatarElement;
     };
+    interface HTMLGlyphBreadcrumbsElement extends Components.GlyphBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLGlyphBreadcrumbsElement: {
+        prototype: HTMLGlyphBreadcrumbsElement;
+        new (): HTMLGlyphBreadcrumbsElement;
+    };
     interface HTMLGlyphButtonElement extends Components.GlyphButton, HTMLStencilElement {
     }
     var HTMLGlyphButtonElement: {
@@ -1342,6 +1366,7 @@ declare global {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
         "glyph-article": HTMLGlyphArticleElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
+        "glyph-breadcrumbs": HTMLGlyphBreadcrumbsElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
         "glyph-calendar": HTMLGlyphCalendarElement;
@@ -1385,6 +1410,10 @@ declare namespace LocalJSX {
           * List of apps
          */
         "apps"?: Screen[];
+        /**
+          * Flag to activate search input
+         */
+        "hasSearch"?: boolean;
         /**
           * Extra i18n translation object
          */
@@ -1454,6 +1483,16 @@ declare namespace LocalJSX {
          */
         "name"?: UserData['name'];
     }
+    interface GlyphBreadcrumbs {
+        /**
+          * Crumb property. Last one is displayed as active. Each crumb triggers a callback on click
+         */
+        "crumbs"?: Crumb[];
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+    }
     interface GlyphButton {
         /**
           * Cancel type button. Renders in red
@@ -1492,6 +1531,10 @@ declare namespace LocalJSX {
     }
     interface GlyphCalendar {
         /**
+          * Activate seconday selection display
+         */
+        "auxActive"?: boolean;
+        /**
           * Selected end date
          */
         "endDate"?: Date;
@@ -1528,7 +1571,7 @@ declare namespace LocalJSX {
          */
         "onDateSelectAux"?: (event: CustomEvent<{ startDate: Date; endDate: Date }>) => void;
         /**
-          * Secondary selection. Shows selection in orange
+          * Secondary selection. Shows selection in orange. **requires auxActive**
          */
         "secondary"?: boolean;
         /**
@@ -1974,11 +2017,11 @@ declare namespace LocalJSX {
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
-        "max"?: string;
+        "max"?: any;
         /**
           * Minimum available for inputs (dates or ranges)
          */
-        "min"?: string;
+        "min"?: any;
         /**
           * Enter key event
          */
@@ -2612,6 +2655,7 @@ declare namespace LocalJSX {
         "glyph-app-menu": GlyphAppMenu;
         "glyph-article": GlyphArticle;
         "glyph-avatar": GlyphAvatar;
+        "glyph-breadcrumbs": GlyphBreadcrumbs;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
         "glyph-calendar": GlyphCalendar;
@@ -2656,6 +2700,7 @@ declare module "@stencil/core" {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
             "glyph-article": LocalJSX.GlyphArticle & JSXBase.HTMLAttributes<HTMLGlyphArticleElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
+            "glyph-breadcrumbs": LocalJSX.GlyphBreadcrumbs & JSXBase.HTMLAttributes<HTMLGlyphBreadcrumbsElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
             "glyph-calendar": LocalJSX.GlyphCalendar & JSXBase.HTMLAttributes<HTMLGlyphCalendarElement>;

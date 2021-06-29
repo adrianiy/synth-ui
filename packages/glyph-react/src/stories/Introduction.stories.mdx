@@ -1,16 +1,26 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from '../helpers/decorators';
 
-<Meta title="Introduction" />
+<Story name="Introduction" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Introduction" parameters={{ viewMode: 'docs' }}/>
 
 # GlyphUI-React-Components
 #### React library implemented over webComponents
+
 
 This library allow to share logic across Drive React applications. Developers do not need to care about how components interact with application state, or how they
 transform raw data into usable components.
 
 ## Install
 
-🚧 The library is not currently published
+```bash 
+# yarn
+yarn add glyph-react 
+
+# npm 
+npm i glyph-react
+```
 
 ## Use
 

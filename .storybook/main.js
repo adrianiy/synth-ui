@@ -44,5 +44,11 @@ module.exports = {
         };
     },
     stories: [ '../stories/**/*.stories.mdx' ],
-    addons: [ '@storybook/addon-links', '@storybook/addon-essentials', 'creevey', 'storybook-addon-themes' ],
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        'creevey',
+        'storybook-addon-themes',
+        'storybook-addon-designs',
+    ],
 };

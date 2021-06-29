@@ -24,6 +24,7 @@ export type {
     Article,
     RankingData,
     RankingViewOptions,
+    Crumb,
 } from './components';
 export type { ToasterEvent, FilterSelectEvent, FilterUpdateEvent, SortableChildrenEvent } from './events';
 export type { CalendarEvent, CalendarGroup, TimelineEvent } from './timeline';

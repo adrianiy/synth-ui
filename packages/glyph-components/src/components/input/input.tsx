@@ -14,9 +14,9 @@ export class InputComponent {
     /** Input value */
     @Prop() value: any;
     /** Minimum available for inputs (dates or ranges) */
-    @Prop() min: string;
+    @Prop() min: any;
     /** Maximum availabla for inputs (dates or ranges) */
-    @Prop() max: string;
+    @Prop() max: any;
     /** Input type */
     @Prop() inputType: string = 'text';
     /** Input should auto focus */
@@ -71,6 +71,37 @@ export class InputComponent {
         }
     };
 
+    private _increaseValue = () => {
+        if ((this.value || 0) < +(this.max || Infinity)) {
+            this.value = (this.value || 0) + 1;
+            this.inputChange.emit(this.value);
+        }
+    };
+
+    private _decreaseValue = () => {
+        if ((this.value || 0) > +(this.min || -Infinity)) {
+            this.value = (this.value || 0) - 1;
+            this.inputChange.emit(this.value);
+        }
+    };
+
+    private _renderNumberControls = () => {
+        return (
+            <Flex class="number-control__container">
+                <Icon
+                    icon="add"
+                    class={cls({ disabled: this.value === +(this.max || Infinity) })}
+                    onClick={this._increaseValue}
+                />
+                <Icon
+                    icon="remove"
+                    class={cls({ disabled: this.value === +(this.min || -Infinity) })}
+                    onClick={this._decreaseValue}
+                />
+            </Flex>
+        );
+    };
+
     render() {
         return (
             <Flex
@@ -97,6 +128,7 @@ export class InputComponent {
                         min={this.min}
                         max={this.max}
                     />
+                    {this.inputType === 'number' && this._renderNumberControls()}
                 </Flex>
                 {this.inputType === 'password' && (
                     <Icon

@@ -10,6 +10,7 @@ import type { JSX } from 'glyph-components';
 export const GlyphAppMenu = /*@__PURE__*/createReactComponent<JSX.GlyphAppMenu, HTMLGlyphAppMenuElement>('glyph-app-menu');
 export const GlyphArticle = /*@__PURE__*/createReactComponent<JSX.GlyphArticle, HTMLGlyphArticleElement>('glyph-article');
 export const GlyphAvatar = /*@__PURE__*/createReactComponent<JSX.GlyphAvatar, HTMLGlyphAvatarElement>('glyph-avatar');
+export const GlyphBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.GlyphBreadcrumbs, HTMLGlyphBreadcrumbsElement>('glyph-breadcrumbs');
 export const GlyphButton = /*@__PURE__*/createReactComponent<JSX.GlyphButton, HTMLGlyphButtonElement>('glyph-button');
 export const GlyphButtonGroup = /*@__PURE__*/createReactComponent<JSX.GlyphButtonGroup, HTMLGlyphButtonGroupElement>('glyph-button-group');
 export const GlyphCalendar = /*@__PURE__*/createReactComponent<JSX.GlyphCalendar, HTMLGlyphCalendarElement>('glyph-calendar');
