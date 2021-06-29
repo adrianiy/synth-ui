@@ -1,5 +1,8 @@
-import { Meta, Description } from '@storybook/addon-docs/blocks';
-import  changelog from '../../CHANGELOG.md';
+import { Meta, Story, Description } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from '../helpers/decorators';
+import doc from './../CHANGELOG.md'
+
+<Story name="Changelog" decorators={[ WithGlobalTheme ]} />
 
 <Meta title="Changelog" />
 
@@ -7,4 +10,4 @@ import  changelog from '../../CHANGELOG.md';
 
 Here we keep a log of changes introduces in the library.
 
-<Description markdown={changelog}/>
+<Description markdown={doc}/>

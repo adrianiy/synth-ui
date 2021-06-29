@@ -9,6 +9,9 @@
 }
 .docblock-source {
     .token {
+        &.function {
+            color: #6775bd !important;
+        }
         &.string {
             color: #709870 !important;
         }

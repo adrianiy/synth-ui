@@ -1,9 +1,1 @@
-import { addons } from '@storybook/addons';
-import driveTheme from './../../../.storybook/driveTheme';
-
-addons.setConfig({
-    theme: driveTheme,
-    previewTabs: {
-        canvas: 'Play with it!',
-    },
-});
+import '!style-loader!css-loader!sass-loader!./../../../.storybook/re-style-manager.scss';

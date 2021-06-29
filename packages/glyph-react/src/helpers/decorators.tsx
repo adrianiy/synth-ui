@@ -36,7 +36,9 @@ export const WithCustomHeight = (height: number) => (Story: any) => {
 
 export const WithCustomGlobals = (Story: any, context: any) => {
     const { theme, locale, fontSize } = context.globals;
-    const bodyElement = document.getElementsByTagName('body')[0];
+    const bodyElementFirst = document.getElementsByTagName('body')[0];
+    const bodyElement = parent.document.getElementsByTagName('body')[0];
+    bodyElementFirst.className = theme;
     bodyElement.className = theme;
 
     return (
@@ -44,4 +46,14 @@ export const WithCustomGlobals = (Story: any, context: any) => {
             <Story {...context} />
         </div>
     );
+};
+
+export const WithGlobalTheme = (Story: any, context: any) => {
+    const { theme, locale, fontSize } = context.globals;
+    const bodyElementFirst = document.getElementsByTagName('body')[0];
+    const bodyElement = parent.document.getElementsByTagName('body')[0];
+    bodyElementFirst.className = theme;
+    bodyElement.className = theme;
+
+    return ' ';
 };

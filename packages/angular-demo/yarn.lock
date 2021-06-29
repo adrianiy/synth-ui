@@ -8310,6 +8310,14 @@ sass-loader@10.0.1:
     schema-utils "^2.7.0"
     semver "^7.3.2"
 
+sass-loader@^12.1.0:
+  version "12.1.0"
+  resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-12.1.0.tgz#b73324622231009da6fba61ab76013256380d201"
+  integrity sha512-FVJZ9kxVRYNZTIe2xhw93n3xJNYZADr+q69/s98l9nTCrWASo+DR2Ot0s5xTKQDDEosUkatsGeHxcH4QBp5bSg==
+  dependencies:
+    klona "^2.0.4"
+    neo-async "^2.6.2"
+
 sass@1.26.10:
   version "1.26.10"
   resolved "https://registry.npmjs.org/sass/-/sass-1.26.10.tgz#851d126021cdc93decbf201d1eca2a20ee434760"

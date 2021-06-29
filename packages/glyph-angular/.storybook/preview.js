@@ -17,5 +17,5 @@ export const parameters = {
         },
     },
 };
-import { globalTypes } from './../../../.storybook/preview';
+import { globalTypes } from './../../../.storybook/globals';
 export { globalTypes };
