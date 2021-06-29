@@ -1,3 +1,16 @@
+# [1.18.0](https://github.com/adrianiy/glyph-ui/compare/v1.17.1...v1.18.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* bump creevey version ([6b11102](https://github.com/adrianiy/glyph-ui/commit/6b1110241c4819b117f3bbeac2d78c0d513ab375))
+
+
+### Features
+
+* **components:** add breadcrumbs component ([044c80d](https://github.com/adrianiy/glyph-ui/commit/044c80de4ce5e701184974bfbca7b6943f1180bc))
+* **docs:** add theming in root docs ([#130](https://github.com/adrianiy/glyph-ui/issues/130)) ([3083002](https://github.com/adrianiy/glyph-ui/commit/30830023690b987d5a106d61d543992acf699014))
+
 ## [1.17.1](https://github.com/adrianiy/glyph-ui/compare/v1.17.0...v1.17.1) (2021-06-27)
 
 
