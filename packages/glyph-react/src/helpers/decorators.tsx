@@ -48,8 +48,8 @@ export const WithCustomGlobals = (Story: any, context: any) => {
     );
 };
 
-export const WithGlobalTheme = (Story: any, context: any) => {
-    const { theme, locale, fontSize } = context.globals;
+export const WithGlobalTheme = (_: any, context: any) => {
+    const { theme } = context.globals;
     const bodyElementFirst = document.getElementsByTagName('body')[0];
     const bodyElement = parent.document.getElementsByTagName('body')[0];
     bodyElementFirst.className = theme;
