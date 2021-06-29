@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.0.0...glyph-react-v1.1.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* bump creevey version ([6b11102](https://github.com/adrianiy/glyph-ui/commit/6b1110241c4819b117f3bbeac2d78c0d513ab375))
+* **core:** publish docs on push ([ec4a7b1](https://github.com/adrianiy/glyph-ui/commit/ec4a7b1984354406a34351bca8e42edcdf8d9d5c))
+
+
+### Features
+
+* **components:** add breadcrumbs component ([044c80d](https://github.com/adrianiy/glyph-ui/commit/044c80de4ce5e701184974bfbca7b6943f1180bc))
+* **docs:** add theming in root docs ([#130](https://github.com/adrianiy/glyph-ui/issues/130)) ([3083002](https://github.com/adrianiy/glyph-ui/commit/30830023690b987d5a106d61d543992acf699014))
+
 # glyph-react-v1.0.0 (2021-06-26)
 
 
@@ -29,4 +43,3 @@
 * **core:** add queryFilters management ([#112](https://github.com/adrianiy/glyph-ui/issues/112)) ([c7b1728](https://github.com/adrianiy/glyph-ui/commit/c7b172820d7619913f3f558f0e2b6a8889209bbb))
 * **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
 * **react:** add chipsbar demo ([0f4475b](https://github.com/adrianiy/glyph-ui/commit/0f4475bee25399b48a84f5e14035912edd0c72bf))
-
