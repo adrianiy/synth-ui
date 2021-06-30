@@ -1,3 +1,11 @@
+## [1.18.1](https://github.com/adrianiy/glyph-ui/compare/v1.18.0...v1.18.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* **core:** fix default date filter selection ([#135](https://github.com/adrianiy/glyph-ui/issues/135)) ([bbabcad](https://github.com/adrianiy/glyph-ui/commit/bbabcad2c06b5d60fab3e0cce89a399c03573df9))
+* **toaster:** fix docs demo ([f827d95](https://github.com/adrianiy/glyph-ui/commit/f827d95a5dfdedd7292afc091cfc719f1653d388))
+
 # [1.18.0](https://github.com/adrianiy/glyph-ui/compare/v1.17.1...v1.18.0) (2021-06-29)
 
 
