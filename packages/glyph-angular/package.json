@@ -45,7 +45,7 @@
     "redux-logger": "^3.0.6",
     "redux-observable": "^1.2.0",
     "rxjs": "~6.6.0",
-    "sass-loader": "^12.1.0",
+    "sass-loader": "^10",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
