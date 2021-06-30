@@ -1,6 +1,6 @@
 import { FiltersState } from '../../models';
 import { parseHash, pipe } from '../../utils/utils';
-import { selectOptionAux } from './../utils/filter.utils';
+import { selectDateAux, selectOptionAux } from './../utils/filter.utils';
 import { applySharedDates, applySharedFilters } from './../utils/shared.utils';
 import { selectFilterOptions, updateOptionsWithEntities, updateSavedFilters } from './../utils/initializer.utils';
 import { FilterOptionHeader } from '../../models/filters';
@@ -152,7 +152,9 @@ export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState
             if (initialOption && willApply) {
                 const newFilterState = {
                     ...filter,
-                    ...selectOptionAux(filter, { ...initialOption, isDefault: initial.default }).filter,
+                    ...(initial.type === 'date'
+                        ? selectDateAux(filter, { ...initialOption, isDefault: initial.default }).filter
+                        : selectOptionAux(filter, { ...initialOption, isDefault: initial.default }).filter),
                 };
                 filtersConfig = { ...filtersConfig, [initial.type]: newFilterState };
             }

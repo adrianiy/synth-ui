@@ -1,16 +1,20 @@
 import dayjs from 'dayjs';
 import { ComparableType, DateRange, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core';
+import { InitialFilter } from 'glyph-core/dist/models/filters';
 
-const tomorrow = dayjs().add(1, 'day').toDate();
-const yesterday = dayjs().subtract(1, 'day').toDate();
+const tomorrow = dayjs().add(1, 'day').startOf('day').toDate();
+const yesterday = dayjs().subtract(2, 'day').startOf('day').toDate();
 const year = dayjs().year();
 
+export const initialFilters: InitialFilter[] = [
+    { type: 'date', default: true, description: 'Real time', optionGetter: (_: any) => dateRanges[1] },
+];
 export const dateRanges: DateRange[] = [
     { description: 'Day +1', startDate: tomorrow, endDate: tomorrow },
     { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
     { description: 'Yesterday', startDate: yesterday, endDate: yesterday },
-    { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').toDate(), endDate: yesterday },
-    { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').toDate(), endDate: yesterday },
+    { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').startOf('day').toDate(), endDate: yesterday },
+    { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').startOf('day').toDate(), endDate: yesterday },
     {
         description: 'Current fiscal year',
         startDate: new Date(year, 1, 1),
@@ -42,7 +46,7 @@ export const FiltersConfig: IFiltersConfig = {
         dateRanges,
         comparableType: ComparableType.commercial,
         comparableOptions,
-        selected: [ dateRanges[1] ],
+        selected: [],
         compDates: [],
     },
     product: {

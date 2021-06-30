@@ -74,7 +74,7 @@ export class ToasterComponent {
                 <Flex row middle center class="toaster__wrapper">
                     <Flex class={cls('toaster__container', 'animated fadeInDown', this.ttype)}>
                         <Flex row middle>
-                            <Icon icon={this.icon} />
+                            <Icon class="toaster__wrapper__icon--decoration" icon={this.icon} />
                             <span>{this.text}</span>
                             {!this.ttl && (
                                 <button class="close" onClick={this._toggleVisibility(false)}>

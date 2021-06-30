@@ -2,7 +2,7 @@ import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
-import { FiltersConfig } from '../../helpers/configs';
+import { FiltersConfig, initialFilters } from '../../helpers/configs';
 import { TranslateServiceStub } from '../../helpers/fakers';
 import { FilterEntities } from '../../helpers/filters';
 import { ChipsbarComponent } from './chipsbar.component';
@@ -14,7 +14,7 @@ import { GlyphAngularServices } from '../../glyph-services.module';
 import { WithGlobalDecorator } from '../../helpers/decorators';
 
 function initFilterService(filtersService: FilterService) {
-    return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, {});
+    return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, initialFilters);
 }
 
 export default {
