@@ -3,5 +3,5 @@ import driveTheme from 'common-storybook/driveTheme';
 import '!style-loader!css-loader!sass-loader!common-storybook/re-style-manager.scss';
 
 addons.setConfig({
-    theme: driveThemen,
+    theme: driveTheme,
 });
