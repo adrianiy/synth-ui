@@ -77,7 +77,6 @@
         "@types/prop-types": "^15.7.3",
         "babel-loader": "^8.2.2",
         "common-storybook": "file:../../.storybook",
-        "glyph-react-aux": "file:../glyph-react",
         "react-redux": "^7.2.3",
         "redux": "^4.0.5",
         "rollup": "^2.44.0",
