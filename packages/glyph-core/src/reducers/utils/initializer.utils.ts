@@ -1,4 +1,11 @@
-import { FilterConfig, FilterOption, FilterOptionHeader } from '../../models/filters';
+import {
+    DateFilter,
+    DateRange,
+    FilterConfig,
+    FilterOption,
+    FilterOptionHeader,
+    FiltersConfig,
+} from '../../models/filters';
 import { checkStrictIn } from '../../utils/utils';
 import { selectOptionAux } from './filter.utils';
 
@@ -48,18 +55,37 @@ export const updateOptionsWithEntities = (options: FilterOptionHeader[], entitie
 };
 
 // update, add or remove saved filters
-export const updateSavedFilters = (
-    savedFilters: { [key: string]: FilterConfig },
-    baseFilters: { [x: string]: any },
-) => {
+export const updateSavedFilters = (savedFilters: FiltersConfig, baseFilters: FiltersConfig) => {
     Object.keys(savedFilters).forEach(key => {
         const baseFilter = baseFilters[key];
 
         if (!baseFilter) {
-            const { [key]: remove, ...rest } = savedFilters;
+            const { [key]: _, ...rest } = savedFilters;
             savedFilters = rest;
+        }
+        if (key === 'date') {
+            savedFilters[key] = _updateStoragedDateFilter(savedFilters[key], baseFilter);
         }
     });
 
     return { ...baseFilters, ...savedFilters };
+};
+
+const _updateStoragedDateFilter = (savedFilter: DateFilter, baseFilter: DateFilter) => {
+    if (savedFilter.selected.length) {
+        const { description } = savedFilter.selected[0];
+        savedFilter.dateRanges = baseFilter.dateRanges;
+
+        if (description) {
+            const dateRange = savedFilter.dateRanges.find((range: DateRange) => range.description === description);
+
+            if (dateRange) {
+                const { startDate, endDate } = dateRange;
+
+                savedFilter.selected[0].startDate = startDate;
+                savedFilter.selected[0].endDate = endDate;
+            }
+        }
+    }
+    return savedFilter;
 };

@@ -4,6 +4,7 @@ import { ComparableType } from '../../enums';
 import { FilterOption, FilterSelectEvent } from '../../models';
 import {
     DateFilter,
+    DateRange,
     FilterConfig,
     FilterOptionHeader,
     FiltersConfig,
@@ -189,11 +190,17 @@ export const translateDescription = (option: FilterOption, translateFn: (arg0: s
 };
 
 export const getSelectedDatesQuery = (filter: DateFilter): QueryFilter[] => {
-    const {
-        selected: [ { startDate, endDate } ],
+    let {
+        dateRanges,
+        selected: [ { startDate, endDate, description } ],
     } = filter;
     const key = 'local_date';
     const format = 'YYYY-MM-DD';
+    const dateRange = dateRanges.find((range: DateRange) => range.description === description);
+
+    if (dateRange) {
+        ({ startDate, endDate } = dateRange);
+    }
 
     return [
         { key, op: 'gte', value: dayjs(startDate).format(format) },

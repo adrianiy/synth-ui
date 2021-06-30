@@ -61,6 +61,7 @@ export interface FilterConfig {
     interface?: UIInterface;
     selected?: SelectedFilter[];
     options?: FilterOptionHeader[];
+    [key: string]: any;
 }
 export interface Search extends FilterConfig {
     lastSearchs: any[];
