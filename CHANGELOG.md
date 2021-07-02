@@ -1,3 +1,10 @@
+## [1.18.4](https://github.com/adrianiy/glyph-ui/compare/v1.18.3...v1.18.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+
 ## [1.18.3](https://github.com/adrianiy/glyph-ui/compare/v1.18.2...v1.18.3) (2021-07-02)
 
 
