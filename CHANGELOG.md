@@ -1,3 +1,10 @@
+## [1.18.5](https://github.com/adrianiy/glyph-ui/compare/v1.18.4...v1.18.5) (2021-07-02)
+
+
+### Bug Fixes
+
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+
 ## [1.18.4](https://github.com/adrianiy/glyph-ui/compare/v1.18.3...v1.18.4) (2021-07-02)
 
 
