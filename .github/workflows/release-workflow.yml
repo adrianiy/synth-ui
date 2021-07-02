@@ -30,7 +30,7 @@ jobs:
 
             - name: yarn install, build
               run: |
-                  yarn --frozen-lockfile --production=true
+                  yarn --production=true
                   yarn build
 
             - name: Create release version
