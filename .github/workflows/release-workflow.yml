@@ -1,4 +1,4 @@
-name: Publish pre-release version
+name: Publish release version
 
 on:
     push:
@@ -30,7 +30,7 @@ jobs:
 
             - name: yarn install, build
               run: |
-                  yarn --frozen-lockfile
+                  yarn --frozen-lockfile --production=true
                   yarn build
 
             - name: Create release version

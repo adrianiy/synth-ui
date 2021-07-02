@@ -1,3 +1,25 @@
+## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.1.0...glyph-components-v1.1.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* **core:** fix default date filter selection ([#135](https://github.com/adrianiy/glyph-ui/issues/135)) ([bbabcad](https://github.com/adrianiy/glyph-ui/commit/bbabcad2c06b5d60fab3e0cce89a399c03573df9))
+* **toaster:** fix docs demo ([f827d95](https://github.com/adrianiy/glyph-ui/commit/f827d95a5dfdedd7292afc091cfc719f1653d388))
+
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.0.0...glyph-components-v1.1.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* bump creevey version ([6b11102](https://github.com/adrianiy/glyph-ui/commit/6b1110241c4819b117f3bbeac2d78c0d513ab375))
+* **core:** publish docs on push ([ec4a7b1](https://github.com/adrianiy/glyph-ui/commit/ec4a7b1984354406a34351bca8e42edcdf8d9d5c))
+
+
+### Features
+
+* **components:** add breadcrumbs component ([044c80d](https://github.com/adrianiy/glyph-ui/commit/044c80de4ce5e701184974bfbca7b6943f1180bc))
+* **docs:** add theming in root docs ([#130](https://github.com/adrianiy/glyph-ui/issues/130)) ([3083002](https://github.com/adrianiy/glyph-ui/commit/30830023690b987d5a106d61d543992acf699014))
+
 # glyph-components-v1.0.0 (2021-06-26)
 
 
