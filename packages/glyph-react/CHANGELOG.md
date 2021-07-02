@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.2...glyph-react-v1.1.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+
 ## [1.1.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.1...glyph-react-v1.1.2) (2021-07-02)
 
 
