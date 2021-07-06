@@ -20,7 +20,7 @@
     }
 
     &.active {
-        background: var(--gui-color--background--contrast);
+        background: var(--gui-color);
 
         .toggler {
             transform: translateX(15px);

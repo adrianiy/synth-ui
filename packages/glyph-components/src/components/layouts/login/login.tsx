@@ -9,6 +9,8 @@ import { cls, getLocaleComponentStrings } from '../../../utils/utils';
     shadow: true,
 })
 export class LoginComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Component interface *modern* | *classic* */
     @Prop() interface: UIInterface = UIInterface.modern;
     /** Application version */
@@ -19,6 +21,8 @@ export class LoginComponent {
     @Prop() loginSuccess: (result: any) => void;
     /** Extra i18n translates */
     @Prop() i18n: { [key: string]: string };
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphLoginElement;
 
@@ -42,7 +46,7 @@ export class LoginComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'login' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'login' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

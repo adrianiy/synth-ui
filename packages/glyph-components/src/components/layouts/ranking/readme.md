@@ -16,6 +16,7 @@
 | `i18n`                  | --                        | Extra i18n translates                                                        | `{ [key: string]: string; }` | `undefined`                 |
 | `loading`               | `loading`                 | Loading flag                                                                 | `boolean`                    | `false`                     |
 | `loadingComparable`     | `loading-comparable`      | Loading comparable flag                                                      | `boolean`                    | `false`                     |
+| `locale`                | `locale`                  | **optional** force locale change if html lang is not interpreted             | `string`                     | `undefined`                 |
 | `rankingData`           | --                        | Ranking data                                                                 | `RankingData[]`              | `undefined`                 |
 | `rowGap`                | `row-gap`                 | Distance between rows                                                        | `string`                     | `'var(--gui-padding--xxl)'` |
 | `useBackdropDecoration` | `use-backdrop-decoration` | Decorate with backdrop filter, solves some performance issues (in storybook) | `boolean`                    | `true`                      |

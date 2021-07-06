@@ -24,7 +24,33 @@ npm i glyph-react
 
 ## Use
 
-To use this React library simply import components where you want to use them.
+To use this React library you'll need to follow these simple steps:
+
+1. Call setup method in main file.
+
+```javascript 
+// main.js
+
+import { setup } from 'glyph-react';
+
+setup();
+```
+
+2. Import main css folder to include css variables and style components 
+
+```css
+# theme.css or main.css
+
+@import "glyph-components/dist/glyph-components/glyph-components";
+```
+
+5. Execute `yarn build` script to copy assets in static folder
+
+```bash
+yarn build
+```
+
+6. Use glyph-components wherever you like to.
 
 ```javascript
 import { GlyphReactList } from 'glyph-react';
@@ -38,6 +64,41 @@ import { GlyphReactList } from 'glyph-react';
             </div>
         </div>
     );
+...
+```
+
+### AMIGA-FWK
+
+1. Change style loading to admit glyph-components global css-variables 
+
+```javascript
+                // Styles loader
+                // - Combine all CSS into one single bundle.css file
+                // - Support standard CSS
+                // - Support PostCSS extensions (https://postcss.org/) configured at the postcss.config.js file
+                {
+                    test: /\.css$/,
+                    use: ["style-loader", "css-loader"],
+                },
+```
+
+2. Import assets dir from `node_modules/glyph_react/dist/assets` in your local assets.
+
+```javascript
+// amiga FWK (webpack 4)
+
+const copyPlugin = require('copy-webpack-plugin');
+
+...
+
+    plugins: [
+        new copyPlugin({
+            patterns: [
+                { from: projectPath('node_modules/glyph_react/dist/assets'), to: 'assets' }
+            ]
+        }),
+        ...
+    ]
 ...
 ```
 

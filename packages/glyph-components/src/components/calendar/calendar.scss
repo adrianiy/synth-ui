@@ -76,7 +76,7 @@
                     }
                     &:not(.selectable) {
                         background-color: transparent;
-                        color: var(--gui-color);
+                        color: var(--gui-color--lighter);
                     }
                 }
                 &.in-range:not(.disabled) {

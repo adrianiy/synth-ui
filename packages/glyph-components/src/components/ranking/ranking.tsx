@@ -8,6 +8,8 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class RankingComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Loading flag */
     @Prop() loading: boolean = false;
     /** Aspect ratio used to calculate loader height */
@@ -38,6 +40,8 @@ export class RankingComponent {
     @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphRankingElement;
     /** Scrolled state change event */
@@ -63,7 +67,7 @@ export class RankingComponent {
     }
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

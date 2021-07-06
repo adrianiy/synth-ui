@@ -9,12 +9,16 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
     shadow: true,
 })
 export class ChipsBarComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Filters configuration object */
     @Prop() filtersConfig: FiltersConfig;
     /** Hide zara south filters active */
     @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Interface type */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Filter select event */
@@ -41,7 +45,7 @@ export class ChipsBarComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -93,6 +97,8 @@ export class ChipsBarComponent {
         return (
             <glyph-date-filter
                 {...dateFilter}
+                basePath={this.basePath}
+                locale={this.locale}
                 interface={this.interface}
                 startDate={startDate}
                 endDate={endDate}
@@ -121,6 +127,8 @@ export class ChipsBarComponent {
                     ) : (
                         <glyph-filter
                             {...this.filtersConfig[chip]}
+                            basePath={this.basePath}
+                            locale={this.locale}
                             interface={this.interface}
                             i18n={this._i18n}
                             onOptionClickEvent={this._handleOptionClick(chip)}

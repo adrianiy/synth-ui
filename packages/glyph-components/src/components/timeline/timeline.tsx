@@ -9,12 +9,16 @@ import { getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class TimelineComponent {
+    /** Base path to get assets dir */
+    @Prop() basePath: string = '';
     /** Calendar events */
     @Prop() calendarEvents: TimelineEvent[];
     /** Events */
     @Prop() events: TimelineEvent[];
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Event triggered when user clicks outside component container */
@@ -56,7 +60,7 @@ export class TimelineComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'timeline' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'timeline' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
         this.options.forEach(option => (option.name = this._i18n[option.name]));
     }

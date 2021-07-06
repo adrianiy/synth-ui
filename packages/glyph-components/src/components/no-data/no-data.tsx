@@ -10,6 +10,8 @@ import { NoDataType } from './no-data.model';
     shadow: true,
 })
 export class NoDataComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Render mode [ 'simple' | 'complex' ] */
     @Prop() mode: string = NoDataType.Simple;
     /** Top text only applies if render mode is advanced */
@@ -18,13 +20,15 @@ export class NoDataComponent {
     @Prop() bottomText: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
 
     @Element() element: HTMLGlyphNoDataElement;
 
     private _i18n: any;
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

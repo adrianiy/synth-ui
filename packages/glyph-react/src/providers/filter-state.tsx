@@ -12,11 +12,22 @@ const store = createStore(
 const FilterStateProvider = ({ children }: { children: any }) => <Provider store={store}>{children}</Provider>;
 
 export const useFilters = () => {
-    const { queryFilters, filtersConfig } = useSelector((state: Store) => state.filters);
+    const { queryFilters = [], filtersConfig } = useSelector((state: Store) => state.filters);
     const dateFilter = filtersConfig?.date || {};
     const { compDates, comparableType } = dateFilter;
+    const startDate = queryFilters.find(filter => filter.key === 'local_date' && filter.op === 'gte')?.value;
+    const endDate = queryFilters.find(filter => filter.key === 'local_date' && filter.op === 'lte')?.value;
+    const queryParams = queryFilters
+        .filter(filter => filter.key !== 'local_date')
+        .reduce(
+            (acc, curr) => ({
+                ...acc,
+                [curr.key.replace('cod_', '')]: curr.value,
+            }),
+            { startDate, endDate },
+        );
 
-    return { queryFilters, compDates, comparableType };
+    return { queryFilters, queryParams, compDates, comparableType };
 };
 
 export const useFiltersConfig = () => {

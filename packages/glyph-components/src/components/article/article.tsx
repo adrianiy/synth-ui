@@ -10,6 +10,8 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class ArticleComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Loading flag */
     @Prop() loading: boolean = false;
     /** Aspect ratio used to calculate loader height */
@@ -30,6 +32,8 @@ export class ArticleComponent {
     @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphArticleElement;
     /** Click event callback */
@@ -47,7 +51,7 @@ export class ArticleComponent {
     private _id = new Date().valueOf();
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'article' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'article' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
