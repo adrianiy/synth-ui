@@ -22,10 +22,10 @@ jobs:
                   yarn
                   yarn lint
                   yarn build
-                  yarn build:docs
-              env:
-                  NODE_ENV: production
             - name: Publish to gh-pages
-              run: yarn publish:docs
+              run: |
+                yarn build:docs
+                yarn publish:docs
               env:
                   GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}
+                  NODE_ENV: production
