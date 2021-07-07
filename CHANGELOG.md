@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/adrianiy/glyph-ui/compare/v1.19.0...v1.19.1) (2021-07-07)
+
+
+### Bug Fixes
+
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+
 # [1.19.0](https://github.com/adrianiy/glyph-ui/compare/v1.18.5...v1.19.0) (2021-07-07)
 
 
