@@ -7,7 +7,11 @@ const baseProps = {
     options,
 };
 
-const onOptionChange = (event: any) => alert(event.detail.value);
+let value = 0;
+
+const onOptionChange = (event: any) => {
+    event.target.nextElementSibling.innerHTML = `value: ${event.detail.value}`;
+};
 
 export default {
     title: 'Components/Slider/Examples',
@@ -18,7 +22,10 @@ export default {
 
 const Template = ({ options }, ctx: any) =>
     WithGlobalDecorator({
-        template: html` <glyph-slider .options=${options} @optionChange=${onOptionChange} />`,
+        template: html`<div>
+            <glyph-slider .options=${options} @optionChange=${onOptionChange}></glyph-slider>
+            <span style="display: block; margin-top: 24px">value: ${value} </span>
+        </div>`,
         ctx,
     });
 

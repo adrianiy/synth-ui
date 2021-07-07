@@ -8,9 +8,9 @@ import {
     UserMenuConfiguration,
     SelectorOption,
 } from 'glyph-core';
-import { Icon } from '../../utils/icons';
-import { Flex } from '../../utils/layout';
-import { cls } from '../../utils/utils';
+import { Icon } from '../../../utils/icons';
+import { Flex } from '../../../utils/layout';
+import { cls } from '../../../utils/utils';
 
 @Component({
     tag: 'glyph-header',
@@ -18,6 +18,8 @@ import { cls } from '../../utils/utils';
     shadow: true,
 })
 export class HeaderComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Brand selector flag */
     @Prop() brand: boolean;
     /** User avatar flag */
@@ -52,6 +54,8 @@ export class HeaderComponent {
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphHeaderElement;
     /** Language change event */
@@ -60,6 +64,8 @@ export class HeaderComponent {
     @Event() themeChange: EventEmitter<SelectorOption>;
     /** Decimals change event */
     @Event() decimalsChange: EventEmitter<boolean>;
+    /** Logout event */
+    @Event() logout: EventEmitter<any>;
 
     /** show user menu flag */
     @State() showUserMenu: boolean = false;
@@ -98,6 +104,10 @@ export class HeaderComponent {
         this.decimalsChange.emit(detail);
     };
 
+    private _handleLogout = () => {
+        this.logout.emit();
+    };
+
     private _renderShare = () => {
         return (
             <Flex row middle center class="widget__container">
@@ -107,16 +117,26 @@ export class HeaderComponent {
                     </div>
                     <Icon icon="reply" class="share" />
                 </div>
-                {this.showShareMenu && (
-                    <glyph-share-menu
-                        class="widget__menu widget__menu--share animated fadeIn"
-                        appTitle={this.appTitle}
-                        appSubtitle={this.appSubtitle}
-                        interface={this.interface}
-                        outsideCallback={this._toggleShareMenu(false)}
-                        i18n={this.i18n}
-                    />
-                )}
+                <div
+                    class={cls('widget__menu__container widget__menu__container--share', {
+                        'active': this.showShareMenu,
+                        'right-space--big': !this.timeline || !this.menu,
+                        'right-space': !this.timeline && !this.menu,
+                    })}
+                >
+                    {this.showShareMenu && (
+                        <glyph-share-menu
+                            class="widget__menu widget__menu--share"
+                            basePath={this.basePath}
+                            appTitle={this.appTitle}
+                            appSubtitle={this.appSubtitle}
+                            interface={this.interface}
+                            outsideCallback={this._toggleShareMenu(false)}
+                            i18n={this.i18n}
+                            locale={this.locale}
+                        />
+                    )}
+                </div>
             </Flex>
         );
     };
@@ -129,14 +149,23 @@ export class HeaderComponent {
         return (
             <Flex row middle center class="widget__container">
                 <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
-                {this.showAppsMenu && (
-                    <glyph-app-menu
-                        class="widget__menu widget__menu--apps animated fadeIn"
-                        apps={this.appData}
-                        outsideCallback={this._toggleShowAppsMenu(false)}
-                        i18n={this.i18n}
-                    />
-                )}
+                <div
+                    class={cls('widget__menu__container', {
+                        'active': this.showAppsMenu,
+                        'right-space': !this.timeline,
+                    })}
+                >
+                    {this.showAppsMenu && (
+                        <glyph-app-menu
+                            basePath={this.basePath}
+                            class="widget__menu widget__menu--apps"
+                            apps={this.appData}
+                            outsideCallback={this._toggleShowAppsMenu(false)}
+                            i18n={this.i18n}
+                            locale={this.locale}
+                        />
+                    )}
+                </div>
             </Flex>
         );
     };
@@ -149,19 +178,26 @@ export class HeaderComponent {
         return (
             <Flex row middle center class="widget__container">
                 <glyph-avatar {...this.userData} onClick={this._toggleShowUserMenu()} />
-                {this.showUserMenu && (
-                    <glyph-user-menu
-                        class="widget__menu widget__menu--user animated fadeIn"
-                        name={this.userData.name}
-                        outsideCallback={this._toggleShowUserMenu(false)}
-                        i18n={this.i18n}
-                        interface={this.interface}
-                        {...this.userMenuConfig}
-                        onLangChange={this._handleLangChange}
-                        onThemeChange={this._handleThemeChange}
-                        onDecimalsChange={this._handleDecimalChange}
-                    />
-                )}
+                <div
+                    class={cls('widget__menu__container widget__menu__container--user', { active: this.showUserMenu })}
+                >
+                    {this.showUserMenu && (
+                        <glyph-user-menu
+                            class="widget__menu widget__menu--user"
+                            basePath={this.basePath}
+                            name={this.userData.name}
+                            outsideCallback={this._toggleShowUserMenu(false)}
+                            i18n={this.i18n}
+                            locale={this.locale}
+                            interface={this.interface}
+                            {...this.userMenuConfig}
+                            onLangChange={this._handleLangChange}
+                            onThemeChange={this._handleThemeChange}
+                            onDecimalsChange={this._handleDecimalChange}
+                            onLogout={this._handleLogout}
+                        />
+                    )}
+                </div>
             </Flex>
         );
     };
@@ -175,9 +211,11 @@ export class HeaderComponent {
                 )}
             >
                 <glyph-timeline
+                    basePath={this.basePath}
                     calendarEvents={this.calendarEvents}
                     events={this.events}
                     i18n={this.i18n}
+                    locale={this.locale}
                     interface={this.interface}
                     outsideCallback={this._toggleShowTimeline(false)}
                 />
@@ -191,7 +229,7 @@ export class HeaderComponent {
                 <Flex row middle class="header--left">
                     <img
                         class={cls({ clickable: this.brand })}
-                        src={getAssetPath(`./assets/brands/icon_${this.activeBrand}.svg`)}
+                        src={getAssetPath(`${this.basePath}/assets/brands/icon_${this.activeBrand}.svg`)}
                     />
                     <Flex left>
                         <h2>{this.appTitle}</h2>

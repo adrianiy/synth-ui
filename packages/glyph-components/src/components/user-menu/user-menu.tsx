@@ -2,7 +2,7 @@ import { Component, Element, Prop, h, EventEmitter, Event, Listen, State } from 
 import { SelectorOption, UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-user-menu',
@@ -10,6 +10,8 @@ import { getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class UserMenuComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** User name */
     @Prop() name: string;
     /** Application languages */
@@ -24,6 +26,8 @@ export class UserMenuComponent {
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Logout event, trigger an event identified with **logout** key */
@@ -54,7 +58,7 @@ export class UserMenuComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'user-menu' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'user-menu' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -78,10 +82,10 @@ export class UserMenuComponent {
 
     render() {
         return (
-            <Flex left class="user-menu__container">
+            <Flex left class={cls('user-menu__container', this.interface)}>
                 <Flex>
                     <span class="caption caption--small">{this._i18n['user']}</span>
-                    <h2>{this.name}</h2>
+                    {this.interface === 'classic' ? <span class="caption">{this.name}</span> : <h2>{this.name}</h2>}
                 </Flex>
                 <div class="separator" />
                 {this.languages && (

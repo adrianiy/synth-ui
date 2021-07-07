@@ -1,3 +1,3 @@
-import FilterStateProvider from './filter-state';
+import FilterStateProvider, { useFilters, useFiltersConfig } from './filter-state';
 
-export { FilterStateProvider };
+export { FilterStateProvider, useFilters, useFiltersConfig };

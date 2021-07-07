@@ -1,15 +1,18 @@
+:host {
+    width: 100%;
+}
 .header__container {
     font-size: var(--gui-font--base);
     color: var(--gui-color);
     height: var(--gui-header-size);
-    border-bottom: var(--gui-border--lightest);
+    border-bottom: var(--gui-border--secondary);
     background: var(--gui-color--background--lighter);
     padding: 0 var(--gui-padding--xxxl);
     position: relative;
 
     .header--left {
         img {
-            height: calc(var(--gui-header-size) - 15px);
+            height: 35px;
             padding-right: var(--gui-padding--s);
             margin-right: var(--gui-padding--s);
             border-right: var(--gui-border);
@@ -80,20 +83,36 @@
             position: relative;
 
             .widget__menu {
-                position: absolute;
                 background: var(--gui-color--background--lighter);
                 border: var(--gui-border--lightest);
                 box-shadow: var(--gui-shadow);
                 min-width: 200px;
-                top: 37px;
                 padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
 
-                &--user {
-                    right: 0;
-                    top: 45px;
-                }
-                &--share {
-                    top: 35px;
+                &__container {
+                    position: absolute;
+                    top: 37px;
+                    display: flex;
+                    transform: translateY(-500px);
+                    transition: all ease-in-out 700ms;
+                    z-index: -1;
+
+                    &.right-space {
+                        right: -64px;
+                        &--big {
+                            right: -112px;
+                        }
+                    }
+                    &.active {
+                        transform: translateY(0);
+                    }
+                    &--user {
+                        right: 0;
+                        top: 45px;
+                    }
+                    &--share {
+                        top: 35px;
+                    }
                 }
             }
         }
@@ -111,7 +130,7 @@
         overflow: scroll;
 
         &::-webkit-scrollbar {
-            display: none
+            display: none;
         }
     }
 

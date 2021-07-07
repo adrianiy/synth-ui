@@ -1,4 +1,4 @@
-import { Component, Prop, State, h, Event, EventEmitter } from '@stencil/core';
+import { Component, Prop, State, h, Event, EventEmitter, Watch } from '@stencil/core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
@@ -40,11 +40,38 @@ export class InputComponent {
     /** Password visibility */
     @State() passVisible: boolean = false;
 
+    /** Range value */
+    @State() rangeValue: number = 0;
+
+    /** In transition */
+    @State() inTransition: boolean = false;
+
+    private _knobSize = 9;
+
+    @Watch('value')
+    onValueChange() {
+        this.inTransition = true;
+        this.rangeValue = this.value;
+        setTimeout(() => (this.inTransition = false), 700);
+    }
+
     componentWillRender() {
         if (this.ref && this.autoFocus) {
             this.ref.focus();
         }
     }
+
+    private _getThumbPosition = () => {
+        if (this.ref) {
+            const min = this._knobSize;
+            const max = this.ref?.getBoundingClientRect().width - this._knobSize * 2;
+            const value = (max - min) * ((this.rangeValue - 0) / (100 - 0)) + min;
+
+            return `${value}px`;
+        } else {
+            return `${this.rangeValue}%`;
+        }
+    };
 
     private _togglePassVisibility = () => {
         this.passVisible = !this.passVisible;
@@ -60,7 +87,17 @@ export class InputComponent {
     };
 
     private _handleInputChange = ({ target: { value } }: any) => {
-        this.inputChange.emit(value);
+        if (this.inputType === 'range') {
+            this.rangeValue = value;
+        } else {
+            this.inputChange.emit(value);
+        }
+    };
+
+    private _handleInputOnChange = ({ target: { value } }: any) => {
+        if (this.inputType === 'range') {
+            this.inputChange.emit(value);
+        }
     };
 
     private _handleKeyUp = (event: any) => {
@@ -102,12 +139,24 @@ export class InputComponent {
         );
     };
 
+    private _renderRangeThumb = () => {
+        return (
+            <div
+                class={cls('input--range__thumb', {
+                    transitioning: this.inTransition,
+                })}
+                style={{ left: this._getThumbPosition() }}
+            />
+        );
+    };
+
     render() {
         return (
             <Flex
                 row
                 spaced
                 middle
+                style={{ '--knob-size': `${this._knobSize}px` }}
                 class={cls('input__container', {
                     search: this.search,
                     box: this.box,
@@ -117,6 +166,7 @@ export class InputComponent {
             >
                 <Flex row middle class="input__wrapper">
                     {this.search && <Icon icon="search" class="search" />}
+                    {this.inputType === 'range' && this._renderRangeThumb()}
                     <input
                         ref={ref => (this.ref = ref)}
                         type={this._checkInputType()}
@@ -124,6 +174,7 @@ export class InputComponent {
                         value={this.value}
                         onKeyUp={this._handleKeyUp}
                         onInput={this._handleInputChange}
+                        onChange={this._handleInputOnChange}
                         disabled={this.disabled}
                         min={this.min}
                         max={this.max}

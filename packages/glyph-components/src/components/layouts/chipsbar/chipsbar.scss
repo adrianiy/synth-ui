@@ -1,7 +1,15 @@
-.buttons__container {
-    color: var(--gui-color);
-    font-size: var(--gui-font--base);
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: var(--gui-padding--s);
+:host {
+    width: 100%;
+}
+.chipsbar__container {
+    margin: var(--gui-padding--xs) auto;
+    padding: 0 var(--gui-padding--xxxl);
+
+    .buttons__container {
+        color: var(--gui-color);
+        font-size: var(--gui-font--base);
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: var(--gui-padding--s);
+    }
 }

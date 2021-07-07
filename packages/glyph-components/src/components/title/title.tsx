@@ -10,6 +10,11 @@ export class TitleComponent {
     @Prop() titleText: string;
 
     render() {
-        return <h2>{this.titleText}</h2>;
+        return (
+            <h2>
+                <slot />
+                {this.titleText}
+            </h2>
+        );
     }
 }
