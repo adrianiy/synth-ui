@@ -10,7 +10,7 @@ import { getLocaleComponentStrings } from '../../utils/utils';
 })
 export class TimelineComponent {
     /** Base path to get assets dir */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Calendar events */
     @Prop() calendarEvents: TimelineEvent[];
     /** Events */

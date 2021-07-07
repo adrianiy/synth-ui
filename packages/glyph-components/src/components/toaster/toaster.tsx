@@ -11,7 +11,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 })
 export class ToasterComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Id of event that trigger toaster show */
     @Prop() eventId: string;
     /** Time to live for shown toaster */

@@ -18,7 +18,7 @@ dayjs.extend(isSameOrBefore);
 })
 export class DateFilterComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Filter description */
     @Prop() description: string;
     /** Active flag */

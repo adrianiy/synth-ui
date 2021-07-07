@@ -906,6 +906,10 @@ export namespace Components {
          */
         "aspectRatio": number;
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Distance between columns
          */
         "columnGap": string;
@@ -2514,6 +2518,10 @@ declare namespace LocalJSX {
           * Aspect ratio used to calculate loader height
          */
         "aspectRatio"?: number;
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
         /**
           * Distance between columns
          */

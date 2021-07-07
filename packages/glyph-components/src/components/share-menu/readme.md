@@ -11,7 +11,7 @@
 | ----------------- | -------------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
 | `appSubtitle`     | `app-subtitle` | Application subtitle                                             | `string`                                    | `undefined`           |
 | `appTitle`        | `app-title`    | Application title                                                | `string`                                    | `undefined`           |
-| `basePath`        | `base-path`    | Base path to get assets                                          | `string`                                    | `''`                  |
+| `basePath`        | `base-path`    | Base path to get assets                                          | `string`                                    | `undefined`           |
 | `i18n`            | --             | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |
 | `interface`       | `interface`    | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 | `locale`          | `locale`       | **optional** force locale change if html lang is not interpreted | `string`                                    | `undefined`           |

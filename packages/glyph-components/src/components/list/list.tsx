@@ -17,7 +17,7 @@ const RESPONSIVE_LIMIT = 10;
 })
 export class ListComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Loading state. If true will render skeleton loader */
     @Prop() loading: boolean;
     /** Component data. Fields preffixed with `_` will not render */

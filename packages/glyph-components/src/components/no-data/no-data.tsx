@@ -11,7 +11,7 @@ import { NoDataType } from './no-data.model';
 })
 export class NoDataComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Render mode [ 'simple' | 'complex' ] */
     @Prop() mode: string = NoDataType.Simple;
     /** Top text only applies if render mode is advanced */

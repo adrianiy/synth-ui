@@ -11,7 +11,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 })
 export class ArticleComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Loading flag */
     @Prop() loading: boolean = false;
     /** Aspect ratio used to calculate loader height */
