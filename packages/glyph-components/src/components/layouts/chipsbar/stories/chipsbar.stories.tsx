@@ -4,6 +4,7 @@ import { filtersConfig } from './helpers/config';
 import { clearAllEvent, clearEvent, multiSelectEvent, optionClickEvent } from './helpers/events';
 
 const baseProps = {
+    basePath: isDev ? '' : 'glyph-ui',
     filtersConfig: filtersConfig,
     hideZaraSouth: true,
     interface: 'classic',
@@ -19,11 +20,18 @@ export default {
     },
 };
 
-const Template = ({ filtersConfig, hideZaraSouth, interface: interfaceValue }, ctx: any) =>
+const Template = ({ basePath, filtersConfig, hideZaraSouth, interface: interfaceValue }, ctx: any) =>
     WithGlobalDecorator({
-        template: html` <glyph-chipsbar .basePath={ isDev ? '' : 'glyph-ui' }" .filtersConfig=${filtersConfig}
-        .hideZaraSouth=${hideZaraSouth} .interface=${interfaceValue} @filterSelect=${optionClickEvent}
-        @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} />`,
+        template: html` <glyph-chipsbar
+            .basePath=${basePath}
+            .filtersConfig=${filtersConfig}
+            .hideZaraSouth=${hideZaraSouth}
+            .interface=${interfaceValue}
+            @filterSelect=${optionClickEvent}
+            @filterClear=${clearEvent}
+            @updateFilter=${multiSelectEvent}
+            @clearAll=${clearAllEvent}
+        />`,
         ctx,
         style: 'height: 400px',
     });
