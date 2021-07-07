@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.2...glyph-angular-v1.0.3) (2021-07-07)
+
+
+### Bug Fixes
+
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+
 ## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.1...glyph-angular-v1.0.2) (2021-07-07)
 
 
