@@ -1,3 +1,20 @@
+## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.1...glyph-angular-v1.0.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* **header:** expose logout event ([644a331](https://github.com/adrianiy/glyph-ui/commit/644a331a458f3d66bd171e5a34ef19d108316634))
+* fix i18n to work with amiga react fwk ([3ceac3f](https://github.com/adrianiy/glyph-ui/commit/3ceac3fef55b6169acd3551952508273d4c62e02))
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+
+
+### Features
+
+* **slider:** add animation at value change ([4ab8c10](https://github.com/adrianiy/glyph-ui/commit/4ab8c10cc440dcc759226196a53e3f95188e7fdc))
+
 ## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.0...glyph-angular-v1.0.1) (2021-06-30)
 
 
