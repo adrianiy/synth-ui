@@ -36,6 +36,7 @@
 | ---------------- | --------------------- | ----------------------------- |
 | `decimalsChange` | Decimals change event | `CustomEvent<boolean>`        |
 | `langChange`     | Language change event | `CustomEvent<SelectorOption>` |
+| `logout`         | Logout event          | `CustomEvent<any>`            |
 | `themeChange`    | Theme change event    | `CustomEvent<SelectorOption>` |
 
 

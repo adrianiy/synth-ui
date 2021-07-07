@@ -2149,6 +2149,10 @@ declare namespace LocalJSX {
          */
         "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
         /**
+          * Logout event
+         */
+        "onLogout"?: (event: CustomEvent<any>) => void;
+        /**
           * Theme change event
          */
         "onThemeChange"?: (event: CustomEvent<SelectorOption>) => void;

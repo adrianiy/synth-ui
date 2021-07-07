@@ -64,6 +64,8 @@ export class HeaderComponent {
     @Event() themeChange: EventEmitter<SelectorOption>;
     /** Decimals change event */
     @Event() decimalsChange: EventEmitter<boolean>;
+    /** Logout event */
+    @Event() logout: EventEmitter<any>;
 
     /** show user menu flag */
     @State() showUserMenu: boolean = false;
@@ -100,6 +102,10 @@ export class HeaderComponent {
 
     private _handleDecimalChange = ({ detail }: CustomEvent) => {
         this.decimalsChange.emit(detail);
+    };
+
+    private _handleLogout = () => {
+        this.logout.emit();
     };
 
     private _renderShare = () => {
@@ -188,6 +194,7 @@ export class HeaderComponent {
                             onLangChange={this._handleLangChange}
                             onThemeChange={this._handleThemeChange}
                             onDecimalsChange={this._handleDecimalChange}
+                            onLogout={this._handleLogout}
                         />
                     )}
                 </div>
