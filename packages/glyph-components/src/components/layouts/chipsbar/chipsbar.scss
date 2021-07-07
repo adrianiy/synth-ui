@@ -1,5 +1,9 @@
+:host {
+    width: 100%;
+}
 .chipsbar__container {
     margin: var(--gui-padding--xs) auto;
+    padding: 0 var(--gui-padding--xxxl);
 
     .buttons__container {
         color: var(--gui-color);

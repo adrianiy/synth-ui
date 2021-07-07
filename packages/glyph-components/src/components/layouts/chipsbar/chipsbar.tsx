@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, State, h, Element } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, State, h, Element, Host } from '@stencil/core';
 import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../../utils/layout';
 import { getLocaleComponentStrings } from '../../../utils/utils';
@@ -175,11 +175,13 @@ export class ChipsBarComponent {
 
     render() {
         return (
-            <Flex row middle spaced class="chipsbar__container">
-                {this._renderChips()}
-                {this._renderButtons()}
+            <Host style={{ zIndex: this.configModal ? '99' : 'inherit' }}>
+                <Flex row middle spaced class="chipsbar__container">
+                    {this._renderChips()}
+                    {this._renderButtons()}
+                </Flex>
                 {this.configModal && this._renderConfigurationModal()}
-            </Flex>
+            </Host>
         );
     }
 }

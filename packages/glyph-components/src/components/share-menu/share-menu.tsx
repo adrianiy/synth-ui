@@ -82,7 +82,6 @@ export class ShareMenuComponent {
     render() {
         return (
             <Flex class="share-menu__container">
-                <h3>{this._i18n['share']}</h3>
                 <span class="url">{location.href}</span>
                 <span class="caption">{[ this.appTitle, this.appSubtitle ].filter(chunk => chunk).join(' - ')}</span>
                 <Flex row spaced class="button__container">
