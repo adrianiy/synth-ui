@@ -44,13 +44,13 @@ setup();
 @import "glyph-components/dist/glyph-components/glyph-components";
 ```
 
-5. Execute `yarn build` script to copy assets in static folder
+3. Execute `yarn build` script to copy assets in static folder
 
 ```bash
 yarn build
 ```
 
-6. Use glyph-components wherever you like to.
+4. Use glyph-components wherever you like to.
 
 ```javascript
 import { GlyphReactList } from 'glyph-react';
@@ -69,20 +69,7 @@ import { GlyphReactList } from 'glyph-react';
 
 ### AMIGA-FWK
 
-1. Change style loading to admit glyph-components global css-variables 
-
-```javascript
-                // Styles loader
-                // - Combine all CSS into one single bundle.css file
-                // - Support standard CSS
-                // - Support PostCSS extensions (https://postcss.org/) configured at the postcss.config.js file
-                {
-                    test: /\.css$/,
-                    use: ["style-loader", "css-loader"],
-                },
-```
-
-2. Import assets dir from `node_modules/glyph_react/dist/assets` in your local assets.
+1. Import assets dir from `node_modules/glyph_react/dist/assets` in your local assets.
 
 ```javascript
 // amiga FWK (webpack 4)
@@ -101,6 +88,8 @@ const copyPlugin = require('copy-webpack-plugin');
     ]
 ...
 ```
+
+2. Execute `yarn build` in frontend folder
 
 ## Local Development
 
