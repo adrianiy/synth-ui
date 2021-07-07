@@ -5,8 +5,9 @@
     user-select: none;
     position: relative;
     color: var(--gui-color);
-    margin: 0 var(--gui-padding--m) 0 0;
-    padding: var(--gui-padding--xs);
+    margin: 0;
+    margin-right: var(--gui-padding--m);
+    padding: var(--gui-padding--nano) var(--gui-padding--xs);
     padding-left: 0;
     white-space: nowrap;
     width: max-content;
@@ -80,7 +81,7 @@
         position: absolute;
         display: grid;
         grid-template-columns: repeat(3, min-content);
-        margin-top: var(--gui-padding--xs);
+        margin-top: var(--gui-padding--xxxs);
         background: var(--gui-color--background--lighter);
         border: var(--gui-border--lightest);
         padding: var(--gui-padding--s);

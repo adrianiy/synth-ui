@@ -1,3 +1,24 @@
+## [1.18.4](https://github.com/adrianiy/glyph-ui/compare/v1.18.3...v1.18.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+
+## [1.18.3](https://github.com/adrianiy/glyph-ui/compare/v1.18.2...v1.18.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+
+## [1.18.2](https://github.com/adrianiy/glyph-ui/compare/v1.18.1...v1.18.2) (2021-07-02)
+
+
+### Bug Fixes
+
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+
 ## [1.18.1](https://github.com/adrianiy/glyph-ui/compare/v1.18.0...v1.18.1) (2021-06-30)
 
 

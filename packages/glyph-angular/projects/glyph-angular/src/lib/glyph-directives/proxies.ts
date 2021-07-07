@@ -8,13 +8,13 @@ import { Components } from 'glyph-components';
 
 export declare interface GlyphAppMenu extends Components.GlyphAppMenu {}
 @ProxyCmp({
-  inputs: ['apps', 'hasSearch', 'i18n', 'outsideCallback']
+  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'locale', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-app-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['apps', 'hasSearch', 'i18n', 'outsideCallback']
+  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'locale', 'outsideCallback']
 })
 export class GlyphAppMenu {
   protected el: HTMLElement;
@@ -27,14 +27,14 @@ export class GlyphAppMenu {
 import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
-  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  inputs: ['article', 'aspectRatio', 'basePath', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'locale', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
   methods: ['getImageSize', 'hideTooltip', 'setArticleSize']
 })
 @Component({
   selector: 'glyph-article',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['article', 'aspectRatio', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
+  inputs: ['article', 'aspectRatio', 'basePath', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'locale', 'parseImageUrl', 'quantityField', 'useBackdropDecoration'],
   outputs: ['articleClick', 'articleVisible']
 })
 export class GlyphArticle {
@@ -154,13 +154,13 @@ export class GlyphCalendar {
 import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({
-  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface']
+  inputs: ['basePath', 'filtersConfig', 'hideZaraSouth', 'i18n', 'interface', 'locale']
 })
 @Component({
   selector: 'glyph-chipsbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['filtersConfig', 'hideZaraSouth', 'i18n', 'interface'],
+  inputs: ['basePath', 'filtersConfig', 'hideZaraSouth', 'i18n', 'interface', 'locale'],
   outputs: ['filterSelect', 'filterClear', 'updateFilter', 'clearAll']
 })
 export class GlyphChipsbar {
@@ -206,13 +206,13 @@ export class GlyphConfigModal {
 import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
 export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
 @ProxyCmp({
-  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate']
+  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate']
 })
 @Component({
   selector: 'glyph-date-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
   outputs: ['dateSelection', 'clearEvent']
 })
 export class GlyphDateFilter {
@@ -231,13 +231,13 @@ export class GlyphDateFilter {
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
+  inputs: ['basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
+  inputs: ['basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
   outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
 })
 export class GlyphFilter {
@@ -277,13 +277,13 @@ export class GlyphFilterDrilldownOptions {
 
 export declare interface GlyphFilterOptions extends Components.GlyphFilterOptions {}
 @ProxyCmp({
-  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['basePath', 'closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-filter-options',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['basePath', 'closeEvent', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'multiSelectEvent', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 export class GlyphFilterOptions {
   protected el: HTMLElement;
@@ -331,17 +331,17 @@ export class GlyphFlex {
   }
 }
 
-import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/header/header';
+import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/layouts/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
 })
 @Component({
   selector: 'glyph-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
-  outputs: ['langChange', 'themeChange', 'decimalsChange']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
+  outputs: ['langChange', 'themeChange', 'decimalsChange', 'logout']
 })
 export class GlyphHeader {
   /** Language change event */
@@ -350,11 +350,13 @@ export class GlyphHeader {
   themeChange!: IHeaderComponent['themeChange'];
   /** Decimals change event */
   decimalsChange!: IHeaderComponent['decimalsChange'];
+  /** Logout event */
+  logout!: IHeaderComponent['logout'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange']);
+    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'logout']);
   }
 }
 
@@ -386,13 +388,13 @@ export class GlyphInput {
 import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update']
+  inputs: ['basePath', 'data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'locale', 'pageGroups', 'paginationLimit', 'update']
 })
 @Component({
   selector: 'glyph-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'pageGroups', 'paginationLimit', 'update'],
+  inputs: ['basePath', 'data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'locale', 'pageGroups', 'paginationLimit', 'update'],
   outputs: ['expandRow']
 })
 export class GlyphList {
@@ -428,13 +430,13 @@ export class GlyphListRow {
 
 export declare interface GlyphLogin extends Components.GlyphLogin {}
 @ProxyCmp({
-  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+  inputs: ['basePath', 'i18n', 'interface', 'locale', 'login', 'loginSuccess', 'version']
 })
 @Component({
   selector: 'glyph-login',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['i18n', 'interface', 'login', 'loginSuccess', 'version']
+  inputs: ['basePath', 'i18n', 'interface', 'locale', 'login', 'loginSuccess', 'version']
 })
 export class GlyphLogin {
   protected el: HTMLElement;
@@ -474,13 +476,13 @@ export class GlyphModal {
 
 export declare interface GlyphNoData extends Components.GlyphNoData {}
 @ProxyCmp({
-  inputs: ['bottomText', 'i18n', 'mode', 'text']
+  inputs: ['basePath', 'bottomText', 'i18n', 'locale', 'mode', 'text']
 })
 @Component({
   selector: 'glyph-no-data',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['bottomText', 'i18n', 'mode', 'text']
+  inputs: ['basePath', 'bottomText', 'i18n', 'locale', 'mode', 'text']
 })
 export class GlyphNoData {
   protected el: HTMLElement;
@@ -516,14 +518,14 @@ export class GlyphPagination {
 import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
-  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  inputs: ['aspectRatio', 'basePath', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'locale', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
   methods: ['changeScroll']
 })
 @Component({
   selector: 'glyph-ranking',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['aspectRatio', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
+  inputs: ['aspectRatio', 'basePath', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'locale', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration'],
   outputs: ['scrollChange']
 })
 export class GlyphRanking {
@@ -540,13 +542,13 @@ export class GlyphRanking {
 
 export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
 @ProxyCmp({
-  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 @Component({
   selector: 'glyph-ranking-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 export class GlyphRankingLayout {
   protected el: HTMLElement;
@@ -620,13 +622,13 @@ export class GlyphSelectorOptions {
 
 export declare interface GlyphShareMenu extends Components.GlyphShareMenu {}
 @ProxyCmp({
-  inputs: ['appSubtitle', 'appTitle', 'i18n', 'interface', 'outsideCallback']
+  inputs: ['appSubtitle', 'appTitle', 'basePath', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-share-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['appSubtitle', 'appTitle', 'i18n', 'interface', 'outsideCallback']
+  inputs: ['appSubtitle', 'appTitle', 'basePath', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 export class GlyphShareMenu {
   protected el: HTMLElement;
@@ -752,13 +754,13 @@ export class GlyphTabs {
 
 export declare interface GlyphTimeline extends Components.GlyphTimeline {}
 @ProxyCmp({
-  inputs: ['calendarEvents', 'events', 'i18n', 'interface', 'outsideCallback']
+  inputs: ['basePath', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-timeline',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['calendarEvents', 'events', 'i18n', 'interface', 'outsideCallback']
+  inputs: ['basePath', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 export class GlyphTimeline {
   protected el: HTMLElement;
@@ -790,13 +792,13 @@ export class GlyphTitle {
 
 export declare interface GlyphToaster extends Components.GlyphToaster {}
 @ProxyCmp({
-  inputs: ['eventId', 'i18n', 'ttl']
+  inputs: ['basePath', 'eventId', 'i18n', 'locale', 'ttl']
 })
 @Component({
   selector: 'glyph-toaster',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['eventId', 'i18n', 'ttl']
+  inputs: ['basePath', 'eventId', 'i18n', 'locale', 'ttl']
 })
 export class GlyphToaster {
   protected el: HTMLElement;
@@ -828,13 +830,13 @@ export class GlyphToggler {
 import { UserMenuComponent as IUserMenuComponent } from 'glyph-components/dist/types/components/user-menu/user-menu';
 export declare interface GlyphUserMenu extends Components.GlyphUserMenu {}
 @ProxyCmp({
-  inputs: ['customConfig', 'decimals', 'i18n', 'interface', 'languages', 'name', 'outsideCallback', 'themes']
+  inputs: ['basePath', 'customConfig', 'decimals', 'i18n', 'interface', 'languages', 'locale', 'name', 'outsideCallback', 'themes']
 })
 @Component({
   selector: 'glyph-user-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['customConfig', 'decimals', 'i18n', 'interface', 'languages', 'name', 'outsideCallback', 'themes'],
+  inputs: ['basePath', 'customConfig', 'decimals', 'i18n', 'interface', 'languages', 'locale', 'name', 'outsideCallback', 'themes'],
   outputs: ['logout', 'langChange', 'themeChange', 'decimalsChange']
 })
 export class GlyphUserMenu {

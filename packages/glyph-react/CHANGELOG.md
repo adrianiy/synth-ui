@@ -1,3 +1,20 @@
+## [1.1.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.1...glyph-react-v1.1.2) (2021-07-02)
+
+
+### Bug Fixes
+
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+
+## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.0...glyph-react-v1.1.1) (2021-07-02)
+
+
+### Bug Fixes
+
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+* **core:** fix default date filter selection ([#135](https://github.com/adrianiy/glyph-ui/issues/135)) ([bbabcad](https://github.com/adrianiy/glyph-ui/commit/bbabcad2c06b5d60fab3e0cce89a399c03573df9))
+* **toaster:** fix docs demo ([f827d95](https://github.com/adrianiy/glyph-ui/commit/f827d95a5dfdedd7292afc091cfc719f1653d388))
+
 # [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.0.0...glyph-react-v1.1.0) (2021-06-29)
 
 

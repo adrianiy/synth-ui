@@ -7,19 +7,21 @@
 
 ## Properties
 
-| Property          | Attribute    | Description                                                  | Type                         | Default     |
-| ----------------- | ------------ | ------------------------------------------------------------ | ---------------------------- | ----------- |
-| `apps`            | --           | List of apps                                                 | `Screen[]`                   | `undefined` |
-| `hasSearch`       | `has-search` | Flag to activate search input                                | `boolean`                    | `true`      |
-| `i18n`            | --           | Extra i18n translation object                                | `{ [key: string]: string; }` | `{}`        |
-| `outsideCallback` | --           | Event triggered when user clicks outside component container | `() => void`                 | `undefined` |
+| Property          | Attribute    | Description                                                      | Type                         | Default     |
+| ----------------- | ------------ | ---------------------------------------------------------------- | ---------------------------- | ----------- |
+| `apps`            | --           | List of apps                                                     | `Screen[]`                   | `undefined` |
+| `basePath`        | `base-path`  | Base path to get assets                                          | `string`                     | `''`        |
+| `hasSearch`       | `has-search` | Flag to activate search input                                    | `boolean`                    | `true`      |
+| `i18n`            | --           | Extra i18n translation object                                    | `{ [key: string]: string; }` | `{}`        |
+| `locale`          | `locale`     | **optional** force locale change if html lang is not interpreted | `string`                     | `undefined` |
+| `outsideCallback` | --           | Event triggered when user clicks outside component container     | `() => void`                 | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [glyph-header](../header)
+ - [glyph-header](../layouts/header)
 
 ### Graph
 ```mermaid

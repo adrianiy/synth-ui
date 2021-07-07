@@ -27,7 +27,7 @@ export const globalTypes = {
     fontSize: {
         name: 'Font size',
         description: 'Font size base',
-        defaultValue: 'var(--gui-font--base)',
+        defaultValue: 'base',
         toolbar: {
             icon: 'expand',
             items: [

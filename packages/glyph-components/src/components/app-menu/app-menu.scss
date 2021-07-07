@@ -6,7 +6,7 @@
     &__header {
         flex: 1;
         margin: 0 var(--gui-padding--xxs);
-        margin-bottom: var(--gui-padding--l);
+        margin-bottom: var(--gui-padding--xs);
 
         &__search {
             padding: var(--gui-padding--xs) 0;
@@ -33,7 +33,7 @@
         grid-row-gap: var(--gui-padding--xs);
 
         .app {
-            --size: 45px;
+            --size: 70px;
             height: var(--size);
             width: var(--size);
             padding: var(--gui-padding--xxs);
@@ -62,9 +62,11 @@
             span {
                 font-size: var(--gui-font--xs);
                 overflow: hidden;
+                white-space:nowrap;
                 text-overflow: ellipsis;
                 max-width: 100%;
                 text-transform: uppercase;
+                text-align: center;
             }
             em {
                 font-size: var(--gui-font--l);
