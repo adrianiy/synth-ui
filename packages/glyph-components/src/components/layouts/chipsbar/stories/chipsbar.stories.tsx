@@ -4,7 +4,7 @@ import { filtersConfig } from './helpers/config';
 import { clearAllEvent, clearEvent, multiSelectEvent, optionClickEvent } from './helpers/events';
 
 const baseProps = {
-    basePath: isDev ? '' : 'glyph-ui',
+    basePath: isDev ? '' : '/glyph-ui',
     filtersConfig: filtersConfig,
     hideZaraSouth: true,
     interface: 'classic',
