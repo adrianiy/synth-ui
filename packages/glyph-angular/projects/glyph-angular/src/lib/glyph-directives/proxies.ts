@@ -542,13 +542,13 @@ export class GlyphRanking {
 
 export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
 @ProxyCmp({
-  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 @Component({
   selector: 'glyph-ranking-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeView', 'aspectRatio', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 export class GlyphRankingLayout {
   protected el: HTMLElement;

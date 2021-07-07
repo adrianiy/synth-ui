@@ -9,7 +9,7 @@
 
 | Property          | Attribute       | Description                                                      | Type                                        | Default               |
 | ----------------- | --------------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `basePath`        | `base-path`     | Base path to get assets                                          | `string`                                    | `''`                  |
+| `basePath`        | `base-path`     | Base path to get assets                                          | `string`                                    | `undefined`           |
 | `customConfig`    | `custom-config` | Show custom config button                                        | `boolean`                                   | `undefined`           |
 | `decimals`        | `decimals`      | Show decimal config flag                                         | `boolean`                                   | `undefined`           |
 | `i18n`            | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |

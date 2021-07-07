@@ -9,7 +9,7 @@
 
 | Property   | Attribute   | Description                                                      | Type                         | Default     |
 | ---------- | ----------- | ---------------------------------------------------------------- | ---------------------------- | ----------- |
-| `basePath` | `base-path` | Base path to get assets                                          | `string`                     | `''`        |
+| `basePath` | `base-path` | Base path to get assets                                          | `string`                     | `undefined` |
 | `eventId`  | `event-id`  | Id of event that trigger toaster show                            | `string`                     | `undefined` |
 | `i18n`     | --          | Extra i18n translation object                                    | `{ [key: string]: string; }` | `{}`        |
 | `locale`   | `locale`    | **optional** force locale change if html lang is not interpreted | `string`                     | `undefined` |

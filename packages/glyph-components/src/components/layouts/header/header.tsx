@@ -19,7 +19,7 @@ import { cls } from '../../../utils/utils';
 })
 export class HeaderComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Brand selector flag */
     @Prop() brand: boolean;
     /** User avatar flag */

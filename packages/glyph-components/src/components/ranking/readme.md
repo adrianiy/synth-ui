@@ -10,7 +10,7 @@
 | Property                | Attribute                 | Description                                                                                     | Type                         | Default                     |
 | ----------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------- |
 | `aspectRatio`           | `aspect-ratio`            | Aspect ratio used to calculate loader height                                                    | `number`                     | `340 / 512`                 |
-| `basePath`              | `base-path`               | Base path to get assets                                                                         | `string`                     | `''`                        |
+| `basePath`              | `base-path`               | Base path to get assets                                                                         | `string`                     | `undefined`                 |
 | `columnGap`             | `column-gap`              | Distance between columns                                                                        | `string`                     | `'15%'`                     |
 | `columns`               | `columns`                 | Columns to render if ranking have more than 1 section, number of columns will apply per section | `number`                     | `3`                         |
 | `gap`                   | `gap`                     | Distance applied to both axes                                                                   | `string`                     | `undefined`                 |

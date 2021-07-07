@@ -9,7 +9,7 @@
 
 | Property           | Attribute            | Description                                                                     | Type                         | Default     |
 | ------------------ | -------------------- | ------------------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `basePath`         | `base-path`          | Base path to get assets                                                         | `string`                     | `''`        |
+| `basePath`         | `base-path`          | Base path to get assets                                                         | `string`                     | `undefined` |
 | `data`             | --                   | Component data. Fields preffixed with `_` will not render                       | `Row[]`                      | `undefined` |
 | `decimals`         | `decimals`           | Show decimals flag                                                              | `boolean`                    | `undefined` |
 | `defaultSortField` | `default-sort-field` | Default sorting field, it could be a private or public field                    | `string`                     | `undefined` |

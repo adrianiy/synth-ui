@@ -11,7 +11,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 })
 export class AppMenuComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** List of apps */
     @Prop() apps: Screen[];
     /** Flag to activate search input */

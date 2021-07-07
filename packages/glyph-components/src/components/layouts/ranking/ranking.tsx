@@ -9,6 +9,8 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
     shadow: true,
 })
 export class GlyphRankingLayout {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Loading flag */
     @Prop() loading: boolean = false;
     /** Loading comparable flag */
@@ -65,7 +67,12 @@ export class GlyphRankingLayout {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'ranking-layout' ], this.element, this.locale);
+        const componentI18n = await getLocaleComponentStrings(
+            [ 'ranking-layout' ],
+            this.element,
+            this.basePath,
+            this.locale,
+        );
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

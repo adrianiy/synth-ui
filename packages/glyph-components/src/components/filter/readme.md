@@ -9,7 +9,7 @@
 
 | Property            | Attribute            | Description                                                      | Type                                        | Default               |
 | ------------------- | -------------------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `basePath`          | `base-path`          | Base path to get assets                                          | `string`                                    | `''`                  |
+| `basePath`          | `base-path`          | Base path to get assets                                          | `string`                                    | `undefined`           |
 | `description`       | `description`        | Filter description                                               | `string`                                    | `undefined`           |
 | `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler      | `boolean`                                   | `true`                |
 | `i18n`              | --                   | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |

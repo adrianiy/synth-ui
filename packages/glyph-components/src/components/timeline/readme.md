@@ -9,7 +9,7 @@
 
 | Property          | Attribute   | Description                                                      | Type                                        | Default               |
 | ----------------- | ----------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `basePath`        | `base-path` | Base path to get assets dir                                      | `string`                                    | `''`                  |
+| `basePath`        | `base-path` | Base path to get assets dir                                      | `string`                                    | `undefined`           |
 | `calendarEvents`  | --          | Calendar events                                                  | `TimelineEvent[]`                           | `undefined`           |
 | `events`          | --          | Events                                                           | `TimelineEvent[]`                           | `undefined`           |
 | `i18n`            | --          | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |

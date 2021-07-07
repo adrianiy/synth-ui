@@ -10,7 +10,7 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
 })
 export class ChipsBarComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Filters configuration object */
     @Prop() filtersConfig: FiltersConfig;
     /** Hide zara south filters active */

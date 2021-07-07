@@ -11,7 +11,7 @@ import { Icon } from '../../utils/icons';
 })
 export class FilterComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Filter description */
     @Prop() description: string;
     /** Filter plural */
