@@ -23,6 +23,8 @@ jobs:
                   yarn lint
                   yarn build
                   yarn build:docs
+              env:
+                  NODE_ENV: production
             - name: Publish to gh-pages
               run: yarn publish:docs
               env:
