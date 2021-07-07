@@ -1,5 +1,5 @@
 import { html } from 'lit-html';
-import { WithGlobalDecorator, isDev } from '../../../../stories/helpers/decorators';
+import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
 import { filtersConfig } from './helpers/config';
 import { clearAllEvent, clearEvent, multiSelectEvent, optionClickEvent } from './helpers/events';
 
@@ -21,9 +21,15 @@ export default {
 
 const Template = ({ filtersConfig, hideZaraSouth, interface: interfaceValue }, ctx: any) =>
     WithGlobalDecorator({
-        template: html` <glyph-chipsbar .basePath={ isDev ? '' : 'glyph-ui' }" .filtersConfig=${filtersConfig}
-        .hideZaraSouth=${hideZaraSouth} .interface=${interfaceValue} @filterSelect=${optionClickEvent}
-        @filterClear=${clearEvent} @updateFilter=${multiSelectEvent} @clearAll=${clearAllEvent} />`,
+        template: html` <glyph-chipsbar
+            .filtersConfig=${filtersConfig}
+            .hideZaraSouth=${hideZaraSouth}
+            .interface=${interfaceValue}
+            @filterSelect=${optionClickEvent}
+            @filterClear=${clearEvent}
+            @updateFilter=${multiSelectEvent}
+            @clearAll=${clearAllEvent}
+        />`,
         ctx,
         style: 'height: 400px',
     });

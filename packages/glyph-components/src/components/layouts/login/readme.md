@@ -9,7 +9,7 @@
 
 | Property       | Attribute   | Description                                                      | Type                                                      | Default              |
 | -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------- | -------------------- |
-| `basePath`     | `base-path` | Base path to get assets                                          | `string`                                                  | `''`                 |
+| `basePath`     | `base-path` | Base path to get assets                                          | `string`                                                  | `undefined`          |
 | `i18n`         | --          | Extra i18n translates                                            | `{ [key: string]: string; }`                              | `undefined`          |
 | `interface`    | `interface` | Component interface *modern* \| *classic*                        | `UIInterface.classic \| UIInterface.modern`               | `UIInterface.modern` |
 | `locale`       | `locale`    | **optional** force locale change if html lang is not interpreted | `string`                                                  | `undefined`          |

@@ -11,6 +11,7 @@
 | ----------------------- | ------------------------- | ---------------------------------------------------------------------------- | ---------------------------- | --------------------------- |
 | `activeView`            | --                        | Active view layout                                                           | `RankingViewOptions`         | `undefined`                 |
 | `aspectRatio`           | `aspect-ratio`            | Aspect ratio used to calculate loader height                                 | `number`                     | `340 / 512`                 |
+| `basePath`              | `base-path`               | Base path to get assets                                                      | `string`                     | `undefined`                 |
 | `columnGap`             | `column-gap`              | Distance between columns                                                     | `string`                     | `'15%'`                     |
 | `compRankingData`       | --                        | Ranking comparable data                                                      | `RankingData[]`              | `undefined`                 |
 | `i18n`                  | --                        | Extra i18n translates                                                        | `{ [key: string]: string; }` | `undefined`                 |

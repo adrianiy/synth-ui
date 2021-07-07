@@ -11,7 +11,7 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
 })
 export class UserMenuComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** User name */
     @Prop() name: string;
     /** Application languages */

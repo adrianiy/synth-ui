@@ -11,7 +11,7 @@ import { getLocaleComponentStrings } from '../../utils/utils';
 })
 export class ShareMenuComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Application title */
     @Prop() appTitle: string;
     /** Application subtitle */

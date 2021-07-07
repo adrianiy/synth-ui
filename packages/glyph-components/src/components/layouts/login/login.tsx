@@ -10,7 +10,7 @@ import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 })
 export class LoginComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Component interface *modern* | *classic* */
     @Prop() interface: UIInterface = UIInterface.modern;
     /** Application version */
