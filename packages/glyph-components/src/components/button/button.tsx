@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
 import { UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
+import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -17,6 +18,8 @@ export class ButtonComponent {
     @Prop() cancel: boolean;
     /** Renders only text (without borders) */
     @Prop() onlyText: boolean;
+    /** Renders icon first */
+    @Prop() iconFirst: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
 
@@ -34,8 +37,10 @@ export class ButtonComponent {
                     this.interface,
                 )}
             >
+                <slot />
+                {this.icon && this.iconFirst && <Icon icon={this.icon} />}
                 {this.text && this.text}
-                {this.icon && <Icon icon={this.icon} />}
+                {this.icon && !this.iconFirst && <Icon icon={this.icon} />}
             </button>
         );
     }
