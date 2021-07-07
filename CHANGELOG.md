@@ -1,3 +1,16 @@
+# [1.19.0](https://github.com/adrianiy/glyph-ui/compare/v1.18.5...v1.19.0) (2021-07-07)
+
+
+### Bug Fixes
+
+* **header:** expose logout event ([644a331](https://github.com/adrianiy/glyph-ui/commit/644a331a458f3d66bd171e5a34ef19d108316634))
+* fix i18n to work with amiga react fwk ([3ceac3f](https://github.com/adrianiy/glyph-ui/commit/3ceac3fef55b6169acd3551952508273d4c62e02))
+
+
+### Features
+
+* **slider:** add animation at value change ([4ab8c10](https://github.com/adrianiy/glyph-ui/commit/4ab8c10cc440dcc759226196a53e3f95188e7fdc))
+
 ## [1.18.5](https://github.com/adrianiy/glyph-ui/compare/v1.18.4...v1.18.5) (2021-07-02)
 
 
