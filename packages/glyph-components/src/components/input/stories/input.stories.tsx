@@ -50,6 +50,9 @@ export const AsRange = Template.bind({});
 AsRange.args = {
     ...baseProps,
     inputType: 'range',
+    min: 0,
+    max: 100,
+    placeholder: null,
 };
 
 export const AsBox = Template.bind({});

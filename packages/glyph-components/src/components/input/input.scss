@@ -5,6 +5,7 @@
 
     .input__wrapper {
         flex: 1;
+        position: relative;
 
         input {
             flex: 1;
@@ -88,7 +89,6 @@
         }
     }
     input[type='range'] {
-        --knob-size: 9px;
         -webkit-appearance: none;
         appearance: none;
         width: calc(100% - var(--gui-padding--m));
@@ -98,10 +98,12 @@
         margin: 0;
         padding: 0 var(--gui-padding--xs);
         cursor: pointer;
+        z-index: 2;
 
         &::-webkit-slider-thumb {
             -webkit-appearance: none; /* Override default look */
             appearance: none;
+            opacity: 0;
             width: var(--knob-size); /* Set a specific slider handle width */
             height: var(--knob-size); /* Slider handle height */
             background: var(--gui-color--background--contrast); /* Green background */
@@ -111,12 +113,21 @@
         }
 
         &::-moz-range-thumb {
-            width: var(--knob-size); /* Set a specific slider handle width */
-            height: var(--knob-size); /* Slider handle height */
-            background: var(--gui-color--background--contrast); /* Green background */
-            cursor: pointer; /* Cursor on hover */
-            border-radius: 100%;
-            transition: var(--gui-transition--300);
+            opacity: 0;
+        }
+    }
+    .input--range__thumb {
+        position: absolute;
+        width: var(--knob-size); /* Set a specific slider handle width */
+        height: var(--knob-size); /* Slider handle height */
+        background: var(--gui-color--background--contrast); /* Green background */
+        cursor: pointer; /* Cursor on hover */
+        border-radius: 100%;
+        transition: all ease-in-out 50ms;
+        z-index:0;
+
+        &.transitioning {
+            transition: all ease-in-out 700ms;
         }
     }
 }
