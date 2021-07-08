@@ -1,7 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
 import { UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
-import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
 
 @Component({

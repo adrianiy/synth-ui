@@ -75,6 +75,8 @@ export class HeaderComponent {
     @State() showShareMenu: boolean = false;
     /** show timeline flag */
     @State() showTimeline: boolean = false;
+    /** show notifications flag */
+    @State() showNotifications: boolean = false;
 
     private _toggleShareMenu = (value?: boolean) => () => {
         this.showShareMenu = value ?? !this.showShareMenu;
@@ -90,6 +92,10 @@ export class HeaderComponent {
 
     private _toggleShowTimeline = (value?: boolean) => () => {
         this.showTimeline = value ?? !this.showTimeline;
+    };
+
+    private _toggleNotifications = (value?: boolean) => () => {
+        this.showNotifications = value ?? !this.showNotifications;
     };
 
     private _handleLangChange = ({ detail }: CustomEvent) => {
@@ -120,7 +126,7 @@ export class HeaderComponent {
                 <div
                     class={cls('widget__menu__container widget__menu__container--share', {
                         'active': this.showShareMenu,
-                        'right-space--big': !this.timeline || !this.menu,
+                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
                         'right-space': !this.timeline && !this.menu,
                     })}
                 >
@@ -145,12 +151,33 @@ export class HeaderComponent {
         return <Icon button icon="search" />;
     };
 
+    private _renderNotifications = () => {
+        return (
+            <Flex row middle center class="widget__container">
+                <Icon button icon="notifications" onClick={this._toggleNotifications()} />
+                <div
+                    class={cls('widget__menu__container widget__menu__container--notifications', {
+                        'active': this.showNotifications,
+                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
+                        'right-space': !this.timeline && !this.menu && !this.share,
+                    })}
+                >
+                    {this.showNotifications && (
+                        <div class="widget__menu widget__menu--notfications">
+                            <slot />
+                        </div>
+                    )}
+                </div>
+            </Flex>
+        );
+    };
+
     private _renderMenu = () => {
         return (
             <Flex row middle center class="widget__container">
                 <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
                 <div
-                    class={cls('widget__menu__container', {
+                    class={cls('widget__menu__container widget__menu__container--apps', {
                         'active': this.showAppsMenu,
                         'right-space': !this.timeline,
                     })}
@@ -229,7 +256,7 @@ export class HeaderComponent {
                 <Flex row middle class="header--left">
                     <img
                         class={cls({ clickable: this.brand })}
-                        src={getAssetPath(`${this.basePath}/assets/brands/icon_${this.activeBrand}.svg`)}
+                        src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
                     />
                     <Flex left>
                         <h2>{this.appTitle}</h2>
@@ -238,6 +265,7 @@ export class HeaderComponent {
                 </Flex>
                 <div class="header--right">
                     {this.search && this._renderSearch()}
+                    {this.notifications && this._renderNotifications()}
                     {this.share && this._renderShare()}
                     {this.menu && this._renderMenu()}
                     {this.timeline && this._renderTimeline()}

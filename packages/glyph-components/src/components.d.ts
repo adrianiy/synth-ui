@@ -126,6 +126,10 @@ export namespace Components {
          */
         "icon": string;
         /**
+          * Renders icon first
+         */
+        "iconFirst": boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -1646,6 +1650,10 @@ declare namespace LocalJSX {
           * Material icons id
          */
         "icon"?: string;
+        /**
+          * Renders icon first
+         */
+        "iconFirst"?: boolean;
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */

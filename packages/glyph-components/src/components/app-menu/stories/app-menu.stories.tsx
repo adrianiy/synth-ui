@@ -1,12 +1,7 @@
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
+import { apps } from './helpers/config';
 
-const apps = [
-    { icon: 'home', name: 'home', active: true },
-    { icon: 'info', name: 'info' },
-    { icon: 'lightbulb', name: 'test' },
-    { icon: 'dashboard', name: 'dashboard' },
-];
 const baseProps = {
     apps,
     hasSearch: true,

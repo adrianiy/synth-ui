@@ -60,6 +60,7 @@ graph TD;
   glyph-header --> glyph-timeline
   glyph-share-menu --> glyph-toggler
   glyph-share-menu --> glyph-toaster
+  glyph-app-menu --> glyph-scroll
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
   glyph-selector --> glyph-selector-options
