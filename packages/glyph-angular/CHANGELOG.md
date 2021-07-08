@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.3...glyph-angular-v1.0.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+
 ## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.2...glyph-angular-v1.0.3) (2021-07-07)
 
 

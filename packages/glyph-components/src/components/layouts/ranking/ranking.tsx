@@ -197,7 +197,7 @@ export class GlyphRankingLayout {
         return (
             <Flex class="ranking">
                 <Flex row spaced top class="ranking__header">
-                    <glyph-title titleText="Ranking" />
+                    <glyph-title text="Ranking" />
                     {this._renderHeaderOptions()}
                 </Flex>
                 <glyph-ranking

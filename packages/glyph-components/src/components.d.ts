@@ -118,6 +118,10 @@ export namespace Components {
     }
     interface GlyphButton {
         /**
+          * Action button. Displayed with text only
+         */
+        "action": boolean;
+        /**
           * Cancel type button. Renders in red
          */
         "cancel": boolean;
@@ -126,13 +130,13 @@ export namespace Components {
          */
         "icon": string;
         /**
+          * Renders icon first
+         */
+        "iconFirst": boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
-        /**
-          * Renders only text (without borders)
-         */
-        "onlyText": boolean;
         /**
           * Button text
          */
@@ -1178,7 +1182,7 @@ export namespace Components {
         /**
           * title text
          */
-        "titleText": string;
+        "text": string;
     }
     interface GlyphToaster {
         /**
@@ -1639,6 +1643,10 @@ declare namespace LocalJSX {
     }
     interface GlyphButton {
         /**
+          * Action button. Displayed with text only
+         */
+        "action"?: boolean;
+        /**
           * Cancel type button. Renders in red
          */
         "cancel"?: boolean;
@@ -1647,13 +1655,13 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * Renders icon first
+         */
+        "iconFirst"?: boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
-        /**
-          * Renders only text (without borders)
-         */
-        "onlyText"?: boolean;
         /**
           * Button text
          */
@@ -2819,7 +2827,7 @@ declare namespace LocalJSX {
         /**
           * title text
          */
-        "titleText"?: string;
+        "text"?: string;
     }
     interface GlyphToaster {
         /**

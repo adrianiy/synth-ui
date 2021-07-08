@@ -23,9 +23,14 @@
 
  - [glyph-header](../layouts/header)
 
+### Depends on
+
+- [glyph-scroll](../scroll)
+
 ### Graph
 ```mermaid
 graph TD;
+  glyph-app-menu --> glyph-scroll
   glyph-header --> glyph-app-menu
   style glyph-app-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -102,7 +102,7 @@ export class TimelineComponent {
     render() {
         return (
             <Flex class="timeline__container">
-                <glyph-title titleText="Timeline" />
+                <glyph-title text="Timeline" />
                 <Flex row spaced middle class="timeline__options">
                     <glyph-selector
                         options={this.options}

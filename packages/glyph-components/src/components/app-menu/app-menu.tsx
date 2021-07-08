@@ -70,7 +70,7 @@ export class AppMenuComponent {
 
     private _renderApps = () => {
         return (
-            <div class="app-menu__apps">
+            <glyph-scroll hideScrollBar height={432} scrollSpeed={0.2} containerClass="app-menu__apps">
                 {this.apps
                     .filter((app: Screen) => this._inSearch(app))
                     .sort((a, b) => a.order - b.order)
@@ -85,7 +85,7 @@ export class AppMenuComponent {
                             <span title={this._i18n[app.name] || app.name}>{this._i18n[app.name] || app.name}</span>
                         </Flex>
                     ))}
-            </div>
+            </glyph-scroll>
         );
     };
 

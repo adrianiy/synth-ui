@@ -1,3 +1,10 @@
+## [1.19.2](https://github.com/adrianiy/glyph-ui/compare/v1.19.1...v1.19.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+
 ## [1.19.1](https://github.com/adrianiy/glyph-ui/compare/v1.19.0...v1.19.1) (2021-07-07)
 
 
