@@ -91,13 +91,13 @@ export class GlyphBreadcrumbs {
 
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
-  inputs: ['cancel', 'icon', 'iconFirst', 'interface', 'onlyText', 'text']
+  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text']
 })
 @Component({
   selector: 'glyph-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['cancel', 'icon', 'iconFirst', 'interface', 'onlyText', 'text']
+  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text']
 })
 export class GlyphButton {
   protected el: HTMLElement;
@@ -773,13 +773,13 @@ export class GlyphTimeline {
 
 export declare interface GlyphTitle extends Components.GlyphTitle {}
 @ProxyCmp({
-  inputs: ['titleText']
+  inputs: ['text']
 })
 @Component({
   selector: 'glyph-title',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['titleText']
+  inputs: ['text']
 })
 export class GlyphTitle {
   protected el: HTMLElement;
