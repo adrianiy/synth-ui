@@ -25,7 +25,7 @@ function GlyphReactList({
 
     return (
         <div>
-            <GlyphTitle titleText={title} />
+            <GlyphTitle text={title} />
             <GlyphList
                 loading={loading}
                 data={parsedData}

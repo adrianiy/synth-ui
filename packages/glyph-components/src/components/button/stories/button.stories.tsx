@@ -5,8 +5,9 @@ import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
 const baseProps = {
     text: 'button1',
     icon: '',
-    onlyText: false,
+    action: false,
     cancel: false,
+    iconFirst: false,
     interface: UIInterface.classic,
 };
 
@@ -24,13 +25,14 @@ export default {
     },
 };
 
-const Template = ({ text, icon, cancel, onlyText, interface: interfaceValue }, ctx: any) =>
+const Template = ({ text, icon, iconFirst, cancel, action, interface: interfaceValue }, ctx: any) =>
     WithGlobalDecorator({
         template: html` <glyph-button
             .text=${text}
+            .iconFirst=${iconFirst}
             .icon=${icon}
             .cancel=${cancel}
-            .onlyText=${onlyText}
+            .action=${action}
             .interface=${interfaceValue}
             @click=${clickEvent}
         />`,
@@ -55,8 +57,8 @@ Cancel.args = {
     cancel: true,
 };
 
-export const OnlyText = Template.bind({});
-OnlyText.args = {
+export const Action = Template.bind({});
+Action.args = {
     ...baseProps,
-    onlyText: true,
+    action: true,
 };

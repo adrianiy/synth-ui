@@ -16,7 +16,7 @@ It renders the application brand and application title on left side, and a set o
  | action        | icon      | onClick                                                          |
  |---------------|-----------|------------------------------------------------------------------|
  | search        | magnifier | show a search input                                              |
- | notifications | bell      | show a list of notifications                                     |
+ | notifications | bell      | show a list of notifications*                                    |
  | share         | share     | show a widget to share application link, with or without filters |
  | menu          | apps      | show an applications grid                                        |
  | timeline      | calendar  | shows a timeline sidebar (on the right side)                     |
@@ -25,6 +25,18 @@ It renders the application brand and application title on left side, and a set o
 <Canvas>
     <Story id="layout-header-examples--playground" />
 </Canvas>
+
+### *Notifcations widget
+
+Notifications are read from component children:
+
+```html
+<glyph-header notifications>
+    <div class="notification">NOTE</div>
+    <div class="notification">NOTE 2</div>
+    <div class="notification">NOTE 3</div>
+</glyph-header>
+```
 
 ## Examples
 

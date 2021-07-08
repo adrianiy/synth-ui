@@ -64,7 +64,7 @@ export class ModalComponent {
                     <glyph-button
                         interface={this.interface}
                         cancel
-                        onlyText
+                        action
                         onClick={this._onCancel}
                         text={this.cancelButton}
                     />

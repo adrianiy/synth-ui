@@ -22,6 +22,7 @@ const baseProps = {
     search: false,
     share: false,
     menu: true,
+    notifications: false,
     calendarEvents: undefined,
 };
 
@@ -43,6 +44,7 @@ const Template = (
         search,
         share,
         timeline,
+        notifications,
         calendarEvents,
         activeBrand,
         appTitle,
@@ -65,10 +67,23 @@ const Template = (
             .search=${search}
             .share=${share}
             .menu=${menu}
+            .notifications=${notifications}
             .timeline=${timeline}
             .calendarEvents=${calendarEvents}
             .appData=${appData}
-        />`,
+        >
+            <div style="display: grid; grid-gap: 12px;">
+                <span style="padding: 8px; font-size: 12px; border: 1px solid #dedede; border-radius: 4px"
+                    >Notification example</span
+                >
+                <span style="padding: 8px; font-size: 12px; border: 1px solid #dedede; border-radius: 4px"
+                    >Notification example</span
+                >
+                <span style="padding: 8px; font-size: 12px; border: 1px solid #dedede; border-radius: 4px"
+                    >Notification example</span
+                >
+            </div>
+        </glyph-header>`,
         ctx,
     });
 

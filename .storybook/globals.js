@@ -27,12 +27,12 @@ export const globalTypes = {
     fontSize: {
         name: 'Font size',
         description: 'Font size base',
-        defaultValue: 'base',
+        defaultValue: '12px',
         toolbar: {
             icon: 'expand',
             items: [
                 { value: '10px', right: '10px', title: 'Small' },
-                { value: 'base', right: '12px', title: 'Base' },
+                { value: '12px', right: '12px', title: 'Base' },
                 { value: '15px', right: '15px', title: 'Big' },
             ],
         },
