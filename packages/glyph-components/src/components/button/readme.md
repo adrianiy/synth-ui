@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property    | Attribute    | Description                          | Type                                        | Default               |
-| ----------- | ------------ | ------------------------------------ | ------------------------------------------- | --------------------- |
-| `cancel`    | `cancel`     | Cancel type button. Renders in red   | `boolean`                                   | `undefined`           |
-| `icon`      | `icon`       | Material icons id                    | `string`                                    | `undefined`           |
-| `iconFirst` | `icon-first` | Renders icon first                   | `boolean`                                   | `undefined`           |
-| `interface` | `interface`  | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
-| `onlyText`  | `only-text`  | Renders only text (without borders)  | `boolean`                                   | `undefined`           |
-| `text`      | `text`       | Button text                          | `string`                                    | `undefined`           |
+| Property    | Attribute    | Description                             | Type                                        | Default               |
+| ----------- | ------------ | --------------------------------------- | ------------------------------------------- | --------------------- |
+| `action`    | `action`     | Action button. Displayed with text only | `boolean`                                   | `undefined`           |
+| `cancel`    | `cancel`     | Cancel type button. Renders in red      | `boolean`                                   | `undefined`           |
+| `icon`      | `icon`       | Material icons id                       | `string`                                    | `undefined`           |
+| `iconFirst` | `icon-first` | Renders icon first                      | `boolean`                                   | `undefined`           |
+| `interface` | `interface`  | Interface type ['MODERN', 'CLASSIC']    | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
+| `text`      | `text`       | Button text                             | `string`                                    | `undefined`           |
 
 
 ## Dependencies
