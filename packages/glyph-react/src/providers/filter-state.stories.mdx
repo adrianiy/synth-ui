@@ -15,7 +15,120 @@ A provider to allow use of filters state across your application.
 This will keep an state of which filters are applied and which are not. Will also apply
 some logic on selection like filter relations management *Section -> Product line*.
 
+<Story name="Filter Provider" />
+
+```typescript
+# filtersConfig.tsx
+
+export const FiltersConfig = {
+    date: {
+        description: "Fecha",
+        minDate: new Date(year - 1, 1, 1),
+        maxDate: tomorrow,
+        key: "date",
+        visible: true,
+        dateRanges,
+        comparableType: ComparableType.commercial,
+        selected: [dateRanges[1]],
+        compDates: [],
+    },
+    product: {
+        description: "Producto",
+        plural: "Productos",
+        key: "cod_product",
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    section: {
+        description: "Sección",
+        plural: "Secciones",
+        key: "cod_section",
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    campaign: {
+        description: "Campaña",
+        plural: "Campañas",
+        key: "cod_campaign",
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    market: {
+        description: "Mercado",
+        plural: "Mercados",
+        key: "cod_market",
+        related: ["platform"],
+        searchPlaceholder: "Busca Alovera, Corea ...",
+        visible: true,
+        selected: [],
+        options: [],
+    },
+    platform: {
+        description: "País",
+        plural: "Paises",
+        key: "cod_platform",
+        searchPlaceholder: "Busca España, Francia ...",
+        visible: true,
+        selected: [],
+        options: [],
+    },
+};
+```
+
+```typescript
+# main.tsx
+
+import { FilterStateProvider } from 'glyph-react';
+
+...
+    <FilterStateProvider>
+        <Home/>
+    </FilterStateProvider>
+...
+```
+
+```typescript
+# home.tsx
+...
+
+import { useDispatch } from "react-redux";
+import { useServices } from "@/providers";
+import { actions } from "glyph-react";
+import { FiltersConfig } from "../../utils/filters-config";
+
+const Home = () => {
+    const { entities } = useServices();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        async function loadFilters() {
+            dispatch(
+                actions.filters.initialize(
+                    await entities.fetchFilterEntities([{ key: "cod_brand", op: "in", value: [1, 16] }]),
+                    "konnect",
+                    FiltersConfig,
+                    {},
+                    (desc) => desc,
+                ),
+            );
+        }
+        loadFilters();
+    }, [dispatch, entities]);
+
+    return (
+        ...
+    );
+};
+
+export default Home;
+```
+
 # Custom hooks
+
+<Story name="Custom hooks" />
 
 We provide you with a set of custom hooks to use and modify filters state.
 
