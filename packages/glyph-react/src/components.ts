@@ -30,6 +30,7 @@ export const GlyphLogin = /*@__PURE__*/createReactComponent<JSX.GlyphLogin, HTML
 export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTMLGlyphModalElement>('glyph-modal');
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
 export const GlyphPagination = /*@__PURE__*/createReactComponent<JSX.GlyphPagination, HTMLGlyphPaginationElement>('glyph-pagination');
+export const GlyphProgressBar = /*@__PURE__*/createReactComponent<JSX.GlyphProgressBar, HTMLGlyphProgressBarElement>('glyph-progress-bar');
 export const GlyphRanking = /*@__PURE__*/createReactComponent<JSX.GlyphRanking, HTMLGlyphRankingElement>('glyph-ranking');
 export const GlyphRankingLayout = /*@__PURE__*/createReactComponent<JSX.GlyphRankingLayout, HTMLGlyphRankingLayoutElement>('glyph-ranking-layout');
 export const GlyphScroll = /*@__PURE__*/createReactComponent<JSX.GlyphScroll, HTMLGlyphScrollElement>('glyph-scroll');

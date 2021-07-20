@@ -17,6 +17,10 @@
             width: 300px;
             display: block;
         }
+        glyph-progress-bar {
+            width: 300px;
+            display: block;
+        }
     </style>
     <body>
         <glyph-filter description="filter" plural="filters"></glyph-filter>
@@ -41,6 +45,7 @@
         </script>
         <glyph-title title-text="List"></glyph-title>
         <glyph-list loading="false" enable-download="true" expandable="true"></glyph-list>
+        <glyph-progress-bar title-text="771.113 unidades en App (+140%)" right-text="23%" percentage=23 bottom-text="Texto opcional"></glyph-progress-bar>
         <script>
             const listElement = document.querySelector('glyph-list');
             listElement.headerTitle = 'Países';
