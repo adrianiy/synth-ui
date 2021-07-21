@@ -1,5 +1,4 @@
 import { Component, h, Prop } from '@stencil/core';
-/*import { Flex } from '../../utils/layout';*/
 
 @Component({
     tag: 'glyph-progress-bar',
