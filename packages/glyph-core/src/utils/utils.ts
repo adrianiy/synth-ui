@@ -12,27 +12,6 @@ export const codeToArray = (code: any) => [].concat(code);
 export const unique = (value: any, index: number, self: any) => {
     return self.indexOf(value) === index;
 };
-export const sumObjects = (acc, data, joinKeys) => {
-    Object.keys(acc).forEach(key => {
-        // eslint-disable-next-line no-prototype-builtins
-        if (data.hasOwnProperty(key) && !joinKeys.includes(key) && key !== 'children') {
-            /* istanbul ignore next */
-            if (data[key] instanceof Array) {
-                acc[key] = (acc[key] || []).concat(data[key]);
-            } else if (typeof data[key] === 'string' || key.startsWith('cod_')) {
-                acc[key] = data[key];
-            } else {
-                acc[key] = (acc[key] || 0) + (data[key] || 0);
-            }
-        }
-        if (key === 'children') {
-            acc[key] = acc[key].concat(data[key]);
-        }
-    });
-    Object.keys(data)
-        .filter(key => !Object.keys(acc).includes(key))
-        .forEach(key => {
-            acc[key] = data[key];
-        });
-    return acc;
-};
+
+export const is = (value: any, typeCheck: string) => typeof value === typeCheck;
+export const constant = (value: any) => (_: any) => value;

@@ -1,9 +1,13 @@
+import { constant, is } from '../utils/utils';
+
 /** Asynchronous pipe */
 export const asyncPipe = (...fns: any) => {
     return async (ctx: any, next: any) => {
         const initialFn = async () => await next();
 
-        await fns.reduce((v: any, f: any) => async () => f(ctx, v), initialFn);
+        const fnPipe = fns.reverse().reduce((v: any, f: any) => async () => f(ctx, v), initialFn);
+
+        await fnPipe();
     };
 };
 
@@ -13,7 +17,7 @@ export const setVariables = (variables: any) => {
         throw new Error('Variables parameter is mandatory');
     }
 
-    const getData = typeof variables === 'function' ? variables : variables;
+    const getData = is(variables, 'function') ? variables : constant(variables);
 
     return async (ctx: any, next: any) => {
         const data = getData(ctx);
@@ -28,14 +32,24 @@ export const setVariables = (variables: any) => {
 };
 
 /** Parallel calls middleware */
-export const parallel = (fns: any[], stores: string[]) => {
+export const parallel = (fns: any[]) => {
     return async (ctx: any, next: any) => {
-        const result = await Promise.all(fns.reduce((acc, curr) => acc.concat(curr(ctx, async () => null)), []));
+        await Promise.all(fns.reduce((acc, curr) => acc.concat(curr(ctx, async () => null)), []));
 
-        if (stores) {
-            stores.forEach((store: string, index: number) => (ctx.state[store] = result[index]));
+        await next();
+    };
+};
+
+/** Custom middleware */
+export const customMiddleware = (customMiddelware: any, params: any) => {
+    return async (ctx: any, next: any) => {
+        if (is(customMiddelware, 'string')) {
+            await (params[customMiddelware] || ctx.state[customMiddelware]);
+        } else if (is(customMiddelware, 'object')) {
+            const key = Object.keys(customMiddelware)[0];
+            await (params[key] || ctx.state[key])(customMiddelware[key]);
         } else {
-            ctx.state.data = result;
+            throw new Error('Invalid custom middleware format');
         }
 
         await next();

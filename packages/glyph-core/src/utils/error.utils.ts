@@ -1,4 +1,6 @@
-/* eslint-disable no-console */
+import getLogger from './log.utils';
+
+const logger = getLogger('error');
 
 /**
  * Controla la devolución del error
@@ -9,10 +11,13 @@
  * @param {fn} next funcion
  */
 export const errorHandler = async (e, ctx, next) => {
+    logger.error(e);
+
     ctx.status = e.errorCode || 500;
     ctx.state.data = {
         error: e.message,
     };
+
     await next();
 };
 

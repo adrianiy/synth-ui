@@ -1,0 +1,127 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="YAML" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/YAML" />
+
+
+###### YAML
+# Configuration
+
+This page will show all available properties to configure your **yaml** file.
+
+<Story name="Name"/>
+
+## name
+
+The basic property of a yaml. This is mainly used to set a context in loggers.
+
+```yaml
+name: pipe name
+```
+
+<Story name="Pipe" />
+
+## pipe
+
+Receives an array of properties and returns an **async pipe**.
+
+> Everything will be executed in order.
+
+> You can use any property inside a pipe even another pipe.
+
+```yaml
+pipe:
+    - setVariables:
+        test: true
+    - pipe:
+        - setVariables:
+            testB: true
+        - setVariables:
+            testC: true
+```
+
+<Story name="Log" />
+
+## log 
+
+Logs something in your terminal, by default logs `ctx.state.data`.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|Strng|Key of `ctx.state` of data to log | data |
+|from|String|Optional parameter to give context to logger| "" |
+|level|String|Log level: error \| debug \| info |Info|
+
+```yaml
+log:
+    data: test
+    from: documentation
+    level: debug
+```
+
+<Story name="Set variables" />
+
+## setVariables
+
+Save object in `ctx.state`.
+
+```yaml
+setVariables:
+    testVariable: documentation
+    testVariable2: 999
+
+# ctx.state -> { testVariable: 'documentation', testVariable2: 999 }
+```
+
+<Story name="Filters" />
+
+## filters
+
+Parse filters informed as quer params or as a query string.
+
+> **?a=[1,2]&b=[1]** and **?filters=[{ key: 'a', op: 'in', value: [1, 2] }, { key: 'b', op: 'in', value: [1] }]** are valid values
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|current|Boolean|Parse current filters| false |
+|comparable|Boolean|Parse comparable filters| false |
+|a2|Boolean|Parse a2 comparable filters| false |
+
+```yaml
+filters:
+    current: true
+    comparable: true
+    a2: true
+```
+
+<Story name="Fetch" />
+
+## Fetch
+
+Adds a fetch call and stores results in state.
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|baseUrl|String|Optinal set a different base url| Value from ctx.state.baseUrl|
+|url|String|Request endpoint|null|
+|auth|String|Optional auth|value from ctx.state.auth|
+|store|String|Key where result will be stored (or concatenated)|data|
+|dataField|String|Key where data is stored in resul|data|
+|filters|String|Key of state where filters are stored|null|
+|useFilters|String[]|Only these filters will be used in request|null|
+|headers|Object|Headers to send with reqeust|{}|
+
+```yaml
+fetch:
+    url: v1/entities/country
+    store: country
+    filters: filters
+    useFilters: 
+        - cod_brand
+```
