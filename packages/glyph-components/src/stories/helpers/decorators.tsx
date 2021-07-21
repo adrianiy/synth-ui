@@ -1,5 +1,6 @@
 import { html } from 'lit-html';
 
+export const isDev = process.env.NODE_ENV === 'development';
 export const WithGlobalDecorator = ({ template, ctx, style = '' }) => {
     const {
         globals: { locale, theme, fontSize },

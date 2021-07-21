@@ -1,3 +1,50 @@
+## [1.0.4](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.3...glyph-angular-v1.0.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+
+## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.2...glyph-angular-v1.0.3) (2021-07-07)
+
+
+### Bug Fixes
+
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+
+## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.1...glyph-angular-v1.0.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* **header:** expose logout event ([644a331](https://github.com/adrianiy/glyph-ui/commit/644a331a458f3d66bd171e5a34ef19d108316634))
+* fix i18n to work with amiga react fwk ([3ceac3f](https://github.com/adrianiy/glyph-ui/commit/3ceac3fef55b6169acd3551952508273d4c62e02))
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+
+
+### Features
+
+* **slider:** add animation at value change ([4ab8c10](https://github.com/adrianiy/glyph-ui/commit/4ab8c10cc440dcc759226196a53e3f95188e7fdc))
+
+## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.0...glyph-angular-v1.0.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* **core:** fix default date filter selection ([#135](https://github.com/adrianiy/glyph-ui/issues/135)) ([bbabcad](https://github.com/adrianiy/glyph-ui/commit/bbabcad2c06b5d60fab3e0cce89a399c03573df9))
+* **toaster:** fix docs demo ([f827d95](https://github.com/adrianiy/glyph-ui/commit/f827d95a5dfdedd7292afc091cfc719f1653d388))
+* bump creevey version ([6b11102](https://github.com/adrianiy/glyph-ui/commit/6b1110241c4819b117f3bbeac2d78c0d513ab375))
+* **core:** publish docs on push ([ec4a7b1](https://github.com/adrianiy/glyph-ui/commit/ec4a7b1984354406a34351bca8e42edcdf8d9d5c))
+
+
+### Features
+
+* **components:** add breadcrumbs component ([044c80d](https://github.com/adrianiy/glyph-ui/commit/044c80de4ce5e701184974bfbca7b6943f1180bc))
+* **docs:** add theming in root docs ([#130](https://github.com/adrianiy/glyph-ui/issues/130)) ([3083002](https://github.com/adrianiy/glyph-ui/commit/30830023690b987d5a106d61d543992acf699014))
+
 # glyph-angular-v1.0.0 (2021-06-26)
 
 
@@ -46,4 +93,3 @@
 * **ranking:** add ranking layout with header options ([0984a8b](https://github.com/adrianiy/glyph-ui/commit/0984a8be260e3619f8d192093dff9acb6731399f))
 * **ranking:** add ranking loader ([3309c4a](https://github.com/adrianiy/glyph-ui/commit/3309c4abe7f810b886616851e62bdf404483cec5))
 * **ranking:** add ranking loading layout ([4c3f47b](https://github.com/adrianiy/glyph-ui/commit/4c3f47b634da25d4e9c06a2c44079b3b6d499550))
-

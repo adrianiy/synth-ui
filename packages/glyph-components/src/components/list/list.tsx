@@ -16,6 +16,8 @@ const RESPONSIVE_LIMIT = 10;
     shadow: true,
 })
 export class ListComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Loading state. If true will render skeleton loader */
     @Prop() loading: boolean;
     /** Component data. Fields preffixed with `_` will not render */
@@ -26,6 +28,8 @@ export class ListComponent {
     @Prop() defaultSortField: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Show decimals flag */
     @Prop() decimals: boolean;
     /** Expandable flag */
@@ -71,7 +75,12 @@ export class ListComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'list', 'no-data' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(
+            [ 'list', 'no-data' ],
+            this.element,
+            this.basePath,
+            this.locale,
+        );
         this._i18n = { ...componentI18n, ...this.i18n };
         this._isMobile = window.innerWidth < 1050;
 

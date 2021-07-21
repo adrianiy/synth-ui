@@ -10,12 +10,16 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class ToasterComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Id of event that trigger toaster show */
     @Prop() eventId: string;
     /** Time to live for shown toaster */
     @Prop() ttl: number;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphToasterElement;
 
@@ -47,7 +51,7 @@ export class ToasterComponent {
     };
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'toaster' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'toaster' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

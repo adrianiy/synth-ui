@@ -12,6 +12,8 @@ import { inSearch } from '../../utils/utils';
     shadow: true,
 })
 export class FilterOptionsComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string = '';
     /** Filter description */
     @Prop() description: string;
     /** Filter options */
@@ -24,6 +26,8 @@ export class FilterOptionsComponent {
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
@@ -66,7 +70,7 @@ export class FilterOptionsComponent {
     };
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 

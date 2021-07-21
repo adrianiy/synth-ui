@@ -14,6 +14,10 @@ export namespace Components {
          */
         "apps": Screen[];
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Flag to activate search input
          */
         "hasSearch": boolean;
@@ -21,6 +25,10 @@ export namespace Components {
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Event triggered when user clicks outside component container
          */
@@ -35,6 +43,10 @@ export namespace Components {
           * Aspect ratio used to calculate loader height
          */
         "aspectRatio": number;
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
         /**
           * This method will return image height
          */
@@ -63,6 +75,10 @@ export namespace Components {
           * Loading flag
          */
         "loading": boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * **optional** Compose image url callback
          */
@@ -102,6 +118,10 @@ export namespace Components {
     }
     interface GlyphButton {
         /**
+          * Action button. Displayed with text only
+         */
+        "action": boolean;
+        /**
           * Cancel type button. Renders in red
          */
         "cancel": boolean;
@@ -110,13 +130,13 @@ export namespace Components {
          */
         "icon": string;
         /**
+          * Renders icon first
+         */
+        "iconFirst": boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
-        /**
-          * Renders only text (without borders)
-         */
-        "onlyText": boolean;
         /**
           * Button text
          */
@@ -188,6 +208,10 @@ export namespace Components {
     }
     interface GlyphChipsbar {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Filters configuration object
          */
         "filtersConfig": FiltersConfig;
@@ -203,6 +227,10 @@ export namespace Components {
           * Interface type
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
     }
     interface GlyphConfigModal {
         /**
@@ -227,6 +255,10 @@ export namespace Components {
           * Active flag
          */
         "active": boolean;
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
         /**
           * Selected comparable end date
          */
@@ -264,6 +296,10 @@ export namespace Components {
          */
         "interface": UIInterface;
         /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
+        /**
           * Maximum available comp date
          */
         "maxComparableDate": Date;
@@ -294,6 +330,10 @@ export namespace Components {
     }
     interface GlyphFilter {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Filter description
          */
         "description": string;
@@ -309,6 +349,10 @@ export namespace Components {
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * This flag is true if multiselect is active
          */
@@ -350,6 +394,10 @@ export namespace Components {
     }
     interface GlyphFilterOptions {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Close callback
          */
         "closeEvent": () => void;
@@ -369,6 +417,10 @@ export namespace Components {
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * This flag is true if multiselect is active
          */
@@ -492,6 +544,10 @@ export namespace Components {
          */
         "avatar": boolean;
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Brand selector flag
          */
         "brand": boolean;
@@ -511,6 +567,10 @@ export namespace Components {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * View menu flag
          */
@@ -584,6 +644,10 @@ export namespace Components {
     }
     interface GlyphList {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Component data. Fields preffixed with `_` will not render
          */
         "data": Row[];
@@ -619,6 +683,10 @@ export namespace Components {
           * Loading state. If true will render skeleton loader
          */
         "loading": boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Number of pages to be grouped if list is larger than limit
          */
@@ -660,6 +728,10 @@ export namespace Components {
     }
     interface GlyphLogin {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Extra i18n translates
          */
         "i18n": { [key: string]: string };
@@ -667,6 +739,10 @@ export namespace Components {
           * Component interface *modern* | *classic*
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Login callback
          */
@@ -708,6 +784,10 @@ export namespace Components {
     }
     interface GlyphNoData {
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Bottom text. only applies if render mode is advanced
          */
         "bottomText": string;
@@ -715,6 +795,10 @@ export namespace Components {
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Render mode [ 'simple' | 'complex' ]
          */
@@ -766,6 +850,10 @@ export namespace Components {
          */
         "aspectRatio": number;
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * This method will change ranking container scroll
          */
         "changeScroll": (scroll?: number, listeneable?: boolean) => Promise<void>;
@@ -802,6 +890,10 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
+        /**
           * **optional** Compose image url callback
          */
         "parseImageUrl": (image: string) => string;
@@ -836,6 +928,10 @@ export namespace Components {
          */
         "aspectRatio": number;
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Distance between columns
          */
         "columnGap": string;
@@ -855,6 +951,10 @@ export namespace Components {
           * Loading comparable flag
          */
         "loadingComparable": boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Ranking data
          */
@@ -968,6 +1068,10 @@ export namespace Components {
          */
         "appTitle": string;
         /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
@@ -975,6 +1079,10 @@ export namespace Components {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Event triggered when user clicks outside component container
          */
@@ -1060,6 +1168,10 @@ export namespace Components {
     }
     interface GlyphTimeline {
         /**
+          * Base path to get assets dir
+         */
+        "basePath": string;
+        /**
           * Calendar events
          */
         "calendarEvents": TimelineEvent[];
@@ -1076,6 +1188,10 @@ export namespace Components {
          */
         "interface": UIInterface;
         /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
+        /**
           * Event triggered when user clicks outside component container
          */
         "outsideCallback": () => void;
@@ -1084,9 +1200,13 @@ export namespace Components {
         /**
           * title text
          */
-        "titleText": string;
+        "text": string;
     }
     interface GlyphToaster {
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
         /**
           * Id of event that trigger toaster show
          */
@@ -1095,6 +1215,10 @@ export namespace Components {
           * Extra i18n translation object
          */
         "i18n": { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * Time to live for shown toaster
          */
@@ -1111,6 +1235,10 @@ export namespace Components {
         "interface": UIInterface;
     }
     interface GlyphUserMenu {
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
         /**
           * Show custom config button
          */
@@ -1131,6 +1259,10 @@ export namespace Components {
           * Application languages
          */
         "languages": SelectorOption[];
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale": string;
         /**
           * User name
          */
@@ -1436,6 +1568,10 @@ declare namespace LocalJSX {
          */
         "apps"?: Screen[];
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Flag to activate search input
          */
         "hasSearch"?: boolean;
@@ -1443,6 +1579,10 @@ declare namespace LocalJSX {
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Event triggered when user clicks outside component container
          */
@@ -1457,6 +1597,10 @@ declare namespace LocalJSX {
           * Aspect ratio used to calculate loader height
          */
         "aspectRatio"?: number;
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
         /**
           * Extra i18n translation object
          */
@@ -1477,6 +1621,10 @@ declare namespace LocalJSX {
           * Loading flag
          */
         "loading"?: boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Click event callback
          */
@@ -1520,6 +1668,10 @@ declare namespace LocalJSX {
     }
     interface GlyphButton {
         /**
+          * Action button. Displayed with text only
+         */
+        "action"?: boolean;
+        /**
           * Cancel type button. Renders in red
          */
         "cancel"?: boolean;
@@ -1528,13 +1680,13 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * Renders icon first
+         */
+        "iconFirst"?: boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
-        /**
-          * Renders only text (without borders)
-         */
-        "onlyText"?: boolean;
         /**
           * Button text
          */
@@ -1614,6 +1766,10 @@ declare namespace LocalJSX {
     }
     interface GlyphChipsbar {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Filters configuration object
          */
         "filtersConfig"?: FiltersConfig;
@@ -1629,6 +1785,10 @@ declare namespace LocalJSX {
           * Interface type
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Clear all filters event
          */
@@ -1674,6 +1834,10 @@ declare namespace LocalJSX {
          */
         "active"?: boolean;
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Selected comparable end date
          */
         "comparableEndDate"?: Date;
@@ -1709,6 +1873,10 @@ declare namespace LocalJSX {
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Maximum available comp date
          */
@@ -1748,6 +1916,10 @@ declare namespace LocalJSX {
     }
     interface GlyphFilter {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Filter description
          */
         "description"?: string;
@@ -1763,6 +1935,10 @@ declare namespace LocalJSX {
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * This flag is true if multiselect is active
          */
@@ -1816,6 +1992,10 @@ declare namespace LocalJSX {
     }
     interface GlyphFilterOptions {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Close callback
          */
         "closeEvent"?: () => void;
@@ -1835,6 +2015,10 @@ declare namespace LocalJSX {
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * This flag is true if multiselect is active
          */
@@ -1958,6 +2142,10 @@ declare namespace LocalJSX {
          */
         "avatar"?: boolean;
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Brand selector flag
          */
         "brand"?: boolean;
@@ -1978,6 +2166,10 @@ declare namespace LocalJSX {
          */
         "interface"?: UIInterface;
         /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
+        /**
           * View menu flag
          */
         "menu"?: boolean;
@@ -1993,6 +2185,10 @@ declare namespace LocalJSX {
           * Language change event
          */
         "onLangChange"?: (event: CustomEvent<SelectorOption>) => void;
+        /**
+          * Logout event
+         */
+        "onLogout"?: (event: CustomEvent<any>) => void;
         /**
           * Theme change event
          */
@@ -2070,6 +2266,10 @@ declare namespace LocalJSX {
     }
     interface GlyphList {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Component data. Fields preffixed with `_` will not render
          */
         "data"?: Row[];
@@ -2105,6 +2305,10 @@ declare namespace LocalJSX {
           * Loading state. If true will render skeleton loader
          */
         "loading"?: boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Expand row event
          */
@@ -2150,6 +2354,10 @@ declare namespace LocalJSX {
     }
     interface GlyphLogin {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Extra i18n translates
          */
         "i18n"?: { [key: string]: string };
@@ -2157,6 +2365,10 @@ declare namespace LocalJSX {
           * Component interface *modern* | *classic*
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Login callback
          */
@@ -2210,6 +2422,10 @@ declare namespace LocalJSX {
     }
     interface GlyphNoData {
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Bottom text. only applies if render mode is advanced
          */
         "bottomText"?: string;
@@ -2217,6 +2433,10 @@ declare namespace LocalJSX {
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Render mode [ 'simple' | 'complex' ]
          */
@@ -2272,6 +2492,10 @@ declare namespace LocalJSX {
          */
         "aspectRatio"?: number;
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Distance between columns
          */
         "columnGap"?: string;
@@ -2303,6 +2527,10 @@ declare namespace LocalJSX {
           * Loading flag
          */
         "loading"?: boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Scrolled state change event
          */
@@ -2342,6 +2570,10 @@ declare namespace LocalJSX {
          */
         "aspectRatio"?: number;
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Distance between columns
          */
         "columnGap"?: string;
@@ -2361,6 +2593,10 @@ declare namespace LocalJSX {
           * Loading comparable flag
          */
         "loadingComparable"?: boolean;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Ranking data
          */
@@ -2478,6 +2714,10 @@ declare namespace LocalJSX {
          */
         "appTitle"?: string;
         /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
@@ -2485,6 +2725,10 @@ declare namespace LocalJSX {
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Event triggered when user clicks outside component container
          */
@@ -2594,6 +2838,10 @@ declare namespace LocalJSX {
     }
     interface GlyphTimeline {
         /**
+          * Base path to get assets dir
+         */
+        "basePath"?: string;
+        /**
           * Calendar events
          */
         "calendarEvents"?: TimelineEvent[];
@@ -2610,6 +2858,10 @@ declare namespace LocalJSX {
          */
         "interface"?: UIInterface;
         /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
+        /**
           * Event triggered when user clicks outside component container
          */
         "outsideCallback"?: () => void;
@@ -2618,9 +2870,13 @@ declare namespace LocalJSX {
         /**
           * title text
          */
-        "titleText"?: string;
+        "text"?: string;
     }
     interface GlyphToaster {
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
         /**
           * Id of event that trigger toaster show
          */
@@ -2629,6 +2885,10 @@ declare namespace LocalJSX {
           * Extra i18n translation object
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * Time to live for shown toaster
          */
@@ -2645,6 +2905,10 @@ declare namespace LocalJSX {
         "interface"?: UIInterface;
     }
     interface GlyphUserMenu {
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
         /**
           * Show custom config button
          */
@@ -2665,6 +2929,10 @@ declare namespace LocalJSX {
           * Application languages
          */
         "languages"?: SelectorOption[];
+        /**
+          * **optional** force locale change if html lang is not interpreted
+         */
+        "locale"?: string;
         /**
           * User name
          */

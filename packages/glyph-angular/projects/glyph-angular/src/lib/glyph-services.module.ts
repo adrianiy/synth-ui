@@ -16,5 +16,3 @@ export class GlyphAngularServices {
         };
     }
 }
-
-export { FilterService } from './services/filters/filters.service';

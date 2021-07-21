@@ -1,3 +1,83 @@
+## [1.19.2](https://github.com/adrianiy/glyph-ui/compare/v1.19.1...v1.19.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+
+### Features
+
+* **progress-bar:** add component progress-bar ([de0abe8](https://github.com/adrianiy/glyph-ui/commit/344ecfa65d1370bfcc1b90eca7b8ef253d82498a))
+
+## [1.19.1](https://github.com/adrianiy/glyph-ui/compare/v1.19.0...v1.19.1) (2021-07-07)
+
+
+### Bug Fixes
+
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+
+# [1.19.0](https://github.com/adrianiy/glyph-ui/compare/v1.18.5...v1.19.0) (2021-07-07)
+
+
+### Bug Fixes
+
+* **header:** expose logout event ([644a331](https://github.com/adrianiy/glyph-ui/commit/644a331a458f3d66bd171e5a34ef19d108316634))
+* fix i18n to work with amiga react fwk ([3ceac3f](https://github.com/adrianiy/glyph-ui/commit/3ceac3fef55b6169acd3551952508273d4c62e02))
+
+
+### Features
+
+* **slider:** add animation at value change ([4ab8c10](https://github.com/adrianiy/glyph-ui/commit/4ab8c10cc440dcc759226196a53e3f95188e7fdc))
+
+## [1.18.5](https://github.com/adrianiy/glyph-ui/compare/v1.18.4...v1.18.5) (2021-07-02)
+
+
+### Bug Fixes
+
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+
+## [1.18.4](https://github.com/adrianiy/glyph-ui/compare/v1.18.3...v1.18.4) (2021-07-02)
+
+
+### Bug Fixes
+
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+
+## [1.18.3](https://github.com/adrianiy/glyph-ui/compare/v1.18.2...v1.18.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+
+## [1.18.2](https://github.com/adrianiy/glyph-ui/compare/v1.18.1...v1.18.2) (2021-07-02)
+
+
+### Bug Fixes
+
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+
+## [1.18.1](https://github.com/adrianiy/glyph-ui/compare/v1.18.0...v1.18.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* **core:** fix default date filter selection ([#135](https://github.com/adrianiy/glyph-ui/issues/135)) ([bbabcad](https://github.com/adrianiy/glyph-ui/commit/bbabcad2c06b5d60fab3e0cce89a399c03573df9))
+* **toaster:** fix docs demo ([f827d95](https://github.com/adrianiy/glyph-ui/commit/f827d95a5dfdedd7292afc091cfc719f1653d388))
+
+# [1.18.0](https://github.com/adrianiy/glyph-ui/compare/v1.17.1...v1.18.0) (2021-06-29)
+
+
+### Bug Fixes
+
+* bump creevey version ([6b11102](https://github.com/adrianiy/glyph-ui/commit/6b1110241c4819b117f3bbeac2d78c0d513ab375))
+
+
+### Features
+
+* **components:** add breadcrumbs component ([044c80d](https://github.com/adrianiy/glyph-ui/commit/044c80de4ce5e701184974bfbca7b6943f1180bc))
+* **docs:** add theming in root docs ([#130](https://github.com/adrianiy/glyph-ui/issues/130)) ([3083002](https://github.com/adrianiy/glyph-ui/commit/30830023690b987d5a106d61d543992acf699014))
+
 ## [1.17.1](https://github.com/adrianiy/glyph-ui/compare/v1.17.0...v1.17.1) (2021-06-27)
 
 

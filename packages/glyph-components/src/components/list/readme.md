@@ -9,6 +9,7 @@
 
 | Property           | Attribute            | Description                                                                     | Type                         | Default     |
 | ------------------ | -------------------- | ------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `basePath`         | `base-path`          | Base path to get assets                                                         | `string`                     | `undefined` |
 | `data`             | --                   | Component data. Fields preffixed with `_` will not render                       | `Row[]`                      | `undefined` |
 | `decimals`         | `decimals`           | Show decimals flag                                                              | `boolean`                    | `undefined` |
 | `defaultSortField` | `default-sort-field` | Default sorting field, it could be a private or public field                    | `string`                     | `undefined` |
@@ -18,6 +19,7 @@
 | `i18n`             | --                   | Extra i18n translation object                                                   | `{ [key: string]: string; }` | `{}`        |
 | `limit`            | `limit`              | Rows limit. If not set will take `16` as default value or `10` in small screens | `number`                     | `undefined` |
 | `loading`          | `loading`            | Loading state. If true will render skeleton loader                              | `boolean`                    | `undefined` |
+| `locale`           | `locale`             | **optional** force locale change if html lang is not interpreted                | `string`                     | `undefined` |
 | `pageGroups`       | `page-groups`        | Number of pages to be grouped if list is larger than limit                      | `number`                     | `3`         |
 | `paginationLimit`  | `pagination-limit`   | Pagination limit                                                                | `number`                     | `5`         |
 | `update`           | `update`             | Force component update if flag is true                                          | `boolean`                    | `false`     |

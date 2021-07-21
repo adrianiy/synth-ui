@@ -28,14 +28,30 @@
         padding: var(--gui-padding--xs);
     }
 
+    &.text {
+        .button__icon {
+            &--left {
+                margin-right: var(--gui-padding--xxs);
+            }
+            &--right {
+                margin-left: var(--gui-padding--xxs);
+            }
+        }
+    }
+
     &.cancel {
         color: var(--gui-color--contrast);
         background-color: var(--gui-color--alert);
     }
 
-    &.only-text {
+    &.action {
         background-color: transparent;
         font-weight: var(--gui-font-weight--extra-bold);
+        padding: var(--gui-padding--xs) 0;
+
+        &:hover {
+            color: var(--gui-color--light);
+        }
 
         &.cancel {
             color: var(--gui-color--alert);
@@ -68,7 +84,7 @@
             }
         }
 
-        &.only-text {
+        &.action {
             border: none;
             &:hover {
                 background-color: transparent;

@@ -2,7 +2,7 @@ import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
 
 const baseProps = {
-    titleText: 'Test',
+    text: 'Test',
 };
 
 export default {
@@ -12,9 +12,9 @@ export default {
     },
 };
 
-const Template = ({ titleText }, ctx: any) =>
+const Template = ({ text }, ctx: any) =>
     WithGlobalDecorator({
-        template: html` <glyph-title .titleText=${titleText} />`,
+        template: html` <glyph-title .text=${text} />`,
         ctx,
     });
 

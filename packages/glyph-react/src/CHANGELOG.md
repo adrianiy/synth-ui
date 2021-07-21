@@ -1,1 +1,0 @@
-C:/Users/Warso/Documents/work/glyph-ui/packages/glyph-react/CHANGELOG.md

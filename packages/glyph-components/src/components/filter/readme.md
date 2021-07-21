@@ -7,16 +7,18 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                                                 | Type                                        | Default               |
-| ------------------- | -------------------- | ----------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `description`       | `description`        | Filter description                                          | `string`                                    | `undefined`           |
-| `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler | `boolean`                                   | `true`                |
-| `i18n`              | --                   | Extra i18n translation object                               | `{ [key: string]: string; }`                | `{}`                  |
-| `interface`         | `interface`          | Filter chip interface ['MODERN', 'CLASSIC']                 | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
-| `multiSelect`       | `multi-select`       | This flag is true if multiselect is active                  | `boolean`                                   | `false`               |
-| `options`           | --                   | Filter options                                              | `FilterOptionHeader[]`                      | `undefined`           |
-| `plural`            | `plural`             | Filter plural                                               | `string`                                    | `undefined`           |
-| `searchPlaceholder` | `search-placeholder` | Search placeholder                                          | `string`                                    | `undefined`           |
+| Property            | Attribute            | Description                                                      | Type                                        | Default               |
+| ------------------- | -------------------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
+| `basePath`          | `base-path`          | Base path to get assets                                          | `string`                                    | `undefined`           |
+| `description`       | `description`        | Filter description                                               | `string`                                    | `undefined`           |
+| `haveMultiSelect`   | `have-multi-select`  | Multiselect flag. True if filter allows multiselect toggler      | `boolean`                                   | `true`                |
+| `i18n`              | --                   | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |
+| `interface`         | `interface`          | Filter chip interface ['MODERN', 'CLASSIC']                      | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
+| `locale`            | `locale`             | **optional** force locale change if html lang is not interpreted | `string`                                    | `undefined`           |
+| `multiSelect`       | `multi-select`       | This flag is true if multiselect is active                       | `boolean`                                   | `false`               |
+| `options`           | --                   | Filter options                                                   | `FilterOptionHeader[]`                      | `undefined`           |
+| `plural`            | `plural`             | Filter plural                                                    | `string`                                    | `undefined`           |
+| `searchPlaceholder` | `search-placeholder` | Search placeholder                                               | `string`                                    | `undefined`           |
 
 
 ## Events

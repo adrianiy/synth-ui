@@ -17,7 +17,7 @@
 
 ### Used by
 
- - [glyph-header](../header)
+ - [glyph-header](../layouts/header)
 
 ### Graph
 ```mermaid

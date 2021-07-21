@@ -7,12 +7,14 @@
 
 ## Properties
 
-| Property     | Attribute     | Description                                          | Type                         | Default             |
-| ------------ | ------------- | ---------------------------------------------------- | ---------------------------- | ------------------- |
-| `bottomText` | `bottom-text` | Bottom text. only applies if render mode is advanced | `string`                     | `undefined`         |
-| `i18n`       | --            | Extra i18n translation object                        | `{ [key: string]: string; }` | `{}`                |
-| `mode`       | `mode`        | Render mode [ 'simple' \| 'complex' ]                | `string`                     | `NoDataType.Simple` |
-| `text`       | `text`        | Top text only applies if render mode is advanced     | `string`                     | `undefined`         |
+| Property     | Attribute     | Description                                                      | Type                         | Default             |
+| ------------ | ------------- | ---------------------------------------------------------------- | ---------------------------- | ------------------- |
+| `basePath`   | `base-path`   | Base path to get assets                                          | `string`                     | `undefined`         |
+| `bottomText` | `bottom-text` | Bottom text. only applies if render mode is advanced             | `string`                     | `undefined`         |
+| `i18n`       | --            | Extra i18n translation object                                    | `{ [key: string]: string; }` | `{}`                |
+| `locale`     | `locale`      | **optional** force locale change if html lang is not interpreted | `string`                     | `undefined`         |
+| `mode`       | `mode`        | Render mode [ 'simple' \| 'complex' ]                            | `string`                     | `NoDataType.Simple` |
+| `text`       | `text`        | Top text only applies if render mode is advanced                 | `string`                     | `undefined`         |
 
 
 ## Dependencies
