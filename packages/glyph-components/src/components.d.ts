@@ -826,6 +826,24 @@ export namespace Components {
          */
         "pages": number;
     }
+    interface GlyphProgressBar {
+        /**
+          * bottom text
+         */
+        "bottomText": string;
+        /**
+          * percentage
+         */
+        "percentage": number;
+        /**
+          * right text
+         */
+        "rightText": string;
+        /**
+          * title text
+         */
+        "titleText": string;
+    }
     interface GlyphRanking {
         /**
           * Aspect ratio used to calculate loader height
@@ -1398,6 +1416,12 @@ declare global {
         prototype: HTMLGlyphPaginationElement;
         new (): HTMLGlyphPaginationElement;
     };
+    interface HTMLGlyphProgressBarElement extends Components.GlyphProgressBar, HTMLStencilElement {
+    }
+    var HTMLGlyphProgressBarElement: {
+        prototype: HTMLGlyphProgressBarElement;
+        new (): HTMLGlyphProgressBarElement;
+    };
     interface HTMLGlyphRankingElement extends Components.GlyphRanking, HTMLStencilElement {
     }
     var HTMLGlyphRankingElement: {
@@ -1518,6 +1542,7 @@ declare global {
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
         "glyph-pagination": HTMLGlyphPaginationElement;
+        "glyph-progress-bar": HTMLGlyphProgressBarElement;
         "glyph-ranking": HTMLGlyphRankingElement;
         "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
         "glyph-scroll": HTMLGlyphScrollElement;
@@ -2443,6 +2468,24 @@ declare namespace LocalJSX {
          */
         "pages"?: number;
     }
+    interface GlyphProgressBar {
+        /**
+          * bottom text
+         */
+        "bottomText"?: string;
+        /**
+          * percentage
+         */
+        "percentage"?: number;
+        /**
+          * right text
+         */
+        "rightText"?: string;
+        /**
+          * title text
+         */
+        "titleText"?: string;
+    }
     interface GlyphRanking {
         /**
           * Aspect ratio used to calculate loader height
@@ -2943,6 +2986,7 @@ declare namespace LocalJSX {
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
         "glyph-pagination": GlyphPagination;
+        "glyph-progress-bar": GlyphProgressBar;
         "glyph-ranking": GlyphRanking;
         "glyph-ranking-layout": GlyphRankingLayout;
         "glyph-scroll": GlyphScroll;
@@ -2988,6 +3032,7 @@ declare module "@stencil/core" {
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
             "glyph-pagination": LocalJSX.GlyphPagination & JSXBase.HTMLAttributes<HTMLGlyphPaginationElement>;
+            "glyph-progress-bar": LocalJSX.GlyphProgressBar & JSXBase.HTMLAttributes<HTMLGlyphProgressBarElement>;
             "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
             "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;
             "glyph-scroll": LocalJSX.GlyphScroll & JSXBase.HTMLAttributes<HTMLGlyphScrollElement>;

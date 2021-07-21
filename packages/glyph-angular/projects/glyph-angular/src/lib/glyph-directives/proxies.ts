@@ -515,6 +515,25 @@ export class GlyphPagination {
   }
 }
 
+
+export declare interface GlyphProgressBar extends Components.GlyphProgressBar {}
+@ProxyCmp({
+  inputs: ['bottomText', 'percentage', 'rightText', 'titleText']
+})
+@Component({
+  selector: 'glyph-progress-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['bottomText', 'percentage', 'rightText', 'titleText']
+})
+export class GlyphProgressBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({

@@ -5,6 +5,10 @@
 
 * fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
 
+### Features
+
+* **progress-bar:** add component progress-bar ([de0abe8](https://github.com/adrianiy/glyph-ui/commit/344ecfa65d1370bfcc1b90eca7b8ef253d82498a))
+
 ## [1.19.1](https://github.com/adrianiy/glyph-ui/compare/v1.19.0...v1.19.1) (2021-07-07)
 
 
