@@ -3,7 +3,7 @@ import yaml from 'js-yaml';
 import callsites from 'callsites';
 import path from 'path';
 import { asyncPipe, customMiddleware, parallel, setVariables } from '../middlewares/base';
-import { addSuffix, groupBy, join, setEntityName, setGrowths, sort, transform } from '../middlewares/data';
+import { filter, groupBy, join, sort, transform } from '../middlewares/data';
 import { getA2ComparableFilters, getComparableFilters, getCurrentFilters } from '../middlewares/filters';
 import { fetchData } from '../utils/fetch.utils';
 import { log } from '../utils/log.utils';
@@ -15,8 +15,8 @@ const basicYamlParser = (doc: any, params: any) => {
     if (doc.name) {
         pipe.push(setVariables({ from: doc.name }));
     }
-    if (doc.setVariables) {
-        pipe.push(setVariables(doc.setVariables));
+    if (doc.variables) {
+        pipe.push(setVariables(doc.variables));
     }
     if (doc.filters) {
         if (doc.filters.current) {
@@ -30,20 +30,18 @@ const basicYamlParser = (doc: any, params: any) => {
         }
     }
     if (doc.fetch) {
-        pipe.push(fetchData(doc.fetch));
-    }
-    if (doc.multiFetch) {
-        const fns = doc.multiFetch.calls.map((call: any) => fetchData({ ...call, url: doc.multiFetch.url }));
+        if (doc.fetch.multi) {
+            const fns = doc.fetch.multi.map((call: any) => fetchData({ ...call, url: doc.fetch.url }));
 
-        pipe.push(parallel(fns));
+            pipe.push(parallel(fns));
+        } else {
+            pipe.push(fetchData(doc.fetch));
+        }
     }
     if (doc.parallel) {
         const fns = doc.parallel.map((curr: any) => basicYamlParser(curr, params)).flat();
 
         pipe.push(parallel(fns));
-    }
-    if (doc.addSuffix) {
-        pipe.push(addSuffix(doc.addSuffix));
     }
     if (doc.transform) {
         pipe.push(transform(doc.transform, params));
@@ -57,14 +55,11 @@ const basicYamlParser = (doc: any, params: any) => {
     if (doc.sort) {
         pipe.push(sort(doc.sort, params));
     }
-    if (doc.setEntityName) {
-        pipe.push(setEntityName(doc.setEntityName));
+    if (doc.filter) {
+        pipe.push(filter(doc.filter, params));
     }
-    if (doc.addGrowth) {
-        pipe.push(setGrowths(doc.addGrowth));
-    }
-    if (doc.customMiddleware) {
-        pipe.push(customMiddleware(doc.customMiddleware, params));
+    if (doc.custom) {
+        pipe.push(customMiddleware(doc.custom, params));
     }
     if (doc.pipe) {
         pipe.push(asyncPipe(...doc.pipe.reduce((acc, curr) => acc.concat(basicYamlParser(curr, params)), [])));
@@ -86,7 +81,7 @@ export const composer = (filePath: string, params: any = {}) => {
     return asyncPipe(...pipe);
 };
 
-export const configureComposer = (baseUrl: string, auth: string, ...params: any) => {
+export const configureComposer = ({ baseUrl, auth, ...params }: { baseUrl: string; auth: string; params: any }) => {
     return async (ctx: any, next: any) => {
         ctx.state = { ...ctx.state, baseUrl, auth, ...params };
 

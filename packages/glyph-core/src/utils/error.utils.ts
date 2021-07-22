@@ -1,7 +1,5 @@
 import getLogger from './log.utils';
 
-const logger = getLogger('error');
-
 /**
  * Controla la devolución del error
  * Se utiliza para incluir en el mismo un codigo HTTP personalizado
@@ -11,6 +9,7 @@ const logger = getLogger('error');
  * @param {fn} next funcion
  */
 export const errorHandler = async (e, ctx, next) => {
+    const logger = getLogger(`error - ${ctx.state.from} - ${ctx.state.lastStep}`);
     logger.error(e);
 
     ctx.status = e.errorCode || 500;

@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Filter" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Filter" />
+
+###### Configuration
+# filter
+
+Filter data in `data` key using some requirement function or keys.
+
+If `function` is informed we'll use a method stored in params, state, or passed as string to filter data, otherwise we'll filter those rows that has every `keys` attributes informed.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|function|Method or key name|null|
+|required|String[]|Array of keys that must be informed|null|
+
+### Example 
+
+```yaml
+name: filter row without name
+filter:
+  required:
+    - name
+```
+
+```yaml
+name: filter using function
+filter:
+  function: row => row.value > 100
+```
+

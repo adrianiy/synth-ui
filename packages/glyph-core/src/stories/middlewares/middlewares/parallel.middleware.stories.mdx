@@ -1,0 +1,27 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Parallel" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Parallel" />
+
+###### Middlewares
+# Parallel
+
+Execute scripts **parallalized**.
+
+This is util when the executions are not output dependant like grouping data in different state keys
+
+> Accepts an array of properties
+
+### Example
+
+```typescript
+import { parallel } from 'glyph-core';
+
+service()
+  .pipe(
+    parallel(middleware(), middleware())
+  )
+```
+

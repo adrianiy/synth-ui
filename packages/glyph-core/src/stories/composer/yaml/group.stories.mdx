@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Group" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Group" />
+
+###### Configuration
+# group
+
+Aggregates data that matches all `joinKeys` in the same row.
+
+Uses `store` propery to determine where results will be saved.
+
+If `asTotal` is `true` middleware will use an **empty array** as `joinKeys` and add some custom properties to result row.
+
+- _isTotal = true
+- name = total
+- joinKeys[0] = total
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` of data to group | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|joinKeys|String[]|Array of keys to identify groups of data | null |
+|total|Boolean|If true a total aggroupation will be calculated and concatenated to data as first row | false|
+
+### Example 
+
+```yaml
+group:
+    data: data
+    total: true
+```

@@ -11,11 +11,51 @@ export const parameters = {
     },
     options: {
         storySort: {
-            order: [ 'Introduction' ],
+            order: [
+                'Introduction',
+                'Composer',
+                [
+                    'Introduction',
+                    'Configure',
+                    'Composer',
+                    'Configuration',
+                    [
+                        'YAML',
+                        'Name',
+                        'Pipe',
+                        'Log',
+                        'Variables',
+                        'Filters',
+                        'Fetch',
+                        'Parallel',
+                        'Group',
+                        'Join',
+                        'Transform',
+                        'Sort',
+                        'Filter',
+                        'Custom',
+                    ],
+                ],
+                'Middlewares',
+                [
+                    'Introduction',
+                    'SetVariables',
+                    'Filters',
+                    'Sort',
+                    'Filter',
+                    'Transform',
+                    'GroupBy',
+                    'Join',
+                    'Parallel',
+                ],
+                'State',
+                [ 'Introduction' ],
+                'Interfaces',
+                [ 'Introduction' ],
+            ],
         },
     },
 };
 
 import { globalTypes } from './../../../.storybook/globals';
 export { globalTypes };
-

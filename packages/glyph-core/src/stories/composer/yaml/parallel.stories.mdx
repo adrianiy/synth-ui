@@ -1,0 +1,27 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Parallel" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Parallel" />
+
+###### Configuration
+# parallel
+
+Execute scripts **parallalized**.
+
+This is util when the executions are not output dependant like grouping data in different state keys
+
+> Accepts an array of properties
+
+### Example
+
+```yaml
+parallel:
+  - group:
+        data: current
+  - group:
+        data: comparable 
+  - group:
+        data: a2_comp
+```

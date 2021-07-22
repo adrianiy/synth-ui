@@ -20,6 +20,8 @@ const ORDERFILTERFIELDS = [
  */
 export const getCurrentFilters = ({ use, rangeBefore }: { use: string[]; rangeBefore: number }) => {
     return async (ctx, next) => {
+        ctx.state.lastStep = 'current filters';
+
         const filters = getFiltersFromQuery(ctx, use, rangeBefore);
         const orderFilters = filters.filter(({ key }) => !ORDERFILTERFIELDS.includes(key));
 
@@ -39,8 +41,10 @@ export const getCurrentFilters = ({ use, rangeBefore }: { use: string[]; rangeBe
  */
 export const getComparableFilters = ({ compType: compTypeRaw }: { compType: string }) => {
     return async (ctx, next) => {
+        ctx.state.lastStep = 'comparable filters';
+
         let filter = ctx.state.filters;
-        const compType = compTypeRaw || ctx.query.compType;
+        const compType = compTypeRaw || ctx.query.compType || 'commercial';
         const compRes = await getComparable(ctx, filter, compType);
         const comparableFilters = getComparableCampaign(compRes);
         const comparableOrderFilters = comparableFilters.comparableFilters?.filter(
@@ -63,8 +67,10 @@ export const getComparableFilters = ({ compType: compTypeRaw }: { compType: stri
  */
 export const getA2ComparableFilters = ({ compType: compTypeRaw }: { compType: string }) => {
     return async (ctx, next) => {
+        ctx.state.lastStep = 'a2 filters';
+
         let a2;
-        const compType = compTypeRaw || ctx.query.compType;
+        const compType = compTypeRaw || ctx.query.compType || 'commercial';
 
         if (![ 'custom', 'ordinal' ].includes(compType)) {
             a2 = await getComparableFilter(ctx, ctx.state.comparableFilters, ctx.state.filters, compType);

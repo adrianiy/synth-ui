@@ -5,192 +5,20 @@ import { WithGlobalTheme } from './../helpers/decorators';
 
 <Meta title="Composer/Introduction" />
 
-
-###### INTRODUCTION
-# Composer
+###### COMPOSER
+# Introduction
 
 Glyph-core library exports a set of methods to configure your backend easily using a system of **yaml** configuration files.
 
 To do this you can use `composer` and `configureComposer` middlewares.
 
-<Story name="Configure"/>
+To know more about them check the **DOCS** 😄 
 
-## Configure Composer
+- [Configure](?path=/docs/composer-configure--configure)
+- [Composer](?path=/docs/composer-composer--composer)
+- [Configuration](?path=/docs/composer-configuration-yaml--yaml)
 
-`configureComposer(baseUrl, auth, ...params)`
+### Example
 
-Some variables are **shared through all the context** of a request.
+Take a look at the [example YAML](?path=/docs/composer-configuration-yaml--yaml#example) to taste what you can do!
 
-This middleware will save these values in context to make them accesible in any middleware.
-
-#### Base url
-
-Service's base url that will be concatenated with the url configured on each fetch call.
-
-#### Auth
-
-Token or hash to send in fetch's header
-
-#### Params
-
-All extra params will be saved in `ctx.state`
-
-#### Example
-
-```typescript
-
-import { configValue } from 'amiga-services-core';
-import { configureComposer } from 'glyph-core';
-
-const baseUrl = configValue('drive.wsc_composite.url');
-const user = configValue('drive.username');
-const pass = configValue('drive.password');
-const hash = Buffer.from(`${user}:${pass}`).toString('base64');
-const auth = `Basic ${hash}`;
-
-service().use(configureComposer(baseUrl, auth))
-...
-```
-
-<Story name="Composer"/>
-
-## Composer
-
-`composer(filePath, params)`
-
-This middleware parses a **yaml** file and creates a pipe of asyncronous functions.
-
-The configuration ends up with an `await next()` so you can continue your pipe after this middleware.
-
-#### FilePath
-
-Relative direction to the confiuration file.
-
-#### Params (optional)
-
-Optiona object to customize the final pipe with your own methods.
-
-> I.E: Sort middleware searchs for `functionName` in this `params` or in `ctx.state` 
-
-#### Example 
-
-```typescript
-import { composer } from 'glyph-core';
-import { sortFunction } from 'custom-sort-method';
-
-...
-    router().get('/country', composer('./docs/country.yml', { sortFunction }))
-...
-```
-
-<Story name="Configuration file" />
-
-## Configuration file
-
-You can easily configure a **yaml** file to create the request pipe.
-
-
-Check the DOCS to learn how to customize your file.
-
-<div class="warning">
-
-> We recommend to **organize everything under a pipe** middleware to ensure execution's order
-
-</div>
-
-#### Example
-
-This is an example of a configuration file to get sales by country.
-
-```yaml
-name: country sales
-pipe:
-  # add common pipe variables
-  - setVariables:
-      joinKeys:
-        - cod_country
-
-  # parse filters in query params and store them in state
-  - filters:
-      current: true
-      comparable: true
-      a2: true
-
-  # get data
-  - parallel:
-    - pipe:
-      - fetch:
-          url: v1/entities/country
-          store: country
-          filters: filters
-          useFilters: 
-            - cod_brand
-      - transform:
-          data: country
-          field: iso_code2
-          newField: cod_country
-
-    - multiFetch:
-        url: v3/sales/orders/country
-        calls:
-          - filters: orderFilters
-            store: current
-          - filters: comparableOrderFilters
-            store: comparable
-          - filters: a2ComparableOrderFilters
-            store: a2_comp
-
-    - multiFetch:
-        url: v4/sales/units/country
-        calls:
-          - filters: filters
-            store: current
-          - filters: comparableFilters
-            store: comparable
-          - filters: a2ComparableFilters
-            store: a2_comp
-
-  # aggregate data
-  - parallel:
-    - group:
-        data: current
-    - group:
-        data: comparable 
-    - group:
-        data: a2_comp
-
-  # add suffixes
-  - parallel:
-    - addSuffix:
-        data: comparable
-        suffix: comp
-    - addSuffix:
-        data: a2_comp
-        suffix: a2
-
-  # join data
-  - join:
-      data: comparable
-      with: a2_comp
-
-  - join:
-      data: current
-      with: comparable
-      store: data
-
-
-  # post-process data
-  - sort:
-      functionName: sortCountries
-  - setEntityName:
-      entity: country
-  - group:
-      asTotal: true
-
-  # add growth fields
-  - parallel:
-    - addGrowth: true
-    - addGrowth:
-        compSuffix: _a2 
-        growthSuffix: _a2
-```

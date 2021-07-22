@@ -20,6 +20,8 @@ export const setVariables = (variables: any) => {
     const getData = is(variables, 'function') ? variables : constant(variables);
 
     return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'variables';
+
         const data = getData(ctx);
 
         Object.keys(data).forEach(key => {
@@ -43,6 +45,8 @@ export const parallel = (fns: any[]) => {
 /** Custom middleware */
 export const customMiddleware = (customMiddelware: any, params: any) => {
     return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'custom';
+
         if (is(customMiddelware, 'string')) {
             await (params[customMiddelware] || ctx.state[customMiddelware]);
         } else if (is(customMiddelware, 'object')) {
