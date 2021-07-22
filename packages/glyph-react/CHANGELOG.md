@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.4...glyph-react-v1.2.0) (2021-07-22)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+
+
+### Features
+
+* **core:** add middleware composer ([908f8f2](https://github.com/adrianiy/glyph-ui/commit/908f8f2cf1ee81ed29340366b6c00a20ffd77025))
+* add notifications in header component ([dc7ffc4](https://github.com/adrianiy/glyph-ui/commit/dc7ffc44ed02f69cd6106107863b54e6710b0803))
+* add slot in button component ([1260432](https://github.com/adrianiy/glyph-ui/commit/12604320fe34d6cbf98fd36b7862d416f0046331))
+
 ## [1.1.4](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.3...glyph-react-v1.1.4) (2021-07-07)
 
 
