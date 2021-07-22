@@ -1,0 +1,88 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Join" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Join" />
+
+###### Middlewares
+# Join
+
+Join data in sql-like way.
+
+You can choose betweent different join options
+
+> **cross**
+>
+> Everything that does not match is concatenated at the end of the array.
+
+> **left**
+>
+> Adds every row on the left side enriched with matching data from the right side
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|strategy|String|Join strategy left \| cross | cross |
+|data|String|Key of `ctx.state` of data to make join as left side | data |
+|with|String|Key of `ctx.state` of data to make join as right side | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|joinKeys|String[]|Array of keys to identify groups of data | null |
+
+### Example 
+
+```typescript
+import { join } from 'glyph-core';
+
+service()
+  .pipe(
+    join({ data: 'current', with: 'comp', joinKeys: ['cod_country'] })
+  )
+```
+
+
+### Implementation
+
+```typescript
+/**
+ * Join middleware
+ *
+ * @param strategy { string } type of join 'cross' | 'left'
+ * @param data { string } name of key where data is stored
+ * @param with { string } name of key where joinabla data is stored
+ * @param store { string } name of key where joined data will be stored
+ * @param on { string[] } array of keys to use in join
+ */
+export const join = ({
+    strategy = 'cross',
+    data = 'data',
+    with: _with,
+    store,
+    joinKeys,
+}: {
+    strategy: string;
+    data: string;
+    with: string;
+    store: string;
+    joinKeys: string[];
+}) => {
+    return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'join';
+
+        const on = joinKeys || ctx.state.joinKeys;
+        store = store || data;
+
+        switch (strategy) {
+            case 'left':
+                ctx.state[store] = leftOuterJoin(on, ctx.state[data], ctx.state[_with]);
+                break;
+            default:
+                ctx.state[store] = crossJoin(on, ctx.state[data], ctx.state[_with]);
+                break;
+        }
+
+        await next();
+    };
+};
+```

@@ -8,6 +8,10 @@ module.exports = {
         // 'PRODUCTION' is used when building the static version of storybook.
 
         config.plugins.push(new ProgressBarPlugin());
+        config.node = {
+            fs: 'empty',
+            global: true,
+        };
         // Return the altered config
         return config;
     },
@@ -26,6 +30,10 @@ module.exports = {
                     title: 'React',
                     url: 'http://localhost:6009',
                 },
+                core: {
+                    title: 'Core',
+                    url: 'http://localhost:6010',
+                },
             };
         }
         return {
@@ -40,6 +48,10 @@ module.exports = {
             react: {
                 title: 'React',
                 url: '/glyph-ui/react',
+            },
+            core: {
+                title: 'Core',
+                url: '/glyph-ui/core',
             },
         };
     },

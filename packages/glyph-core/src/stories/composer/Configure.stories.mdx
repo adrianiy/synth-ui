@@ -1,0 +1,46 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="Configure" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configure" />
+
+
+###### COMPOSER
+# Configure Composer
+
+`configureComposer({ baseUrl, auth, ...params })`
+
+Some variables are **shared through all the context** of a request.
+
+This middleware will save these values in context to make them accesible in any middleware.
+
+#### Base url
+
+Service's base url that will be concatenated with the url configured on each fetch call.
+
+#### Auth
+
+Token or hash to send in fetch's header
+
+#### Params
+
+All extra params will be saved in `ctx.state`
+
+#### Example
+
+```typescript
+
+import { configValue } from 'amiga-services-core';
+import { configureComposer } from 'glyph-core';
+
+const baseUrl = configValue('drive.wsc_composite.url');
+const user = configValue('drive.username');
+const pass = configValue('drive.password');
+const hash = Buffer.from(`${user}:${pass}`).toString('base64');
+const auth = `Basic ${hash}`;
+
+service().use(configureComposer({baseUrl, auth}))
+...
+```
+
