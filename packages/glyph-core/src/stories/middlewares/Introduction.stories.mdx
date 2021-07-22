@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="Introduction" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Introduction" />
+
+###### COMPOSER
+# Introduction
+
+A colleciont of middlewares to use in your backends. 
+
+This middlewares are used inside [composer](?path=/docs/composer-introduction--introduction), but you can use them as standalone middlewares. 
+
+#### Implementation example
+
+```typescript
+const middleware = (input) => {
+  return async (ctx, next) => {
+    await next();
+  }
+}
+```
+
+### Middlewares
+
+- [Sort](?path=/docs/middlewares-sort--sort)
+- [Filter](?path=/docs/middlewares-filter--filter)
+- [Transform](?path=/docs/middlewares-transform--transform)
+- [GroupBy](?path=/docs/middlewares-groupby--groupby)
+

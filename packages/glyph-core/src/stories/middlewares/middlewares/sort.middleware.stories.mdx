@@ -1,0 +1,55 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Sort" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Sort" />
+
+###### Middlewares
+# Sort
+
+Sort data using a function specified in properties.
+
+This funcion can be a key to look up for in `params` or `ctx.state`, if not found the string will be used as a method.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|function|String|Method or key name|{}|
+
+### Example 
+
+```typescript
+import { sort } from 'glyph-core';
+
+service()
+  .pipe(
+    sort({ function: (a, b) => b - a })
+  )
+```
+
+### Implementation
+
+```typescript
+/** sort middleware
+ *
+ * @param data { string } state key wehre data is stored
+ * @param function { any } string with sort function like (a, b) => a - b or key name
+ */
+export const sort = ({ data = 'data', function: functionRaw }: { data: string; function: any }, params: any) => {
+    if (!functionRaw) {
+        throw new Error('sort function parameter is mandatory');
+    }
+
+    const getSortFn = (ctx: any) => (functionRaw ? params[functionRaw] || ctx.state[functionRaw] : eval(functionRaw));
+
+    return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'sort';
+        ctx.state[data] = ctx.state[data].sort(getSortFn(ctx));
+
+        await next();
+    };
+};
+```

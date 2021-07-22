@@ -1,3 +1,11 @@
+# [1.20.0](https://github.com/adrianiy/glyph-ui/compare/v1.19.2...v1.20.0) (2021-07-08)
+
+
+### Features
+
+* add notifications in header component ([dc7ffc4](https://github.com/adrianiy/glyph-ui/commit/dc7ffc44ed02f69cd6106107863b54e6710b0803))
+* add slot in button component ([1260432](https://github.com/adrianiy/glyph-ui/commit/12604320fe34d6cbf98fd36b7862d416f0046331))
+
 ## [1.19.2](https://github.com/adrianiy/glyph-ui/compare/v1.19.1...v1.19.2) (2021-07-07)
 
 

@@ -1,0 +1,23 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Variables" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Variables" />
+
+###### Configuration
+# variables
+
+Save object in `ctx.state`.
+
+These variables will be accesible through all request context.
+
+### Example
+
+```yaml
+variables:
+    testVariable: documentation
+    testVariable2: 999
+
+# ctx.state -> { testVariable: 'documentation', testVariable2: 999 }
+```

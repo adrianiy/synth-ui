@@ -13,6 +13,7 @@ export const parameters = {
                 'Style guide',
                 [ 'Figma', 'Colors', 'Typography', 'Icons', 'Naming convention', 'Spacing' ],
                 'Web Components',
+                'Core',
                 'Angular',
                 'React',
             ],

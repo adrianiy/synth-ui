@@ -1,0 +1,34 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Sort" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Sort" />
+
+###### Configuration
+# sort
+
+Sort data using a function specified in properties.
+
+This funcion can be a key to look up for in `params` or `ctx.state`, if not found the string will be used as a method.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|function|String|Method or key name|{}|
+
+### Example 
+
+```yaml
+name: sort using key
+sort:
+    function: sortCountries
+```
+
+```yaml
+name: sort using method
+sort:
+    function: (a, b) => b - a
+```

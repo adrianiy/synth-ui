@@ -1,0 +1,114 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Transform" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Transform" />
+
+###### Configuration
+# transform
+
+Transform row properties that matches some `match` **RegExp**  but does not match `exclude` **RegExp**.
+
+This process tranforms keys and values using `transform` `key` and `value` configuration
+
+> **key** and **value**
+>
+> String with a function or key to search in `ctx.state` or `params`.
+>
+> If empty identity function will be used.
+>
+> These functions are called with (key, row, ctx).
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|match|String|RegExp to find keys to transform. If empty all field matches|undefined|
+|exclude|String|RegExp to exclude keys to transform. If empty no field matches|null|
+|tranform|{ key: string; value: string }|Method or key name|{}|
+
+### Example 
+
+You can use this pipe to add suffixes in value fields like:
+
+```yaml
+name: add suffix
+transform:
+    data: comparable
+    match: units|amount|orders
+    transform:
+        key: key => `${key}_comp`
+```
+
+#### Set entity name
+
+You can play with state and some auxiliar functions offered by this library to do advance data modifications.
+
+This examples search a entity match in state and saves description in row's name property.
+
+```typescript
+import { configureComposer, getEntityName } from 'glyph-core';
+
+export const composerConfigMiddleware = configureComposer({
+    baseUrl,
+    auth,
+    setCountryName: (key, row, ctx) => getEntityName(row[key], ctx.state.country, 'cod_country', row),
+});
+```
+
+```yaml
+name: add entity name
+transform:
+    match: cod_country
+    preserve: true
+    transform:
+        key: () => 'name'
+        value: setCountryName
+```
+
+
+#### Set growths
+
+To set calculated fields like growths you can use aux methods like `getGrowth` or your custom methods
+
+```typescript
+import { configureComposer, getGrowh } from 'glyph-core';
+
+export const composerConfigMiddleware = configureComposer({
+    baseUrl,
+    auth,
+    setGrowth: getGrowth('_comp'),
+    setA2Growth: getGrowth('_a2'),
+});
+
+```
+
+```yaml
+name: set growths
+transform:
+    match: units|amount|orders
+    exclude: comp|a2
+    preserve: true
+    transform:
+      key: key => `growth_${key}`
+      value: setGrowth
+transform:
+    match: units.comp|amount.comp|orders.comp
+    preserve: true
+    transform:
+      key: key => `growth_${key}_a2`
+      value: setA2Growth
+
+# or
+
+transform:
+    match: units.comp|amount.comp|orders.comp
+    preserve: true
+    transform:
+      key: key => `growth_${key}_a2`
+      value: (key, row) => row[key] / row[`${key}_a2`] - 1
+
+```

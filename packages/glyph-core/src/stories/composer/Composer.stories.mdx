@@ -1,0 +1,38 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="Composer" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Composer" />
+
+
+###### COMPOSER
+# Composer
+
+`composer(filePath, params)`
+
+This middleware parses a **yaml** file and creates a pipe of asyncronous functions.
+
+The configuration ends up with an `await next()` so you can continue your pipe after this middleware.
+
+#### FilePath
+
+Relative direction to the confiuration file.
+
+#### Params (optional)
+
+Optiona object to customize the final pipe with your own methods.
+
+> I.E: Sort middleware searchs for `function` in this `params` or in `ctx.state` 
+
+#### Example 
+
+```typescript
+import { composer } from 'glyph-core';
+import { sortFunction } from 'custom-sort-method';
+
+...
+    router().get('/country', composer('./docs/country.yml', { sortFunction }))
+...
+```
+

@@ -1,0 +1,85 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="GroupBy" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/GroupBy" />
+
+###### Middlewares
+# GroupBy
+
+Aggregates data that matches all `joinKeys` in the same row.
+
+Uses `store` propery to determine where results will be saved.
+
+If `asTotal` is `true` middleware will use an **empty array** as `joinKeys` and add some custom properties to result row.
+
+- \_isTotal = true
+- name = total
+- joinKeys[0] = total
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` of data to group | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|joinKeys|String[]|Array of keys to identify groups of data | null |
+|total|Boolean|If true a total aggroupation will be calculated and concatenated to data as first row | false|
+
+### Example 
+
+```typescript
+import { groupBy } from 'glyph-core';
+
+service()
+  .pipe(
+    groupBy({ data: 'current', joinKeys: [ 'cod_country' ] })
+  )
+```
+
+### Implementation
+
+```typescript
+/**
+ * Group middleware
+ *
+ * @param data { string } name of key where data is stored
+ * @param store { string } name of key where data will be stored
+ * @param joinKeys { string[] } array of keys used to compose groups
+ * @param total { boolean } if true add first row as total aggregation
+ */
+export const groupBy = ({
+    data = 'data',
+    store,
+    joinKeys,
+    total,
+}: {
+    data: string;
+    store: string;
+    joinKeys: string[];
+    total: boolean;
+}) => {
+    return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'group';
+
+        const on = joinKeys || ctx.state.joinKeys;
+        const groups = groupData(ctx.state[data], total ? [] : on);
+
+        if (total) {
+            const total = {
+                ...groups[0],
+                _isTotal: true,
+                [on[0]]: 'total',
+                name: 'Total',
+                children: groupData(groups[0].children, on.slice(1)),
+            };
+            ctx.state[store || data] = [ total, ...ctx.state[data] ];
+        } else {
+            ctx.state[store || data] = groups;
+        }
+
+        await next();
+    };
+};
+```
