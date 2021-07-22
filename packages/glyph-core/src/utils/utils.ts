@@ -12,3 +12,6 @@ export const codeToArray = (code: any) => [].concat(code);
 export const unique = (value: any, index: number, self: any) => {
     return self.indexOf(value) === index;
 };
+
+export const is = (value: any, typeCheck: string) => typeof value === typeCheck;
+export const constant = (value: any) => (_: any) => value;

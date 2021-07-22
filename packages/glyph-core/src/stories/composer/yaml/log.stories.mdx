@@ -1,0 +1,36 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Log" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Log" />
+
+###### Configuration
+# log
+
+Logs something in your terminal, by default logs `ctx.state.data`.
+
+Uses `from` propery as context, if not set gets context from `ctx.state.from`.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|Strng|Key of `ctx.state` of data to log | data |
+|from|String|Optional parameter to give context to logger| "" |
+|level|String|Log level: error \| debug \| info |Info|
+
+### Example 
+
+```yaml
+log:
+    data: test
+    from: documentation
+    level: debug
+
+# ctx.state.test = 'test log'
+```
+
+```batch
+[2021-07-22T17:36:32.443] [DEBUG] documetation - test log
+```

@@ -25,7 +25,7 @@ import {
     resetOrdinalCompType,
     setQueryFilters,
 } from './middlewares/filter.middlewares';
-import cloneDeep from 'lodash-es/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep';
 import { FilterSelectEvent, FilterUpdateEvent } from 'src/models';
 
 export const filterActions = {

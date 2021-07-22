@@ -14,5 +14,5 @@ coverage
 test-report.json
 docs
 # Docs
-# storybook-static
+storybook-static
 

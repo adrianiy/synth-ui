@@ -1,4 +1,4 @@
 {
     "presets": ["@babel/preset-typescript", "@babel/preset-env"],
-    "plugins": [ "const-enum" ]
+    "plugins": [ "const-enum", "transform-class-properties" ]
 }

@@ -1,0 +1,20 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Name" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Name" />
+
+###### Configuration
+# name
+
+This property sets name of request's context.
+
+Usefull to log contenxt for logger.
+
+
+### Example
+
+```yaml
+name: pipe name
+```
