@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.1.0...glyph-angular-v1.2.0) (2021-07-22)
+
+
+### Features
+
+* **core:** add middleware composer ([908f8f2](https://github.com/adrianiy/glyph-ui/commit/908f8f2cf1ee81ed29340366b6c00a20ffd77025))
+
 # [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.0.4...glyph-angular-v1.1.0) (2021-07-08)
 
 
