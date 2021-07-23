@@ -1,3 +1,17 @@
+## [1.21.1](https://github.com/adrianiy/glyph-ui/compare/v1.21.0...v1.21.1) (2021-07-22)
+
+
+### Bug Fixes
+
+* **docs:** fix core docs build ([d63efe4](https://github.com/adrianiy/glyph-ui/commit/d63efe4a782f5552157386fe0f227c69b2e08aad))
+
+# [1.21.0](https://github.com/adrianiy/glyph-ui/compare/v1.20.0...v1.21.0) (2021-07-22)
+
+
+### Features
+
+* **core:** add middleware composer ([908f8f2](https://github.com/adrianiy/glyph-ui/commit/908f8f2cf1ee81ed29340366b6c00a20ffd77025))
+
 # [1.20.0](https://github.com/adrianiy/glyph-ui/compare/v1.19.2...v1.20.0) (2021-07-08)
 
 

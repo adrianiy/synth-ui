@@ -1,3 +1,32 @@
+## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.0...glyph-core-v1.1.1) (2021-07-22)
+
+
+### Bug Fixes
+
+* **docs:** fix core docs build ([d63efe4](https://github.com/adrianiy/glyph-ui/commit/d63efe4a782f5552157386fe0f227c69b2e08aad))
+
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.0.1...glyph-core-v1.1.0) (2021-07-22)
+
+
+### Bug Fixes
+
+* fix assets default basePath ([422657f](https://github.com/adrianiy/glyph-ui/commit/422657f8c4b74aca05582cf0f8f1f3197d1e655d))
+* test basPath in chipsbar ([193e200](https://github.com/adrianiy/glyph-ui/commit/193e2001129c7901d56de628cd2f222dba9d02a1))
+* **header:** expose logout event ([644a331](https://github.com/adrianiy/glyph-ui/commit/644a331a458f3d66bd171e5a34ef19d108316634))
+* fix i18n to work with amiga react fwk ([3ceac3f](https://github.com/adrianiy/glyph-ui/commit/3ceac3fef55b6169acd3551952508273d4c62e02))
+* move packages to devDeps ([d94538e](https://github.com/adrianiy/glyph-ui/commit/d94538e1d682f122bc76e6a844db683035d20ba6))
+* move react-scripts ([5daeab2](https://github.com/adrianiy/glyph-ui/commit/5daeab224e3d99045e0c44b0660fd46e69a14293))
+* **core:** move dependencies to dev ([5a31749](https://github.com/adrianiy/glyph-ui/commit/5a317493e2829f0fcce9f6584e720c44c40a3e53))
+* rollback release workflow ([469b7d9](https://github.com/adrianiy/glyph-ui/commit/469b7d973b8e015bf42f09d498122b96e84de94f))
+
+
+### Features
+
+* **core:** add middleware composer ([908f8f2](https://github.com/adrianiy/glyph-ui/commit/908f8f2cf1ee81ed29340366b6c00a20ffd77025))
+* add notifications in header component ([dc7ffc4](https://github.com/adrianiy/glyph-ui/commit/dc7ffc44ed02f69cd6106107863b54e6710b0803))
+* add slot in button component ([1260432](https://github.com/adrianiy/glyph-ui/commit/12604320fe34d6cbf98fd36b7862d416f0046331))
+* **slider:** add animation at value change ([4ab8c10](https://github.com/adrianiy/glyph-ui/commit/4ab8c10cc440dcc759226196a53e3f95188e7fdc))
+
 ## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.0.0...glyph-core-v1.0.1) (2021-06-30)
 
 

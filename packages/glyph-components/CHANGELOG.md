@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.3.0...glyph-components-v1.4.0) (2021-07-22)
+
+
+### Features
+
+* **core:** add middleware composer ([908f8f2](https://github.com/adrianiy/glyph-ui/commit/908f8f2cf1ee81ed29340366b6c00a20ffd77025))
+
 # [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.2.2...glyph-components-v1.3.0) (2021-07-08)
 
 
