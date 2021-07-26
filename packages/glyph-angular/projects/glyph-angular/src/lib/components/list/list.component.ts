@@ -8,6 +8,8 @@ import { configRow, FieldsConfig, Row } from 'glyph-core';
 export class ListComponent implements OnChanges {
     /** Load status */
     @Input() loading: boolean;
+    /** Path for asset loading */
+    @Input() basePath: String;
     /** Component title */
     @Input() title: string;
     /** Component data, this is going to be parsed internally */

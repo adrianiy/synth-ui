@@ -1,6 +1,7 @@
 <glyph-chipsbar
     [filtersConfig]="filtersConfig | async"
     [interface]="interface"
+    [basePath]="basePath"
     (filterSelect)="onFilterSelect($event)"
     (filterClear)="onFilterClear($event)"
     (updateFilter)="onFilterUpdate($event)"

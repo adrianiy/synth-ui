@@ -10,6 +10,8 @@ import { FilterService } from '../../services';
 export class ChipsbarComponent {
     /** Filters interface *MODERN* | *CLASSIC* */
     @Input() interface: UIInterface;
+    /** Base path for assets loading */
+    @Input() basePath: String;
 
     /** @ignore Filters state */
     filtersConfig: Observable<FiltersConfig>;

@@ -4,6 +4,8 @@ import { UIInterface } from 'glyph-core';
 import { WithGlobalDecorator } from '../../helpers/decorators';
 import { ListComponent } from './list.component';
 
+const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
+
 const fieldsConfig = [
     {
         title: () => 'amount',
@@ -21,6 +23,7 @@ const fieldsConfig = [
 ];
 
 const defaultProps = {
+    basePath,
     loading: false,
     expandable: false,
     fieldsConfig,

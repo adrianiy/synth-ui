@@ -4,6 +4,8 @@ import React from 'react';
 import { WithFilters, WithCustomHeight, WithCustomGlobals, InitializeFilters } from '../../helpers/decorators';
 import GlyphReactChipsbar, { GlyphReactChipsbarProps } from './chipsbar';
 
+const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
+
 export default {
     title: 'Components/Chipsbar Component',
     component: GlyphReactChipsbar,
@@ -29,4 +31,4 @@ const Template: Story<GlyphReactChipsbarProps> = (args: any) => <GlyphReactChips
 
 export const Chipsbar = Template.bind({});
 
-Chipsbar.args = { uiInterface: UIInterface.classic };
+Chipsbar.args = { uiInterface: UIInterface.classic, basePath };
