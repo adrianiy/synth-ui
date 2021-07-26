@@ -254,10 +254,12 @@ export class HeaderComponent {
         return (
             <Flex row spaced middle class={cls('header__container', this.interface)}>
                 <Flex row middle class="header--left">
-                    <img
-                        class={cls({ clickable: this.brand })}
-                        src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
-                    />
+                    {this.brand && (
+                        <img
+                            class={cls({ clickable: this.brand })}
+                            src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
+                        />
+                    )}
                     <Flex left>
                         <h2>{this.appTitle}</h2>
                         <h4>{this.appSubtitle}</h4>

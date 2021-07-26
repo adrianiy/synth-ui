@@ -1,4 +1,4 @@
-import getLogger from './log.utils';
+import { log } from './log.utils';
 
 /**
  * Controla la devolución del error
@@ -9,8 +9,7 @@ import getLogger from './log.utils';
  * @param {fn} next funcion
  */
 export const errorHandler = async (e, ctx, next) => {
-    const logger = getLogger(`error - ${ctx.state.from} - ${ctx.state.lastStep}`);
-    logger.error(e);
+    log({ error: e, from: `${ctx.state.from} - ${ctx.state.lastStep}`, level: 'error' });
 
     ctx.status = e.errorCode || 500;
     ctx.state.data = {
