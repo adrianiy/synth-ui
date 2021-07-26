@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.0...glyph-components-v1.4.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* **core:** change log4js to winston to solve react compatibilities ([0d241db](https://github.com/adrianiy/glyph-ui/commit/0d241db6ab56bf6b1ffa7b52699f953e263f07be))
+* **docs:** fix core docs build ([d63efe4](https://github.com/adrianiy/glyph-ui/commit/d63efe4a782f5552157386fe0f227c69b2e08aad))
+
 # [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.3.0...glyph-components-v1.4.0) (2021-07-22)
 
 
