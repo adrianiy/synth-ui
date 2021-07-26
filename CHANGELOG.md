@@ -1,3 +1,10 @@
+## [1.21.3](https://github.com/adrianiy/glyph-ui/compare/v1.21.2...v1.21.3) (2021-07-26)
+
+
+### Bug Fixes
+
+* add basePath for production doc asset loading ([e7279fb](https://github.com/adrianiy/glyph-ui/commit/e7279fbf0ede20fe4043a0c02c143a436e11276f))
+
 ## [1.21.2](https://github.com/adrianiy/glyph-ui/compare/v1.21.1...v1.21.2) (2021-07-26)
 
 
