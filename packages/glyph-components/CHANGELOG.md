@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.1...glyph-components-v1.4.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* add basePath for production doc asset loading ([e7279fb](https://github.com/adrianiy/glyph-ui/commit/e7279fbf0ede20fe4043a0c02c143a436e11276f))
+
 ## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.0...glyph-components-v1.4.1) (2021-07-26)
 
 
