@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.2.0...glyph-react-v1.2.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* add basePath for production doc asset loading ([e7279fb](https://github.com/adrianiy/glyph-ui/commit/e7279fbf0ede20fe4043a0c02c143a436e11276f))
+* **core:** change log4js to winston to solve react compatibilities ([0d241db](https://github.com/adrianiy/glyph-ui/commit/0d241db6ab56bf6b1ffa7b52699f953e263f07be))
+* **docs:** fix core docs build ([d63efe4](https://github.com/adrianiy/glyph-ui/commit/d63efe4a782f5552157386fe0f227c69b2e08aad))
+
 # [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.1.4...glyph-react-v1.2.0) (2021-07-22)
 
 
