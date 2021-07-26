@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.1...glyph-core-v1.1.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* **core:** change log4js to winston to solve react compatibilities ([0d241db](https://github.com/adrianiy/glyph-ui/commit/0d241db6ab56bf6b1ffa7b52699f953e263f07be))
+
 ## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.0...glyph-core-v1.1.1) (2021-07-22)
 
 
