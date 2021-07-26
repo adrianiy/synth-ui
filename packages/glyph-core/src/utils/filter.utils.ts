@@ -86,7 +86,8 @@ const getComparableDates = async (ctx, dateFilter) => {
         auth,
         dateFilter,
         null,
-        ctx.state.from || '',
+        {},
+        ctx.state.lastStep,
         ctx.state.getLogger,
     );
 

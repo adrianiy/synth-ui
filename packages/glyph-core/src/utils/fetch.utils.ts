@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import https from 'https';
 import http from 'http';
-import getComposerLogger from './log.utils';
+import { log } from './log.utils';
 
 const agent = new https.Agent({ keepAlive: true, keepAliveMsecs: 100000 });
 const devAgent = new http.Agent({ keepAlive: true, keepAliveMsecs: 100000 });
@@ -16,15 +16,13 @@ export const fetchBase = async (
     from: string = '',
     getLogger?,
 ) => {
-    const logger = (getLogger || getComposerLogger)(`${from} - fetch`);
-
     if (restrictedFilters && filters?.length) {
         filters = filters.filter(({ key }) => restrictedFilters.includes(key));
     }
 
     const filter = filters?.length ? `?filter=${encodeURIComponent(JSON.stringify(filters))}` : '';
 
-    logger.debug(`${baseUrl}/${url}${filter}`);
+    log({ message: `${baseUrl}/${url}${filter}`, from, logger: getLogger, level: 'info' });
 
     const response = await fetch(`${baseUrl}/${url}${filter}`, {
         method: 'GET',

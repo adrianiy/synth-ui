@@ -6,8 +6,8 @@ import { asyncPipe, customMiddleware, parallel, setVariables } from '../middlewa
 import { filter, groupBy, join, sort, transform } from '../middlewares/data';
 import { getA2ComparableFilters, getComparableFilters, getCurrentFilters } from '../middlewares/filters';
 import { fetchData } from '../utils/fetch.utils';
-import { log } from '../utils/log.utils';
 import { is } from '../utils/utils';
+import { logMiddleware } from '../middlewares/log';
 
 const basicYamlParser = (doc: any, params: any) => {
     let pipe = [];
@@ -65,7 +65,7 @@ const basicYamlParser = (doc: any, params: any) => {
         pipe.push(asyncPipe(...doc.pipe.reduce((acc, curr) => acc.concat(basicYamlParser(curr, params)), [])));
     }
     if (doc.log) {
-        pipe.push(log(doc.log, params.logger));
+        pipe.push(logMiddleware(doc.log, params.logger));
     }
 
     return pipe;
