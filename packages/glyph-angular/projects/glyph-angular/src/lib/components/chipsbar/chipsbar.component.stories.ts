@@ -13,6 +13,8 @@ import { GlyphStoreModule } from '../../glyph-store.module';
 import { GlyphAngularServices } from '../../glyph-services.module';
 import { WithGlobalDecorator } from '../../helpers/decorators';
 
+const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
+
 function initFilterService(filtersService: FilterService) {
     return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, initialFilters);
 }
@@ -71,7 +73,7 @@ export const Chipsbar: Story<ChipsbarComponent> = (args, ctx) =>
         template: '<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>',
     });
 
-Chipsbar.args = { interface: UIInterface.classic };
+Chipsbar.args = { interface: UIInterface.classic, basePath };
 Chipsbar.parameters = {
     docs: {
         description: {

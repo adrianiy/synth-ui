@@ -15,7 +15,7 @@ export const getComponentClosestLanguage = (element: HTMLElement): string => {
 
 const _fetchLocaleStringsForComponent = async (componentName: string, locale: string, basePath: string = '..') => {
     try {
-        const path = getAssetPath(`${basePath}/assets/i18n`);
+        const path = getAssetPath(`${basePath || '..'}/assets/i18n`);
         return (await fetch(`${path}/${componentName}.i18n.${locale}.json`)).json();
     } catch (e) {
         return {};
