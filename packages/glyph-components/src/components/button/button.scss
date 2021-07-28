@@ -58,6 +58,12 @@
         }
     }
 
+    &.tiny {
+        text-transform: uppercase;
+        font-weight: var(--gui-font-weight--light);
+        font-size: var(--gui-font-xxs);
+    }
+
     &.modern {
         background-color: transparent;
         border: var(--gui-border--light);

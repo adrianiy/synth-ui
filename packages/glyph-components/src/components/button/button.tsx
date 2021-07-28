@@ -17,6 +17,8 @@ export class ButtonComponent {
     @Prop() cancel: boolean;
     /** Action button. Displayed with text only */
     @Prop() action: boolean;
+    /** Tiny action button displays a smaller and thinier text */
+    @Prop() tiny: boolean;
     /** Renders icon first */
     @Prop() iconFirst: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
@@ -32,6 +34,7 @@ export class ButtonComponent {
                         icon: this.icon,
                         cancel: this.cancel,
                         action: this.action,
+                        tiny: this.tiny,
                     },
                     this.interface,
                 )}
