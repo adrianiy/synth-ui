@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.2...glyph-components-v1.5.0) (2021-07-28)
+
+
+### Features
+
+* **button:** add tiny action button ([5cca153](https://github.com/adrianiy/glyph-ui/commit/5cca153c70d704d896f9736e16fcaec4bb54e1c6))
+
 ## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.1...glyph-components-v1.4.2) (2021-07-26)
 
 
