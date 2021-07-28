@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/adrianiy/glyph-ui/compare/v1.22.0...v1.23.0) (2021-07-28)
+
+
+### Features
+
+* add tiny button in wrappers ([7c482aa](https://github.com/adrianiy/glyph-ui/commit/7c482aa2462381714b1c205aaff8fd5f50f65b6e))
+
 # [1.22.0](https://github.com/adrianiy/glyph-ui/compare/v1.21.3...v1.22.0) (2021-07-28)
 
 
