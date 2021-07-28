@@ -1,3 +1,11 @@
+## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.6.0...glyph-components-v1.6.1) (2021-07-28)
+
+
+### Bug Fixes
+
+* fix app menu gap ([7cbf498](https://github.com/adrianiy/glyph-ui/commit/7cbf49851c95c1e901d93c64781cf59a784da48d))
+* fix tiny button font size ([a35aace](https://github.com/adrianiy/glyph-ui/commit/a35aacea069a1974d1aa24c5eba4639177d67dc7))
+
 # [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.5.0...glyph-components-v1.6.0) (2021-07-28)
 
 
