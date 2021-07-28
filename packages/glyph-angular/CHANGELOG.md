@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.2.1...glyph-angular-v1.3.0) (2021-07-28)
+
+
+### Features
+
+* add tiny button in wrappers ([7c482aa](https://github.com/adrianiy/glyph-ui/commit/7c482aa2462381714b1c205aaff8fd5f50f65b6e))
+* **button:** add tiny action button ([5cca153](https://github.com/adrianiy/glyph-ui/commit/5cca153c70d704d896f9736e16fcaec4bb54e1c6))
+
 ## [1.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.2.0...glyph-angular-v1.2.1) (2021-07-26)
 
 
