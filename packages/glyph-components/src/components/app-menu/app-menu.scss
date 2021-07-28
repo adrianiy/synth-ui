@@ -30,7 +30,7 @@
     &__apps {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-row-gap: var(--gui-padding--xs);
+        grid-gap: var(--gui-padding--xxs);
 
         .app {
             --size: 70px;
