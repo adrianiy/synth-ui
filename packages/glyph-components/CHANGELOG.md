@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.6.1...glyph-components-v1.6.2) (2021-07-28)
+
+
+### Bug Fixes
+
+* fix pagination ([5213c50](https://github.com/adrianiy/glyph-ui/commit/5213c50aad716002551bf83136e30431557bb838))
+
 ## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.6.0...glyph-components-v1.6.1) (2021-07-28)
 
 
