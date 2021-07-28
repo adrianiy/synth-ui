@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.5.0...glyph-components-v1.6.0) (2021-07-28)
+
+
+### Features
+
+* add tiny button in wrappers ([7c482aa](https://github.com/adrianiy/glyph-ui/commit/7c482aa2462381714b1c205aaff8fd5f50f65b6e))
+
 # [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.4.2...glyph-components-v1.5.0) (2021-07-28)
 
 
