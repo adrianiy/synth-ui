@@ -141,6 +141,10 @@ export namespace Components {
           * Button text
          */
         "text": string;
+        /**
+          * Tiny action button displays a smaller and thinier text
+         */
+        "tiny": boolean;
     }
     interface GlyphButtonGroup {
         /**
@@ -1666,6 +1670,10 @@ declare namespace LocalJSX {
           * Button text
          */
         "text"?: string;
+        /**
+          * Tiny action button displays a smaller and thinier text
+         */
+        "tiny"?: boolean;
     }
     interface GlyphButtonGroup {
         /**

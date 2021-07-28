@@ -91,13 +91,13 @@ export class GlyphBreadcrumbs {
 
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text']
+  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 @Component({
   selector: 'glyph-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text']
+  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 export class GlyphButton {
   protected el: HTMLElement;
