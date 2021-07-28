@@ -6,6 +6,7 @@ const baseProps = {
     text: 'button1',
     icon: '',
     action: false,
+    tiny: false,
     cancel: false,
     iconFirst: false,
     interface: UIInterface.classic,
@@ -25,7 +26,7 @@ export default {
     },
 };
 
-const Template = ({ text, icon, iconFirst, cancel, action, interface: interfaceValue }, ctx: any) =>
+const Template = ({ text, icon, iconFirst, cancel, action, tiny, interface: interfaceValue }, ctx: any) =>
     WithGlobalDecorator({
         template: html` <glyph-button
             .text=${text}
@@ -33,6 +34,7 @@ const Template = ({ text, icon, iconFirst, cancel, action, interface: interfaceV
             .icon=${icon}
             .cancel=${cancel}
             .action=${action}
+            .tiny=${tiny}
             .interface=${interfaceValue}
             @click=${clickEvent}
         />`,
@@ -60,5 +62,12 @@ Cancel.args = {
 export const Action = Template.bind({});
 Action.args = {
     ...baseProps,
+    action: true,
+};
+
+export const Tiny = Template.bind({});
+Action.args = {
+    ...baseProps,
+    tiny: true,
     action: true,
 };
