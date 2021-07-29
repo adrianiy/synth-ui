@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import { WithGlobalTheme } from '../helpers/decorators';
+
+<Story name="Styles" decorators={[ WithGlobalTheme ]} />
+
+<Meta
+    title="Providers/Styles"
+/>
+
+# Styles Provider
+##### StylesProvider
+
+A provider to allow use of css variables across your application.
+
+> If you are using Amiga-fwk you should use this provider because css-next plugin makes glyph variables to break
+
+<Story name="Styles Provider" />
+
+```typescript
+// main.tsx
+import { GlyphStyleProvider } from 'glyph-react';
+
+...
+    return (
+        ...
+        <GlyphStyleProvider>
+            ...
+        </GlyphStyleProvider>
+        ...
+    )
+```
