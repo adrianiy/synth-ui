@@ -1,3 +1,10 @@
+## [1.23.2](https://github.com/adrianiy/glyph-ui/compare/v1.23.1...v1.23.2) (2021-07-29)
+
+
+### Bug Fixes
+
+* fix pagination ([5213c50](https://github.com/adrianiy/glyph-ui/commit/5213c50aad716002551bf83136e30431557bb838))
+
 ## [1.23.1](https://github.com/adrianiy/glyph-ui/compare/v1.23.0...v1.23.1) (2021-07-28)
 
 
