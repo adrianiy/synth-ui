@@ -1,3 +1,10 @@
+# [1.24.0](https://github.com/adrianiy/glyph-ui/compare/v1.23.2...v1.24.0) (2021-07-29)
+
+
+### Features
+
+* **react:** add style provider ([b4bc797](https://github.com/adrianiy/glyph-ui/commit/b4bc7977b318c620482778f70f95ee88b01582ee))
+
 ## [1.23.2](https://github.com/adrianiy/glyph-ui/compare/v1.23.1...v1.23.2) (2021-07-29)
 
 
