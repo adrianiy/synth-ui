@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.3.2...glyph-react-v1.4.0) (2021-07-29)
+
+
+### Features
+
+* **react:** add style provider ([b4bc797](https://github.com/adrianiy/glyph-ui/commit/b4bc7977b318c620482778f70f95ee88b01582ee))
+
 ## [1.3.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.3.1...glyph-react-v1.3.2) (2021-07-29)
 
 
