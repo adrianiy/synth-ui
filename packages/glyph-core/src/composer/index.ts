@@ -66,7 +66,7 @@ const basicYamlParser = (doc: any, params: any) => {
         );
     }
     if (doc.log) {
-        pipe.push(logMiddleware(doc.log, params));
+        pipe.push(logMiddleware(doc.log, { ...params, showLastStep: false }));
     }
 
     return pipe;

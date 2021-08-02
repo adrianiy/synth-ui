@@ -41,7 +41,7 @@ export const fetchData = ({
             getFrom(ctx.state, auth) || auth || ctx.state.auth,
             parameters,
             headers,
-            ctx.state.from || '',
+            `${ctx.state.from || ''} - fetch`,
             ctx.state.logger,
         );
         const prevData = getFrom(ctx.state, store) || [];
