@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.4...glyph-core-v2.0.0) (2021-08-02)
+
+
+### Performance Improvements
+
+* **core:** test breacking change release ([04e5b6c](https://github.com/adrianiy/glyph-ui/commit/04e5b6c199e219121051374fb632c337c60c70a2))
+
+
+### BREAKING CHANGES
+
+* **core:** test to release a breaking change version
+
 ## [1.4.4](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.3...glyph-core-v1.4.4) (2021-08-02)
 
 
