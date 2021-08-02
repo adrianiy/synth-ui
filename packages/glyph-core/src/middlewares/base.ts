@@ -1,5 +1,6 @@
-import { constant, getFrom, is } from '../utils/utils';
+import { constant, getFrom, is, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
+import cloneDeep from 'lodash/cloneDeep';
 
 /** Asynchronous pipe */
 export const asyncPipe = (...fns: any) => {
@@ -26,10 +27,7 @@ export const setVariables = (variables: any) => {
         const data = getData(ctx);
 
         Object.keys(data).forEach(key => {
-            const isFrom = key === 'from';
-            const isSetted = ctx.state[key];
-
-            ctx.state[key] = isFrom && isSetted ? ctx.state[key] : data[key];
+            ctx.state[key] = data[key];
         });
         ctx.state['startTime'] = new Date();
 
@@ -47,16 +45,25 @@ export const parallel = (fns: any[]) => {
 };
 
 /** Custom middleware */
-export const customMiddleware = (customMiddelware: any, params: any) => {
+export const customMiddleware = (
+    { middleware, store, standalone }: { middleware: any; store: string; standalone: boolean },
+    params: any,
+) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'custom';
 
-            if (is(customMiddelware, 'string')) {
-                await getFrom({ ...params, ...ctx.state }, customMiddelware)(ctx, next);
-            } else if (is(customMiddelware, Object)) {
-                const key = Object.keys(customMiddelware)[0];
-                await getFrom({ ...params, ...ctx.state }, key)(customMiddelware[key]);
+            const context = standalone ? { ...ctx, query: ctx.query, state: { ...ctx.state } } : ctx;
+
+            if (is(middleware, 'string')) {
+                const data = await getFrom({ ...params, ...ctx.state }, middleware)(context, next);
+
+                if (store) {
+                    storeIn(ctx.state, store, data || context.state.data);
+                }
+            } else if (is(middleware, Object)) {
+                const key = Object.keys(middleware)[0];
+                await getFrom({ ...params, ...ctx.state }, key)(middleware[key]);
             } else {
                 throw new Error('Invalid custom middleware format');
             }

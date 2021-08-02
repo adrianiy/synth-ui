@@ -1,5 +1,5 @@
 import { fetchBase } from '../utils/fetch.utils';
-import { getFrom, storeIn } from '../utils/utils';
+import { getFrom, is, storeIn } from '../utils/utils';
 
 /**
  * Fetch middleware
@@ -32,7 +32,7 @@ export const fetchData = ({
     return async (ctx: any, next: any) => {
         Object.keys(parameters).forEach((key: string) => {
             const parameter = getFrom(ctx.state, parameters[key]) || parameters[key];
-            parameters[key] = parameter;
+            parameters[key] = is(parameter, Function) ? parameter(ctx) : parameter;
         });
 
         const response = await fetchBase(

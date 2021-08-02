@@ -27,7 +27,7 @@ const getLogger = (label: string) =>
                 }${info.message}${info.showErrors && info.stack ? `\n${Colors.error}${info.stack}` : ''}`;
             }),
         ),
-        transports: [ new transports.Console() ],
+        transports: [ new transports.Console({ level: 'debug' }) ],
     });
 
 export const log = ({
@@ -46,7 +46,7 @@ export const log = ({
     showErrors?: boolean;
 }) => {
     if (logger) {
-        logger(from)[level](message);
+        logger(from)[level](error?.message || message);
     } else {
         const glyphLogger = getLogger(from);
 

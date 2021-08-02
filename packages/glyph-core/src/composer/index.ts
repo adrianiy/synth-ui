@@ -19,9 +19,8 @@ const basicYamlParser = (doc: any, params: any) => {
         pipe.push(setVariables(doc.variables));
     }
     if (doc.filters) {
-        if (doc.filters.current) {
-            pipe.push(getCurrentFilters(doc.filters));
-        }
+        pipe.push(getCurrentFilters(doc.filters));
+
         if (doc.filters.comparable) {
             pipe.push(getComparableFilters(doc.filters));
         }
