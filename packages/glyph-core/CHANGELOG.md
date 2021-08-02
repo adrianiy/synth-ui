@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.3.0...glyph-core-v1.3.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** fix custom logger from state ([21bf698](https://github.com/adrianiy/glyph-ui/commit/21bf698a308270ae98a9ecf7f13adee3de33315e))
+
 # [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.2.0...glyph-core-v1.3.0) (2021-08-02)
 
 
