@@ -138,7 +138,7 @@ export const transform = (
             const transfomedData = rawData.map((row: any) => {
                 Object.keys(row).forEach(key => {
                     transform.forEach(({ match, exclude, preserve, keyFn, valueFn }) => {
-                        if (key.match(match) && !key.match(exclude)) {
+                        if (key.match(match) && !key.match(exclude || null)) {
                             row[keyFn(key, row, ctx)] = valueFn(key, row, ctx);
 
                             if (!preserve) {
