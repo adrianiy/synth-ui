@@ -1,3 +1,10 @@
+# [1.25.0](https://github.com/adrianiy/glyph-ui/compare/v1.24.0...v1.25.0) (2021-08-02)
+
+
+### Features
+
+* **core:** refactor middlewares ([7cfe64e](https://github.com/adrianiy/glyph-ui/commit/7cfe64ec740efb781bad4d7a26dd23791c5c5ca6))
+
 # [1.24.0](https://github.com/adrianiy/glyph-ui/compare/v1.23.2...v1.24.0) (2021-07-29)
 
 
