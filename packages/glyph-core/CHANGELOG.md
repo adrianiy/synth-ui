@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.2.0...glyph-core-v1.3.0) (2021-08-02)
+
+
+### Features
+
+* **core:** add multi option transform ([baaea1e](https://github.com/adrianiy/glyph-ui/commit/baaea1ed43008439c5a00aa7d71cb8b73d1a7bf2))
+
 # [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.2...glyph-core-v1.2.0) (2021-08-02)
 
 
