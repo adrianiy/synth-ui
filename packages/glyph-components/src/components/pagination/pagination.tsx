@@ -51,15 +51,15 @@ export class PaginationComponent {
 
     private _getPageGroupConfig = () => {
         const { upperThreshold, lowerThreshold } = this._getThresholds();
-        const upperLimit = (this.limit + 1) * -1;
-        const hasLimit = this.pages > this.limit;
-        const hasToRenderGroups = this.limit && this.activePage >= lowerThreshold && this.activePage < upperThreshold;
+        const upperLimit = this.limit * -1;
+        const hasLimit = this.pages > this.limit + 1;
+        const hasToRenderGroups = this.limit && this.activePage > lowerThreshold && this.activePage <= upperThreshold;
 
         return {
             initialStart: 0,
-            initialEnd: this.activePage >= lowerThreshold && this.limit ? 1 : this.limit,
-            finalStart: this.activePage < upperThreshold ? -2 : upperLimit,
-            finalEnd: -1,
+            initialEnd: this.activePage > lowerThreshold && hasLimit ? 1 : this.limit + 1,
+            finalStart: this.activePage <= upperThreshold ? -1 : upperLimit,
+            finalEnd: Infinity,
             hasToRenderGroups,
             hasLimit,
         };

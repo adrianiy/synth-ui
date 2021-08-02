@@ -59,6 +59,7 @@
         margin: var(--gui-padding--xxs);
 
         .quantity {
+            color: var(--gui-color--light);
             padding: var(--gui-padding--xs) var(--gui-padding--s);
             background: var(--gui-color--article--decoration);
             font-size: var(--gui-font--xs);
@@ -157,6 +158,8 @@
         }
 
         .description {
+            color: var(--gui-color--light);
+            filter: brightness(.5);
             font-weight: var(--gui-font-weight--bold);
             text-transform: uppercase;
             overflow: hidden;
@@ -170,7 +173,7 @@
             margin-top: var(--gui-padding--xxxs);
 
             &:hover {
-                color: var(--gui-color);
+                color: var(--gui-color--lighter);
             }
         }
     }

@@ -2,7 +2,7 @@ import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { UIInterface } from 'glyph-core';
-import { FiltersConfig } from '../../helpers/configs';
+import { FiltersConfig, initialFilters } from '../../helpers/configs';
 import { TranslateServiceStub } from '../../helpers/fakers';
 import { FilterEntities } from '../../helpers/filters';
 import { ChipsbarComponent } from './chipsbar.component';
@@ -13,8 +13,10 @@ import { GlyphStoreModule } from '../../glyph-store.module';
 import { GlyphAngularServices } from '../../glyph-services.module';
 import { WithGlobalDecorator } from '../../helpers/decorators';
 
+const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
+
 function initFilterService(filtersService: FilterService) {
-    return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, {});
+    return () => filtersService.initializeFilters(FilterEntities, 'test', FiltersConfig, initialFilters);
 }
 
 export default {
@@ -71,7 +73,7 @@ export const Chipsbar: Story<ChipsbarComponent> = (args, ctx) =>
         template: '<glyph-ng-chipsbar [interface]="interface"></glyph-ng-chipsbar>',
     });
 
-Chipsbar.args = { interface: UIInterface.classic };
+Chipsbar.args = { interface: UIInterface.classic, basePath };
 Chipsbar.parameters = {
     docs: {
         description: {

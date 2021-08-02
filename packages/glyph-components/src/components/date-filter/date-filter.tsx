@@ -17,6 +17,8 @@ dayjs.extend(isSameOrBefore);
     shadow: true,
 })
 export class DateFilterComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Filter description */
     @Prop() description: string;
     /** Active flag */
@@ -49,6 +51,8 @@ export class DateFilterComponent {
     @Prop() comparableOptions: SelectorOption[];
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Date selection event */
@@ -76,7 +80,12 @@ export class DateFilterComponent {
     }
 
     async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'date-filter' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(
+            [ 'date-filter' ],
+            this.element,
+            this.basePath,
+            this.locale,
+        );
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -217,6 +226,7 @@ export class DateFilterComponent {
                 startDateAux={this.isCustomComparable && this.comparableStartDate}
                 endDateAux={this.isCustomComparable && this.comparableEndDate}
                 months={this.months}
+                auxActive={this.isCustomComparable}
                 secondary={this.isCustomComparable && this.comparableActive}
                 onDateSelect={this._selectDate}
                 onDateSelectAux={this._selectCompDate}

@@ -1,0 +1,32 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Custom" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Custom" />
+
+###### Configuration
+# custom
+
+Uses a custom middleware implemented on your side.
+
+If it is configured as string is considered as key name and we'll look for the implementation in `params` and `ctx.state`.
+
+If it is configured with an object of properies we'll consider the first key the name of the middlewares and use the entire object as input argument.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|any|String or Object|name of customMiddleware or object with name as first key | null |
+
+### Example 
+
+```yaml
+name: custom middlewares
+custom:
+  getMMTTdates:
+    baseFiltersKey: filters
+    filterKey: filters
+    store: mmttFilters
+```

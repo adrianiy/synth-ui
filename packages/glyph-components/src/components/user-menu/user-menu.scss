@@ -4,6 +4,10 @@
 
     .caption {
         text-transform: uppercase;
+        &--small {
+            color: var(--gui-color--light);
+            margin-bottom: var(--gui-padding--xxs);
+        }
     }
     &__row {
         width: 100%;

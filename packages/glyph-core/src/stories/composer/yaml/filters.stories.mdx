@@ -1,0 +1,52 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Filters" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Filters" />
+
+###### Configuration
+# filters
+
+Parse filters informed as query params or as a query string.
+
+> Valid query values:
+> - **?a=[1,2]&b=[1]**
+> - **?filters=[{ key: 'a', op: 'in', value: [1, 2] }, { key: 'b', op: 'in', value: [1] }]**
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|current|Boolean or { use, rangeBefore }|Parse current filters| false |
+|comparable|Boolean or { compType }|Parse comparable filters| false |
+|a2|Boolean or { compType }|Parse a2 comparable filters| false |
+
+#### Current parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|use|String[]|Filter codes to use in the request| null |
+|rangeBefore|nubmer|Days to add before start date| null |
+
+#### Comparable parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|compType|String|comparable type| commercial |
+
+#### A2 parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|compType|String|comparable type| commercial |
+
+### Example
+
+```yaml
+filters:
+    current: true
+    comparable:
+        compType: calendar
+    a2: true
+```

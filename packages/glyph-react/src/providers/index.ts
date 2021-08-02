@@ -1,3 +1,4 @@
-import FilterStateProvider from './filter-state';
+import FilterStateProvider, { useFilters, useFiltersConfig } from './filter-state';
+import GlyphStyleProvider from './style-provider';
 
-export { FilterStateProvider };
+export { FilterStateProvider, useFilters, useFiltersConfig, GlyphStyleProvider };

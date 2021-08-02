@@ -1,9 +1,15 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+import { Meta, Source, Story } from '@storybook/addon-docs';
+import { WithGlobalDecorator } from './helpers/decorators';
+
+export const Template = (_, ctx) => WithGlobalDecorator({ template: html`</>`, ctx });
 
 <Meta title="Introduction" />
 
 ###### INTRODUCTION
 # GlyphUI-Components
+
+<Story name="Introduction">{ Template.bind({}) }</Story>
 
 #### WebComponents library implemented with [StencilJS](https://stenciljs.com)
 
@@ -17,7 +23,13 @@ is the correct project import and pass attributes to components correctly.
 
 ## Install
 
-🚧 The library is not currently published
+```bash
+  # yarn 
+  yarn add glyph-components 
+  
+  # npm 
+  npm i glyph-components
+```
 
 ## Use
 
@@ -33,6 +45,10 @@ For components accepting complex input properties you should set component attri
   todoListElement.myArray = [];
 </script>
 ```
+
+> Take a look at [Glyph Angular DOCS](https://adrianiy.github.io/glyph-ui/?path=/story/angular_introduction--page).
+
+> Take a look at [Glyph React DOCS](https://adrianiy.github.io/glyph-ui/?path=/story/react_introduction--page).
 
 ## Local Development
 

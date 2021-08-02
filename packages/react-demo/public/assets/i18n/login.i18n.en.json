@@ -1,0 +1,7 @@
+{ 
+    "login.welcome": "Welcome to <b>Drive</b>",
+    "login.subtitle": "Please login to continue.",
+    "login.error": "Error trying to login",
+    "login.user": "Username",
+    "login.pass": "Password"
+}

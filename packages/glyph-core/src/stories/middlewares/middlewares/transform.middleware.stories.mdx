@@ -1,0 +1,105 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Transform" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Transform" />
+
+###### Middlewares
+# Transform
+
+Transform row properties that matches some `match` **RegExp**  but does not match `exclude` **RegExp**.
+
+This process tranforms keys and values using `transform` `key` and `value` configuration
+
+> **key** and **value**
+>
+> String with a function or key to search in `ctx.state` or `params`.
+>
+> If empty identity function will be used.
+>
+> These functions are called with (key, row, ctx).
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|match|String|RegExp to find keys to transform. If empty all field matches|undefined|
+|exclude|String|RegExp to exclude keys to transform. If empty no field matches|null|
+|tranform|{ key: string; value: string }|Method or key name|{}|
+
+### Example 
+
+You can use this pipe to add suffixes in value fields like:
+
+```typescript
+import { transform } from 'glyph-core';
+
+service()
+  .pipe(
+    transform({ data: 'current', match: 'units', transform: { key: () => 'test', value: (key, row) => row[key] * 100 }})
+  )
+```
+
+### Implementation
+
+```typescript
+/** Transform field middleware
+ *
+ * @param data { string } state key where data is stored
+ * @param store { string } state key where data will be stored
+ * @param match { string } regex to match fields
+ * @param exclude { string } regex to exclude fields
+ * @param preserve { boolean } if true old field will be preserved
+ * @param transform { key: string, value: string } string with function or key of function in params or state, else identity function is used
+ */
+export const transform = (
+    {
+        data = 'data',
+        store,
+        match,
+        exclude = null,
+        preserve,
+        transform = {},
+    }: {
+        data: string;
+        store: string;
+        match: string;
+        exclude: string;
+        preserve: boolean;
+        transform: { key?: string; value?: string };
+    },
+    params: any,
+) => {
+    const { key, value } = transform;
+
+    const getTransformKey = (ctx: any) => (key ? params[key] || ctx.state[key] || eval(key) : (a: any) => a);
+    const getTransformValue = (ctx: any) =>
+        value ? params[value] || ctx.state[value] || eval(value) : (key: string, row: any) => row[key];
+
+    return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'transform';
+
+        const keyFn = getTransformKey(ctx);
+        const valueFn = getTransformValue(ctx);
+
+        ctx.state[store || data] = ctx.state[data].map((row: any) => {
+            Object.keys(row)
+                .filter(key => key.match(match) && !key.match(exclude))
+                .forEach(key => {
+                    row[keyFn(key, row, ctx)] = valueFn(key, row, ctx);
+
+                    if (!preserve) {
+                        delete row[key];
+                    }
+                });
+
+            return row;
+        });
+
+        await next();
+    };
+};
+```

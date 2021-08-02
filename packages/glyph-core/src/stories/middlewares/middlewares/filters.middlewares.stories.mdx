@@ -1,0 +1,57 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Filters" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Filters" />
+
+###### Middlewares
+# Filters
+
+Parse filters informed as query params or as a query string.
+
+
+> Valid query values:
+> - **?a=[1,2]&b=[1]**
+> - **?filters=[{ key: 'a', op: 'in', value: [1, 2] }, { key: 'b', op: 'in', value: [1] }]**
+
+### Example 
+
+#### Current
+
+Accepts parameters `use` and `rangeBefore`
+
+```typescript
+import { getCurrentFilters } from 'glyph-core';
+
+service()
+  .pipe(
+    getCurrentFilters({ rangeBefore: 7, use: ['local_date', 'cod_section'] })
+  )
+```
+
+#### Comparable
+
+Accepts parameter `compType`, default value is 'commercial'.
+
+```typescript
+import { getComparableFilters } from 'glyph-core';
+
+service()
+  .pipe(
+    getComparableFilters({ compType: 'commercial' })
+  )
+```
+
+#### A2
+
+Accepts parameter `compType`, default value is 'commercial'.
+
+```typescript
+import { getA2ComparableFilters } from 'glyph-core';
+
+service()
+  .pipe(
+    getA2ComparableFilters()
+  )
+```

@@ -1,6 +1,7 @@
-<glyph-title [titleText]="title"></glyph-title>
+<glyph-title [text]="title"></glyph-title>
 <glyph-list
     [loading]="loading"
+    [basePath]="basePath"
     [data]="parsedData"
     [filterFields]="activeKpi && [activeKpi]"
     [defaultSortField]="activeKpi"

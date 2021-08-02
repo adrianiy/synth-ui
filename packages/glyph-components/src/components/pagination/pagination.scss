@@ -10,13 +10,13 @@
         padding: var(--gui-padding--xxs) var(--gui-padding--s);
         color: var(--gui-color--lighter);
         border-bottom: var(--gui-border--lighter);
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
         cursor: pointer;
         display: inline-block;
 
         &.active {
             color: var(--gui-color);
-            border-bottom-color: var(--gui-border--light);
+            border-bottom-color: var(--gui-border);
         }
     }
     em {

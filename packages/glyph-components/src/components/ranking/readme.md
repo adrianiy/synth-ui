@@ -10,6 +10,7 @@
 | Property                | Attribute                 | Description                                                                                     | Type                         | Default                     |
 | ----------------------- | ------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------- | --------------------------- |
 | `aspectRatio`           | `aspect-ratio`            | Aspect ratio used to calculate loader height                                                    | `number`                     | `340 / 512`                 |
+| `basePath`              | `base-path`               | Base path to get assets                                                                         | `string`                     | `undefined`                 |
 | `columnGap`             | `column-gap`              | Distance between columns                                                                        | `string`                     | `'15%'`                     |
 | `columns`               | `columns`                 | Columns to render if ranking have more than 1 section, number of columns will apply per section | `number`                     | `3`                         |
 | `gap`                   | `gap`                     | Distance applied to both axes                                                                   | `string`                     | `undefined`                 |
@@ -18,6 +19,7 @@
 | `innerColumns`          | `inner-columns`           | Inner columns, sets how many columns should be rendered per column                              | `number`                     | `1`                         |
 | `innerGap`              | `inner-gap`               | Distance between elements inside a column                                                       | `string`                     | `undefined`                 |
 | `loading`               | `loading`                 | Loading flag                                                                                    | `boolean`                    | `false`                     |
+| `locale`                | `locale`                  | **optional** force locale change if html lang is not interpreted                                | `string`                     | `undefined`                 |
 | `parseImageUrl`         | --                        | **optional** Compose image url callback                                                         | `(image: string) => string`  | `undefined`                 |
 | `rankingData`           | --                        | Ranking data                                                                                    | `RankingData[]`              | `undefined`                 |
 | `rankingHeader`         | `ranking-header`          | (optional) ranking header. Applicable on single section ranking                                 | `string`                     | `undefined`                 |

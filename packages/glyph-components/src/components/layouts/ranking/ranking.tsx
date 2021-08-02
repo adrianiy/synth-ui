@@ -9,6 +9,8 @@ import { getLocaleComponentStrings } from '../../../utils/utils';
     shadow: true,
 })
 export class GlyphRankingLayout {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Loading flag */
     @Prop() loading: boolean = false;
     /** Loading comparable flag */
@@ -29,6 +31,8 @@ export class GlyphRankingLayout {
     @Prop() useBackdropDecoration: boolean = true;
     /** Extra i18n translates */
     @Prop() i18n: { [key: string]: string };
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Element reference */
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active slider value */
@@ -63,7 +67,12 @@ export class GlyphRankingLayout {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'ranking-layout' ], this.element);
+        const componentI18n = await getLocaleComponentStrings(
+            [ 'ranking-layout' ],
+            this.element,
+            this.basePath,
+            this.locale,
+        );
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -188,7 +197,7 @@ export class GlyphRankingLayout {
         return (
             <Flex class="ranking">
                 <Flex row spaced top class="ranking__header">
-                    <glyph-title titleText="Ranking" />
+                    <glyph-title text="Ranking" />
                     {this._renderHeaderOptions()}
                 </Flex>
                 <glyph-ranking

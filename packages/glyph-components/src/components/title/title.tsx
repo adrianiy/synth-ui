@@ -7,9 +7,14 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class TitleComponent {
     /** title text */
-    @Prop() titleText: string;
+    @Prop() text: string;
 
     render() {
-        return <h2>{this.titleText}</h2>;
+        return (
+            <h2>
+                <slot />
+                {this.text}
+            </h2>
+        );
     }
 }

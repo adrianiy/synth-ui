@@ -1,0 +1,79 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Filter" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Filter" />
+
+###### Middlewares
+# Filter
+
+Filter data in `data` key using some requirement function or keys.
+
+If `function` is informed we'll use a method stored in params, state, or passed as string to filter data, otherwise we'll filter those rows that has every `keys` attributes informed.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|data|String|Key of `ctx.state` where data is stored | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|function|Method or key name|null|
+|required|String[]|Array of keys that must be informed|null|
+
+### Example 
+
+```typescript
+import { filter } from 'glyph-core';
+
+service()
+  .pipe(
+    filter({ data: 'current', function: (a) => a > 0 })
+  )
+```
+
+### Implementation
+
+```typescript
+/** Filter middleware
+ *
+ * @param data { string } state key where data is stored
+ * @param store { string } state key where data will be stored
+ * @param function { string } filter function or key name
+ * @param required { string[] } keys that should be informed
+ */
+export const filter = (
+    {
+        data = 'data',
+        store,
+        function: functionRaw,
+        required,
+    }: {
+        data: string;
+        store: string;
+        function: string;
+        required: string[];
+    },
+    params: any,
+) => {
+    if (!functionRaw && !required) {
+        throw new Error('filter paramters are mandatory');
+    }
+
+    const getFilterFn = (ctx: any) =>
+        functionRaw
+            ? params[functionRaw] || ctx.state[functionRaw] || eval(functionRaw)
+            : (a: any) => required.every(key => a[key]);
+
+    return async (ctx: any, next: any) => {
+        ctx.state.lastStep = 'filter';
+
+        const filterFn = getFilterFn(ctx);
+
+        ctx.state[store || data] = ctx.state[data].filter(filterFn);
+
+        await next();
+    };
+};
+```
+

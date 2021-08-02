@@ -1,0 +1,33 @@
+import { Description, Meta, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta title="Components/Article/Description" parameters={{ viewMode: 'docs' }} />
+
+# Article
+##### glyph-article
+
+Manages article rendering
+
+Can be configured to render `new` and `pvp` tags.
+
+> ## Image configuration
+>
+> - `Image` or `plain_image` with a full url to the image.
+> - With a `parseImageUrl` method to pre-process url.
+
+<Canvas>
+    <Story id="components-article-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-article-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>
+

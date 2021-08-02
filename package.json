@@ -22,7 +22,6 @@
         "link": "lerna link",
         "creevey": "creevey --extract && move-file stories.json docs/stories.json",
         "semantic-release": "lerna exec --concurrency 1 --scope=\"glyph-*\" -- npx semantic-release -e semantic-release-monorepo"
-
     },
     "devDependencies": {
         "@babel/core": "^7.13.13",
@@ -43,7 +42,7 @@
         "@typescript-eslint/eslint-plugin-tslint": "^4.16.1",
         "@typescript-eslint/parser": "^4.18.0",
         "babel-loader": "8.1.0",
-        "creevey": "^0.7.26",
+        "creevey": "0.7.31",
         "eslint": "^7.22.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
         "eslint-plugin-prettier": "^3.3.1",
@@ -55,11 +54,14 @@
         "progress-bar-webpack-plugin": "^2.1.0",
         "semantic-release": "^17.0.6",
         "semantic-release-monorepo": "^7.0.5",
+        "storybook-addon-designs": "^6.0.0",
         "storybook-addon-themes": "^6.1.0",
         "storybook-dark-mode": "^1.0.8"
     },
     "dependencies": {
         "npm-run-all": "^4.1.5",
+        "sass": "^1.35.1",
+        "sass-loader": "^10",
         "typescript": "^4.2.3",
         "wait-on": "^5.3.0"
     },
@@ -80,5 +82,5 @@
         "gitEmail": "adrianiy@ext.inditex.com",
         "commitMessage": "chore: Deploy Storybook [skip ci]"
     },
-    "version": "1.17.0"
+    "version": "2.0.0"
 }

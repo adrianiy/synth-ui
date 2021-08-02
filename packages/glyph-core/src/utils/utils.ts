@@ -12,3 +12,32 @@ export const codeToArray = (code: any) => [].concat(code);
 export const unique = (value: any, index: number, self: any) => {
     return self.indexOf(value) === index;
 };
+
+export const is = (value: any, typeCheck: any) => {
+    try {
+        return typeof value === typeCheck || value instanceof typeCheck;
+    } catch (_) {
+        return false;
+    }
+};
+export const constant = (value: any) => (_: any) => value;
+
+export const getFrom = (from: any, value: string) => {
+    if (value?.split) {
+        const keys = value.split('.');
+
+        return keys.reduce((value: any, key: string) => value?.[key], from);
+    } else {
+        return undefined;
+    }
+};
+
+export const storeIn = (dest: any, path: string, data: any) => {
+    const keys = path.split('.').reverse();
+
+    const store = keys.reduce((value: any, key: string) => ({ [key]: value }), data);
+
+    const [ key, value ] = Object.entries(store)[0];
+
+    dest[key] = value;
+};

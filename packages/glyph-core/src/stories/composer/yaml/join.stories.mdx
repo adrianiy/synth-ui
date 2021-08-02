@@ -1,0 +1,39 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Join" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Join" />
+
+###### Configuration
+# join
+
+Join data in sql-like way.
+
+You can choose betweent different join options
+
+> **cross**
+>
+> Everything that does not match is concatenated at the end of the array.
+
+> **left**
+>
+> Adds every row on the left side enriched with matching data from the right side
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|strategy|String|Join strategy left \| cross | cross |
+|data|String|Key of `ctx.state` of data to make join as left side | data |
+|with|String|Key of `ctx.state` of data to make join as right side | data |
+|store|String|Key of `ctx.state` where data will be stored | data |
+|joinKeys|String[]|Array of keys to identify groups of data | null |
+
+### Example 
+
+```yaml
+join:
+    data: current
+    with: comparable
+```

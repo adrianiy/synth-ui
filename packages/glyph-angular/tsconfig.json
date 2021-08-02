@@ -16,6 +16,7 @@
       "es2018",
       "dom"
     ],
+    "typeRoots": [ "./typings.d.ts" ],
     "paths": {
       "glyph-angular": [
         "dist/glyph-angular/glyph-angular",

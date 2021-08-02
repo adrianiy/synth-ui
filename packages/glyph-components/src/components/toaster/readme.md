@@ -7,11 +7,13 @@
 
 ## Properties
 
-| Property  | Attribute  | Description                           | Type                         | Default     |
-| --------- | ---------- | ------------------------------------- | ---------------------------- | ----------- |
-| `eventId` | `event-id` | Id of event that trigger toaster show | `string`                     | `undefined` |
-| `i18n`    | --         | Extra i18n translation object         | `{ [key: string]: string; }` | `{}`        |
-| `ttl`     | `ttl`      | Time to live for shown toaster        | `number`                     | `undefined` |
+| Property   | Attribute   | Description                                                      | Type                         | Default     |
+| ---------- | ----------- | ---------------------------------------------------------------- | ---------------------------- | ----------- |
+| `basePath` | `base-path` | Base path to get assets                                          | `string`                     | `undefined` |
+| `eventId`  | `event-id`  | Id of event that trigger toaster show                            | `string`                     | `undefined` |
+| `i18n`     | --          | Extra i18n translation object                                    | `{ [key: string]: string; }` | `{}`        |
+| `locale`   | `locale`    | **optional** force locale change if html lang is not interpreted | `string`                     | `undefined` |
+| `ttl`      | `ttl`       | Time to live for shown toaster                                   | `number`                     | `undefined` |
 
 
 ## Dependencies

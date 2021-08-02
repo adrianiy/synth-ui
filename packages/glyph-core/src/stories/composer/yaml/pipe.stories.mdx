@@ -1,0 +1,30 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Pipe" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Pipe" />
+
+###### Configuration
+# pipe
+
+Receives an array of properties and returns an **async pipe**.
+
+> Everything will be executed in order.
+
+> You can use any property inside a pipe even another pipe.
+
+> Pipe ends up with a call to next() so you can concatenate any middleware after it
+
+### Example
+
+```yaml
+pipe:
+    - variables:
+        test: true
+    - pipe:
+        - variables:
+            testB: true
+        - variables:
+            testC: true
+```

@@ -10,10 +10,16 @@ import { cls, getLocaleComponentStrings } from '../../utils/utils';
     shadow: true,
 })
 export class AppMenuComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** List of apps */
     @Prop() apps: Screen[];
+    /** Flag to activate search input */
+    @Prop() hasSearch: boolean = true;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Element reference */
@@ -35,7 +41,7 @@ export class AppMenuComponent {
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'app-menu' ], this.element);
+        const componentI18n = await getLocaleComponentStrings([ 'app-menu' ], this.element, this.basePath, this.locale);
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -64,32 +70,46 @@ export class AppMenuComponent {
 
     private _renderApps = () => {
         return (
-            <div class="app__container">
+            <glyph-scroll hideScrollBar height={432} scrollSpeed={0.2} containerClass="app-menu__apps">
                 {this.apps
                     .filter((app: Screen) => this._inSearch(app))
+                    .sort((a, b) => a.order - b.order)
                     .map((app: Screen) => (
-                        <Flex center middle class={cls('app', { active: app.active })} onClick={this._navigateTo(app)}>
+                        <Flex
+                            center
+                            middle
+                            class={cls('app animated fadeInUp', { active: app.active })}
+                            onClick={this._navigateTo(app)}
+                        >
                             <Icon icon={app.icon} />
                             <span title={this._i18n[app.name] || app.name}>{this._i18n[app.name] || app.name}</span>
                         </Flex>
                     ))}
-            </div>
+            </glyph-scroll>
+        );
+    };
+
+    private _renderSearch = () => {
+        return (
+            this.hasSearch && (
+                <Flex row class="app-menu__header__search">
+                    <Icon icon="search" />
+                    <input
+                        placeholder={this._i18n['searchPlaceholder']}
+                        type="text"
+                        onKeyUp={this._handleKeyUp}
+                        onInput={this._handleInputChange}
+                    />
+                </Flex>
+            )
         );
     };
 
     render() {
         return (
-            <Flex class="app-menu__container">
-                <Flex row spaced middle class="menu__header">
-                    <Flex row>
-                        <Icon icon="search" />
-                        <input
-                            placeholder={this._i18n['searchPlaceholder']}
-                            type="text"
-                            onKeyUp={this._handleKeyUp}
-                            onInput={this._handleInputChange}
-                        />
-                    </Flex>
+            <Flex class="app-menu app-menu__container">
+                <Flex row spaced middle class="app-menu__header">
+                    {this._renderSearch()}
                 </Flex>
                 {this._renderApps()}
             </Flex>

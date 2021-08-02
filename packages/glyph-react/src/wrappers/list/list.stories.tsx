@@ -3,6 +3,8 @@ import { Meta, Story } from '@storybook/react';
 import GlyphReactList, { GlyphReactListProps } from './list';
 import { WithCustomGlobals } from '../../helpers/decorators';
 
+const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
+
 const fieldsConfig = [
     {
         title: () => 'amount',
@@ -20,6 +22,7 @@ const fieldsConfig = [
 ];
 
 const defaultProps = {
+    basePath,
     loading: false,
     expandable: false,
     fieldsConfig,

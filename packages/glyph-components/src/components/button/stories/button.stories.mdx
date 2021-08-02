@@ -1,0 +1,34 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta title="Components/Button/Description" parameters={{ viewMode: 'docs' }} />
+
+###### glyph-button
+# Button
+
+Button component, can be displayed with text or decorated with an icon.
+
+<Canvas>
+    <Story id="components-button-examples--playground" />
+</Canvas>
+
+
+You can use custom content inside button.
+
+```html
+<glyph-button>
+    <span>custom-content</span>
+</glyph-button>
+```
+
+## Examples
+
+Check more [Examples](?path=/docs/components-button-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

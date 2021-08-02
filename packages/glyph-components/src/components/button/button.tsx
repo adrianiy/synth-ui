@@ -15,8 +15,12 @@ export class ButtonComponent {
     @Prop() icon: string;
     /** Cancel type button. Renders in red */
     @Prop() cancel: boolean;
-    /** Renders only text (without borders) */
-    @Prop() onlyText: boolean;
+    /** Action button. Displayed with text only */
+    @Prop() action: boolean;
+    /** Tiny action button displays a smaller and thinier text */
+    @Prop() tiny: boolean;
+    /** Renders icon first */
+    @Prop() iconFirst: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
 
@@ -26,16 +30,19 @@ export class ButtonComponent {
                 class={cls(
                     'button__wrapper',
                     {
-                        'text': this.text,
-                        'icon': this.icon,
-                        'cancel': this.cancel,
-                        'only-text': this.onlyText,
+                        text: this.text,
+                        icon: this.icon,
+                        cancel: this.cancel,
+                        action: this.action,
+                        tiny: this.tiny,
                     },
                     this.interface,
                 )}
             >
+                <slot />
+                {this.icon && this.iconFirst && <Icon class="button__icon--left" icon={this.icon} />}
                 {this.text && this.text}
-                {this.icon && <Icon icon={this.icon} />}
+                {this.icon && !this.iconFirst && <Icon class="button__icon--right" icon={this.icon} />}
             </button>
         );
     }

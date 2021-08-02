@@ -5,23 +5,33 @@
     --gui-color--background--lighter: #202020;
 
     --gui-color: #eee;
-    --gui-color--background--contrast: var(--gui-color);
-    --gui-color--contrast: var(--gui-color--background--light);
+    --gui-color--lighter: #505050;
+    --gui-color--background--contrast: #eee;
+    --gui-color--contrast: rgb(49,49,49);
     --gui-color--modern: #2d2d2d;
     --gui-color--modern--contrast: rgba(0, 0, 0, 0.9);
 
     /* borders */
     --gui-border: 1px solid #777777;
-    --gui-border--light: 1px solid var(--gui-color--light);
-    --gui-border--lightest: 1px solid rgba(255, 255, 255, .1);
+    --gui-border--secondary: 1px solid #202020;
+    --gui-border--light: 1px solid #767676;
+    --gui-border--lighter: 1px solid rgba(255,255,255,.1);
+    --gui-border--lightest: 1px solid rgba(255,255,255,.1);
 
     /* shadows */
     --gui-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.19);
+    --gui-shadow--tab: inset 0px -2px 0px 0px white;
 
     /* filters */
     --gui-logo-filter: invert(1);
     --gui-widget-filter: saturate(180%) blur(5px);
     --article-filter: opacity(0.8);
     --gui-highlight-filter: brightness(.6);
+
+    .button {
+        &.cancel {
+            color: white;
+        }
+    }
 }
 

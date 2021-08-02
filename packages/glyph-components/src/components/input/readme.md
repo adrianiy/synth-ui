@@ -14,8 +14,8 @@
 | `disabled`    | `disabled`    | Flag to disable input                                | `boolean` | `undefined` |
 | `error`       | `error`       | Style input as an error                              | `boolean` | `undefined` |
 | `inputType`   | `input-type`  | Input type                                           | `string`  | `'text'`    |
-| `max`         | `max`         | Maximum availabla for inputs (dates or ranges)       | `string`  | `undefined` |
-| `min`         | `min`         | Minimum available for inputs (dates or ranges)       | `string`  | `undefined` |
+| `max`         | `max`         | Maximum availabla for inputs (dates or ranges)       | `any`     | `undefined` |
+| `min`         | `min`         | Minimum available for inputs (dates or ranges)       | `any`     | `undefined` |
 | `placeholder` | `placeholder` | Placeholder                                          | `string`  | `undefined` |
 | `search`      | `search`      | Search flag, renders a search icon if `box` is false | `boolean` | `undefined` |
 | `value`       | `value`       | Input value                                          | `any`     | `undefined` |
@@ -37,6 +37,7 @@
  - [glyph-filter-options](../filter/components/options)
  - [glyph-login](../layouts/login)
  - [glyph-selector-options](../selector/options)
+ - [glyph-slider](../slider)
 
 ### Graph
 ```mermaid
@@ -45,6 +46,7 @@ graph TD;
   glyph-filter-options --> glyph-input
   glyph-login --> glyph-input
   glyph-selector-options --> glyph-input
+  glyph-slider --> glyph-input
   style glyph-input fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

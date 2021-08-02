@@ -1,0 +1,53 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Fetch" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Composer/Configuration/Fetch" />
+
+###### Configuration
+# fetch
+
+Adds a fetch call and stores results in state.
+
+If `multi` is present will add one fetch per element, reusing first level `url`.
+
+#### Properties
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|baseUrl|String|Optinal set a different base url| Value from ctx.state.baseUrl|
+|url|String|Request endpoint|null|
+|auth|String|Optional auth|value from ctx.state.auth|
+|store|String|Key where result will be stored (or concatenated)|data|
+|dataField|String|Key where data is stored in result|data|
+|filters|String|Key of state where filters are stored|null|
+|useFilters|String[]|Only these filters will be used in request|null|
+|headers|Object|Headers to send with reqeust|{}|
+|multi|Array<fetch\>|Array of calls with different params to the same url|[]|
+
+#### Single
+
+```yaml
+fetch:
+    url: v1/entities/country
+    store: country
+    filters: filters
+    dataField: data
+    useFilters: 
+        - cod_brand
+```
+
+#### Multi
+
+```yaml
+    fetch:
+        url: v4/sales/units/country
+        multi:
+          - filters: filters
+             store: current
+          - filters: comparableFilters
+             store: comparable
+          - filters: a2ComparableFilters
+             store: a2_comp
+```

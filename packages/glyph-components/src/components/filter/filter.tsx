@@ -10,6 +10,8 @@ import { Icon } from '../../utils/icons';
     shadow: true,
 })
 export class FilterComponent {
+    /** Base path to get assets */
+    @Prop() basePath: string;
     /** Filter description */
     @Prop() description: string;
     /** Filter plural */
@@ -24,6 +26,8 @@ export class FilterComponent {
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
+    /** **optional** force locale change if html lang is not interpreted */
+    @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
@@ -101,6 +105,8 @@ export class FilterComponent {
     private _renderFilterOptions() {
         return (
             <glyph-filter-options
+                basePath={this.basePath}
+                locale={this.locale}
                 description={this.description}
                 options={[ ...this.options ]}
                 haveMultiSelect={this.haveMultiSelect}

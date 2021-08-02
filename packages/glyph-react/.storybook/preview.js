@@ -1,9 +1,12 @@
 import { applyPolyfills, defineCustomElements } from 'glyph-components/dist/loader';
+
 import 'glyph-components/dist/glyph-components/glyph-components.css';
+import '!style-loader!css-loader!sass-loader!common-storybook/re-style.scss';
 
 applyPolyfills().then(() => {
     defineCustomElements();
 });
+
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -18,6 +21,7 @@ export const parameters = {
         },
     },
 };
+
 export const globalTypes = {
     theme: {
         name: 'Theme',
@@ -25,6 +29,8 @@ export const globalTypes = {
         defaultValue: 'light',
         toolbar: {
             icon: 'edit',
+            title: 'Theme',
+            right: 'Theme',
             // Array of plain string values or MenuItem shape (see below)
             items: [ 'light', 'dark' ],
         },
@@ -35,6 +41,7 @@ export const globalTypes = {
         defaultValue: 'en',
         toolbar: {
             icon: 'globe',
+            title: 'Lang',
             items: [
                 { value: 'en', right: '🇺🇸', title: 'English' },
                 { value: 'es', right: '🇪🇸', title: 'Español' },
@@ -49,7 +56,7 @@ export const globalTypes = {
             icon: 'expand',
             items: [
                 { value: '10px', right: '10px', title: 'Small' },
-                { value: null, right: '12px', title: 'Base' },
+                { value: 'base', right: '12px', title: 'Base' },
                 { value: '15px', right: '15px', title: 'Big' },
             ],
         },

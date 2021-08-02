@@ -1,0 +1,38 @@
+import { Meta, Description, Canvas, Story } from '@storybook/addon-docs';
+import notes from './../readme.md';
+
+<Meta
+    title="Components/List/Description"
+    parameters={{ viewMode: 'docs' }}
+/>
+
+###### glyph-list
+# List
+
+Paginated list component.
+
+> ### Keep in mind
+>
+> -   Row fields preffixed with `_` are private properties used internally but never rendered.
+> -   First row will always be visible
+> -   When `view more` is active, pagination is hidden
+> -   Rows are sortable `asc` or `desc` style.
+>     -   **Total** will always be the first row.
+>     -   The default sort value is conserved on first load
+> - You can allow users to download data setting `enableDownload` to `true`.
+
+<Canvas>
+    <Story id="components-list-examples--playground" />
+</Canvas>
+
+## Examples
+
+Check more [Examples](?path=/docs/components-list-examples--playground)
+
+## Properties
+
+<div class="properties">
+    <Description>
+        {notes}
+    </Description>
+</div>

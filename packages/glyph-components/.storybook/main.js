@@ -13,6 +13,10 @@ module.exports = {
             use: [ 'style-loader', 'css-loader', 'sass-loader' ],
             include: path.resolve(__dirname, '../'),
         });
+        config.node = {
+            fs: 'empty',
+            global: true,
+        };
         config.plugins.push(new ProgressBarPlugin());
         // Return the altered config
         return config;
@@ -25,6 +29,5 @@ module.exports = {
         '@storybook/addon-controls',
         '@storybook/addon-viewport',
         '@storybook/preset-scss',
-        'storybook-addon-themes',
     ],
 };

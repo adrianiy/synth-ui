@@ -13,21 +13,26 @@ export const getComponentClosestLanguage = (element: HTMLElement): string => {
     return closestElement != null ? closestElement.lang : 'es';
 };
 
-const _fetchLocaleStringsForComponent = async (componentName: string, locale: string) => {
+const _fetchLocaleStringsForComponent = async (componentName: string, locale: string, basePath: string = '..') => {
     try {
-        const path = getAssetPath('../assets/i18n');
+        const path = getAssetPath(`${basePath || '..'}/assets/i18n`);
         return (await fetch(`${path}/${componentName}.i18n.${locale}.json`)).json();
     } catch (e) {
         return {};
     }
 };
 
-export async function getLocaleComponentStrings(requiredI18n: string[], element: HTMLElement): Promise<any> {
-    let componentLanguage = getComponentClosestLanguage(element);
+export async function getLocaleComponentStrings(
+    requiredI18n: string[],
+    element: HTMLElement,
+    basePath?: string,
+    locale?: string,
+): Promise<any> {
+    const componentLanguage = locale || getComponentClosestLanguage(element);
 
     try {
         const results = await Promise.all(
-            requiredI18n.map(req => _fetchLocaleStringsForComponent(req, componentLanguage)),
+            requiredI18n.map(req => _fetchLocaleStringsForComponent(req, componentLanguage, basePath)),
         );
         return results.reduce((acc, curr) => ({ ...acc, ...curr }), {});
     } catch (e) {
