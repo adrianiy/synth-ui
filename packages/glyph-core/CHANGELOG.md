@@ -1,3 +1,21 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.2...glyph-core-v1.2.0) (2021-08-02)
+
+
+### Bug Fixes
+
+* add basePath for production doc asset loading ([e7279fb](https://github.com/adrianiy/glyph-ui/commit/e7279fbf0ede20fe4043a0c02c143a436e11276f))
+* fix app menu gap ([7cbf498](https://github.com/adrianiy/glyph-ui/commit/7cbf49851c95c1e901d93c64781cf59a784da48d))
+* fix pagination ([5213c50](https://github.com/adrianiy/glyph-ui/commit/5213c50aad716002551bf83136e30431557bb838))
+* fix tiny button font size ([a35aace](https://github.com/adrianiy/glyph-ui/commit/a35aacea069a1974d1aa24c5eba4639177d67dc7))
+
+
+### Features
+
+* **core:** refactor middlewares ([7cfe64e](https://github.com/adrianiy/glyph-ui/commit/7cfe64ec740efb781bad4d7a26dd23791c5c5ca6))
+* **react:** add style provider ([b4bc797](https://github.com/adrianiy/glyph-ui/commit/b4bc7977b318c620482778f70f95ee88b01582ee))
+* add tiny button in wrappers ([7c482aa](https://github.com/adrianiy/glyph-ui/commit/7c482aa2462381714b1c205aaff8fd5f50f65b6e))
+* **button:** add tiny action button ([5cca153](https://github.com/adrianiy/glyph-ui/commit/5cca153c70d704d896f9736e16fcaec4bb54e1c6))
+
 ## [1.1.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.1.1...glyph-core-v1.1.2) (2021-07-26)
 
 
