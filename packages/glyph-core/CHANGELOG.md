@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.0...glyph-core-v1.4.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** fix transfomr match ([9143251](https://github.com/adrianiy/glyph-ui/commit/9143251709fd299dfe6afe7af7bf8140c2df6d0d))
+
 # [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.3.1...glyph-core-v1.4.0) (2021-08-02)
 
 
