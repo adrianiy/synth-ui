@@ -1,3 +1,10 @@
+# [1.27.0](https://github.com/adrianiy/glyph-ui/compare/v1.26.1...v1.27.0) (2021-08-02)
+
+
+### Features
+
+* **core:** improve transform and filter middlewares ([e104a67](https://github.com/adrianiy/glyph-ui/commit/e104a6715b8a75942e8eb987aee7675b4e9b08ec))
+
 ## [1.26.1](https://github.com/adrianiy/glyph-ui/compare/v1.26.0...v1.26.1) (2021-08-02)
 
 
