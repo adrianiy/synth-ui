@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/adrianiy/glyph-ui/compare/v2.0.0...v2.1.0) (2021-08-02)
+
+
+### Features
+
+* **core:** improve logger logging last step ([2b6a9ed](https://github.com/adrianiy/glyph-ui/commit/2b6a9ed601ccb51a0607ddbd94d152c61b94a428))
+
 # [2.0.0](https://github.com/adrianiy/glyph-ui/compare/v1.27.3...v2.0.0) (2021-08-02)
 
 
