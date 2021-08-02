@@ -46,7 +46,7 @@ export const log = ({
     showErrors?: boolean;
 }) => {
     if (logger) {
-        logger[level](JSON.stringify(message));
+        logger(from)[level](message);
     } else {
         const glyphLogger = getLogger(from);
 

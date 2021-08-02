@@ -31,11 +31,11 @@ export const fetchBase = async (
     parameters: any,
     headers: any = {},
     from: string = '',
-    getLogger?: any,
+    logger?: any,
 ) => {
     const url = addParameters(`${baseUrl}${rawUrl}`, parameters);
 
-    log({ message: url, from, logger: getLogger, level: 'info' });
+    log({ message: url, from, logger, level: 'debug' });
 
     const response = await fetch(url, {
         method: 'GET',

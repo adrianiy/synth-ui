@@ -42,7 +42,7 @@ export const fetchData = ({
             parameters,
             headers,
             ctx.state.from || '',
-            ctx.state.getLogger,
+            ctx.state.logger,
         );
         const prevData = getFrom(ctx.state, store) || [];
         const data = [ ...prevData, ...(dataField ? getFrom(response, dataField) : response) ];

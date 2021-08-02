@@ -14,12 +14,12 @@ export const logMiddleware = (
 ) => {
     return async (ctx: any, next: any) => {
         const from = `${ctx.state.from || fromRaw || ''}`;
-        const logger = getFrom({ ...params, ...ctx.state }, 'logger')?.(from);
+        const logger = getFrom({ ...params, ...ctx.state }, 'logger');
         const rawData = JSON.stringify(getFrom(ctx.state, data), null, 2);
-        const messageFn = (ctx: any) => getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
+        const messageFn = getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
 
         log({
-            message: message || rawData || JSON.stringify(messageFn(ctx), null, 2),
+            message: message || messageFn?.(ctx) || rawData,
             error,
             from,
             level,

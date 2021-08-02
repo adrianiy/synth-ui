@@ -60,8 +60,6 @@ export const customMiddleware = (customMiddelware: any, params: any) => {
             } else {
                 throw new Error('Invalid custom middleware format');
             }
-
-            await next();
         } catch (error) {
             await logMiddleware({ error, level: 'error' })(ctx, null);
             throw error;
