@@ -1,3 +1,11 @@
+## [1.27.1](https://github.com/adrianiy/glyph-ui/compare/v1.27.0...v1.27.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** fix transfomr match ([9143251](https://github.com/adrianiy/glyph-ui/commit/9143251709fd299dfe6afe7af7bf8140c2df6d0d))
+* **core:** remove unused dependency ([564bd4e](https://github.com/adrianiy/glyph-ui/commit/564bd4eb43f35e95ba79a023522ac278cc8c02e1))
+
 # [1.27.0](https://github.com/adrianiy/glyph-ui/compare/v1.26.1...v1.27.0) (2021-08-02)
 
 
