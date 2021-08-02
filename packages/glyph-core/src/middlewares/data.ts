@@ -107,11 +107,11 @@ export const transform = (
     {
         data = 'data',
         store,
-        changes: transformRaw,
+        operations: transformRaw,
     }: {
         data: string;
         store: string;
-        changes: {
+        operations: {
             match?: string;
             exclude?: string;
             preserve?: boolean;
