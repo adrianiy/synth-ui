@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.3...glyph-core-v1.4.4) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** add runtime regenerator ([3fcb219](https://github.com/adrianiy/glyph-ui/commit/3fcb219eaf87a53bb0e12576ec608a691fe8c7cd))
+
 ## [1.4.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.2...glyph-core-v1.4.3) (2021-08-02)
 
 

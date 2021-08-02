@@ -1,3 +1,10 @@
+## [1.27.3](https://github.com/adrianiy/glyph-ui/compare/v1.27.2...v1.27.3) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** add runtime regenerator ([3fcb219](https://github.com/adrianiy/glyph-ui/commit/3fcb219eaf87a53bb0e12576ec608a691fe8c7cd))
+
 ## [1.27.2](https://github.com/adrianiy/glyph-ui/compare/v1.27.1...v1.27.2) (2021-08-02)
 
 
