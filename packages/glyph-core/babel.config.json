@@ -1,4 +1,4 @@
 {
     "presets": ["@babel/preset-typescript", "@babel/preset-env"],
-    "plugins": [ "const-enum", "transform-class-properties" ]
+    "plugins": [ "const-enum", "transform-class-properties", ["@babel/plugin-transform-runtime", { "regenerator": true }  ]]
 }
