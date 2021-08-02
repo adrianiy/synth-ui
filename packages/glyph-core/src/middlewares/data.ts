@@ -107,44 +107,46 @@ export const transform = (
     {
         data = 'data',
         store,
-        match,
-        exclude = null,
-        preserve,
-        transform = {},
+        transform: transformRaw,
     }: {
         data: string;
         store: string;
-        match: string;
-        exclude: string;
-        preserve: boolean;
-        transform: { key?: string; value?: string };
+        transform: {
+            match?: string;
+            exclude?: string;
+            preserve?: boolean;
+            key?: string;
+            value?: string;
+        }[];
     },
     params: any,
 ) => {
-    const { key, value } = transform;
-
-    const getTransformKey = (ctx: any) =>
+    const getTransformKey = (ctx: any, key: string) =>
         key ? eval(getFrom({ ...params, ...ctx.state }, key) || key) : (a: any) => a;
-    const getTransformValue = (ctx: any) =>
+    const getTransformValue = (ctx: any, value: string) =>
         value ? eval(getFrom({ ...params, ...ctx.state }, value) || value) : (key: string, row: any) => row[key];
 
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'transform';
-
-            const keyFn = getTransformKey(ctx);
-            const valueFn = getTransformValue(ctx);
+            const transform = transformRaw.map(transformation => ({
+                ...transformation,
+                keyFn: getTransformKey(ctx, transformation.key),
+                valueFn: getTransformValue(ctx, transformation.value),
+            }));
             const rawData = getFrom(ctx.state, data);
             const transfomedData = rawData.map((row: any) => {
-                Object.keys(row)
-                    .filter(key => key.match(match) && !key.match(exclude))
-                    .forEach(key => {
-                        row[keyFn(key, row, ctx)] = valueFn(key, row, ctx);
+                Object.keys(row).forEach(key => {
+                    transform.forEach(({ match, exclude, preserve, keyFn, valueFn }) => {
+                        if (key.match(match) && !key.match(exclude)) {
+                            row[keyFn(key, row, ctx)] = valueFn(key, row, ctx);
 
-                        if (!preserve) {
-                            delete row[key];
+                            if (!preserve) {
+                                delete row[key];
+                            }
                         }
                     });
+                });
 
                 return row;
             });
