@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.2...glyph-core-v1.4.3) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** use modular lodash cloneDeep ([19b6f7f](https://github.com/adrianiy/glyph-ui/commit/19b6f7f477f5f6cd817a9be75e8e51368940458d))
+
 ## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.1...glyph-core-v1.4.2) (2021-08-02)
 
 
