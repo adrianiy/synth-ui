@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.1...glyph-core-v1.4.2) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core:** remove unused dependency ([564bd4e](https://github.com/adrianiy/glyph-ui/commit/564bd4eb43f35e95ba79a023522ac278cc8c02e1))
+
 ## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v1.4.0...glyph-core-v1.4.1) (2021-08-02)
 
 
