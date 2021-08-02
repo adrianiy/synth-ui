@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.6.2...glyph-components-v1.7.0) (2021-08-02)
+
+
+### Features
+
+* **core:** refactor middlewares ([7cfe64e](https://github.com/adrianiy/glyph-ui/commit/7cfe64ec740efb781bad4d7a26dd23791c5c5ca6))
+* **react:** add style provider ([b4bc797](https://github.com/adrianiy/glyph-ui/commit/b4bc7977b318c620482778f70f95ee88b01582ee))
+
 ## [1.6.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.6.1...glyph-components-v1.6.2) (2021-07-28)
 
 
