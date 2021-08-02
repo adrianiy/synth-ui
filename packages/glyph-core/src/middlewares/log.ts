@@ -1,4 +1,5 @@
 import { log } from '../utils/log.utils';
+import { getFrom } from '../utils/utils';
 
 export const logMiddleware = (
     {
@@ -7,15 +8,25 @@ export const logMiddleware = (
         error,
         from: fromRaw = '',
         level = 'info',
-    }: { data?: string; message?: string; error?: any; from?: string; level?: string },
-    rawLogger?: any,
+        function: functionRaw,
+    }: { data?: string; message?: string; error?: any; from?: string; level?: string; function?: string },
+    params?: any,
 ) => {
     return async (ctx: any, next: any) => {
         const from = `${ctx.state.from || fromRaw || ''}`;
-        const logger = rawLogger || ctx.state.getLogger?.(from);
+        const logger = getFrom({ ...params, ...ctx.state }, 'logger')?.(from);
+        const rawData = JSON.stringify(getFrom(ctx.state, data), null, 2);
+        const messageFn = (ctx: any) => getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
 
-        log({ message: message || ctx.state[data], error, from, level, logger, showErrors: ctx.state.showErrors });
+        log({
+            message: message || rawData || JSON.stringify(messageFn(ctx), null, 2),
+            error,
+            from,
+            level,
+            logger,
+            showErrors: ctx.state.showErrors,
+        });
 
-        await next();
+        await next?.();
     };
 };

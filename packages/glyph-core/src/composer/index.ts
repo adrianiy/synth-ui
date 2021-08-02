@@ -5,7 +5,7 @@ import path from 'path';
 import { asyncPipe, customMiddleware, parallel, setVariables } from '../middlewares/base';
 import { filter, groupBy, join, sort, transform } from '../middlewares/data';
 import { getA2ComparableFilters, getComparableFilters, getCurrentFilters } from '../middlewares/filters';
-import { fetchData } from '../utils/fetch.utils';
+import { fetchData } from '../middlewares/fetch';
 import { is } from '../utils/utils';
 import { logMiddleware } from '../middlewares/log';
 
@@ -62,19 +62,32 @@ const basicYamlParser = (doc: any, params: any) => {
         pipe.push(customMiddleware(doc.custom, params));
     }
     if (doc.pipe) {
-        pipe.push(asyncPipe(...doc.pipe.reduce((acc, curr) => acc.concat(basicYamlParser(curr, params)), [])));
+        pipe.push(
+            asyncPipe(...doc.pipe.reduce((acc: any, curr: any) => acc.concat(basicYamlParser(curr, params)), [])),
+        );
     }
     if (doc.log) {
-        pipe.push(logMiddleware(doc.log, params.logger));
+        pipe.push(logMiddleware(doc.log, params));
     }
 
     return pipe;
 };
 
-export const composer = (filePath: string, params: any = {}) => {
-    let callerFileName = callsites()[1].getFileName();
+const loadYaml = (callerFileName: string, filePath: string) => {
+    return yaml.load(fs.readFileSync(path.join(callerFileName, '..', filePath), 'utf-8'));
+};
 
-    const doc = yaml.load(fs.readFileSync(path.join(callerFileName, '..', filePath), 'utf-8'));
+export const composer = (filePath: string | string[], params: any = {}) => {
+    let callerFileName = callsites()[1].getFileName();
+    let doc: any;
+
+    if (typeof filePath !== 'string') {
+        doc = {
+            pipe: filePath.map((currentPath: string) => loadYaml(callerFileName, currentPath)),
+        };
+    } else {
+        doc = loadYaml(callerFileName, filePath);
+    }
 
     const pipe = basicYamlParser(doc, params);
 

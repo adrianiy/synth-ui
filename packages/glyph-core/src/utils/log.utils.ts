@@ -1,5 +1,5 @@
 import { createLogger, addColors, format, transports } from 'winston';
-const { combine, simple, colorize, timestamp, label: labelFormat, errors, splat, printf } = format;
+const { combine, simple, colorize, timestamp, label: labelFormat, errors, splat, printf, prettyPrint } = format;
 
 const Colors = {
     info: '\x1b[36m',
@@ -18,15 +18,18 @@ const getLogger = (label: string) =>
             }),
             labelFormat({ label }),
             errors({ stack: true }),
+            prettyPrint(),
             splat(),
+            simple(),
             printf(info => {
                 return `\x1b[36m${info.timestamp} - ${Colors[info.level]}[${info.level}] - ${info.label}:  ${
                     Colors.log
-                }${info.message}\n ${Colors.error}${info.showErrors ? info.stack : ''}`;
+                }${info.message}${info.showErrors && info.stack ? `\n${Colors.error}${info.stack}` : ''}`;
             }),
         ),
         transports: [ new transports.Console() ],
     });
+
 export const log = ({
     message,
     error,

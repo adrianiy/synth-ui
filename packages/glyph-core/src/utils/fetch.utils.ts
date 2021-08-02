@@ -2,29 +2,42 @@ import fetch from 'node-fetch';
 import https from 'https';
 import http from 'http';
 import { log } from './log.utils';
+import { is } from './utils';
 
 const agent = new https.Agent({ keepAlive: true, keepAliveMsecs: 100000 });
 const devAgent = new http.Agent({ keepAlive: true, keepAliveMsecs: 100000 });
 
+const parseParameter = (value: any) => {
+    if (is(value, 'string')) {
+        return value;
+    } else {
+        return encodeURIComponent(JSON.stringify(value));
+    }
+};
+
+const addParameters = (url: string, parameters: any) => {
+    const queryString = Object.entries(parameters || {}).reduce(
+        (acc, [ key, value ]) => acc.concat(`${key}=${parseParameter(value)}`),
+        [],
+    );
+
+    return `${url}${url.includes('?') ? '&' : '?'}${queryString.join('&')}`;
+};
+
 export const fetchBase = async (
     baseUrl: string,
-    url: string,
+    rawUrl: string,
     auth: string,
-    filters: any[],
-    restrictedFilters: string[],
+    parameters: any,
     headers: any = {},
     from: string = '',
-    getLogger?,
+    getLogger?: any,
 ) => {
-    if (restrictedFilters && filters?.length) {
-        filters = filters.filter(({ key }) => restrictedFilters.includes(key));
-    }
+    const url = addParameters(`${baseUrl}${rawUrl}`, parameters);
 
-    const filter = filters?.length ? `?filter=${encodeURIComponent(JSON.stringify(filters))}` : '';
+    log({ message: url, from, logger: getLogger, level: 'info' });
 
-    log({ message: `${baseUrl}/${url}${filter}`, from, logger: getLogger, level: 'info' });
-
-    const response = await fetch(`${baseUrl}/${url}${filter}`, {
+    const response = await fetch(url, {
         method: 'GET',
         headers: {
             ...headers,
@@ -42,40 +55,4 @@ export const fetchBase = async (
     } else {
         throw new Error(JSON.stringify(await response.text()));
     }
-};
-
-export const fetchData = ({
-    baseUrl,
-    url,
-    auth,
-    store = 'data',
-    dataField = 'data',
-    filters,
-    useFilters,
-    headers = {},
-}: {
-    baseUrl: string;
-    url: string;
-    auth: string;
-    store: string;
-    dataField: string;
-    filters: string;
-    useFilters: string[];
-    headers: any;
-}) => {
-    return async (ctx: any, next: any) => {
-        const response = await fetchBase(
-            baseUrl || ctx.state.baseUrl,
-            url,
-            auth || ctx.state.auth,
-            ctx.state[filters],
-            useFilters,
-            headers,
-            ctx.state.from || '',
-            ctx.state.getLogger,
-        );
-        ctx.state[store] = [ ...(ctx.state[store] || []), ...(dataField ? response[dataField] : response) ];
-
-        await next();
-    };
 };

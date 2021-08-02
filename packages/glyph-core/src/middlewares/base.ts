@@ -1,11 +1,12 @@
-import { constant, is } from '../utils/utils';
+import { constant, getFrom, is } from '../utils/utils';
+import { logMiddleware } from './log';
 
 /** Asynchronous pipe */
 export const asyncPipe = (...fns: any) => {
     return async (ctx: any, next: any) => {
         const initialFn = async () => await next();
 
-        const fnPipe = fns.reverse().reduce((v: any, f: any) => async () => f(ctx, v), initialFn);
+        const fnPipe = [ ...fns ].reverse().reduce((v: any, f: any) => async () => f(ctx, v), initialFn);
 
         await fnPipe();
     };
@@ -17,7 +18,7 @@ export const setVariables = (variables: any) => {
         throw new Error('Variables parameter is mandatory');
     }
 
-    const getData = is(variables, 'function') ? variables : constant(variables);
+    const getData = is(variables, Function) ? variables : constant(variables);
 
     return async (ctx: any, next: any) => {
         ctx.state.lastStep = 'variables';
@@ -25,7 +26,10 @@ export const setVariables = (variables: any) => {
         const data = getData(ctx);
 
         Object.keys(data).forEach(key => {
-            ctx.state[key] = data[key];
+            const isFrom = key === 'from';
+            const isSetted = ctx.state[key];
+
+            ctx.state[key] = isFrom && isSetted ? ctx.state[key] : data[key];
         });
         ctx.state['startTime'] = new Date();
 
@@ -45,17 +49,22 @@ export const parallel = (fns: any[]) => {
 /** Custom middleware */
 export const customMiddleware = (customMiddelware: any, params: any) => {
     return async (ctx: any, next: any) => {
-        ctx.state.lastStep = 'custom';
+        try {
+            ctx.state.lastStep = 'custom';
 
-        if (is(customMiddelware, 'string')) {
-            await (params[customMiddelware] || ctx.state[customMiddelware]);
-        } else if (is(customMiddelware, 'object')) {
-            const key = Object.keys(customMiddelware)[0];
-            await (params[key] || ctx.state[key])(customMiddelware[key]);
-        } else {
-            throw new Error('Invalid custom middleware format');
+            if (is(customMiddelware, 'string')) {
+                await getFrom({ ...params, ...ctx.state }, customMiddelware)(ctx, next);
+            } else if (is(customMiddelware, Object)) {
+                const key = Object.keys(customMiddelware)[0];
+                await getFrom({ ...params, ...ctx.state }, key)(customMiddelware[key]);
+            } else {
+                throw new Error('Invalid custom middleware format');
+            }
+
+            await next();
+        } catch (error) {
+            await logMiddleware({ error, level: 'error' })(ctx, null);
+            throw error;
         }
-
-        await next();
     };
 };
