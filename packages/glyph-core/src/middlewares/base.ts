@@ -1,6 +1,5 @@
 import { constant, getFrom, is, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
-import cloneDeep from 'lodash/cloneDeep';
 
 /** Asynchronous pipe */
 export const asyncPipe = (...fns: any) => {
