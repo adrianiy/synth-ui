@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/adrianiy/glyph-ui/compare/v2.1.0...v2.2.0) (2021-08-03)
+
+
+### Features
+
+* **core:** improve transform middleware accepting keys object ([67f6209](https://github.com/adrianiy/glyph-ui/commit/67f6209c97d63efc5c77b4bd309a5c9a55a94591))
+
 # [2.1.0](https://github.com/adrianiy/glyph-ui/compare/v2.0.0...v2.1.0) (2021-08-02)
 
 
