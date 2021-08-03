@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/adrianiy/glyph-ui/compare/v2.2.0...v2.2.1) (2021-08-03)
+
+
+### Bug Fixes
+
+* **core:** improve transform middleware ([adf2ad8](https://github.com/adrianiy/glyph-ui/commit/adf2ad82e0adb12707bb6ab5b62b7f2a4dca5357))
+
 # [2.2.0](https://github.com/adrianiy/glyph-ui/compare/v2.1.0...v2.2.0) (2021-08-03)
 
 
