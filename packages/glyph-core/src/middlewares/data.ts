@@ -2,7 +2,7 @@ import { CustomError } from '../utils/error.utils';
 import { groupData } from '../utils/group.utils';
 import { crossJoin, leftOuterJoin } from '../utils/join.utils';
 import { log } from '../utils/log.utils';
-import { getFrom, storeIn } from '../utils/utils';
+import { getFrom, is, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
 /** sort middleware
@@ -107,33 +107,48 @@ export const transform = (
     {
         data = 'data',
         store,
-        operations: transformRaw,
+        operations,
     }: {
         data: string;
         store: string;
-        operations: {
-            match?: string;
-            exclude?: string;
-            preserve?: boolean;
-            key?: string;
-            value?: string;
-        }[];
+        operations:
+            | {
+                  match?: string;
+                  exclude?: string;
+                  preserve?: boolean;
+                  key?: string;
+                  value?: string;
+              }[]
+            | {
+                  [key: string]: string;
+              };
     },
     params: any,
 ) => {
-    const getTransformKey = (ctx: any, key: string) =>
-        key ? eval(getFrom({ ...params, ...ctx.state }, key) || key) : (a: any) => a;
+    const getTransformKey = (ctx: any, key: string) => {
+        try {
+            return key ? eval(getFrom({ ...params, ...ctx.state }, key) || key) : (a: any) => a;
+        } catch (_) {
+            return key;
+        }
+    };
     const getTransformValue = (ctx: any, value: string) =>
         value ? eval(getFrom({ ...params, ...ctx.state }, value) || value) : (key: string, row: any) => row[key];
 
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'transform';
-            const transform = transformRaw.map(transformation => ({
-                ...transformation,
-                keyFn: getTransformKey(ctx, transformation.key),
-                valueFn: getTransformValue(ctx, transformation.value),
-            }));
+            const transform = is(operations, Array)
+                ? (operations as any[]).map(transformation => ({
+                    ...transformation,
+                    keyFn: getTransformKey(ctx, transformation.key),
+                    valueFn: getTransformValue(ctx, transformation.value),
+                }))
+                : Object.keys(operations).map((key: string) => ({
+                    match: key,
+                    keyFn: () => operations[key],
+                    valueFn: getTransformValue(null, null),
+                }));
             const rawData = getFrom(ctx.state, data);
             const transfomedData = rawData.map((row: any) => {
                 Object.keys(row).forEach(key => {
