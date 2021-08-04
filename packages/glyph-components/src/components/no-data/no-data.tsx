@@ -36,7 +36,7 @@ export class NoDataComponent {
         return (
             <Flex row middle class={`no-data ${this.mode}`}>
                 <Icon icon="error_outline" />
-                {this._i18n.noData}
+                {this.text || this._i18n.noData}
             </Flex>
         );
     }
