@@ -201,20 +201,20 @@ export const transform = (
  *
  * @param data { string } name of key where data is stored
  * @param store { string } name of key where data will be stored
- * @param joinKeys { string[] } array of keys used to compose groups
+ * @param by { string[] } array of keys used to compose groups
  * @param children { string | boolean } save grouped object as children, if true we'll use 'children' key
  * @param total { boolean } if true add first row as total aggregation
  */
 export const groupBy = ({
     data = 'data',
     store,
-    joinKeys,
+    by,
     children,
     total,
 }: {
     data: string;
     store: string;
-    joinKeys: string[];
+    by: string[];
     children: any;
     total: boolean;
 }) => {
@@ -222,7 +222,7 @@ export const groupBy = ({
         try {
             ctx.state.lastStep = 'group';
 
-            const on = joinKeys || ctx.state.joinKeys;
+            const on = by || ctx.state.joinKeys;
             const rawData = getFrom(ctx.state, data);
             const groups = groupData(rawData, total ? [] : on, children === true ? 'children' : children);
 
@@ -261,19 +261,19 @@ export const join = ({
     data = 'data',
     with: _with,
     store,
-    joinKeys,
+    by,
 }: {
     strategy: string;
     data: string;
     with: string;
     store: string;
-    joinKeys: string[];
+    by: string[];
 }) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'join';
 
-            const on = joinKeys || ctx.state.joinKeys;
+            const on = by || ctx.state.joinKeys;
             const rawData = getFrom(ctx.state, data);
             const rawWith = getFrom(ctx.state, _with);
 
