@@ -98,7 +98,7 @@ export class ShareMenuComponent {
                         />
                     </Flex>
                 </Flex>
-                <glyph-toaster eventId="copyLink" ttl={1000} />
+                <glyph-toaster basePath={this.basePath} eventId="copyLink" ttl={1000} />
             </Flex>
         );
     }
