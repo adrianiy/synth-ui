@@ -1,3 +1,17 @@
+## [2.3.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.1...glyph-core-v2.3.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* **components:** add basePath to toaster ([f51cb2c](https://github.com/adrianiy/glyph-ui/commit/f51cb2c8735681694e9b38f63ef618c1d8106d0b))
+* **components:** show text or i18n error ([3648939](https://github.com/adrianiy/glyph-ui/commit/3648939388ec11d5912b2be72262d3948bfb18fd))
+* **core:** fix filter value as int ([e020eb4](https://github.com/adrianiy/glyph-ui/commit/e020eb4e198d3f1d28f94d8c6e24ae4c4e0c603c))
+
+
+### Features
+
+* **react:** force release ([3cf9eb9](https://github.com/adrianiy/glyph-ui/commit/3cf9eb9ea2f479f4e98564daa54b84f3223b90a1))
+
 ## [2.3.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.0...glyph-core-v2.3.1) (2021-08-04)
 
 
