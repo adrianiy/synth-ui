@@ -1,3 +1,10 @@
+## [1.7.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.7.1...glyph-components-v1.7.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* **components:** show text or i18n error ([3648939](https://github.com/adrianiy/glyph-ui/commit/3648939388ec11d5912b2be72262d3948bfb18fd))
+
 ## [1.7.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.7.0...glyph-components-v1.7.1) (2021-08-04)
 
 
