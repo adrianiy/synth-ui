@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.4.0...glyph-core-v2.5.0) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** get parameters from ctx instead of query ([e46c5e7](https://github.com/adrianiy/glyph-ui/commit/e46c5e7cdb90d52a38788c66ef42d148570cff89))
+
+
+### Features
+
+* **core:** get parameters from ctx.query ([bc39c9b](https://github.com/adrianiy/glyph-ui/commit/bc39c9b87b9117e3f88199dd67adf4db62a31162))
+
 # [2.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.2...glyph-core-v2.4.0) (2021-08-04)
 
 
