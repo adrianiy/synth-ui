@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/adrianiy/glyph-ui/compare/v2.4.1...v2.4.2) (2021-08-04)
+
+
+### Performance Improvements
+
+* **react:** fix version publication ([d41ed93](https://github.com/adrianiy/glyph-ui/commit/d41ed93b4907ad5a5d733bf4be0fcd1707e91b2e))
+
 ## [2.4.1](https://github.com/adrianiy/glyph-ui/compare/v2.4.0...v2.4.1) (2021-08-04)
 
 
