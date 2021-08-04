@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.0...glyph-core-v2.3.1) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** refactor transform middleware ([4ba5940](https://github.com/adrianiy/glyph-ui/commit/4ba5940180a52b79b3de2b4e2ccea5f8772d6aef))
+
 # [2.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.2.1...glyph-core-v2.3.0) (2021-08-04)
 
 
