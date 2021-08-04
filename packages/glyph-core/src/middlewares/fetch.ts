@@ -30,16 +30,18 @@ export const fetchData = ({
     headers: any;
 }) => {
     return async (ctx: any, next: any) => {
+        const queryParams = {};
+
         Object.keys(parameters).forEach((key: string) => {
             const parameter = getFrom(ctx.state, parameters[key]) || parameters[key];
-            parameters[key] = is(parameter, Function) ? parameter(ctx) : parameter;
+            queryParams[key] = is(parameter, Function) ? parameter(ctx) : parameter;
         });
 
         const response = await fetchBase(
             getFrom(ctx.state, baseUrl) || baseUrl || ctx.state.baseUrl,
             getFrom(ctx.state, url) || url,
             getFrom(ctx.state, auth) || auth || ctx.state.auth,
-            parameters,
+            queryParams,
             headers,
             `${ctx.state.from || ''} - fetch`,
             ctx.state.logger,

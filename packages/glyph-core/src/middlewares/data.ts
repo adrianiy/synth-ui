@@ -10,12 +10,26 @@ import { logMiddleware } from './log';
  * @param data { string } state key wehre data is stored
  * @param function { any } string with sort function like (a, b) => a - b or key name
  */
-export const sort = ({ data = 'data', function: functionRaw }: { data: string; function: any }, params: any) => {
-    if (!functionRaw) {
-        throw new Error('sort function parameter is mandatory');
+export const sort = (
+    {
+        data = 'data',
+        by,
+        order = 'desc',
+        function: functionRaw,
+    }: { data: string; by: string; order: string; function: any },
+    params: any,
+) => {
+    if (!functionRaw && !by) {
+        throw new Error('sort function parameter or key are mandatory');
     }
 
-    const getSortFn = (ctx: any) => getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
+    const sortFns = {
+        desc: (a, b) => b[by] - a[by],
+        asc: (a, b) => a[by] - b[by],
+    };
+
+    const getSortFn = (ctx: any) =>
+        by ? sortFns[order] : getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
 
     return async (ctx: any, next: any) => {
         try {
@@ -113,6 +127,7 @@ export const transform = (
         store: string;
         operations:
             | {
+                  add?: string;
                   match?: string;
                   exclude?: string;
                   preserve?: boolean;
@@ -129,11 +144,13 @@ export const transform = (
         try {
             return key ? eval(getFrom({ ...params, ...ctx.state }, key) || key) : (a: any) => a;
         } catch (_) {
-            return key;
+            return () => key;
         }
     };
     const getTransformValue = (ctx: any, value: string) =>
-        value ? eval(getFrom({ ...params, ...ctx.state }, value) || value) : (key: string, row: any) => row[key];
+        value
+            ? eval(getFrom({ ...params, ...ctx.state }, value) || value)
+            : (value: any, row: any, key: string) => row[key];
 
     return async (ctx: any, next: any) => {
         try {
@@ -151,19 +168,23 @@ export const transform = (
                 }));
             const rawData = getFrom(ctx.state, data);
             const transfomedData = rawData.map((row: any) => {
-                Object.keys(row).forEach(key => {
-                    transform.forEach(({ match, exclude, preserve, keyFn, valueFn }) => {
-                        if (key.match(match) && !key.match(exclude || null)) {
-                            const newKey = keyFn(key, row, ctx);
-                            const newValue = valueFn(key, row, ctx);
+                transform.forEach(({ match, add, exclude, preserve, keyFn, valueFn }) => {
+                    if (add) {
+                        row[add] = valueFn(row, ctx);
+                    } else {
+                        Object.keys(row)
+                            .filter(key => key.match(match) && !key.match(exclude || null))
+                            .forEach(key => {
+                                const newKey = keyFn(key, row, ctx);
+                                const newValue = valueFn(row[key], row, key, ctx);
 
-                            row[newKey] = newValue;
+                                row[newKey] = newValue;
 
-                            if (!preserve && newKey !== key) {
-                                delete row[key];
-                            }
-                        }
-                    });
+                                if (!preserve && newKey !== key) {
+                                    delete row[key];
+                                }
+                            });
+                    }
                 });
 
                 return row;
