@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/adrianiy/glyph-ui/compare/v2.4.0...v2.4.1) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** fix filter value as int ([e020eb4](https://github.com/adrianiy/glyph-ui/commit/e020eb4e198d3f1d28f94d8c6e24ae4c4e0c603c))
+
 # [2.4.0](https://github.com/adrianiy/glyph-ui/compare/v2.3.3...v2.4.0) (2021-08-04)
 
 
