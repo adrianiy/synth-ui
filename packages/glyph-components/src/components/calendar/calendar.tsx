@@ -98,8 +98,8 @@ export class CalendarComponent {
 
     private _selectMonth = (month: dayjs.Dayjs) => () => {
         if (!this.secondary) {
-            const maxDate = dayjs.max(month.endOf('month'), dayjs(this.maxDate));
-            const minDate = dayjs.min(month.startOf('month'), dayjs(this.minDate));
+            const maxDate = dayjs.min(month.endOf('month'), dayjs(this.maxDate));
+            const minDate = dayjs.max(month.startOf('month'), dayjs(this.minDate));
 
             this._selectDate(minDate.toDate(), maxDate.toDate(), ComparableType.calendar);
         }
