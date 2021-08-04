@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/adrianiy/glyph-ui/compare/v2.3.1...v2.3.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* **components:** add basePath to toaster ([f51cb2c](https://github.com/adrianiy/glyph-ui/commit/f51cb2c8735681694e9b38f63ef618c1d8106d0b))
+
 ## [2.3.1](https://github.com/adrianiy/glyph-ui/compare/v2.3.0...v2.3.1) (2021-08-04)
 
 
