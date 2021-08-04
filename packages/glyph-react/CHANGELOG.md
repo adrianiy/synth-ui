@@ -1,3 +1,38 @@
+# [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.5.0...glyph-react-v1.6.0) (2021-08-04)
+
+
+### Bug Fixes
+
+* **components:** add basePath to toaster ([f51cb2c](https://github.com/adrianiy/glyph-ui/commit/f51cb2c8735681694e9b38f63ef618c1d8106d0b))
+* **components:** show text or i18n error ([3648939](https://github.com/adrianiy/glyph-ui/commit/3648939388ec11d5912b2be72262d3948bfb18fd))
+* **core:** add runtime regenerator ([3fcb219](https://github.com/adrianiy/glyph-ui/commit/3fcb219eaf87a53bb0e12576ec608a691fe8c7cd))
+* **core:** fix custom logger from state ([21bf698](https://github.com/adrianiy/glyph-ui/commit/21bf698a308270ae98a9ecf7f13adee3de33315e))
+* **core:** fix transfomr match ([9143251](https://github.com/adrianiy/glyph-ui/commit/9143251709fd299dfe6afe7af7bf8140c2df6d0d))
+* **core:** improve transform middleware ([adf2ad8](https://github.com/adrianiy/glyph-ui/commit/adf2ad82e0adb12707bb6ab5b62b7f2a4dca5357))
+* **core:** refactor transform middleware ([4ba5940](https://github.com/adrianiy/glyph-ui/commit/4ba5940180a52b79b3de2b4e2ccea5f8772d6aef))
+* **core:** remove unused dependency ([564bd4e](https://github.com/adrianiy/glyph-ui/commit/564bd4eb43f35e95ba79a023522ac278cc8c02e1))
+* **core:** use modular lodash cloneDeep ([19b6f7f](https://github.com/adrianiy/glyph-ui/commit/19b6f7f477f5f6cd817a9be75e8e51368940458d))
+
+
+### Features
+
+* **core:** add multi option transform ([baaea1e](https://github.com/adrianiy/glyph-ui/commit/baaea1ed43008439c5a00aa7d71cb8b73d1a7bf2))
+* **core:** improve logger logging last step ([2b6a9ed](https://github.com/adrianiy/glyph-ui/commit/2b6a9ed601ccb51a0607ddbd94d152c61b94a428))
+* **core:** improve transform and filter middlewares ([e104a67](https://github.com/adrianiy/glyph-ui/commit/e104a6715b8a75942e8eb987aee7675b4e9b08ec))
+* **core:** improve transform middleware accepting keys object ([67f6209](https://github.com/adrianiy/glyph-ui/commit/67f6209c97d63efc5c77b4bd309a5c9a55a94591))
+* **core:** new add field option and save parameters in a copy ([f66a0cb](https://github.com/adrianiy/glyph-ui/commit/f66a0cb4a15e70e8c2663b17326e51562180a79d))
+* **react:** force release ([3cf9eb9](https://github.com/adrianiy/glyph-ui/commit/3cf9eb9ea2f479f4e98564daa54b84f3223b90a1))
+
+
+### Performance Improvements
+
+* **core:** test breacking change release ([04e5b6c](https://github.com/adrianiy/glyph-ui/commit/04e5b6c199e219121051374fb632c337c60c70a2))
+
+
+### BREAKING CHANGES
+
+* **core:** test to release a breaking change version
+
 # [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.4.0...glyph-react-v1.5.0) (2021-08-02)
 
 
