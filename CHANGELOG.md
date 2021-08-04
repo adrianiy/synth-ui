@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/adrianiy/glyph-ui/compare/v2.3.2...v2.3.3) (2021-08-04)
+
+
+### Bug Fixes
+
+* **components:** show text or i18n error ([3648939](https://github.com/adrianiy/glyph-ui/commit/3648939388ec11d5912b2be72262d3948bfb18fd))
+
 ## [2.3.2](https://github.com/adrianiy/glyph-ui/compare/v2.3.1...v2.3.2) (2021-08-04)
 
 
