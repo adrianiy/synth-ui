@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.6.1...glyph-react-v2.0.0) (2021-08-04)
+
+
+### Performance Improvements
+
+* **react:** breacking change to update components ([40aef3c](https://github.com/adrianiy/glyph-ui/commit/40aef3c4064abdd0e3fe620d742ae5e137948a74))
+
+
+### BREAKING CHANGES
+
+* **react:** change release number to update glyph-components
+
 ## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.6.0...glyph-react-v1.6.1) (2021-08-04)
 
 
