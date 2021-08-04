@@ -1,3 +1,27 @@
+# [2.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.2...glyph-core-v2.4.0) (2021-08-04)
+
+
+### Bug Fixes
+
+* **calendar:** fix calendar month selector ([7ca1423](https://github.com/adrianiy/glyph-ui/commit/7ca14235a9adf8cdb6afd3990b91006c1ea18ee9))
+* **react:** fix react docs components ([bbc6d21](https://github.com/adrianiy/glyph-ui/commit/bbc6d21efb0ee0ec812e316c066b7cd375ec8ce7))
+
+
+### Features
+
+* **core:** export join and group utils ([5643d18](https://github.com/adrianiy/glyph-ui/commit/5643d18d9fb7fdce5ca294fa0988dcf3b00ca9b4))
+
+
+### Performance Improvements
+
+* **react:** breacking change to update components ([40aef3c](https://github.com/adrianiy/glyph-ui/commit/40aef3c4064abdd0e3fe620d742ae5e137948a74))
+* **react:** fix version publication ([d41ed93](https://github.com/adrianiy/glyph-ui/commit/d41ed93b4907ad5a5d733bf4be0fcd1707e91b2e))
+
+
+### BREAKING CHANGES
+
+* **react:** change release number to update glyph-components
+
 ## [2.3.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.3.1...glyph-core-v2.3.2) (2021-08-04)
 
 
