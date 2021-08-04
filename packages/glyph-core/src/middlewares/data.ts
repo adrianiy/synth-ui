@@ -112,31 +112,27 @@ export const filter = (
  *
  * @param data { string } state key where data is stored
  * @param store { string } state key where data will be stored
- * @param match { string } regex to match fields
- * @param exclude { string } regex to exclude fields
- * @param preserve { boolean } if true old field will be preserved
- * @param transform { key: string, value: string } string with function or key of function in params or state, else identity function is used
+ * @param operations { { add, match, exclude, preserve, key, value  }[] } transform operations
+ * @param keys: { string } transform keys
  */
 export const transform = (
     {
         data = 'data',
         store,
-        operations,
+        operations = [],
+        keys,
     }: {
         data: string;
         store: string;
-        operations:
-            | {
-                  add?: string;
-                  match?: string;
-                  exclude?: string;
-                  preserve?: boolean;
-                  key?: string;
-                  value?: string;
-              }[]
-            | {
-                  [key: string]: string;
-              };
+        operations: {
+            add?: string;
+            match?: string;
+            exclude?: string;
+            preserve?: boolean;
+            key?: string;
+            value?: string;
+        }[];
+        keys: { [key: string]: string };
     },
     params: any,
 ) => {
@@ -155,17 +151,17 @@ export const transform = (
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'transform';
-            const transform = is(operations, Array)
-                ? (operations as any[]).map(transformation => ({
-                    ...transformation,
-                    keyFn: getTransformKey(ctx, transformation.key),
-                    valueFn: getTransformValue(ctx, transformation.value),
-                }))
-                : Object.keys(operations).map((key: string) => ({
-                    match: key,
-                    keyFn: () => operations[key],
-                    valueFn: getTransformValue(null, null),
-                }));
+            const operationTransforms = operations?.map(transformation => ({
+                ...transformation,
+                keyFn: getTransformKey(ctx, transformation.key),
+                valueFn: getTransformValue(ctx, transformation.value),
+            }));
+            const keyTransforms = Object.keys(keys || {})?.map((key: string) => ({
+                match: key,
+                keyFn: () => keys[key],
+                valueFn: getTransformValue(null, null),
+            }));
+            const transform = [].concat([ ...(operationTransforms || []), ...(keyTransforms || []) ]);
             const rawData = getFrom(ctx.state, data);
             const transfomedData = rawData.map((row: any) => {
                 transform.forEach(({ match, add, exclude, preserve, keyFn, valueFn }) => {
