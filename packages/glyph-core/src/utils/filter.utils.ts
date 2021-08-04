@@ -46,7 +46,7 @@ export const getFiltersFromParams = ({ query: params }) => {
     }
     Object.keys(params)
         .filter(key => ![ 'startDate', 'endDate' ].includes(key))
-        .forEach(key => filter.push({ key: `cod_${key}`, op: 'in', value: [].concat(params[key]) }));
+        .forEach(key => filter.push({ key: `cod_${key}`, op: 'in', value: [].concat(+params[key] ?? params[key]) }));
 
     return filter;
 };
