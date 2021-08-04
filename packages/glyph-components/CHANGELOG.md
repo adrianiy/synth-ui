@@ -1,3 +1,28 @@
+## [1.7.3](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.7.2...glyph-components-v1.7.3) (2021-08-04)
+
+
+### Bug Fixes
+
+* **calendar:** fix calendar month selector ([7ca1423](https://github.com/adrianiy/glyph-ui/commit/7ca14235a9adf8cdb6afd3990b91006c1ea18ee9))
+* **core:** fix filter value as int ([e020eb4](https://github.com/adrianiy/glyph-ui/commit/e020eb4e198d3f1d28f94d8c6e24ae4c4e0c603c))
+* **react:** fix react docs components ([bbc6d21](https://github.com/adrianiy/glyph-ui/commit/bbc6d21efb0ee0ec812e316c066b7cd375ec8ce7))
+
+
+### Features
+
+* **react:** force release ([3cf9eb9](https://github.com/adrianiy/glyph-ui/commit/3cf9eb9ea2f479f4e98564daa54b84f3223b90a1))
+
+
+### Performance Improvements
+
+* **react:** breacking change to update components ([40aef3c](https://github.com/adrianiy/glyph-ui/commit/40aef3c4064abdd0e3fe620d742ae5e137948a74))
+* **react:** fix version publication ([d41ed93](https://github.com/adrianiy/glyph-ui/commit/d41ed93b4907ad5a5d733bf4be0fcd1707e91b2e))
+
+
+### BREAKING CHANGES
+
+* **react:** change release number to update glyph-components
+
 ## [1.7.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.7.1...glyph-components-v1.7.2) (2021-08-04)
 
 
