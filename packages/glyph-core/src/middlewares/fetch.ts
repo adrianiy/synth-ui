@@ -33,8 +33,7 @@ export const fetchData = ({
         const queryParams = {};
 
         Object.keys(parameters).forEach((key: string) => {
-            const parameter =
-                getFrom(ctx.state, parameters[key]) || getFrom(ctx.query, parameters[key]) || parameters[key];
+            const parameter = getFrom(ctx.state, parameters[key]) || getFrom(ctx, parameters[key]) || parameters[key];
             queryParams[key] = is(parameter, Function) ? parameter(ctx) : parameter;
         });
 
