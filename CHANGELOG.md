@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/adrianiy/glyph-ui/compare/v2.2.1...v2.3.0) (2021-08-04)
+
+
+### Features
+
+* **core:** new add field option and save parameters in a copy ([f66a0cb](https://github.com/adrianiy/glyph-ui/commit/f66a0cb4a15e70e8c2663b17326e51562180a79d))
+
 ## [2.2.1](https://github.com/adrianiy/glyph-ui/compare/v2.2.0...v2.2.1) (2021-08-03)
 
 
