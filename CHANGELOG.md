@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/adrianiy/glyph-ui/compare/v3.0.1...v3.1.0) (2021-08-04)
+
+
+### Features
+
+* **core:** export join and group utils ([5643d18](https://github.com/adrianiy/glyph-ui/commit/5643d18d9fb7fdce5ca294fa0988dcf3b00ca9b4))
+
 ## [3.0.1](https://github.com/adrianiy/glyph-ui/compare/v3.0.0...v3.0.1) (2021-08-04)
 
 
