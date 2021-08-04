@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/adrianiy/glyph-ui/compare/v3.2.1...v3.2.2) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** use by key instead of joinKeys ([7bb7772](https://github.com/adrianiy/glyph-ui/commit/7bb7772b86519bbb92ac8fc5ccb94e957709aee3))
+
 ## [3.2.1](https://github.com/adrianiy/glyph-ui/compare/v3.2.0...v3.2.1) (2021-08-04)
 
 
