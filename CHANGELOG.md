@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/adrianiy/glyph-ui/compare/v2.3.3...v2.4.0) (2021-08-04)
+
+
+### Features
+
+* **react:** force release ([3cf9eb9](https://github.com/adrianiy/glyph-ui/commit/3cf9eb9ea2f479f4e98564daa54b84f3223b90a1))
+
 ## [2.3.3](https://github.com/adrianiy/glyph-ui/compare/v2.3.2...v2.3.3) (2021-08-04)
 
 
