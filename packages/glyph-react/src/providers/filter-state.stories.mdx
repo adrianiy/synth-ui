@@ -18,7 +18,7 @@ some logic on selection like filter relations management *Section -> Product lin
 <Story name="Filter Provider" />
 
 ```typescript
-# filtersConfig.tsx
+// filtersConfig.tsx
 
 export const FiltersConfig = {
     date: {
@@ -79,7 +79,7 @@ export const FiltersConfig = {
 ```
 
 ```typescript
-# main.tsx
+// main.tsx
 
 import { FilterStateProvider } from 'glyph-react';
 
@@ -91,7 +91,7 @@ import { FilterStateProvider } from 'glyph-react';
 ```
 
 ```typescript
-# home.tsx
+// home.tsx
 ...
 
 import { useDispatch } from "react-redux";
