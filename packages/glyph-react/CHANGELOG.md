@@ -1,3 +1,15 @@
+## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.6.0...glyph-react-v1.6.1) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** fix filter value as int ([e020eb4](https://github.com/adrianiy/glyph-ui/commit/e020eb4e198d3f1d28f94d8c6e24ae4c4e0c603c))
+
+
+### Performance Improvements
+
+* **react:** fix version publication ([d41ed93](https://github.com/adrianiy/glyph-ui/commit/d41ed93b4907ad5a5d733bf4be0fcd1707e91b2e))
+
 # [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v1.5.0...glyph-react-v1.6.0) (2021-08-04)
 
 
