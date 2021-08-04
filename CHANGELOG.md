@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/adrianiy/glyph-ui/compare/v3.2.0...v3.2.1) (2021-08-04)
+
+
+### Bug Fixes
+
+* **core:** fix params int parsing ([1af3992](https://github.com/adrianiy/glyph-ui/commit/1af3992ee819b2d4cfb493699c21d51c2a28824d))
+
 # [3.2.0](https://github.com/adrianiy/glyph-ui/compare/v3.1.0...v3.2.0) (2021-08-04)
 
 
