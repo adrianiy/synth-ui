@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.6.0...glyph-core-v2.7.0) (2021-08-05)
+
+
+### Features
+
+* **core:** add ignore paramters in filiters parsing ([84d2e71](https://github.com/adrianiy/glyph-ui/commit/84d2e719a33ffe1262cfb2b99d38347ac1bee9cc))
+
 # [2.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.5.3...glyph-core-v2.6.0) (2021-08-05)
 
 
