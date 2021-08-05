@@ -17,15 +17,18 @@ const ORDERFILTERFIELDS = [
 /** middleware to save filters in state
  *
  * @param use { string[] } array of filter allowed to use in requests
+ * @param ignore { string[] } array of query parameters to ignore
  * @param rangeBefore { number } quantity of days to subtract to startDate
  */
 export const getCurrentFilters = ({
     use,
     store = 'filters',
+    ignore,
     rangeBefore,
 }: {
     use: string[];
     store: string;
+    ignore: string[];
     rangeBefore: number;
 }) => {
     return async (ctx: any, next: any) => {

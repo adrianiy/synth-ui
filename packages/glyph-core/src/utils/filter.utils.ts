@@ -34,7 +34,7 @@ export const getDateFilter = (filters, option) => {
     return filters.find(d => d.key === 'local_date' && d.op === option)?.value;
 };
 
-export const getFiltersFromParams = ({ query: params }) => {
+export const getFiltersFromParams = ({ query: params }, ignore: string[]) => {
     const filter = [];
 
     if (params.startDate) {
@@ -45,7 +45,7 @@ export const getFiltersFromParams = ({ query: params }) => {
         filter.push({ key: 'local_date', op: 'lte', value: params.endDate });
     }
     Object.keys(params)
-        .filter(key => ![ 'startDate', 'endDate' ].includes(key))
+        .filter(key => ![ 'startDate', 'endDate' ].includes(key) && !ignore.includes(key))
         .forEach(key =>
             filter.push({
                 key: `cod_${key.replace('!', '')}`,
@@ -57,15 +57,15 @@ export const getFiltersFromParams = ({ query: params }) => {
     return filter;
 };
 
-export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number) => {
+export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number, ignore: string[]) => {
     if (!Object.keys(ctx.query).length) {
         const errorMessage = 'No filters in querystring';
         throw new CustomError(errorMessage, 404);
     }
-    let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx);
+    let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx, ignore || []);
 
     if (use) {
-        filters = filters.filter(filter => use.includes(filter.key));
+        filters = filters.filter(filter => use.includes(filter.key) && !ignore.includes(key));
     }
 
     if (rangeBefore) {
