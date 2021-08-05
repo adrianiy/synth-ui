@@ -257,7 +257,7 @@ export const groupBy = ({
  * @param on { string[] } array of keys to use in join
  */
 export const join = ({
-    strategy = 'cross',
+    strategy = 'left',
     data = 'data',
     with: _with,
     store,
