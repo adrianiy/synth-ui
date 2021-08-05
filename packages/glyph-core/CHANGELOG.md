@@ -1,3 +1,10 @@
+## [2.5.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.5.2...glyph-core-v2.5.3) (2021-08-05)
+
+
+### Bug Fixes
+
+* **core:** change default join strategy ([e3e9fd9](https://github.com/adrianiy/glyph-ui/commit/e3e9fd9c481cb9057aee842a10eef965d35609cb))
+
 ## [2.5.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.5.1...glyph-core-v2.5.2) (2021-08-04)
 
 
