@@ -1,3 +1,10 @@
+## [3.5.2](https://github.com/adrianiy/glyph-ui/compare/v3.5.1...v3.5.2) (2021-08-05)
+
+
+### Bug Fixes
+
+* **core:** fix get query params use and ignore ([367e5a4](https://github.com/adrianiy/glyph-ui/commit/367e5a471d7ace18d39dc049b987f3aa7644e993))
+
 ## [3.5.1](https://github.com/adrianiy/glyph-ui/compare/v3.5.0...v3.5.1) (2021-08-05)
 
 
