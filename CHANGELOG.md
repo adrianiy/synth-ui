@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/adrianiy/glyph-ui/compare/v3.4.0...v3.5.0) (2021-08-05)
+
+
+### Features
+
+* **core:** add exact filter key if startsWith $ ([699b72f](https://github.com/adrianiy/glyph-ui/commit/699b72f665eeffa4dd7ead7dd39d78cd6e9e2d93))
+
 # [3.4.0](https://github.com/adrianiy/glyph-ui/compare/v3.3.0...v3.4.0) (2021-08-05)
 
 
