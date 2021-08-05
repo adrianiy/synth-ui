@@ -91,7 +91,7 @@ export const filter = (
             if (keys) {
                 filteredData = filteredData.map((row: any) => {
                     Object.keys(row)
-                        .filter(key => !keys.preserve?.includes(key) || keys.remove?.includes(key))
+                        .filter(key => (keys.preserve && !keys.preserve.includes(key)) || keys.remove?.includes(key))
                         .forEach(key => delete row[key]);
 
                     return row;
