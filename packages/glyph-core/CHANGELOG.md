@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.5.3...glyph-core-v2.6.0) (2021-08-05)
+
+
+### Features
+
+* **core:** add nin filters in params process ([425040e](https://github.com/adrianiy/glyph-ui/commit/425040eb9ea053a4b177decf8477d3e99b6e6bda))
+
 ## [2.5.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.5.2...glyph-core-v2.5.3) (2021-08-05)
 
 
