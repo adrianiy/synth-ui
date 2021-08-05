@@ -48,7 +48,7 @@ export const getFiltersFromParams = ({ query: params }, ignore: string[]) => {
         .filter(key => ![ 'startDate', 'endDate' ].includes(key) && !ignore.includes(key))
         .forEach(key =>
             filter.push({
-                key: `cod_${key.replace('!', '')}`,
+                key: key.startsWith('$') ? key : `cod_${key.replace('!', '')}`,
                 op: key.includes('!') ? 'nin' : 'in',
                 value: [].concat(isNaN(+params[key]) ? params[key] : +params[key]),
             }),
