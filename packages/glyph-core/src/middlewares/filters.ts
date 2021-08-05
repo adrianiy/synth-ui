@@ -34,7 +34,7 @@ export const getCurrentFilters = ({
     return async (ctx: any, next: any) => {
         ctx.state.lastStep = 'current filters';
 
-        const filters = getFiltersFromQuery(ctx, use, rangeBefore);
+        const filters = getFiltersFromQuery(ctx, use, rangeBefore, ignore);
         const orderFilters = filters.filter(({ key }) => !ORDERFILTERFIELDS.includes(key));
 
         storeIn(ctx.state, store, filters);

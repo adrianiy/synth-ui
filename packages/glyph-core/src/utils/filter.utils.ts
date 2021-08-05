@@ -37,11 +37,11 @@ export const getDateFilter = (filters, option) => {
 export const getFiltersFromParams = ({ query: params }, ignore: string[]) => {
     const filter = [];
 
-    if (params.startDate) {
+    if (params.startDate && !ignore.includes('startDate')) {
         filter.push({ key: 'local_date', op: 'gte', value: params.startDate });
     }
 
-    if (params.endDate) {
+    if (params.endDate && !ignore.includes('endDate')) {
         filter.push({ key: 'local_date', op: 'lte', value: params.endDate });
     }
     Object.keys(params)
@@ -64,8 +64,8 @@ export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number
     }
     let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx, ignore || []);
 
-    if (use) {
-        filters = filters.filter(filter => use.includes(filter.key) && !ignore.includes(key));
+    if (use || ignore) {
+        filters = filters.filter(filter => use.includes(filter.key) && !ignore.includes(filter.key));
     }
 
     if (rangeBefore) {
