@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/adrianiy/glyph-ui/compare/v3.5.0...v3.5.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* **core:** fix filters without ignore parameter ([2fab989](https://github.com/adrianiy/glyph-ui/commit/2fab989516d7970c2d47cf188d9e3dc3d3f4385c))
+
 # [3.5.0](https://github.com/adrianiy/glyph-ui/compare/v3.4.0...v3.5.0) (2021-08-05)
 
 
