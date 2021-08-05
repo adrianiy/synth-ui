@@ -23,7 +23,7 @@ const ORDERFILTERFIELDS = [
 export const getCurrentFilters = ({
     use,
     store = 'filters',
-    ignore,
+    ignore = [],
     rangeBefore,
 }: {
     use: string[];

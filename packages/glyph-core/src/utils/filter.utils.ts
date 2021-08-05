@@ -65,7 +65,7 @@ export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number
     let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx, ignore || []);
 
     if (use || ignore) {
-        filters = filters.filter(filter => use.includes(filter.key) && !ignore.includes(filter.key));
+        filters = filters.filter(filter => use.includes(filter.key) && !ignore?.includes(filter.key));
     }
 
     if (rangeBefore) {
