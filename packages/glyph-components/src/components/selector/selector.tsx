@@ -12,6 +12,8 @@ import { cls } from '../../utils/utils';
 export class SelectorComponent {
     /** Selector label */
     @Prop() label: string;
+    /** Max height configuration */
+    @Prop() maxHeight: number = 300;
     /** Selector options */
     @Prop() options: SelectorOption[];
     /** Complex selector options */
@@ -71,6 +73,7 @@ export class SelectorComponent {
                     <glyph-selector-options
                         options={this.options}
                         complexOptions={this.complexOptions}
+                        maxHeight={this.maxHeight}
                         multiSelect={this.multiSelect}
                         searchPlaceholder={this.searchPlaceholder}
                         optionClickEvent={this._selectOption}

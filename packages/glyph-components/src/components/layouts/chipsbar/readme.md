@@ -52,6 +52,7 @@ graph TD;
   glyph-date-filter --> glyph-button
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-filter --> glyph-filter-options
   glyph-filter-options --> glyph-input
   glyph-filter-options --> glyph-toggler

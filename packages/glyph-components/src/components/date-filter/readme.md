@@ -62,6 +62,7 @@ graph TD;
   glyph-date-filter --> glyph-button
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-chipsbar --> glyph-date-filter
   style glyph-date-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

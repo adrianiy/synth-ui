@@ -580,13 +580,13 @@ export class GlyphScroll {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder']
+  inputs: ['complexOptions', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder'],
+  inputs: ['complexOptions', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {
@@ -603,13 +603,13 @@ export class GlyphSelector {
 
 export declare interface GlyphSelectorOptions extends Components.GlyphSelectorOptions {}
 @ProxyCmp({
-  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector-options',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 export class GlyphSelectorOptions {
   protected el: HTMLElement;

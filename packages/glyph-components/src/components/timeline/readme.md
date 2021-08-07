@@ -38,6 +38,7 @@ graph TD;
   glyph-timeline --> glyph-tabs
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-header --> glyph-timeline
   style glyph-timeline fill:#f9f,stroke:#333,stroke-width:4px
 ```

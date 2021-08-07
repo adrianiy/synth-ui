@@ -18,6 +18,7 @@ const baseProps = {
     avatar: true,
     interface: 'classic',
     userData: { name: 'Test user demo' },
+    brand: true,
     timeline: false,
     search: false,
     share: false,
@@ -43,6 +44,7 @@ const Template = (
         menu,
         search,
         share,
+        brand,
         timeline,
         notifications,
         calendarEvents,
@@ -56,6 +58,7 @@ const Template = (
     ctx: any,
 ) =>
     WithGlobalDecorator({
+        style: 'height: 300px',
         template: html` <glyph-header
             .activeBrand=${activeBrand}
             .appTitle=${appTitle}
@@ -67,6 +70,7 @@ const Template = (
             .search=${search}
             .share=${share}
             .menu=${menu}
+            .brand=${brand}
             .notifications=${notifications}
             .timeline=${timeline}
             .calendarEvents=${calendarEvents}

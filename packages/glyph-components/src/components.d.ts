@@ -1006,6 +1006,10 @@ export namespace Components {
          */
         "label": string;
         /**
+          * Max height configuration
+         */
+        "maxHeight": number;
+        /**
           * Multiselect flag
          */
         "multiSelect": boolean;
@@ -1027,6 +1031,10 @@ export namespace Components {
           * Complex selector options
          */
         "complexOptions": ComplexSelectorOptions;
+        /**
+          * Max height configuration
+         */
+        "maxHeight": number;
         /**
           * Multiselect flag
          */
@@ -2627,6 +2635,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * Max height configuration
+         */
+        "maxHeight"?: number;
+        /**
           * Multiselect flag
          */
         "multiSelect"?: boolean;
@@ -2652,6 +2664,10 @@ declare namespace LocalJSX {
           * Complex selector options
          */
         "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Max height configuration
+         */
+        "maxHeight"?: number;
         /**
           * Multiselect flag
          */

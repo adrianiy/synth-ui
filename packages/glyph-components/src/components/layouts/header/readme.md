@@ -65,6 +65,7 @@ graph TD;
   glyph-user-menu --> glyph-toggler
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs
