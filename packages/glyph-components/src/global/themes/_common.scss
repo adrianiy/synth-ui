@@ -3,6 +3,9 @@ body {
   font-size: var(--gui-font--base);
   background-color: var(--gui-color--background);
 }
+.redesign {
+    font-family: 'Zara', sans-serif;
+}
 
 :root {
     /* Padding and margin */
@@ -18,27 +21,33 @@ body {
     --gui-padding--xxxl: 64px;
     --gui-padding--huge: 124px;
 
+    /* Letter spacing */ 
+    --gui-space--s: 0.2px;
+    --gui-space--m: 0.4px;
+    --gui-space--l: 0.6px;
+
     /* Font sizes */
     --gui-font--base: 12px;
-    --gui-font--nano: 0.42em;
-    --gui-font--xxxs: .66em;
-    --gui-font--xxs: .9em;
-    --gui-font--xs: 1em;
-    --gui-font--s: 1.17em;
-    --gui-font--m: 1.42em;
-    --gui-font--l: 2em;
-    --gui-font--xl: 2.66em;
-    --gui-font--xxl: 4em;
-    --gui-font--xxxl: 5.33em;
+    --gui-font--nano: 0.5em; // 6px
+    --gui-font--xxxs: .66em; // 8px
+    --gui-font--xxs: .83em; // 10px
+    --gui-font--xs: 1em; // 12px 
+    --gui-font--s: 1.17em; // 14px
+    --gui-font--m: 1.42em; // 17px 
+    --gui-font--l: 1.6666666666666667em; // 20px
+    --gui-font--xl: 2em; // 24px 
+    --gui-font--xxl: 2.34em; // 32px 
+    --gui-font--xxxl: 4em; // 48px
 
     /* font weights */
-    --gui-font-weight--light: 300;
-    --gui-font-weight--normal: 400;
-    --gui-font-weight--bold: 500;
-    --gui-font-weight--extra-bold: 600;
+    --gui-font-weight--light: light;
+    --gui-font-weight--normal: normal;
+    --gui-font-weight--bold: bold;
+    --gui-font-weight--extra-bold: bolder;
 
     /* font family */
-    --gui-font-family: 'Roboto', sans-serif;
+    --gui-font--classic: 'Roboto', sans-serif;
+    --gui-font--redesing: 'Zara', sans-serif;
 
     /* transitions */
     --gui-transition--300: all ease-in-out 300ms;

@@ -1,6 +1,7 @@
 export const enum UIInterface {
     classic = 'classic',
     modern = 'modern',
+    redesign = 'redesign',
 }
 
 export const enum TabStyle {

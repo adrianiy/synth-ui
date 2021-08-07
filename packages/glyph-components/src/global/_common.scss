@@ -1,11 +1,15 @@
 ::-webkit-scrollbar {
     display: none;
 }
+b {
+    font-weight: var(--gui-font-weight--extra-bold);
+}
 h1 {
     font-size: var(--gui-font--xl);
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
     font-weight: var(--gui-font-weight--extra-bold);
+    text-transform: uppercase;
 
     &.big {
         font-size: var(--gui-font--xxl);
@@ -32,11 +36,38 @@ h5 {
     font-weight: 600;
     margin: 0 0 var(--gui-padding--xs) 0;
 }
+.label--l {
+    font-size: var(--gui-font--xs);
+
+    &--medium {
+        font-weight: var(--gui-font-weight--bold);
+    }
+}
+
 .caption {
     font-size: var(--gui-font--xxs);
     font-weight: var(--gui-font-weight--normal);
 
     &--small {
         font-size: var(--gui-font--xxxs);
+    }
+}
+
+.redesign {
+    h2 {
+        font-size: var(--gui-font--l);
+        line-height: var(--gui-font--l);
+        margin: 0;
+        font-weight: var(--gui-font-weight--bold);
+        margin-bottom: var(--gui-padding--xs);
+        letter-spacing: var(--gui-space--s);
+        text-transform: uppercase;
+    }
+    h5 {
+        font-size: var(--gui-font--xs);
+    }
+    .label--l {
+        letter-spacing: var(--gui-space--m);
+        text-transform: uppercase;
     }
 }
