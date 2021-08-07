@@ -12,7 +12,7 @@ const baseProps = {
 export default {
     title: 'Layout/Chipsbar/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
     },
     parameters: {
         viewMode: 'docs',
@@ -48,4 +48,10 @@ export const Modern = Template.bind({});
 Modern.args = {
     ...baseProps,
     interface: 'modern',
+};
+
+export const Redesign = Template.bind({});
+Redesign.args = {
+    ...baseProps,
+    interface: 'redesign',
 };

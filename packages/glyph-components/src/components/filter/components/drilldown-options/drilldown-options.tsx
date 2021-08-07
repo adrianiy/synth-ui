@@ -3,7 +3,7 @@ import { FilterOptionHeader, UIInterface } from 'glyph-core';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls } from '../../../../utils/utils';
-import { renderOptionDescription } from '../../utils/utils';
+import { inSearch, renderOptionDescription } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-filter-drilldown-options',
@@ -51,7 +51,9 @@ export class FilterDrilldownOptionsComponent {
 
     render() {
         const { children, description } = this.option;
-        const anyActive = children.some(child => child.active);
+        const anyActive = children.some(
+            child => child.active || (this.searchValue && inSearch(child, this.searchValue)),
+        );
         const expanded = this.expandedState || anyActive;
 
         return (

@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                 | Type                                                   | Default               |
-| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------ | --------------------- |
-| `expanded`    | `expanded`     | Expanded flag                               | `boolean`                                              | `false`               |
-| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern`            | `UIInterface.classic` |
-| `option`      | --             | Filter options                              | `FilterOptionHeader`                                   | `undefined`           |
-| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void` | `undefined`           |
-| `searchValue` | `search-value` | Search value                                | `string`                                               | `undefined`           |
+| Property      | Attribute      | Description                                 | Type                                                                | Default               |
+| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| `expanded`    | `expanded`     | Expanded flag                               | `boolean`                                                           | `false`               |
+| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
+| `option`      | --             | Filter options                              | `FilterOptionHeader`                                                | `undefined`           |
+| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void`              | `undefined`           |
+| `searchValue` | `search-value` | Search value                                | `string`                                                            | `undefined`           |
 
 
 ## Dependencies
