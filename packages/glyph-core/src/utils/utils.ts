@@ -22,6 +22,8 @@ export const is = (value: any, typeCheck: any) => {
 };
 export const constant = (value: any) => (_: any) => value;
 
+export const fn = (fn: any) => (is(fn, Function) ? fn : () => fn);
+
 export const getFrom = (from: any, value: string) => {
     if (value?.split) {
         const keys = value.split('.');
@@ -40,4 +42,52 @@ export const storeIn = (dest: any, path: string, data: any) => {
     const [ key, value ] = Object.entries(store)[0];
 
     dest[key] = value;
+};
+
+export const parseParam = (from: any, value: any) => {
+    try {
+        if (!is(value, 'string')) {
+            throw Error('should parse only strings');
+        }
+
+        if (value?.startsWith?.('?$')) {
+            return getFrom(from, value.replace(/\?\$ ?/, ''));
+        } else if (value?.startsWith?.('?#')) {
+            return value.replace(/\?\# ?/, '');
+        } else if (value?.startsWith?.('?>')) {
+            return eval(value.replace(/\?\> ?/, ''));
+        } else {
+            const v = getFrom(from, value) || value;
+
+            if (is(v, 'string') && (v.includes('function(') || v.includes('=>'))) {
+                return eval(v);
+            } else {
+                return v;
+            }
+        }
+    } catch (_) {
+        return is(value, 'string') ? value?.replace(/\?(\$|\>|\#)+ ?/, '') : value;
+    }
+};
+const defaultTypes = { children: '?>', store: '?>' };
+const getDefaultType = (key: string) => {
+    if (!key.startsWith('?')) {
+        return defaultTypes[key] || '';
+    } else {
+        return key;
+    }
+};
+
+export const parseParams = (from: any, params: any): any => {
+    return Object.keys(params).reduce(
+        (acc, key) => ({
+            ...acc,
+            [key]: parseParam(from, is(params[key], 'string') ? `${getDefaultType(key)}${params[key]}` : params[key]),
+        }),
+        {},
+    );
+};
+
+export const getParamValue = (context: any, param: any, _default: any) => {
+    return is(param, Function) ? param(context) : param || _default;
 };

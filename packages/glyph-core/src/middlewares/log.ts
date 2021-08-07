@@ -1,32 +1,57 @@
 import { log } from '../utils/log.utils';
-import { getFrom } from '../utils/utils';
+import { getFrom, is, parseParam } from '../utils/utils';
 
 export const logMiddleware = (
     {
         data = 'data',
-        message,
+        message: rawMessage,
         error,
+        limit,
+        filter: filterRaw,
         from: fromRaw = '',
         level = 'info',
-        function: functionRaw,
-        showLastStep = true
-    }: { data?: string; message?: string; error?: any; from?: string; level?: string; function?: string; showLastStep?: boolean },
+        showLastStep = true,
+    }: {
+        data?: string;
+        message?: string;
+        error?: any;
+        limit?: any;
+        filter?: any;
+        from?: string;
+        level?: string;
+        function?: string;
+        showLastStep?: boolean;
+    },
     params?: any,
 ) => {
     return async (ctx: any, next: any) => {
-        const from = `${ctx.state.from || fromRaw || ''}${ showLastStep ? ` - ${ ctx.state.lastStep || '' }` : '' }`;
+        const from = `${ctx.state.from || fromRaw || ''}${showLastStep ? ` - ${ctx.state.lastStep || ''}` : ''}`;
         const logger = getFrom({ ...params, ...ctx.state }, 'logger');
-        const rawData = JSON.stringify(getFrom(ctx.state, data), null, 2);
-        const messageFn = getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
+        const rawData = getFrom(ctx.state, data);
+        const param = parseParam({ ...params, ...ctx.state }, rawMessage);
+        const filter = filterRaw && eval(filterRaw);
+        let message = is(param, Function)
+            ? param?.(ctx)
+            : param || JSON.stringify(rawData?.filter(filter ?? Boolean)?.slice(0, limit), null, 2);
 
-        log({
-            message: message || messageFn?.(ctx) || rawData,
-            error,
-            from,
-            level,
-            logger,
-            showErrors: ctx.state.showErrors,
-        });
+        if (limit) {
+            message = `${message}\n...and ${rawData.length - limit} more`;
+        }
+
+        if (!ctx.errorLogged) {
+            log({
+                message,
+                error,
+                from,
+                level,
+                logger,
+                showErrors: ctx.state.showErrors,
+            });
+        }
+
+        if (error) {
+            ctx.errorLogged = true;
+        }
 
         await next?.();
     };

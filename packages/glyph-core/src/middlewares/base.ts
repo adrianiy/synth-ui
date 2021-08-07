@@ -1,4 +1,4 @@
-import { constant, getFrom, is, storeIn } from '../utils/utils';
+import { constant, getFrom, getParamValue, is, parseParams, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
 /** Asynchronous pipe */
@@ -44,21 +44,21 @@ export const parallel = (fns: any[]) => {
 };
 
 /** Custom middleware */
-export const customMiddleware = (
-    { middleware, store, standalone }: { middleware: any; store: string; standalone: boolean },
-    params: any,
-) => {
+export const customMiddleware = (args: { middleware: any; store?: string; standalone?: boolean }, params: any) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'custom';
+            const context = { ...ctx.state, ...params };
+            const { middleware, store: storeRaw, standalone } = parseParams(context, args);
 
-            const context = standalone ? { ...ctx, query: ctx.query, state: { ...ctx.state } } : ctx;
+            const _ctx = standalone ? { ...ctx, query: ctx.query, state: { ...ctx.state } } : ctx;
+            const store = getParamValue(context, storeRaw, undefined);
 
-            if (is(middleware, 'string')) {
-                const data = await getFrom({ ...params, ...ctx.state }, middleware)(context, next);
+            if (is(middleware, Function)) {
+                const data = await middleware(_ctx, () => null);
 
                 if (store) {
-                    storeIn(ctx.state, store, data || context.state.data);
+                    storeIn(ctx.state, store, data || _ctx.state.data);
                 }
             } else if (is(middleware, Object)) {
                 const key = Object.keys(middleware)[0];
@@ -66,6 +66,8 @@ export const customMiddleware = (
             } else {
                 throw new Error('Invalid custom middleware format');
             }
+
+            await next();
         } catch (error) {
             await logMiddleware({ error, level: 'error' })(ctx, null);
             throw error;

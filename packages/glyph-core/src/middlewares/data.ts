@@ -1,8 +1,7 @@
 import { CustomError } from '../utils/error.utils';
 import { groupData } from '../utils/group.utils';
 import { crossJoin, leftOuterJoin } from '../utils/join.utils';
-import { log } from '../utils/log.utils';
-import { getFrom, is, storeIn } from '../utils/utils';
+import { fn, getFrom, getParamValue, parseParam, parseParams, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
 /** sort middleware
@@ -10,34 +9,34 @@ import { logMiddleware } from './log';
  * @param data { string } state key wehre data is stored
  * @param function { any } string with sort function like (a, b) => a - b or key name
  */
-export const sort = (
-    {
-        data = 'data',
-        by,
-        order = 'desc',
-        function: functionRaw,
-    }: { data: string; by: string; order: string; function: any },
-    params: any,
-) => {
-    if (!functionRaw && !by) {
-        throw new Error('sort function parameter or key are mandatory');
-    }
-
-    const sortFns = {
-        desc: (a, b) => b[by] - a[by],
-        asc: (a, b) => a[by] - b[by],
-    };
-
-    const getSortFn = (ctx: any) =>
-        by ? sortFns[order] : getFrom({ ...params, ...ctx.state }, functionRaw) || eval(functionRaw);
-
+export const sort = (args: { data: string; by: string; store: string; order: string; function: any }, params: any) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'sort';
+            const context = { ...ctx.state, ...params };
+            const {
+                data = getFrom(context, 'data'),
+                store: storeRaw,
+                by,
+                order = 'desc',
+                function: functionRaw,
+            } = parseParams(context, args);
 
-            const rawData = getFrom(ctx.state, data);
+            if (!functionRaw && !by) {
+                throw new Error('sort function parameter or key are mandatory');
+            }
 
-            storeIn(ctx.state, data, rawData.sort(getSortFn(ctx)));
+            const sortFns = {
+                desc: (a: any, b: any) => b[by] - a[by],
+                asc: (a: any, b: any) => a[by] - b[by],
+            };
+
+            const sortFn = by ? sortFns[order] : functionRaw;
+
+            const rawData = getParamValue(context, data, []);
+            const store = getParamValue(context, storeRaw, args.data || 'data');
+
+            storeIn(ctx.state, store, rawData.sort(sortFn));
 
             await next();
         } catch (error) {
@@ -56,14 +55,8 @@ export const sort = (
  * @params keys { { preserve, remove } } if set we'll parse each row to filter keys by it's value
  */
 export const filter = (
-    {
-        data = 'data',
-        store,
-        function: functionRaw,
-        required,
-        keys,
-    }: {
-        data: string;
+    args: {
+        data: any;
         store: string;
         function: string;
         required: string[];
@@ -71,21 +64,26 @@ export const filter = (
     },
     params: any,
 ) => {
-    if (!functionRaw && !required && !keys) {
-        throw new Error('filter parameters are mandatory');
-    }
-
-    const getFilterFn = (ctx: any) =>
-        functionRaw
-            ? eval(getFrom({ ...params, ...ctx.state }, functionRaw) || functionRaw)
-            : (a: any) => (required ? required.every(key => a[key]) : true);
-
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'filter';
+            const context = { ...ctx.state, ...params };
+            const {
+                data = getFrom(context, 'data'),
+                store: storeRaw,
+                function: functionRaw,
+                required,
+                keys,
+            } = parseParams(context, args);
 
-            const filterFn = getFilterFn(ctx);
-            const rawData = getFrom(ctx.state, data);
+            if (!functionRaw && !required && !keys) {
+                throw new Error('filter parameters are mandatory');
+            }
+
+            const rawData = getParamValue(context, data, []);
+            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const filterFn = functionRaw || ((a: any) => (required ? required.every((key: string) => a[key]) : true));
+
             let filteredData = rawData.filter(filterFn);
 
             if (keys) {
@@ -98,7 +96,7 @@ export const filter = (
                 });
             }
 
-            storeIn(ctx.state, store || data, filteredData);
+            storeIn(ctx.state, store, filteredData);
 
             await next();
         } catch (error) {
@@ -116,12 +114,7 @@ export const filter = (
  * @param keys: { string } transform keys
  */
 export const transform = (
-    {
-        data = 'data',
-        store,
-        operations = [],
-        keys,
-    }: {
+    args: {
         data: string;
         store: string;
         operations: {
@@ -138,31 +131,35 @@ export const transform = (
 ) => {
     const getTransformKey = (ctx: any, key: string) => {
         try {
-            return key ? eval(getFrom({ ...params, ...ctx.state }, key) || key) : (a: any) => a;
+            const keyFn = key ? parseParam(ctx, key) : (a: any) => a;
+
+            return key ? fn(parseParam(ctx, key)) : keyFn;
         } catch (_) {
             return () => key;
         }
     };
     const getTransformValue = (ctx: any, value: string) =>
-        value
-            ? eval(getFrom({ ...params, ...ctx.state }, value) || value)
-            : (value: any, row: any, key: string) => row[key];
+        value ? fn(parseParam(ctx, value)) : (_: any, row: any, key: string) => row[key];
 
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'transform';
-            const operationTransforms = operations?.map(transformation => ({
+            const context = { ...ctx.state, ...params };
+            const { data = getFrom(context, 'data'), store: storeRaw, operations, keys } = parseParams(context, args);
+
+            const operationTransforms = operations?.map((transformation: any) => ({
                 ...transformation,
-                keyFn: getTransformKey(ctx, transformation.key),
-                valueFn: getTransformValue(ctx, transformation.value),
+                keyFn: getTransformKey(context, transformation.key),
+                valueFn: getTransformValue(context, transformation.value),
             }));
             const keyTransforms = Object.keys(keys || {})?.map((key: string) => ({
                 match: key,
                 keyFn: () => keys[key],
                 valueFn: getTransformValue(null, null),
             }));
-            const transform = [].concat([ ...(operationTransforms || []), ...(keyTransforms || []) ]);
-            const rawData = getFrom(ctx.state, data);
+            const transform = [].concat([ ...(keyTransforms || []), ...(operationTransforms || []) ]);
+            const rawData = getParamValue(context, data, []);
+            const store = getParamValue(context, storeRaw, args.data || 'data');
             const transfomedData = rawData.map((row: any) => {
                 transform.forEach(({ match, add, exclude, preserve, keyFn, valueFn }) => {
                     if (add) {
@@ -186,7 +183,7 @@ export const transform = (
                 return row;
             });
 
-            storeIn(ctx.state, store || data, transfomedData);
+            storeIn(ctx.state, store, transfomedData);
 
             await next();
         } catch (error) {
@@ -205,38 +202,38 @@ export const transform = (
  * @param children { string | boolean } save grouped object as children, if true we'll use 'children' key
  * @param total { boolean } if true add first row as total aggregation
  */
-export const groupBy = ({
-    data = 'data',
-    store,
-    by,
-    children,
-    total,
-}: {
-    data: string;
-    store: string;
-    by: string[];
-    children: any;
-    total: boolean;
-}) => {
+export const groupBy = (
+    args: { data: string; store: string; by: string[]; children: any; total: boolean },
+    params: any,
+) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'group';
+            const context = { ...ctx.state, ...params };
+            const { data = getFrom(context, 'data'), store: storeRaw, by, children, total } = parseParams(
+                context,
+                args,
+            );
 
-            const on = by || ctx.state.joinKeys;
-            const rawData = getFrom(ctx.state, data);
-            const groups = groupData(rawData, total ? [] : on, children === true ? 'children' : children);
+            const on = getParamValue(context, by, ctx.state.joinKeys);
+            const childrenName = getParamValue(context, children === true ? 'children' : children, null);
+            const rawData = getParamValue(context, data, []);
+            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const groups = groupData(rawData, total ? [] : on, childrenName);
+
+            const childrenKey = on?.length > 1 ? on?.slice(1) : on;
 
             if (total) {
                 const total = {
-                    ...groups[0],
+                    ...groups?.[0],
+                    ...(on ? { [on[0]]: 'total' } : {}),
                     _isTotal: true,
-                    [on[0]]: 'total',
                     name: 'Total',
-                    children: groupData(groups[0].children, on.slice(1)),
+                    [childrenName]: groupData(groups[0]?.[childrenName], childrenKey || []),
                 };
-                storeIn(ctx.state, store || data, [ total, ...ctx.state[data] ]);
+                storeIn(ctx.state, store, [ total, ...data ]);
             } else {
-                storeIn(ctx.state, store || data, groups);
+                storeIn(ctx.state, store, groups);
             }
 
             await next();
@@ -256,33 +253,39 @@ export const groupBy = ({
  * @param store { string } name of key where joined data will be stored
  * @param on { string[] } array of keys to use in join
  */
-export const join = ({
-    strategy = 'left',
-    data = 'data',
-    with: _with,
-    store,
-    by,
-}: {
-    strategy: string;
-    data: string;
-    with: string;
-    store: string;
-    by: string[];
-}) => {
+export const join = (
+    args: {
+        strategy: string;
+        data: string;
+        with: string;
+        store: string;
+        by: string[];
+    },
+    params: any,
+) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'join';
+            const context = { ...ctx.state, ...params };
+            const {
+                strategy = 'left',
+                data = getFrom(context, 'data'),
+                with: _with,
+                store: storeRaw,
+                by,
+            } = parseParams(context, args);
 
-            const on = by || ctx.state.joinKeys;
-            const rawData = getFrom(ctx.state, data);
-            const rawWith = getFrom(ctx.state, _with);
+            const on = getParamValue(context, by, ctx.state.joinKeys);
+            const rawData = getParamValue(context, data, []);
+            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const rawWith = getParamValue(context, _with, []);
 
             switch (strategy) {
                 case 'left':
-                    storeIn(ctx.state, store || data, leftOuterJoin(on, rawData, rawWith));
+                    storeIn(ctx.state, store, leftOuterJoin(on, rawData, rawWith));
                     break;
                 default:
-                    storeIn(ctx.state, store || data, crossJoin(on, rawData, rawWith));
+                    storeIn(ctx.state, store, crossJoin(on, rawData, rawWith));
                     break;
             }
 

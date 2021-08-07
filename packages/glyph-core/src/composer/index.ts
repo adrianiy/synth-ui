@@ -6,7 +6,6 @@ import { asyncPipe, customMiddleware, parallel, setVariables } from '../middlewa
 import { filter, groupBy, join, sort, transform } from '../middlewares/data';
 import { getA2ComparableFilters, getComparableFilters, getCurrentFilters } from '../middlewares/filters';
 import { fetchData } from '../middlewares/fetch';
-import { is } from '../utils/utils';
 import { logMiddleware } from '../middlewares/log';
 
 const basicYamlParser = (doc: any, params: any) => {
@@ -46,10 +45,10 @@ const basicYamlParser = (doc: any, params: any) => {
         pipe.push(transform(doc.transform, params));
     }
     if (doc.group) {
-        pipe.push(groupBy(doc.group));
+        pipe.push(groupBy(doc.group, params));
     }
     if (doc.join) {
-        pipe.push(join(doc.join));
+        pipe.push(join(doc.join, params));
     }
     if (doc.sort) {
         pipe.push(sort(doc.sort, params));
@@ -59,6 +58,9 @@ const basicYamlParser = (doc: any, params: any) => {
     }
     if (doc.custom) {
         pipe.push(customMiddleware(doc.custom, params));
+    }
+    if (doc.middleware) {
+        pipe.push(customMiddleware({ middleware: doc.middleware }, params));
     }
     if (doc.pipe) {
         pipe.push(

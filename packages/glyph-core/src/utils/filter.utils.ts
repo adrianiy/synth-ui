@@ -48,13 +48,15 @@ export const getFiltersFromParams = ({ query: params }, ignore: string[]) => {
         .filter(key => ![ 'startDate', 'endDate' ].includes(key) && !ignore.includes(key))
         .forEach(key =>
             filter.push({
-                key: key.startsWith('$') ? key : `cod_${key.replace('!', '')}`,
+                key: (key.startsWith('$') ? key : `cod_${key}`).replace(/\$|!/, ''),
                 op: key.includes('!') ? 'nin' : 'in',
-                value: [].concat(isNaN(+params[key]) ? params[key] : +params[key]),
+                value: []
+                    .concat(isNaN(+params[key]) ? params[key] : +params[key])
+                    .filter(value => ![ 'undefined', 'null' ].includes(value)),
             }),
         );
 
-    return filter;
+    return filter.filter(({ value }) => value.length);
 };
 
 export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number, ignore: string[]) => {
@@ -65,16 +67,18 @@ export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number
     let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx, ignore || []);
 
     if (use) {
-        filters = filters.filter(filter => use.includes(filter.key));
+        filters = filters.filter(({ key }) => use.includes(key));
     }
     if (ignore) {
-        filters = filters.filter(filter => !ignore.includes(filter.key));
+        filters = filters.filter(({ key }) => !ignore.includes(key));
     }
 
     if (rangeBefore) {
         filters
-            .filter(filter => filter.key === 'local_date' && filter.op === 'gte')
-            .forEach(filter => (filter.value = dayjs(filter.value).subtract(rangeBefore, 'day').format('YYYY-MM-DD')));
+            .filter((filter: any) => filter.key === 'local_date' && filter.op === 'gte')
+            .forEach(
+                (filter: any) => (filter.value = dayjs(filter.value).subtract(rangeBefore, 'day').format('YYYY-MM-DD')),
+            );
     }
 
     return dateToTimeStamp(filters);

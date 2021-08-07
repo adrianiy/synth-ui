@@ -1,5 +1,6 @@
 import { fetchBase } from '../utils/fetch.utils';
-import { getFrom, is, storeIn } from '../utils/utils';
+import { getFrom, is, storeIn, parseParam, fn } from '../utils/utils';
+import { logMiddleware } from './log';
 
 /**
  * Fetch middleware
@@ -18,7 +19,7 @@ export const fetchData = ({
     auth,
     store = 'data',
     data: dataField = 'data',
-    parameters = { filter: 'filters' },
+    parameters = { filter: '?$filters' },
     headers = {},
 }: {
     baseUrl: string;
@@ -30,27 +31,36 @@ export const fetchData = ({
     headers: any;
 }) => {
     return async (ctx: any, next: any) => {
-        const queryParams = {};
+        try {
+            const queryParams = {};
 
-        Object.keys(parameters).forEach((key: string) => {
-            const parameter = getFrom(ctx.state, parameters[key]) || getFrom(ctx, parameters[key]) || parameters[key];
-            queryParams[key] = is(parameter, Function) ? parameter(ctx) : parameter;
-        });
+            Object.keys(parameters).forEach((key: string) => {
+                const parameter = parseParam({ ...ctx.state, ...ctx }, parameters[key]);
+                const value = fn(parameter)(ctx);
 
-        const response = await fetchBase(
-            getFrom(ctx.state, baseUrl) || baseUrl || ctx.state.baseUrl,
-            getFrom(ctx.state, url) || url,
-            getFrom(ctx.state, auth) || auth || ctx.state.auth,
-            queryParams,
-            headers,
-            `${ctx.state.from || ''} - fetch`,
-            ctx.state.logger,
-        );
-        const prevData = getFrom(ctx.state, store) || [];
-        const data = [ ...prevData, ...(dataField ? getFrom(response, dataField) : response) ];
+                if (value) {
+                    queryParams[key] = value;
+                }
+            });
 
-        storeIn(ctx.state, store, data);
+            const response = await fetchBase(
+                getFrom(ctx.state, baseUrl) || baseUrl || ctx.state.baseUrl,
+                getFrom(ctx.state, url) || url,
+                getFrom(ctx.state, auth) || auth || ctx.state.auth,
+                queryParams,
+                headers,
+                `${ctx.state.from || ''} - fetch`,
+                ctx.state.logger,
+            );
+            const prevData = getFrom(ctx.state, store) || [];
+            const data = [ ...prevData, ...(dataField ? getFrom(response, dataField) : response) ];
 
-        await next();
+            storeIn(ctx.state, store, data);
+
+            await next();
+        } catch (error) {
+            await logMiddleware({ error, level: 'error' })(ctx, null);
+            throw error;
+        }
     };
 };
