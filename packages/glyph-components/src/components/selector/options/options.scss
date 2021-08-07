@@ -3,7 +3,8 @@
     background: var(--gui-color--background--lighter);
     box-shadow: var(--gui-shadow);
     border: var(--gui-border--lightest);
-    width: fit-content;
+    width: 100%;
+    min-width: fit-content;
 
     glyph-input {
         padding: var(--gui-padding--s);

@@ -94,7 +94,7 @@ const ComplexTemplate = ({ label, options, complexOptions, multiSelect }, ctx: a
             @optionSelect=${changeEventComplex}
         />`,
         ctx,
-        style: 'height: 200px',
+        style: 'height: 200px; width: 300px;',
     });
 
 export const Playground = Template.bind({});

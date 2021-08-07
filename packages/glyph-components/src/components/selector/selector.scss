@@ -1,13 +1,13 @@
 .selector__container {
     color: var(--gui-color);
     font-size: var(--gui-font--base);
+    position: relative;
 
     .selector__input {
         border-bottom: var(--gui-border);
         padding-bottom: var(--gui-padding--xxxs);
         cursor: pointer;
         user-select: none;
-        width: fit-content;
 
         label {
             cursor: pointer;
