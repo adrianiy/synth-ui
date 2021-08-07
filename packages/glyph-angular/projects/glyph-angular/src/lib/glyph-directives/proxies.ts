@@ -53,13 +53,13 @@ export class GlyphArticle {
 
 export declare interface GlyphAvatar extends Components.GlyphAvatar {}
 @ProxyCmp({
-  inputs: ['image', 'name']
+  inputs: ['image', 'interface', 'name']
 })
 @Component({
   selector: 'glyph-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['image', 'name']
+  inputs: ['image', 'interface', 'name']
 })
 export class GlyphAvatar {
   protected el: HTMLElement;
@@ -91,13 +91,13 @@ export class GlyphBreadcrumbs {
 
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
+  inputs: ['action', 'cancel', 'class', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 @Component({
   selector: 'glyph-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
+  inputs: ['action', 'cancel', 'class', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 export class GlyphButton {
   protected el: HTMLElement;
@@ -110,13 +110,13 @@ export class GlyphButton {
 
 export declare interface GlyphButtonGroup extends Components.GlyphButtonGroup {}
 @ProxyCmp({
-  inputs: ['alignment', 'buttons', 'size']
+  inputs: ['alignment', 'buttons', 'interface', 'size']
 })
 @Component({
   selector: 'glyph-button-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['alignment', 'buttons', 'size']
+  inputs: ['alignment', 'buttons', 'interface', 'size']
 })
 export class GlyphButtonGroup {
   protected el: HTMLElement;
@@ -492,6 +492,25 @@ export class GlyphNoData {
   }
 }
 
+
+export declare interface GlyphNotifications extends Components.GlyphNotifications {}
+@ProxyCmp({
+  inputs: ['outsideCallback']
+})
+@Component({
+  selector: 'glyph-notifications',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['outsideCallback']
+})
+export class GlyphNotifications {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { PaginationComponent as IPaginationComponent } from 'glyph-components/dist/types/components/pagination/pagination';
 export declare interface GlyphPagination extends Components.GlyphPagination {}
 @ProxyCmp({
@@ -542,13 +561,13 @@ export class GlyphRanking {
 
 export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
 @ProxyCmp({
-  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'interface', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 @Component({
   selector: 'glyph-ranking-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'interface', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 export class GlyphRankingLayout {
   protected el: HTMLElement;
@@ -773,13 +792,13 @@ export class GlyphTimeline {
 
 export declare interface GlyphTitle extends Components.GlyphTitle {}
 @ProxyCmp({
-  inputs: ['text']
+  inputs: ['interface', 'text']
 })
 @Component({
   selector: 'glyph-title',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['text']
+  inputs: ['interface', 'text']
 })
 export class GlyphTitle {
   protected el: HTMLElement;

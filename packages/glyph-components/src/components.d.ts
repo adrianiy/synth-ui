@@ -102,6 +102,10 @@ export namespace Components {
          */
         "image": UserData['image'];
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
           * User name, used as image fallback
          */
         "name": UserData['name'];
@@ -125,6 +129,10 @@ export namespace Components {
           * Cancel type button. Renders in red
          */
         "cancel": boolean;
+        /**
+          * Custom classNames to apply
+         */
+        "class": string;
         /**
           * Material icons id
          */
@@ -155,6 +163,10 @@ export namespace Components {
           * Buttons configuration
          */
         "buttons": Button[];
+        /**
+          * Application interface
+         */
+        "interface": UIInterface;
         /**
           * Button group size ['big', 'small']
          */
@@ -812,6 +824,12 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphNotifications {
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
+    }
     interface GlyphPagination {
         /**
           * Active page
@@ -929,6 +947,10 @@ export namespace Components {
           * Extra i18n translates
          */
         "i18n": { [key: string]: string };
+        /**
+          * Application interface
+         */
+        "interface": UIInterface;
         /**
           * Loading flag
          */
@@ -1196,6 +1218,10 @@ export namespace Components {
     }
     interface GlyphTitle {
         /**
+          * interface input
+         */
+        "interface": UIInterface;
+        /**
           * title text
          */
         "text": string;
@@ -1408,6 +1434,12 @@ declare global {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
     };
+    interface HTMLGlyphNotificationsElement extends Components.GlyphNotifications, HTMLStencilElement {
+    }
+    var HTMLGlyphNotificationsElement: {
+        prototype: HTMLGlyphNotificationsElement;
+        new (): HTMLGlyphNotificationsElement;
+    };
     interface HTMLGlyphPaginationElement extends Components.GlyphPagination, HTMLStencilElement {
     }
     var HTMLGlyphPaginationElement: {
@@ -1533,6 +1565,7 @@ declare global {
         "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-notifications": HTMLGlyphNotificationsElement;
         "glyph-pagination": HTMLGlyphPaginationElement;
         "glyph-ranking": HTMLGlyphRankingElement;
         "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
@@ -1643,6 +1676,10 @@ declare namespace LocalJSX {
          */
         "image"?: UserData['image'];
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
           * User name, used as image fallback
          */
         "name"?: UserData['name'];
@@ -1666,6 +1703,10 @@ declare namespace LocalJSX {
           * Cancel type button. Renders in red
          */
         "cancel"?: boolean;
+        /**
+          * Custom classNames to apply
+         */
+        "class"?: string;
         /**
           * Material icons id
          */
@@ -1696,6 +1737,10 @@ declare namespace LocalJSX {
           * Buttons configuration
          */
         "buttons"?: Button[];
+        /**
+          * Application interface
+         */
+        "interface"?: UIInterface;
         /**
           * Button group size ['big', 'small']
          */
@@ -2441,6 +2486,12 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphNotifications {
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
+    }
     interface GlyphPagination {
         /**
           * Active page
@@ -2562,6 +2613,10 @@ declare namespace LocalJSX {
           * Extra i18n translates
          */
         "i18n"?: { [key: string]: string };
+        /**
+          * Application interface
+         */
+        "interface"?: UIInterface;
         /**
           * Loading flag
          */
@@ -2857,6 +2912,10 @@ declare namespace LocalJSX {
     }
     interface GlyphTitle {
         /**
+          * interface input
+         */
+        "interface"?: UIInterface;
+        /**
           * title text
          */
         "text"?: string;
@@ -2974,6 +3033,7 @@ declare namespace LocalJSX {
         "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-notifications": GlyphNotifications;
         "glyph-pagination": GlyphPagination;
         "glyph-ranking": GlyphRanking;
         "glyph-ranking-layout": GlyphRankingLayout;
@@ -3019,6 +3079,7 @@ declare module "@stencil/core" {
             "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-notifications": LocalJSX.GlyphNotifications & JSXBase.HTMLAttributes<HTMLGlyphNotificationsElement>;
             "glyph-pagination": LocalJSX.GlyphPagination & JSXBase.HTMLAttributes<HTMLGlyphPaginationElement>;
             "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
             "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;
