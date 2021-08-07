@@ -7,18 +7,18 @@
 
 ## Properties
 
-| Property          | Attribute       | Description                                                      | Type                                        | Default               |
-| ----------------- | --------------- | ---------------------------------------------------------------- | ------------------------------------------- | --------------------- |
-| `basePath`        | `base-path`     | Base path to get assets                                          | `string`                                    | `undefined`           |
-| `customConfig`    | `custom-config` | Show custom config button                                        | `boolean`                                   | `undefined`           |
-| `decimals`        | `decimals`      | Show decimal config flag                                         | `boolean`                                   | `undefined`           |
-| `i18n`            | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                | `{}`                  |
-| `interface`       | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
-| `languages`       | --              | Application languages                                            | `SelectorOption[]`                          | `undefined`           |
-| `locale`          | `locale`        | **optional** force locale change if html lang is not interpreted | `string`                                    | `undefined`           |
-| `name`            | `name`          | User name                                                        | `string`                                    | `undefined`           |
-| `outsideCallback` | --              | Event triggered when user clicks outside component container     | `() => void`                                | `undefined`           |
-| `themes`          | --              | Application themes                                               | `SelectorOption[]`                          | `undefined`           |
+| Property          | Attribute       | Description                                                      | Type                                                                | Default               |
+| ----------------- | --------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| `basePath`        | `base-path`     | Base path to get assets                                          | `string`                                                            | `undefined`           |
+| `customConfig`    | `custom-config` | Show custom config button                                        | `boolean`                                                           | `undefined`           |
+| `decimals`        | `decimals`      | Show decimal config flag                                         | `boolean`                                                           | `undefined`           |
+| `i18n`            | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                                        | `{}`                  |
+| `interface`       | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
+| `languages`       | --              | Application languages                                            | `SelectorOption[]`                                                  | `undefined`           |
+| `locale`          | `locale`        | **optional** force locale change if html lang is not interpreted | `string`                                                            | `undefined`           |
+| `name`            | `name`          | User name                                                        | `string`                                                            | `undefined`           |
+| `outsideCallback` | --              | Event triggered when user clicks outside component container     | `() => void`                                                        | `undefined`           |
+| `themes`          | --              | Application themes                                               | `SelectorOption[]`                                                  | `undefined`           |
 
 
 ## Events

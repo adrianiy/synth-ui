@@ -40,29 +40,26 @@
             user-select: none;
             cursor: pointer;
             justify-self: center;
-            border-radius: var(--gui-border-radius);
 
             * {
                 color: var(--gui-color--light);
             }
             &:hover,
             &.active {
+                box-shadow: var(--gui-shadow--inset);
                 * {
                     opacity: 1;
-                    color: var(--gui-color--contrast);
+                    color: var(--gui-color);
                 }
             }
-            &.active {
-                background: var(--gui-color);
-            }
             &:hover {
-                background: var(--gui-color--lighter);
+                box-shadow: var(--gui-shadow--inset);
             }
 
             span {
                 font-size: var(--gui-font--xs);
                 overflow: hidden;
-                white-space:nowrap;
+                white-space: nowrap;
                 text-overflow: ellipsis;
                 max-width: 100%;
                 text-transform: uppercase;

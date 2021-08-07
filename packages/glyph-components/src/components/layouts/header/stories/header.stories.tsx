@@ -30,7 +30,7 @@ const baseProps = {
 export default {
     title: 'Layout/Header/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
     },
     parameters: {
         viewMode: 'docs',
@@ -58,7 +58,7 @@ const Template = (
     ctx: any,
 ) =>
     WithGlobalDecorator({
-        style: 'height: 300px',
+        style: 'height: 300px; overflow: hidden;',
         template: html` <glyph-header
             .activeBrand=${activeBrand}
             .appTitle=${appTitle}

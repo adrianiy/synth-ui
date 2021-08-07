@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
-import { UserData } from 'glyph-core';
+import { UIInterface, UserData } from 'glyph-core';
 import { Flex } from '../../utils/layout';
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-avatar',
@@ -12,10 +13,12 @@ export class AvatarComponent {
     @Prop() image: UserData['image'];
     /** User name, used as image fallback */
     @Prop() name: UserData['name'];
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
-            <Flex row middle center class="avatar">
+            <Flex row middle center class={cls('avatar', this.interface)}>
                 {this.image && <img src={this.image} alt={this.name} />}
                 {!this.image && (
                     <h2>
