@@ -19,7 +19,7 @@
 | `calendarEvents` | --              | Calendar events                                                  | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `events`         | --              | Events                                                           | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `i18n`           | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                                                                                                                                               | `{}`                  |
-| `interface`      | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern`                                                                                                                                | `UIInterface.classic` |
+| `interface`      | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign`                                                                                                        | `UIInterface.classic` |
 | `locale`         | `locale`        | **optional** force locale change if html lang is not interpreted | `string`                                                                                                                                                                   | `undefined`           |
 | `menu`           | `menu`          | View menu flag                                                   | `boolean`                                                                                                                                                                  | `undefined`           |
 | `notifications`  | `notifications` | Notification flag                                                | `boolean`                                                                                                                                                                  | `undefined`           |
@@ -44,31 +44,33 @@
 
 ### Depends on
 
-- [glyph-share-menu](../../share-menu)
-- [glyph-app-menu](../../app-menu)
 - [glyph-avatar](../../avatar)
-- [glyph-user-menu](../../user-menu)
 - [glyph-timeline](../../timeline)
+- [glyph-user-menu](../../user-menu)
+- [glyph-app-menu](../../app-menu)
+- [glyph-share-menu](../../share-menu)
+- [glyph-notifications](../../notifications)
 
 ### Graph
 ```mermaid
 graph TD;
-  glyph-header --> glyph-share-menu
-  glyph-header --> glyph-app-menu
   glyph-header --> glyph-avatar
-  glyph-header --> glyph-user-menu
   glyph-header --> glyph-timeline
-  glyph-share-menu --> glyph-toggler
-  glyph-share-menu --> glyph-toaster
-  glyph-app-menu --> glyph-scroll
-  glyph-user-menu --> glyph-selector
-  glyph-user-menu --> glyph-toggler
-  glyph-selector --> glyph-selector-options
-  glyph-selector-options --> glyph-input
-  glyph-selector-options --> glyph-scroll
+  glyph-header --> glyph-user-menu
+  glyph-header --> glyph-app-menu
+  glyph-header --> glyph-share-menu
+  glyph-header --> glyph-notifications
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs
+  glyph-selector --> glyph-selector-options
+  glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
+  glyph-user-menu --> glyph-selector
+  glyph-user-menu --> glyph-toggler
+  glyph-app-menu --> glyph-scroll
+  glyph-share-menu --> glyph-toggler
+  glyph-share-menu --> glyph-toaster
   style glyph-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

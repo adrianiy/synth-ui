@@ -19,6 +19,8 @@ export class ButtonComponent {
     @Prop() action: boolean;
     /** Tiny action button displays a smaller and thinier text */
     @Prop() tiny: boolean;
+    /** Custom classNames to apply */
+    @Prop() class: string;
     /** Renders icon first */
     @Prop() iconFirst: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
@@ -28,6 +30,7 @@ export class ButtonComponent {
         return (
             <button
                 class={cls(
+                    this.class,
                     'button__wrapper',
                     {
                         text: this.text,
@@ -41,7 +44,7 @@ export class ButtonComponent {
             >
                 <slot />
                 {this.icon && this.iconFirst && <Icon class="button__icon--left" icon={this.icon} />}
-                {this.text && this.text}
+                <span class={this.class}>{this.text && this.text}</span>
                 {this.icon && !this.iconFirst && <Icon class="button__icon--right" icon={this.icon} />}
             </button>
         );

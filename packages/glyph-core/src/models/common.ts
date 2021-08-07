@@ -4,5 +4,6 @@ export interface Cell {
     value: any;
     format: string;
     sign?: boolean;
+    isNumber?: boolean;
     decoration?: DecorationType;
 }

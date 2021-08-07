@@ -131,7 +131,7 @@ export class FilterOptionsComponent {
                         {this.haveMultiSelect && this._renderMultiSelect()}
                     </Flex>
                 ) : (
-                    <h5>{this.description}</h5>
+                    <h5>{this._i18n[this.description] || this.description}</h5>
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}

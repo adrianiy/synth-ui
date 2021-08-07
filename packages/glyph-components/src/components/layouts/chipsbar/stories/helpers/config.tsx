@@ -110,8 +110,6 @@ export const filtersConfig = {
     filter1: { ...filter(1) },
     filter2: { ...filter(2) },
     filter3: { ...filter(3) },
-    filter4: { ...filter(4) },
-    filter5: { ...filter(5) },
     filter6: { ...filterWithChildren },
     filter7: { ...hiddenFilter },
 };

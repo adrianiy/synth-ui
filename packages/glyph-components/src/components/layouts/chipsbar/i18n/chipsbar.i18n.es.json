@@ -1,5 +1,6 @@
 {
     "configFilters": "Configurar filtros",
+    "cleanFilters": "Limpiar",
     "modal.description": "Arrastra los filtros entre las columnas para modificar su visibilidad o cambiar el orden",
     "modal.hidden": "Filtros ocultos",
     "modal.visible": "Filtros visibles",

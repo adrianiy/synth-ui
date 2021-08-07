@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                 | Type                                                   | Default               |
-| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------ | --------------------- |
-| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern`            | `UIInterface.classic` |
-| `listStyle`   | --             | Style applied in list                       | `{ [key: string]: string; }`                           | `undefined`           |
-| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void` | `undefined`           |
-| `options`     | --             | Filter options                              | `FilterOptionHeader[]`                                 | `undefined`           |
-| `searchValue` | `search-value` | Search value                                | `string`                                               | `undefined`           |
+| Property      | Attribute      | Description                                 | Type                                                                | Default               |
+| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
+| `listStyle`   | --             | Style applied in list                       | `{ [key: string]: string; }`                                        | `undefined`           |
+| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void`              | `undefined`           |
+| `options`     | --             | Filter options                              | `FilterOptionHeader[]`                                              | `undefined`           |
+| `searchValue` | `search-value` | Search value                                | `string`                                                            | `undefined`           |
 
 
 ## Dependencies

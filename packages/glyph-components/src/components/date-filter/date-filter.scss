@@ -1,5 +1,7 @@
-.filter-chip {
+:host {
     font-size: var(--gui-font--base);
+}
+.filter-chip {
     cursor: pointer;
     border-radius: var(--gui-border-radius--chip);
     user-select: none;
@@ -69,6 +71,12 @@
             }
         }
     }
+    &.redesign {
+        em {
+            font-weight: var(--gui-font-weight--light);
+            margin-left: var(--gui-padding--xxxs);
+        }
+    }
 }
 
 .date-filter {
@@ -81,7 +89,7 @@
         position: absolute;
         display: grid;
         grid-template-columns: repeat(3, min-content);
-        margin-top: var(--gui-padding--xxxs);
+        margin-top: var(--gui-padding--xl);
         background: var(--gui-color--background--lighter);
         border: var(--gui-border--lightest);
         padding: var(--gui-padding--s);
@@ -152,9 +160,10 @@
             }
         }
 
-        &__current, &__comparable {
+        &__current,
+        &__comparable {
             margin-bottom: var(--gui-padding--s);
-            opacity: .5;
+            opacity: 0.5;
 
             &.active {
                 opacity: 1;

@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Host, Element, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Prop, h, State, Element, Event, EventEmitter, Listen } from '@stencil/core';
 import { Flex } from '../../utils/layout';
 import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core';
 import { cls } from '../../utils/utils';
@@ -125,21 +125,23 @@ export class FilterComponent {
         const active = this.active;
 
         return (
-            <Host>
+            <Flex class={this.interface}>
                 <Flex
                     row
                     middle
-                    class={cls(
-                        'filter-chip',
-                        {
-                            active,
-                            expanded: this.expanded,
-                        },
-                        this.interface,
-                    )}
+                    class={cls('filter-chip', this.interface, {
+                        active,
+                        expanded: this.expanded,
+                    })}
                     onClick={this._expandFilter}
                 >
-                    <span>{this.chipDescription}</span>
+                    <span
+                        class={cls('label--l', {
+                            'label--l--medium': this.interface === UIInterface.redesign,
+                        })}
+                    >
+                        {this.chipDescription}
+                    </span>
                     <Icon
                         onClick={active ? this._onClear : null}
                         icon={
@@ -152,7 +154,7 @@ export class FilterComponent {
                     />
                 </Flex>
                 {this.expanded && this._renderFilterOptions()}
-            </Host>
+            </Flex>
         );
     }
 }

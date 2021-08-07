@@ -29,6 +29,7 @@ export const GlyphListRow = /*@__PURE__*/createReactComponent<JSX.GlyphListRow, 
 export const GlyphLogin = /*@__PURE__*/createReactComponent<JSX.GlyphLogin, HTMLGlyphLoginElement>('glyph-login');
 export const GlyphModal = /*@__PURE__*/createReactComponent<JSX.GlyphModal, HTMLGlyphModalElement>('glyph-modal');
 export const GlyphNoData = /*@__PURE__*/createReactComponent<JSX.GlyphNoData, HTMLGlyphNoDataElement>('glyph-no-data');
+export const GlyphNotifications = /*@__PURE__*/createReactComponent<JSX.GlyphNotifications, HTMLGlyphNotificationsElement>('glyph-notifications');
 export const GlyphPagination = /*@__PURE__*/createReactComponent<JSX.GlyphPagination, HTMLGlyphPaginationElement>('glyph-pagination');
 export const GlyphRanking = /*@__PURE__*/createReactComponent<JSX.GlyphRanking, HTMLGlyphRankingElement>('glyph-ranking');
 export const GlyphRankingLayout = /*@__PURE__*/createReactComponent<JSX.GlyphRankingLayout, HTMLGlyphRankingLayoutElement>('glyph-ranking-layout');

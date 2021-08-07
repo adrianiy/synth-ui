@@ -123,26 +123,6 @@ export class HeaderComponent {
                     </div>
                     <Icon icon="reply" class="share" />
                 </div>
-                <div
-                    class={cls('widget__menu__container widget__menu__container--share', {
-                        'active': this.showShareMenu,
-                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
-                        'right-space': !this.timeline && !this.menu,
-                    })}
-                >
-                    {this.showShareMenu && (
-                        <glyph-share-menu
-                            class="widget__menu widget__menu--share"
-                            basePath={this.basePath}
-                            appTitle={this.appTitle}
-                            appSubtitle={this.appSubtitle}
-                            interface={this.interface}
-                            outsideCallback={this._toggleShareMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                        />
-                    )}
-                </div>
             </Flex>
         );
     };
@@ -155,19 +135,6 @@ export class HeaderComponent {
         return (
             <Flex row middle center class="widget__container">
                 <Icon button icon="notifications" onClick={this._toggleNotifications()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--notifications', {
-                        'active': this.showNotifications,
-                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
-                        'right-space': !this.timeline && !this.menu && !this.share,
-                    })}
-                >
-                    {this.showNotifications && (
-                        <div class="widget__menu widget__menu--notfications">
-                            <slot />
-                        </div>
-                    )}
-                </div>
             </Flex>
         );
     };
@@ -176,23 +143,6 @@ export class HeaderComponent {
         return (
             <Flex row middle center class="widget__container">
                 <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--apps', {
-                        'active': this.showAppsMenu,
-                        'right-space': !this.timeline,
-                    })}
-                >
-                    {this.showAppsMenu && (
-                        <glyph-app-menu
-                            basePath={this.basePath}
-                            class="widget__menu widget__menu--apps"
-                            apps={this.appData}
-                            outsideCallback={this._toggleShowAppsMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                        />
-                    )}
-                </div>
             </Flex>
         );
     };
@@ -204,27 +154,7 @@ export class HeaderComponent {
     private _renderAvatar = () => {
         return (
             <Flex row middle center class="widget__container">
-                <glyph-avatar {...this.userData} onClick={this._toggleShowUserMenu()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--user', { active: this.showUserMenu })}
-                >
-                    {this.showUserMenu && (
-                        <glyph-user-menu
-                            class="widget__menu widget__menu--user"
-                            basePath={this.basePath}
-                            name={this.userData.name}
-                            outsideCallback={this._toggleShowUserMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                            interface={this.interface}
-                            {...this.userMenuConfig}
-                            onLangChange={this._handleLangChange}
-                            onThemeChange={this._handleThemeChange}
-                            onDecimalsChange={this._handleDecimalChange}
-                            onLogout={this._handleLogout}
-                        />
-                    )}
-                </div>
+                <glyph-avatar {...this.userData} interface={this.interface} onClick={this._toggleShowUserMenu()} />
             </Flex>
         );
     };
@@ -250,9 +180,92 @@ export class HeaderComponent {
         );
     };
 
+    private _renderMenus = () => {
+        return [
+            <div
+                class={cls('widget__menu__container widget__menu__container--user', {
+                    active: this.showUserMenu,
+                })}
+            >
+                {this.showUserMenu && (
+                    <glyph-user-menu
+                        class="widget__menu widget__menu--user"
+                        basePath={this.basePath}
+                        name={this.userData.name}
+                        outsideCallback={this._toggleShowUserMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                        interface={this.interface}
+                        {...this.userMenuConfig}
+                        onLangChange={this._handleLangChange}
+                        onThemeChange={this._handleThemeChange}
+                        onDecimalsChange={this._handleDecimalChange}
+                        onLogout={this._handleLogout}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--apps', {
+                    active: this.showAppsMenu,
+                    right: this.timeline,
+                })}
+            >
+                {this.showAppsMenu && (
+                    <glyph-app-menu
+                        basePath={this.basePath}
+                        class="widget__menu widget__menu--apps"
+                        apps={this.appData}
+                        outsideCallback={this._toggleShowAppsMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--share', {
+                    'active': this.showShareMenu,
+                    'right': this.timeline || this.menu,
+                    'right--big': this.timeline && this.menu,
+                })}
+            >
+                {this.showShareMenu && (
+                    <glyph-share-menu
+                        class="widget__menu widget__menu--share"
+                        basePath={this.basePath}
+                        appTitle={this.appTitle}
+                        appSubtitle={this.appSubtitle}
+                        interface={this.interface}
+                        outsideCallback={this._toggleShareMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--notifications', {
+                    'active': this.showNotifications,
+                    'right': this.timeline || this.menu || this.share,
+                    'right--big': [ this.timeline, this.menu, this.share ].filter(Boolean).length === 2,
+                    'right--large': this.timeline && this.menu && this.share,
+                })}
+            >
+                {this.showNotifications && (
+                    <glyph-notifications
+                        class="widget__menu widget__menu--notifications"
+                        outsideCallback={this._toggleNotifications(false)}
+                    >
+                        <slot />
+                    </glyph-notifications>
+                )}
+            </div>,
+        ];
+    };
+
     render() {
         return (
             <Flex row spaced middle class={cls('header__container', this.interface)}>
+                {this._renderMenus()}
+                <div class="background"></div>
                 <Flex row middle class="header--left">
                     {this.brand && (
                         <img

@@ -1,22 +1,22 @@
-import { ButtonGroupStyle } from 'glyph-core';
+import { ButtonGroupStyle, DecorationType, UIInterface } from 'glyph-core';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
 
 const buttons = [
     {
-        title: { value: 1000, format: '0,0' },
+        title: { value: 1000, isNumber: true, format: '0,0', decoration: DecorationType.OnlyRed },
         subtitle: { value: 'text1' },
         active: true,
         action: (event: any) => clickEvent(event, 0),
     },
     {
-        title: { value: 1000, format: '0,0', decoration: 'green' },
-        subtitle: { value: 'text2' },
+        subtitle: { value: 1000, isNumber: true, format: '0,0%', decoration: DecorationType.OnlyRed },
+        title: { value: 'text2' },
         active: false,
         action: (event: any) => clickEvent(event, 1),
     },
     {
-        title: { value: -0.2, format: '0,0%', decoration: 'red' },
+        title: { value: -0.2, format: '0,0%', decoration: DecorationType.OnlyRed },
         subtitle: { value: 'text2' },
         active: false,
         action: (event: any) => clickEvent(event, 2),
@@ -27,17 +27,21 @@ const buttons = [
 const baseProps = {
     buttons,
     size: ButtonGroupStyle.big,
+    interface: UIInterface.classic,
 };
 const clickEvent = (event: any, index: number) => {
-    event.target.buttons = event.target.buttons.map((button: any, idx: number) => ({
-        ...button,
-        active: idx === index,
-    }));
+    if (event) {
+        event.target.buttons = event.target.buttons.map((button: any, idx: number) => ({
+            ...button,
+            active: idx === index,
+        }));
+    }
 };
 
 export default {
     title: 'Components/Button group/Examples',
     argTypes: {
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
         size: { description: 'Button group size', control: { type: 'radio' }, options: [ 'big', 'small' ] },
         alignment: { description: 'Text alignment', control: { type: 'radio' }, options: [ 'center', 'left', 'right' ] },
     },
@@ -46,9 +50,10 @@ export default {
     },
 };
 
-const Template = ({ buttons, alignment, size }, ctx: any) =>
+const Template = ({ buttons, interface: interfaceValue, alignment, size }, ctx: any) =>
     WithGlobalDecorator({
         template: html` <glyph-button-group
+            .interface=${interfaceValue}
             .size=${size}
             .buttons=${buttons}
             .alignment=${alignment}
