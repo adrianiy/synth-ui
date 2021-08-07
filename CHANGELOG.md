@@ -1,3 +1,10 @@
+## [3.5.3](https://github.com/adrianiy/glyph-ui/compare/v3.5.2...v3.5.3) (2021-08-07)
+
+
+### Bug Fixes
+
+* **core:** improve pipe middlewares ([f815f7d](https://github.com/adrianiy/glyph-ui/commit/f815f7dbccaa1abc7e332ae6272023abfc2c8080))
+
 ## [3.5.2](https://github.com/adrianiy/glyph-ui/compare/v3.5.1...v3.5.2) (2021-08-05)
 
 
