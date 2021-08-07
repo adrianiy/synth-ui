@@ -1,4 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
+import { UIInterface } from 'glyph-core';
 
 @Component({
     tag: 'glyph-title',
@@ -8,9 +9,16 @@ import { Component, h, Prop } from '@stencil/core';
 export class TitleComponent {
     /** title text */
     @Prop() text: string;
+    /** interface input */
+    @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
-        return (
+        return this.interface === UIInterface.redesign ? (
+            <h1 class="big">
+                <slot />
+                {this.text}
+            </h1>
+        ) : (
             <h2>
                 <slot />
                 {this.text}

@@ -11,14 +11,18 @@ const baseProps = {
 
 export default {
     title: 'Layout/Ranking/Examples',
+    argTypes: {
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
+    },
     parameters: {
         viewMode: 'docs',
     },
 };
 
-const Template = ({ rankingData, compRankingData, loading, loadingComparable }, ctx: any) =>
+const Template = ({ rankingData, interface: interfaceValue, compRankingData, loading, loadingComparable }, ctx: any) =>
     WithGlobalDecorator({
         template: html` <glyph-ranking-layout
+            .interface=${interfaceValue}
             .rankingData=${rankingData}
             .compRankingData=${compRankingData}
             .loading=${loading}

@@ -1,7 +1,7 @@
 import { h, Component, Element, Prop, State } from '@stencil/core';
-import { RankingData, RankingViewOptions } from 'glyph-core';
+import { RankingData, RankingViewOptions, UIInterface } from 'glyph-core';
 import { Flex } from '../../../utils/layout';
-import { getLocaleComponentStrings } from '../../../utils/utils';
+import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 
 @Component({
     tag: 'glyph-ranking-layout',
@@ -33,6 +33,8 @@ export class GlyphRankingLayout {
     @Prop() i18n: { [key: string]: string };
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
+    /** Application interface */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active slider value */
@@ -195,9 +197,9 @@ export class GlyphRankingLayout {
         const { columns, innerColumns, rows, gap, rowGap, innerGap } = this.activeView;
 
         return (
-            <Flex class="ranking">
+            <Flex class={cls('ranking', this.interface)}>
                 <Flex row spaced top class="ranking__header">
-                    <glyph-title text="Ranking" />
+                    <glyph-title interface={this.interface} text="Ranking" />
                     {this._renderHeaderOptions()}
                 </Flex>
                 <glyph-ranking
