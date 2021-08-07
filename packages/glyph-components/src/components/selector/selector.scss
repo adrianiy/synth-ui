@@ -37,4 +37,12 @@
             padding-bottom: 0;
         }
     }
+    &.disabled {
+        color: var(--gui-color--lighter);
+
+        .selector__input {
+            cursor: default;
+            border-bottom: var(--gui-border--lighter);
+        }
+    }
 }

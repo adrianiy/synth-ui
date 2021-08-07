@@ -998,6 +998,10 @@ export namespace Components {
          */
         "complexOptions": ComplexSelectorOptions;
         /**
+          * Selector disabled state
+         */
+        "disabled": boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -2626,6 +2630,10 @@ declare namespace LocalJSX {
           * Complex selector options
          */
         "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Selector disabled state
+         */
+        "disabled"?: boolean;
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */

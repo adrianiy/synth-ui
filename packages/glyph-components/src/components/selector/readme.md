@@ -10,6 +10,7 @@
 | Property            | Attribute            | Description                                                    | Type                                        | Default               |
 | ------------------- | -------------------- | -------------------------------------------------------------- | ------------------------------------------- | --------------------- |
 | `complexOptions`    | --                   | Complex selector options                                       | `ComplexSelectorOptions`                    | `undefined`           |
+| `disabled`          | `disabled`           | Selector disabled state                                        | `boolean`                                   | `undefined`           |
 | `interface`         | `interface`          | Interface type ['MODERN', 'CLASSIC']                           | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
 | `label`             | `label`              | Selector label                                                 | `string`                                    | `undefined`           |
 | `maxHeight`         | `max-height`         | Max height configuration                                       | `number`                                    | `300`                 |

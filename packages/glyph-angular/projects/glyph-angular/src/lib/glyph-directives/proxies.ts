@@ -580,13 +580,13 @@ export class GlyphScroll {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder']
+  inputs: ['complexOptions', 'disabled', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder'],
+  inputs: ['complexOptions', 'disabled', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {

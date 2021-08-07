@@ -41,6 +41,7 @@ const baseProps = {
     searchPlaceholder: '',
     interface: 'classic',
     maxHeight: 100,
+    disabled: false,
 };
 
 const changeEvent = (event: any) => {
@@ -86,12 +87,13 @@ export default {
 };
 
 const Template = (
-    { interface: interfaceValue, label, options, complexOptions, searchPlaceholder, multiSelect, maxHeight },
+    { interface: interfaceValue, disabled, label, options, complexOptions, searchPlaceholder, multiSelect, maxHeight },
     ctx: any,
 ) =>
     WithGlobalDecorator({
         template: html` <glyph-selector
             .label=${label}
+            .disabled=${disabled}
             .options=${options}
             .maxHeight=${maxHeight}
             .complexOptions=${complexOptions}
@@ -147,4 +149,10 @@ WithComplexOptions.args = {
     options: [],
     multiSelect: true,
     complexOptions,
+};
+
+export const WithDisabledState = Template.bind({});
+WithDisabledState.args = {
+    ...baseProps,
+    disabled: true,
 };
