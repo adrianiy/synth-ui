@@ -1,3 +1,10 @@
+## [2.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.8.2...glyph-core-v2.8.3) (2021-08-07)
+
+
+### Bug Fixes
+
+* **core:** improve pipe middlewares ([f815f7d](https://github.com/adrianiy/glyph-ui/commit/f815f7dbccaa1abc7e332ae6272023abfc2c8080))
+
 ## [2.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.8.1...glyph-core-v2.8.2) (2021-08-05)
 
 
