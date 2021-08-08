@@ -15,10 +15,10 @@
             transition: var(--gui-transition--300);
 
             &.active {
-                font-size: var(--gui-font--xxxs);
+                font-size: var(--gui-font--xxs);
                 font-weight: var(--gui-font-weight--bold);
                 position: absolute;
-                margin-top: calc(var(--gui-padding--s) * -1);
+                margin-top: calc(calc(var(--gui-padding--m) * -1) - var(--gui-padding--xxxs));
             }
         }
         em {
