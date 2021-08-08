@@ -1,3 +1,16 @@
+# [1.11.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.10.0...glyph-components-v1.11.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **components:** use same font family var for redesign ([dfdb4f2](https://github.com/adrianiy/glyph-ui/commit/dfdb4f2bc1d074e754fb852b4eea82535e63dcd1))
+
+
+### Features
+
+* add font variables ([ce9a670](https://github.com/adrianiy/glyph-ui/commit/ce9a670addc1bd6f69f01d7cbec7b55f2a788d84))
+* **react:** add theme management in style provider ([7be9f76](https://github.com/adrianiy/glyph-ui/commit/7be9f7696d7aa08ab54e9b6cfe298a9ec8581164))
+
 # [1.10.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.9.0...glyph-components-v1.10.0) (2021-08-08)
 
 
