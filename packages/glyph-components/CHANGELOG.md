@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.1...glyph-components-v1.8.2) (2021-08-08)
+
+
+### Bug Fixes
+
+* **header:** allow empty brandlist ([8b5e462](https://github.com/adrianiy/glyph-ui/commit/8b5e462336aadce7ad429ca61c16dbb0a691d65e))
+
 ## [1.8.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.0...glyph-components-v1.8.1) (2021-08-08)
 
 
