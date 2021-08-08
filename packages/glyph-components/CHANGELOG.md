@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.4...glyph-components-v1.9.0) (2021-08-08)
+
+
+### Features
+
+* add interface in style provider ([da97697](https://github.com/adrianiy/glyph-ui/commit/da976974fb911c7fe585e95e183d6daef435bd97))
+
 ## [1.8.4](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.3...glyph-components-v1.8.4) (2021-08-08)
 
 
