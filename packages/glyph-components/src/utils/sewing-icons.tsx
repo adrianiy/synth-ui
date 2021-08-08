@@ -29,7 +29,7 @@ export interface SewingIconProps {
     onClick?: (event: MouseEvent) => any;
 }
 
-export const SewingIcon: FunctionalComponent<SewingIconProps> = (props: SewingIconProps) => {
+const _getIcon = (props: SewingIconProps) => {
     if (actions.includes(props.icon)) {
         return <Actions {...props} />;
     }
@@ -60,4 +60,13 @@ export const SewingIcon: FunctionalComponent<SewingIconProps> = (props: SewingIc
     if (sustainability.includes(props.icon)) {
         return <Sustainability {...props} />;
     }
+};
+
+export const SewingIcon: FunctionalComponent<SewingIconProps> = (props: SewingIconProps) => {
+    return (
+        <div class="container">
+            <svg display="none" />
+            {_getIcon(props)}
+        </div>
+    );
 };
