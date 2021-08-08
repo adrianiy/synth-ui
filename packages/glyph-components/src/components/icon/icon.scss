@@ -2,6 +2,12 @@
     font-size: inherit;
     color: var(--gui-color);
 }
+.material-icon {
+    display: flex!important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 .sewing-icon {
     --size: 20px;
     --color: var(--gui-color);

@@ -70,6 +70,7 @@ graph TD;
   glyph-selector-options --> glyph-scroll
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
+  glyph-user-menu --> glyph-icon
   glyph-app-menu --> glyph-scroll
   glyph-share-menu --> glyph-toggler
   glyph-share-menu --> glyph-toaster

@@ -3045,6 +3045,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Custom config event
+         */
+        "onCustomConfigChange"?: (event: CustomEvent<any>) => void;
+        /**
           * Decimals change event
          */
         "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;

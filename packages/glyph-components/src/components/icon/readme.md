@@ -22,11 +22,13 @@
 ### Used by
 
  - [glyph-header](../layouts/header)
+ - [glyph-user-menu](../user-menu)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-header --> glyph-icon
+  glyph-user-menu --> glyph-icon
   style glyph-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -29,7 +29,7 @@ export class IconComponent {
                     icon={this.icon}
                     outlined={this.outlined}
                     button={this.button}
-                    class={this.class}
+                    class={cls('material-icon', this.class)}
                     onClick={this.clickCbk}
                 />
             );

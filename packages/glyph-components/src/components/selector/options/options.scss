@@ -5,6 +5,7 @@
     border: var(--gui-border--lightest);
     width: 100%;
     min-width: fit-content;
+    z-index: 1;
 
     glyph-input {
         padding: var(--gui-padding--s);

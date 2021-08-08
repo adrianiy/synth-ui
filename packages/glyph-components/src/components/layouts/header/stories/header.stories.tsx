@@ -7,6 +7,7 @@ const userMenuConfig = {
     themes,
     languages,
     decimals: true,
+    customConfig: true,
 };
 
 const baseProps = {
