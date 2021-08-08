@@ -25,6 +25,8 @@ import {
 export interface SewingIconProps {
     icon?: string;
     class?: string;
+    button?: boolean;
+    onClick?: (event: MouseEvent) => any;
 }
 
 export const SewingIcon: FunctionalComponent<SewingIconProps> = (props: SewingIconProps) => {

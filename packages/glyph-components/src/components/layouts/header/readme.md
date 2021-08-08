@@ -44,6 +44,7 @@
 
 ### Depends on
 
+- [glyph-icon](../../icon)
 - [glyph-avatar](../../avatar)
 - [glyph-timeline](../../timeline)
 - [glyph-user-menu](../../user-menu)
@@ -54,6 +55,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  glyph-header --> glyph-icon
   glyph-header --> glyph-avatar
   glyph-header --> glyph-timeline
   glyph-header --> glyph-user-menu

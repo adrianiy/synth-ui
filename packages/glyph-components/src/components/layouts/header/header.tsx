@@ -115,7 +115,9 @@ export class HeaderComponent {
     };
 
     private _renderShare = () => {
-        return (
+        return this.interface === UIInterface.redesign ? (
+            <glyph-icon icon="share-outlined" onClick={this._toggleShareMenu()} button />
+        ) : (
             <Flex row middle center class="widget__container">
                 <div class="share" onClick={this._toggleShareMenu()}>
                     <div class="square">
@@ -128,13 +130,18 @@ export class HeaderComponent {
     };
 
     private _renderSearch = () => {
-        return <Icon button icon="search" />;
+        return <glyph-icon button material={this.interface !== UIInterface.redesign} icon="search" />;
     };
 
     private _renderNotifications = () => {
         return (
             <Flex row middle center class="widget__container">
-                <Icon button icon="notifications" onClick={this._toggleNotifications()} />
+                <glyph-icon
+                    button
+                    material={this.interface !== UIInterface.redesign}
+                    icon={this.interface === UIInterface.redesign ? 'notification-outlined' : 'notifications'}
+                    onClick={this._toggleNotifications()}
+                />
             </Flex>
         );
     };
@@ -142,13 +149,25 @@ export class HeaderComponent {
     private _renderMenu = () => {
         return (
             <Flex row middle center class="widget__container">
-                <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
+                <glyph-icon
+                    button
+                    material={this.interface !== UIInterface.redesign}
+                    icon={this.interface === UIInterface.redesign ? 'grid-underlined' : 'apps'}
+                    onClick={this._toggleShowAppsMenu()}
+                />
             </Flex>
         );
     };
 
     private _renderTimeline = () => {
-        return <Icon button icon="calendar_today" onClick={this._toggleShowTimeline()} />;
+        return (
+            <glyph-icon
+                button
+                material={this.interface !== UIInterface.redesign}
+                icon={this.interface === UIInterface.redesign ? 'calendar-outlined' : 'calendar_today'}
+                onClick={this._toggleShowTimeline()}
+            />
+        );
     };
 
     private _renderAvatar = () => {
@@ -164,7 +183,7 @@ export class HeaderComponent {
             <Flex
                 class={cls(
                     'widget__menu widget__menu--sidebar animated',
-                    this.interface === UIInterface.classic ? 'fadeInRight' : 'fadeIn',
+                    this.interface !== UIInterface.modern ? 'fadeInRight' : 'fadeIn',
                 )}
             >
                 <glyph-timeline

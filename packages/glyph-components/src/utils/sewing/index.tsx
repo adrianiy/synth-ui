@@ -89,7 +89,6 @@ export const alerts = [
     'warning-filled',
     'warning-outlined',
 ];
-
 export const arrows = [
     'arrow-circle-left-filled',
     'arrow-circle-left-outlined',
@@ -342,6 +341,19 @@ export const sections = [
     'man-outlined',
     'woman-filled',
     'woman-outlined',
+];
+
+export const sewing = [
+    'actions',
+    'alerts',
+    'arrows',
+    'business',
+    'care',
+    'controls',
+    'others',
+    'products',
+    'sections',
+    'sustainability',
 ];
 
 export const sustainability = [

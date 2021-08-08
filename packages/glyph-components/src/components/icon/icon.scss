@@ -1,0 +1,18 @@
+:host {
+    font-size: inherit;
+    color: var(--gui-color);
+}
+.sewing-icon {
+    --size: 20px;
+    --color: var(--gui-color);
+    height: var(--size);
+    width: var(--size);
+    display: block;
+
+    path {
+        fill: var(--color);
+        height: var(--size);
+        width: var(--size);
+        display: block;
+    }
+}

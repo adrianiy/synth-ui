@@ -360,6 +360,25 @@ export class GlyphHeader {
   }
 }
 
+
+export declare interface GlyphIcon extends Components.GlyphIcon {}
+@ProxyCmp({
+  inputs: ['button', 'class', 'clickCbk', 'icon', 'material', 'outlined']
+})
+@Component({
+  selector: 'glyph-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['button', 'class', 'clickCbk', 'icon', 'material', 'outlined']
+})
+export class GlyphIcon {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
