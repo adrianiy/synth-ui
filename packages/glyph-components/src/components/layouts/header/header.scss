@@ -93,7 +93,7 @@
     }
     .widget__menu {
         background: var(--gui-color--background--lighter);
-        border: var(--gui-border--lightest);
+        border: var(--gui-border--widget);
         box-shadow: var(--gui-shadow);
         min-width: 200px;
         padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
@@ -104,7 +104,7 @@
 
         &__container {
             position: absolute;
-            top: 50px;
+            top: var(--gui-header-size);
             display: flex;
             transform: translateY(-500px);
             transition: all ease-in-out 700ms;
@@ -131,14 +131,9 @@
             }
             &--user {
                 right: 64px;
-                top: 45px;
             }
             &--share {
                 right: 0;
-                top: 35px;
-            }
-            &--notifications {
-                top: 50px;
             }
         }
     }
@@ -156,6 +151,19 @@
 
         &::-webkit-scrollbar {
             display: none;
+        }
+    }
+
+    &.redesign {
+        .background {
+            border-bottom: none;
+        }
+        .widget__menu {
+            box-shadow: none;
+
+            &--sidebar {
+                border: none;
+            }
         }
     }
 
