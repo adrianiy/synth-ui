@@ -48,12 +48,12 @@ export class ModalComponent {
 
     private _renderHeader = () => {
         return (
-            <h2>
+            <glyph-title interface={this.interface}>
                 <Flex row middle spaced={!!this.modalTitle} right={!this.modalTitle} class="modal__container__header">
                     {this.modalTitle && this.modalTitle}
                     {this.closeButton && <Icon icon="close" onClick={this._onClose} />}
                 </Flex>
-            </h2>
+            </glyph-title>
         );
     };
 
