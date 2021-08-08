@@ -152,13 +152,13 @@ export class SelectorOptionsComponent {
     render() {
         return (
             <Flex class="selector__options__container" style={{ '--max-height': `${this.maxHeight}px` }}>
+                {this.searchPlaceholder && this._renderSearch()}
                 <glyph-scroll
                     tiny
                     scrollSpeed={0.09}
                     initCallback={this._scrollbarInit}
                     containerClass="scroll__container"
                 >
-                    {this.searchPlaceholder && this._renderSearch()}
                     {this.options && this._renderSimpleOptions()}
                     {this.complexOptions && this._renderComplexOptions()}
                 </glyph-scroll>

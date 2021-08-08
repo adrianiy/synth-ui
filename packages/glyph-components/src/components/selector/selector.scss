@@ -11,12 +11,12 @@
 
         label {
             cursor: pointer;
-            font-weight: var(--gui-font-weight--bold);
             text-transform: capitalize;
             transition: var(--gui-transition--300);
 
             &.active {
                 font-size: var(--gui-font--xxxs);
+                font-weight: var(--gui-font-weight--bold);
                 position: absolute;
                 margin-top: calc(var(--gui-padding--s) * -1);
             }
