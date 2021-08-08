@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.2.0...glyph-react-v2.3.0) (2021-08-08)
+
+
+### Features
+
+* **react:** improve style provider ([221704d](https://github.com/adrianiy/glyph-ui/commit/221704d2f3dadbe94a3af296470afc3135b39f6f))
+
 # [2.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.1.2...glyph-react-v2.2.0) (2021-08-08)
 
 
