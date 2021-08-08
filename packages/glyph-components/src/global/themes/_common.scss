@@ -1,10 +1,7 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--gui-font-family);
   font-size: var(--gui-font--base);
   background-color: var(--gui-color--background);
-}
-.redesign {
-    font-family: 'Zara', sans-serif;
 }
 
 :root {
@@ -46,8 +43,7 @@ body {
     --gui-font-weight--extra-bold: bolder;
 
     /* font family */
-    --gui-font--classic: 'Roboto', sans-serif;
-    --gui-font--redesing: 'Zara', sans-serif;
+    --gui-font-family: 'Roboto', sans-serif;
 
     /* transitions */
     --gui-transition--300: all ease-in-out 300ms;
@@ -71,5 +67,8 @@ body {
     --gui-color--article--decoration: rgba(255, 255, 255, 0.7);
 }
 .redesign {
+    --gui-font-family: 'Zara', sans-serif;
     --gui-header-size: 66px;
+
+    font-family: var(--gui-font-family);
 }
