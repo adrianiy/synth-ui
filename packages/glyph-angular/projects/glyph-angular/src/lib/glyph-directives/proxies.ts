@@ -69,6 +69,29 @@ export class GlyphAvatar {
   }
 }
 
+import { BrandListComponent as IBrandListComponent } from 'glyph-components/dist/types/components/brand-list/brand-list';
+export declare interface GlyphBrandList extends Components.GlyphBrandList {}
+@ProxyCmp({
+  inputs: ['basePath', 'brandList', 'outsideCallback']
+})
+@Component({
+  selector: 'glyph-brand-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['basePath', 'brandList', 'outsideCallback'],
+  outputs: ['brandChange']
+})
+export class GlyphBrandList {
+  /** Event triggerd on brand click */
+  brandChange!: IBrandListComponent['brandChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['brandChange']);
+  }
+}
+
 
 export declare interface GlyphBreadcrumbs extends Components.GlyphBreadcrumbs {}
 @ProxyCmp({
@@ -334,14 +357,14 @@ export class GlyphFlex {
 import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/layouts/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
 })
 @Component({
   selector: 'glyph-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
-  outputs: ['langChange', 'themeChange', 'decimalsChange', 'logout']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
+  outputs: ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']
 })
 export class GlyphHeader {
   /** Language change event */
@@ -350,13 +373,15 @@ export class GlyphHeader {
   themeChange!: IHeaderComponent['themeChange'];
   /** Decimals change event */
   decimalsChange!: IHeaderComponent['decimalsChange'];
+  /** Brand change event */
+  brandChange!: IHeaderComponent['brandChange'];
   /** Logout event */
   logout!: IHeaderComponent['logout'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'logout']);
+    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']);
   }
 }
 

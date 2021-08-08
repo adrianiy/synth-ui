@@ -7,6 +7,7 @@ import {
     TimelineEvent,
     UserMenuConfiguration,
     SelectorOption,
+    Brand,
 } from 'glyph-core';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
@@ -22,6 +23,8 @@ export class HeaderComponent {
     @Prop() basePath: string;
     /** Brand selector flag */
     @Prop() brand: boolean;
+    /** Available brands list */
+    @Prop() brandList: Brand[];
     /** User avatar flag */
     @Prop() avatar: boolean;
     /** Timeline flag */
@@ -64,6 +67,8 @@ export class HeaderComponent {
     @Event() themeChange: EventEmitter<SelectorOption>;
     /** Decimals change event */
     @Event() decimalsChange: EventEmitter<boolean>;
+    /** Brand change event */
+    @Event() brandChange: EventEmitter<Brand>;
     /** Logout event */
     @Event() logout: EventEmitter<any>;
 
@@ -77,6 +82,8 @@ export class HeaderComponent {
     @State() showTimeline: boolean = false;
     /** show notifications flag */
     @State() showNotifications: boolean = false;
+    /** show brand menu */
+    @State() showBrands: boolean = false;
 
     private _toggleShareMenu = (value?: boolean) => () => {
         this.showShareMenu = value ?? !this.showShareMenu;
@@ -98,6 +105,10 @@ export class HeaderComponent {
         this.showNotifications = value ?? !this.showNotifications;
     };
 
+    private _toggleBrandsMenu = (value?: boolean) => () => {
+        this.showBrands = value ?? !this.showBrands;
+    };
+
     private _handleLangChange = ({ detail }: CustomEvent) => {
         this.langChange.emit(detail);
     };
@@ -112,6 +123,10 @@ export class HeaderComponent {
 
     private _handleLogout = () => {
         this.logout.emit();
+    };
+
+    private _handleBrandChange = ({ detail }: CustomEvent) => () => {
+        this.brandChange.emit(detail);
     };
 
     private _renderShare = () => {
@@ -280,16 +295,39 @@ export class HeaderComponent {
         ];
     };
 
+    private _renderBrands = () => {
+        return (
+            <div
+                class={cls('widget__menu__container widget__menu__container--brands', {
+                    active: this.showBrands,
+                })}
+            >
+                <Flex middle column class="widget__menu widget__menu--brands">
+                    {this.showBrands && (
+                        <glyph-brand-list
+                            brandList={this.brandList}
+                            outsideCallback={this._toggleBrandsMenu(false)}
+                            basePath={this.basePath}
+                            onBrandChange={this._handleBrandChange}
+                        />
+                    )}
+                </Flex>
+            </div>
+        );
+    };
+
     render() {
         return (
             <Flex row spaced middle class={cls('header__container', this.interface)}>
+                {this._renderBrands()}
                 {this._renderMenus()}
                 <div class="background"></div>
                 <Flex row middle class="header--left">
                     {this.brand && (
                         <img
-                            class={cls({ clickable: this.brand })}
+                            class={cls({ clickable: this.brand && this.brandList.length > 1 })}
                             src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
+                            onClick={this._toggleBrandsMenu()}
                         />
                     )}
                     <Flex left>

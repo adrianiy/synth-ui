@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -109,6 +109,20 @@ export namespace Components {
           * User name, used as image fallback
          */
         "name": UserData['name'];
+    }
+    interface GlyphBrandList {
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
+          * Brand list
+         */
+        "brandList": Brand[];
+        /**
+          * Event triggered when user clicks outside
+         */
+        "outsideCallback": () => void;
     }
     interface GlyphBreadcrumbs {
         /**
@@ -567,6 +581,10 @@ export namespace Components {
           * Brand selector flag
          */
         "brand": boolean;
+        /**
+          * Available brands list
+         */
+        "brandList": Brand[];
         /**
           * Calendar events
          */
@@ -1346,6 +1364,12 @@ declare global {
         prototype: HTMLGlyphAvatarElement;
         new (): HTMLGlyphAvatarElement;
     };
+    interface HTMLGlyphBrandListElement extends Components.GlyphBrandList, HTMLStencilElement {
+    }
+    var HTMLGlyphBrandListElement: {
+        prototype: HTMLGlyphBrandListElement;
+        new (): HTMLGlyphBrandListElement;
+    };
     interface HTMLGlyphBreadcrumbsElement extends Components.GlyphBreadcrumbs, HTMLStencilElement {
     }
     var HTMLGlyphBreadcrumbsElement: {
@@ -1578,6 +1602,7 @@ declare global {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
         "glyph-article": HTMLGlyphArticleElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
+        "glyph-brand-list": HTMLGlyphBrandListElement;
         "glyph-breadcrumbs": HTMLGlyphBreadcrumbsElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
@@ -1716,6 +1741,24 @@ declare namespace LocalJSX {
           * User name, used as image fallback
          */
         "name"?: UserData['name'];
+    }
+    interface GlyphBrandList {
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
+          * Brand list
+         */
+        "brandList"?: Brand[];
+        /**
+          * Event triggerd on brand click
+         */
+        "onBrandChange"?: (event: CustomEvent<Brand>) => void;
+        /**
+          * Event triggered when user clicks outside
+         */
+        "outsideCallback"?: () => void;
     }
     interface GlyphBreadcrumbs {
         /**
@@ -2223,6 +2266,10 @@ declare namespace LocalJSX {
          */
         "brand"?: boolean;
         /**
+          * Available brands list
+         */
+        "brandList"?: Brand[];
+        /**
           * Calendar events
          */
         "calendarEvents"?: TimelineEvent[];
@@ -2250,6 +2297,10 @@ declare namespace LocalJSX {
           * Notification flag
          */
         "notifications"?: boolean;
+        /**
+          * Brand change event
+         */
+        "onBrandChange"?: (event: CustomEvent<Brand>) => void;
         /**
           * Decimals change event
          */
@@ -3077,6 +3128,7 @@ declare namespace LocalJSX {
         "glyph-app-menu": GlyphAppMenu;
         "glyph-article": GlyphArticle;
         "glyph-avatar": GlyphAvatar;
+        "glyph-brand-list": GlyphBrandList;
         "glyph-breadcrumbs": GlyphBreadcrumbs;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
@@ -3124,6 +3176,7 @@ declare module "@stencil/core" {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
             "glyph-article": LocalJSX.GlyphArticle & JSXBase.HTMLAttributes<HTMLGlyphArticleElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
+            "glyph-brand-list": LocalJSX.GlyphBrandList & JSXBase.HTMLAttributes<HTMLGlyphBrandListElement>;
             "glyph-breadcrumbs": LocalJSX.GlyphBreadcrumbs & JSXBase.HTMLAttributes<HTMLGlyphBreadcrumbsElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;

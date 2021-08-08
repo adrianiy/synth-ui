@@ -1,0 +1,14 @@
+:host {
+    color: var(--gui-color);
+    font-size: var(--gui-font--base);
+}
+.brand-list__container {
+    .brand__container {
+        height: 65px;
+        cursor: pointer;
+
+        img {
+            width: 80px;
+        }
+    }
+}

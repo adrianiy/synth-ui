@@ -6,7 +6,7 @@ import { cls } from '../../utils/utils';
 @Component({
     tag: 'glyph-icon',
     styleUrl: 'icon.scss',
-    shadow: false,
+    shadow: true,
 })
 export class IconComponent {
     /** icon name */
