@@ -1,5 +1,6 @@
 import { Component, Prop, State, h, Listen, Element } from '@stencil/core';
 import { ComplexSelectorOptions, SelectorOption } from 'glyph-core';
+import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
 import { cls } from '../../../utils/utils';
@@ -16,12 +17,16 @@ export class SelectorOptionsComponent {
     @Prop() complexOptions: ComplexSelectorOptions;
     /** Multiselect flag */
     @Prop() multiSelect: boolean = false;
+    /** Max height configuration */
+    @Prop() maxHeight: number = 300;
     /** Search placeholder text. If defined a search input will render */
     @Prop() searchPlaceholder: string;
     /** Option click event */
     @Prop() optionClickEvent: (option: SelectorOption) => void;
     /** Close event */
     @Prop() closeEvent: () => void;
+    /** Scrollbar element */
+    @State() ps: PerfectScrollbar;
 
     /** Element reference */
     @Element() element: HTMLGlyphSelectorOptionsElement;
@@ -35,6 +40,12 @@ export class SelectorOptionsComponent {
             this.closeEvent();
         }
     }
+
+    private _scrollbarInit = (ps: PerfectScrollbar) => {
+        if (!this.ps) {
+            this.ps = ps;
+        }
+    };
 
     private _selectOption = (option: SelectorOption) => (event?: any) => {
         if (!option.disabled) {
@@ -140,10 +151,17 @@ export class SelectorOptionsComponent {
 
     render() {
         return (
-            <Flex class="selector__options__container">
-                {this.searchPlaceholder && this._renderSearch()}
-                {this.options && this._renderSimpleOptions()}
-                {this.complexOptions && this._renderComplexOptions()}
+            <Flex class="selector__options__container" style={{ '--max-height': `${this.maxHeight}px` }}>
+                <glyph-scroll
+                    tiny
+                    scrollSpeed={0.09}
+                    initCallback={this._scrollbarInit}
+                    containerClass="scroll__container"
+                >
+                    {this.searchPlaceholder && this._renderSearch()}
+                    {this.options && this._renderSimpleOptions()}
+                    {this.complexOptions && this._renderComplexOptions()}
+                </glyph-scroll>
             </Flex>
         );
     }

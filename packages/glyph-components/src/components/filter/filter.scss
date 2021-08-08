@@ -1,5 +1,7 @@
-.filter-chip {
+:host {
     font-size: var(--gui-font--base);
+}
+.filter-chip {
     cursor: pointer;
     border-radius: var(--gui-border-radius--chip);
     user-select: none;
@@ -67,6 +69,12 @@
                 margin-top: 0;
                 font-weight: bold;
             }
+        }
+    }
+    &.redesign {
+        em {
+            font-weight: var(--gui-font-weight--light);
+            margin-left: var(--gui-padding--xxxs);
         }
     }
 }

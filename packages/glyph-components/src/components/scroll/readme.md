@@ -27,6 +27,7 @@
  - [glyph-app-menu](../app-menu)
  - [glyph-date-filter](../date-filter)
  - [glyph-filter-options](../filter/components/options)
+ - [glyph-selector-options](../selector/options)
 
 ### Graph
 ```mermaid
@@ -34,6 +35,7 @@ graph TD;
   glyph-app-menu --> glyph-scroll
   glyph-date-filter --> glyph-scroll
   glyph-filter-options --> glyph-scroll
+  glyph-selector-options --> glyph-scroll
   style glyph-scroll fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

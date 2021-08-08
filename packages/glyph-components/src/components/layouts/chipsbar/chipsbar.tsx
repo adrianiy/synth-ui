@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element, Host } from '@stencil/core';
 import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../../utils/layout';
-import { getLocaleComponentStrings } from '../../../utils/utils';
+import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 
 @Component({
     tag: 'glyph-chipsbar',
@@ -144,11 +144,20 @@ export class ChipsBarComponent {
     private _renderButtons = () => {
         return (
             <Flex middle class="buttons__container">
-                <glyph-button icon="close" interface={this.interface} onClick={this._handleClearAll} />
                 <glyph-button
+                    class="label--l"
                     text={this._i18n['configFilters']}
+                    action={this.interface === UIInterface.redesign}
                     interface={this.interface}
                     onClick={this._handleFilterConfig(true)}
+                />
+                <glyph-button
+                    class={this.interface === UIInterface.redesign ? 'label--l label--l--medium' : ''}
+                    action={this.interface === UIInterface.redesign}
+                    icon={this.interface !== UIInterface.redesign ? 'close' : undefined}
+                    text={this.interface === UIInterface.redesign ? this._i18n['cleanFilters'] : ''}
+                    interface={this.interface}
+                    onClick={this._handleClearAll}
                 />
             </Flex>
         );
@@ -176,7 +185,7 @@ export class ChipsBarComponent {
     render() {
         return (
             <Host style={{ zIndex: this.configModal ? '99' : 'inherit' }}>
-                <Flex row middle spaced class="chipsbar__container">
+                <Flex row middle spaced class={cls('chipsbar__container', this.interface)}>
                     {this._renderChips()}
                     {this._renderButtons()}
                 </Flex>

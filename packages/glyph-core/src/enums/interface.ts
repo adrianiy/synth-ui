@@ -1,6 +1,7 @@
 export const enum UIInterface {
     classic = 'classic',
     modern = 'modern',
+    redesign = 'redesign',
 }
 
 export const enum TabStyle {
@@ -42,4 +43,9 @@ export const enum ComparableType {
     calendar = 'calendar',
     custom = 'custom',
     ordinal = 'ordinal',
+}
+
+export const enum IconType {
+    material = 'material',
+    sewing = 'sewing'
 }

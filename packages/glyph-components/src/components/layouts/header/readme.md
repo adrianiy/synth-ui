@@ -16,10 +16,11 @@
 | `avatar`         | `avatar`        | User avatar flag                                                 | `boolean`                                                                                                                                                                  | `undefined`           |
 | `basePath`       | `base-path`     | Base path to get assets                                          | `string`                                                                                                                                                                   | `undefined`           |
 | `brand`          | `brand`         | Brand selector flag                                              | `boolean`                                                                                                                                                                  | `undefined`           |
+| `brandList`      | --              | Available brands list                                            | `Brand[]`                                                                                                                                                                  | `undefined`           |
 | `calendarEvents` | --              | Calendar events                                                  | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `events`         | --              | Events                                                           | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `i18n`           | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                                                                                                                                               | `{}`                  |
-| `interface`      | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern`                                                                                                                                | `UIInterface.classic` |
+| `interface`      | `interface`     | Interface type ['MODERN', 'CLASSIC']                             | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign`                                                                                                        | `UIInterface.classic` |
 | `locale`         | `locale`        | **optional** force locale change if html lang is not interpreted | `string`                                                                                                                                                                   | `undefined`           |
 | `menu`           | `menu`          | View menu flag                                                   | `boolean`                                                                                                                                                                  | `undefined`           |
 | `notifications`  | `notifications` | Notification flag                                                | `boolean`                                                                                                                                                                  | `undefined`           |
@@ -34,6 +35,7 @@
 
 | Event            | Description           | Type                          |
 | ---------------- | --------------------- | ----------------------------- |
+| `brandChange`    | Brand change event    | `CustomEvent<Brand>`          |
 | `decimalsChange` | Decimals change event | `CustomEvent<boolean>`        |
 | `langChange`     | Language change event | `CustomEvent<SelectorOption>` |
 | `logout`         | Logout event          | `CustomEvent<any>`            |
@@ -44,30 +46,38 @@
 
 ### Depends on
 
-- [glyph-share-menu](../../share-menu)
-- [glyph-app-menu](../../app-menu)
+- [glyph-icon](../../icon)
 - [glyph-avatar](../../avatar)
-- [glyph-user-menu](../../user-menu)
 - [glyph-timeline](../../timeline)
+- [glyph-user-menu](../../user-menu)
+- [glyph-app-menu](../../app-menu)
+- [glyph-share-menu](../../share-menu)
+- [glyph-notifications](../../notifications)
+- [glyph-brand-list](../../brand-list)
 
 ### Graph
 ```mermaid
 graph TD;
-  glyph-header --> glyph-share-menu
-  glyph-header --> glyph-app-menu
+  glyph-header --> glyph-icon
   glyph-header --> glyph-avatar
-  glyph-header --> glyph-user-menu
   glyph-header --> glyph-timeline
-  glyph-share-menu --> glyph-toggler
-  glyph-share-menu --> glyph-toaster
-  glyph-app-menu --> glyph-scroll
-  glyph-user-menu --> glyph-selector
-  glyph-user-menu --> glyph-toggler
-  glyph-selector --> glyph-selector-options
-  glyph-selector-options --> glyph-input
+  glyph-header --> glyph-user-menu
+  glyph-header --> glyph-app-menu
+  glyph-header --> glyph-share-menu
+  glyph-header --> glyph-notifications
+  glyph-header --> glyph-brand-list
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs
+  glyph-selector --> glyph-selector-options
+  glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
+  glyph-user-menu --> glyph-selector
+  glyph-user-menu --> glyph-toggler
+  glyph-user-menu --> glyph-icon
+  glyph-app-menu --> glyph-scroll
+  glyph-share-menu --> glyph-toggler
+  glyph-share-menu --> glyph-toaster
   style glyph-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

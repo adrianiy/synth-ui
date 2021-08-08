@@ -5,12 +5,21 @@
     font-size: var(--gui-font--base);
     color: var(--gui-color);
     height: var(--gui-header-size);
-    border-bottom: var(--gui-border--secondary);
-    background: var(--gui-color--background--lighter);
     padding: 0 var(--gui-padding--xxxl);
     position: relative;
 
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: var(--gui-color--background--lighter);
+        border-bottom: var(--gui-border--secondary);
+    }
+
     .header--left {
+        z-index: 2;
         img {
             height: 35px;
             padding-right: var(--gui-padding--s);
@@ -25,6 +34,8 @@
         h2,
         h4 {
             margin-bottom: 0;
+        }
+        h4 {
             font-weight: var(--gui-font-weight--normal);
         }
     }
@@ -36,8 +47,9 @@
         font-size: var(--gui-font--l);
         align-items: center;
         user-select: none;
+        z-index: 2;
 
-        em {
+        glyph-icon {
             cursor: pointer;
             &:hover {
                 opacity: 0.7;
@@ -78,45 +90,55 @@
                 }
             }
         }
+    }
+    .widget__menu {
+        background: var(--gui-color--background--lighter);
+        border: var(--gui-border--lightest);
+        box-shadow: var(--gui-shadow);
+        min-width: 200px;
+        padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
 
-        .widget__container {
-            position: relative;
+        &--brands {
+            min-width: 86px;
+        }
 
-            .widget__menu {
-                background: var(--gui-color--background--lighter);
-                border: var(--gui-border--lightest);
-                box-shadow: var(--gui-shadow);
-                min-width: 200px;
-                padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
+        &__container {
+            position: absolute;
+            top: 50px;
+            display: flex;
+            transform: translateY(-500px);
+            transition: all ease-in-out 700ms;
 
-                &__container {
-                    position: absolute;
-                    top: 37px;
-                    display: flex;
-                    transform: translateY(-500px);
-                    transition: all ease-in-out 700ms;
-                    z-index: -1;
+            &.active {
+                transform: translateY(0);
+            }
+            &--brands {
+                left: 42px;
+                user-select: none;
 
-                    &.right-space {
-                        right: -64px;
-                        &--big {
-                            right: -112px;
-                        }
-                    }
-                    &.active {
-                        transform: translateY(0);
-                    }
-                    &--apps {
-                        right: -112px;
-                    }
-                    &--user {
-                        right: 0;
-                        top: 45px;
-                    }
-                    &--share {
-                        top: 35px;
-                    }
+            }
+            &.right {
+                right: 32px;
+                &--big {
+                    right: 64px;
                 }
+                &--large {
+                    right: 128px;
+                }
+            }
+            &--apps {
+                right: 0;
+            }
+            &--user {
+                right: 64px;
+                top: 45px;
+            }
+            &--share {
+                right: 0;
+                top: 35px;
+            }
+            &--notifications {
+                top: 50px;
             }
         }
     }
@@ -139,9 +161,11 @@
 
     &.modern {
         height: var(--gui-header-size--modern);
-        border-bottom: none;
-        background-color: var(--gui-color--background);
 
+        .background {
+            border-bottom: none;
+            background-color: var(--gui-color--background);
+        }
         .header--left {
             img {
                 padding-right: var(--gui-padding--m);

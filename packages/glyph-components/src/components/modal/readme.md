@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                               | Type                                        | Default               |
-| -------------- | --------------- | ----------------------------------------- | ------------------------------------------- | --------------------- |
-| `applyButton`  | `apply-button`  | Apply button text. Renders button if set  | `string`                                    | `undefined`           |
-| `cancelButton` | `cancel-button` | Cancel button text. Renders button if set | `string`                                    | `undefined`           |
-| `closeButton`  | `close-button`  | Close button flag                         | `boolean`                                   | `undefined`           |
-| `interface`    | `interface`     | Interface type ['MODERN', 'CLASSIC']      | `UIInterface.classic \| UIInterface.modern` | `UIInterface.classic` |
-| `modalTitle`   | `modal-title`   | Modal title                               | `string`                                    | `undefined`           |
-| `visible`      | `visible`       | Modal visibility flag                     | `boolean`                                   | `undefined`           |
+| Property       | Attribute       | Description                               | Type                                                                | Default               |
+| -------------- | --------------- | ----------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| `applyButton`  | `apply-button`  | Apply button text. Renders button if set  | `string`                                                            | `undefined`           |
+| `cancelButton` | `cancel-button` | Cancel button text. Renders button if set | `string`                                                            | `undefined`           |
+| `closeButton`  | `close-button`  | Close button flag                         | `boolean`                                                           | `undefined`           |
+| `interface`    | `interface`     | Interface type ['MODERN', 'CLASSIC']      | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
+| `modalTitle`   | `modal-title`   | Modal title                               | `string`                                                            | `undefined`           |
+| `visible`      | `visible`       | Modal visibility flag                     | `boolean`                                                           | `undefined`           |
 
 
 ## Events

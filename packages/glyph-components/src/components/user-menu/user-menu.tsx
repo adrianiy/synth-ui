@@ -1,6 +1,5 @@
 import { Component, Element, Prop, h, EventEmitter, Event, Listen, State } from '@stencil/core';
 import { SelectorOption, UIInterface } from 'glyph-core';
-import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
@@ -38,6 +37,8 @@ export class UserMenuComponent {
     @Event() themeChange: EventEmitter<SelectorOption>;
     /** Decimals change event */
     @Event() decimalsChange: EventEmitter<boolean>;
+    /** Custom config event */
+    @Event() customConfigChange: EventEmitter<any>;
     /** Element reference */
     @Element() element: HTMLGlyphUserMenuElement;
 
@@ -78,6 +79,10 @@ export class UserMenuComponent {
 
     private _handleLogout = () => {
         this.logout.emit();
+    };
+
+    private _handleCustomConfig = () => {
+        this.customConfigChange.emit();
     };
 
     render() {
@@ -129,15 +134,18 @@ export class UserMenuComponent {
                 )}
                 {this.customConfig && (
                     <Flex class="user-menu__container__row">
-                        <Flex row middle left class="option">
-                            <Icon icon="settings" />
+                        <Flex row middle left class="option" onClick={this._handleCustomConfig}>
+                            <glyph-icon
+                                material={this.interface !== UIInterface.redesign}
+                                icon={this.interface !== UIInterface.redesign ? 'settings' : 'settings-outlined'}
+                            />
                             <span class="caption">{this._i18n['settings']}</span>
                         </Flex>
                         <div class="separator" />
                     </Flex>
                 )}
                 <Flex row middle class="option logout" onClick={this._handleLogout}>
-                    <Icon icon="power_settings_new" />
+                    <glyph-icon icon="power_settings_new" button material />
                     <span>{this._i18n['logout']}</span>
                 </Flex>
             </Flex>

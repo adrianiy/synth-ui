@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UserData, UserMenuConfiguration } from "glyph-core";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -102,9 +102,27 @@ export namespace Components {
          */
         "image": UserData['image'];
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
           * User name, used as image fallback
          */
         "name": UserData['name'];
+    }
+    interface GlyphBrandList {
+        /**
+          * Base path to get assets
+         */
+        "basePath": string;
+        /**
+          * Brand list
+         */
+        "brandList": Brand[];
+        /**
+          * Event triggered when user clicks outside
+         */
+        "outsideCallback": () => void;
     }
     interface GlyphBreadcrumbs {
         /**
@@ -125,6 +143,10 @@ export namespace Components {
           * Cancel type button. Renders in red
          */
         "cancel": boolean;
+        /**
+          * Custom classNames to apply
+         */
+        "class": string;
         /**
           * Material icons id
          */
@@ -155,6 +177,10 @@ export namespace Components {
           * Buttons configuration
          */
         "buttons": Button[];
+        /**
+          * Application interface
+         */
+        "interface": UIInterface;
         /**
           * Button group size ['big', 'small']
          */
@@ -556,6 +582,10 @@ export namespace Components {
          */
         "brand": boolean;
         /**
+          * Available brands list
+         */
+        "brandList": Brand[];
+        /**
           * Calendar events
          */
         "calendarEvents": TimelineEvent[];
@@ -603,6 +633,32 @@ export namespace Components {
           * User menu config
          */
         "userMenuConfig": UserMenuConfiguration;
+    }
+    interface GlyphIcon {
+        /**
+          * render icon with button role
+         */
+        "button": boolean;
+        /**
+          * class to use in icon
+         */
+        "class": string;
+        /**
+          * click callback
+         */
+        "clickCbk": (event: MouseEvent) => any;
+        /**
+          * icon name
+         */
+        "icon": string;
+        /**
+          * render material icon
+         */
+        "material": boolean;
+        /**
+          * render outlined icon (for material icons)
+         */
+        "outlined": boolean;
     }
     interface GlyphInput {
         /**
@@ -812,6 +868,12 @@ export namespace Components {
          */
         "text": string;
     }
+    interface GlyphNotifications {
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback": () => void;
+    }
     interface GlyphPagination {
         /**
           * Active page
@@ -930,6 +992,10 @@ export namespace Components {
          */
         "i18n": { [key: string]: string };
         /**
+          * Application interface
+         */
+        "interface": UIInterface;
+        /**
           * Loading flag
          */
         "loading": boolean;
@@ -998,6 +1064,10 @@ export namespace Components {
          */
         "complexOptions": ComplexSelectorOptions;
         /**
+          * Selector disabled state
+         */
+        "disabled": boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -1005,6 +1075,10 @@ export namespace Components {
           * Selector label
          */
         "label": string;
+        /**
+          * Max height configuration
+         */
+        "maxHeight": number;
         /**
           * Multiselect flag
          */
@@ -1027,6 +1101,10 @@ export namespace Components {
           * Complex selector options
          */
         "complexOptions": ComplexSelectorOptions;
+        /**
+          * Max height configuration
+         */
+        "maxHeight": number;
         /**
           * Multiselect flag
          */
@@ -1184,6 +1262,10 @@ export namespace Components {
     }
     interface GlyphTitle {
         /**
+          * interface input
+         */
+        "interface": UIInterface;
+        /**
           * title text
          */
         "text": string;
@@ -1282,6 +1364,12 @@ declare global {
         prototype: HTMLGlyphAvatarElement;
         new (): HTMLGlyphAvatarElement;
     };
+    interface HTMLGlyphBrandListElement extends Components.GlyphBrandList, HTMLStencilElement {
+    }
+    var HTMLGlyphBrandListElement: {
+        prototype: HTMLGlyphBrandListElement;
+        new (): HTMLGlyphBrandListElement;
+    };
     interface HTMLGlyphBreadcrumbsElement extends Components.GlyphBreadcrumbs, HTMLStencilElement {
     }
     var HTMLGlyphBreadcrumbsElement: {
@@ -1360,6 +1448,12 @@ declare global {
         prototype: HTMLGlyphHeaderElement;
         new (): HTMLGlyphHeaderElement;
     };
+    interface HTMLGlyphIconElement extends Components.GlyphIcon, HTMLStencilElement {
+    }
+    var HTMLGlyphIconElement: {
+        prototype: HTMLGlyphIconElement;
+        new (): HTMLGlyphIconElement;
+    };
     interface HTMLGlyphInputElement extends Components.GlyphInput, HTMLStencilElement {
     }
     var HTMLGlyphInputElement: {
@@ -1395,6 +1489,12 @@ declare global {
     var HTMLGlyphNoDataElement: {
         prototype: HTMLGlyphNoDataElement;
         new (): HTMLGlyphNoDataElement;
+    };
+    interface HTMLGlyphNotificationsElement extends Components.GlyphNotifications, HTMLStencilElement {
+    }
+    var HTMLGlyphNotificationsElement: {
+        prototype: HTMLGlyphNotificationsElement;
+        new (): HTMLGlyphNotificationsElement;
     };
     interface HTMLGlyphPaginationElement extends Components.GlyphPagination, HTMLStencilElement {
     }
@@ -1502,6 +1602,7 @@ declare global {
         "glyph-app-menu": HTMLGlyphAppMenuElement;
         "glyph-article": HTMLGlyphArticleElement;
         "glyph-avatar": HTMLGlyphAvatarElement;
+        "glyph-brand-list": HTMLGlyphBrandListElement;
         "glyph-breadcrumbs": HTMLGlyphBreadcrumbsElement;
         "glyph-button": HTMLGlyphButtonElement;
         "glyph-button-group": HTMLGlyphButtonGroupElement;
@@ -1515,12 +1616,14 @@ declare global {
         "glyph-filter-options-list": HTMLGlyphFilterOptionsListElement;
         "glyph-flex": HTMLGlyphFlexElement;
         "glyph-header": HTMLGlyphHeaderElement;
+        "glyph-icon": HTMLGlyphIconElement;
         "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
         "glyph-login": HTMLGlyphLoginElement;
         "glyph-modal": HTMLGlyphModalElement;
         "glyph-no-data": HTMLGlyphNoDataElement;
+        "glyph-notifications": HTMLGlyphNotificationsElement;
         "glyph-pagination": HTMLGlyphPaginationElement;
         "glyph-ranking": HTMLGlyphRankingElement;
         "glyph-ranking-layout": HTMLGlyphRankingLayoutElement;
@@ -1631,9 +1734,31 @@ declare namespace LocalJSX {
          */
         "image"?: UserData['image'];
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
           * User name, used as image fallback
          */
         "name"?: UserData['name'];
+    }
+    interface GlyphBrandList {
+        /**
+          * Base path to get assets
+         */
+        "basePath"?: string;
+        /**
+          * Brand list
+         */
+        "brandList"?: Brand[];
+        /**
+          * Event triggerd on brand click
+         */
+        "onBrandChange"?: (event: CustomEvent<Brand>) => void;
+        /**
+          * Event triggered when user clicks outside
+         */
+        "outsideCallback"?: () => void;
     }
     interface GlyphBreadcrumbs {
         /**
@@ -1654,6 +1779,10 @@ declare namespace LocalJSX {
           * Cancel type button. Renders in red
          */
         "cancel"?: boolean;
+        /**
+          * Custom classNames to apply
+         */
+        "class"?: string;
         /**
           * Material icons id
          */
@@ -1684,6 +1813,10 @@ declare namespace LocalJSX {
           * Buttons configuration
          */
         "buttons"?: Button[];
+        /**
+          * Application interface
+         */
+        "interface"?: UIInterface;
         /**
           * Button group size ['big', 'small']
          */
@@ -2133,6 +2266,10 @@ declare namespace LocalJSX {
          */
         "brand"?: boolean;
         /**
+          * Available brands list
+         */
+        "brandList"?: Brand[];
+        /**
           * Calendar events
          */
         "calendarEvents"?: TimelineEvent[];
@@ -2160,6 +2297,10 @@ declare namespace LocalJSX {
           * Notification flag
          */
         "notifications"?: boolean;
+        /**
+          * Brand change event
+         */
+        "onBrandChange"?: (event: CustomEvent<Brand>) => void;
         /**
           * Decimals change event
          */
@@ -2196,6 +2337,32 @@ declare namespace LocalJSX {
           * User menu config
          */
         "userMenuConfig"?: UserMenuConfiguration;
+    }
+    interface GlyphIcon {
+        /**
+          * render icon with button role
+         */
+        "button"?: boolean;
+        /**
+          * class to use in icon
+         */
+        "class"?: string;
+        /**
+          * click callback
+         */
+        "clickCbk"?: (event: MouseEvent) => any;
+        /**
+          * icon name
+         */
+        "icon"?: string;
+        /**
+          * render material icon
+         */
+        "material"?: boolean;
+        /**
+          * render outlined icon (for material icons)
+         */
+        "outlined"?: boolean;
     }
     interface GlyphInput {
         /**
@@ -2429,6 +2596,12 @@ declare namespace LocalJSX {
          */
         "text"?: string;
     }
+    interface GlyphNotifications {
+        /**
+          * Event triggered when user clicks outside component container
+         */
+        "outsideCallback"?: () => void;
+    }
     interface GlyphPagination {
         /**
           * Active page
@@ -2551,6 +2724,10 @@ declare namespace LocalJSX {
          */
         "i18n"?: { [key: string]: string };
         /**
+          * Application interface
+         */
+        "interface"?: UIInterface;
+        /**
           * Loading flag
          */
         "loading"?: boolean;
@@ -2619,6 +2796,10 @@ declare namespace LocalJSX {
          */
         "complexOptions"?: ComplexSelectorOptions;
         /**
+          * Selector disabled state
+         */
+        "disabled"?: boolean;
+        /**
           * Interface type ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
@@ -2626,6 +2807,10 @@ declare namespace LocalJSX {
           * Selector label
          */
         "label"?: string;
+        /**
+          * Max height configuration
+         */
+        "maxHeight"?: number;
         /**
           * Multiselect flag
          */
@@ -2652,6 +2837,10 @@ declare namespace LocalJSX {
           * Complex selector options
          */
         "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Max height configuration
+         */
+        "maxHeight"?: number;
         /**
           * Multiselect flag
          */
@@ -2833,6 +3022,10 @@ declare namespace LocalJSX {
     }
     interface GlyphTitle {
         /**
+          * interface input
+         */
+        "interface"?: UIInterface;
+        /**
           * title text
          */
         "text"?: string;
@@ -2903,6 +3096,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Custom config event
+         */
+        "onCustomConfigChange"?: (event: CustomEvent<any>) => void;
+        /**
           * Decimals change event
          */
         "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
@@ -2931,6 +3128,7 @@ declare namespace LocalJSX {
         "glyph-app-menu": GlyphAppMenu;
         "glyph-article": GlyphArticle;
         "glyph-avatar": GlyphAvatar;
+        "glyph-brand-list": GlyphBrandList;
         "glyph-breadcrumbs": GlyphBreadcrumbs;
         "glyph-button": GlyphButton;
         "glyph-button-group": GlyphButtonGroup;
@@ -2944,12 +3142,14 @@ declare namespace LocalJSX {
         "glyph-filter-options-list": GlyphFilterOptionsList;
         "glyph-flex": GlyphFlex;
         "glyph-header": GlyphHeader;
+        "glyph-icon": GlyphIcon;
         "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
         "glyph-login": GlyphLogin;
         "glyph-modal": GlyphModal;
         "glyph-no-data": GlyphNoData;
+        "glyph-notifications": GlyphNotifications;
         "glyph-pagination": GlyphPagination;
         "glyph-ranking": GlyphRanking;
         "glyph-ranking-layout": GlyphRankingLayout;
@@ -2976,6 +3176,7 @@ declare module "@stencil/core" {
             "glyph-app-menu": LocalJSX.GlyphAppMenu & JSXBase.HTMLAttributes<HTMLGlyphAppMenuElement>;
             "glyph-article": LocalJSX.GlyphArticle & JSXBase.HTMLAttributes<HTMLGlyphArticleElement>;
             "glyph-avatar": LocalJSX.GlyphAvatar & JSXBase.HTMLAttributes<HTMLGlyphAvatarElement>;
+            "glyph-brand-list": LocalJSX.GlyphBrandList & JSXBase.HTMLAttributes<HTMLGlyphBrandListElement>;
             "glyph-breadcrumbs": LocalJSX.GlyphBreadcrumbs & JSXBase.HTMLAttributes<HTMLGlyphBreadcrumbsElement>;
             "glyph-button": LocalJSX.GlyphButton & JSXBase.HTMLAttributes<HTMLGlyphButtonElement>;
             "glyph-button-group": LocalJSX.GlyphButtonGroup & JSXBase.HTMLAttributes<HTMLGlyphButtonGroupElement>;
@@ -2989,12 +3190,14 @@ declare module "@stencil/core" {
             "glyph-filter-options-list": LocalJSX.GlyphFilterOptionsList & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsListElement>;
             "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
+            "glyph-icon": LocalJSX.GlyphIcon & JSXBase.HTMLAttributes<HTMLGlyphIconElement>;
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
             "glyph-login": LocalJSX.GlyphLogin & JSXBase.HTMLAttributes<HTMLGlyphLoginElement>;
             "glyph-modal": LocalJSX.GlyphModal & JSXBase.HTMLAttributes<HTMLGlyphModalElement>;
             "glyph-no-data": LocalJSX.GlyphNoData & JSXBase.HTMLAttributes<HTMLGlyphNoDataElement>;
+            "glyph-notifications": LocalJSX.GlyphNotifications & JSXBase.HTMLAttributes<HTMLGlyphNotificationsElement>;
             "glyph-pagination": LocalJSX.GlyphPagination & JSXBase.HTMLAttributes<HTMLGlyphPaginationElement>;
             "glyph-ranking": LocalJSX.GlyphRanking & JSXBase.HTMLAttributes<HTMLGlyphRankingElement>;
             "glyph-ranking-layout": LocalJSX.GlyphRankingLayout & JSXBase.HTMLAttributes<HTMLGlyphRankingLayoutElement>;

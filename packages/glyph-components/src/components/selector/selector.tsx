@@ -12,6 +12,10 @@ import { cls } from '../../utils/utils';
 export class SelectorComponent {
     /** Selector label */
     @Prop() label: string;
+    /** Max height configuration */
+    @Prop() maxHeight: number = 300;
+    /** Selector disabled state */
+    @Prop() disabled: boolean;
     /** Selector options */
     @Prop() options: SelectorOption[];
     /** Complex selector options */
@@ -45,7 +49,9 @@ export class SelectorComponent {
     }
 
     private _toggleContainer = (value?: boolean) => () => {
-        this.optionsDrilldown = value ?? !this.optionsDrilldown;
+        if (!this.disabled) {
+            this.optionsDrilldown = value ?? !this.optionsDrilldown;
+        }
     };
 
     private _selectOption = (option: SelectorOption) => {
@@ -58,7 +64,7 @@ export class SelectorComponent {
 
     render() {
         return (
-            <Flex class={cls('selector__container', this.interface)}>
+            <Flex class={cls('selector__container', this.disabled && 'disabled', this.interface)}>
                 <Flex row spaced class="selector__input" onClick={this._toggleContainer()}>
                     <label class={cls({ active: this.selectedOptions?.length })}>{this.label}</label>
                     <span>{this.selectedOptions?.map(option => option.name).join(', ') || ''}</span>
@@ -71,6 +77,7 @@ export class SelectorComponent {
                     <glyph-selector-options
                         options={this.options}
                         complexOptions={this.complexOptions}
+                        maxHeight={this.maxHeight}
                         multiSelect={this.multiSelect}
                         searchPlaceholder={this.searchPlaceholder}
                         optionClickEvent={this._selectOption}

@@ -11,6 +11,7 @@
 | ------------------- | -------------------- | -------------------------------------------------------------- | ---------------------------------- | ----------- |
 | `closeEvent`        | --                   | Close event                                                    | `() => void`                       | `undefined` |
 | `complexOptions`    | --                   | Complex selector options                                       | `ComplexSelectorOptions`           | `undefined` |
+| `maxHeight`         | `max-height`         | Max height configuration                                       | `number`                           | `300`       |
 | `multiSelect`       | `multi-select`       | Multiselect flag                                               | `boolean`                          | `false`     |
 | `optionClickEvent`  | --                   | Option click event                                             | `(option: SelectorOption) => void` | `undefined` |
 | `options`           | --                   | Selector options                                               | `SelectorOption[]`                 | `undefined` |
@@ -26,11 +27,13 @@
 ### Depends on
 
 - [glyph-input](../../input)
+- [glyph-scroll](../../scroll)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-selector --> glyph-selector-options
   style glyph-selector-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

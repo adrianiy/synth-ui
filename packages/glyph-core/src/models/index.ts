@@ -14,6 +14,7 @@ export type { Store } from './store';
 export type { Row, BaseRow, RowAction, FieldsConfig } from './list';
 export type { UserData } from './user';
 export type { Screen } from './screens';
+export type { Brand } from './brands';
 export type {
     SelectorOption,
     ComplexSelectorOptions,

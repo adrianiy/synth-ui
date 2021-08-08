@@ -19,7 +19,7 @@
 | `description`         | `description`     | Filter description                                               | `string`                                                                                                  | `undefined`                 |
 | `endDate`             | --                | Selected end date                                                | `Date`                                                                                                    | `undefined`                 |
 | `i18n`                | --                | Extra i18n translation object                                    | `{ [key: string]: string; }`                                                                              | `{}`                        |
-| `interface`           | `interface`       | Filter chip interface ['MODERN', 'CLASSIC']                      | `UIInterface.classic \| UIInterface.modern`                                                               | `UIInterface.classic`       |
+| `interface`           | `interface`       | Filter chip interface ['MODERN', 'CLASSIC']                      | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign`                                       | `UIInterface.classic`       |
 | `locale`              | `locale`          | **optional** force locale change if html lang is not interpreted | `string`                                                                                                  | `undefined`                 |
 | `maxComparableDate`   | --                | Maximum available comp date                                      | `Date`                                                                                                    | `undefined`                 |
 | `maxDate`             | --                | Maximum available date                                           | `Date`                                                                                                    | `undefined`                 |
@@ -62,6 +62,7 @@ graph TD;
   glyph-date-filter --> glyph-button
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
+  glyph-selector-options --> glyph-scroll
   glyph-chipsbar --> glyph-date-filter
   style glyph-date-filter fill:#f9f,stroke:#333,stroke-width:4px
 ```

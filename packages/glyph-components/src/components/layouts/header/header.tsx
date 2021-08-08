@@ -7,6 +7,7 @@ import {
     TimelineEvent,
     UserMenuConfiguration,
     SelectorOption,
+    Brand,
 } from 'glyph-core';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
@@ -22,6 +23,8 @@ export class HeaderComponent {
     @Prop() basePath: string;
     /** Brand selector flag */
     @Prop() brand: boolean;
+    /** Available brands list */
+    @Prop() brandList: Brand[];
     /** User avatar flag */
     @Prop() avatar: boolean;
     /** Timeline flag */
@@ -64,6 +67,8 @@ export class HeaderComponent {
     @Event() themeChange: EventEmitter<SelectorOption>;
     /** Decimals change event */
     @Event() decimalsChange: EventEmitter<boolean>;
+    /** Brand change event */
+    @Event() brandChange: EventEmitter<Brand>;
     /** Logout event */
     @Event() logout: EventEmitter<any>;
 
@@ -77,6 +82,8 @@ export class HeaderComponent {
     @State() showTimeline: boolean = false;
     /** show notifications flag */
     @State() showNotifications: boolean = false;
+    /** show brand menu */
+    @State() showBrands: boolean = false;
 
     private _toggleShareMenu = (value?: boolean) => () => {
         this.showShareMenu = value ?? !this.showShareMenu;
@@ -98,6 +105,10 @@ export class HeaderComponent {
         this.showNotifications = value ?? !this.showNotifications;
     };
 
+    private _toggleBrandsMenu = (value?: boolean) => () => {
+        this.showBrands = value ?? !this.showBrands;
+    };
+
     private _handleLangChange = ({ detail }: CustomEvent) => {
         this.langChange.emit(detail);
     };
@@ -114,8 +125,14 @@ export class HeaderComponent {
         this.logout.emit();
     };
 
+    private _handleBrandChange = ({ detail }: CustomEvent) => () => {
+        this.brandChange.emit(detail);
+    };
+
     private _renderShare = () => {
-        return (
+        return this.interface === UIInterface.redesign ? (
+            <glyph-icon icon="share-outlined" onClick={this._toggleShareMenu()} button />
+        ) : (
             <Flex row middle center class="widget__container">
                 <div class="share" onClick={this._toggleShareMenu()}>
                     <div class="square">
@@ -123,51 +140,23 @@ export class HeaderComponent {
                     </div>
                     <Icon icon="reply" class="share" />
                 </div>
-                <div
-                    class={cls('widget__menu__container widget__menu__container--share', {
-                        'active': this.showShareMenu,
-                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
-                        'right-space': !this.timeline && !this.menu,
-                    })}
-                >
-                    {this.showShareMenu && (
-                        <glyph-share-menu
-                            class="widget__menu widget__menu--share"
-                            basePath={this.basePath}
-                            appTitle={this.appTitle}
-                            appSubtitle={this.appSubtitle}
-                            interface={this.interface}
-                            outsideCallback={this._toggleShareMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                        />
-                    )}
-                </div>
             </Flex>
         );
     };
 
     private _renderSearch = () => {
-        return <Icon button icon="search" />;
+        return <glyph-icon button material={this.interface !== UIInterface.redesign} icon="search" />;
     };
 
     private _renderNotifications = () => {
         return (
             <Flex row middle center class="widget__container">
-                <Icon button icon="notifications" onClick={this._toggleNotifications()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--notifications', {
-                        'active': this.showNotifications,
-                        'right-space--big': (!this.timeline && this.menu) || (!this.menu && this.timeline),
-                        'right-space': !this.timeline && !this.menu && !this.share,
-                    })}
-                >
-                    {this.showNotifications && (
-                        <div class="widget__menu widget__menu--notfications">
-                            <slot />
-                        </div>
-                    )}
-                </div>
+                <glyph-icon
+                    button
+                    material={this.interface !== UIInterface.redesign}
+                    icon={this.interface === UIInterface.redesign ? 'notification-outlined' : 'notifications'}
+                    onClick={this._toggleNotifications()}
+                />
             </Flex>
         );
     };
@@ -175,56 +164,31 @@ export class HeaderComponent {
     private _renderMenu = () => {
         return (
             <Flex row middle center class="widget__container">
-                <Icon button icon="apps" onClick={this._toggleShowAppsMenu()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--apps', {
-                        'active': this.showAppsMenu,
-                        'right-space': !this.timeline,
-                    })}
-                >
-                    {this.showAppsMenu && (
-                        <glyph-app-menu
-                            basePath={this.basePath}
-                            class="widget__menu widget__menu--apps"
-                            apps={this.appData}
-                            outsideCallback={this._toggleShowAppsMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                        />
-                    )}
-                </div>
+                <glyph-icon
+                    button
+                    material={this.interface !== UIInterface.redesign}
+                    icon={this.interface === UIInterface.redesign ? 'grid-underlined' : 'apps'}
+                    onClick={this._toggleShowAppsMenu()}
+                />
             </Flex>
         );
     };
 
     private _renderTimeline = () => {
-        return <Icon button icon="calendar_today" onClick={this._toggleShowTimeline()} />;
+        return (
+            <glyph-icon
+                button
+                material={this.interface !== UIInterface.redesign}
+                icon={this.interface === UIInterface.redesign ? 'calendar-outlined' : 'calendar_today'}
+                onClick={this._toggleShowTimeline()}
+            />
+        );
     };
 
     private _renderAvatar = () => {
         return (
             <Flex row middle center class="widget__container">
-                <glyph-avatar {...this.userData} onClick={this._toggleShowUserMenu()} />
-                <div
-                    class={cls('widget__menu__container widget__menu__container--user', { active: this.showUserMenu })}
-                >
-                    {this.showUserMenu && (
-                        <glyph-user-menu
-                            class="widget__menu widget__menu--user"
-                            basePath={this.basePath}
-                            name={this.userData.name}
-                            outsideCallback={this._toggleShowUserMenu(false)}
-                            i18n={this.i18n}
-                            locale={this.locale}
-                            interface={this.interface}
-                            {...this.userMenuConfig}
-                            onLangChange={this._handleLangChange}
-                            onThemeChange={this._handleThemeChange}
-                            onDecimalsChange={this._handleDecimalChange}
-                            onLogout={this._handleLogout}
-                        />
-                    )}
-                </div>
+                <glyph-avatar {...this.userData} interface={this.interface} onClick={this._toggleShowUserMenu()} />
             </Flex>
         );
     };
@@ -234,7 +198,7 @@ export class HeaderComponent {
             <Flex
                 class={cls(
                     'widget__menu widget__menu--sidebar animated',
-                    this.interface === UIInterface.classic ? 'fadeInRight' : 'fadeIn',
+                    this.interface !== UIInterface.modern ? 'fadeInRight' : 'fadeIn',
                 )}
             >
                 <glyph-timeline
@@ -250,14 +214,120 @@ export class HeaderComponent {
         );
     };
 
+    private _renderMenus = () => {
+        return [
+            <div
+                class={cls('widget__menu__container widget__menu__container--user', {
+                    active: this.showUserMenu,
+                })}
+            >
+                {this.showUserMenu && (
+                    <glyph-user-menu
+                        class="widget__menu widget__menu--user"
+                        basePath={this.basePath}
+                        name={this.userData.name}
+                        outsideCallback={this._toggleShowUserMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                        interface={this.interface}
+                        {...this.userMenuConfig}
+                        onLangChange={this._handleLangChange}
+                        onThemeChange={this._handleThemeChange}
+                        onDecimalsChange={this._handleDecimalChange}
+                        onLogout={this._handleLogout}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--apps', {
+                    active: this.showAppsMenu,
+                    right: this.timeline,
+                })}
+            >
+                {this.showAppsMenu && (
+                    <glyph-app-menu
+                        basePath={this.basePath}
+                        class="widget__menu widget__menu--apps"
+                        apps={this.appData}
+                        outsideCallback={this._toggleShowAppsMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--share', {
+                    'active': this.showShareMenu,
+                    'right': this.timeline || this.menu,
+                    'right--big': this.timeline && this.menu,
+                })}
+            >
+                {this.showShareMenu && (
+                    <glyph-share-menu
+                        class="widget__menu widget__menu--share"
+                        basePath={this.basePath}
+                        appTitle={this.appTitle}
+                        appSubtitle={this.appSubtitle}
+                        interface={this.interface}
+                        outsideCallback={this._toggleShareMenu(false)}
+                        i18n={this.i18n}
+                        locale={this.locale}
+                    />
+                )}
+            </div>,
+            <div
+                class={cls('widget__menu__container widget__menu__container--notifications', {
+                    'active': this.showNotifications,
+                    'right': this.timeline || this.menu || this.share,
+                    'right--big': [ this.timeline, this.menu, this.share ].filter(Boolean).length === 2,
+                    'right--large': this.timeline && this.menu && this.share,
+                })}
+            >
+                {this.showNotifications && (
+                    <glyph-notifications
+                        class="widget__menu widget__menu--notifications"
+                        outsideCallback={this._toggleNotifications(false)}
+                    >
+                        <slot />
+                    </glyph-notifications>
+                )}
+            </div>,
+        ];
+    };
+
+    private _renderBrands = () => {
+        return (
+            <div
+                class={cls('widget__menu__container widget__menu__container--brands', {
+                    active: this.showBrands,
+                })}
+            >
+                <Flex middle column class="widget__menu widget__menu--brands">
+                    {this.showBrands && (
+                        <glyph-brand-list
+                            brandList={this.brandList}
+                            outsideCallback={this._toggleBrandsMenu(false)}
+                            basePath={this.basePath}
+                            onBrandChange={this._handleBrandChange}
+                        />
+                    )}
+                </Flex>
+            </div>
+        );
+    };
+
     render() {
         return (
             <Flex row spaced middle class={cls('header__container', this.interface)}>
+                {this._renderBrands()}
+                {this._renderMenus()}
+                <div class="background"></div>
                 <Flex row middle class="header--left">
                     {this.brand && (
                         <img
-                            class={cls({ clickable: this.brand })}
+                            class={cls({ clickable: this.brand && this.brandList.length > 1 })}
                             src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
+                            onClick={this._toggleBrandsMenu()}
                         />
                     )}
                     <Flex left>

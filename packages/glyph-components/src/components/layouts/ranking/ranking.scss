@@ -44,4 +44,10 @@
         margin-top: var(--gui-padding--xs);
     }
 
+    &.redesign {
+        .ranking__header__options {
+            height: 42px;
+        }
+    }
+
 }

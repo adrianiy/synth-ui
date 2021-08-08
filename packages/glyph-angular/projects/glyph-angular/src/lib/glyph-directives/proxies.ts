@@ -53,19 +53,42 @@ export class GlyphArticle {
 
 export declare interface GlyphAvatar extends Components.GlyphAvatar {}
 @ProxyCmp({
-  inputs: ['image', 'name']
+  inputs: ['image', 'interface', 'name']
 })
 @Component({
   selector: 'glyph-avatar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['image', 'name']
+  inputs: ['image', 'interface', 'name']
 })
 export class GlyphAvatar {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+  }
+}
+
+import { BrandListComponent as IBrandListComponent } from 'glyph-components/dist/types/components/brand-list/brand-list';
+export declare interface GlyphBrandList extends Components.GlyphBrandList {}
+@ProxyCmp({
+  inputs: ['basePath', 'brandList', 'outsideCallback']
+})
+@Component({
+  selector: 'glyph-brand-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['basePath', 'brandList', 'outsideCallback'],
+  outputs: ['brandChange']
+})
+export class GlyphBrandList {
+  /** Event triggerd on brand click */
+  brandChange!: IBrandListComponent['brandChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['brandChange']);
   }
 }
 
@@ -91,13 +114,13 @@ export class GlyphBreadcrumbs {
 
 export declare interface GlyphButton extends Components.GlyphButton {}
 @ProxyCmp({
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
+  inputs: ['action', 'cancel', 'class', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 @Component({
   selector: 'glyph-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['action', 'cancel', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
+  inputs: ['action', 'cancel', 'class', 'icon', 'iconFirst', 'interface', 'text', 'tiny']
 })
 export class GlyphButton {
   protected el: HTMLElement;
@@ -110,13 +133,13 @@ export class GlyphButton {
 
 export declare interface GlyphButtonGroup extends Components.GlyphButtonGroup {}
 @ProxyCmp({
-  inputs: ['alignment', 'buttons', 'size']
+  inputs: ['alignment', 'buttons', 'interface', 'size']
 })
 @Component({
   selector: 'glyph-button-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['alignment', 'buttons', 'size']
+  inputs: ['alignment', 'buttons', 'interface', 'size']
 })
 export class GlyphButtonGroup {
   protected el: HTMLElement;
@@ -334,14 +357,14 @@ export class GlyphFlex {
 import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/layouts/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
 })
 @Component({
   selector: 'glyph-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
-  outputs: ['langChange', 'themeChange', 'decimalsChange', 'logout']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
+  outputs: ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']
 })
 export class GlyphHeader {
   /** Language change event */
@@ -350,13 +373,34 @@ export class GlyphHeader {
   themeChange!: IHeaderComponent['themeChange'];
   /** Decimals change event */
   decimalsChange!: IHeaderComponent['decimalsChange'];
+  /** Brand change event */
+  brandChange!: IHeaderComponent['brandChange'];
   /** Logout event */
   logout!: IHeaderComponent['logout'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'logout']);
+    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']);
+  }
+}
+
+
+export declare interface GlyphIcon extends Components.GlyphIcon {}
+@ProxyCmp({
+  inputs: ['button', 'class', 'clickCbk', 'icon', 'material', 'outlined']
+})
+@Component({
+  selector: 'glyph-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['button', 'class', 'clickCbk', 'icon', 'material', 'outlined']
+})
+export class GlyphIcon {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 
@@ -492,6 +536,25 @@ export class GlyphNoData {
   }
 }
 
+
+export declare interface GlyphNotifications extends Components.GlyphNotifications {}
+@ProxyCmp({
+  inputs: ['outsideCallback']
+})
+@Component({
+  selector: 'glyph-notifications',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['outsideCallback']
+})
+export class GlyphNotifications {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { PaginationComponent as IPaginationComponent } from 'glyph-components/dist/types/components/pagination/pagination';
 export declare interface GlyphPagination extends Components.GlyphPagination {}
 @ProxyCmp({
@@ -542,13 +605,13 @@ export class GlyphRanking {
 
 export declare interface GlyphRankingLayout extends Components.GlyphRankingLayout {}
 @ProxyCmp({
-  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'interface', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 @Component({
   selector: 'glyph-ranking-layout',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
+  inputs: ['activeView', 'aspectRatio', 'basePath', 'columnGap', 'compRankingData', 'i18n', 'interface', 'loading', 'loadingComparable', 'locale', 'rankingData', 'rowGap', 'useBackdropDecoration']
 })
 export class GlyphRankingLayout {
   protected el: HTMLElement;
@@ -580,13 +643,13 @@ export class GlyphScroll {
 import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder']
+  inputs: ['complexOptions', 'disabled', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['complexOptions', 'interface', 'label', 'multiSelect', 'options', 'searchPlaceholder'],
+  inputs: ['complexOptions', 'disabled', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder'],
   outputs: ['optionSelect']
 })
 export class GlyphSelector {
@@ -603,13 +666,13 @@ export class GlyphSelector {
 
 export declare interface GlyphSelectorOptions extends Components.GlyphSelectorOptions {}
 @ProxyCmp({
-  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector-options',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeEvent', 'complexOptions', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 export class GlyphSelectorOptions {
   protected el: HTMLElement;
@@ -773,13 +836,13 @@ export class GlyphTimeline {
 
 export declare interface GlyphTitle extends Components.GlyphTitle {}
 @ProxyCmp({
-  inputs: ['text']
+  inputs: ['interface', 'text']
 })
 @Component({
   selector: 'glyph-title',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['text']
+  inputs: ['interface', 'text']
 })
 export class GlyphTitle {
   protected el: HTMLElement;
@@ -837,7 +900,7 @@ export declare interface GlyphUserMenu extends Components.GlyphUserMenu {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['basePath', 'customConfig', 'decimals', 'i18n', 'interface', 'languages', 'locale', 'name', 'outsideCallback', 'themes'],
-  outputs: ['logout', 'langChange', 'themeChange', 'decimalsChange']
+  outputs: ['logout', 'langChange', 'themeChange', 'decimalsChange', 'customConfigChange']
 })
 export class GlyphUserMenu {
   /** Logout event, trigger an event identified with **logout** key */
@@ -848,10 +911,12 @@ export class GlyphUserMenu {
   themeChange!: IUserMenuComponent['themeChange'];
   /** Decimals change event */
   decimalsChange!: IUserMenuComponent['decimalsChange'];
+  /** Custom config event */
+  customConfigChange!: IUserMenuComponent['customConfigChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['logout', 'langChange', 'themeChange', 'decimalsChange']);
+    proxyOutputs(this, this.el, ['logout', 'langChange', 'themeChange', 'decimalsChange', 'customConfigChange']);
   }
 }

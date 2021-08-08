@@ -1,12 +1,13 @@
-import { Brands } from 'glyph-core';
+import { Brands, UIInterface } from 'glyph-core';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
-import { languages, appData, themes, calendarEvents } from './helpers/config';
+import { languages, appData, themes, calendarEvents, brandList } from './helpers/config';
 
 const userMenuConfig = {
     themes,
     languages,
     decimals: true,
+    customConfig: true,
 };
 
 const baseProps = {
@@ -14,22 +15,28 @@ const baseProps = {
     appTitle: 'DRIVE',
     appSubtitle: '',
     appData,
-    userMenuConfig: undefined,
+    userMenuConfig,
     avatar: true,
+    brandList,
     interface: 'classic',
     userData: { name: 'Test user demo' },
-    timeline: false,
-    search: false,
-    share: false,
+    brand: true,
+    timeline: true,
+    search: true,
+    share: true,
     menu: true,
-    notifications: false,
-    calendarEvents: undefined,
+    notifications: true,
+    calendarEvents,
+};
+
+const brandChange = ({ detail }) => {
+    alert(detail.id);
 };
 
 export default {
     title: 'Layout/Header/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
     },
     parameters: {
         viewMode: 'docs',
@@ -43,6 +50,8 @@ const Template = (
         menu,
         search,
         share,
+        brand,
+        brandList,
         timeline,
         notifications,
         calendarEvents,
@@ -56,6 +65,7 @@ const Template = (
     ctx: any,
 ) =>
     WithGlobalDecorator({
+        style: 'height: 600px; overflow: hidden;',
         template: html` <glyph-header
             .activeBrand=${activeBrand}
             .appTitle=${appTitle}
@@ -67,10 +77,13 @@ const Template = (
             .search=${search}
             .share=${share}
             .menu=${menu}
+            .brand=${brand}
+            .brandList=${brandList}
             .notifications=${notifications}
             .timeline=${timeline}
             .calendarEvents=${calendarEvents}
             .appData=${appData}
+            @brandChange=${brandChange}
         >
             <div style="display: grid; grid-gap: 12px;">
                 <span style="padding: 8px; font-size: 12px; border: 1px solid #dedede; border-radius: 4px"
@@ -98,14 +111,8 @@ WithSubtitle.args = {
     appSubtitle: 'test app',
 };
 
-export const WithActions = Template.bind({});
-WithActions.args = {
+export const Redesign = Template.bind({});
+Redesign.args = {
     ...baseProps,
-    userMenuConfig,
-    timeline: true,
-    calendarEvents,
-    search: true,
-    menu: true,
-    share: true,
-    appData,
+    interface: UIInterface.redesign,
 };

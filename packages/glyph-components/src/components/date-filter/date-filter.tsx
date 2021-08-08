@@ -1,4 +1,4 @@
-import { h, Component, Element, Event, EventEmitter, Prop, Host, State, Listen } from '@stencil/core';
+import { h, Component, Element, Event, EventEmitter, Prop, State, Listen } from '@stencil/core';
 import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
@@ -350,7 +350,7 @@ export class DateFilterComponent {
             `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
 
         return (
-            <Host>
+            <Flex class={this.interface}>
                 <Flex
                     row
                     middle
@@ -364,7 +364,13 @@ export class DateFilterComponent {
                     )}
                     onClick={this._expandFilter}
                 >
-                    <span>{this._i18n[description] || description}</span>
+                    <span
+                        class={cls('label--l', {
+                            'label--l--medium': this.interface === UIInterface.redesign,
+                        })}
+                    >
+                        {this._i18n[description] || description}
+                    </span>
                     <Icon
                         onClick={active ? this._onClear : null}
                         icon={
@@ -377,7 +383,7 @@ export class DateFilterComponent {
                     />
                 </Flex>
                 {this.expanded && this._renderCalendarDrilldown()}
-            </Host>
+            </Flex>
         );
     }
 }
