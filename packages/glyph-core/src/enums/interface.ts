@@ -47,5 +47,10 @@ export const enum ComparableType {
 
 export const enum IconType {
     material = 'material',
-    sewing = 'sewing'
+    sewing = 'sewing',
+}
+
+export const enum UITheme {
+    light = 'light',
+    dark = 'dark',
 }

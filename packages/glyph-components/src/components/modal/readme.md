@@ -34,11 +34,13 @@
 
 ### Depends on
 
+- [glyph-title](../title)
 - [glyph-button](../button)
 
 ### Graph
 ```mermaid
 graph TD;
+  glyph-modal --> glyph-title
   glyph-modal --> glyph-button
   glyph-chipsbar --> glyph-modal
   style glyph-modal fill:#f9f,stroke:#333,stroke-width:4px

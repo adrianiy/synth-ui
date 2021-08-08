@@ -60,6 +60,7 @@ graph TD;
   glyph-filter-options --> glyph-scroll
   glyph-filter-options-list --> glyph-filter-drilldown-options
   glyph-filter-drilldown-options --> glyph-filter-options-list
+  glyph-modal --> glyph-title
   glyph-modal --> glyph-button
   glyph-config-modal --> glyph-sortable
   glyph-config-modal --> glyph-toggler

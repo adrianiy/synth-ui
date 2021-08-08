@@ -23,6 +23,7 @@
 | `row`       | `row`        | Flex-direction = horizontal           | `boolean`                                                           | `undefined`           |
 | `spaced`    | `spaced`     | Apply spaced distribution             | `boolean`                                                           | `undefined`           |
 | `testId`    | `test-id`    | Set an id to attribute data-testid    | `string`                                                            | `undefined`           |
+| `theme`     | `theme`      | Theme type                            | `UITheme.dark \| UITheme.light`                                     | `UITheme.light`       |
 | `top`       | `top`        | Vertical align = top                  | `boolean`                                                           | `undefined`           |
 
 
