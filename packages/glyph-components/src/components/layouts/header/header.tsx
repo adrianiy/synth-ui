@@ -69,6 +69,8 @@ export class HeaderComponent {
     @Event() decimalsChange: EventEmitter<boolean>;
     /** Brand change event */
     @Event() brandChange: EventEmitter<Brand>;
+    /** Custom config change */
+    @Event() customConfigChange: EventEmitter<any>;
     /** Logout event */
     @Event() logout: EventEmitter<any>;
 
@@ -119,6 +121,10 @@ export class HeaderComponent {
 
     private _handleDecimalChange = ({ detail }: CustomEvent) => {
         this.decimalsChange.emit(detail);
+    };
+
+    private _handleCustomConfigChange = () => {
+        this.customConfigChange.emit();
     };
 
     private _handleLogout = () => {
@@ -234,6 +240,7 @@ export class HeaderComponent {
                         onLangChange={this._handleLangChange}
                         onThemeChange={this._handleThemeChange}
                         onDecimalsChange={this._handleDecimalChange}
+                        onCustomConfigChange={this._handleCustomConfigChange}
                         onLogout={this._handleLogout}
                     />
                 )}
