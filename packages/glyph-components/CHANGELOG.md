@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.0...glyph-components-v1.8.1) (2021-08-08)
+
+
+### Bug Fixes
+
+* fix dark styles ([9579479](https://github.com/adrianiy/glyph-ui/commit/9579479827977ec5bd33f501e84af302c0ab8504))
+
 # [1.8.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.7.3...glyph-components-v1.8.0) (2021-08-08)
 
 
