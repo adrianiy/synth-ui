@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/adrianiy/glyph-ui/compare/v3.6.4...v3.7.0) (2021-08-08)
+
+
+### Features
+
+* add interface in style provider ([da97697](https://github.com/adrianiy/glyph-ui/commit/da976974fb911c7fe585e95e183d6daef435bd97))
+
 ## [3.6.4](https://github.com/adrianiy/glyph-ui/compare/v3.6.3...v3.6.4) (2021-08-08)
 
 
