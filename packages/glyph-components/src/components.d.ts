@@ -524,6 +524,10 @@ export namespace Components {
          */
         "flexStyle": any;
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
           * Horizonal align = left
          */
         "left": boolean;
@@ -2208,6 +2212,10 @@ declare namespace LocalJSX {
          */
         "flexStyle"?: any;
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
           * Horizonal align = left
          */
         "left"?: boolean;
@@ -2301,6 +2309,10 @@ declare namespace LocalJSX {
           * Brand change event
          */
         "onBrandChange"?: (event: CustomEvent<Brand>) => void;
+        /**
+          * Custom config change
+         */
+        "onCustomConfigChange"?: (event: CustomEvent<any>) => void;
         /**
           * Decimals change event
          */

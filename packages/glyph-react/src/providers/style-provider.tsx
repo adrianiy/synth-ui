@@ -1,11 +1,12 @@
+import { UIInterface } from 'glyph-core';
 import React, { createContext } from 'react';
 import { GlyphFlex } from '../components';
 
 const StyleContext = createContext(null);
 
-const GlyphStyleProvider = ({ children }: { children: any }) => (
+const GlyphStyleProvider = ({ interface: interfaceValue, children }: { interface: UIInterface; children: any }) => (
     <StyleContext.Provider value={null}>
-        <GlyphFlex>{children}</GlyphFlex>
+        <GlyphFlex interface={interfaceValue}>{children}</GlyphFlex>
     </StyleContext.Provider>
 );
 

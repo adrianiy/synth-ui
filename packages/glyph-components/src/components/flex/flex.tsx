@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import { UIInterface } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
 
@@ -36,6 +37,8 @@ export class FlexComponent {
     @Prop() flexId: string;
     /** Set an id to attribute data-testid */
     @Prop() testId: string;
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
 
     render() {
         return (
@@ -50,7 +53,7 @@ export class FlexComponent {
                 bottom={this.bottom}
                 spaced={this.spaced}
                 around={this.around}
-                class={cls('flex__container', this.flexClass)}
+                class={cls('flex__container', this.interface, this.flexClass)}
                 style={this.flexStyle}
                 id={this.flexId}
             >

@@ -33,13 +33,14 @@
 
 ## Events
 
-| Event            | Description           | Type                          |
-| ---------------- | --------------------- | ----------------------------- |
-| `brandChange`    | Brand change event    | `CustomEvent<Brand>`          |
-| `decimalsChange` | Decimals change event | `CustomEvent<boolean>`        |
-| `langChange`     | Language change event | `CustomEvent<SelectorOption>` |
-| `logout`         | Logout event          | `CustomEvent<any>`            |
-| `themeChange`    | Theme change event    | `CustomEvent<SelectorOption>` |
+| Event                | Description           | Type                          |
+| -------------------- | --------------------- | ----------------------------- |
+| `brandChange`        | Brand change event    | `CustomEvent<Brand>`          |
+| `customConfigChange` | Custom config change  | `CustomEvent<any>`            |
+| `decimalsChange`     | Decimals change event | `CustomEvent<boolean>`        |
+| `langChange`         | Language change event | `CustomEvent<SelectorOption>` |
+| `logout`             | Logout event          | `CustomEvent<any>`            |
+| `themeChange`        | Theme change event    | `CustomEvent<SelectorOption>` |
 
 
 ## Dependencies

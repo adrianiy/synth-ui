@@ -338,13 +338,13 @@ export class GlyphFilterOptionsList {
 
 export declare interface GlyphFlex extends Components.GlyphFlex {}
 @ProxyCmp({
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'interface', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 @Component({
   selector: 'glyph-flex',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
+  inputs: ['around', 'bottom', 'center', 'column', 'flexClass', 'flexId', 'flexStyle', 'interface', 'left', 'middle', 'right', 'row', 'spaced', 'testId', 'top']
 })
 export class GlyphFlex {
   protected el: HTMLElement;
@@ -364,7 +364,7 @@ export declare interface GlyphHeader extends Components.GlyphHeader {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
-  outputs: ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']
+  outputs: ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'customConfigChange', 'logout']
 })
 export class GlyphHeader {
   /** Language change event */
@@ -375,13 +375,15 @@ export class GlyphHeader {
   decimalsChange!: IHeaderComponent['decimalsChange'];
   /** Brand change event */
   brandChange!: IHeaderComponent['brandChange'];
+  /** Custom config change */
+  customConfigChange!: IHeaderComponent['customConfigChange'];
   /** Logout event */
   logout!: IHeaderComponent['logout'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'logout']);
+    proxyOutputs(this, this.el, ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'customConfigChange', 'logout']);
   }
 }
 
