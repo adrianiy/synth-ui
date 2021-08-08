@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.4.0...glyph-angular-v1.4.1) (2021-08-08)
+
+
+### Bug Fixes
+
+* **header:** allow empty brandlist ([8b5e462](https://github.com/adrianiy/glyph-ui/commit/8b5e462336aadce7ad429ca61c16dbb0a691d65e))
+* fix dark styles ([9579479](https://github.com/adrianiy/glyph-ui/commit/9579479827977ec5bd33f501e84af302c0ab8504))
+
 # [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.3.2...glyph-angular-v1.4.0) (2021-08-08)
 
 
