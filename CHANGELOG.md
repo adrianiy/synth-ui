@@ -1,3 +1,10 @@
+## [3.6.4](https://github.com/adrianiy/glyph-ui/compare/v3.6.3...v3.6.4) (2021-08-08)
+
+
+### Bug Fixes
+
+* **selector:** fix active label position ([93c2288](https://github.com/adrianiy/glyph-ui/commit/93c2288acf63f0ce2984c22757c2618978490a56))
+
 ## [3.6.3](https://github.com/adrianiy/glyph-ui/compare/v3.6.2...v3.6.3) (2021-08-08)
 
 
