@@ -1,3 +1,23 @@
+# [2.10.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.9.0...glyph-core-v2.10.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **components:** use same font family var for redesign ([dfdb4f2](https://github.com/adrianiy/glyph-ui/commit/dfdb4f2bc1d074e754fb852b4eea82535e63dcd1))
+* **selector:** fix active label position ([93c2288](https://github.com/adrianiy/glyph-ui/commit/93c2288acf63f0ce2984c22757c2618978490a56))
+* emit custom config change ([b24dd38](https://github.com/adrianiy/glyph-ui/commit/b24dd38e706a45d936ba4c1ff60fad6622db44bf))
+* fix selector styles ([7c9d4ca](https://github.com/adrianiy/glyph-ui/commit/7c9d4ca5746f0bb165bfe72721803a1779e12f1a))
+* **header:** allow empty brandlist ([8b5e462](https://github.com/adrianiy/glyph-ui/commit/8b5e462336aadce7ad429ca61c16dbb0a691d65e))
+* fix dark styles ([9579479](https://github.com/adrianiy/glyph-ui/commit/9579479827977ec5bd33f501e84af302c0ab8504))
+
+
+### Features
+
+* add font variables ([ce9a670](https://github.com/adrianiy/glyph-ui/commit/ce9a670addc1bd6f69f01d7cbec7b55f2a788d84))
+* **react:** add theme management in style provider ([7be9f76](https://github.com/adrianiy/glyph-ui/commit/7be9f7696d7aa08ab54e9b6cfe298a9ec8581164))
+* **react:** improve style provider ([221704d](https://github.com/adrianiy/glyph-ui/commit/221704d2f3dadbe94a3af296470afc3135b39f6f))
+* add interface in style provider ([da97697](https://github.com/adrianiy/glyph-ui/commit/da976974fb911c7fe585e95e183d6daef435bd97))
+
 # [2.9.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-v2.8.3...glyph-core-v2.9.0) (2021-08-08)
 
 
