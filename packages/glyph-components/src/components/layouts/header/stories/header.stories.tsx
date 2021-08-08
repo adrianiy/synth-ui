@@ -1,4 +1,4 @@
-import { Brands } from 'glyph-core';
+import { Brands, UIInterface } from 'glyph-core';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
 import { languages, appData, themes, calendarEvents } from './helpers/config';
@@ -7,6 +7,7 @@ const userMenuConfig = {
     themes,
     languages,
     decimals: true,
+    customConfig: true,
 };
 
 const baseProps = {
@@ -14,17 +15,17 @@ const baseProps = {
     appTitle: 'DRIVE',
     appSubtitle: '',
     appData,
-    userMenuConfig: undefined,
+    userMenuConfig,
     avatar: true,
     interface: 'classic',
     userData: { name: 'Test user demo' },
     brand: true,
-    timeline: false,
-    search: false,
-    share: false,
+    timeline: true,
+    search: true,
+    share: true,
     menu: true,
-    notifications: false,
-    calendarEvents: undefined,
+    notifications: true,
+    calendarEvents,
 };
 
 export default {
@@ -58,7 +59,7 @@ const Template = (
     ctx: any,
 ) =>
     WithGlobalDecorator({
-        style: 'height: 300px; overflow: hidden;',
+        style: 'height: 600px; overflow: hidden;',
         template: html` <glyph-header
             .activeBrand=${activeBrand}
             .appTitle=${appTitle}
@@ -102,14 +103,8 @@ WithSubtitle.args = {
     appSubtitle: 'test app',
 };
 
-export const WithActions = Template.bind({});
-WithActions.args = {
+export const Redesign = Template.bind({});
+Redesign.args = {
     ...baseProps,
-    userMenuConfig,
-    timeline: true,
-    calendarEvents,
-    search: true,
-    menu: true,
-    share: true,
-    appData,
+    interface: UIInterface.redesign,
 };

@@ -23,6 +23,7 @@ export const GlyphFilterOptions = /*@__PURE__*/createReactComponent<JSX.GlyphFil
 export const GlyphFilterOptionsList = /*@__PURE__*/createReactComponent<JSX.GlyphFilterOptionsList, HTMLGlyphFilterOptionsListElement>('glyph-filter-options-list');
 export const GlyphFlex = /*@__PURE__*/createReactComponent<JSX.GlyphFlex, HTMLGlyphFlexElement>('glyph-flex');
 export const GlyphHeader = /*@__PURE__*/createReactComponent<JSX.GlyphHeader, HTMLGlyphHeaderElement>('glyph-header');
+export const GlyphIcon = /*@__PURE__*/createReactComponent<JSX.GlyphIcon, HTMLGlyphIconElement>('glyph-icon');
 export const GlyphInput = /*@__PURE__*/createReactComponent<JSX.GlyphInput, HTMLGlyphInputElement>('glyph-input');
 export const GlyphList = /*@__PURE__*/createReactComponent<JSX.GlyphList, HTMLGlyphListElement>('glyph-list');
 export const GlyphListRow = /*@__PURE__*/createReactComponent<JSX.GlyphListRow, HTMLGlyphListRowElement>('glyph-list-row');

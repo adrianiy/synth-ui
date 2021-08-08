@@ -23,12 +23,13 @@
 
 ## Events
 
-| Event            | Description                                                   | Type                          |
-| ---------------- | ------------------------------------------------------------- | ----------------------------- |
-| `decimalsChange` | Decimals change event                                         | `CustomEvent<boolean>`        |
-| `langChange`     | Language change event                                         | `CustomEvent<SelectorOption>` |
-| `logout`         | Logout event, trigger an event identified with **logout** key | `CustomEvent<any>`            |
-| `themeChange`    | Theme change event                                            | `CustomEvent<SelectorOption>` |
+| Event                | Description                                                   | Type                          |
+| -------------------- | ------------------------------------------------------------- | ----------------------------- |
+| `customConfigChange` | Custom config event                                           | `CustomEvent<any>`            |
+| `decimalsChange`     | Decimals change event                                         | `CustomEvent<boolean>`        |
+| `langChange`         | Language change event                                         | `CustomEvent<SelectorOption>` |
+| `logout`             | Logout event, trigger an event identified with **logout** key | `CustomEvent<any>`            |
+| `themeChange`        | Theme change event                                            | `CustomEvent<SelectorOption>` |
 
 
 ## Dependencies
@@ -41,12 +42,14 @@
 
 - [glyph-selector](../selector)
 - [glyph-toggler](../toggler)
+- [glyph-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
+  glyph-user-menu --> glyph-icon
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
   glyph-selector-options --> glyph-scroll

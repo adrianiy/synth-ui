@@ -44,3 +44,8 @@ export const enum ComparableType {
     custom = 'custom',
     ordinal = 'ordinal',
 }
+
+export const enum IconType {
+    material = 'material',
+    sewing = 'sewing'
+}

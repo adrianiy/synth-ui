@@ -616,6 +616,32 @@ export namespace Components {
          */
         "userMenuConfig": UserMenuConfiguration;
     }
+    interface GlyphIcon {
+        /**
+          * render icon with button role
+         */
+        "button": boolean;
+        /**
+          * class to use in icon
+         */
+        "class": string;
+        /**
+          * click callback
+         */
+        "clickCbk": (event: MouseEvent) => any;
+        /**
+          * icon name
+         */
+        "icon": string;
+        /**
+          * render material icon
+         */
+        "material": boolean;
+        /**
+          * render outlined icon (for material icons)
+         */
+        "outlined": boolean;
+    }
     interface GlyphInput {
         /**
           * Input should auto focus
@@ -1398,6 +1424,12 @@ declare global {
         prototype: HTMLGlyphHeaderElement;
         new (): HTMLGlyphHeaderElement;
     };
+    interface HTMLGlyphIconElement extends Components.GlyphIcon, HTMLStencilElement {
+    }
+    var HTMLGlyphIconElement: {
+        prototype: HTMLGlyphIconElement;
+        new (): HTMLGlyphIconElement;
+    };
     interface HTMLGlyphInputElement extends Components.GlyphInput, HTMLStencilElement {
     }
     var HTMLGlyphInputElement: {
@@ -1559,6 +1591,7 @@ declare global {
         "glyph-filter-options-list": HTMLGlyphFilterOptionsListElement;
         "glyph-flex": HTMLGlyphFlexElement;
         "glyph-header": HTMLGlyphHeaderElement;
+        "glyph-icon": HTMLGlyphIconElement;
         "glyph-input": HTMLGlyphInputElement;
         "glyph-list": HTMLGlyphListElement;
         "glyph-list-row": HTMLGlyphListRowElement;
@@ -2253,6 +2286,32 @@ declare namespace LocalJSX {
           * User menu config
          */
         "userMenuConfig"?: UserMenuConfiguration;
+    }
+    interface GlyphIcon {
+        /**
+          * render icon with button role
+         */
+        "button"?: boolean;
+        /**
+          * class to use in icon
+         */
+        "class"?: string;
+        /**
+          * click callback
+         */
+        "clickCbk"?: (event: MouseEvent) => any;
+        /**
+          * icon name
+         */
+        "icon"?: string;
+        /**
+          * render material icon
+         */
+        "material"?: boolean;
+        /**
+          * render outlined icon (for material icons)
+         */
+        "outlined"?: boolean;
     }
     interface GlyphInput {
         /**
@@ -2986,6 +3045,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Custom config event
+         */
+        "onCustomConfigChange"?: (event: CustomEvent<any>) => void;
+        /**
           * Decimals change event
          */
         "onDecimalsChange"?: (event: CustomEvent<boolean>) => void;
@@ -3027,6 +3090,7 @@ declare namespace LocalJSX {
         "glyph-filter-options-list": GlyphFilterOptionsList;
         "glyph-flex": GlyphFlex;
         "glyph-header": GlyphHeader;
+        "glyph-icon": GlyphIcon;
         "glyph-input": GlyphInput;
         "glyph-list": GlyphList;
         "glyph-list-row": GlyphListRow;
@@ -3073,6 +3137,7 @@ declare module "@stencil/core" {
             "glyph-filter-options-list": LocalJSX.GlyphFilterOptionsList & JSXBase.HTMLAttributes<HTMLGlyphFilterOptionsListElement>;
             "glyph-flex": LocalJSX.GlyphFlex & JSXBase.HTMLAttributes<HTMLGlyphFlexElement>;
             "glyph-header": LocalJSX.GlyphHeader & JSXBase.HTMLAttributes<HTMLGlyphHeaderElement>;
+            "glyph-icon": LocalJSX.GlyphIcon & JSXBase.HTMLAttributes<HTMLGlyphIconElement>;
             "glyph-input": LocalJSX.GlyphInput & JSXBase.HTMLAttributes<HTMLGlyphInputElement>;
             "glyph-list": LocalJSX.GlyphList & JSXBase.HTMLAttributes<HTMLGlyphListElement>;
             "glyph-list-row": LocalJSX.GlyphListRow & JSXBase.HTMLAttributes<HTMLGlyphListRowElement>;
