@@ -24,7 +24,7 @@ export class HeaderComponent {
     /** Brand selector flag */
     @Prop() brand: boolean;
     /** Available brands list */
-    @Prop() brandList: Brand[];
+    @Prop() brandList: Brand[] = [];
     /** User avatar flag */
     @Prop() avatar: boolean;
     /** Timeline flag */
