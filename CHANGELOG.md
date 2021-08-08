@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/adrianiy/glyph-ui/compare/v3.6.1...v3.6.2) (2021-08-08)
+
+
+### Bug Fixes
+
+* **header:** allow empty brandlist ([8b5e462](https://github.com/adrianiy/glyph-ui/commit/8b5e462336aadce7ad429ca61c16dbb0a691d65e))
+
 ## [3.6.1](https://github.com/adrianiy/glyph-ui/compare/v3.6.0...v3.6.1) (2021-08-08)
 
 
