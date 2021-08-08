@@ -1,3 +1,10 @@
+## [1.8.4](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.3...glyph-components-v1.8.4) (2021-08-08)
+
+
+### Bug Fixes
+
+* **selector:** fix active label position ([93c2288](https://github.com/adrianiy/glyph-ui/commit/93c2288acf63f0ce2984c22757c2618978490a56))
+
 ## [1.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.2...glyph-components-v1.8.3) (2021-08-08)
 
 
