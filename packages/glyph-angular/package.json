@@ -1,6 +1,6 @@
 {
   "name": "glyph-angular",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "license": "MIT",
   "description": "Wrapper of web components for angular",
   "scripts": {
