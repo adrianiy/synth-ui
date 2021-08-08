@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/adrianiy/glyph-ui/compare/v3.6.0...v3.6.1) (2021-08-08)
+
+
+### Bug Fixes
+
+* fix dark styles ([9579479](https://github.com/adrianiy/glyph-ui/commit/9579479827977ec5bd33f501e84af302c0ab8504))
+
 # [3.6.0](https://github.com/adrianiy/glyph-ui/compare/v3.5.3...v3.6.0) (2021-08-08)
 
 
