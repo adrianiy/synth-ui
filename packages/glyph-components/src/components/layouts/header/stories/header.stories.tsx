@@ -14,7 +14,7 @@ const baseProps = {
     appTitle: 'DRIVE',
     appSubtitle: '',
     appData,
-    userMenuConfig: undefined,
+    userMenuConfig,
     avatar: true,
     interface: 'classic',
     userData: { name: 'Test user demo' },
