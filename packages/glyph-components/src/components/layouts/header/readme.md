@@ -16,6 +16,7 @@
 | `avatar`         | `avatar`        | User avatar flag                                                 | `boolean`                                                                                                                                                                  | `undefined`           |
 | `basePath`       | `base-path`     | Base path to get assets                                          | `string`                                                                                                                                                                   | `undefined`           |
 | `brand`          | `brand`         | Brand selector flag                                              | `boolean`                                                                                                                                                                  | `undefined`           |
+| `brandList`      | --              | Available brands list                                            | `Brand[]`                                                                                                                                                                  | `undefined`           |
 | `calendarEvents` | --              | Calendar events                                                  | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `events`         | --              | Events                                                           | `TimelineEvent[]`                                                                                                                                                          | `undefined`           |
 | `i18n`           | --              | Extra i18n translation object                                    | `{ [key: string]: string; }`                                                                                                                                               | `{}`                  |
@@ -34,6 +35,7 @@
 
 | Event            | Description           | Type                          |
 | ---------------- | --------------------- | ----------------------------- |
+| `brandChange`    | Brand change event    | `CustomEvent<Brand>`          |
 | `decimalsChange` | Decimals change event | `CustomEvent<boolean>`        |
 | `langChange`     | Language change event | `CustomEvent<SelectorOption>` |
 | `logout`         | Logout event          | `CustomEvent<any>`            |
@@ -51,6 +53,7 @@
 - [glyph-app-menu](../../app-menu)
 - [glyph-share-menu](../../share-menu)
 - [glyph-notifications](../../notifications)
+- [glyph-brand-list](../../brand-list)
 
 ### Graph
 ```mermaid
@@ -62,6 +65,7 @@ graph TD;
   glyph-header --> glyph-app-menu
   glyph-header --> glyph-share-menu
   glyph-header --> glyph-notifications
+  glyph-header --> glyph-brand-list
   glyph-timeline --> glyph-title
   glyph-timeline --> glyph-selector
   glyph-timeline --> glyph-tabs

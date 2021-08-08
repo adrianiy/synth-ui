@@ -98,6 +98,10 @@
         min-width: 200px;
         padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
 
+        &--brands {
+            min-width: 86px;
+        }
+
         &__container {
             position: absolute;
             top: 50px;
@@ -107,6 +111,11 @@
 
             &.active {
                 transform: translateY(0);
+            }
+            &--brands {
+                left: 42px;
+                user-select: none;
+
             }
             &.right {
                 right: 32px;

@@ -32,6 +32,14 @@ export const calendarEvents = {
         },
     ],
 };
+export const brandList = [
+    { name: 'zara', id: 1, query: [ 1, 16 ] },
+    { name: 'bershka', id: 2, query: [ 2 ] },
+    { name: 'uterque', id: 3, query: [ 3 ] },
+    { name: 'stradivarius', id: 4, query: [ 4 ] },
+    { name: 'zara_south', id: 16, query: [ 1, 16 ] },
+    { name: 'home', id: 5, query: [ 5 ] },
+];
 export const themes = [
     { name: 'white', value: 'white', active: true },
     { name: 'dark', value: 'dark', active: false },

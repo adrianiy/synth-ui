@@ -1,7 +1,7 @@
 import { Brands, UIInterface } from 'glyph-core';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
-import { languages, appData, themes, calendarEvents } from './helpers/config';
+import { languages, appData, themes, calendarEvents, brandList } from './helpers/config';
 
 const userMenuConfig = {
     themes,
@@ -17,6 +17,7 @@ const baseProps = {
     appData,
     userMenuConfig,
     avatar: true,
+    brandList,
     interface: 'classic',
     userData: { name: 'Test user demo' },
     brand: true,
@@ -26,6 +27,10 @@ const baseProps = {
     menu: true,
     notifications: true,
     calendarEvents,
+};
+
+const brandChange = ({ detail }) => {
+    alert(detail.id);
 };
 
 export default {
@@ -46,6 +51,7 @@ const Template = (
         search,
         share,
         brand,
+        brandList,
         timeline,
         notifications,
         calendarEvents,
@@ -72,10 +78,12 @@ const Template = (
             .share=${share}
             .menu=${menu}
             .brand=${brand}
+            .brandList=${brandList}
             .notifications=${notifications}
             .timeline=${timeline}
             .calendarEvents=${calendarEvents}
             .appData=${appData}
+            @brandChange=${brandChange}
         >
             <div style="display: grid; grid-gap: 12px;">
                 <span style="padding: 8px; font-size: 12px; border: 1px solid #dedede; border-radius: 4px"
