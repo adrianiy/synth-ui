@@ -1,3 +1,17 @@
+# [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.4.1...glyph-angular-v1.5.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **selector:** fix active label position ([93c2288](https://github.com/adrianiy/glyph-ui/commit/93c2288acf63f0ce2984c22757c2618978490a56))
+* emit custom config change ([b24dd38](https://github.com/adrianiy/glyph-ui/commit/b24dd38e706a45d936ba4c1ff60fad6622db44bf))
+* fix selector styles ([7c9d4ca](https://github.com/adrianiy/glyph-ui/commit/7c9d4ca5746f0bb165bfe72721803a1779e12f1a))
+
+
+### Features
+
+* add interface in style provider ([da97697](https://github.com/adrianiy/glyph-ui/commit/da976974fb911c7fe585e95e183d6daef435bd97))
+
 ## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.4.0...glyph-angular-v1.4.1) (2021-08-08)
 
 
