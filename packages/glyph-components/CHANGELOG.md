@@ -1,3 +1,11 @@
+## [1.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.2...glyph-components-v1.8.3) (2021-08-08)
+
+
+### Bug Fixes
+
+* emit custom config change ([b24dd38](https://github.com/adrianiy/glyph-ui/commit/b24dd38e706a45d936ba4c1ff60fad6622db44bf))
+* fix selector styles ([7c9d4ca](https://github.com/adrianiy/glyph-ui/commit/7c9d4ca5746f0bb165bfe72721803a1779e12f1a))
+
 ## [1.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.1...glyph-components-v1.8.2) (2021-08-08)
 
 
