@@ -33,7 +33,7 @@ body {
     --gui-font--m: 1.42em; // 17px 
     --gui-font--l: 1.6666666666666667em; // 20px
     --gui-font--xl: 2em; // 24px 
-    --gui-font--xxl: 2.34em; // 32px 
+    --gui-font--xxl: 2.34em; // 28px 
     --gui-font--xxxl: 4em; // 48px
 
     /* font weights */
@@ -65,6 +65,13 @@ body {
 
     /* article */ 
     --gui-color--article--decoration: rgba(255, 255, 255, 0.7);
+
+    /* fonts */
+    --gui-font--body: var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family);
+    --gui-font--heading--s: uppercase var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family);
+    --gui-font--heading--l: uppercase var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family);
+    --gui-font--label--l: var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family);
+    --gui-font--label--m: var(--gui-font-weight--bold) var(--gui-font--xs) var(--gui-font-family);
 }
 .redesign {
     --gui-font-family: 'Zara', sans-serif;
