@@ -1,3 +1,15 @@
+# [2.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.1.2...glyph-react-v2.2.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **selector:** fix active label position ([93c2288](https://github.com/adrianiy/glyph-ui/commit/93c2288acf63f0ce2984c22757c2618978490a56))
+
+
+### Features
+
+* add interface in style provider ([da97697](https://github.com/adrianiy/glyph-ui/commit/da976974fb911c7fe585e95e183d6daef435bd97))
+
 ## [2.1.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.1.1...glyph-react-v2.1.2) (2021-08-08)
 
 
