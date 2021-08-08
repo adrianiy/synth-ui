@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.9.0...glyph-components-v1.10.0) (2021-08-08)
+
+
+### Features
+
+* **react:** improve style provider ([221704d](https://github.com/adrianiy/glyph-ui/commit/221704d2f3dadbe94a3af296470afc3135b39f6f))
+
 # [1.9.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.8.4...glyph-components-v1.9.0) (2021-08-08)
 
 
