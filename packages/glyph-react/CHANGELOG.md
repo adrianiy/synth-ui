@@ -1,3 +1,35 @@
+# [2.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.0.1...glyph-react-v2.1.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **core:** change default join strategy ([e3e9fd9](https://github.com/adrianiy/glyph-ui/commit/e3e9fd9c481cb9057aee842a10eef965d35609cb))
+* **core:** fix filters without ignore parameter ([2fab989](https://github.com/adrianiy/glyph-ui/commit/2fab989516d7970c2d47cf188d9e3dc3d3f4385c))
+* **core:** fix get query params use and ignore ([367e5a4](https://github.com/adrianiy/glyph-ui/commit/367e5a471d7ace18d39dc049b987f3aa7644e993))
+* **core:** fix params int parsing ([1af3992](https://github.com/adrianiy/glyph-ui/commit/1af3992ee819b2d4cfb493699c21d51c2a28824d))
+* **core:** get parameters from ctx instead of query ([e46c5e7](https://github.com/adrianiy/glyph-ui/commit/e46c5e7cdb90d52a38788c66ef42d148570cff89))
+* **core:** improve pipe middlewares ([f815f7d](https://github.com/adrianiy/glyph-ui/commit/f815f7dbccaa1abc7e332ae6272023abfc2c8080))
+* **core:** use by key instead of joinKeys ([7bb7772](https://github.com/adrianiy/glyph-ui/commit/7bb7772b86519bbb92ac8fc5ccb94e957709aee3))
+* **selector:** fix selector height ([ce6c7fe](https://github.com/adrianiy/glyph-ui/commit/ce6c7fe93e56b59cdf2d2f7585c03c7654f00e21))
+* **selector:** fix selector width ([9cce901](https://github.com/adrianiy/glyph-ui/commit/9cce9010e41bb6dcaf245a5021f8e22f98acba5d))
+
+
+### Features
+
+* **button-group:** add redesign styles in button group ([529c4d6](https://github.com/adrianiy/glyph-ui/commit/529c4d6c9db7cd746e1d0e147385c354d31cf74e))
+* **chipsbar:** add redesign style in chipsbar ([8af5066](https://github.com/adrianiy/glyph-ui/commit/8af50665b78cdd55bc43a8abc09a43b86a7075b4))
+* **components:** add brand selector ([#169](https://github.com/adrianiy/glyph-ui/issues/169)) ([436f473](https://github.com/adrianiy/glyph-ui/commit/436f473a023697245ed00714f5a7c85267b42bd7))
+* **components:** add sewing icons ([6777d0e](https://github.com/adrianiy/glyph-ui/commit/6777d0efef1471fe3efa77d36b9390eb2563ffba))
+* **components:** add Zara font and redesign interface ([e46fa2e](https://github.com/adrianiy/glyph-ui/commit/e46fa2e1fd1bec4b575d5651c1ddef51a8522b6b))
+* **core:** add exact filter key if startsWith $ ([699b72f](https://github.com/adrianiy/glyph-ui/commit/699b72f665eeffa4dd7ead7dd39d78cd6e9e2d93))
+* **core:** add ignore paramters in filiters parsing ([84d2e71](https://github.com/adrianiy/glyph-ui/commit/84d2e719a33ffe1262cfb2b99d38347ac1bee9cc))
+* **core:** add nin filters in params process ([425040e](https://github.com/adrianiy/glyph-ui/commit/425040eb9ea053a4b177decf8477d3e99b6e6bda))
+* **core:** export join and group utils ([5643d18](https://github.com/adrianiy/glyph-ui/commit/5643d18d9fb7fdce5ca294fa0988dcf3b00ca9b4))
+* **core:** get parameters from ctx.query ([bc39c9b](https://github.com/adrianiy/glyph-ui/commit/bc39c9b87b9117e3f88199dd67adf4db62a31162))
+* **header:** add redesign styles in header ([38269ad](https://github.com/adrianiy/glyph-ui/commit/38269ad3ef14c93e7ad7bacc41c73f11d9566b71))
+* **ranking:** add redesign styles in ranking ([fe97dfd](https://github.com/adrianiy/glyph-ui/commit/fe97dfd0bbf4002fde824fdefb6f7b4a0e8883c3))
+* **selector:** add disabled state ([fc048cb](https://github.com/adrianiy/glyph-ui/commit/fc048cb31ad257f8de9575b42509ce9f5d7ab9a2))
+
 ## [2.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.0.0...glyph-react-v2.0.1) (2021-08-04)
 
 

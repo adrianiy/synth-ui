@@ -1,3 +1,23 @@
+# [3.6.0](https://github.com/adrianiy/glyph-ui/compare/v3.5.3...v3.6.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **selector:** fix selector height ([ce6c7fe](https://github.com/adrianiy/glyph-ui/commit/ce6c7fe93e56b59cdf2d2f7585c03c7654f00e21))
+* **selector:** fix selector width ([9cce901](https://github.com/adrianiy/glyph-ui/commit/9cce9010e41bb6dcaf245a5021f8e22f98acba5d))
+
+
+### Features
+
+* **button-group:** add redesign styles in button group ([529c4d6](https://github.com/adrianiy/glyph-ui/commit/529c4d6c9db7cd746e1d0e147385c354d31cf74e))
+* **chipsbar:** add redesign style in chipsbar ([8af5066](https://github.com/adrianiy/glyph-ui/commit/8af50665b78cdd55bc43a8abc09a43b86a7075b4))
+* **components:** add brand selector ([#169](https://github.com/adrianiy/glyph-ui/issues/169)) ([436f473](https://github.com/adrianiy/glyph-ui/commit/436f473a023697245ed00714f5a7c85267b42bd7))
+* **components:** add sewing icons ([6777d0e](https://github.com/adrianiy/glyph-ui/commit/6777d0efef1471fe3efa77d36b9390eb2563ffba))
+* **components:** add Zara font and redesign interface ([e46fa2e](https://github.com/adrianiy/glyph-ui/commit/e46fa2e1fd1bec4b575d5651c1ddef51a8522b6b))
+* **header:** add redesign styles in header ([38269ad](https://github.com/adrianiy/glyph-ui/commit/38269ad3ef14c93e7ad7bacc41c73f11d9566b71))
+* **ranking:** add redesign styles in ranking ([fe97dfd](https://github.com/adrianiy/glyph-ui/commit/fe97dfd0bbf4002fde824fdefb6f7b4a0e8883c3))
+* **selector:** add disabled state ([fc048cb](https://github.com/adrianiy/glyph-ui/commit/fc048cb31ad257f8de9575b42509ce9f5d7ab9a2))
+
 ## [3.5.3](https://github.com/adrianiy/glyph-ui/compare/v3.5.2...v3.5.3) (2021-08-07)
 
 

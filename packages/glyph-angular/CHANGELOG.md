@@ -1,3 +1,68 @@
+# [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.3.2...glyph-angular-v1.4.0) (2021-08-08)
+
+
+### Bug Fixes
+
+* **calendar:** fix calendar month selector ([7ca1423](https://github.com/adrianiy/glyph-ui/commit/7ca14235a9adf8cdb6afd3990b91006c1ea18ee9))
+* **components:** add basePath to toaster ([f51cb2c](https://github.com/adrianiy/glyph-ui/commit/f51cb2c8735681694e9b38f63ef618c1d8106d0b))
+* **components:** show text or i18n error ([3648939](https://github.com/adrianiy/glyph-ui/commit/3648939388ec11d5912b2be72262d3948bfb18fd))
+* **core:** add runtime regenerator ([3fcb219](https://github.com/adrianiy/glyph-ui/commit/3fcb219eaf87a53bb0e12576ec608a691fe8c7cd))
+* **core:** change default join strategy ([e3e9fd9](https://github.com/adrianiy/glyph-ui/commit/e3e9fd9c481cb9057aee842a10eef965d35609cb))
+* **core:** fix custom logger from state ([21bf698](https://github.com/adrianiy/glyph-ui/commit/21bf698a308270ae98a9ecf7f13adee3de33315e))
+* **core:** fix filter value as int ([e020eb4](https://github.com/adrianiy/glyph-ui/commit/e020eb4e198d3f1d28f94d8c6e24ae4c4e0c603c))
+* **core:** fix filters without ignore parameter ([2fab989](https://github.com/adrianiy/glyph-ui/commit/2fab989516d7970c2d47cf188d9e3dc3d3f4385c))
+* **core:** fix get query params use and ignore ([367e5a4](https://github.com/adrianiy/glyph-ui/commit/367e5a471d7ace18d39dc049b987f3aa7644e993))
+* **core:** fix params int parsing ([1af3992](https://github.com/adrianiy/glyph-ui/commit/1af3992ee819b2d4cfb493699c21d51c2a28824d))
+* **core:** fix transfomr match ([9143251](https://github.com/adrianiy/glyph-ui/commit/9143251709fd299dfe6afe7af7bf8140c2df6d0d))
+* **core:** get parameters from ctx instead of query ([e46c5e7](https://github.com/adrianiy/glyph-ui/commit/e46c5e7cdb90d52a38788c66ef42d148570cff89))
+* **core:** improve pipe middlewares ([f815f7d](https://github.com/adrianiy/glyph-ui/commit/f815f7dbccaa1abc7e332ae6272023abfc2c8080))
+* **core:** improve transform middleware ([adf2ad8](https://github.com/adrianiy/glyph-ui/commit/adf2ad82e0adb12707bb6ab5b62b7f2a4dca5357))
+* **core:** refactor transform middleware ([4ba5940](https://github.com/adrianiy/glyph-ui/commit/4ba5940180a52b79b3de2b4e2ccea5f8772d6aef))
+* **core:** remove unused dependency ([564bd4e](https://github.com/adrianiy/glyph-ui/commit/564bd4eb43f35e95ba79a023522ac278cc8c02e1))
+* **core:** use by key instead of joinKeys ([7bb7772](https://github.com/adrianiy/glyph-ui/commit/7bb7772b86519bbb92ac8fc5ccb94e957709aee3))
+* **core:** use modular lodash cloneDeep ([19b6f7f](https://github.com/adrianiy/glyph-ui/commit/19b6f7f477f5f6cd817a9be75e8e51368940458d))
+* **react:** fix react docs components ([bbc6d21](https://github.com/adrianiy/glyph-ui/commit/bbc6d21efb0ee0ec812e316c066b7cd375ec8ce7))
+* **selector:** fix selector height ([ce6c7fe](https://github.com/adrianiy/glyph-ui/commit/ce6c7fe93e56b59cdf2d2f7585c03c7654f00e21))
+* **selector:** fix selector width ([9cce901](https://github.com/adrianiy/glyph-ui/commit/9cce9010e41bb6dcaf245a5021f8e22f98acba5d))
+
+
+### Features
+
+* **button-group:** add redesign styles in button group ([529c4d6](https://github.com/adrianiy/glyph-ui/commit/529c4d6c9db7cd746e1d0e147385c354d31cf74e))
+* **chipsbar:** add redesign style in chipsbar ([8af5066](https://github.com/adrianiy/glyph-ui/commit/8af50665b78cdd55bc43a8abc09a43b86a7075b4))
+* **components:** add brand selector ([#169](https://github.com/adrianiy/glyph-ui/issues/169)) ([436f473](https://github.com/adrianiy/glyph-ui/commit/436f473a023697245ed00714f5a7c85267b42bd7))
+* **components:** add sewing icons ([6777d0e](https://github.com/adrianiy/glyph-ui/commit/6777d0efef1471fe3efa77d36b9390eb2563ffba))
+* **components:** add Zara font and redesign interface ([e46fa2e](https://github.com/adrianiy/glyph-ui/commit/e46fa2e1fd1bec4b575d5651c1ddef51a8522b6b))
+* **core:** add exact filter key if startsWith $ ([699b72f](https://github.com/adrianiy/glyph-ui/commit/699b72f665eeffa4dd7ead7dd39d78cd6e9e2d93))
+* **core:** add ignore paramters in filiters parsing ([84d2e71](https://github.com/adrianiy/glyph-ui/commit/84d2e719a33ffe1262cfb2b99d38347ac1bee9cc))
+* **core:** add multi option transform ([baaea1e](https://github.com/adrianiy/glyph-ui/commit/baaea1ed43008439c5a00aa7d71cb8b73d1a7bf2))
+* **core:** add nin filters in params process ([425040e](https://github.com/adrianiy/glyph-ui/commit/425040eb9ea053a4b177decf8477d3e99b6e6bda))
+* **core:** export join and group utils ([5643d18](https://github.com/adrianiy/glyph-ui/commit/5643d18d9fb7fdce5ca294fa0988dcf3b00ca9b4))
+* **core:** get parameters from ctx.query ([bc39c9b](https://github.com/adrianiy/glyph-ui/commit/bc39c9b87b9117e3f88199dd67adf4db62a31162))
+* **core:** improve logger logging last step ([2b6a9ed](https://github.com/adrianiy/glyph-ui/commit/2b6a9ed601ccb51a0607ddbd94d152c61b94a428))
+* **core:** improve transform and filter middlewares ([e104a67](https://github.com/adrianiy/glyph-ui/commit/e104a6715b8a75942e8eb987aee7675b4e9b08ec))
+* **core:** improve transform middleware accepting keys object ([67f6209](https://github.com/adrianiy/glyph-ui/commit/67f6209c97d63efc5c77b4bd309a5c9a55a94591))
+* **core:** new add field option and save parameters in a copy ([f66a0cb](https://github.com/adrianiy/glyph-ui/commit/f66a0cb4a15e70e8c2663b17326e51562180a79d))
+* **core:** refactor middlewares ([7cfe64e](https://github.com/adrianiy/glyph-ui/commit/7cfe64ec740efb781bad4d7a26dd23791c5c5ca6))
+* **header:** add redesign styles in header ([38269ad](https://github.com/adrianiy/glyph-ui/commit/38269ad3ef14c93e7ad7bacc41c73f11d9566b71))
+* **ranking:** add redesign styles in ranking ([fe97dfd](https://github.com/adrianiy/glyph-ui/commit/fe97dfd0bbf4002fde824fdefb6f7b4a0e8883c3))
+* **react:** add style provider ([b4bc797](https://github.com/adrianiy/glyph-ui/commit/b4bc7977b318c620482778f70f95ee88b01582ee))
+* **react:** force release ([3cf9eb9](https://github.com/adrianiy/glyph-ui/commit/3cf9eb9ea2f479f4e98564daa54b84f3223b90a1))
+* **selector:** add disabled state ([fc048cb](https://github.com/adrianiy/glyph-ui/commit/fc048cb31ad257f8de9575b42509ce9f5d7ab9a2))
+
+
+### Performance Improvements
+
+* **core:** test breacking change release ([04e5b6c](https://github.com/adrianiy/glyph-ui/commit/04e5b6c199e219121051374fb632c337c60c70a2))
+* **react:** breacking change to update components ([40aef3c](https://github.com/adrianiy/glyph-ui/commit/40aef3c4064abdd0e3fe620d742ae5e137948a74))
+* **react:** fix version publication ([d41ed93](https://github.com/adrianiy/glyph-ui/commit/d41ed93b4907ad5a5d733bf4be0fcd1707e91b2e))
+
+
+### BREAKING CHANGES
+
+* **react:** change release number to update glyph-components
+* **core:** test to release a breaking change version
+
 ## [1.3.2](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-v1.3.1...glyph-angular-v1.3.2) (2021-07-28)
 
 
