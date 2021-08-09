@@ -1,3 +1,10 @@
+## [3.9.1](https://github.com/adrianiy/glyph-ui/compare/v3.9.0...v3.9.1) (2021-08-09)
+
+
+### Bug Fixes
+
+* multiselect in redesign ([0a328e8](https://github.com/adrianiy/glyph-ui/commit/0a328e8e3ec57e04b2c037d6177ecc4872ce12a0))
+
 # [3.9.0](https://github.com/adrianiy/glyph-ui/compare/v3.8.0...v3.9.0) (2021-08-08)
 
 
