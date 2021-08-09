@@ -44,6 +44,7 @@ body {
 
     /* font family */
     --gui-font-family: 'Roboto', sans-serif;
+    --gui-font-family--zara: 'Zara', sans-serif;
 
     /* transitions */
     --gui-transition--300: all ease-in-out 300ms;
@@ -67,15 +68,20 @@ body {
     --gui-color--article--decoration: rgba(255, 255, 255, 0.7);
 
     /* fonts */
-    --gui-font--body: var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family);
-    --gui-font--heading--s: uppercase var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family);
-    --gui-font--heading--l: uppercase var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family);
-    --gui-font--label--l: var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family);
-    --gui-font--label--m: var(--gui-font-weight--bold) var(--gui-font--xs) var(--gui-font-family);
+    --gui-font--body: normal var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family);
+    --gui-font--heading--s: normal var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family);
+    --gui-font--heading--l: normal var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family);
+    --gui-font--label--l: normal var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family);
+    --gui-font--label--m: normal var(--gui-font-weight--bold) var(--gui-font--xs) var(--gui-font-family);
 }
 .redesign {
     --gui-font-family: 'Zara', sans-serif;
     --gui-header-size: 66px;
+    --gui-font--body: normal var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family--zara);
+    --gui-font--heading--s: normal var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family--zara);
+    --gui-font--heading--l: normal var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family--zara);
+    --gui-font--label--l: normal var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family--zara);
+    --gui-font--label--m: normal var(--gui-font-weight--bold) var(--gui-font--xs) var(--gui-font-family--zara);
 
     font-family: var(--gui-font-family);
 }

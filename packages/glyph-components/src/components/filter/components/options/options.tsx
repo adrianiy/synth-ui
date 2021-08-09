@@ -134,7 +134,7 @@ export class FilterOptionsComponent {
                     <h5>{this._i18n[this.description] || this.description}</h5>
                 )}
                 {this.searchPlaceholder && this._renderSearch()}
-                {this.haveMultiSelect && this.interface === UIInterface.classic && this._renderMultiSelect()}
+                {this.haveMultiSelect && this.interface !== UIInterface.modern && this._renderMultiSelect()}
                 <glyph-scroll
                     tiny
                     scrollSpeed={0.09}
