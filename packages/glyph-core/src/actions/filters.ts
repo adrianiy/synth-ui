@@ -14,26 +14,14 @@ const loadCacheKeys = (user, filterVersion: string) => ({
     },
 });
 
-const initialize = (
-    filterEntities: any,
-    screen: string,
-    baseConfig: FiltersConfig,
-    initialFilters: any,
-    translateFn: (arg0: string) => string,
-) => ({
+const initialize = (filterEntities: any, screen: string, baseConfig: FiltersConfig, initialFilters: any) => ({
     type: filterActions.initialize,
     props: {
         filterEntities,
         screen,
         baseConfig,
         initialFilters,
-        translateFn,
     },
-});
-
-const translate = (translateFn: (arg0: string) => string) => ({
-    type: filterActions.translate,
-    translateFn,
 });
 
 const setFilters = (filtersConfig: any) => ({
@@ -68,7 +56,6 @@ const actions = {
     setScreen,
     loadCacheKeys,
     initialize,
-    translate,
     selectOption,
     clearFilter,
     clearAll,

@@ -32,6 +32,9 @@
             padding-right: 0;
         }
     }
+    &.redesign {
+        box-shadow: none;
+    }
 
     .search-box {
         border: var(--gui-border--lightest);

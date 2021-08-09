@@ -2,6 +2,7 @@ import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 import { UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
+import { cls } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-modal',
@@ -49,8 +50,14 @@ export class ModalComponent {
     private _renderHeader = () => {
         return (
             <glyph-title interface={this.interface}>
-                <Flex row middle spaced={!!this.modalTitle} right={!this.modalTitle} class="modal__container__header">
-                    {this.modalTitle && this.modalTitle}
+                <Flex
+                    row
+                    middle
+                    spaced={!!this.modalTitle}
+                    right={!this.modalTitle}
+                    class={cls('modal__container__header', this.interface)}
+                >
+                    <span>{this.modalTitle && this.modalTitle}</span>
                     {this.closeButton && <Icon icon="close" onClick={this._onClose} />}
                 </Flex>
             </glyph-title>

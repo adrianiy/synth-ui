@@ -1,11 +1,23 @@
-@font-face{
+@font-face {
     font-family: Zara;
-    font-weight: 400;
-    src:url('../assets/fonts/Zara.woff2')
+    font-weight: bold;
+    src: url('../assets/fonts/NeueHelveticaforZara-MdCn.otf') format('opentype');
 }
 
-@font-face{
+@font-face {
     font-family: Zara;
-    font-weight: 700;
-    src:url('../assets/fonts/ZaraBold.woff2')
+    font-weight: bolder;
+    src: url('../assets/fonts/NeueHelveticaforZara-BoldCn.otf') format('opentype');
+}
+
+@font-face {
+    font-family: Zara;
+    font-weight: lighter;
+    src: url('../assets/fonts/NeueHelveticaforZara-LtCn.otf') format('opentype');
+}
+
+@font-face {
+    font-family: Zara;
+    font-weight: normal;
+    src: url('../assets/fonts/NeueHelveticaforZara-Roman.otf') format('opentype');
 }

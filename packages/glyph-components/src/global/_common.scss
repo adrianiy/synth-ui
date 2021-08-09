@@ -5,10 +5,9 @@ b {
     font-weight: var(--gui-font-weight--extra-bold);
 }
 h1 {
-    font-size: var(--gui-font--xl);
+    font: var(--gui-font--heading--l);
     margin: 0;
     margin-bottom: var(--gui-padding--xs);
-    font-weight: var(--gui-font-weight--extra-bold);
     text-transform: uppercase;
 
     &.big {
@@ -54,13 +53,15 @@ h5 {
 }
 
 .redesign {
+    h1, h2, h3, h4, h5 {
+        text-transform: uppercase;
+    }
     h2 {
         font-size: var(--gui-font--l);
         margin: 0;
         font-weight: var(--gui-font-weight--bold);
         margin-bottom: var(--gui-padding--xs);
         letter-spacing: var(--gui-space--s);
-        text-transform: uppercase;
     }
     h5 {
         font-size: var(--gui-font--xs);

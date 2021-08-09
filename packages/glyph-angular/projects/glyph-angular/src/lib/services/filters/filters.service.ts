@@ -48,7 +48,7 @@ export class FilterService {
         baseConfig: FiltersConfig = {},
         initialFilters: any = {},
     ) {
-        this.initialize(filterEntities, screen, baseConfig, initialFilters, desc => this._translate.instant(desc));
+        this.initialize(filterEntities, screen, baseConfig, initialFilters);
     }
 
     /**

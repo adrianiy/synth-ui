@@ -99,7 +99,7 @@
         padding: var(--gui-padding--m) var(--gui-padding--m) var(--gui-padding--l) var(--gui-padding--m);
 
         &--brands {
-            min-width: 86px;
+            min-width: 80px;
         }
 
         &__container {
@@ -113,7 +113,7 @@
                 transform: translateY(0);
             }
             &--brands {
-                left: 42px;
+                left: 47px;
                 user-select: none;
 
             }

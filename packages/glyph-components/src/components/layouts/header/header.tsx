@@ -108,7 +108,7 @@ export class HeaderComponent {
     };
 
     private _toggleBrandsMenu = (value?: boolean) => () => {
-        this.showBrands = value ?? !this.showBrands;
+        this.showBrands = value ?? (!this.showBrands && this.brandList?.length > 1);
     };
 
     private _handleLangChange = ({ detail }: CustomEvent) => {

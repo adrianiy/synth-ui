@@ -17,6 +17,8 @@ export class FilterDrilldownOptionsComponent {
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Search value */
     @Prop() searchValue: string;
+    /** Extra i18n translation object */
+    @Prop() i18n: { [key: string]: string } = {};
     /** Option click event */
     @Prop() optionClick: (option: FilterOptionHeader) => (event: any) => void;
     /** Expanded flag */
@@ -42,6 +44,7 @@ export class FilterDrilldownOptionsComponent {
             <glyph-filter-options-list
                 listStyle={{ 'padding-left': 'var(--gui-padding--m)' }}
                 options={children}
+                i18n={this.i18n}
                 interface={this.interface}
                 searchValue={this.searchValue}
                 optionClick={this.optionClick}
@@ -52,7 +55,7 @@ export class FilterDrilldownOptionsComponent {
     render() {
         const { children, description } = this.option;
         const anyActive = children.some(
-            child => child.active || (this.searchValue && inSearch(child, this.searchValue)),
+            child => child.active || (this.searchValue && inSearch(child, this.searchValue, this.i18n)),
         );
         const expanded = this.expandedState || anyActive;
 

@@ -43,6 +43,7 @@ export const GlyphSkLoader = /*@__PURE__*/createReactComponent<JSX.GlyphSkLoader
 export const GlyphSlider = /*@__PURE__*/createReactComponent<JSX.GlyphSlider, HTMLGlyphSliderElement>('glyph-slider');
 export const GlyphSortable = /*@__PURE__*/createReactComponent<JSX.GlyphSortable, HTMLGlyphSortableElement>('glyph-sortable');
 export const GlyphSortableElement = /*@__PURE__*/createReactComponent<JSX.GlyphSortableElement, HTMLGlyphSortableElementElement>('glyph-sortable-element');
+export const GlyphStyle = /*@__PURE__*/createReactComponent<JSX.GlyphStyle, HTMLGlyphStyleElement>('glyph-style');
 export const GlyphTabs = /*@__PURE__*/createReactComponent<JSX.GlyphTabs, HTMLGlyphTabsElement>('glyph-tabs');
 export const GlyphTimeline = /*@__PURE__*/createReactComponent<JSX.GlyphTimeline, HTMLGlyphTimelineElement>('glyph-timeline');
 export const GlyphTitle = /*@__PURE__*/createReactComponent<JSX.GlyphTitle, HTMLGlyphTitleElement>('glyph-title');

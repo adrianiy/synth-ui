@@ -1,6 +1,6 @@
 import { UIInterface, UITheme } from 'glyph-core';
 import React, { createContext, useContext, useState } from 'react';
-import { GlyphFlex } from '../components';
+import { GlyphStyle } from '../components';
 
 const GlyphStyleContext = createContext({});
 
@@ -20,9 +20,9 @@ const GlyphStyleProvider = ({
 
     return (
         <GlyphStyleContext.Provider value={{ glyphInterface, glyphTheme, setGlyphInterface, setGlyphTheme } as any}>
-            <GlyphFlex interface={glyphInterface} theme={glyphTheme}>
+            <GlyphStyle interface={glyphInterface} theme={glyphTheme}>
                 {children}
-            </GlyphFlex>
+            </GlyphStyle>
         </GlyphStyleContext.Provider>
     );
 };

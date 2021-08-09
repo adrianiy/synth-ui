@@ -10,7 +10,7 @@ export const InitializeFilters = (Story: any) => {
 
     useEffect(() => {
         async function loadFilters() {
-            dispatch(actions.filters.initialize(FilterEntities, 'test', FiltersConfig, {}, desc => desc));
+            dispatch(actions.filters.initialize(FilterEntities, 'test', FiltersConfig, {}));
         }
         loadFilters();
     }, [ dispatch ]);

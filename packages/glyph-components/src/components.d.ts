@@ -406,6 +406,10 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
+        /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface": UIInterface;
@@ -473,6 +477,10 @@ export namespace Components {
         "searchPlaceholder": string;
     }
     interface GlyphFilterOptionsList {
+        /**
+          * Extra i18n translation object
+         */
+        "i18n": { [key: string]: string };
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
@@ -1228,6 +1236,16 @@ export namespace Components {
          */
         "valueGetter": (item: any) => string;
     }
+    interface GlyphStyle {
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
+          * Theme type
+         */
+        "theme": UITheme;
+    }
     interface GlyphTabs {
         /**
           * Tab rendering style big | small
@@ -1570,6 +1588,12 @@ declare global {
         prototype: HTMLGlyphSortableElementElement;
         new (): HTMLGlyphSortableElementElement;
     };
+    interface HTMLGlyphStyleElement extends Components.GlyphStyle, HTMLStencilElement {
+    }
+    var HTMLGlyphStyleElement: {
+        prototype: HTMLGlyphStyleElement;
+        new (): HTMLGlyphStyleElement;
+    };
     interface HTMLGlyphTabsElement extends Components.GlyphTabs, HTMLStencilElement {
     }
     var HTMLGlyphTabsElement: {
@@ -1643,6 +1667,7 @@ declare global {
         "glyph-slider": HTMLGlyphSliderElement;
         "glyph-sortable": HTMLGlyphSortableElement;
         "glyph-sortable-element": HTMLGlyphSortableElementElement;
+        "glyph-style": HTMLGlyphStyleElement;
         "glyph-tabs": HTMLGlyphTabsElement;
         "glyph-timeline": HTMLGlyphTimelineElement;
         "glyph-title": HTMLGlyphTitleElement;
@@ -2098,6 +2123,10 @@ declare namespace LocalJSX {
          */
         "expanded"?: boolean;
         /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
+        /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
         "interface"?: UIInterface;
@@ -2165,6 +2194,10 @@ declare namespace LocalJSX {
         "searchPlaceholder"?: string;
     }
     interface GlyphFilterOptionsList {
+        /**
+          * Extra i18n translation object
+         */
+        "i18n"?: { [key: string]: string };
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
@@ -2996,6 +3029,16 @@ declare namespace LocalJSX {
          */
         "valueGetter"?: (item: any) => string;
     }
+    interface GlyphStyle {
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
+          * Theme type
+         */
+        "theme"?: UITheme;
+    }
     interface GlyphTabs {
         /**
           * Tab selection event
@@ -3181,6 +3224,7 @@ declare namespace LocalJSX {
         "glyph-slider": GlyphSlider;
         "glyph-sortable": GlyphSortable;
         "glyph-sortable-element": GlyphSortableElement;
+        "glyph-style": GlyphStyle;
         "glyph-tabs": GlyphTabs;
         "glyph-timeline": GlyphTimeline;
         "glyph-title": GlyphTitle;
@@ -3229,6 +3273,7 @@ declare module "@stencil/core" {
             "glyph-slider": LocalJSX.GlyphSlider & JSXBase.HTMLAttributes<HTMLGlyphSliderElement>;
             "glyph-sortable": LocalJSX.GlyphSortable & JSXBase.HTMLAttributes<HTMLGlyphSortableElement>;
             "glyph-sortable-element": LocalJSX.GlyphSortableElement & JSXBase.HTMLAttributes<HTMLGlyphSortableElementElement>;
+            "glyph-style": LocalJSX.GlyphStyle & JSXBase.HTMLAttributes<HTMLGlyphStyleElement>;
             "glyph-tabs": LocalJSX.GlyphTabs & JSXBase.HTMLAttributes<HTMLGlyphTabsElement>;
             "glyph-timeline": LocalJSX.GlyphTimeline & JSXBase.HTMLAttributes<HTMLGlyphTimelineElement>;
             "glyph-title": LocalJSX.GlyphTitle & JSXBase.HTMLAttributes<HTMLGlyphTitleElement>;

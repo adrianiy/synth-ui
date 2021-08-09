@@ -9,12 +9,12 @@ export const renderOptionDescription = (description: string, searchValue?: strin
     return <span innerHTML={description} />;
 };
 
-export const inSearch = (option: FilterOptionHeader, searchValue?: string) => {
+export const inSearch = (option: FilterOptionHeader, searchValue?: string, i18n?: any) => {
     if (searchValue) {
         if (option.header) {
-            return option.children.some(child => inSearch(child));
+            return option.children.some(child => inSearch(child, searchValue, i18n));
         }
-        return option.description.toLowerCase().includes(searchValue.toLowerCase());
+        return (i18n[option.description] || option.description).toLowerCase().includes(searchValue.toLowerCase());
     }
     return true;
 };

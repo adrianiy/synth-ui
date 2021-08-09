@@ -65,7 +65,7 @@ export const parseParam = (from: any, value: any) => {
                 return v;
             }
         }
-    } catch (_) {
+    } catch (err) {
         return is(value, 'string') ? value?.replace(/\?(\$|\>|\#)+ ?/, '') : value;
     }
 };

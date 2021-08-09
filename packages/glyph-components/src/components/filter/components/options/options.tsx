@@ -79,7 +79,9 @@ export class FilterOptionsComponent {
     };
 
     private _handleKeyUp = () => {
-        const visibleOptions = this.options.filter(option => option.display && inSearch(option, this.searchValue));
+        const visibleOptions = this.options.filter(
+            option => option.display && inSearch(option, this.searchValue, this._i18n),
+        );
 
         if (visibleOptions.length === 1) {
             this._optionClick(visibleOptions[0])();
@@ -91,7 +93,7 @@ export class FilterOptionsComponent {
             <glyph-input
                 autoFocus
                 box
-                placeholder={this.searchPlaceholder}
+                placeholder={this._i18n[this.searchPlaceholder] || this.searchPlaceholder}
                 onEnterKey={this._handleKeyUp}
                 onInputChange={this._handleInputChange}
             />
@@ -117,6 +119,7 @@ export class FilterOptionsComponent {
                 options={options}
                 interface={this.interface}
                 searchValue={this.searchValue}
+                i18n={this._i18n}
                 optionClick={this._optionClick}
             />
         );
@@ -127,7 +130,7 @@ export class FilterOptionsComponent {
             <Flex class={cls('filter-options__container', this.interface)}>
                 {this.interface === UIInterface.modern ? (
                     <Flex row spaced>
-                        <h3>{this.description}</h3>
+                        <h3>{this._i18n[this.description] || this.description}</h3>
                         {this.haveMultiSelect && this._renderMultiSelect()}
                     </Flex>
                 ) : (

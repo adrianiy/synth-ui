@@ -101,6 +101,9 @@
             margin: 0 var(--gui-padding--m);
         }
     }
+    &.redesign {
+        box-shadow: none;
+    }
     &__date-ranges {
         position: relative;
         max-height: var(--max-height);

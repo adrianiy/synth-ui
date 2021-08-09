@@ -47,6 +47,10 @@ export const config: Config = {
                     dest: '../assets/fonts',
                 },
                 {
+                    src: '**/*.otf',
+                    dest: '../assets/fonts',
+                },
+                {
                     src: '**/*.model.ts',
                     dest: '../models',
                 },

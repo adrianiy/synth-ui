@@ -3,7 +3,6 @@ import { initialState } from '../config/filters';
 import { FiltersConfig, FiltersState } from '../models/filters';
 import {
     loadSavedFilters,
-    saveOriginalDescriptions,
     selectRestrictedFilters,
     setInitialFilter,
     recoverSharedFilters,
@@ -20,7 +19,6 @@ import {
     clearFilter,
     clearAllFilters,
     selectOption,
-    translateDescriptions,
     updateFilter,
     resetOrdinalCompType,
     setQueryFilters,
@@ -32,7 +30,6 @@ export const filterActions = {
     setScreen: 'SETSCREEN',
     loadCacheKeys: 'SETCACHEKEYS',
     initialize: 'INITIALIZE',
-    translate: 'TRANSLATEFILTERS',
     setFilters: 'SETFILTERS',
     selectOption: 'SELECTOPTION',
     clearFilter: 'CLEARFILTER',
@@ -119,10 +116,7 @@ const updateFilterAndSave = (state: FiltersState, update: FilterUpdateEvent) => 
  * Reset filters with FiltersConfig base data, and update it with results from
  * getFilters method, finally translates filters description
  */
-const initializeFilters = (
-    state: FiltersState,
-    { filterEntities, screen, baseConfig, initialFilters, translateFn }: any,
-) => {
+const initializeFilters = (state: FiltersState, { filterEntities, screen, baseConfig, initialFilters }: any) => {
     try {
         return pipe({
             ...state,
@@ -138,10 +132,8 @@ const initializeFilters = (
             updateFiltersWithEntities(filterEntities),
             selectRestrictedFilters,
             recoverSharedFilters,
-            saveOriginalDescriptions,
             checkFilterRelations(),
             setInitialFilter(),
-            translateDescriptions(translateFn),
             recoverSharedFilters,
             setQueryFilters,
             saveFiltersInStorage,
@@ -150,13 +142,6 @@ const initializeFilters = (
         console.error(err);
         return state;
     }
-};
-
-/*
- * Translate filter descriptions
- */
-const translateFilters = (state: FiltersState, translateFn: (arg0: string) => string) => {
-    return pipe(state)(translateDescriptions(translateFn));
 };
 
 /*
@@ -188,8 +173,6 @@ const filterReducer = (state = initialState, action: any) => {
             return loadCacheKeys(state, action.props);
         case filterActions.initialize:
             return initializeFilters(state, action.props);
-        case filterActions.translate:
-            return translateFilters(state, action.translateFn);
         case filterActions.setFilters:
             return setFilters(state, action.filtersConfig);
         case filterActions.selectOption:

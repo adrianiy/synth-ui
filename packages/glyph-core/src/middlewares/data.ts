@@ -1,7 +1,7 @@
 import { CustomError } from '../utils/error.utils';
 import { groupData } from '../utils/group.utils';
 import { crossJoin, leftOuterJoin } from '../utils/join.utils';
-import { fn, getFrom, getParamValue, parseParam, parseParams, storeIn } from '../utils/utils';
+import { fn, getFrom, getParamValue, is, parseParam, parseParams, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
 /** sort middleware
@@ -122,6 +122,7 @@ export const transform = (
             match?: string;
             exclude?: string;
             preserve?: boolean;
+            delete?: any;
             key?: string;
             value?: string;
         }[];
@@ -161,7 +162,14 @@ export const transform = (
             const rawData = getParamValue(context, data, []);
             const store = getParamValue(context, storeRaw, args.data || 'data');
             const transfomedData = rawData.map((row: any) => {
-                transform.forEach(({ match, add, exclude, preserve, keyFn, valueFn }) => {
+                transform.forEach(({ match, add, exclude, delete: del, preserve, keyFn, valueFn }) => {
+                    if (del) {
+                        if (is(del, 'string')) {
+                            delete row[del];
+                        } else {
+                            del.forEach((delKey: string) => delete row[delKey]);
+                        }
+                    }
                     if (add) {
                         row[add] = valueFn(row, ctx);
                     } else {

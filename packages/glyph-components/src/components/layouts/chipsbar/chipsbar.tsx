@@ -168,6 +168,7 @@ export class ChipsBarComponent {
             <glyph-modal
                 visible={true}
                 modalTitle={this._i18n['configFilters']}
+                interface={this.interface}
                 closeButton
                 onClose={this._handleFilterConfig(false)}
             >

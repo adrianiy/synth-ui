@@ -17,6 +17,8 @@ export class OptionsListComponent {
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Style applied in list */
     @Prop() listStyle: { [key: string]: string };
+    /** Extra i18n translation object */
+    @Prop() i18n: { [key: string]: string } = {};
     /** Search value */
     @Prop() searchValue: string;
     /** Option click event */
@@ -32,7 +34,7 @@ export class OptionsListComponent {
     }
 
     private _renderOptionHeader = (option: FilterOptionHeader, filterQuantity: number) => {
-        const childInSearch = option.children.some(child => inSearch(child, this.searchValue));
+        const childInSearch = option.children.some(child => inSearch(child, this.searchValue, this.i18n));
         const expanded = option.expanded || (this.searchValue && childInSearch) || filterQuantity === 1;
 
         return (
@@ -42,6 +44,7 @@ export class OptionsListComponent {
                     interface={this.interface}
                     searchValue={this.searchValue}
                     optionClick={this.optionClick}
+                    i18n={this.i18n}
                     expanded={expanded}
                 />
             )
@@ -51,7 +54,7 @@ export class OptionsListComponent {
     private _renderOption = (option: FilterOptionHeader) => {
         return (
             <Flex row spaced onClick={this.optionClick(option)} class={cls('option', { active: option.active })}>
-                {renderOptionDescription(option.description, this.searchValue)}
+                {renderOptionDescription(this.i18n[option.description] || option.description, this.searchValue)}
                 {option.active && <Icon icon="checkmark" />}
             </Flex>
         );
@@ -63,7 +66,7 @@ export class OptionsListComponent {
                 option =>
                     option.display &&
                     !option.hideFilter &&
-                    inSearch(option, this.searchValue) &&
+                    inSearch(option, this.searchValue, this.i18n) &&
                     this._checkHide(option),
             )
             .sort((a, b) => a.position - b.position);

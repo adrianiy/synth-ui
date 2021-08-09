@@ -281,13 +281,13 @@ export class GlyphFilter {
 
 export declare interface GlyphFilterDrilldownOptions extends Components.GlyphFilterDrilldownOptions {}
 @ProxyCmp({
-  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+  inputs: ['expanded', 'i18n', 'interface', 'option', 'optionClick', 'searchValue']
 })
 @Component({
   selector: 'glyph-filter-drilldown-options',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['expanded', 'interface', 'option', 'optionClick', 'searchValue']
+  inputs: ['expanded', 'i18n', 'interface', 'option', 'optionClick', 'searchValue']
 })
 export class GlyphFilterDrilldownOptions {
   protected el: HTMLElement;
@@ -319,13 +319,13 @@ export class GlyphFilterOptions {
 
 export declare interface GlyphFilterOptionsList extends Components.GlyphFilterOptionsList {}
 @ProxyCmp({
-  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+  inputs: ['i18n', 'interface', 'listStyle', 'optionClick', 'options', 'searchValue']
 })
 @Component({
   selector: 'glyph-filter-options-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['interface', 'listStyle', 'optionClick', 'options', 'searchValue']
+  inputs: ['i18n', 'interface', 'listStyle', 'optionClick', 'options', 'searchValue']
 })
 export class GlyphFilterOptionsList {
   protected el: HTMLElement;
@@ -786,6 +786,25 @@ export declare interface GlyphSortableElement extends Components.GlyphSortableEl
   inputs: ['actionClick', 'childrenSort', 'haveIcon', 'item', 'valueGetter']
 })
 export class GlyphSortableElement {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface GlyphStyle extends Components.GlyphStyle {}
+@ProxyCmp({
+  inputs: ['interface', 'theme']
+})
+@Component({
+  selector: 'glyph-style',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['interface', 'theme']
+})
+export class GlyphStyle {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

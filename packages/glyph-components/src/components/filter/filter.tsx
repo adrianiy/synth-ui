@@ -63,7 +63,7 @@ export class FilterComponent {
 
     private _getChipDescription = () => {
         if (!this.active) {
-            return this.description;
+            return this.i18n[this.description] || this.description;
         } else {
             const appliedChildren = this.options.map(opt => opt.children?.filter(({ active }) => active)).flat();
             const appliedOptions = this.options.filter(({ active }) => active);
@@ -71,7 +71,9 @@ export class FilterComponent {
             const total = applied.length;
             const isPlural = total > 1;
 
-            return isPlural ? `${total} ${this.plural}` : applied[0].description;
+            return isPlural
+                ? `${total} ${this.i18n[this.plural] || this.plural}`
+                : this.i18n[applied[0].description] || applied[0].description;
         }
     };
 

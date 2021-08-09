@@ -6,7 +6,7 @@ import { cls } from '../../utils/utils';
 @Component({
     tag: 'glyph-flex',
     styleUrl: 'flex.scss',
-    shadow: false,
+    shadow: true,
 })
 export class FlexComponent {
     /** Flex-direction = vertical */

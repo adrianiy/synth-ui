@@ -4,7 +4,7 @@ import React from 'react';
 import { GlyphChipsbar } from '../../components';
 import { useFiltersConfig } from '../../providers/filter-state';
 
-function GlyphReactChipsbar({ uiInterface, locale, basePath }: GlyphReactChipsbarProps) {
+function GlyphReactChipsbar({ uiInterface, locale, i18n, basePath }: GlyphReactChipsbarProps) {
     const { filtersConfig, selectFilter, updateFilter, clearFilter, clearAll } = useFiltersConfig();
 
     const handleSelectFilter = (event: CustomEvent<FilterSelectEvent>) => {
@@ -28,6 +28,7 @@ function GlyphReactChipsbar({ uiInterface, locale, basePath }: GlyphReactChipsba
             basePath={basePath}
             interface={uiInterface}
             locale={locale}
+            i18n={i18n}
             filtersConfig={filtersConfig}
             onFilterSelect={handleSelectFilter}
             onUpdateFilter={handleFilterUpdate}
@@ -40,6 +41,7 @@ function GlyphReactChipsbar({ uiInterface, locale, basePath }: GlyphReactChipsba
 export interface GlyphReactChipsbarProps {
     /** UI interface *modern* | *classic* */
     uiInterface: UIInterface;
+    i18n?: any;
     locale?: string;
     basePath?: string;
 }

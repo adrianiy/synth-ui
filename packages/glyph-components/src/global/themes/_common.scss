@@ -1,7 +1,6 @@
 body {
-  font-family: var(--gui-font-family);
-  font-size: var(--gui-font--base);
-  background-color: var(--gui-color--background);
+    font: var(--gui-font--body);
+    background-color: var(--gui-color--background);
 }
 
 :root {
@@ -27,7 +26,7 @@ body {
     --gui-font--base: 12px;
     --gui-font--nano: 0.5em; // 6px
     --gui-font--xxxs: .66em; // 8px
-    --gui-font--xxs: .83em; // 10px
+    --gui-font--xxs: .91em; // 11px
     --gui-font--xs: 1em; // 12px 
     --gui-font--s: 1.17em; // 14px
     --gui-font--m: 1.42em; // 17px 
@@ -37,7 +36,7 @@ body {
     --gui-font--xxxl: 4em; // 48px
 
     /* font weights */
-    --gui-font-weight--light: light;
+    --gui-font-weight--light: lighter;
     --gui-font-weight--normal: normal;
     --gui-font-weight--bold: bold;
     --gui-font-weight--extra-bold: bolder;
@@ -69,6 +68,9 @@ body {
 
     /* fonts */
     --gui-font--body: normal var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family);
+    --gui-font--body--s: normal var(--gui-font-weight--normal) var(--gui-font--xxs) var(--gui-font-family);
+    --gui-font--body--l: normal var(--gui-font-weight--normal) var(--gui-font--m) var(--gui-font-family);
+    --gui-font--body--xl: normal var(--gui-font-weight--normal) var(--gui-font--l) var(--gui-font-family);
     --gui-font--heading--s: normal var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family);
     --gui-font--heading--l: normal var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family);
     --gui-font--label--l: normal var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family);
@@ -78,6 +80,9 @@ body {
     --gui-font-family: 'Zara', sans-serif;
     --gui-header-size: 66px;
     --gui-font--body: normal var(--gui-font-weight--normal) var(--gui-font--base) var(--gui-font-family--zara);
+    --gui-font--body--s: normal var(--gui-font-weight--normal) var(--gui-font--xxs) var(--gui-font-family--zara);
+    --gui-font--body--l: normal var(--gui-font-weight--normal) var(--gui-font--m) var(--gui-font-family--zara);
+    --gui-font--body--xl: normal var(--gui-font-weight--normal) var(--gui-font--l) var(--gui-font-family--zara);
     --gui-font--heading--s: normal var(--gui-font-weight--bold) var(--gui-font--l)/var(--gui-font--xs) var(--gui-font-family--zara);
     --gui-font--heading--l: normal var(--gui-font-weight--bold) var(--gui-font--xxl) var(--gui-font-family--zara);
     --gui-font--label--l: normal var(--gui-font-weight--normal) var(--gui-font--xs) var(--gui-font-family--zara);

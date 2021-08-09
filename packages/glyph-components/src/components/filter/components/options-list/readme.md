@@ -9,6 +9,7 @@
 
 | Property      | Attribute      | Description                                 | Type                                                                | Default               |
 | ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
+| `i18n`        | --             | Extra i18n translation object               | `{ [key: string]: string; }`                                        | `{}`                  |
 | `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
 | `listStyle`   | --             | Style applied in list                       | `{ [key: string]: string; }`                                        | `undefined`           |
 | `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void`              | `undefined`           |
