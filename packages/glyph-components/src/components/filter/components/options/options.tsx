@@ -101,7 +101,7 @@ export class FilterOptionsComponent {
     private _renderMultiSelect = () => {
         return (
             <Flex row spaced middle class="operation">
-                {this.interface === UIInterface.classic ? (
+                {this.interface !== UIInterface.modern ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
                     <Icon icon="done_all" />
