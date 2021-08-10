@@ -7,7 +7,7 @@ import GlyphReactChipsbar, { GlyphReactChipsbarProps } from './chipsbar';
 const basePath = process.env.NODE_ENV === 'development' ? '' : 'glyph-ui';
 
 export default {
-    title: 'Components/Chipsbar Component',
+    title: 'Components/Chipsbar',
     component: GlyphReactChipsbar,
     decorators: [ WithCustomGlobals, WithCustomHeight(350), InitializeFilters, WithFilters ],
     parameters: {

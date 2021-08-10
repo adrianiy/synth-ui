@@ -3,16 +3,24 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Custom" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Custom" />
+<Meta title="Glyph pipes/Configuration/Custom" />
 
 ###### Configuration
 # custom
 
 Uses a custom middleware implemented on your side.
 
-If it is configured as string is considered as key name and we'll look for the implementation in `params` and `ctx.state`.
-
 If it is configured with an object of properies we'll consider the first key the name of the middlewares and use the entire object as input argument.
+
+> you can use middlewe as equivalent of custom: { middleware: ... }.
+>
+> ```yaml
+> middleware: sortCountries
+> ```
+> ```yaml
+> custom:
+>   middleware: sortCountries
+>   ```
 
 #### Parameters
 
@@ -21,6 +29,12 @@ If it is configured with an object of properies we'll consider the first key the
 |any|String or Object|name of customMiddleware or object with name as first key | null |
 
 ### Example 
+
+```yaml
+name: custom middleware
+custom:
+  middleware: sortCountries
+```
 
 ```yaml
 name: custom middlewares

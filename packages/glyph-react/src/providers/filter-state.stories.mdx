@@ -17,66 +17,6 @@ some logic on selection like filter relations management *Section -> Product lin
 
 <Story name="Filter Provider" />
 
-```typescript
-// filtersConfig.tsx
-
-export const FiltersConfig = {
-    date: {
-        description: "Fecha",
-        minDate: new Date(year - 1, 1, 1),
-        maxDate: tomorrow,
-        key: "date",
-        visible: true,
-        dateRanges,
-        comparableType: ComparableType.commercial,
-        selected: [dateRanges[1]],
-        compDates: [],
-    },
-    product: {
-        description: "Producto",
-        plural: "Productos",
-        key: "cod_product",
-        visible: true,
-        selected: [],
-        options: [],
-    },
-    section: {
-        description: "Sección",
-        plural: "Secciones",
-        key: "cod_section",
-        visible: true,
-        selected: [],
-        options: [],
-    },
-    campaign: {
-        description: "Campaña",
-        plural: "Campañas",
-        key: "cod_campaign",
-        visible: true,
-        selected: [],
-        options: [],
-    },
-    market: {
-        description: "Mercado",
-        plural: "Mercados",
-        key: "cod_market",
-        related: ["platform"],
-        searchPlaceholder: "Busca Alovera, Corea ...",
-        visible: true,
-        selected: [],
-        options: [],
-    },
-    platform: {
-        description: "País",
-        plural: "Paises",
-        key: "cod_platform",
-        searchPlaceholder: "Busca España, Francia ...",
-        visible: true,
-        selected: [],
-        options: [],
-    },
-};
-```
 
 ```typescript
 // main.tsx
@@ -89,6 +29,119 @@ import { FilterStateProvider } from 'glyph-react';
     </FilterStateProvider>
 ...
 ```
+
+## Initial filters configuration
+
+Filters initialization must be done with an initial configuration specifying application filters
+
+
+```typescript
+// filtersConfig.tsx
+
+export const dateRanges = [
+    { description: "Day +1", startDate: tomorrow, endDate: tomorrow },
+    { description: "Real time", startDate: new Date(), endDate: new Date(), isDefault: true },
+    { description: "Yesterday", startDate: yesterday, endDate: yesterday },
+    { description: "Last 7 days", startDate: DateTime.local().minus({ days: 7 }).toJSDate(), endDate: yesterday },
+    { description: "Last 14 days", startDate: DateTime.local().minus({ days: 14 }).toJSDate(), endDate: yesterday },
+    {
+        description: "Current fiscal year",
+        startDate: new Date(year, 1, 1),
+        endDate: tomorrow,
+        comparableType: ComparableType.calendar,
+    },
+    {
+        description: "Last fiscal year",
+        startDate: new Date(year - 1, 1, 1),
+        endDate: new Date(year, 0, 31),
+        comparableType: ComparableType.calendar,
+    },
+];
+export const FiltersConfig = {
+    date: {
+        description: dateRanges[1].description,
+        minDate: new Date(year - 1, 1, 1),
+        maxDate: tomorrow,
+        key: "date",
+        visible: true,
+        dateRanges,
+        startDate: dateRanges[1].startDate,
+        endDate: dateRanges[1].endDate,
+        comparableStartDate: null,
+        comparableEndDate: null,
+        version: "0.0.1",
+        comparableType: ComparableType.commercial,
+    },
+    product: {
+        description: "Producto",
+        plural: "Productos",
+        key: "cod_product",
+        visible: true,
+        multiSelect: true,
+        options: [],
+    },
+    section: {
+        description: "Sección",
+        plural: "Secciones",
+        key: "cod_section",
+        visible: true,
+        options: [],
+    },
+    campaign: {
+        description: "Campaña",
+        plural: "Campañas",
+        key: "cod_campaign",
+        visible: true,
+        options: [],
+    },
+    market: {
+        description: "Mercado",
+        plural: "Mercados",
+        key: "cod_market",
+        related: ["platform"],
+        searchPlaceholder: "filters.search.market",
+        visible: true,
+        options: [],
+    },
+    platform: {
+        description: "País",
+        plural: "Paises",
+        key: "cod_platform",
+        searchPlaceholder: "filters.search.platform",
+        visible: true,
+        options: [],
+    },
+};
+```
+
+## Filter initialization
+
+```typescript
+actions.filters.initialize(filterEntities, screen, baseFiltersConfig, initialFilters)
+```
+
+Filters can be initialized with some data from an entities request.
+
+This data will be used to update filter options.
+
+Filter options must mutch this interface
+
+```typescript
+interface FilterOption {
+    code: any;
+    description: string;
+    display: boolean;
+    header?: boolean;
+    parents?: { [key]: any };
+    children?: FilterOption[];
+}
+```
+
+for more info -> [GIT](https://github.com/adrianiy/glyph-ui/blob/a900fc6e351ee341d97eb5a3b4ee78fcb2006c19/packages/glyph-core/src/models/filters.ts#L22)
+
+You can use **GLYPH PIPES** to get filter entities data! take a look at the [DOCS](adrianiy.github.io/glyph-ui/core/index.html?path=/docs/glyph-pipes-common-filters--filters)
+
+> **comming soon:** glyph-core will export a middleware that recovers data from WSC, and you will not need to care about GLYPH PIPES if you don't want to
 
 ```typescript
 // home.tsx
@@ -111,7 +164,6 @@ const Home = () => {
                     "konnect",
                     FiltersConfig,
                     {},
-                    (desc) => desc,
                 ),
             );
         }
@@ -125,6 +177,8 @@ const Home = () => {
 
 export default Home;
 ```
+
+We share a 
 
 # Custom hooks
 

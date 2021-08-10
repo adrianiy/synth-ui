@@ -3,7 +3,7 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Filters" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Filters" />
+<Meta title="Glyph pipes/Configuration/Filters" />
 
 ###### Configuration
 # filters
@@ -13,6 +13,11 @@ Parse filters informed as query params or as a query string.
 > Valid query values:
 > - **?a=[1,2]&b=[1]**
 > - **?filters=[{ key: 'a', op: 'in', value: [1, 2] }, { key: 'b', op: 'in', value: [1] }]**
+
+You can specify some prefix to force a parameter conversion like:
+
+- **$** use key as filter code without any modification
+- **!** use a `nin` operation in filter
 
 #### Parameters
 
@@ -27,19 +32,24 @@ Parse filters informed as query params or as a query string.
 | NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
 |:-----|:-----:|:---------|------:|
 |use|String[]|Filter codes to use in the request| null |
+|store|String|Key of `ctx.state` where data will be stored | data |
 |rangeBefore|nubmer|Days to add before start date| null |
 
 #### Comparable parameters
 
 | NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
 |:-----|:-----:|:---------|------:|
+|base|String|Key of `ctx.state` where base filters are stored | data |
 |compType|String|comparable type| commercial |
+|store|String|Key of `ctx.state` where data will be stored | data |
 
 #### A2 parameters
 
 | NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
 |:-----|:-----:|:---------|------:|
+|base|String|Key of `ctx.state` where base filters are stored | data |
 |compType|String|comparable type| commercial |
+|store|String|Key of `ctx.state` where data will be stored | data |
 
 ### Example
 

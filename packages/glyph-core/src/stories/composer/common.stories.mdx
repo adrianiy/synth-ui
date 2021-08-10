@@ -1,0 +1,153 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="Filters" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Glyph pipes/Common/Filters" />
+
+###### Common pipes
+# Filters
+
+This is an example of a pipe to get filters entites from WSC
+
+<div class="warning">
+
+> Be aware of identation if you copy-paste this code!
+
+</div>
+
+```yaml
+name: Filters config pipe
+global:
+  filters: &filters
+    parameters:
+      brand: "1,16"
+      pageSize: 10000
+  fields: &add_fields
+    - add: display
+      value: true
+pipe:
+  - filters:
+      current: true
+
+  - parallel:
+      - fetch:
+          url: endpoints.sections
+          store: sections
+          <<: *filters
+      - fetch:
+          url: endpoints.products
+          store: products
+          <<: *filters
+      - fetch:
+          url: endpoints.campaigns
+          store: campaigns
+      - fetch:
+          url: endpoints.markets
+          data: data.entities
+          store: markets
+          <<: *filters
+      - fetch:
+          url: endpoints.platforms
+          data: data.entities
+          store: platforms
+          <<: *filters
+
+  - parallel:
+      - transform:
+          data: sections
+          operations:
+            - <<: *add_fields
+            - match: cod_section
+              key: code
+      - transform:
+          data: products
+          operations:
+            - <<: *add_fields
+            - match: cod_product
+              key: code
+      - transform:
+          data: campaigns
+          operations:
+            - <<: *add_fields
+            - match: cod_season
+              key: code
+              preserve: true
+            - match: cod_season
+              key: description
+      - transform:
+          data: markets
+          keys:
+            name: description
+          operations:
+            - <<: *add_fields
+            - add: market
+              value: (row) => row.code
+      - transform:
+          data: platforms
+          keys:
+            name: description
+            country: cod_country
+          operations:
+            - <<: *add_fields
+            - add: market
+              value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code)).code
+            - add: parents
+              value: "(row) => ({ market: row.market })"
+
+  - sort:
+      data: platforms
+      function: sortCountries
+
+  - log:
+      data: platforms
+
+  - parallel:
+    - filter:
+        data: campaigns
+        function: >
+          (row, index, self) => row.state 
+          && 
+          self.findIndex(cmp => cmp.code === row.code) === index 
+    - group:
+        data: platforms
+        children: true
+        by:
+          - market
+
+  - transform:
+      data: platforms
+      operations:
+        - delete: description
+        - add: header
+          value: true
+
+  - join:
+      data: markets
+      with: platforms
+      store: platforms
+      by: 
+        - market
+```
+
+Use it in a controller
+
+```typescript
+import { conditional, pipe, setData } from "amiga-services-core";
+import { sortCountries } from "./../utils/countries";
+import { composer } from "glyph-core";
+
+export const FiltersController = conditional({
+    when: (ctx) => /config/.test(ctx.path),
+    then: pipe(
+        composer("./docs/v1/filters/filters.yml", { sortCountries }),
+        setData((ctx) => ({
+            cod_section: ctx.state.sections,
+            cod_product: ctx.state.products,
+            cod_campaign: ctx.state.campaigns,
+            cod_market: ctx.state.markets,
+            cod_platform: ctx.state.platforms,
+        })),
+    ),
+});
+```

@@ -3,7 +3,7 @@ import { WithGlobalTheme } from './../helpers/decorators';
 
 <Story name="YAML" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/YAML" />
+<Meta title="Glyph pipes/Configuration/YAML" />
 
 
 ###### Configuration
@@ -32,6 +32,19 @@ These are all available properties to configure your **yaml** file.
 - [Sort](?path=/docs/composer-yaml-sort--page)
 - [Filter](?path=/docs/composer-yaml-filter--page)
 
+## Variables
+
+YAML variables are interpreted using this order:
+
+- Values stored in `ctx.state` or `params` passed as second parameter in composer.
+- String function to `eval()`.
+- Primitive types like string, boolean, etc.
+
+You can use this prefixes to force some variable to be interpreted as a specific type:
+
+- **?$** VALUE IN CTX.STATE or PARAMS
+- **?>** FUNCTION
+- **?#** CONSTANT
 
 ## Example
 
@@ -44,114 +57,21 @@ This is an example of a configuration file to get sales by country.
 </div>
 
 ```yaml
-name: country sales
+name: Sales by hour
 pipe:
-  # add common pipe variables
-  - variables:
-        joinKeys:
-            - cod_country
-
-  # parse filters and store them in state
   - filters:
-        current: true
-        comparable: true
-        a2: true
+      use:
+        - local_date
+        - cod_warehouse
+        - cod_country
 
-  # get data
-  - parallel:
-      - pipe:
-          - fetch:
-                url: v1/entities/country
-                store: country
-                filters: filters
-                useFilters: 
-                  - cod_brand
-          - transform:
-                data: country
-                match: iso_code2
-                transform:
-                    key: () => 'cod_country'
+  # fetch hours
+  - fetch:
+      url: endpoints.hour
 
-    - fetch:
-          url: v3/sales/orders/country
-          multi:
-              - filters: orderFilters
-                store: current
-              - filters: comparableOrderFilters
-                store: comparable
-              - filters: a2ComparableOrderFilters
-                store: a2_comp
-
-    - fetch:
-          url: v4/sales/units/country
-          multi:
-                - filters: filters
-                  store: current
-                - filters: comparableFilters
-                  store: comparable
-                - filters: a2ComparableFilters
-                  store: a2_comp
-
-  # aggregate data
-  - parallel:
-      - group:
-            data: current
-      - group:
-            data: comparable 
-      - group:
-            data: a2_comp
-
-  # add suffixes
-  - parallel:
-      - transform:
-          data: comparable
-          match: units|amount|orders
-          transform:
-              key: key => `${key}_comp`
-      - transform:
-          data: a2_comp
-          match: units|amount|orders
-          transform:
-              key: key => `${key}_comp_a2`
-
-  # join data
-  - join:
-        data: comparable
-        with: a2_comp
-
-  - join:
-        data: current
-        with: comparable
-        store: data
-
-
-  # post-process data
-  - sort:
-        function: sortCountries
+  # add hour to date
   - transform:
-        match: cod_country
-        transform:
-            key: () => 'name'
-            value: setCountryName
-  - filter:
-        required:
-            - name
-  - group:
-        total: true
-
-  # add growth fields
-  - parallel:
-      - transform:
-            match: units|amount|orders
-            exclude: comp|a2
-            preserve: true
-            transform:
-                key: key => `growth_${key}`
-                value: setGrowth
-      - transform:
-            match: units.*comp|amount.*comp|orders.*comp
-            preserve: true
-            transform:
-                key: key => `growth_${key}_a2`
-                value: setA2Growth
+      operations:
+        - match: local_date
+          value: (date, row) => `${date} ${row.hour}`
 ```

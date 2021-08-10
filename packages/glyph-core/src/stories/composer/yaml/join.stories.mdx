@@ -3,7 +3,7 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Join" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Join" />
+<Meta title="Glyph pipes/Configuration/Join" />
 
 ###### Configuration
 # join
@@ -24,11 +24,11 @@ You can choose betweent different join options
 
 | NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
 |:-----|:-----:|:---------|------:|
-|strategy|String|Join strategy left \| cross | cross |
+|strategy|String|Join strategy left \| cross | left |
 |data|String|Key of `ctx.state` of data to make join as left side | data |
 |with|String|Key of `ctx.state` of data to make join as right side | data |
 |store|String|Key of `ctx.state` where data will be stored | data |
-|joinKeys|String[]|Array of keys to identify groups of data | null |
+|by|String[]|Array of keys to identify groups of data | null |
 
 ### Example 
 

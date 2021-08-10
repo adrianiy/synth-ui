@@ -3,7 +3,7 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Log" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Log" />
+<Meta title="Glyph pipes/Configuration/Log" />
 
 ###### Configuration
 # log
@@ -23,6 +23,8 @@ If you are logging an `error` and you want to see the stack trace you can set `s
 |data|Strng|Key of `ctx.state` of data to log | data |
 |message|Strng|message to log | data |
 |error|any|error to log | data |
+|limit| any | row log limit | null |
+|filter| any| function to filter loggeable data | null |
 |from|String|Optional parameter to give context to logger| "" |
 |level|String|Log level: error \| debug \| info |Info|
 

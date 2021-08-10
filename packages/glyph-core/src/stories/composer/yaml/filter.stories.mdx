@@ -3,14 +3,14 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Filter" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Filter" />
+<Meta title="Glyph pipes/Configuration/Filter" />
 
 ###### Configuration
 # filter
 
 Filter data in `data` key using some requirement function or keys.
 
-If `function` is informed we'll use a method stored in params, state, or passed as string to filter data, otherwise we'll filter those rows that has every `keys` attributes informed.
+If keys are setted we'll remove row keys depending on the configuration value.
 
 #### Parameters
 
@@ -20,6 +20,7 @@ If `function` is informed we'll use a method stored in params, state, or passed 
 |store|String|Key of `ctx.state` where data will be stored | data |
 |function|Method or key name|null|
 |required|String[]|Array of keys that must be informed|null|
+|keys|{ preserve, remove } | parse each row to filter keys by it's value |null|
 
 ### Example 
 
@@ -28,6 +29,10 @@ name: filter row without name
 filter:
   required:
     - name
+  keys:
+    preserve:
+      - name
+      - cod_country
 ```
 
 ```yaml

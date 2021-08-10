@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import { WithGlobalTheme } from '../helpers/decorators';
 
-<Story name="Styles" decorators={[ WithGlobalTheme ]} />
+<Story name="Styles Provide" decorators={[ WithGlobalTheme ]} />
 
 <Meta
     title="Providers/Styles"
@@ -12,20 +12,49 @@ import { WithGlobalTheme } from '../helpers/decorators';
 
 A provider to allow use of css variables across your application.
 
-> If you are using Amiga-fwk you should use this provider because css-next plugin makes glyph variables to break
+> If you are using Amiga-fwk you should use this provider because css-next plugin makes glyph variables break
 
-<Story name="Styles Provider" />
+This provider will allow you to share `glyphTheme` and `glyphInterface` values through all your application and applies selected theme to modify css variables values.
 
 ```typescript
 // main.tsx
 import { GlyphStyleProvider } from 'glyph-react';
 
 ...
+const home = () => {
+    const glyphInterface = localStorage.getItem("drive.warehouses.interface") || UIInterface.redesign;
+    const glyphTheme = localStorage.getItem("drive.warehouses.theme") || UITheme.light;
+
     return (
         ...
-        <GlyphStyleProvider>
+        <GlyphStyleProvider interface={glyphInterface} theme={glyphTheme}>
             ...
         </GlyphStyleProvider>
         ...
     )
+}
 ```
+
+## Theme
+
+```typescript
+const { glyphTheme, setGlyphTheme } = useGlyphStyle();
+```
+
+GlyphUI implements two theme `dark` and `light`. Using this provider you can change it or use current values
+wherever you want
+
+> Default theme is `light`
+
+## Interface
+
+```typescript
+const { glyphInterface, setGlyphInterface } = useGlyphStyle();
+```
+
+Currently we have `classic`, `modern` and a brand new `redesign` interface we are working in.
+
+As soon as we can `redesign` interface will become the default one but in the meantime you can set 
+this interface manually in glyph-react components.
+
+Web Components are shadowed and independent so each component must receive an interface value.

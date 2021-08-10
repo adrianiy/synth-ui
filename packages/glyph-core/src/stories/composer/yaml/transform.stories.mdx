@@ -3,22 +3,39 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Transform" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Transform" />
+<Meta title="Glyph pipes/Configuration/Transform" />
 
 ###### Configuration
 # transform
 
-Transform row properties that matches some `match` **RegExp**  but does not match `exclude` **RegExp**.
+Execute some kind of configured transformation on each `data` row.
 
-This process tranforms keys and values using `transform` `key` and `value` configuration
+## Keys
 
-> **key** and **value**
->
-> String with a function or key to search in `ctx.state` or `params`.
->
-> If empty identity function will be used.
->
-> These functions are called with (key, row, ctx).
+If you confirue keys parameter pipe will transform key to the configured value
+
+```yaml
+transform:
+    keys:
+        code: cod_country
+        
+# [{ code: 1 }] -> [{ cod_country: 1 }]
+```
+
+## Operations
+
+You can configure a set of operations to be executed in order
+
+- add: add some key to the row. you must configure a `value`
+- match: select key that matches value to execute transformation over it
+- exlude: all keys that does not match this value will execute transformation 
+- preserve: preserve current value of matching element
+- delete: deletes matching keys
+
+Modificators:
+
+- key: modifies key value 
+- value: modifies value
 
 #### Parameters
 
@@ -26,9 +43,8 @@ This process tranforms keys and values using `transform` `key` and `value` confi
 |:-----|:-----:|:---------|------:|
 |data|String|Key of `ctx.state` where data is stored | data |
 |store|String|Key of `ctx.state` where data will be stored | data |
-|match|String|RegExp to find keys to transform. If empty all field matches|undefined|
-|exclude|String|RegExp to exclude keys to transform. If empty no field matches|null|
-|tranform|{ key: string; value: string }|Method or key name|{}|
+|operations|Operation[]|Array of operations|undefined|
+|keys|{ [key]: string }|keys to modify|null|
 
 ### Example 
 
@@ -38,9 +54,13 @@ You can use this pipe to add suffixes in value fields like:
 name: add suffix
 transform:
     data: comparable
-    match: units|amount|orders
-    transform:
-        key: key => `${key}_comp`
+    keys:
+        code: cod_country
+    operations:
+        - add: test
+          value: 1
+        - match: test
+          value: (value) => value === 1
 ```
 
 #### Set entity name
@@ -62,11 +82,9 @@ export const composerConfigMiddleware = configureComposer({
 ```yaml
 name: add entity name
 transform:
-    match: cod_country
-    preserve: true
-    transform:
-        key: () => 'name'
-        value: setCountryName
+    operations:
+        - add: name
+          value: setCountryName
 ```
 
 
@@ -89,26 +107,10 @@ export const composerConfigMiddleware = configureComposer({
 ```yaml
 name: set growths
 transform:
-    match: units|amount|orders
-    exclude: comp|a2
-    preserve: true
-    transform:
-      key: key => `growth_${key}`
-      value: setGrowth
-transform:
-    match: units.comp|amount.comp|orders.comp
-    preserve: true
-    transform:
-      key: key => `growth_${key}_a2`
-      value: setA2Growth
+    operations:
+        - match: units|amount|orders
+          exclude: comp|a2
+          preserve: true
+          key: key => `growth_${key}`
+          value: setGrowth
 
-# or
-
-transform:
-    match: units.comp|amount.comp|orders.comp
-    preserve: true
-    transform:
-      key: key => `growth_${key}_a2`
-      value: (key, row) => row[key] / row[`${key}_a2`] - 1
-
-```

@@ -3,7 +3,7 @@ import { WithGlobalTheme } from './../../helpers/decorators';
 
 <Story name="Fetch" decorators={[ WithGlobalTheme ]} />
 
-<Meta title="Composer/Configuration/Fetch" />
+<Meta title="Glyph pipes/Configuration/Fetch" />
 
 ###### Configuration
 # fetch
@@ -20,9 +20,8 @@ If `multi` is present will add one fetch per element, reusing first level `url`.
 |url|String|Request endpoint|null|
 |auth|String|Optional auth|value from ctx.state.auth|
 |store|String|Key where result will be stored (or concatenated)|data|
-|dataField|String|Key where data is stored in result|data|
-|filters|String|Key of state where filters are stored|null|
-|useFilters|String[]|Only these filters will be used in request|null|
+|data|String|Key where data is stored in result|data|
+|parameters|{ [key]: string }|object of parameter to use in request|{ filter: '?$filters' }|
 |headers|Object|Headers to send with reqeust|{}|
 |multi|Array<fetch\>|Array of calls with different params to the same url|[]|
 
@@ -32,10 +31,9 @@ If `multi` is present will add one fetch per element, reusing first level `url`.
 fetch:
     url: v1/entities/country
     store: country
-    filters: filters
-    dataField: data
-    useFilters: 
-        - cod_brand
+    data: data.entities
+    parameters:
+      brand: 1,16
 ```
 
 #### Multi
@@ -44,10 +42,10 @@ fetch:
     fetch:
         url: v4/sales/units/country
         multi:
-          - filters: filters
-             store: current
-          - filters: comparableFilters
-             store: comparable
-          - filters: a2ComparableFilters
-             store: a2_comp
+          - parameters:
+              filter: ?$filters
+            store: current
+          - parameters: 
+              filter: ?$comparableFilters
+            store: comparable
 ```

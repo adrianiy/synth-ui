@@ -13,7 +13,7 @@ export const parameters = {
         storySort: {
             order: [
                 'Introduction',
-                'Composer',
+                'Glyph pipes',
                 [
                     'Introduction',
                     'Configure',
