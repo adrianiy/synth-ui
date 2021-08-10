@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.11.1...glyph-components-v1.12.0) (2021-08-09)
+
+
+### Features
+
+* **components:** add all fonts ([63c1251](https://github.com/adrianiy/glyph-ui/commit/63c1251d10db48b2d3851c303f35914a902eaf9b))
+
 ## [1.11.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-v1.11.0...glyph-components-v1.11.1) (2021-08-09)
 
 

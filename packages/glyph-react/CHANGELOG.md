@@ -1,3 +1,15 @@
+# [2.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.4.0...glyph-react-v2.5.0) (2021-08-09)
+
+
+### Bug Fixes
+
+* multiselect in redesign ([0a328e8](https://github.com/adrianiy/glyph-ui/commit/0a328e8e3ec57e04b2c037d6177ecc4872ce12a0))
+
+
+### Features
+
+* **components:** add all fonts ([63c1251](https://github.com/adrianiy/glyph-ui/commit/63c1251d10db48b2d3851c303f35914a902eaf9b))
+
 # [2.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-v2.3.0...glyph-react-v2.4.0) (2021-08-08)
 
 
