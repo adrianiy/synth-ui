@@ -35,6 +35,7 @@ export const filterActions = {
     clearFilter: 'CLEARFILTER',
     clearAll: 'CLEARALL',
     updateFilter: 'UPDATEFILTER',
+    updateFilterConfig: 'UPDATEFILTERCONFIG',
     saveFilters: 'SAVEFILTERS',
 };
 
@@ -110,6 +111,21 @@ const updateFilterAndSave = (state: FiltersState, update: FilterUpdateEvent) => 
     return pipe(state)(updateFilter(update), saveFiltersInStorage);
 };
 
+/** update filters config and, check inner relation and save */
+const updateFilterConfigAndSave = (state: FiltersState, filtersConfig: FiltersConfig) => {
+    try {
+        return pipe({ ...state, filtersConfig })(
+            selectRestrictedFilters,
+            checkFilterRelations(),
+            setQueryFilters,
+            saveFiltersInStorage,
+        );
+    } catch (err) {
+        console.error(err);
+        return state;
+    }
+};
+
 // INIT METHODS
 
 /**
@@ -183,6 +199,8 @@ const filterReducer = (state = initialState, action: any) => {
             return clearAll(state);
         case filterActions.updateFilter:
             return updateFilterAndSave(state, action.update);
+        case filterActions.updateFilterConfig:
+            return updateFilterConfigAndSave(state, action.filtersConfig);
         case filterActions.saveFilters:
             return saveFilters(state);
         default:

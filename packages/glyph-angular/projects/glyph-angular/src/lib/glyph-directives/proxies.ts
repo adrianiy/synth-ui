@@ -8,13 +8,13 @@ import { Components } from 'glyph-components';
 
 export declare interface GlyphAppMenu extends Components.GlyphAppMenu {}
 @ProxyCmp({
-  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'locale', 'outsideCallback']
+  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 @Component({
   selector: 'glyph-app-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'locale', 'outsideCallback']
+  inputs: ['apps', 'basePath', 'hasSearch', 'i18n', 'interface', 'locale', 'outsideCallback']
 })
 export class GlyphAppMenu {
   protected el: HTMLElement;
@@ -229,7 +229,8 @@ export class GlyphConfigModal {
 import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
 export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
 @ProxyCmp({
-  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate']
+  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  methods: ['clearFilter']
 })
 @Component({
   selector: 'glyph-date-filter',
@@ -254,27 +255,28 @@ export class GlyphDateFilter {
 import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
-  inputs: ['basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder']
+  inputs: ['basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
+  methods: ['clearFilter']
 })
 @Component({
   selector: 'glyph-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder'],
-  outputs: ['optionClickEvent', 'clearEvent', 'multiSelectEvent']
+  outputs: ['optionClick', 'clear', 'multiSelectEvent']
 })
 export class GlyphFilter {
   /** Option click event */
-  optionClickEvent!: IFilterComponent['optionClickEvent'];
+  optionClick!: IFilterComponent['optionClick'];
   /** Clear selected filters callback */
-  clearEvent!: IFilterComponent['clearEvent'];
+  clear!: IFilterComponent['clear'];
   /** Multiselect toggler callback */
   multiSelectEvent!: IFilterComponent['multiSelectEvent'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['optionClickEvent', 'clearEvent', 'multiSelectEvent']);
+    proxyOutputs(this, this.el, ['optionClick', 'clear', 'multiSelectEvent']);
   }
 }
 
@@ -495,13 +497,13 @@ export class GlyphLogin {
 import { ModalComponent as IModalComponent } from 'glyph-components/dist/types/components/modal/modal';
 export declare interface GlyphModal extends Components.GlyphModal {}
 @ProxyCmp({
-  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'modalTitle', 'visible']
+  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'maxHeight', 'maxWidth', 'modalTitle', 'padded', 'visible']
 })
 @Component({
   selector: 'glyph-modal',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'modalTitle', 'visible'],
+  inputs: ['applyButton', 'cancelButton', 'closeButton', 'interface', 'maxHeight', 'maxWidth', 'modalTitle', 'padded', 'visible'],
   outputs: ['close', 'apply', 'cancel']
 })
 export class GlyphModal {
@@ -668,13 +670,13 @@ export class GlyphSelector {
 
 export declare interface GlyphSelectorOptions extends Components.GlyphSelectorOptions {}
 @ProxyCmp({
-  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'interface', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 @Component({
   selector: 'glyph-selector-options',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeEvent', 'complexOptions', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
+  inputs: ['closeEvent', 'complexOptions', 'interface', 'maxHeight', 'multiSelect', 'optionClickEvent', 'options', 'searchPlaceholder']
 })
 export class GlyphSelectorOptions {
   protected el: HTMLElement;

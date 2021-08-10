@@ -1,5 +1,5 @@
 import { Component, Element, Listen, Prop, h, State } from '@stencil/core';
-import { Screen } from 'glyph-core';
+import { Screen, UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
@@ -22,6 +22,8 @@ export class AppMenuComponent {
     @Prop() locale: string;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphAppMenuElement;
     /** App search value */
@@ -107,7 +109,7 @@ export class AppMenuComponent {
 
     render() {
         return (
-            <Flex class="app-menu app-menu__container">
+            <Flex class={cls('app-menu app-menu__container', this.interface)}>
                 <Flex row spaced middle class="app-menu__header">
                     {this._renderSearch()}
                 </Flex>

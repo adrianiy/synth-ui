@@ -1,9 +1,8 @@
 import { FiltersState } from '../../models';
 import { parseHash, pipe } from '../../utils/utils';
-import { selectDateAux, selectOptionAux } from './../utils/filter.utils';
+import { getSelectedOptions, selectDateAux, selectOptionAux } from './../utils/filter.utils';
 import { applySharedDates, applySharedFilters } from './../utils/shared.utils';
 import { selectFilterOptions, updateOptionsWithEntities, updateSavedFilters } from './../utils/initializer.utils';
-import { FilterOptionHeader } from '../../models/filters';
 
 /**
  * Set default filter positions
@@ -59,41 +58,14 @@ export const recoverSharedFilters = (state: FiltersState): FiltersState => {
     return state;
 };
 
-/*
- * saves original descriptions so we don't have to translate back to original langauage
- */
-export const saveOriginalDescriptions = (state: FiltersState) => {
-    let { filtersConfig } = state;
-
-    if (filtersConfig) {
-        Object.keys(filtersConfig).forEach(key => {
-            let filter = filtersConfig[key];
-            const options = filter.options?.map((option: FilterOptionHeader) => {
-                const { children, description } = option;
-                return {
-                    ...option,
-                    _originalDescription: description,
-                    children: children?.map(child => ({ ...child, _originalDescription: child.description })),
-                };
-            });
-
-            filtersConfig = { ...filtersConfig, [key]: { ...filter, options } };
-        });
-    }
-
-    return {
-        ...state,
-        filtersConfig,
-    };
-};
-
 // select filters restricted by user roles
 export const selectRestrictedFilters = (state: FiltersState) => {
     let { restrictedFilters, filtersConfig } = state;
 
     restrictedFilters.forEach((key: string) => {
         let filter = filtersConfig[key];
-        let { selected, options } = filter;
+        let { options } = filter;
+        const selected = getSelectedOptions(options);
 
         if (filter) {
             if (selected.length > options.length || !selected.length) {
@@ -142,7 +114,8 @@ export const setInitialFilter = (applyNotDefault = true) => (state: FiltersState
 
     initialFilters.forEach(initial => {
         const filter = filtersConfig[initial.type];
-        const { selected, options } = filter;
+        const { options } = filter;
+        const selected = getSelectedOptions(options);
         const haveSelected = selected.length;
 
         if (!haveSelected) {

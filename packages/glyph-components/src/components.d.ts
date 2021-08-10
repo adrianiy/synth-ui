@@ -26,6 +26,10 @@ export namespace Components {
          */
         "i18n": { [key: string]: string };
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
           * **optional** force locale change if html lang is not interpreted
          */
         "locale": string;
@@ -290,6 +294,10 @@ export namespace Components {
          */
         "basePath": string;
         /**
+          * This method will return image height
+         */
+        "clearFilter": () => Promise<void>;
+        /**
           * Selected comparable end date
          */
         "comparableEndDate": Date;
@@ -363,6 +371,10 @@ export namespace Components {
           * Base path to get assets
          */
         "basePath": string;
+        /**
+          * This method will return image height
+         */
+        "clearFilter": () => Promise<void>;
         /**
           * Filter description
          */
@@ -850,9 +862,21 @@ export namespace Components {
          */
         "interface": UIInterface;
         /**
+          * Modal min height
+         */
+        "maxHeight": string;
+        /**
+          * Modal min with
+         */
+        "maxWidth": string;
+        /**
           * Modal title
          */
         "modalTitle": string;
+        /**
+          * Modal padded flag
+         */
+        "padded": boolean;
         /**
           * Modal visibility flag
          */
@@ -1117,6 +1141,10 @@ export namespace Components {
           * Complex selector options
          */
         "complexOptions": ComplexSelectorOptions;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
         /**
           * Max height configuration
          */
@@ -1695,6 +1723,10 @@ declare namespace LocalJSX {
          */
         "i18n"?: { [key: string]: string };
         /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
           * **optional** force locale change if html lang is not interpreted
          */
         "locale"?: string;
@@ -2095,7 +2127,7 @@ declare namespace LocalJSX {
         /**
           * Clear selected filters callback
          */
-        "onClearEvent"?: (event: CustomEvent<any>) => void;
+        "onClear"?: (event: CustomEvent<any>) => void;
         /**
           * Multiselect toggler callback
          */
@@ -2103,7 +2135,7 @@ declare namespace LocalJSX {
         /**
           * Option click event
          */
-        "onOptionClickEvent"?: (event: CustomEvent<FilterSelectEvent>) => void;
+        "onOptionClick"?: (event: CustomEvent<FilterSelectEvent>) => void;
         /**
           * Filter options
          */
@@ -2603,6 +2635,14 @@ declare namespace LocalJSX {
          */
         "interface"?: UIInterface;
         /**
+          * Modal min height
+         */
+        "maxHeight"?: string;
+        /**
+          * Modal min with
+         */
+        "maxWidth"?: string;
+        /**
           * Modal title
          */
         "modalTitle"?: string;
@@ -2618,6 +2658,10 @@ declare namespace LocalJSX {
           * close event
          */
         "onClose"?: (event: CustomEvent<any>) => void;
+        /**
+          * Modal padded flag
+         */
+        "padded"?: boolean;
         /**
           * Modal visibility flag
          */
@@ -2890,6 +2934,10 @@ declare namespace LocalJSX {
           * Complex selector options
          */
         "complexOptions"?: ComplexSelectorOptions;
+        /**
+          * Interface type ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
         /**
           * Max height configuration
          */

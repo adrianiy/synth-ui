@@ -63,29 +63,10 @@ export const updateSavedFilters = (savedFilters: FiltersConfig, baseFilters: Fil
             const { [key]: _, ...rest } = savedFilters;
             savedFilters = rest;
         }
-        if (key === 'date') {
-            savedFilters[key] = _updateStoragedDateFilter(savedFilters[key], baseFilter);
+        if (baseFilter.version !== savedFilters[key].version) {
+            savedFilters[key] = baseFilter;
         }
     });
 
     return { ...baseFilters, ...savedFilters };
-};
-
-const _updateStoragedDateFilter = (savedFilter: DateFilter, baseFilter: DateFilter) => {
-    if (savedFilter.selected.length) {
-        const { description } = savedFilter.selected[0];
-        savedFilter.dateRanges = baseFilter.dateRanges;
-
-        if (description) {
-            const dateRange = savedFilter.dateRanges.find((range: DateRange) => range.description === description);
-
-            if (dateRange) {
-                const { startDate, endDate } = dateRange;
-
-                savedFilter.selected[0].startDate = startDate;
-                savedFilter.selected[0].endDate = endDate;
-            }
-        }
-    }
-    return savedFilter;
 };

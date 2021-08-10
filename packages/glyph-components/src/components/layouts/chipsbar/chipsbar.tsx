@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element, Host } from '@stencil/core';
-import { DateFilter, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
+import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
 import { Flex } from '../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 
@@ -12,7 +12,7 @@ export class ChipsBarComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
     /** Filters configuration object */
-    @Prop() filtersConfig: FiltersConfig;
+    @Prop({ mutable: true }) filtersConfig: FiltersConfig;
     /** Hide zara south filters active */
     @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */
@@ -39,6 +39,7 @@ export class ChipsBarComponent {
     @Element() element: HTMLGlyphChipsbarElement;
 
     private _i18n: any;
+    private _refs: any[];
 
     async componentWillLoad() {
         await this._initializeVariables();
@@ -46,10 +47,14 @@ export class ChipsBarComponent {
 
     private async _initializeVariables() {
         const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element, this.basePath, this.locale);
+        this._refs = [];
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
     private _handleOptionClick = (key: string) => ({ detail }: CustomEvent<FilterSelectEvent>) => {
+        if (key === 'date') {
+            this.filtersConfig[key] = { ...this.filtersConfig[key], ...detail };
+        }
         const event = { ...detail, filterCode: key };
         this.filterSelect.emit(event);
     };
@@ -79,39 +84,10 @@ export class ChipsBarComponent {
     };
 
     private _handleClearAll = () => {
+        this._refs.forEach(ref => {
+            ref['clearFilter']?.();
+        });
         this.clearAll.emit();
-    };
-
-    private _renderDateChip = (dateFilter: DateFilter) => {
-        if (!dateFilter || !dateFilter.visible) {
-            return null;
-        }
-        const { comparableType, comparableOptions } = dateFilter;
-        const { startDate, endDate, description, isDefault } = dateFilter.selected[0];
-        const { startDate: compStartDate, endDate: compEndDate } = dateFilter.compDates?.[0] || {};
-
-        if (comparableOptions) {
-            comparableOptions.forEach(opt => (opt.active = opt.value === comparableType));
-        }
-
-        return (
-            <glyph-date-filter
-                {...dateFilter}
-                basePath={this.basePath}
-                locale={this.locale}
-                interface={this.interface}
-                startDate={startDate}
-                endDate={endDate}
-                comparableStartDate={compStartDate}
-                comparableEndDate={compEndDate}
-                description={description}
-                active={!isDefault}
-                comparableType={comparableType}
-                comparableOptions={comparableOptions}
-                onDateSelection={this._handleOptionClick('date')}
-                onClearEvent={this._handleFilterClear('date')}
-            />
-        );
     };
 
     private _renderChips = () => {
@@ -123,16 +99,25 @@ export class ChipsBarComponent {
             <Flex row class="chips__container">
                 {chips.map(chip =>
                     chip === 'date' ? (
-                        this._renderDateChip(this.filtersConfig[chip])
+                        <glyph-date-filter
+                            {...this.filtersConfig[chip]}
+                            ref={ref => this._refs.push(ref)}
+                            basePath={this.basePath}
+                            locale={this.locale}
+                            interface={this.interface}
+                            onDateSelection={this._handleOptionClick(chip)}
+                            onClearEvent={this._handleFilterClear(chip)}
+                        />
                     ) : (
                         <glyph-filter
                             {...this.filtersConfig[chip]}
+                            ref={ref => this._refs.push(ref)}
                             basePath={this.basePath}
                             locale={this.locale}
                             interface={this.interface}
                             i18n={this._i18n}
-                            onOptionClickEvent={this._handleOptionClick(chip)}
-                            onClearEvent={this._handleFilterClear(chip)}
+                            onOptionClick={this._handleOptionClick(chip)}
+                            onClear={this._handleFilterClear(chip)}
                             onMultiSelectEvent={this._handleMultiSelect(chip)}
                         />
                     ),

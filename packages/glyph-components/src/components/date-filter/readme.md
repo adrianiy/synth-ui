@@ -38,6 +38,19 @@
 | `dateSelection` | Date selection event            | `CustomEvent<FilterSelectEvent>` |
 
 
+## Methods
+
+### `clearFilter() => Promise<void>`
+
+This method will return image height
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

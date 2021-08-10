@@ -136,23 +136,18 @@ const _parseChildren = (option: FilterOptionHeader, sharedFilter: QueryFilter, f
 };
 
 const _applySharedCompFilter = (comparableDates: QueryFilter[], filter: FilterConfig) => {
-    let { selected } = filter;
+    let { selected, comparableStartDate, comparableEndDate, comparableType } = filter;
 
     if (comparableDates?.length) {
         const start = comparableDates.filter(c => c.op === 'gte')[0].value;
         const end = comparableDates.filter(c => c.op === 'lte')[0].value;
-        const isCustomComparable = comparableDates[0].key === 'custom';
-        selected = [
-            selected[0],
-            {
-                description: `comp: ${!isCustomComparable ? comparableDates[0].key : `${start} - ${end}`}`,
-                startDate: dayjs(start).toDate(),
-                endDate: dayjs(end).toDate(),
-            },
-        ];
+
+        comparableStartDate = start;
+        comparableEndDate = end;
+        comparableType = comparableDates[0].key;
     }
 
-    return { ...filter, selected };
+    return { ...filter, comparableStartDate, comparableEndDate, comparableType };
 };
 
 const _selectOptionIfMatches = (sharedFilter: QueryFilter, filter: FilterConfig, option: FilterOptionHeader) => {

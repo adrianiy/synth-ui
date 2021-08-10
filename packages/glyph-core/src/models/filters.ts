@@ -59,7 +59,6 @@ export interface FilterConfig {
     relatedByBrand?: boolean;
     relatedByProduct?: boolean;
     interface?: UIInterface;
-    selected?: SelectedFilter[];
     options?: FilterOptionHeader[];
     [key: string]: any;
 }
@@ -76,10 +75,13 @@ export interface DateFilter extends FilterConfig {
     maxComparableDate?: Date;
     comparableOptions?: SelectorOption[];
     comparableType?: ComparableType;
+    startDate?: Date;
+    endDate?: Date;
+    comparableStartDate?: Date;
+    comparableEndDate?: Date;
     dateRanges?: DateRange[];
     singleSelect?: boolean;
     months?: number;
-    compDates?: SelectedFilter[];
 }
 export interface FiltersConfig {
     search?: Search;

@@ -83,6 +83,10 @@
                     background-color: var(--active-bg);
                     color: var(--gui-color--contrast);
                 }
+                &.in-range:not(.selectable) {
+                    background-color: var(--gui-color--lightest);
+                    color: var(--gui-color--lighter);
+                }
                 &.in-range--secondary {
                     background-color: var(--active-bg--secondary);
                     color: var(--gui-color--contrast);

@@ -1,5 +1,5 @@
 import { Component, Prop, State, h, Listen, Element } from '@stencil/core';
-import { ComplexSelectorOptions, SelectorOption } from 'glyph-core';
+import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
@@ -12,9 +12,9 @@ import { cls } from '../../../utils/utils';
 })
 export class SelectorOptionsComponent {
     /** Selector options */
-    @Prop() options: SelectorOption[];
+    @Prop({ mutable: true }) options: SelectorOption[];
     /** Complex selector options */
-    @Prop() complexOptions: ComplexSelectorOptions;
+    @Prop({ mutable: true }) complexOptions: ComplexSelectorOptions;
     /** Multiselect flag */
     @Prop() multiSelect: boolean = false;
     /** Max height configuration */
@@ -25,6 +25,8 @@ export class SelectorOptionsComponent {
     @Prop() optionClickEvent: (option: SelectorOption) => void;
     /** Close event */
     @Prop() closeEvent: () => void;
+    /** Interface type ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Scrollbar element */
     @State() ps: PerfectScrollbar;
 
@@ -49,6 +51,13 @@ export class SelectorOptionsComponent {
 
     private _selectOption = (option: SelectorOption) => (event?: any) => {
         if (!option.disabled) {
+            if (!this.multiSelect) {
+                this.options.forEach(option => (option.active = false));
+                Object.keys(this.complexOptions || {}).forEach(key => {
+                    this.complexOptions[key].forEach(option => (option.active = false));
+                });
+            }
+            option.active = !option.active;
             this.optionClickEvent(option);
             event?.stopPropagation();
             event?.preventDefault();
@@ -105,9 +114,9 @@ export class SelectorOptionsComponent {
 
     private _renderComplexOptions = () => {
         return (
-            <Flex row>
+            <Flex row class="options__container">
                 {Object.keys(this.complexOptions).map(key => (
-                    <Flex>
+                    <Flex class="options__container__column">
                         <label>{key}</label>
                         {this._renderOptions(this.complexOptions[key])}
                     </Flex>
@@ -151,7 +160,10 @@ export class SelectorOptionsComponent {
 
     render() {
         return (
-            <Flex class="selector__options__container" style={{ '--max-height': `${this.maxHeight}px` }}>
+            <Flex
+                class={cls('selector__options__container', this.interface, { search: this.searchPlaceholder })}
+                style={{ '--max-height': `${this.maxHeight}px` }}
+            >
                 {this.searchPlaceholder && this._renderSearch()}
                 <glyph-scroll
                     tiny

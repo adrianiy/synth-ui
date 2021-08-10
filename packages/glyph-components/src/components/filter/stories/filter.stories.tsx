@@ -1,6 +1,5 @@
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
-import { optionClickEvent, clearEvent, multiSelectEvent } from './utils';
 
 const baseProps = {
     description: 'Test filter',
@@ -73,9 +72,6 @@ const Template = (
             .options=${options}
             .searchPlaceholder=${searchPlaceholder}
             .interface=${interfaceValue}
-            @optionClickEvent=${optionClickEvent}
-            @clearEvent=${clearEvent}
-            @multiSelectEvent=${multiSelectEvent}
         />`,
         ctx,
         style: 'width: 300px; height: 350px',

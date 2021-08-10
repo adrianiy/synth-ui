@@ -1,4 +1,4 @@
-import { Component, Prop, h, State, Element, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, Prop, h, State, Element, Event, EventEmitter, Listen, Method } from '@stencil/core';
 import { Flex } from '../../utils/layout';
 import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core';
 import { cls } from '../../utils/utils';
@@ -17,11 +17,11 @@ export class FilterComponent {
     /** Filter plural */
     @Prop() plural: string;
     /** Filter options */
-    @Prop() options: FilterOptionHeader[];
+    @Prop({ mutable: true }) options: FilterOptionHeader[];
     /** Multiselect flag. True if filter allows multiselect toggler */
     @Prop() haveMultiSelect: boolean = true;
     /** This flag is true if multiselect is active */
-    @Prop() multiSelect: boolean = false;
+    @Prop({ mutable: true }) multiSelect: boolean = false;
     /** Search placeholder */
     @Prop() searchPlaceholder: string;
     /** Extra i18n translation object */
@@ -31,9 +31,9 @@ export class FilterComponent {
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
     @Prop() interface: UIInterface = UIInterface.classic;
     /** Option click event */
-    @Event() optionClickEvent: EventEmitter<FilterSelectEvent>;
+    @Event() optionClick: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */
-    @Event() clearEvent: EventEmitter<any>;
+    @Event() clear: EventEmitter<any>;
     /** Multiselect toggler callback */
     @Event() multiSelectEvent: EventEmitter<any>;
     /** Element reference */
@@ -55,25 +55,29 @@ export class FilterComponent {
     }
 
     componentWillRender() {
-        this.active = this.options?.some(
-            ({ active, children }) => active || children?.some(({ active: chActive }) => chActive),
-        );
-        this.chipDescription = this._getChipDescription();
+        this._getChipDescription();
+    }
+
+    /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
+    /** This method will return image height */
+    @Method()
+    async clearFilter() {
+        this._onClear();
     }
 
     private _getChipDescription = () => {
-        if (!this.active) {
-            return this.i18n[this.description] || this.description;
-        } else {
-            const appliedChildren = this.options.map(opt => opt.children?.filter(({ active }) => active)).flat();
-            const appliedOptions = this.options.filter(({ active }) => active);
-            const applied = appliedChildren.concat(appliedOptions).filter(Boolean);
-            const total = applied.length;
-            const isPlural = total > 1;
+        const applied = this._getActiveOptions();
+        const total = applied.length;
+        const isPlural = total > 1;
 
-            return isPlural
+        if (total) {
+            this.active = true;
+            this.chipDescription = isPlural
                 ? `${total} ${this.i18n[this.plural] || this.plural}`
                 : this.i18n[applied[0].description] || applied[0].description;
+        } else {
+            this.active = false;
+            this.chipDescription = this.i18n[this.description] || this.description;
         }
     };
 
@@ -86,7 +90,14 @@ export class FilterComponent {
     };
 
     private _optionClick = (option: FilterOptionHeader) => {
-        this.optionClickEvent.emit({ option });
+        if (!this.multiSelect) {
+            this._clear();
+        }
+        option.active = !option.active;
+
+        this.optionClick.emit({ option });
+
+        this._getChipDescription();
 
         if (!this.multiSelect && !option.header) {
             this._expandFilter();
@@ -94,14 +105,38 @@ export class FilterComponent {
     };
 
     private _multiSelectClick = () => {
+        this.multiSelect = !this.multiSelect;
+        if (!this.multiSelect && this._getActiveOptions().length > 1) {
+            this._clear();
+        }
         this.multiSelectEvent.emit();
     };
 
-    private _onClear = (event: any) => {
-        if (this.active) {
-            this.clearEvent.emit();
-            event.stopPropagation();
-        }
+    private _onClear = (event?: any) => {
+        this._clear();
+        this._getChipDescription();
+        this.clear.emit();
+        event?.stopPropagation();
+    };
+
+    private _getActiveOptions = () => {
+        const appliedChildren = this.options.map(opt => opt.children?.filter(({ active }) => active)).flat();
+        const appliedOptions = this.options.filter(({ active }) => active);
+        const applied = appliedChildren.concat(appliedOptions).filter(Boolean);
+
+        return applied;
+    };
+
+    private _clear = () => {
+        this.options.forEach(option => {
+            option.active = false;
+
+            if (option.header || option.children) {
+                option.children.forEach(child => {
+                    child.active = false;
+                });
+            }
+        });
     };
 
     private _renderFilterOptions() {

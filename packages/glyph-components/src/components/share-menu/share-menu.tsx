@@ -2,7 +2,7 @@ import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
 import { ToasterTypes, UIInterface } from 'glyph-core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
 @Component({
     tag: 'glyph-share-menu',
@@ -81,7 +81,7 @@ export class ShareMenuComponent {
 
     render() {
         return (
-            <Flex class="share-menu__container">
+            <Flex class={cls('share-menu__container', this.interface)}>
                 <span class="url">{location.href}</span>
                 <span class="caption">{[ this.appTitle, this.appSubtitle ].filter(chunk => chunk).join(' - ')}</span>
                 <Flex row spaced class="button__container">

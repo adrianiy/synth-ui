@@ -257,6 +257,7 @@ export class HeaderComponent {
                         class="widget__menu widget__menu--apps"
                         apps={this.appData}
                         outsideCallback={this._toggleShowAppsMenu(false)}
+                        interface={this.interface}
                         i18n={this.i18n}
                         locale={this.locale}
                     />
@@ -293,6 +294,7 @@ export class HeaderComponent {
                 {this.showNotifications && (
                     <glyph-notifications
                         class="widget__menu widget__menu--notifications"
+                        interface={this.interface}
                         outsideCallback={this._toggleNotifications(false)}
                     >
                         <slot />

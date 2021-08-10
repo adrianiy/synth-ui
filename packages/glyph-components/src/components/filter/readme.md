@@ -25,9 +25,22 @@
 
 | Event              | Description                     | Type                             |
 | ------------------ | ------------------------------- | -------------------------------- |
-| `clearEvent`       | Clear selected filters callback | `CustomEvent<any>`               |
+| `clear`            | Clear selected filters callback | `CustomEvent<any>`               |
 | `multiSelectEvent` | Multiselect toggler callback    | `CustomEvent<any>`               |
-| `optionClickEvent` | Option click event              | `CustomEvent<FilterSelectEvent>` |
+| `optionClick`      | Option click event              | `CustomEvent<FilterSelectEvent>` |
+
+
+## Methods
+
+### `clearFilter() => Promise<void>`
+
+This method will return image height
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies

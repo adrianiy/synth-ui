@@ -44,42 +44,10 @@ const baseProps = {
     disabled: false,
 };
 
-const changeEvent = (event: any) => {
-    event.target.options = event.target.options.map((option: any) => {
-        if (option.value === event.detail.value) {
-            if (event.target.multiSelect) {
-                option.active = !option.active;
-            } else {
-                option.active = true;
-            }
-        } else if (!event.target.multiSelect) {
-            option.active = false;
-        }
-        return option;
-    });
-};
-const changeEventComplex = (event: any) => {
-    event.target.complexOptions = Object.keys(event.target.complexOptions).reduce((prev, curr) => {
-        prev[curr] = event.target.complexOptions[curr].map((option: any) => {
-            if (option.value === event.detail.value) {
-                if (event.target.multiSelect) {
-                    option.active = !option.active;
-                } else {
-                    option.active = true;
-                }
-            } else if (!event.target.multiSelect) {
-                option.active = false;
-            }
-            return option;
-        });
-        return prev;
-    }, {});
-};
-
 export default {
     title: 'Components/Selector/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
     },
     parameters: {
         viewMode: 'docs',
@@ -100,7 +68,6 @@ const Template = (
             .multiSelect=${multiSelect}
             .searchPlaceholder=${searchPlaceholder}
             .interface=${interfaceValue}
-            @optionSelect=${changeEvent}
         />`,
         ctx,
         style: 'height: 200px',
@@ -113,7 +80,6 @@ const ComplexTemplate = ({ label, options, complexOptions, multiSelect }, ctx: a
             .options=${options}
             .complexOptions=${complexOptions}
             .multiSelect=${multiSelect}
-            @optionSelect=${changeEventComplex}
         />`,
         ctx,
         style: 'height: 300px; width: 300px;',

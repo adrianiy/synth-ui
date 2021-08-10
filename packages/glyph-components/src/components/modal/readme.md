@@ -13,7 +13,10 @@
 | `cancelButton` | `cancel-button` | Cancel button text. Renders button if set | `string`                                                            | `undefined`           |
 | `closeButton`  | `close-button`  | Close button flag                         | `boolean`                                                           | `undefined`           |
 | `interface`    | `interface`     | Interface type ['MODERN', 'CLASSIC']      | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
+| `maxHeight`    | `max-height`    | Modal min height                          | `string`                                                            | `undefined`           |
+| `maxWidth`     | `max-width`     | Modal min with                            | `string`                                                            | `'80%'`               |
 | `modalTitle`   | `modal-title`   | Modal title                               | `string`                                                            | `undefined`           |
+| `padded`       | `padded`        | Modal padded flag                         | `boolean`                                                           | `true`                |
 | `visible`      | `visible`       | Modal visibility flag                     | `boolean`                                                           | `undefined`           |
 
 

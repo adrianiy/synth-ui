@@ -17,9 +17,9 @@ export class SelectorComponent {
     /** Selector disabled state */
     @Prop() disabled: boolean;
     /** Selector options */
-    @Prop() options: SelectorOption[];
+    @Prop({ mutable: true }) options: SelectorOption[];
     /** Complex selector options */
-    @Prop() complexOptions: ComplexSelectorOptions;
+    @Prop({ mutable: true }) complexOptions: ComplexSelectorOptions;
     /** Multiselect flag */
     @Prop() multiSelect: boolean = false;
     /** Search placeholder text. If defined a search input will render */
@@ -38,15 +38,19 @@ export class SelectorComponent {
     @State() optionsDrilldown: boolean;
 
     componentWillRender() {
-        if (this.options) {
+        this._getSelectedOptions();
+    }
+
+    private _getSelectedOptions = () => {
+        if (this.options?.length) {
             this.selectedOptions = this.options?.filter(option => option.active);
         }
-        if (this.complexOptions) {
+        if (Object.keys(this.complexOptions || {})?.length) {
             this.selectedOptions = Object.keys(this.complexOptions).reduce((prev, curr) => {
                 return prev.concat(this.complexOptions[curr].filter(option => option.active));
             }, []);
         }
-    }
+    };
 
     private _toggleContainer = (value?: boolean) => () => {
         if (!this.disabled) {
@@ -55,6 +59,7 @@ export class SelectorComponent {
     };
 
     private _selectOption = (option: SelectorOption) => {
+        this._getSelectedOptions();
         this.optionSelect.emit(option);
 
         if (!this.multiSelect) {
@@ -75,6 +80,7 @@ export class SelectorComponent {
                 </Flex>
                 {this.optionsDrilldown && (
                     <glyph-selector-options
+                        interface={this.interface}
                         options={this.options}
                         complexOptions={this.complexOptions}
                         maxHeight={this.maxHeight}

@@ -1,7 +1,7 @@
 import { FiltersConfig } from '../../models';
 import { FilterConfig } from '../../models';
 import { FilterOption, FilterOptionHeader, SelectedFilter } from '../../models/filters';
-import { selectOptionAux } from './filter.utils';
+import { getSelectedOptions, selectOptionAux } from './filter.utils';
 import { codeToArray } from '../../utils/utils';
 
 /**
@@ -64,7 +64,7 @@ export const setHideValue = (row: FilterOptionHeader, selected: SelectedFilter[]
 const _setHideValue = (row: FilterOptionHeader, filters: FiltersConfig, parentKey?: string, key?: string) => {
     let filter = filters[key];
     const parentFilter = filters[parentKey];
-    const selected = parentFilter.selected.map(({ code }) => code);
+    const selected = getSelectedOptions(parentFilter.options).map(({ code }) => code);
     const oldHideValue = row['hide'] || false;
     const parentCode = row.parents[parentKey] || row[parentKey];
 

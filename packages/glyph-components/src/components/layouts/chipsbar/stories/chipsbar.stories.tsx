@@ -1,7 +1,6 @@
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
 import { filtersConfig } from './helpers/config';
-import { clearAllEvent, clearEvent, multiSelectEvent, optionClickEvent } from './helpers/events';
 
 const baseProps = {
     filtersConfig: filtersConfig,
@@ -25,10 +24,7 @@ const Template = ({ filtersConfig, hideZaraSouth, interface: interfaceValue }, c
             .filtersConfig=${filtersConfig}
             .hideZaraSouth=${hideZaraSouth}
             .interface=${interfaceValue}
-            @filterSelect=${optionClickEvent}
-            @filterClear=${clearEvent}
-            @updateFilter=${multiSelectEvent}
-            @clearAll=${clearAllEvent}
+            @filterSelect=${() => console.log(filtersConfig)}
         />`,
         ctx,
         style: 'height: 400px',

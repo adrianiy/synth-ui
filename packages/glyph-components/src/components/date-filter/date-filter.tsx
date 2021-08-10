@@ -1,4 +1,4 @@
-import { h, Component, Element, Event, EventEmitter, Prop, State, Listen } from '@stencil/core';
+import { h, Component, Element, Event, EventEmitter, Prop, State, Listen, Method } from '@stencil/core';
 import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
@@ -20,9 +20,9 @@ export class DateFilterComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
     /** Filter description */
-    @Prop() description: string;
+    @Prop({ mutable: true }) description: string;
     /** Active flag */
-    @Prop() active: boolean;
+    @Prop({ mutable: true }) active: boolean;
     /** Minimum available date */
     @Prop() minDate: Date;
     /** Maximum available date */
@@ -38,15 +38,15 @@ export class DateFilterComponent {
     /** Number of months to be shown. 2 by default */
     @Prop() months: number = 2;
     /** Comparabel type */
-    @Prop() comparableType: ComparableType = ComparableType.commercial;
+    @Prop({ mutable: true }) comparableType: ComparableType = ComparableType.commercial;
     /** Selected start date */
-    @Prop() startDate: Date;
+    @Prop({ mutable: true }) startDate: Date;
     /** Selected end date */
-    @Prop() endDate: Date;
+    @Prop({ mutable: true }) endDate: Date;
     /** Selected comparable start date */
-    @Prop() comparableStartDate: Date;
+    @Prop({ mutable: true }) comparableStartDate: Date;
     /** Selected comparable end date */
-    @Prop() comparableEndDate: Date;
+    @Prop({ mutable: true }) comparableEndDate: Date;
     /** Comparable options */
     @Prop() comparableOptions: SelectorOption[];
     /** Extra i18n translation object */
@@ -67,6 +67,8 @@ export class DateFilterComponent {
     @State() comparableActive: boolean = false;
     /** Custom comparable flag */
     @State() isCustomComparable: boolean = false;
+    /** Chip description */
+    @State() chipDescription: string;
     /** Scrollbar element */
     @State() ps: PerfectScrollbar;
 
@@ -77,6 +79,17 @@ export class DateFilterComponent {
         if (!event.composedPath().includes(this.element)) {
             this.expanded = false;
         }
+    }
+
+    componentWillRender() {
+        this._getChipDescription();
+    }
+
+    /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
+    /** This method will return image height */
+    @Method()
+    async clearFilter() {
+        this._onClear();
     }
 
     async componentWillLoad() {
@@ -95,6 +108,15 @@ export class DateFilterComponent {
         }
     };
 
+    private _getChipDescription = () => {
+        const comparable = this._getComparableText();
+
+        this.active = !this._isDefault();
+        this.chipDescription =
+            this.description ||
+            `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
+    };
+
     private _expandFilter = () => {
         this.expanded = !this.expanded;
     };
@@ -103,12 +125,30 @@ export class DateFilterComponent {
         this.comparableActive = value;
     };
 
-    private _onClear = (event: any) => {
-        this.clearEvent.emit();
-        this.expanded = false;
+    private _onClear = (event?: any) => {
         this.comparableActive = false;
         this.isCustomComparable = false;
-        event.stopPropagation();
+        this._setDefault();
+        this.expanded = false;
+        this.clearEvent.emit();
+        event?.stopPropagation();
+    };
+
+    private _isDefault = () => {
+        const defaultValue = this.dateRanges.find(range => range.isDefault);
+
+        if (defaultValue) {
+            const { startDate, endDate } = defaultValue;
+            return this.startDate === startDate && this.endDate === endDate;
+        }
+    };
+
+    private _setDefault = () => {
+        const defaultValue = this.dateRanges.find(range => range.isDefault);
+
+        if (defaultValue) {
+            this._selectRange(defaultValue)();
+        }
     };
 
     private _selectRange = (dateRange: DateRange) => () => {
@@ -116,9 +156,10 @@ export class DateFilterComponent {
     };
 
     private _selectDate = ({
-        detail: { startDate, endDate, comparableType, ...rest },
+        detail: { startDate, endDate, description, comparableType, ...rest },
     }: CustomEvent<FilterSelectEvent>) => {
         const event = {
+            description,
             startDate,
             endDate,
             comparableStartDate: this.comparableStartDate,
@@ -126,6 +167,12 @@ export class DateFilterComponent {
             comparableType: comparableType || this.comparableType,
             ...rest,
         };
+
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.comparableType = comparableType || this.comparableType;
+        this._getChipDescription();
         this.dateSelection.emit(event);
         this.expanded = false;
     };
@@ -133,6 +180,7 @@ export class DateFilterComponent {
     private _selectCompDate = ({ detail: { startDate, endDate } }: CustomEvent<FilterSelectEvent>) => {
         this.comparableStartDate = startDate;
         this.comparableEndDate = endDate;
+        this._getChipDescription();
     };
 
     private _selectOption = ({ detail: { name, value } }: CustomEvent<SelectorOption>) => {
@@ -148,6 +196,7 @@ export class DateFilterComponent {
             this.comparableEndDate = dayjs(this.startDate).subtract(1, 'day').toDate();
             this.comparableActive = true;
         }
+        this._getChipDescription();
     };
 
     private _handleInputStart = ({ detail: startDate }: CustomEvent<string>) => {
@@ -189,6 +238,7 @@ export class DateFilterComponent {
                 endDate: this.endDate,
             },
         } as any);
+        this._getChipDescription();
     };
 
     private _renderDateRanges = () => {
@@ -321,7 +371,7 @@ export class DateFilterComponent {
 
     private _renderCalendarDrilldown = () => {
         return (
-            <div class="date-filter__container">
+            <div class={cls('date-filter__container', this.interface)}>
                 {this._renderDateRanges()}
                 {this._renderCalendars()}
                 {this._renderInputs()}
@@ -344,10 +394,6 @@ export class DateFilterComponent {
 
     render() {
         const active = this.active;
-        const comparable = this._getComparableText();
-        const description =
-            this.description ||
-            `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
 
         return (
             <Flex class={this.interface}>
@@ -369,7 +415,7 @@ export class DateFilterComponent {
                             'label--l--medium': this.interface === UIInterface.redesign,
                         })}
                     >
-                        {this._i18n[description] || description}
+                        {this._i18n[this.chipDescription] || this.chipDescription}
                     </span>
                     <Icon
                         onClick={active ? this._onClear : null}

@@ -9,7 +9,7 @@ const minDate = dayjs(new Date(year, 1, 1));
 const maxDate = dayjs().add(aux, 'day');
 const dateRanges = [
     { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate() },
-    { description: 'Real time', startDate: new Date(), endDate: new Date() },
+    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
     {
         description: 'Yesterday',
         startDate: dayjs().subtract(aux, 'day').toDate(),
@@ -58,26 +58,6 @@ const baseProps = {
     active: false,
     comparableOptions,
     interface: 'classic',
-};
-const optionClickEvent = (event: any) => {
-    const {
-        detail: { startDate, endDate, comparableStartDate, comparableEndDate, comparableType, description, isDefault },
-    } = event;
-    event.target.description = description;
-    event.target.active = !isDefault;
-    event.target.startDate = startDate;
-    event.target.endDate = endDate;
-    event.target.comparableStartDate = comparableStartDate;
-    event.target.comparableEndDate = comparableEndDate;
-    event.target.comparableType = comparableType;
-};
-const clearEvent = (event: any) => {
-    const { startDate, endDate, description } = dateRanges[1];
-    event.target.comparableType = 'commercial';
-    event.target.startDate = startDate;
-    event.target.endDate = endDate;
-    event.target.description = description;
-    event.target.active = false;
 };
 
 export default {
@@ -131,8 +111,6 @@ const Template = (
             .active=${active}
             .comparableOptions=${comparableOptions}
             .interface=${interfaceValue}
-            @dateSelection=${optionClickEvent}
-            @clearEvent=${clearEvent}
         ></glyph-date-filter>`,
         ctx,
         style: 'width: 400px; height: 500px',

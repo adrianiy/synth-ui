@@ -1,5 +1,5 @@
 import React from 'react';
-import { actions, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core';
+import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 
@@ -42,6 +42,10 @@ export const useFiltersConfig = () => {
         dispatch(actions.filters.updateFilter(update));
     };
 
+    const updateFiltersConfig = (filtersConfig: FiltersConfig) => {
+        dispatch(actions.filters.updateFiltersConfig(filtersConfig));
+    };
+
     const clearFilter = (filterCode: string) => {
         dispatch(actions.filters.clearFilter(filterCode));
     };
@@ -50,7 +54,7 @@ export const useFiltersConfig = () => {
         dispatch(actions.filters.clearAll());
     };
 
-    return { filtersConfig, selectFilter, updateFilter, clearFilter, clearAll };
+    return { filtersConfig, selectFilter, updateFilter, updateFiltersConfig, clearFilter, clearAll };
 };
 
 export default FilterStateProvider;

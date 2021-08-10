@@ -4,9 +4,9 @@
 .modal__wrapper {
     font-size: var(--gui-font--base);
     color: var(--gui-color);
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, 0.4);
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -15,10 +15,13 @@
     .modal__container {
         background-color: var(--gui-color--background--lighter);
         border-radius: var(--gui-border-radius);
-        min-width: 80%;
         box-shadow: var(--gui-shadow--small);
-        padding: var(--gui-padding--m);
+        position: relative;
+        width: 100%;
 
+        &.padded {
+            padding: var(--gui-padding--xl);
+        }
         &__header {
             h2 {
                 margin-bottom: 0;
@@ -29,5 +32,4 @@
             }
         }
     }
-
 }

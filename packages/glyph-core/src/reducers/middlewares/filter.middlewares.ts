@@ -11,7 +11,6 @@ import {
     isFilterActive,
     selectDateAux,
     selectOptionAux,
-    translateDescription,
 } from '../utils/filter.utils';
 import { checkRelations, filterRestrictedOptions } from '../utils/related.utils';
 
@@ -89,7 +88,6 @@ export const resetOrdinalCompType = (state: FiltersState) => {
         if (!platformActive && !countryActive) {
             const date = {
                 ...filtersConfig.date,
-                selected: filtersConfig.date.selected.slice(0, 1),
             };
             return {
                 ...state,
@@ -118,37 +116,6 @@ export const checkFilterRelations = (selected?: FilterSelectEvent) => (state: Fi
             filtersConfig = { ...filtersConfig, [key]: filter };
         }
     });
-
-    return {
-        ...state,
-        filtersConfig,
-    };
-};
-
-export const translateDescriptions = (translateFn: (arg0: string) => string) => (state: FiltersState) => {
-    let { filtersConfig } = state;
-
-    if (filtersConfig) {
-        Object.keys(filtersConfig).forEach(key => {
-            const filter = filtersConfig[key];
-            let { options } = filter;
-
-            options = options?.map(option => {
-                const { children } = option;
-
-                return {
-                    ...option,
-                    description: translateDescription(option, translateFn),
-                    children: children?.map(child => ({
-                        ...child,
-                        description: translateDescription(child, translateFn),
-                    })),
-                };
-            });
-
-            filtersConfig = { ...filtersConfig, [key]: { ...filter, options } };
-        });
-    }
 
     return {
         ...state,

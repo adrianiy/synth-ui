@@ -19,57 +19,9 @@
         }
     </style>
     <body>
-        <glyph-filter description="filter" plural="filters"></glyph-filter>
-        <script>
-            const filterElement = document.querySelector('glyph-filter');
-            filterElement.options =[
-                { description: 'option', active: false, display: true },
-                { description: 'option 2', active: false, display: true },
-                { description: 'option 3', active: false, display: true },
-            ]
-
-            filterElement.selected = [];
-            filterElement.addEventListener('optionClickEvent', event => {
-                const filterElement = document.querySelector('glyph-filter');
-                filterElement.options = [
-                    { description: 'option', active: true, display: true },
-                    { description: 'option 2', active: false, display: true },
-                    { description: 'option 3', active: false, display: true },
-                ]
-
-            })
-        </script>
-        <glyph-title title-text="List"></glyph-title>
-        <glyph-list loading="false" enable-download="true" expandable="true"></glyph-list>
-        <script>
-            const listElement = document.querySelector('glyph-list');
-            listElement.headerTitle = 'Países';
-            listElement.data = [
-                {
-                    _isTotal: true,
-                    name: 'total',
-                    amount: { value: Math.random() * 10000 - 1, format: '0,0' },
-                    growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
-                },
-            ].concat(
-                ['España', 'Estados unidos', 'Canada', 'Francia', 'Irlanda', 'Croacia', 'Corea', 'Taiwan'].map(
-                    country => ({
-                        name: country,
-                        _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
-                        amount: { value: Math.random() * 10000 - 1, format: '0,0' },
-                        growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
-                        _children: [
-                            {
-                                name: 'Section',
-                                _actions: [{ icon: 'bar_chart', title: 'Analyze', action: () => alert('action') }],
-                                amount: { value: Math.random() * 10000 - 1, format: '0,0' },
-                                growth: { value: Math.random(), format: '0,0.0%', decoration: 'green' },
-                            },
-                        ],
-                    }),
-                ),
-            );
-            listElement.limit = 3;
-        </script>
+        <h1>Glyph components</h1>
+        <p>
+        Test library in <a href="http://localhost:6007">DOCS</a>
+        </p>
     </body>
 </html>

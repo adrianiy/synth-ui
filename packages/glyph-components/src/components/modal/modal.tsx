@@ -14,6 +14,12 @@ export class ModalComponent {
     @Prop() visible: boolean;
     /** Modal title */
     @Prop() modalTitle: string;
+    /** Modal padded flag */
+    @Prop() padded: boolean = true;
+    /** Modal min with */
+    @Prop() maxWidth: string = '80%';
+    /** Modal min height */
+    @Prop() maxHeight: string;
     /** Close button flag */
     @Prop() closeButton: boolean;
     /** Cancel button text. Renders button if set */
@@ -87,7 +93,10 @@ export class ModalComponent {
         return (
             this.visible && (
                 <Flex middle center class="modal__wrapper animated fadeIn" onClick={this._checkClose}>
-                    <Flex class="modal__container">
+                    <Flex
+                        class={cls('modal__container', { padded: this.padded })}
+                        style={{ maxWidth: this.maxWidth, maxHeight: this.maxHeight, height: this.maxHeight && '100%' }}
+                    >
                         {(this.modalTitle || this.closeButton) && this._renderHeader()}
                         <slot />
                         {(this.applyButton || this.cancelButton) && this._renderButtons()}

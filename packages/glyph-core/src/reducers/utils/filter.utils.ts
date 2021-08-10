@@ -22,11 +22,14 @@ export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) =>
 };
 
 export const selectDateAux = (filter: DateFilter, selected: FilterSelectEvent) => {
-    const { startDate, endDate, isDefault, description } = selected;
+    const { startDate, endDate, description } = selected;
     const { comparableType, comparableStartDate, comparableEndDate } = selected;
 
-    filter.selected = [ { startDate, endDate, isDefault, description } ];
-    filter.compDates = [ { startDate: comparableStartDate, endDate: comparableEndDate } ];
+    filter.startDate = startDate;
+    filter.endDate = endDate;
+    filter.comparableStartDate = comparableStartDate;
+    filter.comparableEndDate = comparableEndDate;
+    filter.description = description;
     filter.comparableType = comparableType;
 
     return { filter: filter };
@@ -55,15 +58,17 @@ export const cleanSelected = (filters: any) => {
 
         return {
             ...filter,
-            selected: [],
             options,
         };
     });
 };
 
 export const cleanSelectedDate = (filter: DateFilter) => {
-    filter.selected = filter.dateRanges?.filter(({ isDefault }) => isDefault) || [];
-    filter.compDates = [];
+    const defaultValue = filter.dateRanges?.find(({ isDefault }) => isDefault);
+    filter.startDate = defaultValue?.startDate;
+    filter.compDates = defaultValue?.endDate;
+    filter.comparableStartDate = null;
+    filter.comparableEndDate = null;
     filter.comparableType = ComparableType.commercial;
 
     return filter;
@@ -73,7 +78,8 @@ export const cleanSelectedDate = (filter: DateFilter) => {
  * If filter changes to single select and has multiple options active we need to clean selected options
  */
 export const checkCleanIfMultiSelectChanges = (filter: FilterConfig) => {
-    const { multiSelect, selected } = filter;
+    const { multiSelect, options } = filter;
+    const selected = getSelectedOptions(options);
 
     if (!multiSelect && selected.length > 1) {
         return cleanSelected([ filter ])[0];
@@ -95,6 +101,15 @@ export const getCompType = (filters: FiltersConfig) => {
 
 export const isFilterActive = (filters: FiltersConfig, filterCode: string) => {
     return filters[filterCode]?.selected?.length > 0;
+};
+
+export const getSelectedOptions = (options: FilterOptionHeader[]) => {
+    return options
+        .reduce(
+            (acc, curr) => acc.concat(curr.header ? getSelectedOptions(curr.children) : curr.active ? curr : null),
+            [],
+        )
+        .filter(Boolean);
 };
 
 const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOptionHeader, multiSelect: boolean) => {
@@ -122,27 +137,14 @@ const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOpti
     });
 };
 
-const _getSelectedOptions = (options: FilterOptionHeader[]) => {
-    return options
-        .reduce(
-            (acc, curr) => acc.concat(curr.header ? _getSelectedOptions(curr.children) : curr.active ? curr : null),
-            [],
-        )
-        .filter(Boolean);
-};
-
 const _selectFilter = (filter: FilterConfig, selectedOption: SelectedFilter) => {
     let { options, multiSelect } = filter;
-    const { isDefault } = selectedOption;
 
     options = _matchActiveOptions(options, selectedOption, multiSelect);
-
-    const selected = _getSelectedOptions(options).map((option: FilterOptionHeader) => ({ ...option, isDefault }));
 
     return {
         ...filter,
         options,
-        selected,
     };
 };
 
@@ -175,25 +177,8 @@ export const cleanFiltersCache = (filtersVersion: string) => {
     localStorage.setItem('Drive.Filters.Version', filtersVersion);
 };
 
-export const translateDescription = (option: FilterOption, translateFn: (arg0: string) => string) => {
-    try {
-        const newDescription = translateFn(option.description);
-
-        if (newDescription !== option.description) {
-            return newDescription;
-        } else {
-            return option._originalDescription;
-        }
-    } catch (err) {
-        return option.description;
-    }
-};
-
 export const getSelectedDatesQuery = (filter: DateFilter): QueryFilter[] => {
-    let {
-        dateRanges,
-        selected: [ { startDate, endDate, description } ],
-    } = filter;
+    let { dateRanges, startDate, endDate, description } = filter;
     const key = 'local_date';
     const format = 'YYYY-MM-DD';
     const dateRange = dateRanges.find((range: DateRange) => range.description === description);
@@ -233,7 +218,8 @@ const _parseFilters = (filters: FiltersConfig): any => {
     return Object.values(filters)
         .filter(({ visible }) => visible)
         .reduce((acc, filter) => {
-            const { selected, key } = filter;
+            const { options, key } = filter;
+            const selected = getSelectedOptions(options);
             const inValues = _getFiltersWithOperation(selected, [ true, undefined ]);
             const ninValues = _getFiltersWithOperation(selected, [ false ]);
 
@@ -249,9 +235,13 @@ const _parseFilters = (filters: FiltersConfig): any => {
 
 const _parseExtraFilters = (filters: FiltersConfig) => (parsedFilters: any) => {
     Object.values(filters)
-        .filter(({ extraFilter, selected }) => extraFilter && selected.length)
+        .filter(({ extraFilter, options }) => {
+            const selected = getSelectedOptions(options);
+            return extraFilter && selected.length;
+        })
         .forEach(filter => {
-            const { selected, extraFilter } = filter;
+            const { extraFilter, options } = filter;
+            const selected = getSelectedOptions(options);
             parsedFilters[extraFilter] = _getExtraFilters(selected, parsedFilters[extraFilter]);
         });
 

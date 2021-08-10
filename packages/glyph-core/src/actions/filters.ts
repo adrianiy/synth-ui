@@ -48,6 +48,11 @@ const updateFilter = (update: FilterUpdateEvent) => ({
     update,
 });
 
+const updateFiltersConfig = (filtersConfig: FiltersConfig) => ({
+    type: filterActions.updateFilterConfig,
+    filtersConfig,
+});
+
 const saveFilters = () => ({
     type: filterActions.saveFilters,
 });
@@ -60,6 +65,7 @@ const actions = {
     clearFilter,
     clearAll,
     updateFilter,
+    updateFiltersConfig,
     setFilters,
     saveFilters,
 };
