@@ -1,3 +1,4 @@
+import { basicYamlParser } from '../composer';
 import { constant, getFrom, getParamValue, is, parseParams, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
@@ -68,6 +69,26 @@ export const customMiddleware = (args: { middleware: any; store?: string; standa
             }
 
             await next();
+        } catch (error) {
+            await logMiddleware({ error, level: 'error' })(ctx, null);
+            throw error;
+        }
+    };
+};
+
+export const conditionalMiddleware = (args: { if: any; then: any; else?: any }, params) => {
+    return async (ctx: any, next: any) => {
+        try {
+            ctx.state.lastStep = 'conditional';
+
+            const context = { ...ctx.state, ...params };
+            const { if: _if, then, else: _else } = parseParams(context, args);
+
+            if (_if) {
+                await basicYamlParser(then, params);
+            } else if (_else) {
+                await basicYamlParser(_else, params);
+            }
         } catch (error) {
             await logMiddleware({ error, level: 'error' })(ctx, null);
             throw error;

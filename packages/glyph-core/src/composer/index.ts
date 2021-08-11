@@ -2,17 +2,20 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import callsites from 'callsites';
 import path from 'path';
-import { asyncPipe, customMiddleware, parallel, setVariables } from '../middlewares/base';
+import { asyncPipe, conditionalMiddleware, customMiddleware, parallel, setVariables } from '../middlewares/base';
 import { filter, groupBy, join, sort, transform } from '../middlewares/data';
 import { getA2ComparableFilters, getComparableFilters, getCurrentFilters } from '../middlewares/filters';
 import { fetchData } from '../middlewares/fetch';
 import { logMiddleware } from '../middlewares/log';
 
-const basicYamlParser = (doc: any, params: any) => {
+export const basicYamlParser = (doc: any, params: any) => {
     let pipe = [];
 
     if (doc.name) {
         pipe.push(setVariables({ from: doc.name }));
+    }
+    if (doc.if) {
+        pipe.push(conditionalMiddleware(doc.if, params));
     }
     if (doc.variables) {
         pipe.push(setVariables(doc.variables));

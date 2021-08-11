@@ -1,0 +1,32 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../../helpers/decorators';
+
+<Story name="Conditional" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Glyph pipes/Configuration/Conditional" />
+
+###### Configuration
+# Conditional
+
+Executes something if `if` condition is `true`.
+
+When condition is not satisfied `else` value will be executed if exists.
+
+#### Parameters
+
+| NAME | TYPE | DESCRIPTION | DEFAULT VALUE|
+|:-----|:-----:|:---------|------:|
+|if|any|Condition that must be true| null |
+|then|any|middleware to execute if condition is true| null |
+|else|any|middleware to execute if condition is false| null |
+
+### Example 
+
+```yaml
+name: conditional middleware
+pipe: 
+    - if: ctx => ctx.data.length > 1
+        then: someMiddleware
+        else: otherMiddleware
+```
+

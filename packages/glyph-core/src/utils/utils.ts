@@ -91,3 +91,9 @@ export const parseParams = (from: any, params: any): any => {
 export const getParamValue = (context: any, param: any, _default: any) => {
     return is(param, Function) ? param(context) : param || _default;
 };
+
+export const evaluateCondition = (context: any, param: any) => {
+    const value = parseParam(context, param);
+
+    return getParamValue(context, value, false);
+};
