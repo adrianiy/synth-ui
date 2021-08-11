@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.1.0...glyph-core-poc-v1.1.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix conditional pipe ([510d9ee](https://github.com/adrianiy/glyph-ui/commit/510d9ee201c93cf07d8c11d8f8335c9446bf5c02))
+
 # [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.3...glyph-core-poc-v1.1.0) (2021-08-11)
 
 
