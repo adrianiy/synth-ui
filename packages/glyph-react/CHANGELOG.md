@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.6...glyph-react-poc-v2.0.0) (2021-08-11)
+
+
+### Features
+
+* **docs:** change documentation demo ([b221332](https://github.com/adrianiy/glyph-ui/commit/b221332a33370aa60f8206167eda65d4e60b0114))
+
+
+### BREAKING CHANGES
+
+* **docs:** change release number to update glyph-react
+
 ## [1.0.6](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.5...glyph-react-poc-v1.0.6) (2021-08-11)
 
 
