@@ -25,7 +25,8 @@ When condition is not satisfied `else` value will be executed if exists.
 ```yaml
 name: conditional middleware
 pipe: 
-    - if: ctx => ctx.data.length > 1
+    - conditional: 
+        if: ctx => ctx.data.length > 1
         then: someMiddleware
         else: otherMiddleware
 ```

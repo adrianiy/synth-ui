@@ -14,7 +14,7 @@ export const basicYamlParser = (doc: any, params: any) => {
     if (doc.name) {
         pipe.push(setVariables({ from: doc.name }));
     }
-    if (doc.if) {
+    if (doc.conditional) {
         pipe.push(conditionalMiddleware(doc.if, params));
     }
     if (doc.variables) {
