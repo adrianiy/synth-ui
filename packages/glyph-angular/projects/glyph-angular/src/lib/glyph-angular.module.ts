@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { defineCustomElements } from 'glyph-components/dist/loader';
+import { defineCustomElements } from 'glyph-components-poc/dist/loader';
 import { ChipsbarComponent, ListComponent } from './components';
 
 import {

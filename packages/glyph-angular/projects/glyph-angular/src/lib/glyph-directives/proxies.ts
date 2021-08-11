@@ -24,7 +24,7 @@ export class GlyphAppMenu {
   }
 }
 
-import { ArticleComponent as IArticleComponent } from 'glyph-components/dist/types/components/article/article';
+import { ArticleComponent as IArticleComponent } from 'glyph-components-poc/dist/types/components/article/article';
 export declare interface GlyphArticle extends Components.GlyphArticle {}
 @ProxyCmp({
     inputs: [ 'article', 'aspectRatio', 'basePath', 'i18n', 'imageType', 'isClickable', 'isVisible', 'loading', 'locale', 'parseImageUrl', 'quantityField', 'useBackdropDecoration' ],
@@ -69,7 +69,7 @@ export class GlyphAvatar {
   }
 }
 
-import { BrandListComponent as IBrandListComponent } from 'glyph-components/dist/types/components/brand-list/brand-list';
+import { BrandListComponent as IBrandListComponent } from 'glyph-components-poc/dist/types/components/brand-list/brand-list';
 export declare interface GlyphBrandList extends Components.GlyphBrandList {}
 @ProxyCmp({
     inputs: [ 'basePath', 'brandList', 'outsideCallback' ]
@@ -149,7 +149,7 @@ export class GlyphButtonGroup {
   }
 }
 
-import { CalendarComponent as ICalendarComponent } from 'glyph-components/dist/types/components/calendar/calendar';
+import { CalendarComponent as ICalendarComponent } from 'glyph-components-poc/dist/types/components/calendar/calendar';
 export declare interface GlyphCalendar extends Components.GlyphCalendar {}
 @ProxyCmp({
     inputs: [ 'auxActive', 'endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux' ]
@@ -174,7 +174,7 @@ export class GlyphCalendar {
   }
 }
 
-import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/chipsbar';
+import { ChipsBarComponent as IChipsBarComponent } from 'glyph-components-poc/dist/types/components/layouts/chipsbar/chipsbar';
 export declare interface GlyphChipsbar extends Components.GlyphChipsbar {}
 @ProxyCmp({
     inputs: [ 'basePath', 'filtersConfig', 'hideZaraSouth', 'i18n', 'interface', 'locale' ]
@@ -203,7 +203,7 @@ export class GlyphChipsbar {
   }
 }
 
-import { ConfigModalComponent as IConfigModalComponent } from 'glyph-components/dist/types/components/layouts/chipsbar/components/config-modal';
+import { ConfigModalComponent as IConfigModalComponent } from 'glyph-components-poc/dist/types/components/layouts/chipsbar/components/config-modal';
 export declare interface GlyphConfigModal extends Components.GlyphConfigModal {}
 @ProxyCmp({
     inputs: [ 'filtersConfig', 'hideZaraSouth', 'i18n', 'interface' ]
@@ -226,7 +226,7 @@ export class GlyphConfigModal {
   }
 }
 
-import { DateFilterComponent as IDateFilterComponent } from 'glyph-components/dist/types/components/date-filter/date-filter';
+import { DateFilterComponent as IDateFilterComponent } from 'glyph-components-poc/dist/types/components/date-filter/date-filter';
 export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
 @ProxyCmp({
     inputs: [ 'active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate' ],
@@ -252,7 +252,7 @@ export class GlyphDateFilter {
   }
 }
 
-import { FilterComponent as IFilterComponent } from 'glyph-components/dist/types/components/filter/filter';
+import { FilterComponent as IFilterComponent } from 'glyph-components-poc/dist/types/components/filter/filter';
 export declare interface GlyphFilter extends Components.GlyphFilter {}
 @ProxyCmp({
     inputs: [ 'basePath', 'description', 'haveMultiSelect', 'i18n', 'interface', 'locale', 'multiSelect', 'options', 'plural', 'searchPlaceholder' ],
@@ -356,7 +356,7 @@ export class GlyphFlex {
   }
 }
 
-import { HeaderComponent as IHeaderComponent } from 'glyph-components/dist/types/components/layouts/header/header';
+import { HeaderComponent as IHeaderComponent } from 'glyph-components-poc/dist/types/components/layouts/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
     inputs: [ 'activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig' ]
@@ -408,7 +408,7 @@ export class GlyphIcon {
   }
 }
 
-import { InputComponent as IInputComponent } from 'glyph-components/dist/types/components/input/input';
+import { InputComponent as IInputComponent } from 'glyph-components-poc/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
     inputs: [ 'autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value' ]
@@ -433,7 +433,7 @@ export class GlyphInput {
   }
 }
 
-import { ListComponent as IListComponent } from 'glyph-components/dist/types/components/list/list';
+import { ListComponent as IListComponent } from 'glyph-components-poc/dist/types/components/list/list';
 export declare interface GlyphList extends Components.GlyphList {}
 @ProxyCmp({
     inputs: [ 'basePath', 'data', 'decimals', 'defaultSortField', 'enableDownload', 'expandable', 'filterFields', 'i18n', 'limit', 'loading', 'locale', 'pageGroups', 'paginationLimit', 'update' ]
@@ -494,7 +494,7 @@ export class GlyphLogin {
   }
 }
 
-import { ModalComponent as IModalComponent } from 'glyph-components/dist/types/components/modal/modal';
+import { ModalComponent as IModalComponent } from 'glyph-components-poc/dist/types/components/modal/modal';
 export declare interface GlyphModal extends Components.GlyphModal {}
 @ProxyCmp({
     inputs: [ 'applyButton', 'cancelButton', 'closeButton', 'interface', 'maxHeight', 'maxWidth', 'modalTitle', 'padded', 'visible' ]
@@ -559,7 +559,7 @@ export class GlyphNotifications {
   }
 }
 
-import { PaginationComponent as IPaginationComponent } from 'glyph-components/dist/types/components/pagination/pagination';
+import { PaginationComponent as IPaginationComponent } from 'glyph-components-poc/dist/types/components/pagination/pagination';
 export declare interface GlyphPagination extends Components.GlyphPagination {}
 @ProxyCmp({
     inputs: [ 'activePage', 'limit', 'pageGroups', 'pages' ]
@@ -582,7 +582,7 @@ export class GlyphPagination {
   }
 }
 
-import { RankingComponent as IRankingComponent } from 'glyph-components/dist/types/components/ranking/ranking';
+import { RankingComponent as IRankingComponent } from 'glyph-components-poc/dist/types/components/ranking/ranking';
 export declare interface GlyphRanking extends Components.GlyphRanking {}
 @ProxyCmp({
     inputs: [ 'aspectRatio', 'basePath', 'columnGap', 'columns', 'gap', 'i18n', 'imageType', 'innerColumns', 'innerGap', 'loading', 'locale', 'parseImageUrl', 'rankingData', 'rankingHeader', 'rowGap', 'rows', 'useBackdropDecoration' ],
@@ -644,7 +644,7 @@ export class GlyphScroll {
   }
 }
 
-import { SelectorComponent as ISelectorComponent } from 'glyph-components/dist/types/components/selector/selector';
+import { SelectorComponent as ISelectorComponent } from 'glyph-components-poc/dist/types/components/selector/selector';
 export declare interface GlyphSelector extends Components.GlyphSelector {}
 @ProxyCmp({
     inputs: [ 'complexOptions', 'disabled', 'interface', 'label', 'maxHeight', 'multiSelect', 'options', 'searchPlaceholder' ]
@@ -724,7 +724,7 @@ export class GlyphSkLoader {
   }
 }
 
-import { SliderComponent as ISliderComponent } from 'glyph-components/dist/types/components/slider/slider';
+import { SliderComponent as ISliderComponent } from 'glyph-components-poc/dist/types/components/slider/slider';
 export declare interface GlyphSlider extends Components.GlyphSlider {}
 @ProxyCmp({
     inputs: [ 'currentValue', 'options' ]
@@ -747,7 +747,7 @@ export class GlyphSlider {
   }
 }
 
-import { SortableComponent as ISortableComponent } from 'glyph-components/dist/types/components/sortable-list/sortable';
+import { SortableComponent as ISortableComponent } from 'glyph-components-poc/dist/types/components/sortable-list/sortable';
 export declare interface GlyphSortable extends Components.GlyphSortable {}
 @ProxyCmp({
     inputs: [ 'childSortCallback', 'config', 'height', 'isChildren', 'list', 'valueGetter' ]
@@ -814,7 +814,7 @@ export class GlyphStyle {
   }
 }
 
-import { TabsComponent as ITabsComponent } from 'glyph-components/dist/types/components/tabs/tabs';
+import { TabsComponent as ITabsComponent } from 'glyph-components-poc/dist/types/components/tabs/tabs';
 export declare interface GlyphTabs extends Components.GlyphTabs {}
 @ProxyCmp({
     inputs: [ 'tabStyle', 'tabs' ]
@@ -913,7 +913,7 @@ export class GlyphToggler {
   }
 }
 
-import { UserMenuComponent as IUserMenuComponent } from 'glyph-components/dist/types/components/user-menu/user-menu';
+import { UserMenuComponent as IUserMenuComponent } from 'glyph-components-poc/dist/types/components/user-menu/user-menu';
 export declare interface GlyphUserMenu extends Components.GlyphUserMenu {}
 @ProxyCmp({
     inputs: [ 'basePath', 'customConfig', 'decimals', 'i18n', 'interface', 'languages', 'locale', 'name', 'outsideCallback', 'themes' ]
