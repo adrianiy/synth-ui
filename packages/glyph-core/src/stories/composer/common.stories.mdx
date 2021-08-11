@@ -8,7 +8,7 @@ import { WithGlobalTheme } from './../helpers/decorators';
 ###### Common pipes
 # Filters
 
-This is an example of a pipe to get filters entites from WSC
+This is an example of a pipe to get filter entites from WSC
 
 <div class="warning">
 
@@ -25,116 +25,113 @@ global:
       pageSize: 10000
   fields: &add_fields
     - add: display
-      value: true
+        value: true
 pipe:
   - filters:
-      current: true
+        current: true
 
   - parallel:
       - fetch:
-          url: endpoints.sections
-          store: sections
-          <<: *filters
+            url: endpoints.sections
+            store: sections
+            <<: *filters
       - fetch:
-          url: endpoints.products
-          store: products
-          <<: *filters
+            url: endpoints.products
+            store: products
+            <<: *filters
       - fetch:
-          url: endpoints.campaigns
-          store: campaigns
+            url: endpoints.campaigns
+            store: campaigns
       - fetch:
-          url: endpoints.markets
-          data: data.entities
-          store: markets
-          <<: *filters
+            url: endpoints.markets
+            data: data.entities
+            store: markets
+            <<: *filters
       - fetch:
-          url: endpoints.platforms
-          data: data.entities
-          store: platforms
-          <<: *filters
+            url: endpoints.platforms
+            data: data.entities
+            store: platforms
+            <<: *filters
 
   - parallel:
       - transform:
-          data: sections
-          operations:
-            - <<: *add_fields
-            - match: cod_section
-              key: code
+            data: sections
+            operations:
+              - <<: *add_fields
+              - match: cod_section
+                  key: code
       - transform:
-          data: products
-          operations:
-            - <<: *add_fields
-            - match: cod_product
-              key: code
+            data: products
+            operations:
+              - <<: *add_fields
+              - match: cod_product
+                  key: code
       - transform:
-          data: campaigns
-          operations:
-            - <<: *add_fields
-            - match: cod_season
-              key: code
-              preserve: true
-            - match: cod_season
-              key: description
+            data: campaigns
+            operations:
+              - <<: *add_fields
+              - match: cod_season
+                  key: code
+                  preserve: true
+              - match: cod_season
+                  key: description
       - transform:
-          data: markets
-          keys:
-            name: description
-          operations:
-            - <<: *add_fields
-            - add: market
-              value: (row) => row.code
+            data: markets
+            keys:
+              name: description
+            operations:
+              - <<: *add_fields
+              - add: market
+                  value: (row) => row.code
       - transform:
-          data: platforms
-          keys:
-            name: description
-            country: cod_country
-          operations:
-            - <<: *add_fields
-            - add: market
-              value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code)).code
-            - add: parents
-              value: "(row) => ({ market: row.market })"
+            data: platforms
+            keys:
+              name: description
+              country: cod_country
+            operations:
+              - <<: *add_fields
+              - add: market
+                  value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code)).code
+              - add: parents
+                  value: "(row) => ({ market: row.market })"
 
   - sort:
-      data: platforms
-      function: sortCountries
-
-  - log:
-      data: platforms
+        data: platforms
+        function: sortCountries
 
   - parallel:
     - filter:
-        data: campaigns
-        function: >
-          (row, index, self) => row.state
-          &&
-          self.findIndex(cmp => cmp.code === row.code) === index
+          data: campaigns
+          function: >
+            (row, index, self) => row.state
+            &&
+            self.findIndex(cmp => cmp.code === row.code) === index
     - group:
-        data: platforms
-        children: true
-        by:
-          - market
+          data: platforms
+          children: true
+          by:
+            - market
 
   - transform:
-      data: platforms
-      operations:
-        - delete: description
-        - add: header
-          value: true
+        data: platforms
+        operations:
+          - delete: description
+          - add: header
+              value: true
 
   - join:
-      data: markets
-      with: platforms
-      store: platforms
-      by:
-        - market
+        data: markets
+        with: platforms
+        store: platforms
+        by:
+          - market
 ```
 
 Use it in a controller
 
 ```typescript
 import { conditional, pipe, setData } from "amiga-services-core";
-import { composer, sortCountries } from 'glyph-core-poc';
+import { composer, sortCountries } from 'glyph-core';
 
 export const FiltersController = conditional({
     when: (ctx) => /config/.test(ctx.path),

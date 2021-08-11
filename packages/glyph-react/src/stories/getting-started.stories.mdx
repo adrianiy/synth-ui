@@ -71,10 +71,24 @@ import { GlyphReactList } from 'glyph-react-poc';
 
 ### AMIGA-FWK
 
+- Add `otf` font type support in webpack. Find the line where font-types are parsed and add `otf` at the end of the regex. It should look like this:
+
+```javascript
+            {
+                test: /\.(woff|woff2|ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                exclude: /\.icon\.svg$/,
+                use: {
+                    loader: "file-loader?name=assets/fonts/[name].[ext]",
+                },
+            },
+```
+
+
+
 - Install `copy-webpack-plugin`.
 
 ```bash
-yarn copy-webpack-plugin
+yarn add copy-webpack-plugin
 ```
 
 - Import assets dir from `node_modules/glyph_react/dist/assets` in your local assets.
@@ -110,7 +124,7 @@ yarn build
 ```javascript
 // main.js
 
-import { setup } from 'glyph-react-poc';
+import { setup } from 'glyph-react';
 
 setup();
 ```
