@@ -37,6 +37,7 @@ These are all available properties to configure your **yaml** file.
 YAML variables are interpreted using this order:
 
 - Values stored in `ctx.state` or `params` passed as second parameter in composer.
+    - you can use a nested object key using `.` separators. I.E: `parameters.brands` will get brand value from { paramters: { brands: "1,16" } }
 - String function to `eval()`.
 - Primitive types like string, boolean, etc.
 
