@@ -1,3 +1,13 @@
+## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.0...glyph-core-poc-v1.0.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix docs ([06bb8d0](https://github.com/adrianiy/glyph-ui/commit/06bb8d0a8607804f34580a021bb23e81bedf9baf))
+* fix imports ([1632ff6](https://github.com/adrianiy/glyph-ui/commit/1632ff640928b6221e72656049279aac1072e8f6))
+* rollback namespace ([0203073](https://github.com/adrianiy/glyph-ui/commit/02030733ea92ae21b46812c31a5a201833343e88))
+* test deployment ([7545a84](https://github.com/adrianiy/glyph-ui/commit/7545a84b93bbcda1d7ac171790396261681c89f6))
+
 # 1.0.0 (2021-08-11)
 
 
