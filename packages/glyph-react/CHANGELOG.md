@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.3...glyph-react-poc-v1.0.4) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix docs links ([b848860](https://github.com/adrianiy/glyph-ui/commit/b848860c9fcee334f5bcb2b87698cd778ab74d69))
+
 ## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.2...glyph-react-poc-v1.0.3) (2021-08-11)
 
 

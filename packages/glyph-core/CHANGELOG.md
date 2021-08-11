@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.1...glyph-core-poc-v1.0.2) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix docs links ([b848860](https://github.com/adrianiy/glyph-ui/commit/b848860c9fcee334f5bcb2b87698cd778ab74d69))
+
 ## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.0...glyph-core-poc-v1.0.1) (2021-08-11)
 
 
