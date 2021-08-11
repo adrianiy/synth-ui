@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.0...glyph-react-poc-v1.0.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* rollback namespace ([0203073](https://github.com/adrianiy/glyph-ui/commit/02030733ea92ae21b46812c31a5a201833343e88))
+* test deployment ([7545a84](https://github.com/adrianiy/glyph-ui/commit/7545a84b93bbcda1d7ac171790396261681c89f6))
+
 # 1.0.0 (2021-08-11)
 
 
