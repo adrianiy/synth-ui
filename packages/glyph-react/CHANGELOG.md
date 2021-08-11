@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.4...glyph-react-poc-v1.0.5) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix glyph-react use of glyph-components-poc ([ee9e1bc](https://github.com/adrianiy/glyph-ui/commit/ee9e1bcff2c68cb561a8316c33b7d2b940096ed0))
+
 ## [1.0.4](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.3...glyph-react-poc-v1.0.4) (2021-08-11)
 
 
