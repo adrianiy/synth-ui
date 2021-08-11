@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-    namespace: 'glyph-components',
+    namespace: 'glyph-components-poc',
     plugins: [
         sass({
             injectGlobalPaths: [ 'src/global/global.scss' ],
