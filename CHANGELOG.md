@@ -1,3 +1,21 @@
+# [3.11.0](https://github.com/adrianiy/glyph-ui/compare/v3.10.0...v3.11.0) (2021-08-11)
+
+
+### Bug Fixes
+
+* change package references ([5182afd](https://github.com/adrianiy/glyph-ui/commit/5182afd22da863862c4c2342734396db453e800b))
+* fix demo packages ([ae2b6a6](https://github.com/adrianiy/glyph-ui/commit/ae2b6a6f019552af1350890dfae7e05e3727edca))
+* fix mutable props ([ecdab8f](https://github.com/adrianiy/glyph-ui/commit/ecdab8f6c81a090e51d31a409dcdd2c2b64fc83a))
+* fix references ([9839f56](https://github.com/adrianiy/glyph-ui/commit/9839f56b2f6607f3e27059938deb3efe788c14dc))
+* package dependency with core-poc ([a900fc6](https://github.com/adrianiy/glyph-ui/commit/a900fc6e351ee341d97eb5a3b4ee78fcb2006c19))
+* stencil build -poc suffix ([065accd](https://github.com/adrianiy/glyph-ui/commit/065accdabe71b0e3ad90e3a3182d25419e96e31c))
+
+
+### Features
+
+* **core:** update styles ([628691f](https://github.com/adrianiy/glyph-ui/commit/628691f387ca78f898f1f4b3ffc59c8d05fc422a))
+* **docs:** update docs ([0017cbb](https://github.com/adrianiy/glyph-ui/commit/0017cbb34202b897e8c0a3a3fe1e7b40eacd260c))
+
 # [3.10.0](https://github.com/adrianiy/glyph-ui/compare/v3.9.1...v3.10.0) (2021-08-09)
 
 
