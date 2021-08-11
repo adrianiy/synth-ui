@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/adrianiy/glyph-ui/compare/v4.0.1...v4.1.0) (2021-08-11)
+
+
+### Features
+
+* **react:** improve react filters provider ([f0662ad](https://github.com/adrianiy/glyph-ui/commit/f0662ad94b4a00cdcc9bd756b4cb99a8e9e42b95))
+
 ## [4.0.1](https://github.com/adrianiy/glyph-ui/compare/v4.0.0...v4.0.1) (2021-08-11)
 
 
