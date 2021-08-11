@@ -1,3 +1,26 @@
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.0.1...glyph-components-poc-v1.1.0) (2021-08-11)
+
+
+### Bug Fixes
+
+* **doc:** fix core doc build ([83b32ab](https://github.com/adrianiy/glyph-ui/commit/83b32abfb9e5156f6bcdbe729548e924127e72e3))
+* fix docs ([06bb8d0](https://github.com/adrianiy/glyph-ui/commit/06bb8d0a8607804f34580a021bb23e81bedf9baf))
+* fix docs links ([b848860](https://github.com/adrianiy/glyph-ui/commit/b848860c9fcee334f5bcb2b87698cd778ab74d69))
+* fix glyph-react use of glyph-components-poc ([ee9e1bc](https://github.com/adrianiy/glyph-ui/commit/ee9e1bcff2c68cb561a8316c33b7d2b940096ed0))
+* fix imports ([1632ff6](https://github.com/adrianiy/glyph-ui/commit/1632ff640928b6221e72656049279aac1072e8f6))
+* fix react assets dir ([f77b685](https://github.com/adrianiy/glyph-ui/commit/f77b6858aef5948b47c6266046171daa3404e47a))
+
+
+### Features
+
+* **docs:** change documentation demo ([b221332](https://github.com/adrianiy/glyph-ui/commit/b221332a33370aa60f8206167eda65d4e60b0114))
+* **react:** improve react filters provider ([f0662ad](https://github.com/adrianiy/glyph-ui/commit/f0662ad94b4a00cdcc9bd756b4cb99a8e9e42b95))
+
+
+### BREAKING CHANGES
+
+* **docs:** change release number to update glyph-react
+
 ## [1.0.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.0.0...glyph-components-poc-v1.0.1) (2021-08-11)
 
 
