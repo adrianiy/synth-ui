@@ -134,8 +134,7 @@ Use it in a controller
 
 ```typescript
 import { conditional, pipe, setData } from "amiga-services-core";
-import { sortCountries } from "./../utils/countries";
-import { composer } from 'glyph-core-poc';
+import { composer, sortCountries } from 'glyph-core-poc';
 
 export const FiltersController = conditional({
     when: (ctx) => /config/.test(ctx.path),
