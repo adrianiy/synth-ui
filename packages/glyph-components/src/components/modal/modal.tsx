@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';

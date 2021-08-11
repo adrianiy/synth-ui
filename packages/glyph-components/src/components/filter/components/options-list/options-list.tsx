@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { FilterOptionHeader, UIInterface } from 'glyph-core';
+import { FilterOptionHeader, UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
 import { cls } from '../../../../utils/utils';

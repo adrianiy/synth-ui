@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 import { Flex } from '../../../../utils/layout';
-import { Cell, Row, RowAction } from 'glyph-core';
+import { Cell, Row, RowAction } from 'glyph-core-poc';
 import { Icon } from '../../../../utils/icons';
 import { Format } from '../../../../utils/format';
 

@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
-import { Tab, TabStyle } from 'glyph-core';
+import { Tab, TabStyle } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
 

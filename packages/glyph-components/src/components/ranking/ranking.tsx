@@ -1,5 +1,5 @@
 import { Component, Prop, Element, h, State, Event, EventEmitter, Method, Watch } from '@stencil/core';
-import { RankingData, Article } from 'glyph-core';
+import { RankingData, Article } from 'glyph-core-poc';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 
 @Component({

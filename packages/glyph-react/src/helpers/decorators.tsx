@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import FilterStateProvider from '../providers/filter-state';
 import { FiltersConfig } from './configs';
 import { FilterEntities } from './filters';
-import { actions } from 'glyph-core';
+import { actions } from 'glyph-core-poc';
 
 export const InitializeFilters = (Story: any) => {
     const dispatch = useDispatch();

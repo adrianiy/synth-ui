@@ -9,7 +9,7 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import minMax from 'dayjs/plugin/minMax';
 import 'dayjs/locale/es';
 import 'dayjs/locale/en';
-import { ComparableType } from 'glyph-core';
+import { ComparableType } from 'glyph-core-poc';
 
 dayjs.extend(updateLocale);
 dayjs.extend(weekDay);

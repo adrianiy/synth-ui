@@ -1,5 +1,5 @@
 import React from 'react';
-import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core';
+import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core-poc';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
 

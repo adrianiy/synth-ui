@@ -18,7 +18,7 @@ This provider will allow you to share `glyphTheme` and `glyphInterface` values t
 
 ```typescript
 // main.tsx
-import { GlyphStyleProvider } from 'glyph-react';
+import { GlyphStyleProvider } from 'glyph-react-poc';
 
 ...
 const home = () => {
@@ -54,7 +54,7 @@ const { glyphInterface, setGlyphInterface } = useGlyphStyle();
 
 Currently we have `classic`, `modern` and a brand new `redesign` interface we are working in.
 
-As soon as we can `redesign` interface will become the default one but in the meantime you can set 
+As soon as we can `redesign` interface will become the default one but in the meantime you can set
 this interface manually in glyph-react components.
 
 Web Components are shadowed and independent so each component must receive an interface value.

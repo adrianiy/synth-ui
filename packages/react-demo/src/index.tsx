@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { setup, FilterStateProvider } from 'glyph-react';
+import { setup, FilterStateProvider } from 'glyph-react-poc';
 
 setup();
 

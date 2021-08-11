@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { FilterOptionHeader } from 'glyph-core';
+import { FilterOptionHeader } from 'glyph-core-poc';
 
 export const renderOptionDescription = (description: string, searchValue?: string) => {
     if (searchValue) {

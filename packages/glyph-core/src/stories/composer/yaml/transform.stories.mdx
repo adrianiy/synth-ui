@@ -18,7 +18,7 @@ If you confirue keys parameter pipe will transform key to the configured value
 transform:
     keys:
         code: cod_country
-        
+
 # [{ code: 1 }] -> [{ cod_country: 1 }]
 ```
 
@@ -28,13 +28,13 @@ You can configure a set of operations to be executed in order
 
 - add: add some key to the row. you must configure a `value`
 - match: select key that matches value to execute transformation over it
-- exlude: all keys that does not match this value will execute transformation 
+- exlude: all keys that does not match this value will execute transformation
 - preserve: preserve current value of matching element
 - delete: deletes matching keys
 
 Modificators:
 
-- key: modifies key value 
+- key: modifies key value
 - value: modifies value
 
 #### Parameters
@@ -46,7 +46,7 @@ Modificators:
 |operations|Operation[]|Array of operations|undefined|
 |keys|{ [key]: string }|keys to modify|null|
 
-### Example 
+### Example
 
 You can use this pipe to add suffixes in value fields like:
 
@@ -70,7 +70,7 @@ You can play with state and some auxiliar functions offered by this library to d
 This examples search a entity match in state and saves description in row's name property.
 
 ```typescript
-import { configureComposer, getEntityName } from 'glyph-core';
+import { configureComposer, getEntityName } from 'glyph-core-poc';
 
 export const composerConfigMiddleware = configureComposer({
     baseUrl,
@@ -93,7 +93,7 @@ transform:
 To set calculated fields like growths you can use aux methods like `getGrowth` or your custom methods
 
 ```typescript
-import { configureComposer, getGrowh } from 'glyph-core';
+import { configureComposer, getGrowh } from 'glyph-core-poc';
 
 export const composerConfigMiddleware = configureComposer({
     baseUrl,

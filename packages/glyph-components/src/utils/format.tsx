@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from '@stencil/core';
-import { Cell } from 'glyph-core';
+import { Cell } from 'glyph-core-poc';
 import { Color } from './color';
 import { getFormatedValues } from './utils';
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { actions, GlyphReactChipsbar, GlyphReactList } from 'glyph-react';
+import { actions, GlyphReactChipsbar, GlyphReactList } from 'glyph-react-poc';
 import { getChildrenList, getListData } from './services/data.service';
 import './App.css';
 import { useDispatch } from 'react-redux';

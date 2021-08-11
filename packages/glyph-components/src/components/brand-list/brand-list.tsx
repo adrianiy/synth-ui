@@ -1,5 +1,5 @@
 import { Component, getAssetPath, Listen, Prop, h, EventEmitter, Event, Element } from '@stencil/core';
-import { Brand } from 'glyph-core';
+import { Brand } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
 
 @Component({

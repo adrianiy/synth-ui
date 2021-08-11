@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { Button, ButtonGroupStyle, Alignment, UIInterface } from 'glyph-core';
+import { Button, ButtonGroupStyle, Alignment, UIInterface } from 'glyph-core-poc';
 import { Format } from '../../utils/format';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';

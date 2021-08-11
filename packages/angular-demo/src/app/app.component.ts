@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterService } from 'glyph-angular';
+import { FilterService } from 'glyph-angular-poc';
 import { FiltersConfig } from '../config/filters.config';
 import { DataService } from './services/data.service';
 

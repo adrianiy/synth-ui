@@ -21,7 +21,7 @@ some logic on selection like filter relations management *Section -> Product lin
 ```typescript
 // main.tsx
 
-import { FilterStateProvider } from 'glyph-react';
+import { FilterStateProvider } from 'glyph-react-poc';
 
 ...
     <FilterStateProvider>
@@ -178,7 +178,7 @@ const Home = () => {
 export default Home;
 ```
 
-We share a 
+We share a
 
 # Custom hooks
 
@@ -197,14 +197,14 @@ This hook will return an object with these properties:
 - **clearAll**: Method to clear all filters.
 
 ```typescript
-    import { useFiltersConfig } from 'glyph-react';
+    import { useFiltersConfig } from 'glyph-react-poc';
 
     ....
     const { filtersConfig, selectFilter } = useFiltersConfig();
     ....
 ```
 
-#### useFilters 
+#### useFilters
 
 This hook will return an object with these properties:
 
@@ -214,7 +214,7 @@ This hook will return an object with these properties:
 - **comparableType**: comparable type of [ commercial, calendar, custom, ordinal ];
 
 ```typescript
-    import { useFilters } from 'glyph-react';
+    import { useFilters } from 'glyph-react-poc';
 
     ....
     const { queryFilters, comparableType } = useFilters();

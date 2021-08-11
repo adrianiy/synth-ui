@@ -106,9 +106,9 @@ pipe:
     - filter:
         data: campaigns
         function: >
-          (row, index, self) => row.state 
-          && 
-          self.findIndex(cmp => cmp.code === row.code) === index 
+          (row, index, self) => row.state
+          &&
+          self.findIndex(cmp => cmp.code === row.code) === index
     - group:
         data: platforms
         children: true
@@ -126,7 +126,7 @@ pipe:
       data: markets
       with: platforms
       store: platforms
-      by: 
+      by:
         - market
 ```
 
@@ -135,7 +135,7 @@ Use it in a controller
 ```typescript
 import { conditional, pipe, setData } from "amiga-services-core";
 import { sortCountries } from "./../utils/countries";
-import { composer } from "glyph-core";
+import { composer } from 'glyph-core-poc';
 
 export const FiltersController = conditional({
     when: (ctx) => /config/.test(ctx.path),

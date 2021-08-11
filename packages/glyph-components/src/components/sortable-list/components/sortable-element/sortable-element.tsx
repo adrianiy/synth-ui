@@ -1,5 +1,5 @@
 import { h, Component, Prop, State } from '@stencil/core';
-import { SortableOption } from 'glyph-core';
+import { SortableOption } from 'glyph-core-poc';
 import { SortableOptions } from 'sortablejs';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';

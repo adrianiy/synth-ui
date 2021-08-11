@@ -3,7 +3,7 @@ import { DevToolsExtension, NgRedux, NgReduxModule } from '@angular-redux/store'
 import { provideReduxForms } from '@angular-redux/form';
 import { createLogger } from 'redux-logger';
 
-import { rootReducer } from 'glyph-core';
+import { rootReducer } from 'glyph-core-poc';
 
 @NgModule({
     imports: [ NgReduxModule ],

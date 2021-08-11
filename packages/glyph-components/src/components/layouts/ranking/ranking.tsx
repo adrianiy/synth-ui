@@ -1,5 +1,5 @@
 import { h, Component, Element, Prop, State } from '@stencil/core';
-import { RankingData, RankingViewOptions, UIInterface } from 'glyph-core';
+import { RankingData, RankingViewOptions, UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 

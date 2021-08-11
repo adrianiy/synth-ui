@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { ToasterTypes, UIInterface } from 'glyph-core';
+import { ToasterTypes, UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';

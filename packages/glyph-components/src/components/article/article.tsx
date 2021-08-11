@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State } from '@stencil/core';
-import { Article, ToasterTypes, ArticleSize } from 'glyph-core';
+import { Article, ToasterTypes, ArticleSize } from 'glyph-core-poc';
 import { Format } from '../../utils/format';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';

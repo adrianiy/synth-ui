@@ -15,14 +15,14 @@ Parse filters informed as query params or as a query string.
 > - **?a=[1,2]&b=[1]**
 > - **?filters=[{ key: 'a', op: 'in', value: [1, 2] }, { key: 'b', op: 'in', value: [1] }]**
 
-### Example 
+### Example
 
 #### Current
 
 Accepts parameters `use` and `rangeBefore`
 
 ```typescript
-import { getCurrentFilters } from 'glyph-core';
+import { getCurrentFilters } from 'glyph-core-poc';
 
 service()
   .pipe(
@@ -35,7 +35,7 @@ service()
 Accepts parameter `compType`, default value is 'commercial'.
 
 ```typescript
-import { getComparableFilters } from 'glyph-core';
+import { getComparableFilters } from 'glyph-core-poc';
 
 service()
   .pipe(
@@ -48,7 +48,7 @@ service()
 Accepts parameter `compType`, default value is 'commercial'.
 
 ```typescript
-import { getA2ComparableFilters } from 'glyph-core';
+import { getA2ComparableFilters } from 'glyph-core-poc';
 
 service()
   .pipe(

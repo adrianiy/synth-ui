@@ -1,5 +1,5 @@
 import { Component, h, Prop } from '@stencil/core';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 
 @Component({
     tag: 'glyph-title',

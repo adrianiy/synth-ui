@@ -3,7 +3,7 @@ import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Flex } from '../../utils/layout';
 import { Workbook } from 'exceljs';
-import { Row } from 'glyph-core';
+import { Row } from 'glyph-core-poc';
 import * as fs from 'file-saver';
 import { Icon } from '../../utils/icons';
 

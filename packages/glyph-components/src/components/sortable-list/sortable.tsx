@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Event, EventEmitter } from '@stencil/core';
-import { SortableOption, SortableChildrenEvent } from 'glyph-core';
+import { SortableOption, SortableChildrenEvent } from 'glyph-core-poc';
 import { cls } from '../../utils/utils';
 import Sortable, { SortableOptions } from 'sortablejs';
 

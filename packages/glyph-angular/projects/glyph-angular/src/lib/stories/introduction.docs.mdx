@@ -12,7 +12,7 @@ transform raw data into usable components.
 
 ```bash
 # yarn
-yarn add glyph-angular 
+yarn add glyph-angular
 
 # npm
 npm i glyph-angular
@@ -24,13 +24,13 @@ To use it as Angular Component library, simply import modules in app.module so y
 
 exported modules:
 
-- GlyphAngularComponents 
+- GlyphAngularComponents
 - GlyphAngularServices
 
 > To inject services at root level use `forRoot()` as shown below
 
 ```javascript
-import { GlyphAngularComponents, GlyphAngularServices } from 'glyph-angular';
+import { GlyphAngularComponents, GlyphAngularServices } from 'glyph-angular-poc';
 
 @NgModule({
     declarations: [ ... ],
@@ -54,7 +54,7 @@ You can create a custom class that extends FilterService
 
 ```javascript
 import { Injectable } from '@angular/core';
-import { FilterService } from 'glyph-angular'
+import { FilterService } from 'glyph-angular-poc'
 
 @Injectable()
 export class CustomFiltersServie extends FilterService {
@@ -78,7 +78,7 @@ export class CustomFiltersServie extends FilterService {
 Now you can pass an object to `forRoot` informed with your custom implementations
 
 ```javascript
-import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular';
+import { GlyphComponentsModule, GlyphServicesModule } from 'glyph-angular-poc';
 
 @NgModule({
     declarations: [ ... ],

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GlyphAngularComponents, GlyphAngularServices, GlyphStoreModule } from 'glyph-angular';
+import { GlyphAngularComponents, GlyphAngularServices, GlyphStoreModule } from 'glyph-angular-poc';
 import { HomeComponent } from './components/home/home.component';
 import { fakeBackendProvider } from '../helpers/fake-backend';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

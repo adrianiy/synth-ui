@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ComparableType, DateRange, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core';
+import { ComparableType, DateRange, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core-poc';
 
 const tomorrow = dayjs().add(1, 'day').toDate();
 const yesterday = dayjs().subtract(1, 'day').toDate();

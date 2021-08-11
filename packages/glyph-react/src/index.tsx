@@ -8,4 +8,4 @@ export * from './components';
 
 export * from './providers';
 
-export * from 'glyph-core';
+export * from 'glyph-core-poc';

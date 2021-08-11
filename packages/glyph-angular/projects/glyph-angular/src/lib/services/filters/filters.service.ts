@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { dispatch, select } from '@angular-redux/store';
-import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, QueryFilter, SelectedFilter } from 'glyph-core';
+import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, QueryFilter, SelectedFilter } from 'glyph-core-poc';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 

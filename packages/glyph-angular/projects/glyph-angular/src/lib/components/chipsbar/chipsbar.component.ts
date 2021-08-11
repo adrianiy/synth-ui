@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core';
+import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core-poc';
 import { Observable } from 'rxjs';
 import { FilterService } from '../../services';
 

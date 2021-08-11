@@ -7,7 +7,7 @@ import {
     FilterOption,
     UIInterface,
     FilterOptionHeader,
-} from 'glyph-core';
+} from 'glyph-core-poc';
 import { SortableOptions } from 'sortablejs';
 import { Flex } from '../../../../utils/layout';
 

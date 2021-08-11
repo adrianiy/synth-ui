@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { configRow, FieldsConfig, Row } from 'glyph-core';
+import { configRow, FieldsConfig, Row } from 'glyph-core-poc';
 
 @Component({
     selector: 'glyph-ng-list',

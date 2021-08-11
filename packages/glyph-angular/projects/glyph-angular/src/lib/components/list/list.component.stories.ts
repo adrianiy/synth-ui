@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import { WithGlobalDecorator } from '../../helpers/decorators';
 import { ListComponent } from './list.component';
 

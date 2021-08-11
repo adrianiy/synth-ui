@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State, h, getAssetPath } from '@stencil/core';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../../utils/utils';
 

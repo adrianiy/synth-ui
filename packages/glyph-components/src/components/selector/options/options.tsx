@@ -1,5 +1,5 @@
 import { Component, Prop, State, h, Listen, Element } from '@stencil/core';
-import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core';
+import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core-poc';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';

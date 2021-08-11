@@ -1,5 +1,5 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { CalendarEvent, CalendarGroup, SelectorOption, Tab, TimelineEvent, UIInterface } from 'glyph-core';
+import { CalendarEvent, CalendarGroup, SelectorOption, Tab, TimelineEvent, UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
 import { getLocaleComponentStrings } from '../../utils/utils';
 

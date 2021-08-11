@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from '@stencil/core';
-import { DecorationType, IDecorationType } from 'glyph-core';
+import { DecorationType, IDecorationType } from 'glyph-core-poc';
 
 interface ColorProps {
     value: string;

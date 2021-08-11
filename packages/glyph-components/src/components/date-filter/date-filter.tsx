@@ -1,5 +1,5 @@
 import { h, Component, Element, Event, EventEmitter, Prop, State, Listen, Method } from '@stencil/core';
-import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core';
+import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Icon } from '../../utils/icons';

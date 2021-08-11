@@ -1,4 +1,4 @@
-import { UIInterface, UITheme } from 'glyph-core';
+import { UIInterface, UITheme } from 'glyph-core-poc';
 import React, { createContext, useContext, useState } from 'react';
 import { GlyphStyle } from '../components';
 

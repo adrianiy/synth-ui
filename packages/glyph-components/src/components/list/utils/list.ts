@@ -1,4 +1,4 @@
-import { Row } from 'glyph-core';
+import { Row } from 'glyph-core-poc';
 
 export const filterEmptyRows = (list: Row[], fields: any[]) => {
     return list.filter((row: Row) => fields.every((field: any) => row[field]));

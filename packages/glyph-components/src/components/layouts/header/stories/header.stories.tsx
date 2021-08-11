@@ -1,4 +1,4 @@
-import { Brands, UIInterface } from 'glyph-core';
+import { Brands, UIInterface } from 'glyph-core-poc';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../../stories/helpers/decorators';
 import { languages, appData, themes, calendarEvents, brandList } from './helpers/config';

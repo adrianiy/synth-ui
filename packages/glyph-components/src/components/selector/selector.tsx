@@ -1,5 +1,5 @@
 import { Component, Prop, h, State, Event, EventEmitter, Element } from '@stencil/core';
-import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core';
+import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';

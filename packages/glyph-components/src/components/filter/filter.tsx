@@ -1,6 +1,6 @@
 import { Component, Prop, h, State, Element, Event, EventEmitter, Listen, Method } from '@stencil/core';
 import { Flex } from '../../utils/layout';
-import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core';
+import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core-poc';
 import { cls } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
 

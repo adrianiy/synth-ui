@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FiltersConfig, Row } from 'glyph-angular';
+import { FiltersConfig, Row } from 'glyph-angular-poc';
 
 @Injectable({
     providedIn: 'root',

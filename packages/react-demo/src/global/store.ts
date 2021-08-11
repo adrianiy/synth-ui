@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { rootReducer } from 'glyph-react';
+import { rootReducer } from 'glyph-react-poc';
 
 const store = createStore(
     rootReducer,

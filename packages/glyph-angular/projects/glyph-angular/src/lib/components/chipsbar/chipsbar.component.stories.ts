@@ -1,7 +1,7 @@
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import { FiltersConfig, initialFilters } from '../../helpers/configs';
 import { TranslateServiceStub } from '../../helpers/fakers';
 import { FilterEntities } from '../../helpers/filters';
@@ -50,7 +50,7 @@ export default {
             inlineStories: true,
             description: {
                 component: `
-Component to manage application filters, wrapper of [**glyph-chipsbar**](https://adrianiy.github.io/glyph-ui/?path=/docs/webcomponents_components-chipsbar-classic--basic). 
+Component to manage application filters, wrapper of [**glyph-chipsbar**](https://adrianiy.github.io/glyph-ui/?path=/docs/webcomponents_components-chipsbar-classic--basic).
 
 Controls how web-components and application state interacts, uses \`filtersConfig\` state to render filters.
 

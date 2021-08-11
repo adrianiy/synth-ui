@@ -1,6 +1,6 @@
 import { ValueAccessorConfig } from '@stencil/angular-output-target';
 import { getAssetPath } from '@stencil/core';
-import { Cell } from 'glyph-core';
+import { Cell } from 'glyph-core-poc';
 import numeral from 'numeral';
 
 export function format(first: string, middle: string, last: string): string {

@@ -22,7 +22,7 @@ Filter service exposes a set of Observables that will send a message each time t
 You can consume them with a subscribtion:
 
 ```typescript
-    import { FilterService } from 'glyph-angular';
+    import { FilterService } from 'glyph-angular-poc';
 
     constructor(private _filterServive: FilterService) {
         _filterService.queryFilters.subscribe(queryFilters => {
@@ -40,7 +40,7 @@ You can consume them with a subscribtion:
 Or like a class attribute:
 
 
-```typescript 
+```typescript
 ...
 public filtersConfig: Observable<FiltersConfig>;
 public compDates: Observable<SelectedFilter[]>;

@@ -1,4 +1,4 @@
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import { html } from 'lit-html';
 import { WithGlobalDecorator } from '../../../stories/helpers/decorators';
 

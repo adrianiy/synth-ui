@@ -8,7 +8,7 @@ import {
     UserMenuConfiguration,
     SelectorOption,
     Brand,
-} from 'glyph-core';
+} from 'glyph-core-poc';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
 import { cls } from '../../../utils/utils';

@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { UIInterface } from 'glyph-core';
+import { UIInterface } from 'glyph-core-poc';
 import React from 'react';
 import { WithFilters, WithCustomHeight, WithCustomGlobals, InitializeFilters } from '../../helpers/decorators';
 import GlyphReactChipsbar, { GlyphReactChipsbarProps } from './chipsbar';
@@ -14,7 +14,7 @@ export default {
         docs: {
             description: {
                 component: `
-Component to manage application filters, wrapper of [**glyph-chipsbar**](https://adrianiy.github.io/glyph-ui/?path=/docs/webcomponents_components-chipsbar-classic--basic). 
+Component to manage application filters, wrapper of [**glyph-chipsbar**](https://adrianiy.github.io/glyph-ui/?path=/docs/webcomponents_components-chipsbar-classic--basic).
 
 Controls how web-components and application state interacts, uses \`filtersConfig\` state to render filters.
 
