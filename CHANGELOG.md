@@ -1,3 +1,10 @@
+## [3.11.4](https://github.com/adrianiy/glyph-ui/compare/v3.11.3...v3.11.4) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix docs links ([b848860](https://github.com/adrianiy/glyph-ui/commit/b848860c9fcee334f5bcb2b87698cd778ab74d69))
+
 ## [3.11.3](https://github.com/adrianiy/glyph-ui/compare/v3.11.2...v3.11.3) (2021-08-11)
 
 
