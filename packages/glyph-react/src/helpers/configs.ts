@@ -34,15 +34,16 @@ export const comparableOptions: SelectorOption[] = [
 
 export const FiltersConfig: IFiltersConfig = {
     date: {
-        description: 'Fecha',
         minDate: new Date(year - 1, 1, 1),
         maxDate: tomorrow,
+        description: dateRanges[1].description,
         key: 'date',
         visible: true,
         dateRanges,
+        startDate: dateRanges[1].startDate,
+        endDate: dateRanges[1].endDate,
         comparableType: ComparableType.commercial,
         comparableOptions,
-        selected: [ dateRanges[1] ],
         compDates: [],
     },
     product: {
