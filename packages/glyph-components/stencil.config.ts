@@ -6,7 +6,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 import { angularOutputTargetFix } from './angular-output-target-fix';
 
 export const config: Config = {
-    namespace: 'glyph-components-poc',
+    namespace: 'glyph-components',
     plugins: [
         sass({
             injectGlobalPaths: [ 'src/global/global.scss' ],
@@ -15,7 +15,7 @@ export const config: Config = {
     globalStyle: 'src/global/global.scss',
     outputTargets: [
         angularOutputTarget({
-            componentCorePackage: 'glyph-components-poc',
+            componentCorePackage: 'glyph-components',
             directivesProxyFile: '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
@@ -24,7 +24,7 @@ export const config: Config = {
                 '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/angular-component-lib/utils.ts',
         }),
         reactOutputTarget({
-            componentCorePackage: 'glyph-components-poc',
+            componentCorePackage: 'glyph-components',
             proxiesFile: '../glyph-react/src/components.ts',
         }),
         {
