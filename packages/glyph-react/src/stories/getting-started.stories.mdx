@@ -149,10 +149,47 @@ import {
     UIInterface,
     useGlyphStyle,
 } from "glyph-react";
+import useLocale from "amiga-components-intl/use-locale";
+import useIntl from "amiga-components-intl/use-intl";
+import messages from "../../../config/locales";
 
 const main = () => {
     const { glyphInterface, glyphTheme, setGlyphInterface, setGlyphTheme } = useGlyphStyle();
-    ....
+    const { currentLocale, setCurrentLocale } = useLocale();
+
+    const languages = [
+        {
+            name: intl.formatMessage({ id: "base.lang.english" }),
+            value: "en",
+            active: currentLocale === "en",
+        },
+        {
+            name: intl.formatMessage({ id: "base.lang.spanish" }),
+            value: "es",
+            active: currentLocale === "es",
+        },
+    ];
+    const themes = [
+        {
+            name: intl.formatMessage({ id: "base.theme.light" }),
+            value: "light",
+            active: glyphTheme === "light",
+        },
+        {
+            name: intl.formatMessage({ id: "base.theme.dark" }),
+            value: "dark",
+            active: glyphTheme === "dark",
+        },
+    ];
+
+    const handleLangChange = ({ detail: { value } }) => {
+        setCurrentLocale(value);
+    };
+
+    const handleThemeChange = ({ detail: { value } }) => {
+        localStorage.setItem("drive.warehouses.theme", value);
+        setGlyphTheme(value);
+    };
 
     return (
         <>
@@ -175,11 +212,10 @@ const main = () => {
                 userMenuConfig={{
                     interface: glyphInterface,
                     languages,
-                    customConfig: inAnyRole(["Drive.Administrator"]),
                     themes,
                 }}
                 onLangChange={handleLangChange}
-                onThemeChange={theme => setGlyphTheme(theme)}
+                onThemeChange={handleThemeChange}
                 onLogout={logOut}
             />
             <GlyphReactChipsbar
