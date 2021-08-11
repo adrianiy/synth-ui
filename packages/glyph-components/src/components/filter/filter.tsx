@@ -17,7 +17,7 @@ export class FilterComponent {
     /** Filter plural */
     @Prop() plural: string;
     /** Filter options */
-    @Prop({ mutable: true }) options: FilterOptionHeader[];
+    @Prop() options: FilterOptionHeader[];
     /** Multiselect flag. True if filter allows multiselect toggler */
     @Prop() haveMultiSelect: boolean = true;
     /** This flag is true if multiselect is active */

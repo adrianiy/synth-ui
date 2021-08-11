@@ -24,7 +24,6 @@ const Template = ({ filtersConfig, hideZaraSouth, interface: interfaceValue }, c
             .filtersConfig=${filtersConfig}
             .hideZaraSouth=${hideZaraSouth}
             .interface=${interfaceValue}
-            @filterSelect=${() => console.log(filtersConfig)}
         />`,
         ctx,
         style: 'height: 400px',

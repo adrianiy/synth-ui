@@ -12,7 +12,7 @@ export class ChipsBarComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
     /** Filters configuration object */
-    @Prop({ mutable: true }) filtersConfig: FiltersConfig;
+    @Prop() filtersConfig: FiltersConfig;
     /** Hide zara south filters active */
     @Prop() hideZaraSouth: boolean = true;
     /** Extra i18n translation object */

@@ -12,9 +12,9 @@ import { cls } from '../../../utils/utils';
 })
 export class SelectorOptionsComponent {
     /** Selector options */
-    @Prop({ mutable: true }) options: SelectorOption[];
+    @Prop() options: SelectorOption[];
     /** Complex selector options */
-    @Prop({ mutable: true }) complexOptions: ComplexSelectorOptions;
+    @Prop() complexOptions: ComplexSelectorOptions;
     /** Multiselect flag */
     @Prop() multiSelect: boolean = false;
     /** Max height configuration */

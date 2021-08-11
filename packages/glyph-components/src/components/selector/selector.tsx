@@ -17,9 +17,9 @@ export class SelectorComponent {
     /** Selector disabled state */
     @Prop() disabled: boolean;
     /** Selector options */
-    @Prop({ mutable: true }) options: SelectorOption[];
+    @Prop() options: SelectorOption[];
     /** Complex selector options */
-    @Prop({ mutable: true }) complexOptions: ComplexSelectorOptions;
+    @Prop() complexOptions: ComplexSelectorOptions;
     /** Multiselect flag */
     @Prop() multiSelect: boolean = false;
     /** Search placeholder text. If defined a search input will render */
