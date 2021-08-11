@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.3...glyph-core-poc-v1.1.0) (2021-08-11)
+
+
+### Features
+
+* **core:** add conditional middleware ([b0c487f](https://github.com/adrianiy/glyph-ui/commit/b0c487f87a4451a7641cbce97174042c1d2bcd99))
+* **react:** improve react filters provider ([f0662ad](https://github.com/adrianiy/glyph-ui/commit/f0662ad94b4a00cdcc9bd756b4cb99a8e9e42b95))
+
 ## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.2...glyph-core-poc-v1.0.3) (2021-08-11)
 
 

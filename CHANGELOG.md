@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/adrianiy/glyph-ui/compare/v4.1.0...v4.2.0) (2021-08-11)
+
+
+### Features
+
+* **core:** add conditional middleware ([b0c487f](https://github.com/adrianiy/glyph-ui/commit/b0c487f87a4451a7641cbce97174042c1d2bcd99))
+
 # [4.1.0](https://github.com/adrianiy/glyph-ui/compare/v4.0.1...v4.1.0) (2021-08-11)
 
 
