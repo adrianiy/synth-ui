@@ -17,7 +17,7 @@ export default {
             exclude: 'node_modules/**',
         }),
         copy({
-            targets: [ { src: './node_modules/glyph-components/dist/assets', dest: 'dist' } ],
+            targets: [ { src: './node_modules/glyph-components-poc/dist/assets', dest: 'dist' } ],
             verbose: true,
         }),
         typescript({ tsconfig: './tsconfig.json' }),
