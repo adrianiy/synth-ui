@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.5...glyph-react-poc-v1.0.6) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix react assets dir ([f77b685](https://github.com/adrianiy/glyph-ui/commit/f77b6858aef5948b47c6266046171daa3404e47a))
+
 ## [1.0.5](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.4...glyph-react-poc-v1.0.5) (2021-08-11)
 
 
