@@ -1,4 +1,4 @@
-import 'glyph-components/dist/glyph-components/glyph-components.css';
+import 'glyph-components-poc/dist/glyph-components/glyph-components.css';
 
 export * from './wrappers';
 
