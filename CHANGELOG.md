@@ -1,3 +1,10 @@
+## [3.11.6](https://github.com/adrianiy/glyph-ui/compare/v3.11.5...v3.11.6) (2021-08-11)
+
+
+### Bug Fixes
+
+* fix react assets dir ([f77b685](https://github.com/adrianiy/glyph-ui/commit/f77b6858aef5948b47c6266046171daa3404e47a))
+
 ## [3.11.5](https://github.com/adrianiy/glyph-ui/compare/v3.11.4...v3.11.5) (2021-08-11)
 
 
