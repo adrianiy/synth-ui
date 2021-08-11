@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/adrianiy/glyph-ui/compare/v3.11.6...v4.0.0) (2021-08-11)
+
+
+### Features
+
+* **docs:** change documentation demo ([b221332](https://github.com/adrianiy/glyph-ui/commit/b221332a33370aa60f8206167eda65d4e60b0114))
+
+
+### BREAKING CHANGES
+
+* **docs:** change release number to update glyph-react
+
 ## [3.11.6](https://github.com/adrianiy/glyph-ui/compare/v3.11.5...v3.11.6) (2021-08-11)
 
 
