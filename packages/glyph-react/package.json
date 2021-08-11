@@ -72,8 +72,7 @@
         "eject": "react-scripts eject",
         "lint": "eslint src/**/*.{ts,tsx} --fix --resolve-plugins-relative-to .",
         "start:docs": "start-storybook -p 6009 --quiet --no-manager-cache -s ./../glyph-components/dist",
-        "build:docs": "build-storybook --quiet -o ./../../docs/react && npm run creevey",
-        "creevey": "creevey --extract && move-file stories.json ./../../docs/react/stories.json"
+        "build:docs": "build-storybook --quiet -o ./../../docs/react"
     },
     "eslintConfig": {
         "extends": [

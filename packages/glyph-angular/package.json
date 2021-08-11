@@ -11,8 +11,7 @@
     "docs:json": "compodoc ./projects/glyph-angular -p ./projects/glyph-angular/tsconfig.lib.json -e json -d ./ --watch",
     "docs:base": "start-storybook -p 6008 --quiet --no-manager-cache -s ./../glyph-components/dist",
     "start:docs": "npm-run-all --parallel docs:json docs:base",
-    "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../docs/angular && npm run creevey",
-    "creevey": "creevey --extract && move-file stories.json ./../../docs/angular/stories.json",
+    "build:docs": "yarn docs:json && build-storybook --quiet -o ./../../docs/angular",
     "lint": "eslint --ext ts,html --fix"
   },
   "private": false,

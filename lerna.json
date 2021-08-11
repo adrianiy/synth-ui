@@ -5,7 +5,6 @@
     "packages/glyph-core",
     "packages/glyph-angular",
     "packages/glyph-react",
-    "packages/glyph-docs",
     "packages/angular-demo",
     "packages/react-demo"
   ],

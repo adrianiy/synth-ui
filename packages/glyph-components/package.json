@@ -21,8 +21,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "build:docs": "build-storybook --quiet -s ./dist -o ./../../docs/webcomponents && npm run creevey",
-    "creevey": "creevey --extract && move-file stories.json ./../../docs/webcomponents/stories.json",
+    "build:docs": "build-storybook --quiet -s ./dist -o ./../../docs/webcomponents",
     "lint": "eslint src/**/*{.ts,.tsx} --fix"
   },
   "dependencies": {

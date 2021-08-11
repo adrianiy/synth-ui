@@ -29,5 +29,6 @@ module.exports = {
         '@storybook/addon-controls',
         '@storybook/addon-viewport',
         '@storybook/preset-scss',
+        'creevey',
     ],
 };
