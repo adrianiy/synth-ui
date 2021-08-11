@@ -1,3 +1,22 @@
+## [1.0.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.2...glyph-core-poc-v1.0.3) (2021-08-11)
+
+
+### Bug Fixes
+
+* **doc:** fix core doc build ([83b32ab](https://github.com/adrianiy/glyph-ui/commit/83b32abfb9e5156f6bcdbe729548e924127e72e3))
+* fix glyph-react use of glyph-components-poc ([ee9e1bc](https://github.com/adrianiy/glyph-ui/commit/ee9e1bcff2c68cb561a8316c33b7d2b940096ed0))
+* fix react assets dir ([f77b685](https://github.com/adrianiy/glyph-ui/commit/f77b6858aef5948b47c6266046171daa3404e47a))
+
+
+### Features
+
+* **docs:** change documentation demo ([b221332](https://github.com/adrianiy/glyph-ui/commit/b221332a33370aa60f8206167eda65d4e60b0114))
+
+
+### BREAKING CHANGES
+
+* **docs:** change release number to update glyph-react
+
 ## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.0.1...glyph-core-poc-v1.0.2) (2021-08-11)
 
 
