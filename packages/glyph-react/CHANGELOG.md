@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.0.0...glyph-react-poc-v2.1.0) (2021-08-11)
+
+
+### Bug Fixes
+
+* **doc:** fix core doc build ([83b32ab](https://github.com/adrianiy/glyph-ui/commit/83b32abfb9e5156f6bcdbe729548e924127e72e3))
+
+
+### Features
+
+* **react:** improve react filters provider ([f0662ad](https://github.com/adrianiy/glyph-ui/commit/f0662ad94b4a00cdcc9bd756b4cb99a8e9e42b95))
+
 # [2.0.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v1.0.6...glyph-react-poc-v2.0.0) (2021-08-11)
 
 
