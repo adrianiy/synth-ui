@@ -2,6 +2,7 @@ import React from 'react';
 import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, rootReducer, Store } from 'glyph-core-poc';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import { createStore } from 'redux';
+import { InitialFilter } from 'glyph-core-poc/dist/models/filters';
 
 const store = createStore(
     rootReducer,
@@ -9,7 +10,33 @@ const store = createStore(
     (window as any)['__REDUX_DEVTOOLS_EXTENSION__']?.(),
 );
 
-const FilterStateProvider = ({ children }: { children: any }) => <Provider store={store}>{children}</Provider>;
+interface ProviderInterface {
+    children: any;
+    entities?: any;
+    screen?: string;
+    filtersConfig?: FiltersConfig;
+    initialFilters?: InitialFilter;
+}
+
+const ContentWithFilters = ({ entities, filtersConfig, screen, initialFilters, children }: ProviderInterface) => {
+    const dispatch = useDispatch();
+
+    if (entities || filtersConfig) {
+        dispatch(
+            actions.filters.initialize(entities || {}, screen || 'drive', filtersConfig || {}, initialFilters || {}),
+        );
+    }
+
+    return <>{children}</>;
+};
+
+const FilterStateProvider = (props: ProviderInterface) => {
+    return (
+        <Provider store={store}>
+            <ContentWithFilters {...props} />
+        </Provider>
+    );
+};
 
 export const useFilters = () => {
     const { queryFilters = [], filtersConfig } = useSelector((state: Store) => state.filters);

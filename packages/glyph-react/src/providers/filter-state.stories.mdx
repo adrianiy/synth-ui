@@ -143,6 +143,31 @@ You can use **GLYPH PIPES** to get filter entities data! take a look at the [DOC
 
 > **comming soon:** glyph-core will export a middleware that recovers data from WSC, and you will not need to care about GLYPH PIPES if you don't want to
 
+You can set some filters as selected by default using [initialFilters](https://github.com/adrianiy/glyph-ui/blob/ed9b2ba90e3678557132b129987b052bb320f5a7/packages/glyph-core/src/models/filters.ts#L91) object.
+
+## Delegate initialization in providers
+
+If you pass `entities` or `filtersConfig` the provider will initialize filters state.
+
+```typescript
+// home.tsx
+import { FiltersConfig } from "../../utils/filters-config";
+
+const Home = () => {
+    const entities = {};// use your favorite entities fetch method
+    const initialFilters = {}; // customize your initial filters object
+
+    return (
+        <FilterStateProvider entities={entities} filtersConfig={FiltersConfig} screen="glyph-ui" initialFilters={}>
+            <Home/>
+        </FilterStateProvider>
+    );
+};
+
+export default Home;
+```
+
+## Customize intialization
 
 ```typescript
 // home.tsx
@@ -178,7 +203,6 @@ const Home = () => {
 
 export default Home;
 ```
-
 
 # Custom hooks
 

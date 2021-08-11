@@ -152,7 +152,7 @@ export class ConfigModalComponent {
 
     private _renderSortableList = (from: string, filters: string[], action?: boolean) => {
         const sortableOptions = filters.map((key: string) => ({
-            name: this.filtersConfig[key].description,
+            name: key === 'date' ? key : this.filtersConfig[key].description,
             id: key,
             icon: SortableIcon.always,
             action: action && key !== 'date' ? { icon: 'edit', action: this._handleEdit(key) } : null,
