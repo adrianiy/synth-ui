@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UITheme, UserData, UserMenuConfiguration } from 'glyph-core-poc';
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {

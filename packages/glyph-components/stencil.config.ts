@@ -15,7 +15,7 @@ export const config: Config = {
     globalStyle: 'src/global/global.scss',
     outputTargets: [
         angularOutputTarget({
-            componentCorePackage: 'glyph-components',
+            componentCorePackage: 'glyph-components-poc',
             directivesProxyFile: '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/proxies.ts',
             valueAccessorConfigs: angularValueAccessorBindings,
         }),
@@ -24,7 +24,7 @@ export const config: Config = {
                 '../glyph-angular/projects/glyph-angular/src/lib/glyph-directives/angular-component-lib/utils.ts',
         }),
         reactOutputTarget({
-            componentCorePackage: 'glyph-components',
+            componentCorePackage: 'glyph-components-poc',
             proxiesFile: '../glyph-react/src/components.ts',
         }),
         {

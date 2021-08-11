@@ -294,7 +294,6 @@ export class HeaderComponent {
                 {this.showNotifications && (
                     <glyph-notifications
                         class="widget__menu widget__menu--notifications"
-                        interface={this.interface}
                         outsideCallback={this._toggleNotifications(false)}
                     >
                         <slot />
