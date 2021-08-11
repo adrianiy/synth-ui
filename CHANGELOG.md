@@ -1,3 +1,11 @@
+## [3.11.1](https://github.com/adrianiy/glyph-ui/compare/v3.11.0...v3.11.1) (2021-08-11)
+
+
+### Bug Fixes
+
+* rollback namespace ([0203073](https://github.com/adrianiy/glyph-ui/commit/02030733ea92ae21b46812c31a5a201833343e88))
+* test deployment ([7545a84](https://github.com/adrianiy/glyph-ui/commit/7545a84b93bbcda1d7ac171790396261681c89f6))
+
 # [3.11.0](https://github.com/adrianiy/glyph-ui/compare/v3.10.0...v3.11.0) (2021-08-11)
 
 
