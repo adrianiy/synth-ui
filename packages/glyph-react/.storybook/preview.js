@@ -1,6 +1,6 @@
 import { applyPolyfills, defineCustomElements } from 'glyph-components-poc/dist/loader';
 
-import 'glyph-components/dist/glyph-components/glyph-components.css';
+import 'glyph-components-poc/dist/glyph-components/glyph-components.css';
 import '!style-loader!css-loader!sass-loader!common-storybook/re-style.scss';
 
 applyPolyfills().then(() => {
