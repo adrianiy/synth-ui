@@ -1,3 +1,32 @@
+# [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.0.2...glyph-angular-poc-v1.1.0) (2021-08-12)
+
+
+### Bug Fixes
+
+* fix package versions ([e7eb020](https://github.com/adrianiy/glyph-ui/commit/e7eb020419c0b770a7aa7b68560bd3bb2f2319e0))
+* **core:** fix saved filters version check ([e05ee9d](https://github.com/adrianiy/glyph-ui/commit/e05ee9d3d7ffb02a4cd25fb45c77bc3a40742773))
+* **core:** fix yml route ([8407b5c](https://github.com/adrianiy/glyph-ui/commit/8407b5c85730c428aa287270154feae4d37ded37))
+* fix conditional pipe ([510d9ee](https://github.com/adrianiy/glyph-ui/commit/510d9ee201c93cf07d8c11d8f8335c9446bf5c02))
+* **doc:** fix core doc build ([83b32ab](https://github.com/adrianiy/glyph-ui/commit/83b32abfb9e5156f6bcdbe729548e924127e72e3))
+* fix docs ([06bb8d0](https://github.com/adrianiy/glyph-ui/commit/06bb8d0a8607804f34580a021bb23e81bedf9baf))
+* fix docs links ([b848860](https://github.com/adrianiy/glyph-ui/commit/b848860c9fcee334f5bcb2b87698cd778ab74d69))
+* fix glyph-react use of glyph-components-poc ([ee9e1bc](https://github.com/adrianiy/glyph-ui/commit/ee9e1bcff2c68cb561a8316c33b7d2b940096ed0))
+* fix react assets dir ([f77b685](https://github.com/adrianiy/glyph-ui/commit/f77b6858aef5948b47c6266046171daa3404e47a))
+
+
+### Features
+
+* **components:** redesign filters and dropdowns ([fb37856](https://github.com/adrianiy/glyph-ui/commit/fb378568cc04087155265216c0410f5372332928))
+* **core:** add conditional middleware ([b0c487f](https://github.com/adrianiy/glyph-ui/commit/b0c487f87a4451a7641cbce97174042c1d2bcd99))
+* **core:** add fetchFiltersConfig middleware ([a03fe49](https://github.com/adrianiy/glyph-ui/commit/a03fe493e0fc310340b0139043bd879166459ff0))
+* **docs:** change documentation demo ([b221332](https://github.com/adrianiy/glyph-ui/commit/b221332a33370aa60f8206167eda65d4e60b0114))
+* **react:** improve react filters provider ([f0662ad](https://github.com/adrianiy/glyph-ui/commit/f0662ad94b4a00cdcc9bd756b4cb99a8e9e42b95))
+
+
+### BREAKING CHANGES
+
+* **docs:** change release number to update glyph-react
+
 ## [1.0.2](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.0.1...glyph-angular-poc-v1.0.2) (2021-08-11)
 
 
