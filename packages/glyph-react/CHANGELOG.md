@@ -1,3 +1,17 @@
+## [2.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.2.0...glyph-react-poc-v2.2.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* fix package versions ([e7eb020](https://github.com/adrianiy/glyph-ui/commit/e7eb020419c0b770a7aa7b68560bd3bb2f2319e0))
+* **core:** fix saved filters version check ([e05ee9d](https://github.com/adrianiy/glyph-ui/commit/e05ee9d3d7ffb02a4cd25fb45c77bc3a40742773))
+* **core:** fix yml route ([8407b5c](https://github.com/adrianiy/glyph-ui/commit/8407b5c85730c428aa287270154feae4d37ded37))
+
+
+### Features
+
+* **components:** redesign filters and dropdowns ([fb37856](https://github.com/adrianiy/glyph-ui/commit/fb378568cc04087155265216c0410f5372332928))
+
 # [2.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.1.0...glyph-react-poc-v2.2.0) (2021-08-12)
 
 
