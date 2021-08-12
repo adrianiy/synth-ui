@@ -1,6 +1,6 @@
 {
   "name": "glyph-angular-poc",
-  "version": "1.17.0",
+  "version": "1.17.1",
   "license": "MIT",
   "description": "Wrapper of web components for angular.",
   "scripts": {
@@ -38,8 +38,8 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "@webcomponents/custom-elements": "^1.4.3",
     "dayjs": "^1.10.5",
-    "glyph-components-poc": "^1.17.0",
-    "glyph-core-poc": "^1.17.0",
+    "glyph-components-poc": "^1.17.1",
+    "glyph-core-poc": "^1.17.1",
     "redux": "4.0.1",
     "redux-logger": "^3.0.6",
     "redux-observable": "^1.2.0",

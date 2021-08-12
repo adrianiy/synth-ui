@@ -1,6 +1,6 @@
 {
   "name": "glyph-components-poc",
-  "version": "1.17.0",
+  "version": "1.17.1",
   "description": "Core web components for glyph-ui",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
@@ -30,7 +30,7 @@
     "dayjs": "^1.10.5",
     "exceljs": "^4.2.1",
     "file-saver": "^2.0.5",
-    "glyph-core-poc": "^1.17.0",
+    "glyph-core-poc": "^1.17.1",
     "lit-element": "^2.5.1",
     "numeral": "^2.0.6",
     "perfect-scrollbar": "^1.5.0",
