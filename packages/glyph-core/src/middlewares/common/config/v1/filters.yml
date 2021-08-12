@@ -1,0 +1,196 @@
+name: Filters config pipe
+global:
+  filters: &filters
+    parameters:
+      brand: "1,16"
+      pageSize: 10000
+  fields: &add_fields
+    - add: display
+      value: true
+pipe:
+  - filters:
+      current: true
+
+  - parallel:
+      - conditional: 
+          if: ?$ endpoints.sections
+          then:
+            fetch:
+              url: endpoints.sections
+              store: sections
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.products
+          then:
+            fetch:
+              url: endpoints.products
+              store: products
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.product_lines
+          then:
+            fetch:
+              url: endpoints.product_lines
+              store: product_lines
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.campaigns
+          then:
+            fetch:
+              url: endpoints.campaigns
+              store: campaigns
+
+      - conditional:
+          if: ?$ endpoints.markets
+          then:
+            fetch:
+              url: endpoints.markets
+              data: data.entities
+              store: markets
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.platforms
+          then:
+            fetch:
+              url: endpoints.platforms
+              data: data.entities
+              store: platforms
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.warehouses
+          then:
+            fetch:
+              url: endpoints.warehouses
+              data: data.entities
+              store: warehouses
+              <<: *filters
+
+  - parallel:
+      - transform:
+          data: ?$ sections
+          operations:
+            - <<: *add_fields
+            - add: code
+              value: (row) => row.cod_section
+            - match: cod_section
+              key: section
+      - transform:
+          data: ?$ products
+          keys:
+            cod_product: code
+          operations:
+            - <<: *add_fields
+      - transform:
+          data: ?$ product_lines
+          keys:
+            cod_section: section
+            cod_product_line: code
+          operations:
+            - <<: *add_fields
+            - add: parents
+              value: "(row) => ({ product: row.product, section: row.section })"
+      - transform:
+          data: ?$ campaigns
+          operations:
+            - <<: *add_fields
+            - match: cod_season
+              key: code
+              preserve: true
+            - match: cod_season
+              key: description
+      - transform:
+          data: ?$ markets
+          keys:
+            name: description
+          operations:
+            - <<: *add_fields
+            - add: market
+              value: (row) => row.code
+      - transform:
+          data: ?$ platforms
+          keys:
+            name: description
+            country: cod_country
+          operations:
+            - <<: *add_fields
+            - add: market
+              value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code))?.code
+            - add: parents
+              value: "(row) => ({ market: row.market })"
+      - transform:
+          data: ?$ warehouses
+          keys:
+            name: description
+          operations:
+            - <<: *add_fields
+
+  - sort:
+      data: ?$ platforms
+      function: sortCountries
+
+  - parallel:
+    - filter:
+        data: ?$ campaigns
+        function: >
+          (row, index, self) => row.state 
+          && 
+          self.findIndex(cmp => cmp.code === row.code) === index 
+    - filter:
+        data: ?$ warehouses
+        keys:
+          preserve:
+            - code
+            - description
+            - display
+    - group:
+        data: ?$ platforms
+        children: true
+        by:
+          - market
+    - group:
+        data: ?$ product_lines
+        children: true
+        by:
+          - section
+
+  - parallel:
+    - transform:
+        data: ?$ platforms
+        operations:
+          - delete: description
+          - add: header
+            value: true
+    - transform:
+        data: ?$ product_lines
+        operations:
+          - delete: description
+          - add: header
+            value: true
+
+
+  - parallel:
+    - join:
+        data: ?$ sections
+        with: product_lines
+        store: product_lines
+        by:
+          - section
+    - join:
+        data: ?$ markets
+        with: platforms
+        store: platforms
+        by: 
+          - market
+
+  - transform:
+      data: ?$ sections
+      operations:
+        - delete: section
+      
+
+  - middleware: setData

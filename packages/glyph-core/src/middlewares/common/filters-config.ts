@@ -21,4 +21,4 @@ const setData = async (ctx: any, next: any) => {
 };
 
 export const fetchFiltersConfig = (configuration: FiltersConfigMiddleware) =>
-    composer('./docs/v1/filters.yml', { ...configuration, sortCountries, setData });
+    composer('./config/v1/filters.yml', { ...configuration, sortCountries, setData });
