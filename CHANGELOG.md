@@ -1,3 +1,15 @@
+# [4.4.0](https://github.com/adrianiy/glyph-ui/compare/v4.3.2...v4.4.0) (2021-08-12)
+
+
+### Bug Fixes
+
+* fix package versions ([e7eb020](https://github.com/adrianiy/glyph-ui/commit/e7eb020419c0b770a7aa7b68560bd3bb2f2319e0))
+
+
+### Features
+
+* **components:** redesign filters and dropdowns ([fb37856](https://github.com/adrianiy/glyph-ui/commit/fb378568cc04087155265216c0410f5372332928))
+
 ## [4.3.2](https://github.com/adrianiy/glyph-ui/compare/v4.3.1...v4.3.2) (2021-08-12)
 
 
