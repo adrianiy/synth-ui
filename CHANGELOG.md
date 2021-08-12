@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/adrianiy/glyph-ui/compare/v4.2.1...v4.3.0) (2021-08-12)
+
+
+### Features
+
+* **core:** add fetchFiltersConfig middleware ([a03fe49](https://github.com/adrianiy/glyph-ui/commit/a03fe493e0fc310340b0139043bd879166459ff0))
+
 ## [4.2.1](https://github.com/adrianiy/glyph-ui/compare/v4.2.0...v4.2.1) (2021-08-11)
 
 
