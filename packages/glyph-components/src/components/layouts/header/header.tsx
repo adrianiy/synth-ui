@@ -340,7 +340,11 @@ export class HeaderComponent {
                     )}
                     <Flex left>
                         <h2>{this.appTitle}</h2>
-                        <h4>{this.appSubtitle}</h4>
+                        {this.interface === UIInterface.redesign ? (
+                            <span class="label--l label--l--medium">{this.appSubtitle}</span>
+                        ) : (
+                            <h4>{this.appSubtitle}</h4>
+                        )}
                     </Flex>
                 </Flex>
                 <div class="header--right">

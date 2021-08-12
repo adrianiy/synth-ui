@@ -21,6 +21,12 @@ Controls how web-components and application state interacts, uses \`filtersConfi
 The events triggered in web-component will execute a state update.
 
 You can check navigator console to see how component interacts with state.
+
+<div class="warning">
+
+> GlyphReactChipsbar must be wrapped inside [FiltersStateProvider](?path=/docs/react_providers-filters--filter-provider) to have access to redux state.
+
+</div>
                 `,
             },
         },

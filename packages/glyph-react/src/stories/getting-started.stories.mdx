@@ -139,9 +139,44 @@ setup();
 
 - If your application uses a context-path probably you'll need to use `basePath` property in your components to fix local assets loading.
 
+<Story name="Example"/>
+
+## Example
+
 This is an example of application using `glyph-react`.
 
+<div class="warning">
+
+> All application must be wrapped inside FiltersStateProvider to have access to filters state
+
+</div>
+
 ```javascript
+// home.js
+import { FiltersConfig } from "../../utils/filters-config";
+import { FilterStateProvider, GlyphStyleProvider, UIInterface, UITheme } from "glyph-react-poc";
+
+const Home = () => {
+    const entities = // fetch entities data...
+    const glyphInterface = localStorage.getItem("drive.glyph-ui.interface") || UIInterface.redesign;
+    const glyphTheme = localStorage.getItem("drive.glyph-ui.theme") || UITheme.light;
+
+    return (
+        <FilterStateProvider entities={entities} filtersConfig={FiltersConfig} screen="konnect">
+            <GlyphStyleProvider interface={glyphInterface} theme={glyphTheme}>
+                <Layout>
+                    <Content />
+                </Layout>
+            </GlyphStyleProvider>
+        </FilterStateProvider>
+    );
+};
+```
+
+
+```javascript
+// layout.js 
+
 import {
     Brands,
     GlyphHeader,
@@ -187,7 +222,7 @@ const main = () => {
     };
 
     const handleThemeChange = ({ detail: { value } }) => {
-        localStorage.setItem("drive.warehouses.theme", value);
+        localStorage.setItem("drive.glyph-ui.theme", value);
         setGlyphTheme(value);
     };
 
@@ -196,7 +231,7 @@ const main = () => {
             <GlyphHeader
                 locale={currentLocale}
                 brand
-                basePath="/drfrwrhs/web"
+                basePath="/glyph-ui"
                 appTitle="DRIVE"
                 appSubtitle="WAREHOUSES"
                 share
@@ -221,7 +256,7 @@ const main = () => {
             <GlyphReactChipsbar
                 locale={currentLocale}
                 i18n={messages[currentLocale]}
-                basePath="/drfrwrhs/web"
+                basePath="/glyph-ui"
                 uiInterface={glyphInterface}
             />
         </>

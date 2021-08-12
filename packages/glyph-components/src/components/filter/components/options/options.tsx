@@ -84,7 +84,17 @@ export class FilterOptionsComponent {
         );
 
         if (visibleOptions.length === 1) {
-            this._optionClick(visibleOptions[0])();
+            if (visibleOptions[0].header) {
+                const visibleChilds = visibleOptions[0].children.filter(
+                    child => child.display && inSearch(child, this.searchValue, this._i18n),
+                );
+
+                if (visibleChilds.length === 1) {
+                    this._optionClick(visibleChilds[0])();
+                }
+            } else {
+                this._optionClick(visibleOptions[0])();
+            }
         }
     };
 
