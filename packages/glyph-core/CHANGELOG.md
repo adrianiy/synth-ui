@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.0...glyph-core-poc-v1.2.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* **core:** fix saved filters version check ([e05ee9d](https://github.com/adrianiy/glyph-ui/commit/e05ee9d3d7ffb02a4cd25fb45c77bc3a40742773))
+
 # [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.1.1...glyph-core-poc-v1.2.0) (2021-08-12)
 
 
