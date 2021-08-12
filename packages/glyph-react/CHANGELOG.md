@@ -1,3 +1,16 @@
+# [2.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.1.0...glyph-react-poc-v2.2.0) (2021-08-12)
+
+
+### Bug Fixes
+
+* fix conditional pipe ([510d9ee](https://github.com/adrianiy/glyph-ui/commit/510d9ee201c93cf07d8c11d8f8335c9446bf5c02))
+
+
+### Features
+
+* **core:** add conditional middleware ([b0c487f](https://github.com/adrianiy/glyph-ui/commit/b0c487f87a4451a7641cbce97174042c1d2bcd99))
+* **core:** add fetchFiltersConfig middleware ([a03fe49](https://github.com/adrianiy/glyph-ui/commit/a03fe493e0fc310340b0139043bd879166459ff0))
+
 # [2.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.0.0...glyph-react-poc-v2.1.0) (2021-08-11)
 
 

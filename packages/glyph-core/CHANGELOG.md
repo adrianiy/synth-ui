@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.1.1...glyph-core-poc-v1.2.0) (2021-08-12)
+
+
+### Features
+
+* **core:** add fetchFiltersConfig middleware ([a03fe49](https://github.com/adrianiy/glyph-ui/commit/a03fe493e0fc310340b0139043bd879166459ff0))
+
 ## [1.1.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.1.0...glyph-core-poc-v1.1.1) (2021-08-11)
 
 
