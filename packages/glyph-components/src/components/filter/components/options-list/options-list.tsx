@@ -72,7 +72,7 @@ export class OptionsListComponent {
             .sort((a, b) => a.position - b.position);
 
         return (
-            <ul style={this.listStyle}>
+            <ul style={this.listStyle} class={this.interface}>
                 {renderableOptions.map(option => (
                     <li>
                         {option.header

@@ -108,7 +108,7 @@ export const dateFilter = {
 export const filtersConfig = {
     date: dateFilter,
     filter1: { ...filter(1) },
-    filter2: { ...filter(2) },
+    filter2: { ...filter(2), haveMultiSelect: true },
     filter3: { ...filter(3) },
     filter6: { ...filterWithChildren },
     filter7: { ...hiddenFilter },

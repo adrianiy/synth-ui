@@ -44,6 +44,7 @@ graph TD;
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
   glyph-selector-options --> glyph-scroll
+  glyph-input --> glyph-icon
   glyph-date-filter --> glyph-selector
   glyph-timeline --> glyph-selector
   glyph-user-menu --> glyph-selector

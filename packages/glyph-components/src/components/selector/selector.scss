@@ -37,6 +37,14 @@
             padding-bottom: 0;
         }
     }
+    &.redesign {
+        .selector__input {
+            border-bottom: none;
+        }
+        span {
+            text-transform: uppercase;
+        }
+    }
     &.disabled {
         color: var(--gui-color--lighter);
 

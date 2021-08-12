@@ -43,8 +43,10 @@ graph TD;
   glyph-filter-options --> glyph-toggler
   glyph-filter-options --> glyph-filter-options-list
   glyph-filter-options --> glyph-scroll
+  glyph-input --> glyph-icon
   glyph-filter-options-list --> glyph-filter-drilldown-options
   glyph-filter-drilldown-options --> glyph-filter-options-list
+  glyph-filter-drilldown-options --> glyph-icon
   glyph-filter --> glyph-filter-options
   style glyph-filter-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

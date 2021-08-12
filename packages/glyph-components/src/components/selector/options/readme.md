@@ -35,6 +35,7 @@
 graph TD;
   glyph-selector-options --> glyph-input
   glyph-selector-options --> glyph-scroll
+  glyph-input --> glyph-icon
   glyph-selector --> glyph-selector-options
   style glyph-selector-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

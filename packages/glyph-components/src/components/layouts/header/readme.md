@@ -73,6 +73,7 @@ graph TD;
   glyph-selector --> glyph-selector-options
   glyph-selector-options --> glyph-input
   glyph-selector-options --> glyph-scroll
+  glyph-input --> glyph-icon
   glyph-user-menu --> glyph-selector
   glyph-user-menu --> glyph-toggler
   glyph-user-menu --> glyph-icon

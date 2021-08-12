@@ -72,7 +72,7 @@
 
                     &.secondary {
                         background-color: var(--gui-color--lighter);
-                        opacity: .7;
+                        opacity: 0.7;
                     }
                     &:not(.selectable) {
                         background-color: transparent;
@@ -104,6 +104,98 @@
                         background-color: var(--gui-color--attention);
                         color: var(--gui-color--contrast);
                         opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+
+    &.redesign {
+        .calendar {
+            border-right: none;
+            padding: 0 var(--gui-padding--s);
+
+            &__header {
+                margin-top: 0;
+
+                &__arrow {
+                    &.before {
+                        margin-left: var(--gui-padding--xs);
+                    }
+                    &.after {
+                        margin-right: var(--gui-padding--xs);
+                    }
+                }
+
+                &__month {
+                    text-transform: uppercase;
+                }
+            }
+            &__days__container {
+                &__header {
+                    text-transform: capitalize;
+                }
+                &__day {
+                    --size: 35px;
+                    padding: 0;
+                    width: var(--size);
+                    height: var(--size);
+                    position: relative;
+
+                    &:not(.selected) {
+                        color: var(--gui-color--light);
+                    }
+
+                    &:hover:not(.disabled):not(.selected) {
+                        border-radius: 100%;
+                    }
+                    &.selected {
+                        background-color: transparent;
+                        color: var(--gui-color);
+                    }
+                    &.selected, &.in-range {
+                        &::before {
+                            content: '';
+                            background-color: var(--gui-color--lightest);
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            width: var(--size);
+                            z-index: -1;
+                            height: var(--size);
+                        }
+                    }
+                    &.first,
+                    &.last {
+                        background-color: var(--active-bg);
+                        border-radius: 100%;
+                        color: var(--gui-color--contrast);
+                    }
+                    &.first {
+                        &::before {
+                            border-top-left-radius: 100%;
+                            border-bottom-left-radius: 100%;
+                        }
+                    }
+                    &.last {
+                        &::before {
+                            border-top-right-radius: 100%;
+                            border-bottom-right-radius: 100%;
+                        }
+                    }
+                    &.in-range:not(.first):not(.last) {
+                        background-color: transparent;
+                        color: var(--gui-color);
+                    }
+                    &.disabled {
+                        display: none;
+                    }
+                    &.current {
+                        border: var(--gui-border);
+                        border-radius: 100%;
+                    }
+                    &:not(.selectable) {
+                        display: none;
                     }
                 }
             }

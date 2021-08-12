@@ -42,7 +42,7 @@ export class FilterDrilldownOptionsComponent {
 
         return (
             <glyph-filter-options-list
-                listStyle={{ 'padding-left': 'var(--gui-padding--m)' }}
+                listStyle={{ 'padding-left': 'var(--gui-padding--l)' }}
                 options={children}
                 i18n={this.i18n}
                 interface={this.interface}
@@ -62,7 +62,11 @@ export class FilterDrilldownOptionsComponent {
         return (
             <Flex class="children__container">
                 <Flex row middle class={cls('children--header', { expanded })} onClick={this._handleClick}>
-                    <Icon icon={expanded ? 'remove' : 'add'} class="expand-icon" />
+                    {this.interface === UIInterface.redesign ? (
+                        <glyph-icon icon={expanded ? 'chevron-right' : 'chevron-down'} class="expand-icon" />
+                    ) : (
+                        <Icon icon={expanded ? 'remove' : 'add'} class="expand-icon" />
+                    )}
                     <span>{renderOptionDescription(description, this.searchValue)}</span>
                 </Flex>
                 {expanded && this._renderOptionsList()}

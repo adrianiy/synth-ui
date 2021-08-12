@@ -44,7 +44,9 @@ export class ButtonComponent {
             >
                 <slot />
                 {this.icon && this.iconFirst && <Icon class="button__icon--left" icon={this.icon} />}
-                <span class={this.class}>{this.text && this.text}</span>
+                <span class={cls(this.class, { 'label--l--medium': this.interface === UIInterface.redesign })}>
+                    {this.text && this.text}
+                </span>
                 {this.icon && !this.iconFirst && <Icon class="button__icon--right" icon={this.icon} />}
             </button>
         );

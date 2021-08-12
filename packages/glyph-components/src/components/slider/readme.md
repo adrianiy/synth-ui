@@ -34,6 +34,7 @@
 ```mermaid
 graph TD;
   glyph-slider --> glyph-input
+  glyph-input --> glyph-icon
   glyph-ranking-layout --> glyph-slider
   style glyph-slider fill:#f9f,stroke:#333,stroke-width:4px
 ```

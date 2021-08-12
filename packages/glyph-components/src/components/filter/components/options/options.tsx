@@ -102,7 +102,10 @@ export class FilterOptionsComponent {
         return (
             <glyph-input
                 autoFocus
-                box
+                search
+                class="search"
+                interface={this.interface}
+                box={this.interface !== UIInterface.redesign}
                 placeholder={this._i18n[this.searchPlaceholder] || this.searchPlaceholder}
                 onEnterKey={this._handleKeyUp}
                 onInputChange={this._handleInputChange}
@@ -112,7 +115,7 @@ export class FilterOptionsComponent {
 
     private _renderMultiSelect = () => {
         return (
-            <Flex row spaced middle class="operation">
+            <Flex row spaced middle class={cls('operation', { withSearch: this.searchPlaceholder })}>
                 {this.interface !== UIInterface.modern ? (
                     <span>{this._i18n['multiselect']}</span>
                 ) : (
@@ -143,13 +146,13 @@ export class FilterOptionsComponent {
                         <h3>{this._i18n[this.description] || this.description}</h3>
                         {this.haveMultiSelect && this._renderMultiSelect()}
                     </Flex>
-                ) : (
+                ) : this.interface === UIInterface.classic ? (
                     <h5>{this._i18n[this.description] || this.description}</h5>
-                )}
+                ) : null}
                 {this.searchPlaceholder && this._renderSearch()}
                 {this.haveMultiSelect && this.interface !== UIInterface.modern && this._renderMultiSelect()}
                 <glyph-scroll
-                    tiny
+                    tiny={this.interface !== UIInterface.redesign}
                     scrollSpeed={0.09}
                     initCallback={this._scrollbarInit}
                     containerClass="scroll__container"

@@ -99,6 +99,8 @@
 
         &.redesign {
             box-shadow: none;
+            border: var(--gui-border);
+            padding: var(--gui-padding--xl) var(--gui-padding--s);
         }
 
         glyph-calendar {
@@ -152,6 +154,9 @@
             width: 100%;
         }
         h5 {
+            margin-bottom: var(--gui-padding--m);
+        }
+        .label--l {
             margin-bottom: var(--gui-padding--m);
         }
 

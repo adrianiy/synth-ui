@@ -37,10 +37,10 @@ const dateRanges = [
     },
 ];
 const comparableOptions = [
-    { name: 'Commercial', active: true, value: 'commercial' },
-    { name: 'Calendar', active: false, value: 'calendar' },
-    { name: 'Custom', active: false, value: 'custom' },
-    { name: 'Ordinal', active: false, value: 'ordinal', disabled: true },
+    { name: 'COMMERCIAL', active: true, value: 'commercial' },
+    { name: 'CALENDAR', active: false, value: 'calendar' },
+    { name: 'CUSTOM', active: false, value: 'custom' },
+    { name: 'ORDINAL', active: false, value: 'ordinal', disabled: true },
 ];
 
 const baseProps = {

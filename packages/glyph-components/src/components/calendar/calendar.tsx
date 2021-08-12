@@ -9,7 +9,7 @@ import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import minMax from 'dayjs/plugin/minMax';
 import 'dayjs/locale/es';
 import 'dayjs/locale/en';
-import { ComparableType } from 'glyph-core-poc';
+import { ComparableType, UIInterface } from 'glyph-core-poc';
 
 dayjs.extend(updateLocale);
 dayjs.extend(weekDay);
@@ -47,6 +47,8 @@ export class CalendarComponent {
     @Prop() singleSelect: boolean;
     /** Number of months to be shown. 2 by default */
     @Prop() months: number = 2;
+    /** Filter chip interface ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphCalendarElement;
     /** Event triggered on date selection */
@@ -196,8 +198,13 @@ export class CalendarComponent {
                 >
                     {isLowerLimit && <em class="material-icons">chevron_left</em>}
                 </span>
-                <span class="calendar__header__month" onClick={this._selectMonth(month)}>
-                    {month.format('MMM YYYY')}
+                <span
+                    class={cls('calendar__header__month', {
+                        'label--l--medium': this.interface === UIInterface.redesign,
+                    })}
+                    onClick={this._selectMonth(month)}
+                >
+                    {month.format(this.interface === UIInterface.redesign ? 'MMMM YYYY' : 'MMM YYYY')}
                 </span>
                 <span
                     class={{ calendar__header__arrow: true, after: true, disabled: afterDisabled }}
@@ -242,6 +249,13 @@ export class CalendarComponent {
                 day.isBetween(this.startDateAux, this.endDateAux, 'day', '[]');
             const inRange = this._checkInRange(day);
             const inAuxRange = this._checkInAuxRange(day);
+            const isFirst =
+                (this.startDate && day.isSame(this.startDate, 'day')) ||
+                (this.selectedStartDate && day.isSame(this.selectedStartDate, 'day'));
+            const isLast =
+                (this.endDate && day.isSame(this.endDate, 'day')) ||
+                (this.currentHoveredDate && day.isSame(this.currentHoveredDate, 'day'));
+            const current = day.isSame(new Date(), 'day');
 
             return (
                 <Flex
@@ -251,10 +265,13 @@ export class CalendarComponent {
                         selectable,
                         disabled,
                         selected,
+                        current,
                         'secondary': this.auxActive && this.secondary,
                         'selected--secondary': secondarySelected,
                         'in-range': inRange,
                         'in-range--secondary': inAuxRange,
+                        'first': isFirst,
+                        'last': isLast,
                     })}
                     onClick={this._handleDayClick(day)}
                     onMouseEnter={this._handleDayHover(day)}
@@ -286,7 +303,7 @@ export class CalendarComponent {
             .map((_, i) => i + 1);
 
         return (
-            <Flex row center top class="calendar__container">
+            <Flex row center top class={cls('calendar__container', this.interface)}>
                 {monthTables.map(this._renderCalendar)}
             </Flex>
         );

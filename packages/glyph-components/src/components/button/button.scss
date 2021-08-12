@@ -111,4 +111,12 @@
             }
         }
     }
+    &.redesign {
+        &:not(.action) {
+            background-color: var(--gui-color);
+            color: var(--gui-color--contrast);
+            text-transform: uppercase;
+            padding: var(--gui-padding--s) var(--gui-padding--l);
+        }
+    }
 }

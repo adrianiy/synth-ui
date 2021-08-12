@@ -30,6 +30,7 @@
 graph TD;
   glyph-login --> glyph-input
   glyph-login --> glyph-button
+  glyph-input --> glyph-icon
   style glyph-login fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

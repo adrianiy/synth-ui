@@ -34,6 +34,19 @@
     }
     &.redesign {
         box-shadow: none;
+        border: var(--gui-border);
+
+        .search {
+            margin-bottom: var(--gui-padding--s);
+        }
+
+        .operation {
+            padding: var(--gui-padding--s) var(--gui-padding--s);
+            &:not(.withSearch) {
+                border-top: none;
+                padding-top: 0;
+            }
+        }
     }
 
     .search-box {

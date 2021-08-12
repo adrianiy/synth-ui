@@ -27,6 +27,17 @@
         }
     }
 
+    &.redesign {
+        width: 20px;
+
+        &.active {
+            .toggler {
+                transform: translateX(8px);
+                border: var(--gui-border);
+            }
+        }
+    }
+
     &.modern {
         padding: 0;
         height: 11px;

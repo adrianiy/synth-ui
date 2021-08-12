@@ -277,6 +277,7 @@ export class DateFilterComponent {
                 endDateAux={this.isCustomComparable && this.comparableEndDate}
                 months={this.months}
                 auxActive={this.isCustomComparable}
+                interface={this.interface}
                 secondary={this.isCustomComparable && this.comparableActive}
                 onDateSelect={this._selectDate}
                 onDateSelectAux={this._selectCompDate}
@@ -295,7 +296,11 @@ export class DateFilterComponent {
 
         return [
             <Flex row spaced top class="input__header">
-                <h5>{this._i18n['Comparable date']}</h5>
+                {this.interface === UIInterface.redesign ? (
+                    <span class="label--l">{this._i18n['Comparable date']}</span>
+                ) : (
+                    <h5>{this._i18n['Comparable date']}</h5>
+                )}
                 {this.comparableOptions?.length && (
                     <glyph-selector
                         options={this.comparableOptions}
@@ -309,6 +314,7 @@ export class DateFilterComponent {
                     box
                     disabled={!this.isCustomComparable}
                     input-type="date"
+                    interface={this.interface}
                     value={dayjs(startDate).format('YYYY-MM-DD')}
                     min={dayjs(this.minComparableDate).format('YYYY-MM-DD')}
                     max={dayjs(this.maxComparableDate).format('YYYY-MM-DD')}
@@ -319,6 +325,7 @@ export class DateFilterComponent {
                     box
                     disabled={!this.isCustomComparable}
                     input-type="date"
+                    interface={this.interface}
                     value={dayjs(endDate).format('YYYY-MM-DD')}
                     min={dayjs(this.minComparableDate).format('YYYY-MM-DD')}
                     max={dayjs(this.maxComparableDate).format('YYYY-MM-DD')}
@@ -333,11 +340,13 @@ export class DateFilterComponent {
         const active = !this.isCustomComparable || !this.comparableActive;
 
         return [
-            <h5>{this._i18n['Current date']}</h5>,
+            this.interface === UIInterface.redesign && <span class="label--l">{this._i18n['Current date']}</span>,
+            this.interface !== UIInterface.redesign && <h5>{this._i18n['Current date']}</h5>,
             <Flex row spaced class={cls('date-filter__inputs__current', { active })}>
                 <glyph-input
                     box
                     input-type="date"
+                    interface={this.interface}
                     onInputChange={this._handleInputStart}
                     value={dayjs(this.startDate).format('YYYY-MM-DD')}
                     min={dayjs(this.minDate).format('YYYY-MM-DD')}
@@ -347,6 +356,7 @@ export class DateFilterComponent {
                 <glyph-input
                     box
                     input-type="date"
+                    interface={this.interface}
                     onInputChange={this._handeInputEnd}
                     value={dayjs(this.endDate).format('YYYY-MM-DD')}
                     min={dayjs(this.minDate).format('YYYY-MM-DD')}

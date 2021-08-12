@@ -160,6 +160,7 @@
         }
         .widget__menu {
             box-shadow: none;
+            border: var(--gui-border);
 
             &--sidebar {
                 border: none;

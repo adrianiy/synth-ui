@@ -1,4 +1,5 @@
 import { Component, Prop, State, h, Event, EventEmitter, Watch } from '@stencil/core';
+import { UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
 import { cls } from '../../utils/utils';
@@ -29,6 +30,8 @@ export class InputComponent {
     @Prop() box: boolean;
     /** Search flag, renders a search icon if `box` is false */
     @Prop() search: boolean;
+    /** Filter chip interface ['MODERN', 'CLASSIC'] */
+    @Prop() interface: UIInterface = UIInterface.classic;
     /** Text change event */
     @Event() inputChange: EventEmitter<string>;
     /** Enter key event */
@@ -157,7 +160,7 @@ export class InputComponent {
                 spaced
                 middle
                 style={{ '--knob-size': `${this._knobSize}px` }}
-                class={cls('input__container', {
+                class={cls('input__container', this.interface, {
                     search: this.search,
                     box: this.box,
                     error: this.error,
@@ -165,7 +168,9 @@ export class InputComponent {
                 })}
             >
                 <Flex row middle class="input__wrapper">
-                    {this.search && <Icon icon="search" class="search" />}
+                    {this.search && (
+                        <glyph-icon icon="search" class="search" material={this.interface !== UIInterface.redesign} />
+                    )}
                     {this.inputType === 'range' && this._renderRangeThumb()}
                     <input
                         ref={ref => (this.ref = ref)}

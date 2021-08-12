@@ -26,11 +26,13 @@
 ### Depends on
 
 - [glyph-filter-options-list](../options-list)
+- [glyph-icon](../../../icon)
 
 ### Graph
 ```mermaid
 graph TD;
   glyph-filter-drilldown-options --> glyph-filter-options-list
+  glyph-filter-drilldown-options --> glyph-icon
   glyph-filter-options-list --> glyph-filter-drilldown-options
   style glyph-filter-drilldown-options fill:#f9f,stroke:#333,stroke-width:4px
 ```

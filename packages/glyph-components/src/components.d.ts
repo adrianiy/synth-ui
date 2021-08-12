@@ -204,6 +204,10 @@ export namespace Components {
          */
         "endDateAux": Date;
         /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
+        /**
           * Maximum allowed date
          */
         "maxDate": Date;
@@ -709,6 +713,10 @@ export namespace Components {
           * Input type
          */
         "inputType": string;
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface": UIInterface;
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
@@ -1901,6 +1909,10 @@ declare namespace LocalJSX {
          */
         "endDateAux"?: Date;
         /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
+        /**
           * Maximum allowed date
          */
         "maxDate"?: Date;
@@ -2470,6 +2482,10 @@ declare namespace LocalJSX {
           * Input type
          */
         "inputType"?: string;
+        /**
+          * Filter chip interface ['MODERN', 'CLASSIC']
+         */
+        "interface"?: UIInterface;
         /**
           * Maximum availabla for inputs (dates or ranges)
          */

@@ -12,6 +12,14 @@
             background: transparent;
         }
     }
+    &.redesign {
+        .input__wrapper {
+            flex-direction: row-reverse;
+        }
+        &.box {
+            border: var(--gui-border);
+        }
+    }
 
     em {
         font-size: var(--gui-font--s);
@@ -124,7 +132,7 @@
         cursor: pointer; /* Cursor on hover */
         border-radius: 100%;
         transition: all ease-in-out 50ms;
-        z-index:0;
+        z-index: 0;
 
         &.transitioning {
             transition: all ease-in-out 700ms;

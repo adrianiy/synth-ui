@@ -152,13 +152,13 @@ export class GlyphButtonGroup {
 import { CalendarComponent as ICalendarComponent } from 'glyph-components-poc/dist/types/components/calendar/calendar';
 export declare interface GlyphCalendar extends Components.GlyphCalendar {}
 @ProxyCmp({
-  inputs: ['auxActive', 'endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
+  inputs: ['auxActive', 'endDate', 'endDateAux', 'interface', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux']
 })
 @Component({
   selector: 'glyph-calendar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['auxActive', 'endDate', 'endDateAux', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
+  inputs: ['auxActive', 'endDate', 'endDateAux', 'interface', 'maxDate', 'maxDateAux', 'minDate', 'minDateAux', 'months', 'secondary', 'singleSelect', 'startDate', 'startDateAux'],
   outputs: ['dateSelect', 'dateSelectAux']
 })
 export class GlyphCalendar {
@@ -411,13 +411,13 @@ export class GlyphIcon {
 import { InputComponent as IInputComponent } from 'glyph-components-poc/dist/types/components/input/input';
 export declare interface GlyphInput extends Components.GlyphInput {}
 @ProxyCmp({
-  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value']
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'interface', 'max', 'min', 'placeholder', 'search', 'value']
 })
 @Component({
   selector: 'glyph-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'max', 'min', 'placeholder', 'search', 'value'],
+  inputs: ['autoFocus', 'box', 'disabled', 'error', 'inputType', 'interface', 'max', 'min', 'placeholder', 'search', 'value'],
   outputs: ['inputChange', 'enterKey']
 })
 export class GlyphInput {

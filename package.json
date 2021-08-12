@@ -17,7 +17,7 @@
         "postbuild:docs": "lerna run build:docs --parallel",
         "postinstall": "npm run bootstrap",
         "publish:docs": "storybook-to-ghpages --existing-output-dir=docs --ci",
-        "bootstrap": "lerna bootstrap",
+        "bootstrap": "lerna bootstrap --force-local",
         "lint": "lerna run lint --parallel",
         "link": "lerna link",
         "semantic-release": "lerna exec --concurrency 1 --scope=\"glyph-*\" -- npx semantic-release -e semantic-release-monorepo"
