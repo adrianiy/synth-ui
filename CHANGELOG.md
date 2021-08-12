@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/adrianiy/glyph-ui/compare/v4.3.0...v4.3.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* **core:** fix saved filters version check ([e05ee9d](https://github.com/adrianiy/glyph-ui/commit/e05ee9d3d7ffb02a4cd25fb45c77bc3a40742773))
+
 # [4.3.0](https://github.com/adrianiy/glyph-ui/compare/v4.2.1...v4.3.0) (2021-08-12)
 
 
