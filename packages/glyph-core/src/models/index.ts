@@ -9,6 +9,7 @@ export type {
     DateRange,
     DateFilter,
 } from './filters';
+export type { FiltersConfigMiddleware } from './middlewares';
 export type { Cell } from './common';
 export type { Store } from './store';
 export type { Row, BaseRow, RowAction, FieldsConfig } from './list';

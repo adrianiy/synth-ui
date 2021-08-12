@@ -1,0 +1,43 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { WithGlobalTheme } from './../helpers/decorators';
+
+<Story name="Filters" decorators={[ WithGlobalTheme ]} />
+
+<Meta title="Middlewares/Common/Filters" />
+
+###### Common middlewares
+# Filters config
+
+This is a pre-design middleware to fetch filter entities from WSC.
+
+You can use it as a standalone middleware in your backend (no need to use or understand GlyphPipes).
+
+This middlewares receives a [configuration object](https://github.com/adrianiy/glyph-ui/tree/main/packages/glyph-core/src/models/middlewares.ts) in wich you can specify:
+
+> This parameters can be setted globally using [GlyphPipes Configurator](?path=/docs/glyph-pipes-configure--configure)
+
+- **baseUrl**: As WSC_URL depends on runtime environment (DES, PRE, PRO, etc) you can configure it as you wish. i.e: using a WSC url value in your configmap.yml
+
+- **auth**: Basic auth string to authenticate in WSC request.
+
+- **endpoints**: And object with a path for each entity you want to consult. i.e: /api/v1/entities/section
+
+> If you pass an object with values it will override global endpoints. This is usefull to avoid fetching some entity (with a null value) if you don't need it as filter.
+
+## Example
+
+Take this as an implementation example ;)
+
+```typescript
+import { fetchFiltersConfig } from "glyph-core";
+
+const baseUrl = 'https://.....';
+const auth = 'Basic .....';
+const endpoints = {
+  sections: '/api/v1/entities/section',
+  products: '/api/v1/entities/product'
+}
+...
+router()
+  .get("/filters/config", fetchFiltersConfig({ baseUrl, auth, endpoints }))
+```

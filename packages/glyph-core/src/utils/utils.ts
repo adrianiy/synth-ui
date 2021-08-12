@@ -44,6 +44,8 @@ export const storeIn = (dest: any, path: string, data: any) => {
     dest[key] = value;
 };
 
+export const getPlainValue = value => value?.replace(/\?(\$|\>|\#)+ ?/, '');
+
 export const parseParam = (from: any, value: any) => {
     try {
         if (!is(value, 'string')) {
@@ -66,7 +68,7 @@ export const parseParam = (from: any, value: any) => {
             }
         }
     } catch (err) {
-        return is(value, 'string') ? value?.replace(/\?(\$|\>|\#)+ ?/, '') : value;
+        return is(value, 'string') ? getPlainValue(value) : value;
     }
 };
 const defaultTypes = { children: '?>', store: '?>' };

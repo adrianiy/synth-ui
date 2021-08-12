@@ -1,7 +1,7 @@
 import { CustomError } from '../utils/error.utils';
 import { groupData } from '../utils/group.utils';
 import { crossJoin, leftOuterJoin } from '../utils/join.utils';
-import { fn, getFrom, getParamValue, is, parseParam, parseParams, storeIn } from '../utils/utils';
+import { fn, getFrom, getParamValue, getPlainValue, is, parseParam, parseParams, storeIn } from '../utils/utils';
 import { logMiddleware } from './log';
 
 /** sort middleware
@@ -34,9 +34,9 @@ export const sort = (args: { data: string; by: string; store: string; order: str
             const sortFn = by ? sortFns[order] : functionRaw;
 
             const rawData = getParamValue(context, data, []);
-            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
 
-            storeIn(ctx.state, store, rawData.sort(sortFn));
+            storeIn(ctx.state, store, rawData?.sort(sortFn));
 
             await next();
         } catch (error) {
@@ -81,13 +81,13 @@ export const filter = (
             }
 
             const rawData = getParamValue(context, data, []);
-            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
             const filterFn = functionRaw || ((a: any) => (required ? required.every((key: string) => a[key]) : true));
 
-            let filteredData = rawData.filter(filterFn);
+            let filteredData = rawData?.filter(filterFn);
 
             if (keys) {
-                filteredData = filteredData.map((row: any) => {
+                filteredData = filteredData?.map((row: any) => {
                     Object.keys(row)
                         .filter(key => (keys.preserve && !keys.preserve.includes(key)) || keys.remove?.includes(key))
                         .forEach(key => delete row[key]);
@@ -160,8 +160,8 @@ export const transform = (
             }));
             const transform = [].concat([ ...(keyTransforms || []), ...(operationTransforms || []) ]);
             const rawData = getParamValue(context, data, []);
-            const store = getParamValue(context, storeRaw, args.data || 'data');
-            const transfomedData = rawData.map((row: any) => {
+            const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
+            const transfomedData = rawData?.map((row: any) => {
                 transform.forEach(({ match, add, exclude, delete: del, preserve, keyFn, valueFn }) => {
                     if (del) {
                         if (is(del, 'string')) {
@@ -226,7 +226,7 @@ export const groupBy = (
             const on = getParamValue(context, by, ctx.state.joinKeys);
             const childrenName = getParamValue(context, children === true ? 'children' : children, null);
             const rawData = getParamValue(context, data, []);
-            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
             const groups = groupData(rawData, total ? [] : on, childrenName);
 
             const childrenKey = on?.length > 1 ? on?.slice(1) : on;
@@ -285,7 +285,7 @@ export const join = (
 
             const on = getParamValue(context, by, ctx.state.joinKeys);
             const rawData = getParamValue(context, data, []);
-            const store = getParamValue(context, storeRaw, args.data || 'data');
+            const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
             const rawWith = getParamValue(context, _with, []);
 
             switch (strategy) {

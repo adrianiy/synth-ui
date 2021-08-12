@@ -76,7 +76,7 @@ export const customMiddleware = (args: { middleware: any; store?: string; standa
     };
 };
 
-export const conditionalMiddleware = (args: { if: any; then: any; else?: any }, params) => {
+export const conditionalMiddleware = (args: { if: any; then: any; else?: any }, params: any) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'conditional';
@@ -85,9 +85,11 @@ export const conditionalMiddleware = (args: { if: any; then: any; else?: any }, 
             const { if: _if, then, else: _else } = parseParams(context, args);
 
             if (_if) {
-                await basicYamlParser(then, params);
+                return asyncPipe(...basicYamlParser(then, params))(ctx, next);
             } else if (_else) {
-                await basicYamlParser(_else, params);
+                return asyncPipe(...basicYamlParser(_else, params))(ctx, next);
+            } else {
+                return null;
             }
         } catch (error) {
             await logMiddleware({ error, level: 'error' })(ctx, null);

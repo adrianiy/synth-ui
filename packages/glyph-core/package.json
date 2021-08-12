@@ -5,7 +5,7 @@
     "scripts": {
         "start": "nodemon --exec npm run build",
         "start:docs": "start-storybook --quiet -p 6010 --no-manager-cache",
-        "build": "npm run tsc && babel src --out-dir ./dist --extensions \".ts,.tsx\" --source-maps inline",
+        "build": "npm run tsc && babel src --out-dir ./dist --extensions \".ts,.tsx,.yml\" --source-maps inline --copy-files",
         "tsc": "tsc",
         "storybook": "start-storybook -p 6006",
         "build:docs": "build-storybook --quiet -o ./../../docs/core"
@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@babel/cli": "^7.13.10",
+        "@babel/plugin-proposal-optional-chaining": "^7.14.5",
         "@babel/plugin-transform-runtime": "^7.14.5",
         "@babel/polyfill": "^7.12.1",
         "babel-plugin-const-enum": "^1.0.1",

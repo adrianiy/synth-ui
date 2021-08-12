@@ -1,4 +1,5 @@
 {
     "presets": ["@babel/preset-typescript", "@babel/preset-env"],
-    "plugins": [ "const-enum", "transform-class-properties", ["@babel/plugin-transform-runtime", { "regenerator": true }  ]]
+    "plugins": [ "const-enum", "@babel/plugin-proposal-optional-chaining", "transform-class-properties", ["@babel/plugin-transform-runtime", { "regenerator": true }  ]],
+    "ignore": [ "**/*.yml" ]
 }

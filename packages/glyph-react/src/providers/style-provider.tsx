@@ -2,7 +2,14 @@ import { UIInterface, UITheme } from 'glyph-core-poc';
 import React, { createContext, useContext, useState } from 'react';
 import { GlyphStyle } from '../components';
 
-const GlyphStyleContext = createContext({});
+interface IGlyphStyle {
+    glyphInterface?: string;
+    glyphTheme?: string;
+    setGlyphInterface?: any;
+    setGlyphTheme?: any;
+}
+
+const GlyphStyleContext = createContext({} as IGlyphStyle);
 
 export const useGlyphStyle = () => useContext(GlyphStyleContext);
 
