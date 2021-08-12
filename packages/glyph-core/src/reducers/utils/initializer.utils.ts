@@ -63,7 +63,7 @@ export const updateSavedFilters = (savedFilters: FiltersConfig, baseFilters: Fil
             const { [key]: _, ...rest } = savedFilters;
             savedFilters = rest;
         }
-        if (baseFilter.version !== savedFilters[key].version) {
+        if (baseFilter.version !== savedFilters[key]?.version) {
             savedFilters[key] = baseFilter;
         }
     });
