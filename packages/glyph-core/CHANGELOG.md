@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.1...glyph-core-poc-v1.2.2) (2021-08-12)
+
+
+### Bug Fixes
+
+* **core:** fix yml route ([8407b5c](https://github.com/adrianiy/glyph-ui/commit/8407b5c85730c428aa287270154feae4d37ded37))
+
 ## [1.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.0...glyph-core-poc-v1.2.1) (2021-08-12)
 
 
