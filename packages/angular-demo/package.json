@@ -1,6 +1,6 @@
 {
     "name": "angular-demo",
-    "version": "1.0.0-develop.1",
+    "version": "1.17.0",
     "scripts": {
         "ng": "ng",
         "ngcc": "ngcc",
@@ -23,7 +23,7 @@
         "@ngx-translate/http-loader": "^6.0.0",
         "@storybook/addon-postcss": "^2.0.0",
         "dayjs": "^1.10.5",
-        "glyph-angular-poc": "*",
+        "glyph-angular-poc": "^1.17.0",
         "move-file-cli": "^2.0.0",
         "ngx-translate-multi-http-loader": "^3.0.0",
         "npm-run-all": "^4.1.5",

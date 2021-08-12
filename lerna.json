@@ -8,5 +8,5 @@
     "packages/angular-demo",
     "packages/react-demo"
   ],
-  "version": "1.17.0-develop.1"
+  "version": "1.17.0"
 }
