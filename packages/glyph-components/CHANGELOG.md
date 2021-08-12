@@ -1,3 +1,20 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.1.0...glyph-components-poc-v1.2.0) (2021-08-12)
+
+
+### Bug Fixes
+
+* fix package versions ([e7eb020](https://github.com/adrianiy/glyph-ui/commit/e7eb020419c0b770a7aa7b68560bd3bb2f2319e0))
+* **core:** fix saved filters version check ([e05ee9d](https://github.com/adrianiy/glyph-ui/commit/e05ee9d3d7ffb02a4cd25fb45c77bc3a40742773))
+* **core:** fix yml route ([8407b5c](https://github.com/adrianiy/glyph-ui/commit/8407b5c85730c428aa287270154feae4d37ded37))
+* fix conditional pipe ([510d9ee](https://github.com/adrianiy/glyph-ui/commit/510d9ee201c93cf07d8c11d8f8335c9446bf5c02))
+
+
+### Features
+
+* **components:** redesign filters and dropdowns ([fb37856](https://github.com/adrianiy/glyph-ui/commit/fb378568cc04087155265216c0410f5372332928))
+* **core:** add conditional middleware ([b0c487f](https://github.com/adrianiy/glyph-ui/commit/b0c487f87a4451a7641cbce97174042c1d2bcd99))
+* **core:** add fetchFiltersConfig middleware ([a03fe49](https://github.com/adrianiy/glyph-ui/commit/a03fe493e0fc310340b0139043bd879166459ff0))
+
 # [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.0.1...glyph-components-poc-v1.1.0) (2021-08-11)
 
 
