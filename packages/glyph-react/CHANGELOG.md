@@ -1,3 +1,11 @@
+# [2.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.2.1...glyph-react-poc-v2.3.0) (2021-08-13)
+
+
+### Features
+
+* **react:** update glyph-components design ([a8f515b](https://github.com/adrianiy/glyph-ui/commit/a8f515b27b8e5e130808ed364e8b284ad92bc749))
+* add independent month movement ([3edd5a9](https://github.com/adrianiy/glyph-ui/commit/3edd5a9370779a2102f29152a3833a53b99b6724))
+
 ## [2.2.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.2.0...glyph-react-poc-v2.2.1) (2021-08-12)
 
 
