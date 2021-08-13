@@ -119,7 +119,7 @@ pipe:
           operations:
             - <<: *add_fields
             - add: market
-              value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code))?.code
+              value: (row, ctx) => ctx.state.markets.find(market => market.platforms.includes(row.code)).code
             - add: parents
               value: "(row) => ({ market: row.market })"
       - transform:
