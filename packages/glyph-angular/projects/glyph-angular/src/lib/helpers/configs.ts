@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { ComparableType, DateRange, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core-poc';
+import { ComparableType, FilterOptionHeader, FiltersConfig as IFiltersConfig, SelectorOption } from 'glyph-core-poc';
 import { InitialFilter } from 'glyph-core-poc/dist/models/filters';
 
 const tomorrow = dayjs().add(1, 'day').startOf('day').toDate();
@@ -9,7 +9,7 @@ const year = dayjs().year();
 export const initialFilters: InitialFilter[] = [
     { type: 'date', default: true, description: 'Real time', optionGetter: (_: any) => dateRanges[1] },
 ];
-export const dateRanges: DateRange[] = [
+export const dateRanges: FilterOptionHeader[] = [
     { description: 'Day +1', startDate: tomorrow, endDate: tomorrow },
     { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
     { description: 'Yesterday', startDate: yesterday, endDate: yesterday },
@@ -27,6 +27,7 @@ export const dateRanges: DateRange[] = [
         endDate: new Date(year, 0, 31),
         comparableType: ComparableType.calendar,
     },
+    { description: undefined, startDate: undefined, endDate: undefined },
 ];
 
 export const comparableOptions: SelectorOption[] = [
@@ -43,10 +44,9 @@ export const FiltersConfig: IFiltersConfig = {
         maxDate: tomorrow,
         key: 'date',
         visible: true,
-        dateRanges,
+        options: dateRanges,
         comparableType: ComparableType.commercial,
         comparableOptions,
-        selected: [],
         compDates: [],
     },
     product: {
