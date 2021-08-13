@@ -1,3 +1,10 @@
+# [4.8.0](https://github.com/adrianiy/glyph-ui/compare/v4.7.0...v4.8.0) (2021-08-13)
+
+
+### Features
+
+* **react:** refactor date filter ([50355c9](https://github.com/adrianiy/glyph-ui/commit/50355c9b75457c809beb713bf53f633a4d48b689))
+
 # [4.7.0](https://github.com/adrianiy/glyph-ui/compare/v4.6.1...v4.7.0) (2021-08-13)
 
 
