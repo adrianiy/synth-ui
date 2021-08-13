@@ -63,7 +63,7 @@ const baseProps = {
 export default {
     title: 'Components/Date filter/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
         minDate: { control: 'date' },
         maxDate: { control: 'date' },
         startDate: { control: 'date' },

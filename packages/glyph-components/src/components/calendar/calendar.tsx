@@ -56,25 +56,57 @@ export class CalendarComponent {
     /** Event triggered on aux date selection */
     @Event() dateSelectAux: EventEmitter<{ startDate: Date; endDate: Date }>;
 
-    @State() currentMonth: dayjs.Dayjs;
+    @State() monthTables: dayjs.Dayjs[];
+    @State() endMonth: dayjs.Dayjs;
+    @State() startMonth: dayjs.Dayjs;
     @State() selectedStartDate: dayjs.Dayjs;
     @State() selectedStartDateAux: dayjs.Dayjs;
     @State() currentHoveredDate: dayjs.Dayjs;
     @State() currentHoveredDateAux: dayjs.Dayjs;
 
     componentWillLoad() {
-        this.currentMonth = dayjs(this.endDate);
+        this._getMonths();
         const lang = getComponentClosestLanguage(this.element);
         dayjs.locale(lang);
         dayjs.updateLocale(lang, { weekStart: 1 });
     }
 
-    private _prevMonth = () => {
-        this.currentMonth = this.currentMonth.subtract(1, 'month');
+    private _getMonths() {
+        const startMonth = dayjs(this.startDate);
+        const endMonth = dayjs(this.endDate);
+        const sameMonth = startMonth.isSame(endMonth, 'month');
+        if (sameMonth) {
+            this.startMonth = startMonth.subtract(this.months - 1, 'month');
+        } else {
+            this.startMonth = startMonth;
+        }
+
+        this.endMonth = endMonth;
+        this.monthTables = Array(this.months)
+            .fill(0)
+            .map((_, i) => {
+                const first = i === 0;
+                const last = i === this.months - 1;
+                return first ? this.startMonth : last ? this.endMonth : this.startMonth.add(i, 'month');
+            });
+    }
+
+    private _prevMonth = (position: any) => () => {
+        this.monthTables = this.monthTables.map((month: dayjs.Dayjs, _position: number) => {
+            if (position === _position) {
+                return month.subtract(1, 'month');
+            }
+            return month;
+        });
     };
 
-    private _nextMonth = () => {
-        this.currentMonth = this.currentMonth.add(1, 'month');
+    private _nextMonth = (position: any) => () => {
+        this.monthTables = this.monthTables.map((month: dayjs.Dayjs, _position: number) => {
+            if (position === _position) {
+                return month.add(1, 'month');
+            }
+            return month;
+        });
     };
 
     private _selectDate = (startDate: Date, endDate: Date, comparableType?: ComparableType) => {
@@ -183,18 +215,27 @@ export class CalendarComponent {
     };
 
     private _renderHeader = (position: number, month: dayjs.Dayjs) => {
-        const isLowerLimit = position === 1;
-        const isUpperLimit = position === this.months;
+        const isRedesign = this.interface === UIInterface.redesign;
+        const isLowerLimit = position === 0 || isRedesign;
+        const isUpperLimit = position === this.months - 1 || isRedesign;
         const minDate = this.secondary ? this.minDateAux : this.minDate;
         const maxDate = this.secondary ? this.maxDateAux : this.maxDate;
-        const beforeDisabled = month.isSame(minDate, 'month');
-        const afterDisabled = month.isSame(maxDate, 'month');
+        const beforeDisabled =
+            month.isSame(minDate, 'month') ||
+            (isRedesign &&
+                this.monthTables[position - 1] &&
+                month.subtract(1, 'month').isSame(this.monthTables[position - 1], 'month'));
+        const afterDisabled =
+            month.isSame(maxDate, 'month') ||
+            (isRedesign &&
+                this.monthTables[position + 1] &&
+                month.add(1, 'month').isSame(this.monthTables[position + 1], 'month'));
 
         return (
             <Flex row spaced middle class="calendar__header">
                 <span
                     class={{ calendar__header__arrow: true, before: true, disabled: beforeDisabled }}
-                    onClick={!beforeDisabled ? this._prevMonth : null}
+                    onClick={!beforeDisabled ? this._prevMonth(position) : null}
                 >
                     {isLowerLimit && <em class="material-icons">chevron_left</em>}
                 </span>
@@ -208,7 +249,7 @@ export class CalendarComponent {
                 </span>
                 <span
                     class={{ calendar__header__arrow: true, after: true, disabled: afterDisabled }}
-                    onClick={!afterDisabled ? this._nextMonth : null}
+                    onClick={!afterDisabled ? this._nextMonth(position) : null}
                 >
                     {isUpperLimit && <em class="material-icons">chevron_right</em>}
                 </span>
@@ -282,10 +323,7 @@ export class CalendarComponent {
         });
     };
 
-    private _renderCalendar = (position: number) => {
-        const monthDiff = this.months - position;
-        const month = this.currentMonth.subtract(monthDiff, 'month');
-
+    private _renderCalendar = (month: dayjs.Dayjs, position: number) => {
         return (
             <Flex top center class="calendar">
                 {this._renderHeader(position, month)}
@@ -298,13 +336,9 @@ export class CalendarComponent {
     };
 
     render() {
-        const monthTables = Array(this.months)
-            .fill(0)
-            .map((_, i) => i + 1);
-
         return (
             <Flex row center top class={cls('calendar__container', this.interface)}>
-                {monthTables.map(this._renderCalendar)}
+                {this.monthTables.map(this._renderCalendar)}
             </Flex>
         );
     }
