@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.2...glyph-core-poc-v1.3.0) (2021-08-13)
+
+
+### Bug Fixes
+
+* fix package versions ([e7eb020](https://github.com/adrianiy/glyph-ui/commit/e7eb020419c0b770a7aa7b68560bd3bb2f2319e0))
+
+
+### Features
+
+* add independent month movement ([3edd5a9](https://github.com/adrianiy/glyph-ui/commit/3edd5a9370779a2102f29152a3833a53b99b6724))
+* **components:** redesign filters and dropdowns ([fb37856](https://github.com/adrianiy/glyph-ui/commit/fb378568cc04087155265216c0410f5372332928))
+
 ## [1.2.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.1...glyph-core-poc-v1.2.2) (2021-08-12)
 
 
