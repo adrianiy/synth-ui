@@ -23,7 +23,7 @@ export const dateRanges: FilterOptionHeader[] = [
         endDate: new Date(year, 0, 31),
         comparableType: ComparableType.calendar,
     },
-    { description: undefined, startDate: undefined, endDate: undefined },
+    { description: undefined },
 ];
 
 export const comparableOptions: SelectorOption[] = [
