@@ -1,3 +1,15 @@
+# [4.7.0](https://github.com/adrianiy/glyph-ui/compare/v4.6.1...v4.7.0) (2021-08-13)
+
+
+### Bug Fixes
+
+* **angular:** fix deprecated interface ([fd43b87](https://github.com/adrianiy/glyph-ui/commit/fd43b872bde83a5421900ed8ec665bd356afa0eb))
+
+
+### Features
+
+* refactor date filter configuration ([9e29c47](https://github.com/adrianiy/glyph-ui/commit/9e29c47b069427dedcc4d59457be696ff4af0630))
+
 ## [4.6.1](https://github.com/adrianiy/glyph-ui/compare/v4.6.0...v4.6.1) (2021-08-13)
 
 
