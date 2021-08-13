@@ -1,3 +1,15 @@
+## [1.3.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.3.0...glyph-core-poc-v1.3.1) (2021-08-13)
+
+
+### Bug Fixes
+
+* fix filters yml ([21b9f64](https://github.com/adrianiy/glyph-ui/commit/21b9f64739d77ea1481e2fe857a18bee7467261d))
+
+
+### Features
+
+* **react:** update glyph-components design ([a8f515b](https://github.com/adrianiy/glyph-ui/commit/a8f515b27b8e5e130808ed364e8b284ad92bc749))
+
 # [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.2.2...glyph-core-poc-v1.3.0) (2021-08-13)
 
 
