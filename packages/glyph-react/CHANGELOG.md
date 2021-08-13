@@ -1,3 +1,17 @@
+# [2.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.3.0...glyph-react-poc-v2.4.0) (2021-08-13)
+
+
+### Bug Fixes
+
+* **angular:** fix deprecated interface ([fd43b87](https://github.com/adrianiy/glyph-ui/commit/fd43b872bde83a5421900ed8ec665bd356afa0eb))
+* fix filters yml ([21b9f64](https://github.com/adrianiy/glyph-ui/commit/21b9f64739d77ea1481e2fe857a18bee7467261d))
+
+
+### Features
+
+* **react:** refactor date filter ([50355c9](https://github.com/adrianiy/glyph-ui/commit/50355c9b75457c809beb713bf53f633a4d48b689))
+* refactor date filter configuration ([9e29c47](https://github.com/adrianiy/glyph-ui/commit/9e29c47b069427dedcc4d59457be696ff4af0630))
+
 # [2.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.2.1...glyph-react-poc-v2.3.0) (2021-08-13)
 
 
