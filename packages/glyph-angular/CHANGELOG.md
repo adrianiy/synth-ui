@@ -1,3 +1,18 @@
+# [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.1.0...glyph-angular-poc-v1.2.0) (2021-08-13)
+
+
+### Bug Fixes
+
+* **angular:** fix deprecated interface ([fd43b87](https://github.com/adrianiy/glyph-ui/commit/fd43b872bde83a5421900ed8ec665bd356afa0eb))
+* fix filters yml ([21b9f64](https://github.com/adrianiy/glyph-ui/commit/21b9f64739d77ea1481e2fe857a18bee7467261d))
+
+
+### Features
+
+* refactor date filter configuration ([9e29c47](https://github.com/adrianiy/glyph-ui/commit/9e29c47b069427dedcc4d59457be696ff4af0630))
+* **react:** update glyph-components design ([a8f515b](https://github.com/adrianiy/glyph-ui/commit/a8f515b27b8e5e130808ed364e8b284ad92bc749))
+* add independent month movement ([3edd5a9](https://github.com/adrianiy/glyph-ui/commit/3edd5a9370779a2102f29152a3833a53b99b6724))
+
 # [1.1.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.0.2...glyph-angular-poc-v1.1.0) (2021-08-12)
 
 
