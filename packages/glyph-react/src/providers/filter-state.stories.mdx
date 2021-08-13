@@ -56,17 +56,16 @@ export const dateRanges = [
         endDate: new Date(year, 0, 31),
         comparableType: ComparableType.calendar,
     },
+    { description: undefined, startDate: undefined, endDate: undefined } // we'll use this object as custom date selection state
 ];
 export const FiltersConfig = {
     date: {
-        description: dateRanges[1].description,
+        description: "Fecha",
         minDate: new Date(year - 1, 1, 1),
         maxDate: tomorrow,
         key: "date",
         visible: true,
-        dateRanges,
-        startDate: dateRanges[1].startDate,
-        endDate: dateRanges[1].endDate,
+        options: dateRanges,
         comparableStartDate: null,
         comparableEndDate: null,
         version: "0.0.1",
