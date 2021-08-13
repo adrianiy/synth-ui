@@ -3,11 +3,8 @@ export type {
     FiltersConfig,
     QueryFilter,
     FiltersState,
-    SelectedFilter,
     FilterOption,
     FilterOptionHeader,
-    DateRange,
-    DateFilter,
 } from './filters';
 export type { FiltersConfigMiddleware } from './middlewares';
 export type { Cell } from './common';

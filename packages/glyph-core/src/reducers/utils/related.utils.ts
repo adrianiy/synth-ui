@@ -1,6 +1,6 @@
 import { FiltersConfig } from '../../models';
 import { FilterConfig } from '../../models';
-import { FilterOption, FilterOptionHeader, SelectedFilter } from '../../models/filters';
+import { FilterOption, FilterOptionHeader } from '../../models/filters';
 import { getSelectedOptions, selectOptionAux } from './filter.utils';
 import { codeToArray } from '../../utils/utils';
 
@@ -37,7 +37,7 @@ export const filterRestrictedOptions = (filter: FilterConfig, restrictedParents:
     return { ...filter, options };
 };
 
-export const setHideValue = (row: FilterOptionHeader, selected: SelectedFilter[], parentCode: any, key: string) => {
+export const setHideValue = (row: FilterOptionHeader, selected: FilterOptionHeader[], parentCode: any, key: string) => {
     // save old hide value
     const visibilityWillBeChecked = selected.length && parentCode != null;
     const parentCodeIsSelected = codeToArray(parentCode)?.some(code => selected.includes(code));

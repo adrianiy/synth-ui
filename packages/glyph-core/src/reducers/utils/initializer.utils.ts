@@ -1,11 +1,4 @@
-import {
-    DateFilter,
-    DateRange,
-    FilterConfig,
-    FilterOption,
-    FilterOptionHeader,
-    FiltersConfig,
-} from '../../models/filters';
+import { FilterConfig, FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
 import { checkStrictIn } from '../../utils/utils';
 import { selectOptionAux } from './filter.utils';
 

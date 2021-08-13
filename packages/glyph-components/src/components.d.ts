@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, DateRange, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -302,33 +302,13 @@ export namespace Components {
          */
         "clearFilter": () => Promise<void>;
         /**
-          * Selected comparable end date
-         */
-        "comparableEndDate": Date;
-        /**
           * Comparable options
          */
         "comparableOptions": SelectorOption[];
         /**
-          * Selected comparable start date
-         */
-        "comparableStartDate": Date;
-        /**
           * Comparabel type
          */
         "comparableType": ComparableType;
-        /**
-          * Optional date ranges
-         */
-        "dateRanges": DateRange[];
-        /**
-          * Filter description
-         */
-        "description": string;
-        /**
-          * Selected end date
-         */
-        "endDate": Date;
         /**
           * Extra i18n translation object
          */
@@ -362,13 +342,13 @@ export namespace Components {
          */
         "months": number;
         /**
+          * Filter options
+         */
+        "options": FilterOptionHeader[];
+        /**
           * Allow single day selection
          */
         "singleSelect": boolean;
-        /**
-          * Selected start date
-         */
-        "startDate": Date;
     }
     interface GlyphFilter {
         /**
@@ -2031,33 +2011,13 @@ declare namespace LocalJSX {
          */
         "basePath"?: string;
         /**
-          * Selected comparable end date
-         */
-        "comparableEndDate"?: Date;
-        /**
           * Comparable options
          */
         "comparableOptions"?: SelectorOption[];
         /**
-          * Selected comparable start date
-         */
-        "comparableStartDate"?: Date;
-        /**
           * Comparabel type
          */
         "comparableType"?: ComparableType;
-        /**
-          * Optional date ranges
-         */
-        "dateRanges"?: DateRange[];
-        /**
-          * Filter description
-         */
-        "description"?: string;
-        /**
-          * Selected end date
-         */
-        "endDate"?: Date;
         /**
           * Extra i18n translation object
          */
@@ -2099,13 +2059,13 @@ declare namespace LocalJSX {
          */
         "onDateSelection"?: (event: CustomEvent<FilterSelectEvent>) => void;
         /**
+          * Filter options
+         */
+        "options"?: FilterOptionHeader[];
+        /**
           * Allow single day selection
          */
         "singleSelect"?: boolean;
-        /**
-          * Selected start date
-         */
-        "startDate"?: Date;
     }
     interface GlyphFilter {
         /**

@@ -7,9 +7,9 @@ const year = dayjs().year();
 const endOfYear = dayjs(new Date(year + 1, 0, 31));
 const minDate = dayjs(new Date(year, 1, 1));
 const maxDate = dayjs().add(aux, 'day');
-const dateRanges = [
+const options = [
     { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate() },
-    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
+    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true, active: true },
     {
         description: 'Yesterday',
         startDate: dayjs().subtract(aux, 'day').toDate(),
@@ -35,6 +35,7 @@ const dateRanges = [
         startDate: minDate.subtract(aux, 'year').toDate(),
         endDate: endOfYear.subtract(aux, 'year').toDate(),
     },
+    { description: undefined, startDate: undefined, endDate: undefined },
 ];
 const comparableOptions = [
     { name: 'COMMERCIAL', active: true, value: 'commercial' },
@@ -48,13 +49,9 @@ const baseProps = {
     maxDate: maxDate.toDate(),
     minComparableDate: minDate.subtract(aux, 'year').toDate(),
     maxComparableDate: maxDate.toDate(),
-    startDate: dateRanges[1].startDate,
-    endDate: dateRanges[1].endDate,
-    comparableStartDate: undefined,
-    comparableEndDate: undefined,
     comparableType: 'commercial',
-    dateRanges,
-    description: 'Real time',
+    options,
+    description: 'Date filter',
     active: false,
     comparableOptions,
     interface: 'classic',
@@ -82,13 +79,9 @@ const Template = (
     {
         minDate,
         maxDate,
-        startDate,
-        endDate,
         minComparableDate,
         maxComparableDate,
-        comparableStartDate,
-        comparableEndDate,
-        dateRanges,
+        options,
         description,
         active,
         comparableOptions,
@@ -98,15 +91,11 @@ const Template = (
 ) =>
     WithGlobalDecorator({
         template: html` <glyph-date-filter
-            .startDate=${startDate}
-            .endDate=${endDate}
             .minDate=${minDate}
             .maxDate=${maxDate}
             .minComparableDate=${minComparableDate}
             .maxComparableDate=${maxComparableDate}
-            .comparableStartDate=${comparableStartDate}
-            .comparableEndDate=${comparableEndDate}
-            .dateRanges=${dateRanges}
+            .options=${options}
             .description=${description}
             .active=${active}
             .comparableOptions=${comparableOptions}

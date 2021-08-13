@@ -229,14 +229,14 @@ export class GlyphConfigModal {
 import { DateFilterComponent as IDateFilterComponent } from 'glyph-components-poc/dist/types/components/date-filter/date-filter';
 export declare interface GlyphDateFilter extends Components.GlyphDateFilter {}
 @ProxyCmp({
-  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  inputs: ['active', 'basePath', 'comparableOptions', 'comparableType', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'options', 'singleSelect'],
   methods: ['clearFilter']
 })
 @Component({
   selector: 'glyph-date-filter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'basePath', 'comparableEndDate', 'comparableOptions', 'comparableStartDate', 'comparableType', 'dateRanges', 'description', 'endDate', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'singleSelect', 'startDate'],
+  inputs: ['active', 'basePath', 'comparableOptions', 'comparableType', 'i18n', 'interface', 'locale', 'maxComparableDate', 'maxDate', 'minComparableDate', 'minDate', 'months', 'options', 'singleSelect'],
   outputs: ['dateSelection', 'clearEvent']
 })
 export class GlyphDateFilter {

@@ -67,7 +67,7 @@ export const minDate = dayjs(new Date(year, 1, 1));
 export const maxDate = dayjs().add(1, 'day');
 export const dateRanges = [
     { description: 'Day +1', startDate: maxDate.toDate(), endDate: maxDate.toDate() },
-    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
+    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true, active: true },
     {
         description: 'Yesterday',
         startDate: dayjs().subtract(1, 'day').toDate(),
@@ -89,12 +89,13 @@ export const dateRanges = [
         startDate: minDate.subtract(1, 'year').toDate(),
         endDate: endOfYear.subtract(1, 'year').toDate(),
     },
+    { description: undefined, startDate: undefined, endDate: undefined },
 ];
 export const dateFilter = {
     description: 'Date',
     minDate,
     maxDate,
-    dateRanges,
+    options: dateRanges,
     visible: true,
     comparableType: 'commercial',
     comparableOptions: [
@@ -103,7 +104,6 @@ export const dateFilter = {
         { name: 'Custom', value: 'custom' },
         { name: 'Ordinal', value: 'ordinal', disabled: true },
     ],
-    selected: [ dateRanges[1] ],
 };
 export const filtersConfig = {
     date: dateFilter,

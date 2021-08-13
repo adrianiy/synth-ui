@@ -3,7 +3,7 @@ import { checkIn, checkStrictIn } from '../../utils/utils';
 import { FiltersState } from '../../models';
 import { QueryFilter } from '../../models';
 import { FilterConfig } from '../../models';
-import { DateFilter, DateRange, FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
+import { FilterOption, FilterOptionHeader, FiltersConfig } from '../../models/filters';
 import dayjs from 'dayjs';
 import MinMax from 'dayjs/plugin/minMax';
 import { ComparableType } from 'src/enums';
@@ -75,7 +75,7 @@ const _applySharedDatesAux = (sharedFilters: QueryFilter[], comparableFilter: Qu
     };
 };
 
-const _applyDateFilter = (dateRange: DateRange, dateFilter: DateFilter, startDate: Date, endDate: Date) => {
+const _applyDateFilter = (dateRange: FilterOption, dateFilter: FilterConfig, startDate: Date, endDate: Date) => {
     if (dateRange) {
         const { description, startDate: start, endDate: end } = dateRange;
         return addNewFilter(dateFilter, { description, startDate: start, endDate: end });
@@ -89,7 +89,7 @@ const _applyDateFilter = (dateRange: DateRange, dateFilter: DateFilter, startDat
     }
 };
 
-const _getDateRange = (dateRanges: DateRange[], start: Date, end: Date) =>
+const _getDateRange = (dateRanges: FilterOption[], start: Date, end: Date) =>
     dateRanges.find(dateRange => dateRange.startDate === start && dateRange.endDate === end);
 
 const _activateOptionsMatchingSharedFilters = (filter: FilterConfig, sharedFilter: QueryFilter) => {

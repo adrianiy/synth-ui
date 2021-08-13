@@ -1,38 +1,21 @@
 // check if some code array is strictly included in some other option array.
 
-import { ComparableType } from '../../enums';
-import { FilterOption, FilterSelectEvent } from '../../models';
-import {
-    DateFilter,
-    DateRange,
-    FilterConfig,
-    FilterOptionHeader,
-    FiltersConfig,
-    QueryFilter,
-    SelectedFilter,
-} from '../../models/filters';
+import { FilterOption } from '../../models';
+import { FilterConfig, FilterOptionHeader, FiltersConfig, QueryFilter } from '../../models/filters';
 import { checkStrictIn, pipe, unique } from '../../utils/utils';
 import dayjs from 'dayjs';
 
-export const selectOptionAux = (filter: FilterConfig, option: SelectedFilter) => {
+export const selectOptionAux = (filter: FilterConfig, option: FilterOptionHeader) => {
     return {
         filter: addNewFilter(filter, option),
         option: { ...option, active: true },
     };
 };
 
-export const selectDateAux = (filter: DateFilter, selected: FilterSelectEvent) => {
-    const { startDate, endDate, description } = selected;
-    const { comparableType, comparableStartDate, comparableEndDate } = selected;
-
-    filter.startDate = startDate;
-    filter.endDate = endDate;
-    filter.comparableStartDate = comparableStartDate;
-    filter.comparableEndDate = comparableEndDate;
-    filter.description = description;
-    filter.comparableType = comparableType;
-
-    return { filter: filter };
+export const selectDateAux = (filter: FilterConfig, selected: FilterOptionHeader) => {
+    return {
+        filter: { ...filter, options: filter.options.map(option => ({ ...option, active: option === selected })) },
+    };
 };
 
 /**
@@ -63,13 +46,8 @@ export const cleanSelected = (filters: any) => {
     });
 };
 
-export const cleanSelectedDate = (filter: DateFilter) => {
-    const defaultValue = filter.dateRanges?.find(({ isDefault }) => isDefault);
-    filter.startDate = defaultValue?.startDate;
-    filter.compDates = defaultValue?.endDate;
-    filter.comparableStartDate = null;
-    filter.comparableEndDate = null;
-    filter.comparableType = ComparableType.commercial;
+export const cleanSelectedDate = (filter: FilterConfig) => {
+    filter.options.forEach(option => (option.active = !option.isDefault));
 
     return filter;
 };
@@ -91,7 +69,7 @@ export const checkCleanIfMultiSelectChanges = (filter: FilterConfig) => {
 /**
  * Adds new filter to selected *** filter attribute ***.
  */
-export const addNewFilter = (filter: FilterConfig, option: SelectedFilter) => {
+export const addNewFilter = (filter: FilterConfig, option: FilterOptionHeader) => {
     return _selectFilter(filter, option);
 };
 
@@ -137,7 +115,7 @@ const _matchActiveOptions = (options: FilterOptionHeader[], selected: FilterOpti
     });
 };
 
-const _selectFilter = (filter: FilterConfig, selectedOption: SelectedFilter) => {
+const _selectFilter = (filter: FilterConfig, selectedOption: FilterOptionHeader) => {
     let { options, multiSelect } = filter;
 
     options = _matchActiveOptions(options, selectedOption, multiSelect);
@@ -177,15 +155,11 @@ export const cleanFiltersCache = (filtersVersion: string) => {
     localStorage.setItem('Drive.Filters.Version', filtersVersion);
 };
 
-export const getSelectedDatesQuery = (filter: DateFilter): QueryFilter[] => {
-    let { dateRanges, startDate, endDate, description } = filter;
+export const getSelectedDatesQuery = (filter: FilterConfig): QueryFilter[] => {
+    const activeOption = filter.options.find(option => option.active);
+    let { startDate, endDate } = activeOption;
     const key = 'local_date';
     const format = 'YYYY-MM-DD';
-    const dateRange = dateRanges.find((range: DateRange) => range.description === description);
-
-    if (dateRange) {
-        ({ startDate, endDate } = dateRange);
-    }
 
     return [
         { key, op: 'gte', value: dayjs(startDate).format(format) },
@@ -248,7 +222,7 @@ const _parseExtraFilters = (filters: FiltersConfig) => (parsedFilters: any) => {
     return parsedFilters;
 };
 
-const _getFiltersWithOperation = (options: SelectedFilter[], op: any[]): any[] => {
+const _getFiltersWithOperation = (options: FilterOptionHeader[], op: any[]): any[] => {
     const value = options
         .filter(({ operationIn }) => op.includes(operationIn))
         .map(({ code }) => code)
@@ -257,7 +231,7 @@ const _getFiltersWithOperation = (options: SelectedFilter[], op: any[]): any[] =
     return value;
 };
 
-const _getExtraFilters = (options: SelectedFilter[], appliedFilters: { inValues: any[]; ninValues: [] }) => {
+const _getExtraFilters = (options: FilterOptionHeader[], appliedFilters: { inValues: any[]; ninValues: [] }) => {
     const extraCodes = options
         .filter(({ operationIn }) => [ true, undefined ].includes(operationIn))
         .map(({ extraCode }) => extraCode)

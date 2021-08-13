@@ -1,5 +1,12 @@
 import { h, Component, Element, Event, EventEmitter, Prop, State, Listen, Method } from '@stencil/core';
-import { DateRange, ComparableType, UIInterface, SelectorOption, FilterSelectEvent } from 'glyph-core-poc';
+import {
+    ComparableType,
+    UIInterface,
+    SelectorOption,
+    FilterSelectEvent,
+    FilterOptionHeader,
+    FilterOption,
+} from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
 import { cls, getLocaleComponentStrings } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
@@ -19,10 +26,10 @@ dayjs.extend(isSameOrBefore);
 export class DateFilterComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
-    /** Filter description */
-    @Prop({ mutable: true }) description: string;
     /** Active flag */
     @Prop({ mutable: true }) active: boolean;
+    /** Filter options */
+    @Prop() options: FilterOptionHeader[];
     /** Minimum available date */
     @Prop() minDate: Date;
     /** Maximum available date */
@@ -31,22 +38,12 @@ export class DateFilterComponent {
     @Prop() minComparableDate: Date;
     /** Maximum available comp date */
     @Prop() maxComparableDate: Date;
-    /** Optional date ranges */
-    @Prop() dateRanges: DateRange[];
     /** Allow single day selection */
     @Prop() singleSelect: boolean;
     /** Number of months to be shown. 2 by default */
     @Prop() months: number = 2;
     /** Comparabel type */
     @Prop({ mutable: true }) comparableType: ComparableType = ComparableType.commercial;
-    /** Selected start date */
-    @Prop({ mutable: true }) startDate: Date;
-    /** Selected end date */
-    @Prop({ mutable: true }) endDate: Date;
-    /** Selected comparable start date */
-    @Prop({ mutable: true }) comparableStartDate: Date;
-    /** Selected comparable end date */
-    @Prop({ mutable: true }) comparableEndDate: Date;
     /** Comparable options */
     @Prop() comparableOptions: SelectorOption[];
     /** Extra i18n translation object */
@@ -63,8 +60,18 @@ export class DateFilterComponent {
     @Element() element: HTMLGlyphDateFilterElement;
     /** Filter expanded flag */
     @State() expanded: boolean = false;
+    /** Filter description */
+    @State() description: string;
+    /** Start date */
+    @State() startDate: Date;
+    /** End date */
+    @State() endDate: Date;
     /** Comparable input active flag */
     @State() comparableActive: boolean = false;
+    /** Comprable start date */
+    @State() comparableStartDate: Date;
+    /** Comprable end date */
+    @State() comparableEndDate: Date;
     /** Custom comparable flag */
     @State() isCustomComparable: boolean = false;
     /** Chip description */
@@ -82,7 +89,7 @@ export class DateFilterComponent {
     }
 
     componentWillRender() {
-        this._getChipDescription();
+        this._getDateValues();
     }
 
     /* eslint-disable @stencil/decorators-style, @stencil/async-methods  */
@@ -108,12 +115,19 @@ export class DateFilterComponent {
         }
     };
 
-    private _getChipDescription = () => {
+    private _getDateValues = () => {
+        const option = this.options.find(option => option.active);
+        this.startDate = option.startDate;
+        this.endDate = option.endDate;
+        this.comparableStartDate = option.comparableStartDate;
+        this.comparableEndDate = option.comparableEndDate;
+        this.comparableType = option.comparableType || this.comparableType;
+
         const comparable = this._getComparableText();
 
-        this.active = !this._isDefault();
+        this.active = !option.isDefault;
         this.chipDescription =
-            this.description ||
+            option.description ||
             `${dayjs(this.startDate).format('YYYY-MM-DD')} - ${dayjs(this.endDate).format('YYYY-MM-DD')}${comparable}`;
     };
 
@@ -134,53 +148,61 @@ export class DateFilterComponent {
         event?.stopPropagation();
     };
 
-    private _isDefault = () => {
-        const defaultValue = this.dateRanges.find(range => range.isDefault);
-
-        if (defaultValue) {
-            const { startDate, endDate } = defaultValue;
-            return this.startDate === startDate && this.endDate === endDate;
-        }
-    };
-
     private _setDefault = () => {
-        const defaultValue = this.dateRanges.find(range => range.isDefault);
+        const defaultValue = this.options.find(range => range.isDefault);
 
         if (defaultValue) {
             this._selectRange(defaultValue)();
         }
     };
 
-    private _selectRange = (dateRange: DateRange) => () => {
+    private _selectRange = (dateRange: FilterOption) => () => {
+        this.options.forEach(option => (option.active = false));
+        dateRange.active = true;
         this._selectDate({ detail: dateRange } as any);
     };
 
+    private _selectCustomDate = ({ startDate, endDate, comparableStartDate, comparableEndDate }) => {
+        this.options.forEach(option => (option.active = false));
+        const custom = this.options.find(option => !option.description);
+        custom.active = true;
+        custom.startDate = startDate;
+        custom.endDate = endDate;
+        custom.comparableStartDate = comparableStartDate;
+        custom.comparableEndDate = comparableEndDate;
+    };
+
     private _selectDate = ({
-        detail: { startDate, endDate, description, comparableType, ...rest },
+        detail: { startDate, endDate, description, comparableStartDate, comparableEndDate, comparableType, ...rest },
     }: CustomEvent<FilterSelectEvent>) => {
         const event = {
             description,
             startDate,
             endDate,
-            comparableStartDate: this.comparableStartDate,
-            comparableEndDate: this.comparableEndDate,
+            comparableStartDate,
+            comparableEndDate,
             comparableType: comparableType || this.comparableType,
             ...rest,
         };
+        if (!description) {
+            this._selectCustomDate(event);
+        }
 
-        this.description = description;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.comparableType = comparableType || this.comparableType;
-        this._getChipDescription();
+        this._getDateValues();
         this.dateSelection.emit(event);
         this.expanded = false;
     };
 
-    private _selectCompDate = ({ detail: { startDate, endDate } }: CustomEvent<FilterSelectEvent>) => {
-        this.comparableStartDate = startDate;
-        this.comparableEndDate = endDate;
-        this._getChipDescription();
+    private _selectCompDate = ({
+        detail: { startDate: comparableStartDate, endDate: comparableEndDate },
+    }: CustomEvent<FilterSelectEvent>) => {
+        this._selectCustomDate({
+            startDate: this.startDate,
+            endDate: this.endDate,
+            comparableStartDate,
+            comparableEndDate,
+        });
+        this._getDateValues();
     };
 
     private _selectOption = ({ detail: { name, value } }: CustomEvent<SelectorOption>) => {
@@ -189,14 +211,16 @@ export class DateFilterComponent {
         this.comparableOptions.forEach(option => (option.active = option.name === name));
 
         if (this.isCustomComparable) {
+            this.options.forEach(option => (option.active = false));
+            const custom = this.options.find(option => !option.description);
             const dayDiff = dayjs(this.endDate).diff(dayjs(this.startDate), 'day');
-            this.comparableStartDate = dayjs(this.startDate)
+            custom.comparableStartDate = dayjs(this.startDate)
                 .subtract(dayDiff + 1, 'day')
                 .toDate();
-            this.comparableEndDate = dayjs(this.startDate).subtract(1, 'day').toDate();
+            custom.comparableEndDate = dayjs(this.startDate).subtract(1, 'day').toDate();
             this.comparableActive = true;
         }
-        this._getChipDescription();
+        this._getDateValues();
     };
 
     private _handleInputStart = ({ detail: startDate }: CustomEvent<string>) => {
@@ -238,16 +262,16 @@ export class DateFilterComponent {
                 endDate: this.endDate,
             },
         } as any);
-        this._getChipDescription();
+        this._getDateValues();
     };
 
     private _renderDateRanges = () => {
         return (
-            this.dateRanges && (
+            this.options && (
                 <glyph-scroll tiny initCallback={this._scrollbarInit} containerClass="date-filter__date-ranges">
                     <ul class="date-filter__date-ranges">
-                        {this.dateRanges.map(range => {
-                            const active = this.description === range.description;
+                        {this.options.map(range => {
+                            const active = range.active;
 
                             return (
                                 <li onClick={this._selectRange(range)} class={{ active }}>

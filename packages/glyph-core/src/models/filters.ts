@@ -1,13 +1,6 @@
 import { ComparableType, UIInterface } from './../enums';
 import { SelectorOption } from './components';
 
-export interface DateRange {
-    description: string;
-    startDate: Date;
-    endDate: Date;
-    comparableType?: ComparableType;
-    isDefault?: boolean;
-}
 export interface CommonSearch {
     description: string;
     type: string;
@@ -24,6 +17,10 @@ export interface FilterOption {
     description?: string;
     startDate?: Date;
     endDate?: Date;
+    comparableStartDate?: Date;
+    comparableEndDate?: Date;
+    comparableType?: ComparableType;
+    isDefault?: boolean;
     display?: boolean;
     active?: boolean;
     hideFilter?: boolean;
@@ -40,10 +37,6 @@ export interface FilterOptionHeader extends FilterOption {
     hammock?: boolean;
     expanded?: boolean;
     children?: FilterOption[];
-}
-export interface SelectedFilter extends FilterOptionHeader {
-    isDefault?: boolean;
-    type?: string;
 }
 export interface FilterConfig {
     version?: string;
@@ -68,25 +61,9 @@ export interface Search extends FilterConfig {
     suggestions: any[];
     commonSearchs: CommonSearch[][];
 }
-export interface DateFilter extends FilterConfig {
-    minDate?: Date;
-    maxDate?: Date;
-    minComparableDate?: Date;
-    maxComparableDate?: Date;
-    comparableOptions?: SelectorOption[];
-    comparableType?: ComparableType;
-    startDate?: Date;
-    endDate?: Date;
-    comparableStartDate?: Date;
-    comparableEndDate?: Date;
-    dateRanges?: DateRange[];
-    singleSelect?: boolean;
-    months?: number;
-}
 export interface FiltersConfig {
     search?: Search;
-    date?: DateFilter;
-    [key: string]: FilterConfig | Search | DateFilter;
+    [key: string]: FilterConfig | Search;
 }
 export interface InitialFilter {
     type: string;
