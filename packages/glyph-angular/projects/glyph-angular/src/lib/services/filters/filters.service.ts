@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core';
 import { dispatch, select } from '@angular-redux/store';
-import { actions, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, QueryFilter, SelectedFilter } from 'glyph-core-poc';
+import {
+    actions,
+    FilterOptionHeader,
+    FiltersConfig,
+    FilterSelectEvent,
+    FilterUpdateEvent,
+    QueryFilter,
+} from 'glyph-core-poc';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
@@ -27,7 +34,7 @@ export class FilterService {
     /** filters query state */
     @select([ 'filters', 'queryFilters' ]) queryFilters: Observable<QueryFilter[]>;
     /** comparable dates */
-    @select([ 'filters', 'filtersConfig', 'date', 'compDates' ]) compDates: Observable<SelectedFilter[]>;
+    @select([ 'filters', 'filtersConfig', 'date', 'compDates' ]) compDates: Observable<FilterOptionHeader[]>;
     /** comparable type */
     @select([ 'filters', 'filtersConfig', 'date', 'comparableType' ]) comparableType: Observable<string>;
 
