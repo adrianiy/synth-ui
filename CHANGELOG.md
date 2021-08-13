@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/adrianiy/glyph-ui/compare/v4.4.0...v4.5.0) (2021-08-13)
+
+
+### Features
+
+* add independent month movement ([3edd5a9](https://github.com/adrianiy/glyph-ui/commit/3edd5a9370779a2102f29152a3833a53b99b6724))
+
 # [4.4.0](https://github.com/adrianiy/glyph-ui/compare/v4.3.2...v4.4.0) (2021-08-12)
 
 
