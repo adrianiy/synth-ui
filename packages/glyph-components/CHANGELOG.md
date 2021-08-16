@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.3...glyph-components-poc-v1.4.4) (2021-08-16)
+
+
+### Bug Fixes
+
+* **core:** pass params to fetch middleware ([71937fa](https://github.com/adrianiy/glyph-ui/commit/71937fa538dcd07921100c4b38f613f3325c2b0e))
+
 ## [1.4.3](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.2...glyph-components-poc-v1.4.3) (2021-08-16)
 
 
