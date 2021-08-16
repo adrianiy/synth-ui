@@ -1,3 +1,11 @@
+## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.1...glyph-components-poc-v1.4.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* **docs:** update filter config documentation ([526061d](https://github.com/adrianiy/glyph-ui/commit/526061d2ff24cdf193e289e56ecec7a45121c944))
+* **react:** accept style provider inputs as strings ([9880cf7](https://github.com/adrianiy/glyph-ui/commit/9880cf7ee4083bf0ba2269d005a30156001534d3))
+
 ## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.0...glyph-components-poc-v1.4.1) (2021-08-16)
 
 
