@@ -40,9 +40,15 @@
     &.redesign {
         .selector__input {
             border-bottom: none;
+            padding-bottom: 0;
         }
         span {
             text-transform: uppercase;
+        }
+        &.disabled {
+            .selector__input {
+                border-bottom: none;
+            }
         }
     }
     &.disabled {

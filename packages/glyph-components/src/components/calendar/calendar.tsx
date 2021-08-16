@@ -92,20 +92,28 @@ export class CalendarComponent {
     }
 
     private _prevMonth = (position: any) => () => {
+        const isRedesign = this.interface === UIInterface.redesign;
         this.monthTables = this.monthTables.map((month: dayjs.Dayjs, _position: number) => {
-            if (position === _position) {
+            if (isRedesign && position === _position) {
                 return month.subtract(1, 'month');
+            } else if (!isRedesign) {
+                return month.subtract(1, 'month');
+            } else {
+                return month;
             }
-            return month;
         });
     };
 
     private _nextMonth = (position: any) => () => {
+        const isRedesign = this.interface === UIInterface.redesign;
         this.monthTables = this.monthTables.map((month: dayjs.Dayjs, _position: number) => {
-            if (position === _position) {
+            if (isRedesign && position === _position) {
                 return month.add(1, 'month');
+            } else if (!isRedesign) {
+                return month.add(1, 'month');
+            } else {
+                return month;
             }
-            return month;
         });
     };
 

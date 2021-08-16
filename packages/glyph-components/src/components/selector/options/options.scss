@@ -11,6 +11,8 @@
 
     &.redesign {
         box-shadow: none;
+        border: var(--gui-border);
+        margin-top: var(--gui-padding--xxxs);
     }
     &.search {
         max-height: calc(var(--max-height) + 52px);

@@ -42,7 +42,7 @@ const withChildren = [
 export default {
     title: 'Components/Filter/Examples',
     argTypes: {
-        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern' ] },
+        interface: { control: { type: 'radio' }, options: [ 'classic', 'modern', 'redesign' ] },
     },
     parameters: {
         viewMode: 'docs',

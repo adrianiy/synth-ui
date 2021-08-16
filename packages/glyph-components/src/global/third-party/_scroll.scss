@@ -47,7 +47,8 @@
         &:hover,
         &:focus {
             .ps__thumb-y {
-                width: 6px !important;
+                width: 8px !important;
+                background-color: var(--gui-color);
             }
         }
     }
@@ -59,6 +60,7 @@
         &:focus {
             .ps__thumb-x {
                 height: 6px !important;
+                background-color: var(--gui-color);
             }
         }
     }
@@ -80,17 +82,5 @@
     }
     .ps__thumb-x {
         height: 3px;
-    }
-    &:hover {
-        .ps__rail-y {
-            .ps__thumb-y {
-                background-color: var(--gui-color);
-            }
-        }
-        .ps__rail-x {
-            .ps__thumb-x {
-                background-color: var(--gui-color);
-            }
-        }
     }
 }
