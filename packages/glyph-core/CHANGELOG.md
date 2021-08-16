@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.1...glyph-core-poc-v1.5.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* **core:** pass params to fetch middleware ([71937fa](https://github.com/adrianiy/glyph-ui/commit/71937fa538dcd07921100c4b38f613f3325c2b0e))
+
 ## [1.5.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.0...glyph-core-poc-v1.5.1) (2021-08-16)
 
 
