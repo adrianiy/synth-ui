@@ -1,6 +1,17 @@
 import { composer } from '../../composer';
 import { FiltersConfigMiddleware } from '../../models';
 import { sortCountries } from '../../utils';
+import { is } from '../../utils/utils';
+
+const defaultEndpoints = {
+    sections: '/api/v1/entities/section',
+    products: '/api/v1/entities/product',
+    product_lines: '/api/v1/entities/product-line',
+    campaigns: '/api/v1/entities/campaign',
+    markets: '/api/v1/entities/markets',
+    platforms: '/api/v1/entities/markets',
+    warehouses: '/api/v1/entities/markets',
+};
 
 const setData = async (ctx: any, next: any) => {
     ctx.state.data = {
@@ -20,5 +31,20 @@ const setData = async (ctx: any, next: any) => {
     await next();
 };
 
+const setDefaultConfiguration = (configuration: FiltersConfigMiddleware) => {
+    const endpoints = Object.keys(configuration.endpoints || {});
+    endpoints.forEach((endpoint: string) => {
+        if (!is(endpoint, 'string')) {
+            if (configuration.endpoints[endpoint] === false) {
+                delete configuration.endpoints[endpoint];
+            } else {
+                configuration.endpoints[endpoint] = defaultEndpoints[endpoint];
+            }
+        }
+    });
+
+    return configuration;
+};
+
 export const fetchFiltersConfig = (configuration: FiltersConfigMiddleware) =>
-    composer('./config/v1/filters.yml', { ...configuration, sortCountries, setData });
+    composer('./config/v1/filters.yml', { ...setDefaultConfiguration(configuration), sortCountries, setData });
