@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UIInterface, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -28,7 +28,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -108,7 +108,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * User name, used as image fallback
          */
@@ -162,7 +162,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Button text
          */
@@ -184,7 +184,7 @@ export namespace Components {
         /**
           * Application interface
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Button group size ['big', 'small']
          */
@@ -206,7 +206,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Maximum allowed date
          */
@@ -264,7 +264,7 @@ export namespace Components {
         /**
           * Interface type
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -286,7 +286,7 @@ export namespace Components {
         /**
           * Interface type [ 'MODERN', 'CLASSIC' ]
          */
-        "interface": UIInterface;
+        "interface": string;
     }
     interface GlyphDateFilter {
         /**
@@ -316,7 +316,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -374,7 +374,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -408,7 +408,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Filter options
          */
@@ -446,7 +446,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -480,7 +480,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Style applied in list
          */
@@ -530,7 +530,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Horizonal align = left
          */
@@ -612,7 +612,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -696,7 +696,7 @@ export namespace Components {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
@@ -814,7 +814,7 @@ export namespace Components {
         /**
           * Component interface *modern* | *classic*
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -848,7 +848,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Modal min height
          */
@@ -1022,7 +1022,7 @@ export namespace Components {
         /**
           * Application interface
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Loading flag
          */
@@ -1098,7 +1098,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Selector label
          */
@@ -1132,7 +1132,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Max height configuration
          */
@@ -1174,7 +1174,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -1292,7 +1292,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -1306,7 +1306,7 @@ export namespace Components {
         /**
           * interface input
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * title text
          */
@@ -1342,7 +1342,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
     }
     interface GlyphUserMenu {
         /**
@@ -1364,7 +1364,7 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Application languages
          */
@@ -1713,7 +1713,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -1789,7 +1789,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * User name, used as image fallback
          */
@@ -1847,7 +1847,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Button text
          */
@@ -1869,7 +1869,7 @@ declare namespace LocalJSX {
         /**
           * Application interface
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Button group size ['big', 'small']
          */
@@ -1891,7 +1891,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Maximum allowed date
          */
@@ -1957,7 +1957,7 @@ declare namespace LocalJSX {
         /**
           * Interface type
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -1995,7 +1995,7 @@ declare namespace LocalJSX {
         /**
           * Interface type [ 'MODERN', 'CLASSIC' ]
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Filter configuration change event
          */
@@ -2025,7 +2025,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -2087,7 +2087,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -2133,7 +2133,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Filter options
          */
@@ -2171,7 +2171,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -2205,7 +2205,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Style applied in list
          */
@@ -2255,7 +2255,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Horizonal align = left
          */
@@ -2337,7 +2337,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -2445,7 +2445,7 @@ declare namespace LocalJSX {
         /**
           * Filter chip interface ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Maximum availabla for inputs (dates or ranges)
          */
@@ -2575,7 +2575,7 @@ declare namespace LocalJSX {
         /**
           * Component interface *modern* | *classic*
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -2609,7 +2609,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Modal min height
          */
@@ -2799,7 +2799,7 @@ declare namespace LocalJSX {
         /**
           * Application interface
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Loading flag
          */
@@ -2875,7 +2875,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Selector label
          */
@@ -2913,7 +2913,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Max height configuration
          */
@@ -2955,7 +2955,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -3097,7 +3097,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * **optional** force locale change if html lang is not interpreted
          */
@@ -3111,7 +3111,7 @@ declare namespace LocalJSX {
         /**
           * interface input
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * title text
          */
@@ -3147,7 +3147,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
     }
     interface GlyphUserMenu {
         /**
@@ -3169,7 +3169,7 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Application languages
          */

@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                          | Type                                                                | Default               |
-| ----------- | ----------- | ------------------------------------ | ------------------------------------------------------------------- | --------------------- |
-| `image`     | `image`     | User avatar image                    | `string`                                                            | `undefined`           |
-| `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
-| `name`      | `name`      | User name, used as image fallback    | `string`                                                            | `undefined`           |
+| Property    | Attribute   | Description                          | Type     | Default               |
+| ----------- | ----------- | ------------------------------------ | -------- | --------------------- |
+| `image`     | `image`     | User avatar image                    | `string` | `undefined`           |
+| `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `string` | `UIInterface.classic` |
+| `name`      | `name`      | User name, used as image fallback    | `string` | `undefined`           |
 
 
 ## Dependencies

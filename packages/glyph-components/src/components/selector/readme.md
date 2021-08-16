@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property            | Attribute            | Description                                                    | Type                                                                | Default               |
-| ------------------- | -------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
-| `complexOptions`    | --                   | Complex selector options                                       | `ComplexSelectorOptions`                                            | `undefined`           |
-| `disabled`          | `disabled`           | Selector disabled state                                        | `boolean`                                                           | `undefined`           |
-| `interface`         | `interface`          | Interface type ['MODERN', 'CLASSIC']                           | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
-| `label`             | `label`              | Selector label                                                 | `string`                                                            | `undefined`           |
-| `maxHeight`         | `max-height`         | Max height configuration                                       | `number`                                                            | `300`                 |
-| `multiSelect`       | `multi-select`       | Multiselect flag                                               | `boolean`                                                           | `false`               |
-| `options`           | --                   | Selector options                                               | `SelectorOption[]`                                                  | `undefined`           |
-| `searchPlaceholder` | `search-placeholder` | Search placeholder text. If defined a search input will render | `string`                                                            | `undefined`           |
+| Property            | Attribute            | Description                                                    | Type                     | Default               |
+| ------------------- | -------------------- | -------------------------------------------------------------- | ------------------------ | --------------------- |
+| `complexOptions`    | --                   | Complex selector options                                       | `ComplexSelectorOptions` | `undefined`           |
+| `disabled`          | `disabled`           | Selector disabled state                                        | `boolean`                | `undefined`           |
+| `interface`         | `interface`          | Interface type ['MODERN', 'CLASSIC']                           | `string`                 | `UIInterface.classic` |
+| `label`             | `label`              | Selector label                                                 | `string`                 | `undefined`           |
+| `maxHeight`         | `max-height`         | Max height configuration                                       | `number`                 | `300`                 |
+| `multiSelect`       | `multi-select`       | Multiselect flag                                               | `boolean`                | `false`               |
+| `options`           | --                   | Selector options                                               | `SelectorOption[]`       | `undefined`           |
+| `searchPlaceholder` | `search-placeholder` | Search placeholder text. If defined a search input will render | `string`                 | `undefined`           |
 
 
 ## Events

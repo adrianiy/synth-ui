@@ -7,21 +7,21 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                            | Type                                                                | Default                            |
-| -------------- | --------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------- |
-| `auxActive`    | `aux-active`    | Activate seconday selection display                                    | `boolean`                                                           | `undefined`                        |
-| `endDate`      | --              | Selected end date                                                      | `Date`                                                              | `new Date()`                       |
-| `endDateAux`   | --              | Secondary selected end date                                            | `Date`                                                              | `new Date()`                       |
-| `interface`    | `interface`     | Filter chip interface ['MODERN', 'CLASSIC']                            | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic`              |
-| `maxDate`      | --              | Maximum allowed date                                                   | `Date`                                                              | `new Date()`                       |
-| `maxDateAux`   | --              | Maximum allowed date                                                   | `Date`                                                              | `new Date()`                       |
-| `minDate`      | --              | Minimum allowed date                                                   | `Date`                                                              | `dayjs().startOf('year').toDate()` |
-| `minDateAux`   | --              | Minimum allowed date                                                   | `Date`                                                              | `dayjs().startOf('year').toDate()` |
-| `months`       | `months`        | Number of months to be shown. 2 by default                             | `number`                                                            | `2`                                |
-| `secondary`    | `secondary`     | Secondary selection. Shows selection in orange. **requires auxActive** | `boolean`                                                           | `undefined`                        |
-| `singleSelect` | `single-select` | Allow single day selection                                             | `boolean`                                                           | `undefined`                        |
-| `startDate`    | --              | Selected start date                                                    | `Date`                                                              | `new Date()`                       |
-| `startDateAux` | --              | Secondary selected start date                                          | `Date`                                                              | `new Date()`                       |
+| Property       | Attribute       | Description                                                            | Type      | Default                            |
+| -------------- | --------------- | ---------------------------------------------------------------------- | --------- | ---------------------------------- |
+| `auxActive`    | `aux-active`    | Activate seconday selection display                                    | `boolean` | `undefined`                        |
+| `endDate`      | --              | Selected end date                                                      | `Date`    | `new Date()`                       |
+| `endDateAux`   | --              | Secondary selected end date                                            | `Date`    | `new Date()`                       |
+| `interface`    | `interface`     | Filter chip interface ['MODERN', 'CLASSIC']                            | `string`  | `UIInterface.classic`              |
+| `maxDate`      | --              | Maximum allowed date                                                   | `Date`    | `new Date()`                       |
+| `maxDateAux`   | --              | Maximum allowed date                                                   | `Date`    | `new Date()`                       |
+| `minDate`      | --              | Minimum allowed date                                                   | `Date`    | `dayjs().startOf('year').toDate()` |
+| `minDateAux`   | --              | Minimum allowed date                                                   | `Date`    | `dayjs().startOf('year').toDate()` |
+| `months`       | `months`        | Number of months to be shown. 2 by default                             | `number`  | `2`                                |
+| `secondary`    | `secondary`     | Secondary selection. Shows selection in orange. **requires auxActive** | `boolean` | `undefined`                        |
+| `singleSelect` | `single-select` | Allow single day selection                                             | `boolean` | `undefined`                        |
+| `startDate`    | --              | Selected start date                                                    | `Date`    | `new Date()`                       |
+| `startDateAux` | --              | Secondary selected start date                                          | `Date`    | `new Date()`                       |
 
 
 ## Events

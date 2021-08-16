@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute   | Description     | Type                                                                | Default               |
-| ----------- | ----------- | --------------- | ------------------------------------------------------------------- | --------------------- |
-| `interface` | `interface` | interface input | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
-| `text`      | `text`      | title text      | `string`                                                            | `undefined`           |
+| Property    | Attribute   | Description     | Type     | Default               |
+| ----------- | ----------- | --------------- | -------- | --------------------- |
+| `interface` | `interface` | interface input | `string` | `UIInterface.classic` |
+| `text`      | `text`      | title text      | `string` | `undefined`           |
 
 
 ## Dependencies

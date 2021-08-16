@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property        | Attribute         | Description                                                      | Type                                                                | Default               |
-| --------------- | ----------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------- |
-| `basePath`      | `base-path`       | Base path to get assets                                          | `string`                                                            | `undefined`           |
-| `filtersConfig` | --                | Filters configuration object                                     | `FiltersConfig`                                                     | `undefined`           |
-| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active                                   | `boolean`                                                           | `true`                |
-| `i18n`          | --                | Extra i18n translation object                                    | `{ [key: string]: string; }`                                        | `{}`                  |
-| `interface`     | `interface`       | Interface type                                                   | `UIInterface.classic \| UIInterface.modern \| UIInterface.redesign` | `UIInterface.classic` |
-| `locale`        | `locale`          | **optional** force locale change if html lang is not interpreted | `string`                                                            | `undefined`           |
+| Property        | Attribute         | Description                                                      | Type                         | Default               |
+| --------------- | ----------------- | ---------------------------------------------------------------- | ---------------------------- | --------------------- |
+| `basePath`      | `base-path`       | Base path to get assets                                          | `string`                     | `undefined`           |
+| `filtersConfig` | --                | Filters configuration object                                     | `FiltersConfig`              | `undefined`           |
+| `hideZaraSouth` | `hide-zara-south` | Hide zara south filters active                                   | `boolean`                    | `true`                |
+| `i18n`          | --                | Extra i18n translation object                                    | `{ [key: string]: string; }` | `{}`                  |
+| `interface`     | `interface`       | Interface type                                                   | `string`                     | `UIInterface.classic` |
+| `locale`        | `locale`          | **optional** force locale change if html lang is not interpreted | `string`                     | `undefined`           |
 
 
 ## Events

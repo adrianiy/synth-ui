@@ -1,4 +1,4 @@
-import { FilterUpdateEvent, UIInterface } from 'glyph-core-poc';
+import { FilterUpdateEvent } from 'glyph-core-poc';
 
 import React from 'react';
 import { GlyphChipsbar } from '../../components';
