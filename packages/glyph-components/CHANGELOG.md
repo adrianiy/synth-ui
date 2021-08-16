@@ -1,3 +1,16 @@
+## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.0...glyph-components-poc-v1.4.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* **components:** fix filters ([c5ff927](https://github.com/adrianiy/glyph-ui/commit/c5ff927de6d48d0290506abb8eb0a5023b627db7))
+* **react:** fix filter components ([74f029a](https://github.com/adrianiy/glyph-ui/commit/74f029a4d72872bfe3145413fb033dd7c311f565))
+
+
+### Features
+
+* **react:** refactor date filter ([50355c9](https://github.com/adrianiy/glyph-ui/commit/50355c9b75457c809beb713bf53f633a4d48b689))
+
 # [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.3.0...glyph-components-poc-v1.4.0) (2021-08-13)
 
 
