@@ -1,3 +1,16 @@
+## [1.4.3](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.2...glyph-components-poc-v1.4.3) (2021-08-16)
+
+
+### Bug Fixes
+
+* fix build ([ae3c513](https://github.com/adrianiy/glyph-ui/commit/ae3c5132073c343581719eaed6cd68283ecff751))
+* **components:** replace uiInterface enum with string ([9e96eaa](https://github.com/adrianiy/glyph-ui/commit/9e96eaa284492ee74efde50a299d24fc1c3b3c82))
+
+
+### Features
+
+* **core:** use default config endpoints ([cd032c0](https://github.com/adrianiy/glyph-ui/commit/cd032c0b53166c6c470b9e740adb99337c4fff61))
+
 ## [1.4.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.1...glyph-components-poc-v1.4.2) (2021-08-16)
 
 
