@@ -34,13 +34,19 @@ import { FilterStateProvider } from 'glyph-react-poc';
 
 Filters initialization must be done with an initial configuration specifying application filters
 
+<div class="warning">
+
+> Date filter must have an option with `active` or `isDefault` attribute as true
+
+</div>
+
 
 ```typescript
 // filtersConfig.tsx
 
 export const dateRanges = [
     { description: "Day +1", startDate: tomorrow, endDate: tomorrow },
-    { description: "Real time", startDate: new Date(), endDate: new Date(), isDefault: true },
+    { description: "Real time", startDate: new Date(), endDate: new Date(), isDefault: true, active: true },
     { description: "Yesterday", startDate: yesterday, endDate: yesterday },
     { description: "Last 7 days", startDate: DateTime.local().minus({ days: 7 }).toJSDate(), endDate: yesterday },
     { description: "Last 14 days", startDate: DateTime.local().minus({ days: 14 }).toJSDate(), endDate: yesterday },

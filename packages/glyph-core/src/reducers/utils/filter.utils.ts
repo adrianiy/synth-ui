@@ -47,7 +47,7 @@ export const cleanSelected = (filters: any) => {
 };
 
 export const cleanSelectedDate = (filter: FilterConfig) => {
-    filter.options.forEach(option => (option.active = !option.isDefault));
+    filter.options.forEach(option => (option.active = option.isDefault));
 
     return filter;
 };
@@ -156,15 +156,24 @@ export const cleanFiltersCache = (filtersVersion: string) => {
 };
 
 export const getSelectedDatesQuery = (filter: FilterConfig): QueryFilter[] => {
-    const activeOption = filter.options.find(option => option.active);
-    let { startDate, endDate } = activeOption;
-    const key = 'local_date';
-    const format = 'YYYY-MM-DD';
+    let activeOption = filter.options.find(option => option.active);
 
-    return [
-        { key, op: 'gte', value: dayjs(startDate).format(format) },
-        { key, op: 'lte', value: dayjs(endDate).format(format) },
-    ];
+    if (!activeOption) {
+        activeOption = filter.option.find((option: FilterConfig) => option.isDefault);
+    }
+
+    if (activeOption) {
+        let { startDate, endDate } = activeOption;
+        const key = 'local_date';
+        const format = 'YYYY-MM-DD';
+
+        return [
+            { key, op: 'gte', value: dayjs(startDate).format(format) },
+            { key, op: 'lte', value: dayjs(endDate).format(format) },
+        ];
+    } else {
+        return [];
+    }
 };
 
 export const getSelectedPartnumber = (filter: FilterConfig): QueryFilter[] => {
