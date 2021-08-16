@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.4.1...glyph-core-poc-v1.5.0) (2021-08-16)
+
+
+### Features
+
+* **core:** use default config endpoints ([cd032c0](https://github.com/adrianiy/glyph-ui/commit/cd032c0b53166c6c470b9e740adb99337c4fff61))
+
 ## [1.4.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.4.0...glyph-core-poc-v1.4.1) (2021-08-16)
 
 
