@@ -22,6 +22,11 @@ const _fetchLocaleStringsForComponent = async (componentName: string, locale: st
     }
 };
 
+export const getComponentLocale = (element: HTMLElement, languages: { [key: string]: any }): any => {
+    const language = getComponentClosestLanguage(element);
+    return languages[language];
+};
+
 export async function getLocaleComponentStrings(
     requiredI18n: string[],
     element: HTMLElement,

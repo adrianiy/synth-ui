@@ -13,29 +13,33 @@ import { logMiddleware } from './log';
  * @param parameters { any } object of parameters to use in request. by default uses filters from state
  * @param headers { any } object of optional headers to use in fetch
  */
-export const fetchData = ({
-    baseUrl,
-    url,
-    auth,
-    store = 'data',
-    data: dataField = 'data',
-    parameters = { filter: '?$filters' },
-    headers = {},
-}: {
-    baseUrl: string;
-    url: string;
-    auth: string;
-    store: string;
-    data: string;
-    parameters: any;
-    headers: any;
-}) => {
+export const fetchData = (
+    {
+        baseUrl,
+        url,
+        auth,
+        store = 'data',
+        data: dataField = 'data',
+        parameters = { filter: '?$filters' },
+        headers = {},
+    }: {
+        baseUrl: string;
+        url: string;
+        auth: string;
+        store: string;
+        data: string;
+        parameters: any;
+        headers: any;
+    },
+    params: any = {},
+) => {
     return async (ctx: any, next: any) => {
         try {
             const queryParams = {};
+            const context = { ...ctx.state, ...params };
 
             Object.keys(parameters).forEach((key: string) => {
-                const parameter = parseParam({ ...ctx.state, ...ctx }, parameters[key]);
+                const parameter = parseParam({ ...context, ...ctx }, parameters[key]);
                 const value = fn(parameter)(ctx);
 
                 if (value) {
@@ -44,9 +48,9 @@ export const fetchData = ({
             });
 
             const response = await fetchBase(
-                getFrom(ctx.state, baseUrl) || baseUrl || ctx.state.baseUrl,
-                getFrom(ctx.state, url) || url,
-                getFrom(ctx.state, auth) || auth || ctx.state.auth,
+                getFrom(context, baseUrl) || baseUrl || ctx.state.baseUrl,
+                getFrom(context, url) || url,
+                getFrom(context, auth) || auth || ctx.state.auth,
                 queryParams,
                 headers,
                 `${ctx.state.from || ''} - fetch`,

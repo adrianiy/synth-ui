@@ -1,11 +1,14 @@
 import { Component, Element, Prop, State, h, getAssetPath } from '@stencil/core';
 import { UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../../utils/utils';
+import { cls, getComponentLocale } from '../../../utils/utils';
+import es from './i18n/login.i18n.es.json';
+import en from './i18n/login.i18n.en.json';
 
 @Component({
     tag: 'glyph-login',
     styleUrl: 'login.scss',
+    assetsDirs: [ 'assets' ],
     shadow: true,
 })
 export class LoginComponent {
@@ -41,12 +44,12 @@ export class LoginComponent {
 
     private _i18n: any;
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'login' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { en, es });
         this._i18n = { ...componentI18n, ...this.i18n };
     }
 
@@ -124,7 +127,7 @@ export class LoginComponent {
                         {this.version}
                     </Flex>
                 </Flex>
-                {!isClassic && <img class="login__splash" src={getAssetPath('./assets/corporative/splash.jpg')} />}
+                {!isClassic && <img class="login__splash" src={getAssetPath('./assets/splash.jpg')} />}
             </Flex>
         );
     }

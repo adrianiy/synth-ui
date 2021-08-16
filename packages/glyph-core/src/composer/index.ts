@@ -32,11 +32,11 @@ export const basicYamlParser = (doc: any, params: any) => {
     }
     if (doc.fetch) {
         if (doc.fetch.multi) {
-            const fns = doc.fetch.multi.map((call: any) => fetchData({ ...call, url: doc.fetch.url }));
+            const fns = doc.fetch.multi.map((call: any) => fetchData({ ...call, url: doc.fetch.url }, params));
 
             pipe.push(parallel(fns));
         } else {
-            pipe.push(fetchData(doc.fetch));
+            pipe.push(fetchData(doc.fetch, params));
         }
     }
     if (doc.parallel) {
