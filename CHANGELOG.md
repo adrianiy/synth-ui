@@ -1,3 +1,10 @@
+# [4.9.0](https://github.com/adrianiy/glyph-ui/compare/v4.8.2...v4.9.0) (2021-08-16)
+
+
+### Features
+
+* **core:** use default config endpoints ([cd032c0](https://github.com/adrianiy/glyph-ui/commit/cd032c0b53166c6c470b9e740adb99337c4fff61))
+
 ## [4.8.2](https://github.com/adrianiy/glyph-ui/compare/v4.8.1...v4.8.2) (2021-08-16)
 
 
