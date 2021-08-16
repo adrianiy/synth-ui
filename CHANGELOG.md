@@ -1,3 +1,10 @@
+## [4.9.2](https://github.com/adrianiy/glyph-ui/compare/v4.9.1...v4.9.2) (2021-08-16)
+
+
+### Bug Fixes
+
+* **core:** pass params to fetch middleware ([71937fa](https://github.com/adrianiy/glyph-ui/commit/71937fa538dcd07921100c4b38f613f3325c2b0e))
+
 ## [4.9.1](https://github.com/adrianiy/glyph-ui/compare/v4.9.0...v4.9.1) (2021-08-16)
 
 
