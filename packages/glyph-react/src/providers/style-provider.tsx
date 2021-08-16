@@ -18,12 +18,12 @@ const GlyphStyleProvider = ({
     theme,
     children,
 }: {
-    interface: UIInterface;
-    theme: UITheme;
+    interface: string;
+    theme: string;
     children: any;
 }) => {
     const [ glyphInterface, setGlyphInterface ] = useState(interfaceValue || UIInterface.classic);
-    const [ glyphTheme, setGlyphTheme ] = useState(theme || 'light');
+    const [ glyphTheme, setGlyphTheme ] = useState(theme || UITheme.light);
 
     return (
         <GlyphStyleContext.Provider value={{ glyphInterface, glyphTheme, setGlyphInterface, setGlyphTheme } as any}>

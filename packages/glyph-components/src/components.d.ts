@@ -1256,11 +1256,11 @@ export namespace Components {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface": UIInterface;
+        "interface": string;
         /**
           * Theme type
          */
-        "theme": UITheme;
+        "theme": string;
     }
     interface GlyphTabs {
         /**
@@ -3057,11 +3057,11 @@ declare namespace LocalJSX {
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
-        "interface"?: UIInterface;
+        "interface"?: string;
         /**
           * Theme type
          */
-        "theme"?: UITheme;
+        "theme"?: string;
     }
     interface GlyphTabs {
         /**

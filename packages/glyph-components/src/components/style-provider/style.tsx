@@ -10,9 +10,9 @@ import { cls } from '../../utils/utils';
 })
 export class StyleComponent {
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Theme type */
-    @Prop() theme: UITheme = UITheme.light;
+    @Prop() theme: string = UITheme.light;
 
     render() {
         return (
