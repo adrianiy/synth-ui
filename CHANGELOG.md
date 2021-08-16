@@ -1,3 +1,11 @@
+## [4.9.1](https://github.com/adrianiy/glyph-ui/compare/v4.9.0...v4.9.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* fix build ([ae3c513](https://github.com/adrianiy/glyph-ui/commit/ae3c5132073c343581719eaed6cd68283ecff751))
+* **components:** replace uiInterface enum with string ([9e96eaa](https://github.com/adrianiy/glyph-ui/commit/9e96eaa284492ee74efde50a299d24fc1c3b3c82))
+
 # [4.9.0](https://github.com/adrianiy/glyph-ui/compare/v4.8.2...v4.9.0) (2021-08-16)
 
 
