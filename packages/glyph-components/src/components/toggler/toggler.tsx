@@ -13,7 +13,7 @@ export class TogglerComponent {
     /** Toggler state */
     @Prop({ mutable: true }) active: boolean = false;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
 
     private _handleToggle = () => {
         this.active = !this.active;

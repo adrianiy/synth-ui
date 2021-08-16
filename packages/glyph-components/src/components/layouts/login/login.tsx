@@ -12,7 +12,7 @@ export class LoginComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
     /** Component interface *modern* | *classic* */
-    @Prop() interface: UIInterface = UIInterface.modern;
+    @Prop() interface: string = UIInterface.modern;
     /** Application version */
     @Prop() version: string;
     /** Login callback */

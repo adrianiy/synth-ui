@@ -14,7 +14,7 @@ export class OptionsListComponent {
     /** Filter options */
     @Prop() options: FilterOptionHeader[];
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Style applied in list */
     @Prop() listStyle: { [key: string]: string };
     /** Extra i18n translation object */

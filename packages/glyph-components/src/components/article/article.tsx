@@ -43,7 +43,7 @@ export class ArticleComponent {
     /** Show tooltip flag */
     @State() tooltip: string;
     /** Article size calculated after render to print small letters if necessary */
-    @State() articleSize: ArticleSize = ArticleSize.large;
+    @State() articleSize: string = ArticleSize.large;
 
     private _i18n: any;
     private _observer: IntersectionObserver;

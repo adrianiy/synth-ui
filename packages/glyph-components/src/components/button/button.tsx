@@ -24,7 +24,7 @@ export class ButtonComponent {
     /** Renders icon first */
     @Prop() iconFirst: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
 
     render() {
         return (

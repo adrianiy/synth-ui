@@ -51,7 +51,7 @@ export class DateFilterComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Date selection event */
     @Event() dateSelection: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */

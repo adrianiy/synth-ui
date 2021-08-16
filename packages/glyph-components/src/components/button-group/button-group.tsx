@@ -17,7 +17,7 @@ export class ButtonGroupComponent {
     /** Button alignment ['left', 'center', 'right'] */
     @Prop() alignment: Alignment = Alignment.center;
     /** Application interface */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
 
     private _handleClick = (button: Button, idx: number) => () => {
         this.buttons = this.buttons.map((btn, index) => ({ ...btn, active: index === idx }));

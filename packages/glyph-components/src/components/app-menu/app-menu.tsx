@@ -23,7 +23,7 @@ export class AppMenuComponent {
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphAppMenuElement;
     /** App search value */

@@ -10,7 +10,7 @@ export class TitleComponent {
     /** title text */
     @Prop() text: string;
     /** interface input */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
 
     render() {
         return this.interface === UIInterface.redesign ? (

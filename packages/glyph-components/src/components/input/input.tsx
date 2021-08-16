@@ -31,7 +31,7 @@ export class InputComponent {
     /** Search flag, renders a search icon if `box` is false */
     @Prop() search: boolean;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Text change event */
     @Event() inputChange: EventEmitter<string>;
     /** Enter key event */

@@ -20,11 +20,11 @@ This middlewares receives a [configuration object](https://github.com/adrianiy/g
 
 - **auth**: Basic auth string to authenticate in WSC request.
 
-- **endpoints**: An object with a path for each entity you want to consult. i.e: /api/v1/entities/section
-
-> You can pass an object with boolean values to use default values*. 
+- **endpoints**: An object with a boolean value or a path string for each entity you want to consult. i.e: /api/v1/entities/section
 
 > If your don't need some entity as filter you can pass a `false` value in entity configuration.
+
+> If you pass a path string it will override global endpont value
 
 ### Default endpoints:
 

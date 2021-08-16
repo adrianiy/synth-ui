@@ -22,7 +22,7 @@ export class UserMenuComponent {
     /** Show custom config button */
     @Prop() customConfig: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** **optional** force locale change if html lang is not interpreted */

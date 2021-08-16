@@ -48,7 +48,7 @@ export class CalendarComponent {
     /** Number of months to be shown. 2 by default */
     @Prop() months: number = 2;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphCalendarElement;
     /** Event triggered on date selection */

@@ -20,7 +20,7 @@ export class ChipsBarComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Interface type */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Filter select event */
     @Event() filterSelect: EventEmitter<FilterSelectEvent>;
     /** Filter clear event */

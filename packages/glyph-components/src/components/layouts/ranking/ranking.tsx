@@ -34,7 +34,7 @@ export class GlyphRankingLayout {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Application interface */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Element reference */
     @Element() element: HTMLGlyphRankingLayoutElement;
     /** Active slider value */

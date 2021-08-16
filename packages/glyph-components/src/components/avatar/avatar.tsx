@@ -14,7 +14,7 @@ export class AvatarComponent {
     /** User name, used as image fallback */
     @Prop() name: UserData['name'];
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
 
     render() {
         return (

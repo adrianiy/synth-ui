@@ -29,7 +29,7 @@ export class FilterComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Option click event */
     @Event() optionClick: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */

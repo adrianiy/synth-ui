@@ -14,7 +14,7 @@ export class FilterDrilldownOptionsComponent {
     /** Filter options */
     @Prop() option: FilterOptionHeader;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Search value */
     @Prop() searchValue: string;
     /** Extra i18n translation object */

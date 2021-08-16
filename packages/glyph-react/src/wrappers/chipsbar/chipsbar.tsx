@@ -40,7 +40,7 @@ function GlyphReactChipsbar({ uiInterface, locale, i18n, basePath }: GlyphReactC
 
 export interface GlyphReactChipsbarProps {
     /** UI interface *modern* | *classic* */
-    uiInterface: UIInterface;
+    uiInterface: string;
     i18n?: any;
     locale?: string;
     basePath?: string;

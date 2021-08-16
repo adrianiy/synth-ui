@@ -27,7 +27,7 @@ export class ModalComponent {
     /** Apply button text. Renders button if set */
     @Prop() applyButton: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** close event */
     @Event() close: EventEmitter<any>;
     /** apply event */

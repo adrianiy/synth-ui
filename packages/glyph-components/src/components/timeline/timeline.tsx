@@ -20,7 +20,7 @@ export class TimelineComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Element reference */

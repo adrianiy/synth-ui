@@ -26,7 +26,7 @@ export class SelectorOptionsComponent {
     /** Close event */
     @Prop() closeEvent: () => void;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Scrollbar element */
     @State() ps: PerfectScrollbar;
 

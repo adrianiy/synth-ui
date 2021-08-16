@@ -25,7 +25,7 @@ export class SelectorComponent {
     /** Search placeholder text. If defined a search input will render */
     @Prop() searchPlaceholder: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** on change callback */
     @Event() optionSelect: EventEmitter<SelectorOption>;
 

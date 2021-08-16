@@ -24,7 +24,7 @@ export class ConfigModalComponent {
     /** Hide zara south filters active */
     @Prop() hideZaraSouth: boolean;
     /** Interface type [ 'MODERN', 'CLASSIC' ] */
-    @Prop() interface: UIInterface = UIInterface.classic;
+    @Prop() interface: string = UIInterface.classic;
     /** Filter configuration change event */
     @Event() configChange: EventEmitter<FiltersConfig>;
 
