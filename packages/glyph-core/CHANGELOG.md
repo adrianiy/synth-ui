@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.4...glyph-core-poc-v1.6.0) (2021-08-17)
+
+
+### Features
+
+* **core:** add family and subfamily filters ([ca28987](https://github.com/adrianiy/glyph-ui/commit/ca289870d1e7222eef562abff3664f6898a1cc16))
+
 ## [1.5.4](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.3...glyph-core-poc-v1.5.4) (2021-08-17)
 
 
