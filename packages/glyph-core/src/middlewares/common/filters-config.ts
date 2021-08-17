@@ -9,8 +9,8 @@ const defaultEndpoints = {
     product_lines: '/api/v1/entities/product-line',
     campaigns: '/api/v1/entities/campaign',
     markets: '/api/v1/entities/markets',
-    platforms: '/api/v1/entities/markets',
-    warehouses: '/api/v1/entities/markets',
+    platforms: '/api/v1/entities/platforms',
+    warehouses: '/api/v1/entities/warehouses',
 };
 
 const setData = async (ctx: any, next: any) => {
@@ -32,13 +32,19 @@ const setData = async (ctx: any, next: any) => {
 };
 
 const setDefaultConfiguration = (configuration: FiltersConfigMiddleware) => {
-    const endpoints = Object.keys(configuration.endpoints || {});
-    endpoints.forEach((endpoint: string) => {
+    if (!configuration.endpoints) {
+        configuration.endpoints = defaultEndpoints;
+    }
+
+    const endpoints = Object.keys(defaultEndpoints);
+
+    endpoints.forEach((key: string) => {
+        const endpoint = configuration.endpoints?.[key];
         if (!is(endpoint, 'string')) {
-            if (configuration.endpoints[endpoint] === false) {
-                delete configuration.endpoints[endpoint];
+            if (configuration.endpoints?.[key] === false) {
+                delete configuration.endpoints[key];
             } else {
-                configuration.endpoints[endpoint] = defaultEndpoints[endpoint];
+                configuration.endpoints[key] = defaultEndpoints[key];
             }
         }
     });

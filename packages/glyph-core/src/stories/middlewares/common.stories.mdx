@@ -22,7 +22,7 @@ This middlewares receives a [configuration object](https://github.com/adrianiy/g
 
 - **endpoints**: An object with a boolean value or a path string for each entity you want to consult. i.e: /api/v1/entities/section
 
-> If your don't need some entity as filter you can pass a `false` value in entity configuration.
+> If you don't need some entity as filter you can pass a `false` value in entity configuration.
 
 > If you pass a path string it will override global endpont value
 
@@ -44,9 +44,16 @@ This middlewares receives a [configuration object](https://github.com/adrianiy/g
 
 ## Example
 
-Take this as an implementation example ;)
+Take this as an implementation example in **AMIGA FWK** ;)
+
+<div class="warning">
+
+> You'll need to finish pipe execution with a `sendDataBody` to send results back to client.
+
+</div>
 
 ```typescript
+import { pipe, sendDataBody } from "amiga-services-core";
 import { fetchFiltersConfig } from "glyph-core";
 
 const baseUrl = 'https://.....';
@@ -57,5 +64,5 @@ const endpoints = {
 }
 ...
 router()
-  .get("/filters/config", fetchFiltersConfig({ baseUrl, auth, endpoints }))
+  .get("/filters/config", pipe(fetchFiltersConfig({ baseUrl, auth, endpoints }), sendDataBody()))
 ```
