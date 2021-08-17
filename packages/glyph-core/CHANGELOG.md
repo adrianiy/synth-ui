@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.2...glyph-core-poc-v1.5.3) (2021-08-17)
+
+
+### Bug Fixes
+
+* **core:** log not array-like data ([f3a9e88](https://github.com/adrianiy/glyph-ui/commit/f3a9e880e578d99360d283ae80e1ecaf473696a8))
+
 ## [1.5.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.1...glyph-core-poc-v1.5.2) (2021-08-16)
 
 
