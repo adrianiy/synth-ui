@@ -32,7 +32,12 @@ export const logMiddleware = (
         const filter = filterRaw && eval(filterRaw);
         let message = is(param, Function)
             ? param?.(ctx)
-            : param || JSON.stringify(rawData?.filter(filter ?? Boolean)?.slice(0, limit), null, 2);
+            : param ||
+              JSON.stringify(
+                  is(rawData, Array) ? rawData?.filter(filter ?? Boolean)?.slice(0, limit) : rawData,
+                  null,
+                  2,
+              );
 
         if (limit) {
             message = `${message}\n...and ${rawData.length - limit} more`;
