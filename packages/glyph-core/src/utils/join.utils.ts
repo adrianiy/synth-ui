@@ -1,10 +1,15 @@
+import { fullMatch } from './utils';
+
 export const crossJoin = (keys = [], leftData = [], rightData = []) => {
     return leftData
         .map(leftRow => {
             // for each left data row looks for first coincidence on right data.
             // to match a row all [keys] value must match on both rows
             const rightIndex = rightData.findIndex(rightRow =>
-                keys.reduce((acc, key) => acc && leftRow[key] === rightRow[key], true),
+                keys.reduce((acc, curr) => {
+                    const on = curr.includes(':') ? curr.split(':') : [ curr, curr ];
+                    return acc && fullMatch(leftRow[on[0]], rightRow[on[1]]);
+                }, true),
             );
 
             if (rightIndex !== -1) {
@@ -24,7 +29,8 @@ export const leftOuterJoin = (keys = [], leftData = [], rightData = []) => {
         // to match a row all [keys] value must match on both rows
         const rightRow = rightData.filter(rightRow =>
             keys.reduce((acc, curr) => {
-                return acc && leftRow[curr] === rightRow[curr];
+                const on = curr.includes(':') ? curr.split(':') : [ curr, curr ];
+                return acc && fullMatch(leftRow[on[0]], rightRow[on[1]]);
             }, true),
         )[0];
         if (rightRow) {

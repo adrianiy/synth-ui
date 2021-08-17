@@ -127,7 +127,7 @@ export class LoginComponent {
                         {this.version}
                     </Flex>
                 </Flex>
-                {!isClassic && <img class="login__splash" src={getAssetPath('./assets/splash.jpg')} />}
+                {!isClassic && <img class="login__splash" src={getAssetPath('/assets/splash.jpg')} />}
             </Flex>
         );
     }

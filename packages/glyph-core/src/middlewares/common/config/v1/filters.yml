@@ -44,6 +44,22 @@ pipe:
               store: campaigns
 
       - conditional:
+          if: ?$ endpoints.families
+          then: 
+            fetch:
+              url: endpoints.families
+              store: families
+              <<: *filters
+
+      - conditional:
+          if: ?$ endpoints.subfamilies
+          then:
+            fetch:
+              url: endpoints.subfamilies
+              store: subfamilies
+              <<: *filters
+
+      - conditional:
           if: ?$ endpoints.markets
           then:
             fetch:
@@ -70,15 +86,21 @@ pipe:
               store: warehouses
               <<: *filters
 
+      - conditional:
+          if: ?> ctx => ctx.state.endpoints.family || ctx.state.endpoints.subfamily
+          then:
+            fetch:
+              url: endpoints.article_properties
+              store: properties
+              <<: *filters
+
   - parallel:
       - transform:
           data: ?$ sections
+          keys:
+            cod_section: code
           operations:
             - <<: *add_fields
-            - add: code
-              value: (row) => row.cod_section
-            - match: cod_section
-              key: section
       - transform:
           data: ?$ products
           keys:
@@ -103,6 +125,18 @@ pipe:
               preserve: true
             - match: cod_season
               key: description
+      - transform:
+          data: ?$ families
+          keys:
+            cod_family: code
+          operations:
+            - <<: *add_fields
+      - transform:
+          data: ?$ subfamilies
+          keys:
+            cod_subfamily: code
+          operations:
+            - <<: *add_fields
       - transform:
           data: ?$ markets
           keys:
@@ -129,6 +163,37 @@ pipe:
           operations:
             - <<: *add_fields
 
+  - conditional:
+      if: ?$ properties
+      then:
+        parallel:
+          - pipe:
+            - join:
+                data: ?$ families
+                with: ?$ properties
+                by:
+                  - 'code:cod_family'
+                  - 'product:cod_product'
+            - transform:
+                data: ?$ families
+                keys:
+                  cod_section: section
+                  cod_product_line: product_line
+          - pipe:
+            - join:
+                data: ?$ subfamilies
+                with: ?$ properties
+                by:
+                  - 'code:cod_subfamily'
+                  - 'product:cod_product'
+
+            - transform:
+                data: ?$ subfamilies
+                keys:
+                  cod_section: section
+                  cod_product_line: product_line
+                  cod_family: family
+
   - sort:
       data: ?$ platforms
       function: sortCountries
@@ -147,6 +212,29 @@ pipe:
             - code
             - description
             - display
+    - filter:
+        data: ?$ families
+        keys:
+          preserve:
+            - code
+            - description
+            - display
+            - cod_brand
+            - section
+            - product
+            - product_line
+    - filter:
+        data: ?$ subfamilies
+        keys:
+          preserve:
+            - code
+            - description
+            - display
+            - cod_brand
+            - section
+            - product
+            - product_line
+            - family
     - group:
         data: ?$ platforms
         children: true
@@ -157,6 +245,50 @@ pipe:
         children: true
         by:
           - section
+    - pipe:
+      - group:
+          data: ?$ families
+          concat:
+            - cod_brand
+            - product
+            - product_line
+          by:
+            - code
+            - description
+            - product
+            - display
+      - transform:
+          data: ?$ families
+          operations:
+            - add: parents
+              value: "row => ({ product: row.product, section: row.section, product_line: row.product_line })"
+      - group:
+          data: ?$ families
+          children: true
+          by:
+            - product
+    - pipe:
+      - group:
+          data: ?$ subfamilies
+          concat:
+            - cod_brand
+            - product
+            - product_line
+          by:
+            - code
+            - description
+            - product
+            - display
+      - transform:
+          data: ?$ subfamilies
+          operations:
+            - add: parents
+              value: "row => ({ product: row.product, section: row.section, product_line: row.product_line, family: row.family })"
+      - group:
+          data: ?$ subfamilies
+          children: true
+          by:
+            - product
 
   - parallel:
     - transform:
@@ -171,26 +303,46 @@ pipe:
           - delete: description
           - add: header
             value: true
-
+    - transform:
+        data: ?$ families
+        operations:
+          - delete: description
+          - delete: section
+          - delete: product_line
+          - delete: code
+          - match: parents
+            value: 'row => ({ product: row.product, section: null, product_line: null })'
+    - transform:
+        data: ?$ subfamilies
+        operations:
+          - delete: description
+          - delete: section
+          - delete: product_line
+          - delete: code
+          - delete: family
+          - match: parents
+            value: 'row => ({ product: row.product, section: null, product_line: null, family: null })'
 
   - parallel:
     - join:
-        data: ?$ sections
-        with: product_lines
-        store: product_lines
+        data: ?$ product_lines
+        with: sections
         by:
-          - section
+          - 'section:code'
     - join:
-        data: ?$ markets
-        with: platforms
-        store: platforms
+        data: ?$ platforms
+        with: markets
         by: 
           - market
-
-  - transform:
-      data: ?$ sections
-      operations:
-        - delete: section
-      
+    - join:
+        data: ?$ families
+        with: products
+        by: 
+          - 'product:code'
+    - join:
+        data: ?$ subfamilies
+        with: products
+        by:
+          - 'product:code'
 
   - middleware: setData

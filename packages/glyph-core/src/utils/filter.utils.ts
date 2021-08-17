@@ -64,7 +64,11 @@ export const getFiltersFromQuery = (ctx: any, use: string[], rangeBefore: number
         const errorMessage = 'No filters in querystring';
         throw new CustomError(errorMessage, 404);
     }
-    let filters = ctx.query.filter ? JSON.parse(ctx.query.filter) : getFiltersFromParams(ctx, ignore || []);
+    let filters = ctx.query.filter
+        ? JSON.parse(ctx.query.filter)
+        : ctx.query.filters
+            ? JSON.parse(ctx.query.filters)
+            : getFiltersFromParams(ctx, ignore || []);
 
     if (use) {
         filters = filters.filter(({ key }) => use.includes(key));

@@ -48,9 +48,9 @@ export const fetchData = (
             });
 
             const response = await fetchBase(
-                getFrom(context, baseUrl) || baseUrl || ctx.state.baseUrl,
+                getFrom(context, baseUrl) || baseUrl || getFrom(context, 'baseUrl'),
                 getFrom(context, url) || url,
-                getFrom(context, auth) || auth || ctx.state.auth,
+                getFrom(context, auth) || auth || getFrom(context, 'auth'),
                 queryParams,
                 headers,
                 `${ctx.state.from || ''} - fetch`,

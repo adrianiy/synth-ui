@@ -207,18 +207,19 @@ export const transform = (
  * @param data { string } name of key where data is stored
  * @param store { string } name of key where data will be stored
  * @param by { string[] } array of keys used to compose groups
+ * @param concat { string[] } Different field values will be concatenated
  * @param children { string | boolean } save grouped object as children, if true we'll use 'children' key
  * @param total { boolean } if true add first row as total aggregation
  */
 export const groupBy = (
-    args: { data: string; store: string; by: string[]; children: any; total: boolean },
+    args: { data: string; store: string; by: string[]; concat: string[]; children: any; total: boolean },
     params: any,
 ) => {
     return async (ctx: any, next: any) => {
         try {
             ctx.state.lastStep = 'group';
             const context = { ...ctx.state, ...params };
-            const { data = getFrom(context, 'data'), store: storeRaw, by, children, total } = parseParams(
+            const { data = getFrom(context, 'data'), store: storeRaw, by, children, concat, total } = parseParams(
                 context,
                 args,
             );
@@ -227,7 +228,7 @@ export const groupBy = (
             const childrenName = getParamValue(context, children === true ? 'children' : children, null);
             const rawData = getParamValue(context, data, []);
             const store = getParamValue(context, storeRaw, getPlainValue(args.data) || 'data');
-            const groups = groupData(rawData, total ? [] : on, childrenName);
+            const groups = groupData(rawData, total ? [] : on, concat, childrenName);
 
             const childrenKey = on?.length > 1 ? on?.slice(1) : on;
 
@@ -237,7 +238,7 @@ export const groupBy = (
                     ...(on ? { [on[0]]: 'total' } : {}),
                     _isTotal: true,
                     name: 'Total',
-                    [childrenName]: groupData(groups[0]?.[childrenName], childrenKey || []),
+                    [childrenName]: groupData(groups[0]?.[childrenName], childrenKey || [], concat),
                 };
                 storeIn(ctx.state, store, [ total, ...data ]);
             } else {
@@ -267,7 +268,7 @@ export const join = (
         data: string;
         with: string;
         store: string;
-        by: string[];
+        by: any[];
     },
     params: any,
 ) => {
