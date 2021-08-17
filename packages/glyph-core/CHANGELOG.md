@@ -1,3 +1,10 @@
+## [1.5.4](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.3...glyph-core-poc-v1.5.4) (2021-08-17)
+
+
+### Bug Fixes
+
+* **core:** fix filters-config default value process ([3ecc38a](https://github.com/adrianiy/glyph-ui/commit/3ecc38a83a5e0133cf7f55adaa90966a00d15dd5))
+
 ## [1.5.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.2...glyph-core-poc-v1.5.3) (2021-08-17)
 
 
