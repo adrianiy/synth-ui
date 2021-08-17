@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.4...glyph-components-poc-v1.5.0) (2021-08-17)
+
+
+### Bug Fixes
+
+* **core:** fix filters-config default value process ([3ecc38a](https://github.com/adrianiy/glyph-ui/commit/3ecc38a83a5e0133cf7f55adaa90966a00d15dd5))
+* **core:** log not array-like data ([f3a9e88](https://github.com/adrianiy/glyph-ui/commit/f3a9e880e578d99360d283ae80e1ecaf473696a8))
+
+
+### Features
+
+* **core:** add family and subfamily filters ([ca28987](https://github.com/adrianiy/glyph-ui/commit/ca289870d1e7222eef562abff3664f6898a1cc16))
+
 ## [1.4.4](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.3...glyph-components-poc-v1.4.4) (2021-08-16)
 
 
