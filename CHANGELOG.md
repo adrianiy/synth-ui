@@ -1,3 +1,10 @@
+## [4.9.3](https://github.com/adrianiy/glyph-ui/compare/v4.9.2...v4.9.3) (2021-08-17)
+
+
+### Bug Fixes
+
+* **core:** log not array-like data ([f3a9e88](https://github.com/adrianiy/glyph-ui/commit/f3a9e880e578d99360d283ae80e1ecaf473696a8))
+
 ## [4.9.2](https://github.com/adrianiy/glyph-ui/compare/v4.9.1...v4.9.2) (2021-08-16)
 
 
