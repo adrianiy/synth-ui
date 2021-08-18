@@ -234,23 +234,32 @@ pipe:
         children: true
         by:
           - market
-    - group:
-        data: ?$ product_lines
-        children: true
-        by:
-          - section
+    - pipe:
+      - group:
+          data: ?$ product_lines
+          concat:
+            - cod_brand
+            - product
+            - code
+          by:
+            - description
+            - section
+      - group:
+          data: ?$ product_lines
+          children: true
+          by:
+            - section
     - pipe:
       - group:
           data: ?$ families
           concat:
+            - code
             - cod_brand
             - product
             - product_line
           by:
-            - code
             - description
             - product
-            - display
       - transform:
           data: ?$ families
           operations:
@@ -265,14 +274,13 @@ pipe:
       - group:
           data: ?$ subfamilies
           concat:
+            - code
             - cod_brand
             - product
             - product_line
           by:
-            - code
             - description
             - product
-            - display
       - transform:
           data: ?$ subfamilies
           operations:
@@ -295,6 +303,9 @@ pipe:
         data: ?$ product_lines
         operations:
           - delete: description
+          - delete: code
+          - delete: cod_brand
+          - delete: product
           - add: header
             value: true
     - transform:
