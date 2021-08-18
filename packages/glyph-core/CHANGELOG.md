@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.0...glyph-core-poc-v1.6.1) (2021-08-18)
+
+
+### Bug Fixes
+
+* **core:** fix entities filters ([e342389](https://github.com/adrianiy/glyph-ui/commit/e3423891e5e1bac9180c8617431052cce7f7db13))
+
 # [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.5.4...glyph-core-poc-v1.6.0) (2021-08-17)
 
 
