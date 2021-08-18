@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.1...glyph-core-poc-v1.6.2) (2021-08-18)
+
+
+### Bug Fixes
+
+* **core:** add product line group by description ([ceefb46](https://github.com/adrianiy/glyph-ui/commit/ceefb46fad40fbaf047a2e47da0916cd51a83acc))
+
 ## [1.6.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.0...glyph-core-poc-v1.6.1) (2021-08-18)
 
 
