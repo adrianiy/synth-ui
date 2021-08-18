@@ -18,7 +18,6 @@ pipe:
             fetch:
               url: endpoints.sections
               store: sections
-              <<: *filters
 
       - conditional:
           if: ?$ endpoints.products
@@ -26,7 +25,6 @@ pipe:
             fetch:
               url: endpoints.products
               store: products
-              <<: *filters
 
       - conditional:
           if: ?$ endpoints.product_lines
@@ -34,7 +32,6 @@ pipe:
             fetch:
               url: endpoints.product_lines
               store: product_lines
-              <<: *filters
 
       - conditional:
           if: ?$ endpoints.campaigns
@@ -49,7 +46,6 @@ pipe:
             fetch:
               url: endpoints.families
               store: families
-              <<: *filters
 
       - conditional:
           if: ?$ endpoints.subfamilies
@@ -57,7 +53,6 @@ pipe:
             fetch:
               url: endpoints.subfamilies
               store: subfamilies
-              <<: *filters
 
       - conditional:
           if: ?$ endpoints.markets
@@ -92,7 +87,6 @@ pipe:
             fetch:
               url: endpoints.article_properties
               store: properties
-              <<: *filters
 
   - parallel:
       - transform:
