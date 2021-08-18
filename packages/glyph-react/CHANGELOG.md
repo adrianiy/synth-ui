@@ -1,3 +1,17 @@
+# [2.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.4.3...glyph-react-poc-v2.5.0) (2021-08-17)
+
+
+### Bug Fixes
+
+* **core:** fix filters-config default value process ([3ecc38a](https://github.com/adrianiy/glyph-ui/commit/3ecc38a83a5e0133cf7f55adaa90966a00d15dd5))
+* **core:** log not array-like data ([f3a9e88](https://github.com/adrianiy/glyph-ui/commit/f3a9e880e578d99360d283ae80e1ecaf473696a8))
+* **core:** pass params to fetch middleware ([71937fa](https://github.com/adrianiy/glyph-ui/commit/71937fa538dcd07921100c4b38f613f3325c2b0e))
+
+
+### Features
+
+* **core:** add family and subfamily filters ([ca28987](https://github.com/adrianiy/glyph-ui/commit/ca289870d1e7222eef562abff3664f6898a1cc16))
+
 ## [2.4.3](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.4.2...glyph-react-poc-v2.4.3) (2021-08-16)
 
 

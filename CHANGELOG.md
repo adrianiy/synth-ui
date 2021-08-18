@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/adrianiy/glyph-ui/compare/v4.9.4...v4.10.0) (2021-08-17)
+
+
+### Features
+
+* **core:** add family and subfamily filters ([ca28987](https://github.com/adrianiy/glyph-ui/commit/ca289870d1e7222eef562abff3664f6898a1cc16))
+
 ## [4.9.4](https://github.com/adrianiy/glyph-ui/compare/v4.9.3...v4.9.4) (2021-08-17)
 
 
