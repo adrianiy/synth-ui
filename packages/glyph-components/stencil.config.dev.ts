@@ -46,6 +46,10 @@ export const config: Config = {
                     src: '**/*.i18n.*.json',
                     dest: 'assets/i18n',
                 },
+                {
+                    src: '**/*.jpg',
+                    dest: 'assets',
+                },
             ],
         },
     ],

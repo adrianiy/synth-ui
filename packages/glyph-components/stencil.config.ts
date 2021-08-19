@@ -26,6 +26,8 @@ export const config: Config = {
         reactOutputTarget({
             componentCorePackage: 'glyph-components-poc',
             proxiesFile: '../glyph-react/src/components.ts',
+            includeDefineCustomElements: true,
+            includePolyfills: true,
         }),
         {
             type: 'dist',
@@ -39,10 +41,6 @@ export const config: Config = {
                     dest: '../assets/corporative',
                 },
                 {
-                    src: '**/*.i18n.*.json',
-                    dest: '../assets/i18n',
-                },
-                {
                     src: '**/*.woff2',
                     dest: '../assets/fonts',
                 },
@@ -51,8 +49,8 @@ export const config: Config = {
                     dest: '../assets/fonts',
                 },
                 {
-                    src: '**/*.model.ts',
-                    dest: '../models',
+                    src: '**/*.store.ts',
+                    dest: '../stores',
                 },
             ],
         },
@@ -66,12 +64,6 @@ export const config: Config = {
         {
             type: 'www',
             serviceWorker: null, // disable service workers
-            copy: [
-                {
-                    src: '**/*.i18n.*.json',
-                    dest: 'assets/i18n',
-                },
-            ],
         },
     ],
 };

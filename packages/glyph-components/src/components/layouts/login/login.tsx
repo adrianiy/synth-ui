@@ -4,6 +4,7 @@ import { Flex } from '../../../utils/layout';
 import { cls, getComponentLocale } from '../../../utils/utils';
 import es from './i18n/login.i18n.es.json';
 import en from './i18n/login.i18n.en.json';
+import store from './../../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-login',
@@ -127,7 +128,7 @@ export class LoginComponent {
                         {this.version}
                     </Flex>
                 </Flex>
-                {!isClassic && <img class="login__splash" src={getAssetPath('/assets/splash.jpg')} />}
+                {!isClassic && <img class="login__splash" src={getAssetPath(`${store.basePath}/assets/splash.jpg`)} />}
             </Flex>
         );
     }

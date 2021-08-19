@@ -586,10 +586,6 @@ export namespace Components {
          */
         "avatar": boolean;
         /**
-          * Base path to get assets
-         */
-        "basePath": string;
-        /**
           * Brand selector flag
          */
         "brand": boolean;
@@ -2310,10 +2306,6 @@ declare namespace LocalJSX {
           * User avatar flag
          */
         "avatar"?: boolean;
-        /**
-          * Base path to get assets
-         */
-        "basePath"?: string;
         /**
           * Brand selector flag
          */

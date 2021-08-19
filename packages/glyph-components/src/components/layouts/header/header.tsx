@@ -12,6 +12,7 @@ import {
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
 import { cls } from '../../../utils/utils';
+import store from './../../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-header',
@@ -19,8 +20,6 @@ import { cls } from '../../../utils/utils';
     shadow: true,
 })
 export class HeaderComponent {
-    /** Base path to get assets */
-    @Prop() basePath: string;
     /** Brand selector flag */
     @Prop() brand: boolean;
     /** Available brands list */
@@ -208,7 +207,6 @@ export class HeaderComponent {
                 )}
             >
                 <glyph-timeline
-                    basePath={this.basePath}
                     calendarEvents={this.calendarEvents}
                     events={this.events}
                     i18n={this.i18n}
@@ -230,7 +228,6 @@ export class HeaderComponent {
                 {this.showUserMenu && (
                     <glyph-user-menu
                         class="widget__menu widget__menu--user"
-                        basePath={this.basePath}
                         name={this.userData.name}
                         outsideCallback={this._toggleShowUserMenu(false)}
                         i18n={this.i18n}
@@ -253,7 +250,6 @@ export class HeaderComponent {
             >
                 {this.showAppsMenu && (
                     <glyph-app-menu
-                        basePath={this.basePath}
                         class="widget__menu widget__menu--apps"
                         apps={this.appData}
                         outsideCallback={this._toggleShowAppsMenu(false)}
@@ -273,7 +269,6 @@ export class HeaderComponent {
                 {this.showShareMenu && (
                     <glyph-share-menu
                         class="widget__menu widget__menu--share"
-                        basePath={this.basePath}
                         appTitle={this.appTitle}
                         appSubtitle={this.appSubtitle}
                         interface={this.interface}
@@ -315,7 +310,6 @@ export class HeaderComponent {
                         <glyph-brand-list
                             brandList={this.brandList}
                             outsideCallback={this._toggleBrandsMenu(false)}
-                            basePath={this.basePath}
                             onBrandChange={this._handleBrandChange}
                         />
                     )}
@@ -334,7 +328,7 @@ export class HeaderComponent {
                     {this.brand && (
                         <img
                             class={cls({ clickable: this.brand && this.brandList.length > 1 })}
-                            src={getAssetPath(`${this.basePath || '..'}/assets/brands/icon_${this.activeBrand}.svg`)}
+                            src={getAssetPath(`${store.basePath}/assets/brands/icon_${this.activeBrand}.svg`)}
                             onClick={this._toggleBrandsMenu()}
                         />
                     )}

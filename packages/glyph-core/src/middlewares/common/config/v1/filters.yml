@@ -1,4 +1,5 @@
 name: Filters config pipe
+# Set global YAML variables
 global:
   filters: &filters
     parameters:
@@ -8,9 +9,10 @@ global:
     - add: display
       value: true
 pipe:
-  - filters:
-      current: true
+  # Use current query filters
+  - filters: true
 
+  # Fetch entity data if endpoint is informed
   - parallel:
       - conditional: 
           if: ?$ endpoints.sections
@@ -88,6 +90,7 @@ pipe:
               url: endpoints.article_properties
               store: properties
 
+  # Field noramlization
   - parallel:
       - transform:
           data: ?$ sections
@@ -112,13 +115,12 @@ pipe:
               value: "(row) => ({ product: row.product, section: row.section })"
       - transform:
           data: ?$ campaigns
+          keys:
+            cod_season: code
           operations:
             - <<: *add_fields
-            - match: cod_season
-              key: code
-              preserve: true
-            - match: cod_season
-              key: description
+            - add: description
+              value: (row) => row.code
       - transform:
           data: ?$ families
           keys:
@@ -157,6 +159,7 @@ pipe:
           operations:
             - <<: *add_fields
 
+  # Add extra product properties if it is necessary
   - conditional:
       if: ?$ properties
       then:
@@ -188,10 +191,23 @@ pipe:
                   cod_product_line: product_line
                   cod_family: family
 
-  - sort:
-      data: ?$ platforms
-      function: sortCountries
+  # Sort
+  - parallel:
+    - sort:
+        data: ?$ platforms
+        function: sortCountries
+    - sort:
+        data: ?$ product_lines
+        by: section
+    - sort:
+        data: ?$ families
+        by: product
+    - sort:
+        data: ?$ subfamilies
+        by: product
 
+
+  # Filter entities information
   - parallel:
     - filter:
         data: ?$ campaigns
@@ -229,11 +245,24 @@ pipe:
             - product
             - product_line
             - family
-    - group:
+    - filter:
+        data: ?$ markets
+        keys:
+          preserve:
+            - code
+            - description
+            - display
+    - filter:
         data: ?$ platforms
-        children: true
-        by:
-          - market
+        keys:
+          preserve:
+            - code
+            - description
+            - display
+            - market
+
+  # Data grouping
+  - parallel:
     - pipe:
       - group:
           data: ?$ product_lines
@@ -249,7 +278,17 @@ pipe:
           children: true
           by:
             - section
+      - transform:
+          data: ?$ product_lines
+          operations:
+            - delete: description
+            - delete: code
+            - delete: cod_brand
+            - delete: product
+            - add: header
+              value: true
     - pipe:
+      # Family grouping
       - group:
           data: ?$ families
           concat:
@@ -270,6 +309,16 @@ pipe:
           children: true
           by:
             - product
+      - transform:
+          data: ?$ families
+          operations:
+            - delete: description
+            - delete: section
+            - delete: product_line
+            - delete: code
+            - match: parents
+              value: 'row => ({ product: row.product, section: null, product_line: null })'
+    # Subfamily grouping
     - pipe:
       - group:
           data: ?$ subfamilies
@@ -291,43 +340,31 @@ pipe:
           children: true
           by:
             - product
+      - transform:
+          data: ?$ subfamilies
+          operations:
+            - delete: description
+            - delete: section
+            - delete: product_line
+            - delete: code
+            - delete: family
+            - match: parents
+              value: 'row => ({ product: row.product, section: null, product_line: null, family: null })'
+    # Platform grouping
+    - pipe:
+      - group:
+          data: ?$ platforms
+          children: true
+          by:
+            - market
+      - transform:
+          data: ?$ platforms
+          operations:
+            - delete: description
+            - add: header
+              value: true
 
-  - parallel:
-    - transform:
-        data: ?$ platforms
-        operations:
-          - delete: description
-          - add: header
-            value: true
-    - transform:
-        data: ?$ product_lines
-        operations:
-          - delete: description
-          - delete: code
-          - delete: cod_brand
-          - delete: product
-          - add: header
-            value: true
-    - transform:
-        data: ?$ families
-        operations:
-          - delete: description
-          - delete: section
-          - delete: product_line
-          - delete: code
-          - match: parents
-            value: 'row => ({ product: row.product, section: null, product_line: null })'
-    - transform:
-        data: ?$ subfamilies
-        operations:
-          - delete: description
-          - delete: section
-          - delete: product_line
-          - delete: code
-          - delete: family
-          - match: parents
-            value: 'row => ({ product: row.product, section: null, product_line: null, family: null })'
-
+  # Join parents data
   - parallel:
     - join:
         data: ?$ product_lines
@@ -338,7 +375,7 @@ pipe:
         data: ?$ platforms
         with: markets
         by: 
-          - market
+          - 'market:code'
     - join:
         data: ?$ families
         with: products
@@ -350,4 +387,5 @@ pipe:
         by:
           - 'product:code'
 
+  # Set data in ctx.state.data
   - middleware: setData

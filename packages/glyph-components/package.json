@@ -27,6 +27,7 @@
   "dependencies": {
     "@open-wc/lit-helpers": "^0.3.12",
     "@stencil/core": "^2.0.1",
+    "@stencil/store": "^1.4.1",
     "dayjs": "^1.10.5",
     "exceljs": "^4.2.1",
     "file-saver": "^2.0.5",
