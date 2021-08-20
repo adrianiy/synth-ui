@@ -12,6 +12,7 @@
         "dist/"
     ],
     "dependencies": {
+        "@stencil/store": "^1.4.1",
         "dayjs": "^1.10.5",
         "glyph-components-poc": "*",
         "glyph-core-poc": "*",
