@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.2...glyph-core-poc-v1.7.0) (2021-08-19)
+
+
+### Features
+
+* **components:** test stencil store in production ([6e68305](https://github.com/adrianiy/glyph-ui/commit/6e68305643e6e986fb360bcf98f633359778ccfc))
+
 ## [1.6.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.1...glyph-core-poc-v1.6.2) (2021-08-18)
 
 

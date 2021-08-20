@@ -1,6 +1,6 @@
 {
   "name": "glyph-components-poc",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Core web components for glyph-ui",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",

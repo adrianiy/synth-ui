@@ -1,3 +1,16 @@
+# [1.6.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.5.0...glyph-components-poc-v1.6.0) (2021-08-19)
+
+
+### Bug Fixes
+
+* **core:** add product line group by description ([ceefb46](https://github.com/adrianiy/glyph-ui/commit/ceefb46fad40fbaf047a2e47da0916cd51a83acc))
+* **core:** fix entities filters ([e342389](https://github.com/adrianiy/glyph-ui/commit/e3423891e5e1bac9180c8617431052cce7f7db13))
+
+
+### Features
+
+* **components:** test stencil store in production ([6e68305](https://github.com/adrianiy/glyph-ui/commit/6e68305643e6e986fb360bcf98f633359778ccfc))
+
 # [1.5.0](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.4.4...glyph-components-poc-v1.5.0) (2021-08-17)
 
 

@@ -1,3 +1,28 @@
+# [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.2.0...glyph-angular-poc-v1.3.0) (2021-08-19)
+
+
+### Bug Fixes
+
+* **core:** add product line group by description ([ceefb46](https://github.com/adrianiy/glyph-ui/commit/ceefb46fad40fbaf047a2e47da0916cd51a83acc))
+* **core:** fix entities filters ([e342389](https://github.com/adrianiy/glyph-ui/commit/e3423891e5e1bac9180c8617431052cce7f7db13))
+* **core:** fix filters-config default value process ([3ecc38a](https://github.com/adrianiy/glyph-ui/commit/3ecc38a83a5e0133cf7f55adaa90966a00d15dd5))
+* **core:** log not array-like data ([f3a9e88](https://github.com/adrianiy/glyph-ui/commit/f3a9e880e578d99360d283ae80e1ecaf473696a8))
+* **core:** pass params to fetch middleware ([71937fa](https://github.com/adrianiy/glyph-ui/commit/71937fa538dcd07921100c4b38f613f3325c2b0e))
+* fix build ([ae3c513](https://github.com/adrianiy/glyph-ui/commit/ae3c5132073c343581719eaed6cd68283ecff751))
+* **components:** fix filters ([c5ff927](https://github.com/adrianiy/glyph-ui/commit/c5ff927de6d48d0290506abb8eb0a5023b627db7))
+* **components:** replace uiInterface enum with string ([9e96eaa](https://github.com/adrianiy/glyph-ui/commit/9e96eaa284492ee74efde50a299d24fc1c3b3c82))
+* **docs:** update filter config documentation ([526061d](https://github.com/adrianiy/glyph-ui/commit/526061d2ff24cdf193e289e56ecec7a45121c944))
+* **react:** accept style provider inputs as strings ([9880cf7](https://github.com/adrianiy/glyph-ui/commit/9880cf7ee4083bf0ba2269d005a30156001534d3))
+* **react:** fix filter components ([74f029a](https://github.com/adrianiy/glyph-ui/commit/74f029a4d72872bfe3145413fb033dd7c311f565))
+
+
+### Features
+
+* **components:** test stencil store in production ([6e68305](https://github.com/adrianiy/glyph-ui/commit/6e68305643e6e986fb360bcf98f633359778ccfc))
+* **core:** add family and subfamily filters ([ca28987](https://github.com/adrianiy/glyph-ui/commit/ca289870d1e7222eef562abff3664f6898a1cc16))
+* **core:** use default config endpoints ([cd032c0](https://github.com/adrianiy/glyph-ui/commit/cd032c0b53166c6c470b9e740adb99337c4fff61))
+* **react:** refactor date filter ([50355c9](https://github.com/adrianiy/glyph-ui/commit/50355c9b75457c809beb713bf53f633a4d48b689))
+
 # [1.2.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.1.0...glyph-angular-poc-v1.2.0) (2021-08-13)
 
 

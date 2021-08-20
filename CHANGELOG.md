@@ -1,3 +1,10 @@
+# [4.11.0](https://github.com/adrianiy/glyph-ui/compare/v4.10.2...v4.11.0) (2021-08-19)
+
+
+### Features
+
+* **components:** test stencil store in production ([6e68305](https://github.com/adrianiy/glyph-ui/commit/6e68305643e6e986fb360bcf98f633359778ccfc))
+
 ## [4.10.2](https://github.com/adrianiy/glyph-ui/compare/v4.10.1...v4.10.2) (2021-08-18)
 
 
