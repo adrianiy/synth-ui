@@ -1,3 +1,10 @@
+# [4.12.0](https://github.com/adrianiy/glyph-ui/compare/v4.11.0...v4.12.0) (2021-08-20)
+
+
+### Features
+
+* **react:** add stencil store dependency ([f8a8943](https://github.com/adrianiy/glyph-ui/commit/f8a8943ce000bfd21ba223af18499c536adfc74a))
+
 # [4.11.0](https://github.com/adrianiy/glyph-ui/compare/v4.10.2...v4.11.0) (2021-08-19)
 
 
