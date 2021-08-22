@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.7.0...glyph-core-poc-v1.8.0) (2021-08-22)
+
+
+### Features
+
+* **react:** add stencil store dependency ([f8a8943](https://github.com/adrianiy/glyph-ui/commit/f8a8943ce000bfd21ba223af18499c536adfc74a))
+* **react:** configure basePath in styleProvider ([2e25cec](https://github.com/adrianiy/glyph-ui/commit/2e25ceca2dabb5963c6a443122c4b12d4c98f7ac))
+
 # [1.7.0](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.6.2...glyph-core-poc-v1.7.0) (2021-08-19)
 
 
