@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property       | Attribute   | Description                                                      | Type                                                      | Default              |
-| -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------- | -------------------- |
-| `basePath`     | `base-path` | Base path to get assets                                          | `string`                                                  | `undefined`          |
-| `i18n`         | --          | Extra i18n translates                                            | `{ [key: string]: string; }`                              | `undefined`          |
-| `interface`    | `interface` | Component interface *modern* \| *classic*                        | `string`                                                  | `UIInterface.modern` |
-| `locale`       | `locale`    | **optional** force locale change if html lang is not interpreted | `string`                                                  | `undefined`          |
-| `login`        | --          | Login callback                                                   | `(userData: { user: string; password: string; }) => void` | `undefined`          |
-| `loginSuccess` | --          | On login success                                                 | `(result: any) => void`                                   | `undefined`          |
-| `version`      | `version`   | Application version                                              | `string`                                                  | `undefined`          |
+| Property       | Attribute   | Description                                                      | Type                                                      | Default     |
+| -------------- | ----------- | ---------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `basePath`     | `base-path` | Base path to get assets                                          | `string`                                                  | `undefined` |
+| `i18n`         | --          | Extra i18n translates                                            | `{ [key: string]: string; }`                              | `undefined` |
+| `interface`    | `interface` | Component interface *modern* \| *classic*                        | `string`                                                  | `undefined` |
+| `locale`       | `locale`    | **optional** force locale change if html lang is not interpreted | `string`                                                  | `undefined` |
+| `login`        | --          | Login callback                                                   | `(userData: { user: string; password: string; }) => void` | `undefined` |
+| `loginSuccess` | --          | On login success                                                 | `(result: any) => void`                                   | `undefined` |
+| `version`      | `version`   | Application version                                              | `string`                                                  | `undefined` |
 
 
 ## Dependencies

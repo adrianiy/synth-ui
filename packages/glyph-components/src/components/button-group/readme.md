@@ -11,7 +11,7 @@
 | ----------- | ----------- | -------------------------------------------- | ------------------------------------------------------- | ---------------------- |
 | `alignment` | `alignment` | Button alignment ['left', 'center', 'right'] | `Alignment.center \| Alignment.left \| Alignment.right` | `Alignment.center`     |
 | `buttons`   | --          | Buttons configuration                        | `Button[]`                                              | `undefined`            |
-| `interface` | `interface` | Application interface                        | `string`                                                | `UIInterface.classic`  |
+| `interface` | `interface` | Application interface                        | `string`                                                | `undefined`            |
 | `size`      | `size`      | Button group size ['big', 'small']           | `ButtonGroupStyle.big \| ButtonGroupStyle.small`        | `ButtonGroupStyle.big` |
 
 

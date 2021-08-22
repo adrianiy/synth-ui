@@ -1,7 +1,10 @@
 import { Component, Element, Prop, h, EventEmitter, Event, Listen, State } from '@stencil/core';
 import { SelectorOption, UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getComponentLocale } from '../../utils/utils';
+import state from '../../utils/store/context.store';
+import es from './i18n/user-menu.i18n.es.json';
+import en from './i18n/user-menu.i18n.en.json';
 
 @Component({
     tag: 'glyph-user-menu',
@@ -22,7 +25,7 @@ export class UserMenuComponent {
     /** Show custom config button */
     @Prop() customConfig: boolean;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** **optional** force locale change if html lang is not interpreted */
@@ -54,13 +57,15 @@ export class UserMenuComponent {
         }
     }
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'user-menu' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { en, es });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _handleLangChange = (option: CustomEvent<SelectorOption>) => {

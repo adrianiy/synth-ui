@@ -1,8 +1,9 @@
 import { Component, Prop, State, h, Listen, Element } from '@stencil/core';
-import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core-poc';
+import { ComplexSelectorOptions, SelectorOption } from 'glyph-core-poc';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../utils/icons';
 import { Flex } from '../../../utils/layout';
+import state from '../../../utils/store/context.store';
 import { cls } from '../../../utils/utils';
 
 @Component({
@@ -26,7 +27,7 @@ export class SelectorOptionsComponent {
     /** Close event */
     @Prop() closeEvent: () => void;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Scrollbar element */
     @State() ps: PerfectScrollbar;
 
@@ -41,6 +42,10 @@ export class SelectorOptionsComponent {
         if (!event.composedPath().includes(this.element)) {
             this.closeEvent();
         }
+    }
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
     }
 
     private _scrollbarInit = (ps: PerfectScrollbar) => {

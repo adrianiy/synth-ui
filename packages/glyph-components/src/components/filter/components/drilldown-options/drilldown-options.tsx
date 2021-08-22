@@ -2,6 +2,7 @@ import { Component, h, Prop, State } from '@stencil/core';
 import { FilterOptionHeader, UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
+import state from '../../../../utils/store/context.store';
 import { cls } from '../../../../utils/utils';
 import { inSearch, renderOptionDescription } from '../../utils/utils';
 
@@ -14,7 +15,7 @@ export class FilterDrilldownOptionsComponent {
     /** Filter options */
     @Prop() option: FilterOptionHeader;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Search value */
     @Prop() searchValue: string;
     /** Extra i18n translation object */
@@ -29,6 +30,7 @@ export class FilterDrilldownOptionsComponent {
 
     componentWillLoad() {
         this.expandedState = this.expanded;
+        this.interface = this.interface || state.interface;
     }
 
     private _handleClick = (event: any) => {

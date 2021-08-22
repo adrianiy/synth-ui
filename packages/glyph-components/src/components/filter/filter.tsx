@@ -3,6 +3,7 @@ import { Flex } from '../../utils/layout';
 import { UIInterface, FilterOptionHeader, FilterSelectEvent } from 'glyph-core-poc';
 import { cls } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
+import state from '../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-filter',
@@ -29,7 +30,7 @@ export class FilterComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Option click event */
     @Event() optionClick: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */
@@ -52,6 +53,11 @@ export class FilterComponent {
         if (!event.composedPath().includes(this.element)) {
             this.expanded = false;
         }
+    }
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     componentWillRender() {

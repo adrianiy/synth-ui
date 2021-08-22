@@ -8,12 +8,15 @@ import {
     FilterOption,
 } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getComponentLocale } from '../../utils/utils';
 import { Icon } from '../../utils/icons';
 import PerfectScrollbar from 'perfect-scrollbar';
 import dayjs from 'dayjs';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import state from '../../utils/store/context.store';
+import en from './i18n/date-filter.i18n.en.json';
+import es from './i18n/date-filter.i18n.es.json';
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -51,7 +54,7 @@ export class DateFilterComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Date selection event */
     @Event() dateSelection: EventEmitter<FilterSelectEvent>;
     /** Clear selected filters callback */
@@ -99,14 +102,11 @@ export class DateFilterComponent {
         this._onClear();
     }
 
-    async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings(
-            [ 'date-filter' ],
-            this.element,
-            this.basePath,
-            this.locale,
-        );
+    componentWillLoad() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _scrollbarInit = (ps: PerfectScrollbar) => {

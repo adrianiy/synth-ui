@@ -10,6 +10,7 @@ import minMax from 'dayjs/plugin/minMax';
 import 'dayjs/locale/es';
 import 'dayjs/locale/en';
 import { ComparableType, UIInterface } from 'glyph-core-poc';
+import state from '../../utils/store/context.store';
 
 dayjs.extend(updateLocale);
 dayjs.extend(weekDay);
@@ -48,7 +49,7 @@ export class CalendarComponent {
     /** Number of months to be shown. 2 by default */
     @Prop() months: number = 2;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Element reference */
     @Element() element: HTMLGlyphCalendarElement;
     /** Event triggered on date selection */
@@ -65,6 +66,7 @@ export class CalendarComponent {
     @State() currentHoveredDateAux: dayjs.Dayjs;
 
     componentWillLoad() {
+        this.interface = this.interface || state.interface;
         this._getMonths();
         const lang = getComponentClosestLanguage(this.element);
         dayjs.locale(lang);

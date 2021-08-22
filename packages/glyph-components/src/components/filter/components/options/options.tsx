@@ -3,8 +3,11 @@ import { UIInterface, FilterOptionHeader } from 'glyph-core-poc';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../../../utils/utils';
+import state from '../../../../utils/store/context.store';
+import { cls, getComponentLocale } from '../../../../utils/utils';
 import { inSearch } from '../../utils/utils';
+import en from './../../i18n/filter.i18n.en.json';
+import es from './../../i18n/filter.i18n.es.json';
 
 @Component({
     tag: 'glyph-filter-options',
@@ -13,7 +16,7 @@ import { inSearch } from '../../utils/utils';
 })
 export class FilterOptionsComponent {
     /** Base path to get assets */
-    @Prop() basePath: string = '';
+    @Prop() basePath: string;
     /** Filter description */
     @Prop() description: string;
     /** Filter options */
@@ -29,7 +32,7 @@ export class FilterOptionsComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string = state.interface;
     /** Option click event */
     @Prop() optionClickEvent: (option: FilterOptionHeader) => void;
     /** Multiselect toggler callback */
@@ -49,8 +52,8 @@ export class FilterOptionsComponent {
         setTimeout(() => this.ps?.update(), 300);
     }
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
     private _scrollbarInit = (ps: PerfectScrollbar) => {
@@ -69,9 +72,10 @@ export class FilterOptionsComponent {
         this.multiSelectEvent();
     };
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'filter' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _handleInputChange = (event: any) => {

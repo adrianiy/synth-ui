@@ -12,9 +12,13 @@ import { WithGlobalTheme } from '../helpers/decorators';
 
 A provider to allow use of css variables across your application.
 
-> If you are using Amiga-fwk you should use this provider because css-next plugin makes glyph variables break
+You can also set the prefered value for `theme`, `interface` and `basePath`. These values will be used as default property values in every `glyph-component`.
 
-This provider will allow you to share `glyphTheme` and `glyphInterface` values through all your application and applies selected theme to modify css variables values.
+> If you are using Amiga-fwk you should use this provider because css-next plugin makes glyph variables break.
+
+> Changing theme value will recalculta global css variables values.
+
+This provider will allow you to get `glyphTheme` and `glyphInterface` values anywhere using `useGlyphStyle`.
 
 ```typescript
 // main.tsx
@@ -27,7 +31,7 @@ const home = () => {
 
     return (
         ...
-        <GlyphStyleProvider interface={glyphInterface} theme={glyphTheme}>
+        <GlyphStyleProvider interface={glyphInterface} theme={glyphTheme} basePath="/drfrwrhs/web">
             ...
         </GlyphStyleProvider>
         ...

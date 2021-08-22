@@ -2,6 +2,7 @@ import { Component, Prop, State, h, Event, EventEmitter, Watch } from '@stencil/
 import { UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -31,7 +32,7 @@ export class InputComponent {
     /** Search flag, renders a search icon if `box` is false */
     @Prop() search: boolean;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Text change event */
     @Event() inputChange: EventEmitter<string>;
     /** Enter key event */
@@ -56,6 +57,10 @@ export class InputComponent {
         this.inTransition = true;
         this.rangeValue = this.value;
         setTimeout(() => (this.inTransition = false), 700);
+    }
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
     }
 
     componentWillRender() {

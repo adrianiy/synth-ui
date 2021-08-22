@@ -359,13 +359,13 @@ export class GlyphFlex {
 import { HeaderComponent as IHeaderComponent } from 'glyph-components-poc/dist/types/components/layouts/header/header';
 export declare interface GlyphHeader extends Components.GlyphHeader {}
 @ProxyCmp({
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig']
 })
 @Component({
   selector: 'glyph-header',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
+  inputs: ['activeBrand', 'appData', 'appSubtitle', 'appTitle', 'avatar', 'basePath', 'brand', 'brandList', 'calendarEvents', 'events', 'i18n', 'interface', 'locale', 'menu', 'notifications', 'search', 'share', 'timeline', 'userData', 'userMenuConfig'],
   outputs: ['langChange', 'themeChange', 'decimalsChange', 'brandChange', 'customConfigChange', 'logout']
 })
 export class GlyphHeader {
@@ -798,13 +798,13 @@ export class GlyphSortableElement {
 
 export declare interface GlyphStyle extends Components.GlyphStyle {}
 @ProxyCmp({
-  inputs: ['interface', 'theme']
+  inputs: ['basePath', 'interface', 'theme']
 })
 @Component({
   selector: 'glyph-style',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['interface', 'theme']
+  inputs: ['basePath', 'interface', 'theme']
 })
 export class GlyphStyle {
   protected el: HTMLElement;

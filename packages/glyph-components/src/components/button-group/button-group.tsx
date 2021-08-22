@@ -2,6 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 import { Button, ButtonGroupStyle, Alignment, UIInterface } from 'glyph-core-poc';
 import { Format } from '../../utils/format';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -17,7 +18,11 @@ export class ButtonGroupComponent {
     /** Button alignment ['left', 'center', 'right'] */
     @Prop() alignment: Alignment = Alignment.center;
     /** Application interface */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     private _handleClick = (button: Button, idx: number) => () => {
         this.buttons = this.buttons.map((btn, index) => ({ ...btn, active: index === idx }));

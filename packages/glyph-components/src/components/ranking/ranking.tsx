@@ -1,6 +1,9 @@
 import { Component, Prop, Element, h, State, Event, EventEmitter, Method, Watch } from '@stencil/core';
 import { RankingData, Article } from 'glyph-core-poc';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import state from '../../utils/store/context.store';
+import { cls, getComponentLocale } from '../../utils/utils';
+import en from './i18n/ranking.i18n.en.json';
+import es from './i18n/ranking.i18n.es.json';
 
 @Component({
     tag: 'glyph-ranking',
@@ -66,9 +69,10 @@ export class RankingComponent {
         this._rankingContainer.scrollTop = 0;
     }
 
-    async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'ranking' ], this.element, this.basePath, this.locale);
+    componentWillLoad() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.basePath = this.basePath || state.basePath;
     }
 
     async componentDidRender() {

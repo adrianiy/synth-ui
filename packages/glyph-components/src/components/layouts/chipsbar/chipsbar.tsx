@@ -1,7 +1,10 @@
 import { Component, Event, EventEmitter, Prop, State, h, Element, Host } from '@stencil/core';
 import { FiltersConfig, FilterSelectEvent, FilterUpdateEvent, UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../../utils/utils';
+import state from '../../../utils/store/context.store';
+import { cls, getComponentLocale } from '../../../utils/utils';
+import es from './i18n/chipsbar.i18n.es.json';
+import en from './i18n/chipsbar.i18n.en.json';
 
 @Component({
     tag: 'glyph-chipsbar',
@@ -20,7 +23,7 @@ export class ChipsBarComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Interface type */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Filter select event */
     @Event() filterSelect: EventEmitter<FilterSelectEvent>;
     /** Filter clear event */
@@ -41,14 +44,16 @@ export class ChipsBarComponent {
     private _i18n: any;
     private _refs: any[];
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
     private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'chipsbar' ], this.element, this.basePath, this.locale);
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._refs = [];
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _handleOptionClick = (key: string) => ({ detail }: CustomEvent<FilterSelectEvent>) => {

@@ -2,7 +2,10 @@ import { Component, Element, Event, EventEmitter, h, Method, Prop, State } from 
 import { Article, ToasterTypes, ArticleSize } from 'glyph-core-poc';
 import { Format } from '../../utils/format';
 import { Flex } from '../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import state from '../../utils/store/context.store';
+import { cls, getComponentLocale } from '../../utils/utils';
+import en from './i18n/article.i18n.en.json';
+import es from './i18n/article.i18n.es.json';
 
 @Component({
     tag: 'glyph-article',
@@ -50,9 +53,10 @@ export class ArticleComponent {
     private _article: HTMLElement;
     private _id = new Date().valueOf();
 
-    async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'article' ], this.element, this.basePath, this.locale);
+    componentWillLoad() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.basePath = this.basePath || state.basePath;
     }
 
     componentDidRender() {

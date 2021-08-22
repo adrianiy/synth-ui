@@ -5,11 +5,11 @@ import {
     SortableIcon,
     SortableChildrenEvent,
     FilterOption,
-    UIInterface,
     FilterOptionHeader,
 } from 'glyph-core-poc';
 import { SortableOptions } from 'sortablejs';
 import { Flex } from '../../../../utils/layout';
+import state from '../../../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-config-modal',
@@ -24,7 +24,7 @@ export class ConfigModalComponent {
     /** Hide zara south filters active */
     @Prop() hideZaraSouth: boolean;
     /** Interface type [ 'MODERN', 'CLASSIC' ] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Filter configuration change event */
     @Event() configChange: EventEmitter<FiltersConfig>;
 
@@ -38,6 +38,7 @@ export class ConfigModalComponent {
     @State() zaraSouthHidden: boolean;
 
     componentWillLoad() {
+        this.interface = this.interface || state.interface;
         const savedZaraSouth = localStorage.getItem('glyph.hideSouthFilters');
         this.zaraSouthHidden = savedZaraSouth === 'true';
         Object.keys(this.filtersConfig).forEach((key: string) => {

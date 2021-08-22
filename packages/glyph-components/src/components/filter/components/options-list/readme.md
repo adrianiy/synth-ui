@@ -7,14 +7,14 @@
 
 ## Properties
 
-| Property      | Attribute      | Description                                 | Type                                                   | Default               |
-| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------ | --------------------- |
-| `i18n`        | --             | Extra i18n translation object               | `{ [key: string]: string; }`                           | `{}`                  |
-| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `string`                                               | `UIInterface.classic` |
-| `listStyle`   | --             | Style applied in list                       | `{ [key: string]: string; }`                           | `undefined`           |
-| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void` | `undefined`           |
-| `options`     | --             | Filter options                              | `FilterOptionHeader[]`                                 | `undefined`           |
-| `searchValue` | `search-value` | Search value                                | `string`                                               | `undefined`           |
+| Property      | Attribute      | Description                                 | Type                                                   | Default     |
+| ------------- | -------------- | ------------------------------------------- | ------------------------------------------------------ | ----------- |
+| `i18n`        | --             | Extra i18n translation object               | `{ [key: string]: string; }`                           | `{}`        |
+| `interface`   | `interface`    | Filter chip interface ['MODERN', 'CLASSIC'] | `string`                                               | `undefined` |
+| `listStyle`   | --             | Style applied in list                       | `{ [key: string]: string; }`                           | `undefined` |
+| `optionClick` | --             | Option click event                          | `(option: FilterOptionHeader) => (event: any) => void` | `undefined` |
+| `options`     | --             | Filter options                              | `FilterOptionHeader[]`                                 | `undefined` |
+| `searchValue` | `search-value` | Search value                                | `string`                                               | `undefined` |
 
 
 ## Dependencies

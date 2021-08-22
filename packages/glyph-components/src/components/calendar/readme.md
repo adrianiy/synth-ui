@@ -12,7 +12,7 @@
 | `auxActive`    | `aux-active`    | Activate seconday selection display                                    | `boolean` | `undefined`                        |
 | `endDate`      | --              | Selected end date                                                      | `Date`    | `new Date()`                       |
 | `endDateAux`   | --              | Secondary selected end date                                            | `Date`    | `new Date()`                       |
-| `interface`    | `interface`     | Filter chip interface ['MODERN', 'CLASSIC']                            | `string`  | `UIInterface.classic`              |
+| `interface`    | `interface`     | Filter chip interface ['MODERN', 'CLASSIC']                            | `string`  | `undefined`                        |
 | `maxDate`      | --              | Maximum allowed date                                                   | `Date`    | `new Date()`                       |
 | `maxDateAux`   | --              | Maximum allowed date                                                   | `Date`    | `new Date()`                       |
 | `minDate`      | --              | Minimum allowed date                                                   | `Date`    | `dayjs().startOf('year').toDate()` |

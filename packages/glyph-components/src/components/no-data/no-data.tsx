@@ -1,8 +1,11 @@
 import { Component, Element, h, Prop } from '@stencil/core';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
+import { getComponentLocale } from '../../utils/utils';
 import { NoDataType } from './no-data.model';
+import es from './i18n/no-data.i18n.es.json';
+import en from './i18n/no-data.i18n.en.json';
+import state from '../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-no-data',
@@ -27,9 +30,10 @@ export class NoDataComponent {
 
     private _i18n: any;
 
-    async componentWillLoad() {
-        const componentI18n = await getLocaleComponentStrings([ 'no-data' ], this.element, this.basePath, this.locale);
+    componentWillLoad() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _simpleRender() {

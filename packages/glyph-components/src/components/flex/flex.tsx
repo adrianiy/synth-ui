@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
-import { UIInterface, UITheme } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -38,9 +38,14 @@ export class FlexComponent {
     /** Set an id to attribute data-testid */
     @Prop() testId: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Theme type */
-    @Prop() theme: UITheme = UITheme.light;
+    @Prop() theme: string;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+        this.theme = this.theme || state.theme;
+    }
 
     render() {
         return (

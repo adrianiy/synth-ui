@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UITheme, UserData, UserMenuConfiguration } from "glyph-core-poc";
+import { Alignment, Article, Brand, Brands, Button, ButtonGroupStyle, ComparableType, ComplexSelectorOptions, Crumb, FilterOptionHeader, FiltersConfig, FilterSelectEvent, FilterUpdateEvent, RankingData, RankingViewOptions, Row, Screen, SelectorOption, SortableChildrenEvent, SortableOption, Tab, TabStyle, TimelineEvent, UserData, UserMenuConfiguration } from "glyph-core-poc";
 import { SortableOptions } from "sortablejs";
 export namespace Components {
     interface GlyphAppMenu {
@@ -558,7 +558,7 @@ export namespace Components {
         /**
           * Theme type
          */
-        "theme": UITheme;
+        "theme": string;
         /**
           * Vertical align = top
          */
@@ -585,6 +585,10 @@ export namespace Components {
           * User avatar flag
          */
         "avatar": boolean;
+        /**
+          * Base path
+         */
+        "basePath": string;
         /**
           * Brand selector flag
          */
@@ -1249,6 +1253,10 @@ export namespace Components {
         "valueGetter": (item: any) => string;
     }
     interface GlyphStyle {
+        /**
+          * Base path
+         */
+        "basePath": string;
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */
@@ -2279,7 +2287,7 @@ declare namespace LocalJSX {
         /**
           * Theme type
          */
-        "theme"?: UITheme;
+        "theme"?: string;
         /**
           * Vertical align = top
          */
@@ -2306,6 +2314,10 @@ declare namespace LocalJSX {
           * User avatar flag
          */
         "avatar"?: boolean;
+        /**
+          * Base path
+         */
+        "basePath"?: string;
         /**
           * Brand selector flag
          */
@@ -3046,6 +3058,10 @@ declare namespace LocalJSX {
         "valueGetter"?: (item: any) => string;
     }
     interface GlyphStyle {
+        /**
+          * Base path
+         */
+        "basePath"?: string;
         /**
           * Interface type ['MODERN', 'CLASSIC']
          */

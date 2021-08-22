@@ -16,10 +16,12 @@ export const useGlyphStyle = () => useContext(GlyphStyleContext);
 const GlyphStyleProvider = ({
     interface: interfaceValue,
     theme,
+    basePath,
     children,
 }: {
     interface: string;
     theme: string;
+    basePath: string;
     children: any;
 }) => {
     const [ glyphInterface, setGlyphInterface ] = useState(interfaceValue || UIInterface.classic);
@@ -27,7 +29,7 @@ const GlyphStyleProvider = ({
 
     return (
         <GlyphStyleContext.Provider value={{ glyphInterface, glyphTheme, setGlyphInterface, setGlyphTheme } as any}>
-            <GlyphStyle interface={glyphInterface} theme={glyphTheme}>
+            <GlyphStyle basePath={basePath} interface={glyphInterface} theme={glyphTheme}>
                 {children}
             </GlyphStyle>
         </GlyphStyleContext.Provider>

@@ -16,7 +16,7 @@ export class LoginComponent {
     /** Base path to get assets */
     @Prop() basePath: string;
     /** Component interface *modern* | *classic* */
-    @Prop() interface: string = UIInterface.modern;
+    @Prop() interface: string;
     /** Application version */
     @Prop() version: string;
     /** Login callback */
@@ -52,6 +52,8 @@ export class LoginComponent {
     private _initializeVariables() {
         const componentI18n = getComponentLocale(this.element, { en, es });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || store.interface;
+        this.basePath = this.basePath || store.basePath;
     }
 
     private _handleUserInput = (event: any) => {

@@ -20,6 +20,8 @@ import store from './../../../utils/store/context.store';
     shadow: true,
 })
 export class HeaderComponent {
+    /** Base path */
+    @Prop() basePath: string;
     /** Brand selector flag */
     @Prop() brand: boolean;
     /** Available brands list */
@@ -53,7 +55,7 @@ export class HeaderComponent {
     /** Events */
     @Prop() events: TimelineEvent[];
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Extra i18n translation object */
     @Prop() i18n: { [key: string]: string } = {};
     /** **optional** force locale change if html lang is not interpreted */
@@ -85,6 +87,11 @@ export class HeaderComponent {
     @State() showNotifications: boolean = false;
     /** show brand menu */
     @State() showBrands: boolean = false;
+
+    componentWillRender() {
+        this.interface = store.interface;
+        this.basePath = store.basePath;
+    }
 
     private _toggleShareMenu = (value?: boolean) => () => {
         this.showShareMenu = value ?? !this.showShareMenu;
@@ -328,7 +335,7 @@ export class HeaderComponent {
                     {this.brand && (
                         <img
                             class={cls({ clickable: this.brand && this.brandList.length > 1 })}
-                            src={getAssetPath(`${store.basePath}/assets/brands/icon_${this.activeBrand}.svg`)}
+                            src={getAssetPath(`${this.basePath}/assets/brands/icon_${this.activeBrand}.svg`)}
                             onClick={this._toggleBrandsMenu()}
                         />
                     )}

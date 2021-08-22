@@ -1,7 +1,8 @@
 import { Component, h, Prop } from '@stencil/core';
-import { FilterOptionHeader, UIInterface } from 'glyph-core-poc';
+import { FilterOptionHeader } from 'glyph-core-poc';
 import { Icon } from '../../../../utils/icons';
 import { Flex } from '../../../../utils/layout';
+import state from '../../../../utils/store/context.store';
 import { cls } from '../../../../utils/utils';
 import { inSearch, renderOptionDescription } from '../../utils/utils';
 
@@ -14,7 +15,7 @@ export class OptionsListComponent {
     /** Filter options */
     @Prop() options: FilterOptionHeader[];
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Style applied in list */
     @Prop() listStyle: { [key: string]: string };
     /** Extra i18n translation object */
@@ -23,6 +24,10 @@ export class OptionsListComponent {
     @Prop() searchValue: string;
     /** Option click event */
     @Prop() optionClick: (option: FilterOptionHeader) => (event: any) => void;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     private _checkHide(option: FilterOptionHeader) {
         const { parents } = option;

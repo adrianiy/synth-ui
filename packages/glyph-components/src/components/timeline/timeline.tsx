@@ -1,7 +1,10 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { CalendarEvent, CalendarGroup, SelectorOption, Tab, TimelineEvent, UIInterface } from 'glyph-core-poc';
+import { CalendarEvent, CalendarGroup, SelectorOption, Tab, TimelineEvent } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
-import { getLocaleComponentStrings } from '../../utils/utils';
+import state from '../../utils/store/context.store';
+import { getComponentLocale } from '../../utils/utils';
+import en from './i18n/timeline.i18n.en.json';
+import es from './i18n/timeline.i18n.es.json';
 
 @Component({
     tag: 'glyph-timeline',
@@ -20,7 +23,7 @@ export class TimelineComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Element reference */
@@ -59,9 +62,11 @@ export class TimelineComponent {
         this.selectedTimeline = this.options.find(option => option.active).name;
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'timeline' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
         this.options.forEach(option => (option.name = this._i18n[option.name]));
     }
 

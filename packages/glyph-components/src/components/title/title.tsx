@@ -1,5 +1,6 @@
 import { Component, h, Prop } from '@stencil/core';
 import { UIInterface } from 'glyph-core-poc';
+import state from '../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-title',
@@ -10,7 +11,11 @@ export class TitleComponent {
     /** title text */
     @Prop() text: string;
     /** interface input */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     render() {
         return this.interface === UIInterface.redesign ? (

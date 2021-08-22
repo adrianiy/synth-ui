@@ -1,8 +1,11 @@
 import { Component, Element, Listen, Prop, h, State } from '@stencil/core';
-import { Screen, UIInterface } from 'glyph-core-poc';
+import { Screen } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getComponentLocale } from '../../utils/utils';
+import es from './i18n/app-menu.i18n.es.json';
+import en from './i18n/app-menu.i18n.en.json';
+import state from '../../utils/store/context.store';
 
 @Component({
     tag: 'glyph-app-menu',
@@ -23,7 +26,7 @@ export class AppMenuComponent {
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Element reference */
     @Element() element: HTMLGlyphAppMenuElement;
     /** App search value */
@@ -38,13 +41,15 @@ export class AppMenuComponent {
         }
     }
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'app-menu' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _navigateTo = (option: Screen) => () => {

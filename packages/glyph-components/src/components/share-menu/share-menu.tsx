@@ -1,8 +1,11 @@
 import { Component, Element, Prop, State, h, Listen } from '@stencil/core';
-import { ToasterTypes, UIInterface } from 'glyph-core-poc';
+import { ToasterTypes } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import state from '../../utils/store/context.store';
+import { cls, getComponentLocale } from '../../utils/utils';
+import en from './i18n/share-menu.i18n.en.json';
+import es from './i18n/share-menu.i18n.es.json';
 
 @Component({
     tag: 'glyph-share-menu',
@@ -21,7 +24,7 @@ export class ShareMenuComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** Event triggered when user clicks outside component container */
     @Prop() outsideCallback: () => void;
     /** Element reference */
@@ -39,13 +42,15 @@ export class ShareMenuComponent {
         }
     }
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings([ 'share-menu' ], this.element, this.basePath, this.locale);
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
+        this.interface = this.interface || state.interface;
+        this.basePath = this.basePath || state.basePath;
     }
 
     private _toggleShare = () => {

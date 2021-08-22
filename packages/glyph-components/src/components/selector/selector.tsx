@@ -2,6 +2,7 @@ import { Component, Prop, h, State, Event, EventEmitter, Element } from '@stenci
 import { ComplexSelectorOptions, SelectorOption, UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -25,7 +26,7 @@ export class SelectorComponent {
     /** Search placeholder text. If defined a search input will render */
     @Prop() searchPlaceholder: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** on change callback */
     @Event() optionSelect: EventEmitter<SelectorOption>;
 
@@ -36,6 +37,10 @@ export class SelectorComponent {
     @State() selectedOptions: SelectorOption[];
     /** Options selector drilldown flag */
     @State() optionsDrilldown: boolean;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     componentWillRender() {
         this._getSelectedOptions();

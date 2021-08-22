@@ -1,6 +1,6 @@
 import { Component, Prop, h } from '@stencil/core';
-import { UIInterface } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 
 import { cls } from '../../utils/utils';
 
@@ -13,7 +13,11 @@ export class TogglerComponent {
     /** Toggler state */
     @Prop({ mutable: true }) active: boolean = false;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     private _handleToggle = () => {
         this.active = !this.active;

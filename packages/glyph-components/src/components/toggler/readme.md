@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute   | Description                          | Type      | Default               |
-| ----------- | ----------- | ------------------------------------ | --------- | --------------------- |
-| `active`    | `active`    | Toggler state                        | `boolean` | `false`               |
-| `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `string`  | `UIInterface.classic` |
+| Property    | Attribute   | Description                          | Type      | Default     |
+| ----------- | ----------- | ------------------------------------ | --------- | ----------- |
+| `active`    | `active`    | Toggler state                        | `boolean` | `false`     |
+| `interface` | `interface` | Interface type ['MODERN', 'CLASSIC'] | `string`  | `undefined` |
 
 
 ## Dependencies

@@ -1,11 +1,14 @@
 import { Component, Host, Element, h, Prop, State, Watch, Event, EventEmitter } from '@stencil/core';
 import { filterEmptyRows, parseExcelData, sortList } from './utils/list';
-import { cls, getLocaleComponentStrings } from '../../utils/utils';
+import { cls, getComponentLocale } from '../../utils/utils';
 import { Flex } from '../../utils/layout';
 import { Workbook } from 'exceljs';
 import { Row } from 'glyph-core-poc';
 import * as fs from 'file-saver';
 import { Icon } from '../../utils/icons';
+import state from '../../utils/store/context.store';
+import en from './i18n/list.i18n.en.json';
+import es from './i18n/list.i18n.es.json';
 
 const LIMIT = 16;
 const RESPONSIVE_LIMIT = 10;
@@ -69,20 +72,16 @@ export class ListComponent {
         this._parseData();
     }
 
-    async componentWillLoad() {
-        await this._initializeVariables();
+    componentWillLoad() {
+        this._initializeVariables();
         this._parseData();
     }
 
-    private async _initializeVariables() {
-        const componentI18n = await getLocaleComponentStrings(
-            [ 'list', 'no-data' ],
-            this.element,
-            this.basePath,
-            this.locale,
-        );
+    private _initializeVariables() {
+        const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
         this._isMobile = window.innerWidth < 1050;
+        this.basePath = this.basePath || state.basePath;
 
         if (!this.limit) {
             this.limit = this._isMobile ? RESPONSIVE_LIMIT : LIMIT;

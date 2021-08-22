@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
-import { UIInterface } from 'glyph-core-poc';
 import { Icon } from '../../utils/icons';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -27,13 +27,17 @@ export class ModalComponent {
     /** Apply button text. Renders button if set */
     @Prop() applyButton: string;
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
     /** close event */
     @Event() close: EventEmitter<any>;
     /** apply event */
     @Event() apply: EventEmitter<any>;
     /** cancel event */
     @Event() cancel: EventEmitter<any>;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     private _checkClose = (event: any) => {
         if (!event.path.some((el: HTMLElement) => el.closest?.('.modal__container')) && this.visible) {

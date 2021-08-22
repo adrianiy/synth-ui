@@ -1,6 +1,7 @@
 import { Component, Prop, h } from '@stencil/core';
-import { UIInterface, UserData } from 'glyph-core-poc';
+import { UserData } from 'glyph-core-poc';
 import { Flex } from '../../utils/layout';
+import state from '../../utils/store/context.store';
 import { cls } from '../../utils/utils';
 
 @Component({
@@ -14,7 +15,11 @@ export class AvatarComponent {
     /** User name, used as image fallback */
     @Prop() name: UserData['name'];
     /** Interface type ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = UIInterface.classic;
+    @Prop() interface: string;
+
+    componentWillLoad() {
+        this.interface = this.interface || state.interface;
+    }
 
     render() {
         return (

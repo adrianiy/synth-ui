@@ -260,6 +260,7 @@ pipe:
             - description
             - display
             - market
+            - parents
 
   # Data grouping
   - parallel:
@@ -363,6 +364,8 @@ pipe:
             - delete: description
             - add: header
               value: true
+            - add: parents
+              value: 'row => ({ market: row.market })'
 
   # Join parents data
   - parallel:
