@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.7.0...glyph-react-poc-v2.8.0) (2021-08-22)
+
+
+### Features
+
+* **react:** configure basePath in styleProvider ([2e25cec](https://github.com/adrianiy/glyph-ui/commit/2e25ceca2dabb5963c6a443122c4b12d4c98f7ac))
+
 # [2.7.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.6.0...glyph-react-poc-v2.7.0) (2021-08-20)
 
 
