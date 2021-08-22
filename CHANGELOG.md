@@ -1,3 +1,10 @@
+# [4.13.0](https://github.com/adrianiy/glyph-ui/compare/v4.12.0...v4.13.0) (2021-08-22)
+
+
+### Features
+
+* **react:** configure basePath in styleProvider ([2e25cec](https://github.com/adrianiy/glyph-ui/commit/2e25ceca2dabb5963c6a443122c4b12d4c98f7ac))
+
 # [4.12.0](https://github.com/adrianiy/glyph-ui/compare/v4.11.0...v4.12.0) (2021-08-20)
 
 
