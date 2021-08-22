@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.3.0...glyph-angular-poc-v1.4.0) (2021-08-22)
+
+
+### Features
+
+* **react:** add stencil store dependency ([f8a8943](https://github.com/adrianiy/glyph-ui/commit/f8a8943ce000bfd21ba223af18499c536adfc74a))
+* **react:** configure basePath in styleProvider ([2e25cec](https://github.com/adrianiy/glyph-ui/commit/2e25ceca2dabb5963c6a443122c4b12d4c98f7ac))
+
 # [1.3.0](https://github.com/adrianiy/glyph-ui/compare/glyph-angular-poc-v1.2.0...glyph-angular-poc-v1.3.0) (2021-08-19)
 
 
