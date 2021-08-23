@@ -1882,6 +1882,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@stencil/store@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.npmjs.org/@stencil/store/-/store-1.4.1.tgz#6804de778921df7dd222a487363a147690254d83"
+  integrity sha512-kAtMblucNnDNfTpSqhN9jccExgFWmOe+4U98cXZJrg/6nozNtEd92pY6s3Jko7KUrZ+1MQJU2oLwwS8VuyK3Zg==
+
 "@storybook/addon-actions@6.3.1", "@storybook/addon-actions@^6.3.1":
   version "6.3.1"
   resolved "https://registry.npmjs.org/@storybook/addon-actions/-/addon-actions-6.3.1.tgz#b483e1c2cf5c77b8b750fb8d03a3f7defc4adc98"

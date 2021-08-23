@@ -32,7 +32,7 @@ export class FilterOptionsComponent {
     /** **optional** force locale change if html lang is not interpreted */
     @Prop() locale: string;
     /** Filter chip interface ['MODERN', 'CLASSIC'] */
-    @Prop() interface: string = state.interface;
+    @Prop() interface: string;
     /** Option click event */
     @Prop() optionClickEvent: (option: FilterOptionHeader) => void;
     /** Multiselect toggler callback */
@@ -76,6 +76,7 @@ export class FilterOptionsComponent {
         const componentI18n = getComponentLocale(this.element, { es, en });
         this._i18n = { ...componentI18n, ...this.i18n };
         this.basePath = this.basePath || state.basePath;
+        this.interface = this.interface || state.interface;
     }
 
     private _handleInputChange = (event: any) => {

@@ -45,7 +45,7 @@ export class OptionsListComponent {
         return (
             childInSearch && (
                 <glyph-filter-drilldown-options
-                    option={option}
+                    option={{ ...option }}
                     interface={this.interface}
                     searchValue={this.searchValue}
                     optionClick={this.optionClick}

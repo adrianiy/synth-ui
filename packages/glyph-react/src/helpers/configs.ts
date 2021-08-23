@@ -7,7 +7,7 @@ const year = dayjs().year();
 
 export const dateRanges: FilterOptionHeader[] = [
     { description: 'Day +1', startDate: tomorrow, endDate: tomorrow },
-    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true },
+    { description: 'Real time', startDate: new Date(), endDate: new Date(), isDefault: true, active: true },
     { description: 'Yesterday', startDate: yesterday, endDate: yesterday },
     { description: 'Last 7 days', startDate: dayjs().subtract(7, 'day').toDate(), endDate: yesterday },
     { description: 'Last 14 days', startDate: dayjs().subtract(14, 'day').toDate(), endDate: yesterday },

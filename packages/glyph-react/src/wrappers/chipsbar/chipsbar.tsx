@@ -5,7 +5,7 @@ import { GlyphChipsbar } from '../../components';
 import { useFiltersConfig } from '../../providers/filter-state';
 
 function GlyphReactChipsbar({ uiInterface, locale, i18n, basePath }: GlyphReactChipsbarProps) {
-    const { filtersConfig, updateFiltersConfig, updateFilter } = useFiltersConfig();
+    const { filtersConfig, updateFiltersConfig, updateFilter, clearAll } = useFiltersConfig();
 
     const handleSelectFilter = () => {
         updateFiltersConfig(filtersConfig || {});
@@ -16,7 +16,7 @@ function GlyphReactChipsbar({ uiInterface, locale, i18n, basePath }: GlyphReactC
     };
 
     const handleFilterClear = () => {
-        updateFiltersConfig(filtersConfig || {});
+        clearAll();
     };
 
     const handleClearAll = () => {

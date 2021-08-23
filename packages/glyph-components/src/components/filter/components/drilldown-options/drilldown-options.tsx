@@ -29,7 +29,10 @@ export class FilterDrilldownOptionsComponent {
     @State() expandedState: boolean = false;
 
     componentWillLoad() {
-        this.expandedState = this.expanded;
+        const anyActive = this.option.children.some(
+            child => child.active || (this.searchValue && inSearch(child, this.searchValue, this.i18n)),
+        );
+        this.expandedState = this.expandedState || anyActive;
         this.interface = this.interface || state.interface;
     }
 
@@ -55,11 +58,8 @@ export class FilterDrilldownOptionsComponent {
     };
 
     render() {
-        const { children, description } = this.option;
-        const anyActive = children.some(
-            child => child.active || (this.searchValue && inSearch(child, this.searchValue, this.i18n)),
-        );
-        const expanded = this.expandedState || anyActive;
+        const { description } = this.option;
+        const expanded = this.expanded || this.expandedState;
 
         return (
             <Flex class="children__container">

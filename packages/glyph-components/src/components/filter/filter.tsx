@@ -99,6 +99,7 @@ export class FilterComponent {
         if (!this.multiSelect) {
             this._clear();
         }
+
         option.active = !option.active;
 
         this.optionClick.emit({ option });
@@ -121,8 +122,10 @@ export class FilterComponent {
     private _onClear = (event?: any) => {
         this._clear();
         this._getChipDescription();
-        this.clear.emit();
-        event?.stopPropagation();
+        if (event) {
+            this.clear.emit();
+            event?.stopPropagation();
+        }
     };
 
     private _getActiveOptions = () => {
