@@ -1,3 +1,10 @@
+## [4.13.3](https://github.com/adrianiy/glyph-ui/compare/v4.13.2...v4.13.3) (2021-09-08)
+
+
+### Bug Fixes
+
+* add header in (sub)family filters ([5837a38](https://github.com/adrianiy/glyph-ui/commit/5837a3854d47ee62b7a841e3c9fbe259f95c19c8))
+
 ## [4.13.2](https://github.com/adrianiy/glyph-ui/compare/v4.13.1...v4.13.2) (2021-09-08)
 
 
