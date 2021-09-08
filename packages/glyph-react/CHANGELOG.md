@@ -1,3 +1,11 @@
+## [2.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.1...glyph-react-poc-v2.8.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* add header attribute ([31794a8](https://github.com/adrianiy/glyph-ui/commit/31794a885d034e56e98a87e182004e2962b7faef))
+* add header in (sub)family filters ([5837a38](https://github.com/adrianiy/glyph-ui/commit/5837a3854d47ee62b7a841e3c9fbe259f95c19c8))
+
 ## [2.8.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.0...glyph-react-poc-v2.8.1) (2021-08-23)
 
 
