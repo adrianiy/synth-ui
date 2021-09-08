@@ -1,3 +1,10 @@
+## [2.8.1](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.0...glyph-react-poc-v2.8.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **react:** fix clear all ([8d90e5c](https://github.com/adrianiy/glyph-ui/commit/8d90e5c937d3fdc294a73886d25fe4ffaf57a694))
+
 # [2.8.0](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.7.0...glyph-react-poc-v2.8.0) (2021-08-22)
 
 

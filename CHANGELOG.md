@@ -1,3 +1,10 @@
+## [4.13.1](https://github.com/adrianiy/glyph-ui/compare/v4.13.0...v4.13.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* **react:** fix clear all ([8d90e5c](https://github.com/adrianiy/glyph-ui/commit/8d90e5c937d3fdc294a73886d25fe4ffaf57a694))
+
 # [4.13.0](https://github.com/adrianiy/glyph-ui/compare/v4.12.0...v4.13.0) (2021-08-22)
 
 
