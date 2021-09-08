@@ -1,3 +1,10 @@
+## [1.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.1...glyph-core-poc-v1.8.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* add header attribute ([31794a8](https://github.com/adrianiy/glyph-ui/commit/31794a885d034e56e98a87e182004e2962b7faef))
+
 ## [1.8.1](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.0...glyph-core-poc-v1.8.1) (2021-08-23)
 
 
