@@ -317,6 +317,8 @@ pipe:
             - delete: section
             - delete: product_line
             - delete: code
+            - add: header
+              value: true
             - match: parents
               value: 'row => ({ product: row.product, section: null, product_line: null })'
     # Subfamily grouping
@@ -349,6 +351,8 @@ pipe:
             - delete: product_line
             - delete: code
             - delete: family
+            - add: header
+              value: true
             - match: parents
               value: 'row => ({ product: row.product, section: null, product_line: null, family: null })'
     # Platform grouping
