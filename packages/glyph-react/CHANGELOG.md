@@ -1,3 +1,10 @@
+## [2.8.4](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.3...glyph-react-poc-v2.8.4) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** keep filters state on refresh ([e879ea7](https://github.com/adrianiy/glyph-ui/commit/e879ea7b95b549542b7b62b4307ed6c1fc656eb6))
+
 ## [2.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.2...glyph-react-poc-v2.8.3) (2021-09-09)
 
 
