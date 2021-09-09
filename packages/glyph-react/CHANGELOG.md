@@ -1,3 +1,11 @@
+## [2.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.2...glyph-react-poc-v2.8.3) (2021-09-09)
+
+
+### Bug Fixes
+
+* fix scroll speed propagation ([776bc77](https://github.com/adrianiy/glyph-ui/commit/776bc770a003148b486b9b6c4df669f104f13cf9))
+* **components:** pass scrollSpeed to scroll component ([2bf9d8f](https://github.com/adrianiy/glyph-ui/commit/2bf9d8fb595b1046335eeaea5817b9fec23ce68b))
+
 ## [2.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.1...glyph-react-poc-v2.8.2) (2021-09-08)
 
 
