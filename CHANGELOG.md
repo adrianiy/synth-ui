@@ -1,3 +1,10 @@
+## [4.13.5](https://github.com/adrianiy/glyph-ui/compare/v4.13.4...v4.13.5) (2021-09-09)
+
+
+### Bug Fixes
+
+* fix scroll speed propagation ([776bc77](https://github.com/adrianiy/glyph-ui/commit/776bc770a003148b486b9b6c4df669f104f13cf9))
+
 ## [4.13.4](https://github.com/adrianiy/glyph-ui/compare/v4.13.3...v4.13.4) (2021-09-09)
 
 
