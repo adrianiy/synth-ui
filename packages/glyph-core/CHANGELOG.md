@@ -1,3 +1,13 @@
+## [1.8.3](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.2...glyph-core-poc-v1.8.3) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** keep filters state on refresh ([e879ea7](https://github.com/adrianiy/glyph-ui/commit/e879ea7b95b549542b7b62b4307ed6c1fc656eb6))
+* fix scroll speed propagation ([776bc77](https://github.com/adrianiy/glyph-ui/commit/776bc770a003148b486b9b6c4df669f104f13cf9))
+* **components:** pass scrollSpeed to scroll component ([2bf9d8f](https://github.com/adrianiy/glyph-ui/commit/2bf9d8fb595b1046335eeaea5817b9fec23ce68b))
+* add header in (sub)family filters ([5837a38](https://github.com/adrianiy/glyph-ui/commit/5837a3854d47ee62b7a841e3c9fbe259f95c19c8))
+
 ## [1.8.2](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.1...glyph-core-poc-v1.8.2) (2021-09-08)
 
 
