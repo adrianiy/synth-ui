@@ -1,3 +1,10 @@
+## [4.13.8](https://github.com/adrianiy/glyph-ui/compare/v4.13.7...v4.13.8) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** fix stored filters parse with deleted filters ([3e9a8db](https://github.com/adrianiy/glyph-ui/commit/3e9a8dbce711e94a631be4197f9dc68f7f470412))
+
 ## [4.13.7](https://github.com/adrianiy/glyph-ui/compare/v4.13.6...v4.13.7) (2021-09-09)
 
 
