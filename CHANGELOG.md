@@ -1,3 +1,10 @@
+## [4.13.9](https://github.com/adrianiy/glyph-ui/compare/v4.13.8...v4.13.9) (2021-09-09)
+
+
+### Bug Fixes
+
+* swipe filter clear methods ([79fdce0](https://github.com/adrianiy/glyph-ui/commit/79fdce0dfc1260bafe0e52bb8bd9bd83d857ebb9))
+
 ## [4.13.8](https://github.com/adrianiy/glyph-ui/compare/v4.13.7...v4.13.8) (2021-09-09)
 
 
