@@ -1,3 +1,10 @@
+## [4.13.6](https://github.com/adrianiy/glyph-ui/compare/v4.13.5...v4.13.6) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** keep filters state on refresh ([e879ea7](https://github.com/adrianiy/glyph-ui/commit/e879ea7b95b549542b7b62b4307ed6c1fc656eb6))
+
 ## [4.13.5](https://github.com/adrianiy/glyph-ui/compare/v4.13.4...v4.13.5) (2021-09-09)
 
 
