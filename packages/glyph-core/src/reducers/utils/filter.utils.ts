@@ -156,10 +156,10 @@ export const cleanFiltersCache = (filtersVersion: string) => {
 };
 
 export const getSelectedDatesQuery = (filter: FilterConfig): QueryFilter[] => {
-    let activeOption = filter.options.find(option => option.active);
+    let activeOption = filter?.options.find(option => option.active);
 
     if (!activeOption) {
-        activeOption = filter.option.find((option: FilterConfig) => option.isDefault);
+        activeOption = filter?.option.find((option: FilterConfig) => option.isDefault);
     }
 
     if (activeOption) {
