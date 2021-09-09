@@ -1,3 +1,10 @@
+## [2.8.6](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.5...glyph-react-poc-v2.8.6) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** fix stored filters parse with deleted filters ([3e9a8db](https://github.com/adrianiy/glyph-ui/commit/3e9a8dbce711e94a631be4197f9dc68f7f470412))
+
 ## [2.8.5](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.4...glyph-react-poc-v2.8.5) (2021-09-09)
 
 
