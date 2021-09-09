@@ -1,3 +1,10 @@
+## [2.8.7](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.6...glyph-react-poc-v2.8.7) (2021-09-09)
+
+
+### Bug Fixes
+
+* swipe filter clear methods ([79fdce0](https://github.com/adrianiy/glyph-ui/commit/79fdce0dfc1260bafe0e52bb8bd9bd83d857ebb9))
+
 ## [2.8.6](https://github.com/adrianiy/glyph-ui/compare/glyph-react-poc-v2.8.5...glyph-react-poc-v2.8.6) (2021-09-09)
 
 
