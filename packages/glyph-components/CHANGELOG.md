@@ -1,3 +1,12 @@
+## [1.7.2](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.7.1...glyph-components-poc-v1.7.2) (2021-09-09)
+
+
+### Bug Fixes
+
+* **components:** pass scrollSpeed to scroll component ([2bf9d8f](https://github.com/adrianiy/glyph-ui/commit/2bf9d8fb595b1046335eeaea5817b9fec23ce68b))
+* add header attribute ([31794a8](https://github.com/adrianiy/glyph-ui/commit/31794a885d034e56e98a87e182004e2962b7faef))
+* add header in (sub)family filters ([5837a38](https://github.com/adrianiy/glyph-ui/commit/5837a3854d47ee62b7a841e3c9fbe259f95c19c8))
+
 ## [1.7.1](https://github.com/adrianiy/glyph-ui/compare/glyph-components-poc-v1.7.0...glyph-components-poc-v1.7.1) (2021-08-23)
 
 
