@@ -1,3 +1,10 @@
+## [4.13.7](https://github.com/adrianiy/glyph-ui/compare/v4.13.6...v4.13.7) (2021-09-09)
+
+
+### Bug Fixes
+
+* **core:** fix get date filter method ([d3f86f6](https://github.com/adrianiy/glyph-ui/commit/d3f86f62585443dee9ae2a45cf790b85bede5c65))
+
 ## [4.13.6](https://github.com/adrianiy/glyph-ui/compare/v4.13.5...v4.13.6) (2021-09-09)
 
 
