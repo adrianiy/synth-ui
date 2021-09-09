@@ -16,11 +16,11 @@ function GlyphReactChipsbar({ uiInterface, locale, i18n, basePath }: GlyphReactC
     };
 
     const handleFilterClear = () => {
-        clearAll();
+        updateFiltersConfig(filtersConfig || {});
     };
 
     const handleClearAll = () => {
-        updateFiltersConfig(filtersConfig || {});
+        clearAll();
     };
 
     return (
