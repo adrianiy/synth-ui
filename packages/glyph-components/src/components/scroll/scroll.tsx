@@ -53,6 +53,7 @@ export class ScrollComponent {
                 vertical={this.vertical}
                 height={this.height}
                 width={this.width}
+                scrollSpeed={this.scrollSpeed}
                 class={cls('scrollbar__wrapper', this.containerClass)}
                 initCallback={this._initScrollbar}
             >
