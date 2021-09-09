@@ -1,3 +1,10 @@
+## [4.13.4](https://github.com/adrianiy/glyph-ui/compare/v4.13.3...v4.13.4) (2021-09-09)
+
+
+### Bug Fixes
+
+* **components:** pass scrollSpeed to scroll component ([2bf9d8f](https://github.com/adrianiy/glyph-ui/commit/2bf9d8fb595b1046335eeaea5817b9fec23ce68b))
+
 ## [4.13.3](https://github.com/adrianiy/glyph-ui/compare/v4.13.2...v4.13.3) (2021-09-08)
 
 
