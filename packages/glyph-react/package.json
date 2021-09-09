@@ -7,7 +7,7 @@
     "module": "dist/index.esm.js",
     "typings": "dist/index.d.ts",
     "source": "src/index.tsx",
-    "description": "Wrapper of web components for react.",
+    "description": "Wrapper of web components for react",
     "files": [
         "dist/"
     ],
