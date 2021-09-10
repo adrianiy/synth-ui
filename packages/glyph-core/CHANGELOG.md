@@ -1,3 +1,11 @@
+## [1.8.6](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.5...glyph-core-poc-v1.8.6) (2021-09-10)
+
+
+### Bug Fixes
+
+* fix filters middleware typping ([c00497f](https://github.com/adrianiy/glyph-ui/commit/c00497f2a9b401235cf7a0e45916e4573eebdff3))
+* swipe filter clear methods ([79fdce0](https://github.com/adrianiy/glyph-ui/commit/79fdce0dfc1260bafe0e52bb8bd9bd83d857ebb9))
+
 ## [1.8.5](https://github.com/adrianiy/glyph-ui/compare/glyph-core-poc-v1.8.4...glyph-core-poc-v1.8.5) (2021-09-09)
 
 
