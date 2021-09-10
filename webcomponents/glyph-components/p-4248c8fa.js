@@ -1,0 +1,1 @@
+import{h as o}from"./p-d9655296.js";import{c as s}from"./p-b3f16e2e.js";const t=(t,e)=>o("em",{class:s(t.outlined?"material-icons-outlined":"material-icons",t.class),role:t.button&&"button",onClick:t.onClick},t.icon||e);export{t as I}

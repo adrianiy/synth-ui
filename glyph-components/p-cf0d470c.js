@@ -1,0 +1,1 @@
+import{h as r}from"./p-d9655296.js";const s=(s,n)=>(n&&(s=s.toLowerCase().split(n.toLowerCase()).join(`<b>${n}</b>`)),r("span",{innerHTML:s})),n=(r,s,o)=>!s||(r.header?r.children.some((r=>n(r,s,o))):(o[r.description]||r.description).toLowerCase().includes(s.toLowerCase()));export{n as i,s as r}

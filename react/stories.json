@@ -1,0 +1,136 @@
+{
+  "v": 2,
+  "globalParameters": {},
+  "kindParameters": {
+    "Providers/Filters": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-react/src/providers/filter-state.stories.mdx",
+      "framework": "react"
+    },
+    "Providers/Styles": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-react/src/providers/styles.stories.mdx",
+      "framework": "react"
+    },
+    "Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-react/src/stories/Introduction.stories.mdx",
+      "framework": "react"
+    },
+    "Getting Started": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-react/src/stories/getting-started.stories.mdx",
+      "framework": "react"
+    },
+    "Components/Chipsbar": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-react/src/wrappers/chipsbar/chipsbar.stories.tsx",
+      "framework": "react"
+    }
+  },
+  "stories": {
+    "providers-filters--filters": {
+      "id": "providers-filters--filters",
+      "name": "Filters",
+      "kind": "Providers/Filters",
+      "story": "Filters",
+      "parameters": {
+        "__id": "providers-filters--filters"
+      }
+    },
+    "providers-filters--filter-provider": {
+      "id": "providers-filters--filter-provider",
+      "name": "Filter Provider",
+      "kind": "Providers/Filters",
+      "story": "Filter Provider",
+      "parameters": {
+        "__id": "providers-filters--filter-provider"
+      }
+    },
+    "providers-filters--custom-hooks": {
+      "id": "providers-filters--custom-hooks",
+      "name": "Custom hooks",
+      "kind": "Providers/Filters",
+      "story": "Custom hooks",
+      "parameters": {
+        "__id": "providers-filters--custom-hooks"
+      }
+    },
+    "providers-styles--styles-provide": {
+      "id": "providers-styles--styles-provide",
+      "name": "Styles Provide",
+      "kind": "Providers/Styles",
+      "story": "Styles Provide",
+      "parameters": {
+        "__id": "providers-styles--styles-provide"
+      }
+    },
+    "introduction--introduction": {
+      "id": "introduction--introduction",
+      "name": "Introduction",
+      "kind": "Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "introduction--introduction"
+      }
+    },
+    "getting-started--getting-started": {
+      "id": "getting-started--getting-started",
+      "name": "Getting Started",
+      "kind": "Getting Started",
+      "story": "Getting Started",
+      "parameters": {
+        "__id": "getting-started--getting-started"
+      }
+    },
+    "getting-started--install": {
+      "id": "getting-started--install",
+      "name": "Install",
+      "kind": "Getting Started",
+      "story": "Install",
+      "parameters": {
+        "__id": "getting-started--install"
+      }
+    },
+    "getting-started--react": {
+      "id": "getting-started--react",
+      "name": "React",
+      "kind": "Getting Started",
+      "story": "React",
+      "parameters": {
+        "__id": "getting-started--react"
+      }
+    },
+    "getting-started--amiga-fwk": {
+      "id": "getting-started--amiga-fwk",
+      "name": "Amiga FWK",
+      "kind": "Getting Started",
+      "story": "Amiga FWK",
+      "parameters": {
+        "__id": "getting-started--amiga-fwk"
+      }
+    },
+    "getting-started--example": {
+      "id": "getting-started--example",
+      "name": "Example",
+      "kind": "Getting Started",
+      "story": "Example",
+      "parameters": {
+        "__id": "getting-started--example"
+      }
+    },
+    "getting-started--local": {
+      "id": "getting-started--local",
+      "name": "Local",
+      "kind": "Getting Started",
+      "story": "Local",
+      "parameters": {
+        "__id": "getting-started--local"
+      }
+    },
+    "components-chipsbar--chipsbar": {
+      "id": "components-chipsbar--chipsbar",
+      "name": "Chipsbar",
+      "kind": "Components/Chipsbar",
+      "story": "Chipsbar",
+      "parameters": {
+        "__id": "components-chipsbar--chipsbar"
+      }
+    }
+  }
+}

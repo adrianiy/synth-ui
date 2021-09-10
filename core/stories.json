@@ -1,0 +1,424 @@
+{
+  "v": 2,
+  "globalParameters": {},
+  "kindParameters": {
+    "Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/Introduction.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Composer": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/Composer.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configure": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/Configure.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/Introduction.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Common/Filters": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/common.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/YAML": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/configuration.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Conditional": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/conditional.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Custom": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/custom.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Fetch": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/fetch.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Filter": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/filter.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Filters": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/filters.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Group": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/group.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Join": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/join.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Log": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/log.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Name": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/name.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Parallel": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/parallel.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Pipe": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/pipe.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Sort": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/sort.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Transform": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/transform.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph pipes/Configuration/Variables": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/composer/yaml/variables.stories.mdx",
+      "framework": "html"
+    },
+    "Interfaces/Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/interfaces/Introduction.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/Introduction.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Common/Filters": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/common.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Filter": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/filter.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Filters": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/filters.middlewares.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/GroupBy": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/group.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Join": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/join.middlewares.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Parallel": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/parallel.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Sort": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/sort.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/Transform": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/transform.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "Middlewares/SetVariables": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/middlewares/middlewares/variables.middleware.stories.mdx",
+      "framework": "html"
+    },
+    "State/Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-core/src/stories/state/Introduction.stories.mdx",
+      "framework": "html"
+    }
+  },
+  "stories": {
+    "introduction--introduction": {
+      "id": "introduction--introduction",
+      "name": "Introduction",
+      "kind": "Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "introduction--introduction"
+      }
+    },
+    "glyph-pipes-composer--composer": {
+      "id": "glyph-pipes-composer--composer",
+      "name": "Composer",
+      "kind": "Glyph pipes/Composer",
+      "story": "Composer",
+      "parameters": {
+        "__id": "glyph-pipes-composer--composer"
+      }
+    },
+    "glyph-pipes-configure--configure": {
+      "id": "glyph-pipes-configure--configure",
+      "name": "Configure",
+      "kind": "Glyph pipes/Configure",
+      "story": "Configure",
+      "parameters": {
+        "__id": "glyph-pipes-configure--configure"
+      }
+    },
+    "glyph-pipes-introduction--introduction": {
+      "id": "glyph-pipes-introduction--introduction",
+      "name": "Introduction",
+      "kind": "Glyph pipes/Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "glyph-pipes-introduction--introduction"
+      }
+    },
+    "glyph-pipes-common-filters--filters": {
+      "id": "glyph-pipes-common-filters--filters",
+      "name": "Filters",
+      "kind": "Glyph pipes/Common/Filters",
+      "story": "Filters",
+      "parameters": {
+        "__id": "glyph-pipes-common-filters--filters"
+      }
+    },
+    "glyph-pipes-configuration-yaml--yaml": {
+      "id": "glyph-pipes-configuration-yaml--yaml",
+      "name": "YAML",
+      "kind": "Glyph pipes/Configuration/YAML",
+      "story": "YAML",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-yaml--yaml"
+      }
+    },
+    "glyph-pipes-configuration-conditional--conditional": {
+      "id": "glyph-pipes-configuration-conditional--conditional",
+      "name": "Conditional",
+      "kind": "Glyph pipes/Configuration/Conditional",
+      "story": "Conditional",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-conditional--conditional"
+      }
+    },
+    "glyph-pipes-configuration-custom--custom": {
+      "id": "glyph-pipes-configuration-custom--custom",
+      "name": "Custom",
+      "kind": "Glyph pipes/Configuration/Custom",
+      "story": "Custom",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-custom--custom"
+      }
+    },
+    "glyph-pipes-configuration-fetch--fetch": {
+      "id": "glyph-pipes-configuration-fetch--fetch",
+      "name": "Fetch",
+      "kind": "Glyph pipes/Configuration/Fetch",
+      "story": "Fetch",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-fetch--fetch"
+      }
+    },
+    "glyph-pipes-configuration-filter--filter": {
+      "id": "glyph-pipes-configuration-filter--filter",
+      "name": "Filter",
+      "kind": "Glyph pipes/Configuration/Filter",
+      "story": "Filter",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-filter--filter"
+      }
+    },
+    "glyph-pipes-configuration-filters--filters": {
+      "id": "glyph-pipes-configuration-filters--filters",
+      "name": "Filters",
+      "kind": "Glyph pipes/Configuration/Filters",
+      "story": "Filters",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-filters--filters"
+      }
+    },
+    "glyph-pipes-configuration-group--group": {
+      "id": "glyph-pipes-configuration-group--group",
+      "name": "Group",
+      "kind": "Glyph pipes/Configuration/Group",
+      "story": "Group",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-group--group"
+      }
+    },
+    "glyph-pipes-configuration-join--join": {
+      "id": "glyph-pipes-configuration-join--join",
+      "name": "Join",
+      "kind": "Glyph pipes/Configuration/Join",
+      "story": "Join",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-join--join"
+      }
+    },
+    "glyph-pipes-configuration-log--log": {
+      "id": "glyph-pipes-configuration-log--log",
+      "name": "Log",
+      "kind": "Glyph pipes/Configuration/Log",
+      "story": "Log",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-log--log"
+      }
+    },
+    "glyph-pipes-configuration-name--name": {
+      "id": "glyph-pipes-configuration-name--name",
+      "name": "Name",
+      "kind": "Glyph pipes/Configuration/Name",
+      "story": "Name",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-name--name"
+      }
+    },
+    "glyph-pipes-configuration-parallel--parallel": {
+      "id": "glyph-pipes-configuration-parallel--parallel",
+      "name": "Parallel",
+      "kind": "Glyph pipes/Configuration/Parallel",
+      "story": "Parallel",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-parallel--parallel"
+      }
+    },
+    "glyph-pipes-configuration-pipe--pipe": {
+      "id": "glyph-pipes-configuration-pipe--pipe",
+      "name": "Pipe",
+      "kind": "Glyph pipes/Configuration/Pipe",
+      "story": "Pipe",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-pipe--pipe"
+      }
+    },
+    "glyph-pipes-configuration-sort--sort": {
+      "id": "glyph-pipes-configuration-sort--sort",
+      "name": "Sort",
+      "kind": "Glyph pipes/Configuration/Sort",
+      "story": "Sort",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-sort--sort"
+      }
+    },
+    "glyph-pipes-configuration-transform--transform": {
+      "id": "glyph-pipes-configuration-transform--transform",
+      "name": "Transform",
+      "kind": "Glyph pipes/Configuration/Transform",
+      "story": "Transform",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-transform--transform"
+      }
+    },
+    "glyph-pipes-configuration-variables--variables": {
+      "id": "glyph-pipes-configuration-variables--variables",
+      "name": "Variables",
+      "kind": "Glyph pipes/Configuration/Variables",
+      "story": "Variables",
+      "parameters": {
+        "__id": "glyph-pipes-configuration-variables--variables"
+      }
+    },
+    "interfaces-introduction--introduction": {
+      "id": "interfaces-introduction--introduction",
+      "name": "Introduction",
+      "kind": "Interfaces/Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "interfaces-introduction--introduction"
+      }
+    },
+    "middlewares-introduction--introduction": {
+      "id": "middlewares-introduction--introduction",
+      "name": "Introduction",
+      "kind": "Middlewares/Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "middlewares-introduction--introduction"
+      }
+    },
+    "middlewares-common-filters--filters": {
+      "id": "middlewares-common-filters--filters",
+      "name": "Filters",
+      "kind": "Middlewares/Common/Filters",
+      "story": "Filters",
+      "parameters": {
+        "__id": "middlewares-common-filters--filters"
+      }
+    },
+    "middlewares-filter--filter": {
+      "id": "middlewares-filter--filter",
+      "name": "Filter",
+      "kind": "Middlewares/Filter",
+      "story": "Filter",
+      "parameters": {
+        "__id": "middlewares-filter--filter"
+      }
+    },
+    "middlewares-filters--filters": {
+      "id": "middlewares-filters--filters",
+      "name": "Filters",
+      "kind": "Middlewares/Filters",
+      "story": "Filters",
+      "parameters": {
+        "__id": "middlewares-filters--filters"
+      }
+    },
+    "middlewares-groupby--group-by": {
+      "id": "middlewares-groupby--group-by",
+      "name": "GroupBy",
+      "kind": "Middlewares/GroupBy",
+      "story": "GroupBy",
+      "parameters": {
+        "__id": "middlewares-groupby--group-by"
+      }
+    },
+    "middlewares-join--join": {
+      "id": "middlewares-join--join",
+      "name": "Join",
+      "kind": "Middlewares/Join",
+      "story": "Join",
+      "parameters": {
+        "__id": "middlewares-join--join"
+      }
+    },
+    "middlewares-parallel--parallel": {
+      "id": "middlewares-parallel--parallel",
+      "name": "Parallel",
+      "kind": "Middlewares/Parallel",
+      "story": "Parallel",
+      "parameters": {
+        "__id": "middlewares-parallel--parallel"
+      }
+    },
+    "middlewares-sort--sort": {
+      "id": "middlewares-sort--sort",
+      "name": "Sort",
+      "kind": "Middlewares/Sort",
+      "story": "Sort",
+      "parameters": {
+        "__id": "middlewares-sort--sort"
+      }
+    },
+    "middlewares-transform--transform": {
+      "id": "middlewares-transform--transform",
+      "name": "Transform",
+      "kind": "Middlewares/Transform",
+      "story": "Transform",
+      "parameters": {
+        "__id": "middlewares-transform--transform"
+      }
+    },
+    "middlewares-setvariables--set-variables": {
+      "id": "middlewares-setvariables--set-variables",
+      "name": "SetVariables",
+      "kind": "Middlewares/SetVariables",
+      "story": "SetVariables",
+      "parameters": {
+        "__id": "middlewares-setvariables--set-variables"
+      }
+    },
+    "state-introduction--introduction": {
+      "id": "state-introduction--introduction",
+      "name": "Introduction",
+      "kind": "State/Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "state-introduction--introduction"
+      }
+    }
+  }
+}

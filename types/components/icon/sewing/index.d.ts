@@ -1,0 +1,11 @@
+export declare const actions: string[];
+export declare const alerts: string[];
+export declare const arrows: string[];
+export declare const business: string[];
+export declare const care: string[];
+export declare const controls: string[];
+export declare const others: string[];
+export declare const products: string[];
+export declare const sections: string[];
+export declare const sewing: string[];
+export declare const sustainability: string[];

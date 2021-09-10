@@ -1,0 +1,224 @@
+{
+  "v": 2,
+  "globalParameters": {},
+  "kindParameters": {
+    "Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/Introduction.stories.mdx",
+      "framework": "html"
+    },
+    "Changelog": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/changelog.stories.mdx",
+      "framework": "html"
+    },
+    "Getting Started": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/getting.started.stories.mdx",
+      "framework": "html"
+    },
+    "Glyph UI": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/glyph-ui.stories.mdx",
+      "framework": "html"
+    },
+    "Roadmap": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/roadmap.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Colors": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/colors.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Figma": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/figma.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Icons": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/icons.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Naming convention": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/naming.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Spacing": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/spacing.stories.mdx",
+      "framework": "html"
+    },
+    "Style guide/Typography": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/stories/style-guide/typography.stories.mdx",
+      "framework": "html"
+    }
+  },
+  "stories": {
+    "introduction--introduction": {
+      "id": "introduction--introduction",
+      "name": "Introduction",
+      "kind": "Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "introduction--introduction"
+      }
+    },
+    "changelog--changelog": {
+      "id": "changelog--changelog",
+      "name": "Changelog",
+      "kind": "Changelog",
+      "story": "Changelog",
+      "parameters": {
+        "__id": "changelog--changelog"
+      }
+    },
+    "getting-started--getting-started": {
+      "id": "getting-started--getting-started",
+      "name": "Getting Started",
+      "kind": "Getting Started",
+      "story": "Getting Started",
+      "parameters": {
+        "__id": "getting-started--getting-started"
+      }
+    },
+    "glyph-ui--page": {
+      "id": "glyph-ui--page",
+      "name": "Page",
+      "kind": "Glyph UI",
+      "story": "Page",
+      "parameters": {
+        "docsOnly": true,
+        "__id": "glyph-ui--page"
+      }
+    },
+    "roadmap--roadmap": {
+      "id": "roadmap--roadmap",
+      "name": "Roadmap",
+      "kind": "Roadmap",
+      "story": "Roadmap",
+      "parameters": {
+        "__id": "roadmap--roadmap"
+      }
+    },
+    "style-guide-colors--colors": {
+      "id": "style-guide-colors--colors",
+      "name": "Colors",
+      "kind": "Style guide/Colors",
+      "story": "Colors",
+      "parameters": {
+        "__id": "style-guide-colors--colors"
+      }
+    },
+    "style-guide-colors--light-colors": {
+      "id": "style-guide-colors--light-colors",
+      "name": "Light - Colors",
+      "kind": "Style guide/Colors",
+      "story": "Light - Colors",
+      "parameters": {
+        "__id": "style-guide-colors--light-colors"
+      }
+    },
+    "style-guide-colors--light-backgrounds": {
+      "id": "style-guide-colors--light-backgrounds",
+      "name": "Light - Backgrounds",
+      "kind": "Style guide/Colors",
+      "story": "Light - Backgrounds",
+      "parameters": {
+        "__id": "style-guide-colors--light-backgrounds"
+      }
+    },
+    "style-guide-colors--dark-colors": {
+      "id": "style-guide-colors--dark-colors",
+      "name": "Dark - Colors",
+      "kind": "Style guide/Colors",
+      "story": "Dark - Colors",
+      "parameters": {
+        "__id": "style-guide-colors--dark-colors"
+      }
+    },
+    "style-guide-colors--dark-backgrounds": {
+      "id": "style-guide-colors--dark-backgrounds",
+      "name": "Dark - Backgrounds",
+      "kind": "Style guide/Colors",
+      "story": "Dark - Backgrounds",
+      "parameters": {
+        "__id": "style-guide-colors--dark-backgrounds"
+      }
+    },
+    "style-guide-colors--special": {
+      "id": "style-guide-colors--special",
+      "name": "Special",
+      "kind": "Style guide/Colors",
+      "story": "Special",
+      "parameters": {
+        "__id": "style-guide-colors--special"
+      }
+    },
+    "style-guide-figma--figma": {
+      "id": "style-guide-figma--figma",
+      "name": "Figma",
+      "kind": "Style guide/Figma",
+      "story": "Figma",
+      "parameters": {
+        "__id": "style-guide-figma--figma"
+      }
+    },
+    "style-guide-icons--icons": {
+      "id": "style-guide-icons--icons",
+      "name": "Icons",
+      "kind": "Style guide/Icons",
+      "story": "Icons",
+      "parameters": {
+        "__id": "style-guide-icons--icons"
+      }
+    },
+    "style-guide-naming-convention--naming-convention": {
+      "id": "style-guide-naming-convention--naming-convention",
+      "name": "Naming convention",
+      "kind": "Style guide/Naming convention",
+      "story": "Naming convention",
+      "parameters": {
+        "__id": "style-guide-naming-convention--naming-convention"
+      }
+    },
+    "style-guide-spacing--spacing": {
+      "id": "style-guide-spacing--spacing",
+      "name": "Spacing",
+      "kind": "Style guide/Spacing",
+      "story": "Spacing",
+      "parameters": {
+        "__id": "style-guide-spacing--spacing"
+      }
+    },
+    "style-guide-typography--typography": {
+      "id": "style-guide-typography--typography",
+      "name": "Typography",
+      "kind": "Style guide/Typography",
+      "story": "Typography",
+      "parameters": {
+        "__id": "style-guide-typography--typography"
+      }
+    },
+    "style-guide-typography--fonts": {
+      "id": "style-guide-typography--fonts",
+      "name": "Fonts",
+      "kind": "Style guide/Typography",
+      "story": "Fonts",
+      "parameters": {
+        "__id": "style-guide-typography--fonts"
+      }
+    },
+    "style-guide-typography--sizes": {
+      "id": "style-guide-typography--sizes",
+      "name": "Sizes",
+      "kind": "Style guide/Typography",
+      "story": "Sizes",
+      "parameters": {
+        "__id": "style-guide-typography--sizes"
+      }
+    },
+    "style-guide-typography--weights": {
+      "id": "style-guide-typography--weights",
+      "name": "Weights",
+      "kind": "Style guide/Typography",
+      "story": "Weights",
+      "parameters": {
+        "__id": "style-guide-typography--weights"
+      }
+    }
+  }
+}

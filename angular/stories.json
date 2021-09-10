@@ -1,0 +1,91 @@
+{
+  "v": 2,
+  "globalParameters": {},
+  "kindParameters": {
+    "Components/Chipsbar Component": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-angular/projects/glyph-angular/src/lib/components/chipsbar/chipsbar.component.stories.ts",
+      "framework": "angular"
+    },
+    "Components/List Component": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-angular/projects/glyph-angular/src/lib/components/list/list.component.stories.ts",
+      "framework": "angular"
+    },
+    "Services/Filters Service": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-angular/projects/glyph-angular/src/lib/services/filters/filters.service.stories.ts",
+      "framework": "angular"
+    },
+    "Changelog": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-angular/projects/glyph-angular/src/lib/stories/changelog.stories.ts",
+      "framework": "angular"
+    },
+    "Introduction": {
+      "fileName": "/home/runner/work/glyph-ui/glyph-ui/packages/glyph-angular/projects/glyph-angular/src/lib/stories/introduction.stories.ts",
+      "framework": "angular"
+    }
+  },
+  "stories": {
+    "components-chipsbar-component--chipsbar": {
+      "id": "components-chipsbar-component--chipsbar",
+      "name": "Chipsbar",
+      "kind": "Components/Chipsbar Component",
+      "story": "Chipsbar",
+      "parameters": {
+        "__id": "components-chipsbar-component--chipsbar"
+      }
+    },
+    "components-list-component--basic": {
+      "id": "components-list-component--basic",
+      "name": "Basic",
+      "kind": "Components/List Component",
+      "story": "Basic",
+      "parameters": {
+        "__id": "components-list-component--basic"
+      }
+    },
+    "components-list-component--with-children": {
+      "id": "components-list-component--with-children",
+      "name": "With Children",
+      "kind": "Components/List Component",
+      "story": "With Children",
+      "parameters": {
+        "__id": "components-list-component--with-children"
+      }
+    },
+    "components-list-component--no-data": {
+      "id": "components-list-component--no-data",
+      "name": "No Data",
+      "kind": "Components/List Component",
+      "story": "No Data",
+      "parameters": {
+        "__id": "components-list-component--no-data"
+      }
+    },
+    "services-filters-service--filters-service": {
+      "id": "services-filters-service--filters-service",
+      "name": "Filters Service",
+      "kind": "Services/Filters Service",
+      "story": "Filters Service",
+      "parameters": {
+        "__id": "services-filters-service--filters-service"
+      }
+    },
+    "changelog--changelog": {
+      "id": "changelog--changelog",
+      "name": "Changelog",
+      "kind": "Changelog",
+      "story": "Changelog",
+      "parameters": {
+        "__id": "changelog--changelog"
+      }
+    },
+    "introduction--introduction": {
+      "id": "introduction--introduction",
+      "name": "Introduction",
+      "kind": "Introduction",
+      "story": "Introduction",
+      "parameters": {
+        "__id": "introduction--introduction"
+      }
+    }
+  }
+}
