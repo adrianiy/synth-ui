@@ -1,3 +1,10 @@
+## [4.13.10](https://github.com/adrianiy/glyph-ui/compare/v4.13.9...v4.13.10) (2021-09-10)
+
+
+### Bug Fixes
+
+* fix filters middleware typping ([c00497f](https://github.com/adrianiy/glyph-ui/commit/c00497f2a9b401235cf7a0e45916e4573eebdff3))
+
 ## [4.13.9](https://github.com/adrianiy/glyph-ui/compare/v4.13.8...v4.13.9) (2021-09-09)
 
 
